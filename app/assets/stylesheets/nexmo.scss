@@ -1,0 +1,41 @@
+@import "reset";
+
+$blue: #1C8ECD;
+$pink: #E6547B;
+$purple: #936FD2;
+$ice: #ECF6FB;
+$mint: #E4EEF3;
+$atom: #282c34;
+
+$white: #fff;
+$gray: #AEAEAE;
+$stone-light: #93B6C7;
+$stone: #224E66;
+$grayDark: #252A2D;
+$black: #1A1E20;
+
+$sms: #936FD2;
+$number-insight: #32BA86;
+$voice: #F88175;
+$chat: #CA579C;
+$verify: #8262B5;
+
+$primary: $blue;
+$background: $ice;
+$text: $stone;
+$codeBackgound: $atom;
+
+$spacing: 20px;
+$radius: 3px;
+$shadow: 0 2px 14px 0 rgba(0,0,0,0.12);
+$shadow-hard: 0 1px 8px 0 rgba(0,0,0,0.30);
+
+@import "core";
+@import "grid";
+@import "typography";
+@import "syntax";
+
+@import "objects/card";
+
+@import "layout/header";
+@import "layout/footer";

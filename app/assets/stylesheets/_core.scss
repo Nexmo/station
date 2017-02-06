@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+  font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background: $ice;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+
+  > .content {
+    flex: 1;
+  }
+}
+
+.container {
+  max-width: 1240px;
+  margin: auto;
+  padding: 0 $spacing;
+}
+
+img {
+  max-width: 100%;
+}

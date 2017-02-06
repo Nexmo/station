@@ -1,0 +1,63 @@
+.card {
+  background: $blue;
+  border-radius: $radius;
+  box-shadow: $shadow;
+  margin-bottom: $spacing;
+  overflow: hidden;
+  font-size: 16px;
+  text-align: center;
+
+  a {
+    color: $white;
+    display: inline-block;
+    padding: $spacing/2 0;
+
+    &.poster {
+      display: block;
+      padding: 0;
+    }
+  }
+
+  img {
+    display: block;
+  }
+
+  nav {
+    background: $white;
+    box-shadow: $shadow-hard;
+    padding: $spacing/2 0;
+    a {
+      color: $blue;
+      width: 50%;
+
+      &:hover {
+        font-weight: 600;
+      }
+    }
+  }
+
+  &--sms {
+    background: $sms;
+    nav a { color: $sms; }
+  }
+
+  &--number-insight {
+    background: $number-insight;
+    nav a { color: $number-insight; }
+  }
+
+  &--voice {
+    background: $voice;
+    nav a { color: $voice; }
+  }
+
+  &--chat {
+    background: $chat;
+    nav a { color: $chat; }
+  }
+
+  &--verify {
+    background: $verify;
+    nav a { color: $verify; }
+  }
+}

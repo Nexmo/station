@@ -1,0 +1,57 @@
+#header {
+  background: $blue;
+  color: $white;
+  padding: $spacing 0;
+
+  a {
+    color: $white;
+  }
+
+  nav {
+    float: right;
+    line-height: 38px;
+
+    a {
+      margin-left: $spacing;
+    }
+  }
+}
+
+#logo {
+  display: inline-block;
+  line-height: 38px;
+  font-size: 26px;
+
+  // @ https://css-tricks.com/the-image-replacement-museum/#ir-h5bp
+  span {
+    display: block;
+    float: left;
+    margin-right: 10px;
+    border: 0;
+    font: 0/0 a;
+    text-shadow: none;
+    color: transparent;
+    background: url(/images/icon@3x.png);
+    background-size: contain;
+    width: 43px;
+    height: 38px;
+  }
+}
+
+#subnav {
+  background: $white;
+  padding: $spacing/2 0;
+  border-bottom: 1px solid $mint;
+  font-size: 16px;
+  margin-bottom: $spacing;
+  
+  a {
+    margin-right: $spacing;
+    color: $gray;
+
+    &.active {
+      font-weight: 600;
+      color: $pink;
+    }
+  }
+}

@@ -21,3 +21,10 @@
 
 en:
   hello: "Hello world"
+  menu:
+    messaging: Messaging
+    voice: Voice
+    us-short-codes: US Short Codes
+    sms: SMS
+    guides: Guides
+    quickstarts: Quickstarts

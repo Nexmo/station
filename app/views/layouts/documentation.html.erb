@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NexmoDeveloper</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <%= stylesheet_link_tag    'https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.0/css/foundation.css' %>
+  </head>
+
+  <body>
+    <%= render partial: 'layouts/partials/header' %>
+    <div class="row">
+      <div class="columns small-12 medium-3">
+        <%= directory %>
+      </div>
+      <div class="columns small-12 medium-9">
+        <%= yield %>
+      </div>
+    </div>
+    <%= render partial: 'layouts/partials/footer' %>
+  </body>
+</html>

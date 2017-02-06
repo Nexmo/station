@@ -1,0 +1,115 @@
+@font-face {
+    font-family: 'Averta';
+    src: url('fonts/intelligent_design_-_averta-light-webfont.woff2') format('woff2'),
+         url('fonts/intelligent_design_-_averta-light-webfont.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Averta';
+    src: url('fonts/intelligent_design_-_averta-regular-webfont.woff2') format('woff2'),
+         url('fonts/intelligent_design_-_averta-regular-webfont.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Averta';
+    src: url('fonts/intelligent_design_-_averta-regularitalic-webfont.woff2') format('woff2'),
+         url('fonts/intelligent_design_-_averta-regularitalic-webfont.woff') format('woff');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Averta';
+    src: url('fonts/intelligent_design_-_averta-semibold-webfont.woff2') format('woff2'),
+         url('fonts/intelligent_design_-_averta-semibold-webfont.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Averta';
+    src: url('fonts/intelligent_design_-_averta-bold-webfont.woff2') format('woff2'),
+         url('fonts/intelligent_design_-_averta-bold-webfont.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+body {
+  font-family: 'Averta', sans-serif;
+  color: $stone;
+  font-size: 17px;
+  line-height: 1.2;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin-bottom: $spacing;
+}
+
+h1, h2, h3, h4 {
+  color: $primary;
+  font-weight: 600;
+
+  &.light {
+    font-weight: normal;
+  }
+}
+
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 22px;
+}
+
+h3 {
+  font-size: 17px;
+}
+
+p {
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: $pink;
+}
+
+.center {
+  text-align: center;
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+figure {
+  background: $codeBackgound;
+  margin-left: -3840px;
+  margin-right: -3840px;
+  padding: $spacing 0;
+  padding-left: 3840px;
+  color: $white;
+  margin-bottom: $spacing;
+  line-height: 1.35;
+}
+
+pre {
+  font-family: Consolas, sans-serif;
+  font-size: 16px;
+}
+
+.gutter {
+  color: #5f697c;
+  text-align: right;
+  padding-right: 5px;
+  user-select: none;
+}
