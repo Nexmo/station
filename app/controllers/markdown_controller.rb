@@ -23,7 +23,7 @@ class MarkdownController < ApplicationController
     @frontmatter = YAML.load(document)
 
     # Remove frontmatter from the document
-    document = document.gsub(/---(.|\n)*---/, '')
+    document = document.gsub(/(---.+?---)/mo, '')
 
     # Render markdown
     @content = markdown.render(document)
