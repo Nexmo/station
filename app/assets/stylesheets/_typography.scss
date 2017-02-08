@@ -110,3 +110,15 @@ pre {
   padding-right: 5px;
   user-select: none;
 }
+
+nav {
+  ul {
+    padding-left: $spacing;
+    list-style: none;
+
+    li {
+      padding: 3px 0;
+    }
+  }
+  > ul { padding-left: 0; }
+}
