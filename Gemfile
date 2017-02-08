@@ -47,6 +47,9 @@ gem 'banzai', '~> 0.1.2'
 # ZURB Foundation on Sass/Compass
 gem 'foundation-rails', '6.3.0.0'
 
+# Nokogiri (鋸) is an HTML, XML, SAX, and Reader parser. Among Nokogiri's many features is the ability to search documents via XPath or CSS3 selectors.
+gem 'nokogiri', '1.7.0.1'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri

@@ -13,11 +13,6 @@ Sending an SMS with Nexmo is easy. Simply [sign up for an account](https://dashb
 | `api_key` | You can find this in your [account overview](https://dashboard.nexmo.com/account-overview) |
 | `api_secret` | You can find this in your [account overview](https://dashboard.nexmo.com/account-overview) |
 
-```sh
-curl -X "POST" "https://rest.nexmo.com/sms/json" \
-  -d "from=Nexmo" \
-  -d "text=A text message sent using the Nexmo SMS API" \
-  -d "to=TO_NUMBER" \
-  -d "api_key=API_KEY" \
-  -d "api_secret=API_SECRET"
+```tabbed_examples
+source: '_examples/messaging/sending_an_sms/basic'
 ```
