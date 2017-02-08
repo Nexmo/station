@@ -1,5 +1,14 @@
 class MarkdownPipeline < Banzai::Pipeline
   def initialize
-    super(FrontmatterFilter, MarkdownFilter)
+    super(
+      # As Markdown
+      FrontmatterFilter,
+      TabbedExamplesFilter,
+      MarkdownFilter,
+
+      # As HTML
+      CredentialsFilter,
+      ExamplesFilter,
+    )
   end
 end
