@@ -5,10 +5,19 @@ navigation_weight: 1
 
 # Sending an SMS
 
-Nullam id dolor id nibh ultricies vehicula ut id elit. Cras mattis consectetur purus sit amet fermentum. Curabitur blandit tempus porttitor. Donec ullamcorper nulla non metus auctor fringilla. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean lacinia bibendum nulla sed consectetur. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+Sending an SMS with Nexmo is easy. Simply [sign up for an account](https://dashboard.nexmo.com/sign-up) and replace the following variables in the example below:
 
-Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+| Variable | Description |
+| -------- | ----------- |
+| `to` | The number you are sending the SMS to |
+| `api_key` | You can find this in your [account overview](https://dashboard.nexmo.com/account-overview) |
+| `api_secret` | You can find this in your [account overview](https://dashboard.nexmo.com/account-overview) |
 
-```js
-var foo = 'bar';
+```sh
+curl -X "POST" "https://rest.nexmo.com/sms/json" \
+  -d "from=Nexmo" \
+  -d "text=A text message sent using the Nexmo SMS API" \
+  -d "to=TO_NUMBER" \
+  -d "api_key=API_KEY" \
+  -d "api_secret=API_SECRET"
 ```
