@@ -10,15 +10,19 @@ body {
   min-height: 100vh;
   flex-direction: column;
 
-  > .content {
+  > .container {
     flex: 1;
   }
 }
 
+.wrapper {
+  flex: 1;
+}
+
 .container {
   max-width: 1240px;
-  margin: auto;
   padding: 0 $spacing;
+  margin: auto;
 }
 
 img {
