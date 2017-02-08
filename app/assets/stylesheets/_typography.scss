@@ -91,12 +91,9 @@ a {
   text-align: right;
 }
 
-figure {
+pre.highlight {
   background: $codeBackgound;
-  margin-left: -3840px;
-  margin-right: -3840px;
-  padding: $spacing 0;
-  padding-left: 3840px;
+  padding: $spacing;
   color: $white;
   margin-bottom: $spacing;
   line-height: 1.35;
