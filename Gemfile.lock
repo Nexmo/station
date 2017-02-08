@@ -43,6 +43,7 @@ GEM
     babel-transpiler (0.7.0)
       babel-source (>= 4.0, < 6)
       execjs (~> 2.0)
+    banzai (0.1.2)
     builder (3.2.3)
     byebug (9.0.6)
     coffee-rails (4.2.1)
@@ -168,6 +169,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  banzai (~> 0.1.2)
   byebug
   coffee-rails (~> 4.2)
   foundation-rails (= 6.3.0.0)

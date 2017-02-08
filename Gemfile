@@ -41,6 +41,9 @@ gem 'redcarpet', '~> 3.4.0'
 # Rouge aims to a be a simple, easy-to-extend drop-in replacement for pygments.
 gem 'rouge', '~> 2.0.7'
 
+# Toolkit for processing input using filters and pipelines
+gem 'banzai', '~> 0.1.2'
+
 # ZURB Foundation on Sass/Compass
 gem 'foundation-rails', '6.3.0.0'
 
