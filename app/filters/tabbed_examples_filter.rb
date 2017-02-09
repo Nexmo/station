@@ -50,9 +50,14 @@ class TabbedExamplesFilter < Banzai::Filter
         </li>
       HEREDOC
 
+      highlighted_source = highlight(example[:source], example[:language])
+
+      # Freeze to prevent Markdown formatting edge cases
+      highlighted_source = "FREEZESTART#{Base64.encode64(highlighted_source)}FREEZEEND"
+
       content << <<~HEREDOC
         <div class="tabs-panel #{index == 0 ? 'is-active' : ''}" id="#{example_uid}">
-          <pre class="highlight #{example[:language]}"><code>#{highlight(example[:source], example[:language])}</code></pre>
+          <pre class="highlight #{example[:language]}"><code>#{highlighted_source}</code></pre>
         </div>
       HEREDOC
     end
