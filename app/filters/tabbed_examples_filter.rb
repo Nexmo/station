@@ -74,6 +74,8 @@ class TabbedExamplesFilter < Banzai::Filter
     language = case language.downcase
     when 'c#'
       '.NET'
+    when 'node'
+      'Node.js'
     else
       language
     end
