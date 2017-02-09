@@ -34,7 +34,7 @@ class TabbedExamplesFilter < Banzai::Filter
   end
 
   def build_html(examples)
-    examples_uid = SecureRandom.uuid
+    examples_uid = "code-#{SecureRandom.uuid}"
 
     tabs = []
     content = []
@@ -43,7 +43,7 @@ class TabbedExamplesFilter < Banzai::Filter
     content << "<div class='tabs-content tabs-content--code' data-tabs-content='#{examples_uid}'>"
 
     examples.each_with_index do |example, index|
-      example_uid = SecureRandom.uuid
+      example_uid = "code-#{SecureRandom.uuid}"
       tabs << <<~HEREDOC
         <li class="tabs-title #{index == 0 ? 'is-active' : ''}">
           <a href="##{example_uid}">#{language_label(example[:language])}</a>
