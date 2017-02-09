@@ -7,8 +7,8 @@ class MarkdownPipeline < Banzai::Pipeline
       MarkdownFilter,
 
       # As HTML
+      UnfreezeFilter,
       CredentialsFilter,
-      ExamplesFilter,
     )
   end
 end
