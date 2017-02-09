@@ -39,13 +39,13 @@ class TabbedExamplesFilter < Banzai::Filter
     tabs = []
     content = []
 
-    tabs << "<ul class='tabs' data-tabs id='#{examples_uid}'>"
+    tabs << "<ul class='tabs tabs--code' data-tabs id='#{examples_uid}'>"
     content << "<div class='tabs-content tabs-content--code' data-tabs-content='#{examples_uid}'>"
 
     examples.each_with_index do |example, index|
       example_uid = "code-#{SecureRandom.uuid}"
       tabs << <<~HEREDOC
-        <li class="tabs-title #{index == 0 ? 'is-active' : ''}">
+        <li class="tabs-title #{index == 0 ? 'is-active' : ''}" data-language="#{example[:language]}">
           <a href="##{example_uid}">#{language_label(example[:language])}</a>
         </li>
       HEREDOC
@@ -56,7 +56,7 @@ class TabbedExamplesFilter < Banzai::Filter
       highlighted_source = "FREEZESTART#{Base64.encode64(highlighted_source)}FREEZEEND"
 
       content << <<~HEREDOC
-        <div class="tabs-panel #{index == 0 ? 'is-active' : ''}" id="#{example_uid}">
+        <div class="tabs-panel #{index == 0 ? 'is-active' : ''}" id="#{example_uid}" data-language="#{example[:language]}">
           <pre class="highlight #{example[:language]}"><code>#{highlighted_source}</code></pre>
         </div>
       HEREDOC
