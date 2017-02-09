@@ -116,9 +116,20 @@ nav {
     padding-left: $spacing;
     list-style: none;
 
+    ul {
+      overflow: hidden;
+    }
+
     li {
       padding: 3px 0;
     }
   }
-  > ul { padding-left: 0; }
+
+  > ul {
+    padding-left: 0;
+  }
+}
+
+.active {
+  color: blue;
 }

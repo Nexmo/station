@@ -50,28 +50,27 @@ module ApplicationHelper
     (item[:is_file?] ? document_meta(item[:path])["title"] : I18n.t("menu.#{item[:title]}"))
   end
 
-  def directory(context = directory_hash("#{Rails.root}/_documentation")[:children], received_flatten = false)
+  def directory(context = directory_hash("#{Rails.root}/_documentation")[:children], root = true, received_flatten = false)
     s = []
-    s << '<ul>' unless received_flatten
-
+    s << (root ? '<ul class="navigation">' : '<ul>') unless received_flatten
     s << context.map do |child|
-      ss = []
-
       flatten = FLATTEN_TREES.include? normalised_title(child)
 
+      ss = []
+      ss << '<li>' unless received_flatten
+
       unless flatten
-        ss << "<li>"
         url = (child[:is_file?] ? path_to_url(child[:path]) : first_link_in_directory(child[:children]))
         ss << link_to(normalised_title(child), url, class: "#{url == request.path ? 'active' : ''}")
-        ss << "</li>"
       end
 
-      ss << directory(child[:children], flatten) if child[:children]
-      ss.join('')
+      ss << directory(child[:children], false, flatten) if child[:children]
+      ss << "</li>" unless received_flatten
+      ss.join("\n")
     end
     s << '</ul>' unless received_flatten
 
-    s.join('').html_safe
+    s.join("\n").html_safe
   end
 
   def document_meta(path)
