@@ -96,6 +96,6 @@ class TabbedExamplesFilter < Banzai::Filter
       language.downcase
     end
 
-    Rouge::Lexer.find(language)
+    Rouge::Lexer.find(language) || Rouge::Lexer.find('text')
   end
 end
