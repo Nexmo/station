@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>NexmoDeveloper</title>
-    <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-    <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js' %>
-  </head>
+  <%= render partial: 'layouts/partials/head' %>
 
   <body>
     <%= render partial: 'layouts/partials/header' %>
