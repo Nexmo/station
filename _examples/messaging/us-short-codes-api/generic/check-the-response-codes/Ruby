@@ -1,6 +1,6 @@
 require 'json'
 
-#Decode the json object from the response object you retrieved from the request.
+# Decode the json object from the response object you retrieved from the request.
 if response.kind_of? Net::HTTPOK
   decoded_response = JSON.parse(response.body )
 

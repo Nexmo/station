@@ -1,4 +1,4 @@
-//Decode the json object you retrieved when you ran the request.
+// Decode the json object you retrieved when you ran the request.
 
 var decodedResponse = JSON.parse(responseData);
 
