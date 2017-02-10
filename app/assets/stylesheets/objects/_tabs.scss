@@ -42,7 +42,7 @@
     &:after {
       content: " ";
       display: block;
-      background: linear-gradient(to right, rgba($codeBackgound, 0) 0%,rgba($codeBackgound, 1) 100%);
+      background: linear-gradient(to right, rgba($code-backgound, 0) 0%,rgba($code-backgound, 1) 100%);
       position: absolute;
       top: 0;
       right: 0;
@@ -53,7 +53,7 @@
     &:before {
       content: " ";
       display: block;
-      background: linear-gradient(to right, rgba($codeBackgound, 1) 0%,rgba($codeBackgound, 0) 100%);
+      background: linear-gradient(to right, rgba($code-backgound, 1) 0%,rgba($code-backgound, 0) 100%);
       position: absolute;
       top: 0;
       left: 0;

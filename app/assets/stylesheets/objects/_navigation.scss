@@ -1,0 +1,43 @@
+#sidenav {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 18px;
+
+  a {
+    color: $gray;
+    padding: 5px 0;
+    display: inline-block;
+
+    &.active {
+      font-weight: 600;
+      color: $pink;
+    }
+  }
+
+  ul {
+    list-style: none;
+    overflow: hidden;
+    padding-left: 0;
+  }
+
+  .expanded {
+    border-left: 1px solid $gray-light;
+    margin-left: 5px;
+    padding-left: $spacing - 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  ul, li {
+    margin: 0;
+  }
+
+  ul ul {
+    padding-left: $spacing;
+    font-size: 16px;
+    font-weight: 500;
+    ul {
+      font-size: 14px;
+    }
+  }
+}

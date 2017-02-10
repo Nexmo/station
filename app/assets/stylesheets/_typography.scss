@@ -97,7 +97,7 @@ a {
 }
 
 pre.highlight {
-  background: $codeBackgound;
+  background: $code-backgound;
   padding: $spacing;
   color: $white;
   margin-bottom: $spacing;
@@ -116,25 +116,6 @@ pre {
   text-align: right;
   padding-right: 5px;
   user-select: none;
-}
-
-nav {
-  ul {
-    padding-left: $spacing;
-    list-style: none;
-
-    ul {
-      overflow: hidden;
-    }
-
-    li {
-      padding: 3px 0;
-    }
-  }
-
-  > ul {
-    padding-left: 0;
-  }
 }
 
 .active {
