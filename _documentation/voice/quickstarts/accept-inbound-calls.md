@@ -1,4 +1,9 @@
-# API Reference
+---
+title: Accept inbound calls
+navigation_weight: 2
+---
+
+# Accept inbound calls
 
 **Content for this page has not yet been migrated. This is a placeholder.**
 

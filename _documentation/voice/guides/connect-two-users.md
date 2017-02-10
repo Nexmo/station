@@ -1,16 +1,10 @@
 ---
-layout: page
-title: Receiving an SMS
-
-product: SMS
-type: quickstart
-
-navigation_weight: 2
+title: Connect two users
 ---
 
-# Receiving an SMS
+# Connect two users
 
-**No content currently exists for this page. This is a placeholder.**
+**Content for this page has not yet been migrated. This is a placeholder.**
 
 Vestibulum id ligula porta felis euismod semper. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam quis risus eget urna mollis ornare vel eu leo. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nullam quis risus eget urna mollis ornare vel eu leo. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
 
