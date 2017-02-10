@@ -1,39 +1,39 @@
 @font-face {
     font-family: 'Averta';
-    src: url('fonts/intelligent_design_-_averta-light-webfont.woff2') format('woff2'),
-         url('fonts/intelligent_design_-_averta-light-webfont.woff') format('woff');
+    src: font-url('fonts/intelligent_design_-_averta-light-webfont.woff2') format('woff2'),
+         font-url('fonts/intelligent_design_-_averta-light-webfont.woff') format('woff');
     font-weight: 300;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Averta';
-    src: url('fonts/intelligent_design_-_averta-regular-webfont.woff2') format('woff2'),
-         url('fonts/intelligent_design_-_averta-regular-webfont.woff') format('woff');
+    src: font-url('fonts/intelligent_design_-_averta-regular-webfont.woff2') format('woff2'),
+         font-url('fonts/intelligent_design_-_averta-regular-webfont.woff') format('woff');
     font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Averta';
-    src: url('fonts/intelligent_design_-_averta-regularitalic-webfont.woff2') format('woff2'),
-         url('fonts/intelligent_design_-_averta-regularitalic-webfont.woff') format('woff');
+    src: font-url('fonts/intelligent_design_-_averta-regularitalic-webfont.woff2') format('woff2'),
+         font-url('fonts/intelligent_design_-_averta-regularitalic-webfont.woff') format('woff');
     font-weight: 400;
     font-style: italic;
 }
 
 @font-face {
     font-family: 'Averta';
-    src: url('fonts/intelligent_design_-_averta-semibold-webfont.woff2') format('woff2'),
-         url('fonts/intelligent_design_-_averta-semibold-webfont.woff') format('woff');
+    src: font-url('fonts/intelligent_design_-_averta-semibold-webfont.woff2') format('woff2'),
+         font-url('fonts/intelligent_design_-_averta-semibold-webfont.woff') format('woff');
     font-weight: 600;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Averta';
-    src: url('fonts/intelligent_design_-_averta-bold-webfont.woff2') format('woff2'),
-         url('fonts/intelligent_design_-_averta-bold-webfont.woff') format('woff');
+    src: font-url('fonts/intelligent_design_-_averta-bold-webfont.woff2') format('woff2'),
+         font-url('fonts/intelligent_design_-_averta-bold-webfont.woff') format('woff');
     font-weight: 700;
     font-style: normal;
 }
