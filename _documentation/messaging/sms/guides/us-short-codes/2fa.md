@@ -28,13 +28,13 @@ To use the 2FA API you:
 1. Send a 2FA [request](messaging/us-short-codes-api/two-factor-authentication/api-reference#request).
 
     ```tabbed_examples
-    source: '_examples/messaging/2fa/send-a-2fa-request'
+    source: '_examples/messaging/us-short-codes-api/2fa/send-a-2fa-request'
     ```
 
 2. Check the [response codes](messaging/us-short-codes-api/two-factor-authentication/api-reference/#response-code) in the [response](messaging/us-short-codes-api/two-factor-authentication/api-reference#response) and ensure that you sent the request to Nexmo correctly.
 
     ```tabbed_examples
-    source: '_examples/messaging/2fa/check-the-response-codes'
+    source: '_examples/messaging/us-short-codes-api/generic/check-the-response-codes'
     ```
 
 3. Nexmo delivers your PIN to your user's handset. Your user enters this PIN into your APP.
@@ -46,7 +46,7 @@ To use the 2FA API you:
     3. How much the call cost.
 
     ```tabbed_examples
-    source: '_examples/messaging/2fa/delivery-receipt'
+    source: '_examples/messaging/us-short-codes-api/generic/delivery-receipt'
     ```
 
 > Note: remember to return a `200` status code when you receive the delivery receipt.
