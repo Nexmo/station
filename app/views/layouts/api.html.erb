@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <%= render partial: 'layouts/partials/head' %>
+
+  <body>
+    <%= render partial: 'layouts/partials/header' %>
+    <div class="wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="columns small-12 medium-12" id="primary-content">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%= render partial: 'layouts/partials/footer' %>
+  </body>
+</html>
