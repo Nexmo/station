@@ -1,0 +1,70 @@
+.tabs--code {
+  background-color: darken($atom, 5%);
+  padding-left: 0;
+  border-radius: 3px 3px 0 0;
+
+  .tabs-title {
+    > a {
+      color: $white;
+      font-size: 1rem;
+    }
+
+    > a:hover {
+      background: darken($atom, 5%);
+      color: $white;
+    }
+
+    &.is-active {
+      > a:hover {
+        background: $pink;
+        color: $white;
+      }
+    }
+  }
+}
+
+.tabs--code, .tabs-content--code {
+  border: none;
+}
+
+.tabs-content--code {
+
+  .tabs-panel {
+
+    pre.highlight {
+      border-radius: 0 0 3px 3px;
+      overflow: hidden;
+    }
+
+    position: relative;
+    padding: 0;
+
+    &:after {
+      content: " ";
+      display: block;
+      background: linear-gradient(to right, rgba($codeBackgound, 0) 0%,rgba($codeBackgound, 1) 100%);
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 3px;
+      width: 20px;
+    }
+
+    &:before {
+      content: " ";
+      display: block;
+      background: linear-gradient(to right, rgba($codeBackgound, 1) 0%,rgba($codeBackgound, 0) 100%);
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 3px;
+      width: 20px;
+      z-index: 2;
+    }
+  }
+}
+
+.tabs-title > a:focus, .tabs-title > a[aria-selected='true'] {
+  background: $pink;
+  color: $white;
+}

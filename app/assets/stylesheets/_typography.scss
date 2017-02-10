@@ -102,6 +102,8 @@ pre.highlight {
   color: $white;
   margin-bottom: $spacing;
   line-height: 1.35;
+  overflow: auto;
+  position: relative;
 }
 
 pre {
