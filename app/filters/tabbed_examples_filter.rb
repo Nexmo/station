@@ -81,6 +81,10 @@ class TabbedExamplesFilter < Banzai::Filter
       '.NET'
     when 'node'
       'Node.js'
+    when 'json'
+      'JSON'
+    when 'xml'
+      'XML'
     else
       language
     end
