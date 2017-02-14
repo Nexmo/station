@@ -108,6 +108,8 @@ If you are using `GET`, you must set [`Content-Length`](https://en.wikipedia.org
 
 ## Response
 
+### Payload
+
 Key |	Description |	Response type
 -- | -- | --
 `message-count` | The number of parts the message was split into. | JSON
@@ -127,7 +129,7 @@ Key |	Description |	Response type
 `error-text` | If an error occurred, this explains what happened. | JSON
 `errorText` | If an error occurred, this explains what happened. | XML
 
-## Error codes
+### Error codes
 
 Code | Text | Meaning
 -- | -- | --
@@ -172,40 +174,37 @@ Code | Text
 `102` | `RESPONSE_INVALID_CAMPAIGN_SHORTCODE`
 `103` | `RESPONSE_INVALID_MSISDN`
 
-###Response examples
+### Examples
 
 This section gives examples of:
 
-* [Successful responses](#success)
-* [Error responses](#error)
-
-#### Successful responses
+**Successful responses**
 
 ```tabbed_examples
 source: '_examples/api/sms/sending/successful-response'
 ```
 
-Successful response, sent in three parts:
+**Successful response, sent in three parts**
 
 ```tabbed_examples
 source: '_examples/api/sms/sending/successful-response-multi-part'
 ```
 
-#### Error responses
+**Error responses**
 
 ```tabbed_examples
 source: '_examples/api/sms/sending/error-response'
 ```
 
 
-##Inbound messages
+## Inbound messages
 
 If you rent one or more virtual numbers from Nexmo, inbound messages to that number are sent to your [webhook endpoint](messaging/setup-callbacks). inbound messages comply to the SMS format, if a message sent to your virtual number is longer than maximum number of characters, *concat* is *true* and you receive the message in parts. Use the `concat-ref`, `concat-total` and `concat-part` parameters to reassemble the parts into the message.
 
 Inbound messages are sent using a `GET` or `POST` HTTP request to your [webhook endpoint](messaging/setup-callbacks). When you receive an inbound message, you must send a `200 OK` response. If you do not send the `200 OK`, Nexmo resends the inbound message for the next 24 hours.
 
 
-###Keys and Values
+### Keys and Values
 The inbound message includes:
 
 Key | Value | Required
