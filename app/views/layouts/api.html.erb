@@ -7,9 +7,60 @@
     <div class="wrapper">
       <div class="container">
         <div class="row">
-          <div class="columns small-12 medium-9" id="primary-content">
-            Navigation will go here
-          </div>
+          <nav class="columns small-12 medium-3 sidenav" data-turbolinks-permanent>
+            <ul class="navigation">
+              <li>
+                <a href="/messaging/sms/overview">SMS</a>
+                <ul>
+                  <li>
+                    <a class="" href="#">Send an SMS</a>
+                    <ul>
+                      <li>
+                        <a class="" href="#">Request</a>
+                        <ul>
+                          <li>
+                            <a class="" href="#">Base URL</a>
+                          </li>
+                          <li>
+                            <a class="" href="#">Parameters</a>
+                          </li>
+                          <li>
+                            <a class="" href="#">Authentication information</a>
+                          </li>
+                          <li>
+                            <a class="" href="#">Security</a>
+                          </li>
+                          <li>
+                            <a class="" href="#">Encoding</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a class="" href="#">Response</a>
+                        <ul>
+                          <li>
+                            <a class="" href="#">Payload</a>
+                          </li>
+                          <li>
+                            <a class="" href="#">Error codes</a>
+                          </li>
+                          <li>
+                            <a class="" href="#">Examples</a>
+                          </li>
+                          <li>
+                            <a class="" href="#">Security</a>
+                          </li>
+                          <li>
+                            <a class="" href="#">Encoding</a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
           <div class="columns small-12 medium-9" id="primary-content">
             <%= yield %>
           </div>
