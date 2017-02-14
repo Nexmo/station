@@ -1,24 +1,37 @@
-# README
+# Nexmo Developer
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Nexmo Developer is a platform hosting the Nexmo documentation, API reference, SDKs, Tools & Community content.
 
-Things you may want to cover:
+> Note: Nexmo Developer is in ongoing early stage active development. Breaking changes may be introduced at this point.
 
-* Ruby version
+### Prerequisites
 
-* System dependencies
+- Ruby 2.4.0 + bundler
+- Postgresql
 
-* Configuration
+### Setup
 
-* Database creation
+```
+$ git clone git@github.com:Nexmo/nexmo-developer.git
+$ cd nexmo-developer
+$ cp .env.example .env
+$ bundle install
+$ rake db:create
+$ rake db:migrate
+$ rails server
+```
 
-* Database initialization
+### Features
 
-* How to run the test suite
+- A powerful markup engine with pipeline (see [this blog post](https://lab.io/articles/2017/02/12/extending-markdown-with-middleware/) for details on how this works).
+- Automatically generated navigation based on the contents of `_documentation`.
+- Turbolinks for progressively loading content into for a seamless user experience.
 
-* Services (job queues, cache servers, search engines, etc.)
+### Future Features
 
-* Deployment instructions
+- Dynamic content for community section
+- Interactive examples of the Nexmo APIs
 
-* ...
+## Contributing
+
+Contributions are welcome, please follow [GitHub Flow](https://guides.github.com/introduction/flow/index.html)
