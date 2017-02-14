@@ -9,6 +9,7 @@
 
   a {
     color: $gray;
+    font-weight: 600;
     padding: 5px 0;
     display: inline-block;
 
@@ -38,10 +39,15 @@
 
   ul ul {
     padding-left: $spacing;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 500;
+
     ul {
       font-size: 14px;
+
+      a {
+        font-weight: 500;
+      }
     }
   }
 }

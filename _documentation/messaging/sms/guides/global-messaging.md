@@ -47,7 +47,7 @@ The maximum number of characters you can fit into a single message depends on th
     It is the east, and
     ```
 
-If you use [SMPP](messaging/sms-api/smpp-access) rather than REST, the default character encoding is Latin 1 ([ISO-8859-1]). Binary and unicode are supported following the [SMPP 3.4] specification. You change the encoding of messages sent using SMPP in the `API settings` in (link:@app.root@ text: Dashboard). Changes take effect after an SMPP rebind.
+If you use [SMPP](messaging/sms-api/smpp-access) rather than REST, the default character encoding is Latin 1 ([ISO-8859-1]). Binary and unicode are supported following the [SMPP 3.4] specification. You change the encoding of messages sent using SMPP in the `API settings` in (link:https://dashboard.nexmo.com text: Dashboard). Changes take effect after an SMPP rebind.
 
 Before you start your messaging campaign:
 
