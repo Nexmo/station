@@ -9,6 +9,7 @@ class MarkdownPipeline < Banzai::Pipeline
       # As HTML
       UnfreezeFilter,
       CredentialsFilter,
+      HeadingFilter,
     )
   end
 end
