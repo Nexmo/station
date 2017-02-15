@@ -7,4 +7,9 @@ class StaticController < ApplicationController
   def tools
     @navigation = :tools
   end
+
+  def community
+    @navigation = :community
+    @upcoming_events = Event.upcoming
+  end
 end

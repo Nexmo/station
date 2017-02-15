@@ -1,0 +1,13 @@
+<center>
+  <h1>Nexmo ❤️ community</h1>
+  <h2>You can find us at these upcoming events:</h2>
+  <hr class="hr--mini">
+  <% @upcoming_events.each do |event| %>
+    <br>
+    <h2><%= link_to event.title, event.url, target: '_blank' %></h2>
+    <p><b><%= event.date_range %></b></p>
+    <p><%= event.description %></p>
+    <br>
+    <hr class="hr--mini">
+  <% end %>
+</center>

@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   get '/api', to: 'api#show'
 
   get '/tools', to: 'static#tools'
+  get '/community', to: 'static#community'
   root 'static#landing'
 end
