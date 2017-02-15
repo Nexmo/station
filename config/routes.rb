@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   get '/:product/*document', to: 'markdown#show', constraints: DocumentationConstraint.new
   get '/api', to: 'api#show'
 
+  get '/tools', to: 'static#tools'
   root 'static#landing'
 end
