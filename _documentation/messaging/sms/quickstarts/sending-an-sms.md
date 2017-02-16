@@ -14,5 +14,5 @@ Sending an SMS with Nexmo is easy. Simply [sign up for an account](https://dashb
 | `API_SECRET` | You can find this in your [account overview](https://dashboard.nexmo.com/account-overview) |
 
 ```tabbed_examples
-source: '_examples/messaging/sending_an_sms/basic'
+source: '_examples/messaging/sending-an-sms/basic'
 ```
