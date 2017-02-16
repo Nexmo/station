@@ -121,3 +121,21 @@ pre {
 .active {
   color: blue;
 }
+
+blockquote {
+  border-left: 3px solid $pink;
+  padding: 5px 10px;
+  color: $pink;
+  font-style: italic;
+  margin-bottom: 20px;
+  font-size: 13px;
+  font-weight: 700;
+
+  p {
+    margin: 0;
+  }
+
+  code {
+    color: $text;
+  }
+}
