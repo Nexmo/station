@@ -3,8 +3,6 @@ class MarkdownController < ApplicationController
   before_action :set_product
   before_action :set_document
 
-  rescue_from Errno::ENOENT, with: :no_document
-
   def show
     # Read document
     document = File.read("#{Rails.root}/_documentation/#{@product}/#{@document}.md")
@@ -18,10 +16,6 @@ class MarkdownController < ApplicationController
   end
 
   private
-
-  def no_document
-    render '404', status: :not_found
-  end
 
   def set_navigation
     @navigation = :documentation
