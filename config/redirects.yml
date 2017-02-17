@@ -1,3 +1,9 @@
 /messaging/sms: /messaging/sms/overview
 /sms: /messaging/sms/overview
 /voice: /voice/overview
+/api/sms: /api
+
+/messaging/sms/quickstart: /messaging/sms/quickstarts/sending-an-sms
+/sms/quickstart: /messaging/sms/quickstarts/sending-an-sms
+/messaging/sms/guides: /messaging/sms/guides/us-short-codes/overview
+/sms/guides: /messaging/sms/guides/us-short-codes/overview
