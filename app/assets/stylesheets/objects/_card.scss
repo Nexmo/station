@@ -1,5 +1,13 @@
+@mixin card--product($color) {
+  background: $color;
+  border: 2px solid $color;
+  hr { border-top-color: mix($color, $white, 20%) }
+  nav a { color: $color; }
+}
+
 .card {
   background: $blue;
+  border: 2px solid $blue;
   border-radius: $radius;
   box-shadow: $shadow;
   margin-bottom: $spacing;
@@ -20,6 +28,9 @@
   h2 {
     padding: 0 20px;
     margin: 0;
+
+    a { display: block; }
+
     small {
       display: block;
       font-style: italic;
@@ -39,7 +50,7 @@
     a {
       color: $blue;
       width: 50%;
-      padding: 5px 0;
+      padding: 3px 0;
 
       &:hover {
         font-weight: 600;
@@ -47,28 +58,9 @@
     }
   }
 
-  &--sms {
-    background: $sms;
-    nav a { color: $sms; }
-  }
-
-  &--number-insight {
-    background: $number-insight;
-    nav a { color: $number-insight; }
-  }
-
-  &--voice {
-    background: $voice;
-    nav a { color: $voice; }
-  }
-
-  &--chat {
-    background: $chat;
-    nav a { color: $chat; }
-  }
-
-  &--verify {
-    background: $verify;
-    nav a { color: $verify; }
-  }
+  &--sms { @include card--product($sms); }
+  &--number-insight { @include card--product($number-insight); }
+  &--voice { @include card--product($voice); }
+  &--chat { @include card--product($chat); }
+  &--verify { @include card--product($verify); }
 }
