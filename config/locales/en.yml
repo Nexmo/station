@@ -24,6 +24,8 @@ en:
   menu:
     messaging: Messaging
     voice: Voice
+    account: Account
+
     us-short-codes: US Short Codes
     sms: SMS
     guides: Guides

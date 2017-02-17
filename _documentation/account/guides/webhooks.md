@@ -73,7 +73,6 @@ The following code examples are webhooks for the SMS API:
 source: '_examples/messaging/webhooks/inbound'
 ```
 
-<a name="configuring"></a>
 ##Configuring your firewall
 If you restrict inbound traffic (including delivery receipts), you need to whitelist the following IP addresses in your firewall. Inbound traffic from Nexmo might come from any of the following:
 
