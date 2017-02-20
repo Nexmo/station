@@ -2,7 +2,7 @@
   background: $color;
   border: 2px solid $color;
   hr { border-top-color: mix($color, $white, 20%) }
-  nav a { color: $color; }
+  nav a, h3 { color: $color; }
 }
 
 .card {
@@ -39,6 +39,10 @@
     }
   }
 
+  h3 {
+    margin-bottom: 0;
+  }
+
   img {
     display: block;
   }
@@ -48,13 +52,22 @@
     box-shadow: $shadow-hard;
     padding: 10px $spacing;
     a {
+      display: block;
       color: $blue;
-      width: 50%;
       padding: 3px 0;
 
       &:hover {
         font-weight: 600;
       }
+    }
+  }
+
+  .card-description {
+    margin: 15px 0;
+    p {
+      color: $text;
+      margin: 0;
+      font-weight: normal;
     }
   }
 

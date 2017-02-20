@@ -9,9 +9,9 @@ You use Nexmo SNS to easily subscribe your users to a topic and automatically se
 
 The workflow for Nexmo SNS is:
 
-1. [Setup SNS access](#setup)
-2. [Subscribe users to your topic](#subscribe)
-3. [Publish a message notification to your users for your topic](#publish).
+1. [Setup SNS access](#setup-sns-access)
+2. [Subscribe users to your topic](#subscribe-users-to-your-topic)
+3. [Publish a message notification to your users for your topic](#publish-messages-to-your-topic).
 
 ## Setup SNS access
 
@@ -23,13 +23,13 @@ SNS access is associated with your Amazon SNS account. To configure SNS:
 4. In *Actions*, select your topic, then click *edit topic policy*.
 5. For *Publishers* and *Subscribers*, add the Nexmo account number (*564623767830*) to *Only these AWS users*, then click *Update Policy*.
 
-The following sections explain how to use the REST API for Nexmo SNS. You can also use [Nexmo Java](libraries/java-sdk#sns) for SNS.
+The following sections explain how to use the REST API for Nexmo SNS. You can also use [Nexmo Java](https://github.com/Nexmo/nexmo-java) for SNS.
 
 ## Subscribe users to your topic
 
 Using the Nexmo SNS API you:
-1. Subscribe your users to your topic using a [request](#subscribe_request).
-2. Receive a [response](#subscribe_response) and check that the subscription succeeded.
+1. Subscribe your users to your topic using a [request](#subscribe-request).
+2. Receive a [response](#subscribe-response) and check that the subscription succeeded.
 
 ### Subscribe request
 
@@ -70,8 +70,8 @@ source: '_examples/messaging/sns/subscribe-response'
 
 Using the Nexmo SNS API you:
 
-1. Publish a notification message to the users subscribed to your topic using a [request](#publish_request).
-2. Receive a [response](#publish_response) and check that your message has been published.
+1. Publish a notification message to the users subscribed to your topic using a [request](#publish-request).
+2. Receive a [response](#publish-response) and check that your message has been published.
 
 ### Publish request
 
@@ -99,7 +99,7 @@ Parameter | Description | Required
 `cmd` | Set to `publish`. | Yes
 `to` | Leave this blank to publish to all subscribers. The phone number of the user you are publishing your topic in [E.164](https://en.wikipedia.org/wiki/E.164) to. For example, `to=447525856424`. You can set one recipient only for each request. | Yes
 `topic` | Your SNS Topic. For example, `topic=arn:aws:sns:us-east:1:1:000000000000:my_sms_channel` | Yes
-`from` | An alphanumeric string giving your sender address. For example, `from=MyCompany20`. See our information in [Global messaging](messaging/sms-api/building-global-apps). This is also called the SenderID. | Yes
+`from` | An alphanumeric string giving your sender address. For example, `from=MyCompany20`. See our information in [Global messaging](/messaging/sms/guides/global-messaging). This is also called the SenderID. | Yes
 `message` | The message to publish to your users. | Yes
 
 > Note: to publish a message directly to a topic with using *sns.nexmo.com/sns.json*, set sender as the subject and put your message in the body.

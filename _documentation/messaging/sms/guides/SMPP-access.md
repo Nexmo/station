@@ -7,8 +7,8 @@ title: SMPP access
 By default, your Nexmo account is configured for REST. Unlike REST, SMPP is heavy in resources. However, most of the SMS volume processed at Nexmo uses SMPP and we would love to assist you to switch your traffic to us.
 If you already use SMPP and want to use Nexmo, switch to us in minutes without changing your App. Just update your configuration to point to the Nexmo SMPP server.
 
-- [Standard SMPP access](/messaging/sms-api/smpp-access#standard)
-- [SMPP access with Kannel](/messaging/sms-api/smpp-access#kannel)
+- [Standard SMPP access](#standard-smpp-access)
+- [SMPP access with Kannel](#smpp-access-with-kannel)
 
 ## Standard SMPP access
 

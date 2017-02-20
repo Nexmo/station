@@ -18,9 +18,9 @@ When you use OAuth for authentication:
 
 This section contains:
 
-* [Setting up OAuth access](#setup)
-* [Using OAuth in your App](#using)
-* [Running the sample App](#running)
+* [Setting up OAuth access](#setting-up-oauth-access)
+* [Using OAuth in your App](#using-oauth-in-your-app)
+* [Running the sample App](#running-the-sample-app)
 
 ## Setting up OAuth access
 
@@ -35,7 +35,7 @@ To do this:
 6. Fill the form and click *Save*. You see your *Consumer Key* and *Consumer Secret* in Dashboard.
 7. Install an OAuth 1.0a library for your programming language from: <http://oauth.net/code/>.
 
-##Using OAuth in your App
+## Using OAuth in your App
 
 After you have [setup OAuth access](#setup), include OAuth in your App:
 
@@ -85,7 +85,7 @@ After you have [setup OAuth access](#setup), include OAuth in your App:
     source: '_examples/messaging/oauth/using-oauth-in-your-app/7'
     ```
 
-**Note**: The Nexmo OAuth endpoints are:
+**The Nexmo OAuth endpoints are:**
 
 Type | URL
 -- | --
@@ -94,13 +94,12 @@ Authorize | `https://dashboard.nexmo.com/oauth/authorize`
 Authenticate | `https://dashboard.nexmo.com/oauth/authenticate`
 Access Token | `https://dashboard.nexmo.com/oauth/access_token`
 
-<a name="running"></a>
-##Running the sample App
+## Running the sample App
 
 The code used in this page is part of a small PHP App that you can run locally. To do this:
 
-1. [Setup OAuth access](#setup) with Nexmo.
-2. Setup an [OAuth 1.0a](http://oauth.net/code target: _blank) library for PHP.
+1. [Setup OAuth access](#setting-up-oauth-access) with Nexmo.
+2. Setup an [OAuth 1.0a](http://oauth.net/code) library for PHP.
 2. Download the sample from (file: nexmoOAuthDriver.sample text: nexmoOAuthDriver) and rename it *nexmoOAuthDriver.php*.
 3. In *nexmoOAuthDriver.php*, replace `<YOUR Consumer Key>` and `<YOUR Consumer Secret>` with the values for your App.
   To find your Consumer Key and Secret, in **Dashboard**, click *Apps* > *Developer*.

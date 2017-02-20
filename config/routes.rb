@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   get '/:product/*document', to: 'markdown#show', constraints: DocumentationConstraint.new
-  get '/api', to: 'api#show'
+  get '/api', to: 'api#index'
+  get '/api/*document', to: 'api#show'
 
   get '/tools', to: 'static#tools'
   get '/community', to: 'static#community'

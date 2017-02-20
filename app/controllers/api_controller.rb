@@ -1,9 +1,14 @@
 class ApiController < ApplicationController
   before_action :set_navigation
+  before_action :set_document
+
+  def index
+    render layout: 'application'
+  end
 
   def show
     # Read document
-    document = File.read("#{Rails.root}/_api/base.md")
+    document = File.read("#{Rails.root}/_api/#{@document}.md")
 
     # Parse frontmatter
     @frontmatter = YAML.load(document)

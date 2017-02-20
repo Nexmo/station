@@ -13,7 +13,7 @@ You use a signature to:
 * Ensure that the message has not been tampered with en-route
 * Defend against interception and later replay
 
-A signature is the [MD5 hash](https://en.wikipedia.org/wiki/MD5 target: _blank) of:
+A signature is the [MD5 hash](https://en.wikipedia.org/wiki/MD5) of:
 
 * The parameters - all the parameters in a request sorted in alphabetic order
 * A timestamp - a UNIX timestamp at UTC + 0 to protect against replay attacks
@@ -21,7 +21,7 @@ A signature is the [MD5 hash](https://en.wikipedia.org/wiki/MD5 target: _blank) 
 
 The signature has a leading `&`. All parameters in the hash input, apart from your `SECURITY_SECRET` are separated by `&`.
 
-[HMAC-SHA1/256/512 ](https://en.wikipedia.org/wiki/SHA-2 target: _blank) is also supported. Contact support@nexmo.com for more information.
+[HMAC-SHA1/256/512 ](https://en.wikipedia.org/wiki/SHA-2) is also supported. Contact support@nexmo.com for more information.
 
 > Note: Using signatures is an *optional* improvement on using the standard `api_secret`. You use the `SECURITY_SECRET` instead of your api_secret in a signed request.
 
@@ -35,8 +35,8 @@ The workflow for using signed messages is:
 
 ![Signing messages workflow](/assets/images/workflow_call_api_outbound.svg)
 
-1. Create a signed [request](messaging/sms-api/api-reference#request) to send an SMS.
-2. Check the [response codes](messaging/sms-api/api-reference#status-codes) and ensure that you sent the request correctly.
+1. Create a signed [request](/api/sms#request) to send an SMS.
+2. Check the [response codes](/api/sms#status-codes) and ensure that you sent the request correctly.
 3. Your message is delivered to the handset. The user's handset returns a delivery receipt.
 4. If you requested signed delivery receipts and inbound messages validate the signature.
 
@@ -60,19 +60,19 @@ To setup message signing:
 
 To sign your messages:
 
-1. Create a signed [request](messaging/sms-api/api-reference#request):
+1. Create a signed [request](/api/sms#request):
 
     ```tabbed_examples
     source: '_examples/messaging/signing-messages/create-request'
     ```
 
-2. Check the [response codes](messaging/sms-api/api-reference#status-codes) to ensure that you sent the request to Nexmo correctly:
+2. Check the [response codes](/api/sms#response-codes) to ensure that you sent the request to Nexmo correctly:
 
     ```tabbed_examples
     source: '_examples/messaging/signing-messages/check-response'
     ```
 
-    If you did not generate the signature correctly the [status](messaging/sms-api/api-reference#status-codes) is `14, invalid signature`
+    If you did not generate the signature correctly the [status](/api/sms#status-codes) is `14, invalid signature`
 
 3. Your message is delivered to the handset. The user's handset returns a delivery receipt.
 

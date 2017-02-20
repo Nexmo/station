@@ -2,7 +2,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title><%= content_for?(:title) ? yield(:title) : "Nexmo Developer" %></title>
+  <title><%= (@title && @product) ? "Nexmo Developer | #{@product.titleize} > #{@title}" : "Nexmo Developer" %></title>
 
   <%= stylesheet_link_tag    "application" %>
   <%= stylesheet_link_tag    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" %>

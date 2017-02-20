@@ -8,9 +8,9 @@ Countries have different technical standards and restrictions around the [SMS] s
 
 - [Encoding](#encoding) - set the correct encoding so your users can read your message clearly.
 - [Concatenation](#concatenation) - check the length of the message in relation to the character set and send the minimum number of SMS.
-- [Custom senderIDs](#senderID) - can you use your company brand for each message or must it be a virtual number, a shortcode or a random number?
-- [Delivery receipts](#DLRSupport) - check if the country you are sending to will correctly validate that each message is delivered.
-- [Country specific features](#country_specific_features) - a comprehensive list of the sms features available internationally.
+- [Custom senderIDs](#custom-senderid) - can you use your company brand for each message or must it be a virtual number, a shortcode or a random number?
+- [Delivery receipts](#delivery-receipts) - check if the country you are sending to will correctly validate that each message is delivered.
+- [Country specific features](#country-specific-features) - a comprehensive list of the sms features available internationally.
 
 
 ## Encoding
@@ -47,17 +47,17 @@ The maximum number of characters you can fit into a single message depends on th
     It is the east, and
     ```
 
-If you use [SMPP](messaging/sms-api/smpp-access) rather than REST, the default character encoding is Latin 1 ([ISO-8859-1]). Binary and unicode are supported following the [SMPP 3.4] specification. You change the encoding of messages sent using SMPP in the `API settings` in (link:https://dashboard.nexmo.com text: Dashboard). Changes take effect after an SMPP rebind.
+If you use [SMPP](/messaging/sms/guides/SMPP-access) rather than REST, the default character encoding is Latin 1 ([ISO-8859-1]). Binary and unicode are supported following the [SMPP 3.4] specification. You change the encoding of messages sent using SMPP in the `API settings` in [Dashboard](https://dashboard.nexmo.com). Changes take effect after an SMPP rebind.
 
 Before you start your messaging campaign:
 
 1. Check the format to send your message in. You can see the full UTF-8 character set [here](http://www.fileformat.info/info/charset/UTF-8/list.htm):
 
-    Use <http://www.url-encode-decode.com/> to see if your message can be URL encoded. If you need to use another format, set the *type* parameter in your [request](messaging/sms-api/api-reference#request).
+    Use <http://www.url-encode-decode.com/> to see if your message can be URL encoded. If you need to use another format, set the *type* parameter in your [request](/api/sms#request).
 
-2. If you need to use unicode, check if unicode is supported in the country you are sending to [Country Specific Features](#country_specific_features).
+2. If you need to use unicode, check if unicode is supported in the country you are sending to [Country Specific Features](#country-specific-features).
 
-3. For messages where you have not set [type](messaging/sms-api/api-reference#parameters) to `text`, check that your user's handset supports the format. For example, a US handset may not display Arabic.
+3. For messages where you have not set [type](/api/sms#parameters) to `text`, check that your user's handset supports the format. For example, a US handset may not display Arabic.
 
 ## Concatenation
 
@@ -84,11 +84,11 @@ Before you start your messaging campaign:
 
 1. Check the format to send your message in. You can see the full UTF-8 character set [here](http://www.fileformat.info/info/charset/UTF-8/list.htm):
 
-    Use <http://www.url-encode-decode.com/> to see if your message can be URL encoded. If you need to use another format, set the *type* parameter in your [request](messaging/sms-api/api-reference#request).
+    Use <http://www.url-encode-decode.com/> to see if your message can be URL encoded. If you need to use another format, set the *type* parameter in your [request](/api/sms#request).
 
-2. If you need to use unicode, check if unicode is supported in the country you are sending to [Country Specific Features](#country_specific_features).
+2. If you need to use unicode, check if unicode is supported in the country you are sending to [Country Specific Features](#country-specific-features).
 
-3. Check in the [Country Specific Features](#country_specific_features) if concatenated messages are supported in the country you are sending to. If they are not:
+3. Check in the [Country Specific Features](#country-specific-features) if concatenated messages are supported in the country you are sending to. If they are not:
 
   * Keep your message concise. Calculate the number of characters you can send in a message for your character set.
   * Configure your app for the time period workaround for inbound messages.
@@ -113,7 +113,7 @@ However, depending on the jurisdiction one or more of the following can happen:
 
 Before you start your messaging campaign:
 
-1. Check the SenderID columns in the [Country Specific Features](#country_specific_features).
+1. Check the SenderID columns in the [Country Specific Features](#country-specific-features).
 2. Batch send your messages to each country and set `from` to match the SenderID capabilities.
 
 ## Delivery receipts
@@ -131,8 +131,8 @@ In practice, some carriers either do not send the delivery receipt or send a fak
 
 Before you start your messaging campaign:
 
-1. Check the [Country Specific Features](#country_specific_features) for the countries you are sending to.
-2. If the country you are sending to does not supply reliable DLRs, use [Conversion API](messaging/conversion-api) so Nexmo has more data points to ensure the best routing.
+1. Check the [Country Specific Features](#country-specific-features) for the countries you are sending to.
+2. If the country you are sending to does not supply reliable DLRs, use [Conversion API](/messaging/sms/guides/conversion-api) so Nexmo has more data points to ensure the best routing.
 
 ## Country specific features
 
