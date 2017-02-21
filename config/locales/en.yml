@@ -30,3 +30,8 @@ en:
     sms: SMS
     guides: Guides
     quickstarts: Quickstarts
+
+    conversion-api: Conversion API
+    sns: SNS
+
+    global: Global

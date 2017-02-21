@@ -1,6 +1,6 @@
 IGNORED_PATHS = ['..', '.', '.DS_Store']
 NAVIGATION_WEIGHT = YAML.load_file("#{Rails.root}/config/navigation.yml")["navigation_weight"]
-FLATTEN_TREES = ['Messaging']
+FLATTEN_TREES = []
 
 module ApplicationHelper
   def directory_hash(path, name=nil)
