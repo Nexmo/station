@@ -3,14 +3,15 @@ animationSpeed = 0.2
 
 init = (animate = false)->
   $('.js-navigation > li > ul').each ->
-    height = $(this).height()
-    $(this).data 'height', height
     if $(this).find('.active').length == 0
       TweenLite.set $(this), { height: 0 }
     else
-      TweenLite.fromTo $(this), animationSpeed, { height: 0 }, { height: height } if animate
       $(this).addClass 'expanded'
       $(this).find('a.active').first().closest('.js--collapsible').siblings().find('ul').hide()
+
+      height = $(this).height()
+      $(this).data 'height', height
+      TweenLite.fromTo $(this), animationSpeed, { height: 0 }, { height: height } if animate
 
   $('.js-navigation > li').click((event) ->
     if $(event.target).parents('.expanded').length == 0
