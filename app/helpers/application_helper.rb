@@ -1,6 +1,7 @@
 IGNORED_PATHS = ['..', '.', '.DS_Store']
 NAVIGATION_WEIGHT = YAML.load_file("#{Rails.root}/config/navigation.yml")["navigation_weight"]
 FLATTEN_TREES = []
+COLLAPSIBLE = ['Messaging', 'SMS', 'Conversion API', 'SNS', 'US Short Codes', 'Voice', 'Account', 'Global']
 
 module ApplicationHelper
   def directory_hash(path, name=nil)
@@ -55,9 +56,10 @@ module ApplicationHelper
     s << (root ? '<ul class="navigation js-navigation">' : '<ul>') unless received_flatten
     s << context.map do |child|
       flatten = FLATTEN_TREES.include? normalised_title(child)
+      class_name = (COLLAPSIBLE.include? normalised_title(child)) ? 'js--collapsible' : ''
 
       ss = []
-      ss << '<li>' unless received_flatten
+      ss << "<li class='#{class_name}'>" unless received_flatten
 
       unless flatten
         url = (child[:is_file?] ? path_to_url(child[:path]) : first_link_in_directory(child[:children]))

@@ -10,7 +10,7 @@ init = (animate = false)->
     else
       TweenLite.fromTo $(this), animationSpeed, { height: 0 }, { height: height } if animate
       $(this).addClass 'expanded'
-      console.log $(this).find('> li > a.active').parent().siblings().find('ul').hide()
+      $(this).find('a.active').first().closest('.js--collapsible').siblings().find('ul').hide()
 
   $('.js-navigation > li').click((event) ->
     if $(event.target).parents('.expanded').length == 0
