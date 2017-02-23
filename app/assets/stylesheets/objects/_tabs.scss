@@ -1,4 +1,17 @@
-.tabs--code {
+.tabs {
+  margin-bottom: 0 !important;
+}
+
+.tabs-title {
+  margin-bottom: 0 !important;
+
+  a {
+    padding: 1rem 1.25rem;
+  }
+}
+
+
+.tabs {
   background-color: darken($atom, 5%);
   padding-left: 0;
   border-radius: 3px 3px 0 0;
@@ -21,6 +34,16 @@
       }
     }
   }
+}
+
+.tabs-content {
+  margin-bottom: $spacing;
+  border-width: 3px;
+
+}
+
+.tabs-panel {
+  padding-bottom: 0;
 }
 
 .tabs--code, .tabs-content--code {

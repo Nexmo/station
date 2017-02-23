@@ -148,3 +148,19 @@ blockquote {
     padding: $spacing / 2;
   }
 }
+
+
+#primary-content {
+  li ul, li ol {
+    margin-top: 5px;
+  }
+
+  ul {
+    margin-bottom: 15px;
+  }
+
+  ul li {
+    font-size: 1em;
+    margin-bottom: 5px;
+  }
+}

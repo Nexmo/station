@@ -30,37 +30,22 @@ In this document you can learn about:
 
 ## Getting Started
 
-**Install and Setup the Nexmo CLI (Command Line Interface)**
-
-```bash
-$ npm install -g nexmo-cli
-```
-
-> Note: Depending on your system setup you may need to prefix the above command with `sudo`
-
-Using your Nexmo `API_KEY` and `API_SECRET`, available from the [dashboard getting started page](https://dashboard.nexmo.com/getting-started-guide), you now setup the CLI with these credentials.
-
-```bash
-$ nexmo setup API_KEY API_SECRET
-```
-
 **Send an SMS**
 
-Now you can use the CLI to send an SMS message:
+![SMS Workflow](/assets/images/workflow_call_api_outbound.svg)
 
-```bash
-$ nexmo sms TO_NUMBER "A text message sent using the Nexmo SMS API"
+Before you begin, [Sign up for a Nexmo account](https://dashboard.nexmo.com/sign-up).
+
+Using your Nexmo `API_KEY` and `API_SECRET`, available from the [dashboard getting started page](https://dashboard.nexmo.com/getting-started-guide), you now send an SMS message:
+
+```tabbed_examples
+source: '/_examples/messaging/sending-an-sms/basic'
 ```
-
-> Note: You can either provide the `--confirm` flag or type `confirm` for the message to send.
 
 ## SMS API Features
 
 * [Sending an SMS](/messaging/sms/quickstarts/sending-an-sms)
 * [Receiving an SMS](/messaging/sms/quickstarts/receiving-an-sms)
-* [US Short Codes](/messaging/sms/guides/us-short-codes/overview)
-  * [2FA](/messaging/sms/guides/us-short-codes/2fa)
-  * [Alerts](/messaging/sms/guides/us-short-codes/alerts)
 
 ## References
 
