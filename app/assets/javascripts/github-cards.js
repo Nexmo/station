@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).on('turbolinks:load', function() {
   $('[data-github]').each(function () {
     var _this = this;
     var repo = $(_this).data('github');

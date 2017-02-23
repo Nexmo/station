@@ -6,6 +6,7 @@ class MarkdownPipeline < Banzai::Pipeline
       TabbedExamplesFilter,
       TabbedContentFilter,
       ModalFilter,
+      JsSequenceDiagramFilter,
       MarkdownFilter,
 
       # As HTML

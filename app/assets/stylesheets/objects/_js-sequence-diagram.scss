@@ -1,0 +1,12 @@
+.diagram svg {
+  .note rect, .note path {
+    fill: $blue;
+  }
+  .note text {
+    fill: $white;
+  }
+
+  text {
+    font-family: Consolas, sans-serif;
+  }
+}
