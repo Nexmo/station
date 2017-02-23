@@ -82,6 +82,7 @@ p {
 a {
   text-decoration: none;
   color: $pink;
+  cursor: pointer;
 }
 
 .center {
@@ -137,5 +138,13 @@ blockquote {
 
   code {
     color: $text;
+  }
+}
+
+.reveal {
+  font-size: 0.85em;
+
+  table td {
+    padding: $spacing / 2;
   }
 }

@@ -1,9 +1,9 @@
 ---
-title: Voice API
+title: Overview
 description: the Voice API overview.
 ---
 
-# Voice API
+# Voice API Overview
 
 The Nexmo Voice API is the easiest way to build high-quality voice applications in the Cloud. With the Voice API you:
 
