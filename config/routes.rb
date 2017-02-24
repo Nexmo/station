@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get '/tools', to: 'static#tools'
   get '/community', to: 'static#community'
 
+  get '/styleguide', to: 'static#styleguide'
+
   get '*unmatched_route', to: 'application#not_found'
 
   root 'static#landing'
