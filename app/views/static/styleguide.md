@@ -44,11 +44,7 @@ This is a [link](http://google.com) to Google.
 >
 > Also... Please ALWAYS write descriptive alt text.
 
-## Code
-
-**Code blocks**
-
-Normal code blocks are specified using three backticks at the start and end.
+## Lists
 
 **Unordered Lists**
 
@@ -77,6 +73,12 @@ Normal code blocks are specified using three backticks at the start and end.
         1. Five
     1. Six
 3. Seven
+
+## Code
+
+**Code blocks**
+
+Normal code blocks are specified using three backticks at the start and end.
 
 ```
 This is a normal code block.
