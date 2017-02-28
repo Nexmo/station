@@ -40,7 +40,7 @@
 
 body {
   font-family: 'Averta', sans-serif;
-  color: $stone;
+  color: $text;
   font-size: 17px;
   line-height: 1.5;
 }
@@ -50,8 +50,8 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 h1, h2, h3, h4 {
-  color: $primary;
-  font-weight: 600;
+  color: $stone-dark;
+  font-weight: 500;
 
   &.light {
     font-weight: normal;
@@ -59,7 +59,7 @@ h1, h2, h3, h4 {
 }
 
 h1 {
-  font-size: 32px;
+  font-size: 36px;
 }
 
 h2 {
@@ -76,16 +76,24 @@ p {
 
 ul, ol, p, h1, h2, h3, h4, h5, h6 {
   code {
-    background: $mint;
     padding: 0 4px;
     display: inline-block;
+    border: 1px solid $mint;
+    color: $blue;
+    background: $white;
+    border-radius: 5px;
   }
 }
 
 a {
   text-decoration: none;
-  color: $pink;
+  color: $link;
   cursor: pointer;
+  border-bottom: 1px dotted;
+
+  nav &, h1 & {
+    border-bottom: none;
+  }
 }
 
 .center {
@@ -127,13 +135,14 @@ pre {
 }
 
 blockquote {
-  border-left: 3px solid $pink;
-  padding: 5px 10px;
-  color: $pink;
+  background: $white;
+  box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.04);
+  border-left: 5px solid $pink;
+  padding: $spacing * 0.75;
   font-style: italic;
   margin-bottom: 20px;
-  font-size: 13px;
-  font-weight: 700;
+  font-size: 15px;
+  border-radius: 3px;
 
   p {
     margin: 0;
@@ -192,8 +201,6 @@ blockquote {
       position: absolute;
       right: 100%;
       margin-right: 5px;
-      // top: 50%;
-      // margin-top: -10px;
       border-width: 2px;
       background: none;
     }

@@ -7,7 +7,7 @@ $green: #32BA86;
 $orange: #f6a85a;
 $peach: #F88175;
 $red: #ea5353;
-$ice: hsl(200, 65%, 97%);
+$ice: #f9fbfd;
 $mint: #E4EEF3;
 $atom: #282c34;
 
@@ -16,6 +16,7 @@ $gray: #A1A1A1;
 $gray-light: lighten($gray, 25%);
 $stone-light: #93B6C7;
 $stone: #224E66;
+$stone-dark: #193c56;
 $gray-dark: #252A2D;
 $black: #1A1E20;
 
@@ -25,7 +26,8 @@ $voice: #F88175;
 $chat: #CA579C;
 $verify: #6b85d2;
 
-$primary: $blue;
+$primary: $pink;
+$link: $blue;
 $positive: $green;
 $negative: $red;
 $warning: $orange;

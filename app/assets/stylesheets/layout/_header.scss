@@ -5,6 +5,7 @@
 
   a {
     color: $white;
+    border: none;
   }
 
   nav {
@@ -40,18 +41,20 @@
 
 #subnav {
   background: $white;
-  padding: $spacing/2 0;
   border-bottom: 1px solid $mint;
-  font-size: 16px;
   margin-bottom: $spacing;
 
   a {
+    display: inline-block;
     margin-right: $spacing;
     color: $gray;
+    padding: $spacing/2 5px;
+    padding-bottom: $spacing/2 - 3px;
 
     &.active {
       font-weight: 600;
-      color: $pink;
+      color: $blue;
+      border-bottom: 3px solid $blue;
     }
   }
 }
