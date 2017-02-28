@@ -1,6 +1,6 @@
 class ApiController < ApplicationController
-  before_action :set_navigation
   before_action :set_document
+  before_action :set_navigation
 
   def index
     render layout: 'application'
@@ -22,6 +22,7 @@ class ApiController < ApplicationController
 
   def set_navigation
     @navigation = :api
+    @side_navigation = "api/#{@document}"
   end
 
   def set_product

@@ -13,6 +13,7 @@ class MarkdownPipeline < Banzai::Pipeline
       UnfreezeFilter,
       CredentialsFilter,
       HeadingFilter,
+      LabelFilter,
     )
   end
 end

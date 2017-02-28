@@ -72,6 +72,9 @@ h3 {
 
 p {
   line-height: 1.6;
+}
+
+ul, ol, p, h1, h2, h3, h4, h5, h6 {
   code {
     background: $mint;
     padding: 0 4px;
@@ -108,7 +111,7 @@ pre.highlight {
 }
 
 pre {
-  font-family: Consolas, sans-serif;
+  font-family: Consolas, monospace;
   font-size: 16px;
 }
 
@@ -162,5 +165,57 @@ blockquote {
   ul li {
     font-size: 1em;
     margin-bottom: 5px;
+  }
+}
+
+.label {
+  background: $primary;
+  color: $white;
+  font-weight: 700;
+  padding: 2px 5px 1px 5px;
+  font-size: 13px;
+  border-radius: 4px;
+  text-align: center;
+
+  background: $primary;
+  border-color: $primary;
+  .navigation & { color: mix($primary, $background, 80%); }
+
+  &--code {
+    font-family: Consolas, monospace;
+    font-size: 15px;
+    padding: 4px 5px 1px 5px;
+
+    .navigation & {
+      font-size: 12px;
+      padding: 2px 2px 0 2px;
+      position: absolute;
+      right: 100%;
+      margin-right: 5px;
+      // top: 50%;
+      // margin-top: -10px;
+      border-width: 2px;
+      background: none;
+    }
+  }
+
+  &--positive {
+    background: $positive;
+    border-color: $positive;
+    .navigation & { color: mix($positive, $background, 80%); }
+  }
+
+  &--negative {
+    background: $negative;
+    border-color: $negative;
+    .navigation & { color: mix($negative, $background, 80%); }
+
+  }
+
+  &--warning {
+    background: $warning;
+    border-color: $warning;
+    .navigation & { color: mix($warning, $background, 80%); }
+
   }
 }

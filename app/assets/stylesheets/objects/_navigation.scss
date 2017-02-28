@@ -5,6 +5,7 @@
 
   > ul {
     position: fixed;
+    width: 250px;
   }
 
   a {
@@ -21,7 +22,7 @@
 
   ul {
     list-style: none;
-    overflow: hidden;
+    // overflow: hidden;
     padding-left: 0;
   }
 
@@ -31,10 +32,12 @@
     padding-left: $spacing - 5px;
     margin-top: 5px;
     margin-bottom: 5px;
+
   }
 
   ul, li {
     margin: 0;
+    position: relative;
   }
 
   ul ul {

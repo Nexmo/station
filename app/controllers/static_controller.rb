@@ -22,6 +22,8 @@ class StaticController < ApplicationController
 
     @title = @frontmatter["title"]
 
+    @side_navigation = "api/styleguide"
+
     @content = MarkdownPipeline.new.call(document)
 
     render layout: 'documentation'
