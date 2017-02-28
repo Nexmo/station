@@ -20,9 +20,15 @@ body {
 }
 
 .container {
-  max-width: 1230px;
+  max-width: 1300px;
   padding: 0 $spacing;
   margin: auto;
+}
+
+.row {
+  max-width: 1300px;
+  margin-left: -0.9375rem;
+  margin-right: -0.9375rem;
 }
 
 img {
