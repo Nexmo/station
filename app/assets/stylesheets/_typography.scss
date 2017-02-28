@@ -76,12 +76,17 @@ p {
 
 ul, ol, p, h1, h2, h3, h4, h5, h6 {
   code {
-    padding: 0 4px;
+    padding: 0 5px;
     display: inline-block;
     border: 1px solid $mint;
-    color: $blue;
+    color: $pink;
     background: $white;
     border-radius: 5px;
+    margin: 0 2px;
+  }
+
+  a {
+    border-bottom: 1px dotted;
   }
 }
 
@@ -89,7 +94,6 @@ a {
   text-decoration: none;
   color: $link;
   cursor: pointer;
-  border-bottom: 1px dotted;
 
   nav &, h1 & {
     border-bottom: none;
@@ -116,6 +120,7 @@ pre.highlight {
   line-height: 1.35;
   overflow: auto;
   position: relative;
+  border-radius: 3px;
 }
 
 pre {
@@ -149,7 +154,7 @@ blockquote {
   }
 
   code {
-    color: $text;
+    font-style: normal;
   }
 }
 
