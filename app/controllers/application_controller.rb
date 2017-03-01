@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   rescue_from Errno::ENOENT, with: :no_document
   rescue_from Errno::ENOENT, with: :no_document
   protect_from_forgery with: :exception
+
   http_basic_authenticate_with name: ENV['USERNAME'], password: ENV['PASSWORD'], if: :need_authentication?
 
   def not_found

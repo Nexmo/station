@@ -58,4 +58,27 @@
       border-bottom: 3px solid $blue;
     }
   }
+
+  form {
+    float: right;
+  }
+}
+
+#search {
+  float: right;
+  width: 200px;
+  height: 30px;
+  // background: $ice;
+  border: 1px solid $mint;
+  box-shadow: inset 0 0 6px rgba($black, 0.05);
+  padding: 0 15px;
+  padding-bottom: 2px;
+  border-radius: 15px;
+  margin-top: 6px;
+  color: $stone;
+  outline: none;
+
+  &:focus {
+    border-color: mix($pink, $ice);
+  }
 }

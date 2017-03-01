@@ -20,5 +20,9 @@
     <a href="/api" class="<%= @navigation == :api ? 'active' : '' %>">API Reference</a>
     <a href="/tools" class="<%= @navigation == :tools ? 'active' : '' %>">SDKs &amp; Tools</a>
     <a href="/community" class="<%= @navigation == :community ? 'active' : '' %>">Community</a>
+
+    <%= form_tag '/search' do %>
+      <input type="text" id="search" name="query" placeholder="Search" name="query" autocomplete="off" value="<%= @search_term || '' %>">
+    <% end %>
   </div>
 </nav>

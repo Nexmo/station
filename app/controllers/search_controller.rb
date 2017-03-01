@@ -1,12 +1,15 @@
 class SearchController < ApplicationController
   def perform
-    @results = client.search index: 'documents', body: { query: { fuzzy: { title: params['query'] } } }
+    if params['query']
+      @results = client.search index: 'documents', body: { query: { fuzzy: { title: params['query'] } } }
+    end
+
     render 'results'
   end
 
   private
 
   def client
-    @client ||= Elasticsearch::Client.new({ cluser_name: 'nexmo_development' })
+    @client ||= Rails.configuration.elastic_search_client({ cluser_name: 'nexmo_development' })
   end
 end

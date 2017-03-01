@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get '/community', to: 'static#community'
 
   get '/styleguide', to: 'static#styleguide'
-  get '/search', to: 'search#perform'
+  match '/search', to: 'search#perform', via: [:get, :post]
 
   get '*unmatched_route', to: 'application#not_found'
 

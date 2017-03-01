@@ -1,8 +1,21 @@
-<h1>Search results for "<%= params["query"] %>"</h1>
+<center>
+  <% if @results && @results['hits']['total'] > 0 %>
+    <h1>We found <%= @results['hits']['total'] %> <%= 'results'.pluralize(@results['hits']['total']) %> for '<%= params['query'] %>'</h1>
 
-Total = <%= @results["hits"]["total"] %>
+    <hr>
 
-<% @results["hits"]["hits"].each do |document| %>
-  <h2><%= document["_source"]["title"] %></h2>
-  <p><%= document["_source"]["body"] %></p>
-<% end %>
+    <br>
+
+    <% @results['hits']['hits'].each do |document| %>
+      <h2>
+        <%= link_to document['_source']['title'], document['_source']['path'] %>
+      </h2>
+      <p><%= document['_source']['description'] %></p>
+      <br>
+      <br>
+    <% end %>
+  <% else %>
+    <h1>Uh oh. We couldn't find anything.</h1>
+    <p>Click <a href="/">here</a> to go back to the start</p>
+  <% end %>
+</center>
