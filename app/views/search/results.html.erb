@@ -1,0 +1,8 @@
+<h1>Search results for "<%= params["query"] %>"</h1>
+
+Total = <%= @results["hits"]["total"] %>
+
+<% @results["hits"]["hits"].each do |document| %>
+  <h2><%= document["_source"]["title"] %></h2>
+  <p><%= document["_source"]["body"] %></p>
+<% end %>
