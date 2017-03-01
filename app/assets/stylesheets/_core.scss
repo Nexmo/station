@@ -37,8 +37,10 @@ img {
 
 table {
   margin-bottom: $spacing;
-  border: 3px solid $blue;
-  border-radius: 3px;
+  border: 1px solid $mint;
+  border-radius: $radius;
+  box-shadow: $shadow-soft;
+  overflow: hidden;
 
   thead {
     color: $white;
@@ -49,14 +51,23 @@ table {
     background: mix($ice, $mint);
   }
 
+  th {
+    padding: $spacing/2 $spacing;
+    font-weight: 600;
+  }
+
   td {
-    border-bottom: 3px solid $mint;
     padding: $spacing;
+    border-bottom: 1px solid $mint;
     line-height: 1.5em;
+  }
+
+  tr:last-child td {
+    border-bottom: none;
   }
 }
 
-table, td, th {border-collapse:separate}
+table, td, th { border-collapse:separate; }
 table { border-spacing: 0px }
 
 hr {

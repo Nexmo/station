@@ -14,7 +14,11 @@
 .tabs {
   background-color: darken($atom, 5%);
   padding-left: 0;
-  border-radius: 3px 3px 0 0;
+  border-radius: $radius-top;
+  overflow: hidden;
+  border: none;
+  box-shadow: $shadow-soft;
+  border: 1px solid $mint;;
 
   .tabs-title {
     > a {
@@ -39,8 +43,10 @@
 
 .tabs-content {
   margin-bottom: $spacing;
-  border-width: 3px;
-
+  border-width: 1px;
+  border-color: $mint;
+  border-radius: $radius-bottom;
+  box-shadow: $shadow-soft;
 }
 
 .tabs-panel {

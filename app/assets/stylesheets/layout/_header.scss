@@ -4,7 +4,7 @@
   padding: $spacing 0;
 
   a {
-    color: $white;
+    color: mix($white, $blue, 90%);
     border: none;
   }
 
@@ -43,6 +43,7 @@
   background: $white;
   border-bottom: 1px solid $mint;
   margin-bottom: $spacing;
+  box-shadow: $shadow-soft;
 
   a {
     display: inline-block;

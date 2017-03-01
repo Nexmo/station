@@ -49,7 +49,7 @@ The following table shows the parameters you use to create a Call:
 Parameter | Description | Required
 -- | -- | --
 `to` | The single or mixed collection of endpoint types you connected to. @[Possible values](/_modals/voice/guides/ncco-reference/endpoint.md).
-from | The endpoint you are calling from. Possible value are the same as *to*. | Yes
+`from` | The endpoint you are calling from. Possible value are the same as *to*. | Yes
 `answer_url` | The webhook endpoint where you provide the Nexmo Call Control Object that governs this Call. As soon as your user answers a call, Platform requests this NCCO from `answer_url`. Use `answer_method` to manage the HTTP method. | yes
 `answer_method` | A [GET] request. | no
 `event_url` | Platform sends event information asynchronously to this endpoint when status changes. For more information about the values sent, see Callback. | no
@@ -95,7 +95,7 @@ Key | Value
 -- | --
 `uuid` | The unique identifier for this call leg. The uuid is created when your call request is accepted by Nexmo. You use uuid in all requests for individual live calls. @[Possible values](/_modals/voice/api/calls/uuid.md).
 `conversation_uuid` | The unique identifier for the conversation this call leg is part of.
-`to` | 
+`to` |
 `direction` | Possible values are `outbound` or `inbound`.
 `status` | The status of the call. @[Possible values](/_modals/voice/api/calls/status.md).
 
@@ -118,12 +118,13 @@ You use a GET request to retrieve the details about all your Calls.
 This request contains:
 
 * A [Base URL](#crabase)
-* [Parameters](#craparameters )
+* [Parameters](#craparameters)
 * [JWT](#jwt_minting)
 
 You receive the Call details in the [response](#craresponse),
 
 #### Base URL
+
 All requests to retrieve details about all your Calls must contain:
 
 * `https://api.nexmo.com/v1/calls`
@@ -158,6 +159,7 @@ The 200 response contains the following keys and values:
 ### [GET] `https://api.nexmo.com/v1/calls/{uuid}`
 
 You use a GET request to retrieve information about a single Call.
+
 <ul class="nav nav-tabs">
   <li class="active"><a data-toggle="tab" href="#call_retrieve_php">PHP</a></li>
   <li ><a data-toggle="tab" href="#call_retrieve_python">Python</a></li>

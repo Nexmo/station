@@ -6,7 +6,7 @@ $(document).on('turbolinks:load', function() {
   setTimeout(function(){
     $('.diagram rect')
       .attr('rx', 3)
-      .css('stroke-width', 2)
+      .css('stroke-width', 1)
       .attr('stroke', '#E4EEF3')
 
     $('.diagram .actor text')

@@ -46,7 +46,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6, p {
-  margin-bottom: $spacing;
+  margin-bottom: $spacing * 0.5;
 }
 
 h1, h2, h3, h4 {
@@ -68,13 +68,14 @@ h2 {
 
 h3 {
   font-size: 17px;
+  font-weight: 600;
 }
 
 p {
   line-height: 1.6;
 }
 
-ul, ol, p, h1, h2, h3, h4, h5, h6 {
+ul, ol, p, h1, h2, h3, h4, h5, h6, table {
   code {
     padding: 0 5px;
     display: inline-block;
@@ -83,6 +84,20 @@ ul, ol, p, h1, h2, h3, h4, h5, h6 {
     background: $white;
     border-radius: 5px;
     margin: 0 2px;
+  }
+
+  tbody tr:nth-child(even) code {
+    background: $ice;
+  }
+
+  pre code {
+    display: inline;
+    border: none;
+    color: inherit;
+    background: none;
+    padding: 0;
+    margin: 0;
+    border-radius: none;
   }
 
   a {
@@ -145,7 +160,8 @@ pre {
 
 blockquote {
   background: $white;
-  box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.04);
+  box-shadow: $shadow-soft;
+  border: 1px solid $mint;
   border-left: 5px solid $pink;
   padding: $spacing * 0.75;
   font-style: italic;
@@ -162,7 +178,15 @@ blockquote {
   }
 }
 
+.reveal-overlay {
+  background: rgba($mint, 0.4);
+}
+
 .reveal {
+  border-radius: 3px;
+  outline: none;
+  border: 1px solid $mint;
+  box-shadow: $shadow;
   font-size: 0.85em;
 
   table td {
@@ -172,6 +196,10 @@ blockquote {
 
 
 #primary-content {
+  h2, h3, h4, h5, h6 {
+    margin-top: 40px;
+  }
+
   li ul, li ol {
     margin-top: 5px;
   }
@@ -195,9 +223,9 @@ blockquote {
   border-radius: 4px;
   text-align: center;
 
-  background: $primary;
-  border-color: $primary;
-  .navigation & { color: mix($primary, $background, 80%); }
+  background: $blue;
+  border-color: $blue;
+  .navigation & { color: mix($blue, $background, 80%); }
 
   &--code {
     font-family: Consolas, monospace;
