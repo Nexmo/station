@@ -45,6 +45,10 @@
   margin-bottom: $spacing;
   box-shadow: $shadow-soft;
 
+  .container {
+    position: relative;
+  }
+
   a {
     display: inline-block;
     margin-right: $spacing;
@@ -80,5 +84,27 @@
 
   &:focus {
     border-color: mix($pink, $ice);
+  }
+}
+
+#search-results {
+  position: absolute;
+  top: 50px;
+  right: 10px;
+  background: $white;
+  border: 1px solid $mint;
+  box-shadow: $shadow;
+  border-radius: $radius;
+  padding: 10px $spacing;
+  padding-bottom: 0;
+  font-size: 0.85em;
+  border-top: 5px solid $pink;
+
+  h2, h3 {
+    margin-bottom: 0;
+    a {
+      padding: 0;
+      color: $blue;
+    }
   }
 }
