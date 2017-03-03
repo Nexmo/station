@@ -37,7 +37,7 @@ img {
 
 table {
   margin-bottom: $spacing;
-  border: 1px solid $mint;
+  border: $border;
   border-radius: $radius;
   box-shadow: $shadow-soft;
   overflow: hidden;
@@ -58,7 +58,7 @@ table {
 
   td {
     padding: $spacing;
-    border-bottom: 1px solid $mint;
+    border-bottom: $border;
     line-height: 1.5em;
   }
 

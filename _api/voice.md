@@ -53,6 +53,7 @@ Parameter | Description | Required
 `answer_url` | The webhook endpoint where you provide the Nexmo Call Control Object that governs this Call. As soon as your user answers a call, Platform requests this NCCO from `answer_url`. Use `answer_method` to manage the HTTP method. | yes
 `answer_method` | A [GET] request. | no
 `event_url` | Platform sends event information asynchronously to this endpoint when status changes. For more information about the values sent, see Callback. | no
+`event_method` | 	The HTTP method used to send event information to `event_url`. The default value is [POST]. | no
 `machine_detection` | Configure the behavior when Nexmo detects that a destination is an answerphone. @[Possible values](/_modals/voice/api/calls/machine_detection.md). | no
 `length_timer` | Set the number of seconds that elapse before Nexmo hangs up after the Call state changes to *in_progress*. The default value is 7200, two hours. This is also the maximum value. | No that elapse before Nexmo hangs up after the Call state changes to *‘ringing’*. The default value is 60, the maximum value is 120. | No
 `ringing_timer` | Set the number of seconds that elapse before Nexmo hangs up after the Call state changes to ‘ringing’. The default value is 60, the maximum value is 120. | no
@@ -95,24 +96,25 @@ Key | Value
 -- | --
 `uuid` | The unique identifier for this call leg. The uuid is created when your call request is accepted by Nexmo. You use uuid in all requests for individual live calls. @[Possible values](/_modals/voice/api/calls/uuid.md).
 `conversation_uuid` | The unique identifier for the conversation this call leg is part of.
-`to` |
+`to` | The single or mixed collection of endpoint types you connected to. @[Possible values](/_modals/voice/guides/ncco-reference/endpoint.md).
+`from` | The endpoint you called from. Possible values are the same as `to`.
 `direction` | Possible values are `outbound` or `inbound`.
+`recording_url` | The URL to download a Call or Conversation recording from.
+`rate` | The price per minute for this call.
+`start_time` | The time the Call started in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2015-02-04 22:45:00`.
+`network` | The [Mobile Country Code Mobile Network Code (MCCMNC)](https://en.wikipedia.org/wiki/Mobile_country_code) for the carrier network used to make this Call.
 `status` | The status of the call. @[Possible values](/_modals/voice/api/calls/status.md).
+`price` | The total price charged for this Call.
+`duration` | The time elapsed for the Call to take place in seconds.
+`end_time` | The time the Call ended in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2015-02-04 22:46:00`.
 
 ### [GET] `https://api.nexmo.com/v1/calls`
 
-You use a GET request to retrieve the details about all your Calls.
+You use a [GET] request to retrieve the details about all your Calls.
 
-<ul class="nav nav-tabs">
-  <li class="active"><a data-toggle="tab" href="#call_list_php">PHP</a></li>
-  <li ><a data-toggle="tab" href="#call_list_python">Python</a></li>
-  <li ><a data-toggle="tab" href="#call_list_ruby">Ruby</a></li>
-	</ul>
-<div class="tab-content">
-	<div id="call_list_php" class="tab-pane fade in active">(nexcode: call_list.php lang: php product: voice_api)</div>
-	<div id="call_list_python" class="tab-pane fade">(nexcode: call_list.py lang: python product: voice_api)</div>
-	<div id="call_list_ruby" class="tab-pane fade">(nexcode: call_list.rb lang: ruby product: voice_api)</div>
-</div>
+```tabbed_examples
+source: '/_examples/api/voice/calls/get'
+```
 
 
 This request contains:
@@ -121,7 +123,7 @@ This request contains:
 * [Parameters](#craparameters)
 * [JWT](#jwt_minting)
 
-You receive the Call details in the [response](#craresponse),
+You receive the Call details in the [response](#craresponse).
 
 #### Base URL
 
@@ -134,43 +136,94 @@ All requests to retrieve details about all your Calls must contain:
 The following table shows the parameters you use to filter the information you retrieve about your Calls:
 
 Parameter | Description | Required
---- | --- | ---
-| status | Filter on the status of this Call.  Possible values are: <ul><li>started - Nexmo has stared the call.</li><li>ringing - the user's handset is ringing.</li><li>answered - the user has answered your call. </li><li>timeout - your user did not answer your call with <a href="#ringing_timer">ringing_timer</a>.</li><li>machine - Nexmo detected an answering machine.</li><li>completed - Nexmo has terminated this call.</li></ul>| No
-(vapi_pagination_request: nutin)
+-- | -- | --
+`status` | Filter on the status of this Call. @[Possible values](/_modals/voice/api/calls/status.md) | No
+`date_start` | Return the records that occurred after this point in time. Set this parameter in ISO_8601 format: `YYYY-MM-DDTHH:MM:SSZ`. For example, `2016-11-14T07:45:14Z`. | No
+`date_end` | Return the records that occurred before this point in time. Set this parameter in ISO_8601 format. | No
+`page_size` | Return this amount of records in the response. The default value is 10. | No
+`record_index` | Return `page_size` Calls from this index in the response. That is, if your request returns `300` Calls, set `record_index` to 5 in order to return Calls `50` to `59`. The default value is `0`. That is, the first `page_size` Calls. | No
+`order` | Either `asc` for ascending order (default) or `desc` for descending order. | No
+`conversation_uuid` | Return all the records associated with a specific Conversation. | No
 
 
 #### Response
 
 The JSON response looks like:
 
-(nexpayload:  call_list.json lang: json product: voice_api )
+```json
+{
+  "count": 100,
+  "page_size": 10,
+  "record_index": 20,
+  "_links": {
+    "self": {
+      "href": "/calls?page_size=10&record_index=20&order=asc"
+    }
+  },
+  "_embedded": {
+    "calls": [
+      {
+        "_links": {
+          "self": {
+            "href": "/calls/63f61863-4a51-4f6b-86e1-46edebcf9356"
+          }
+        },
+        "uuid": "63f61863-4a51-4f6b-86e1-46edebcf9356",
+        "conversation_uuid": "63f61863-4a51-4f6b-86e1-46edebio0123",
+        "to": [{
+          "type": "phone",
+          "number": "441632960960"
+        }],
+        "from": {
+          "type": "phone",
+          "number": "441632960961"
+        },
+        "status": "completed",
+        "direction": "outbound",
+        "rate": "0.39",
+        "price": "23.40",
+        "duration": "60",
+        "start_time": "2015-02-04T22:45:00Z",
+        "end_time": "2015-02-04T23:45:00Z",
+        "network": "65512"
+      },
+      ...
+    ]
+  }
+}
+```
 
 The 200 response contains the following keys and values:
 
-| Key | Value |
-| --- | --- |
-(vapi_collection_response: nutin)
-(appapi_links_response: nutin)
-| _embedded | The collections of JSON objects returned in this response.
-| calls | The collection of *page_size* Calls returned by your request. Each Call in this response has the parameters listed below.
-(vapi_pagination_response: nutin)
-(appapi_links_response: nutin)
+Key | Value
+-- | --
+`count` | The total number of records returned by your request.
+`page_size` | The amount of records returned in this response.
+`record_index` | Return `page_size` Calls from this index in the response. That is, if your request returns `300` Calls, set `record_index` to 5 in order to return Calls `50` to `59`. The default value is `0`. That is, the first `page_size` Calls.
+`_links` | A series of links between resources in this API in the http://stateless.co/hal_specification.html. @[Possible links](/_modals/voice/api/calls/links.md).
+`_embedded` | The collections of JSON objects returned in this response.
+`calls` | The collection of `page_size` calls returned by your request. Each call in this response has the parameters listed below.
+`uuid` | uuid	A unique identifier for this Call.
+`conversation_uuid` | The unique identifier for the conversation this call leg is part of.
+`to` | The single or mixed collection of endpoint types you connected to. @[Possible values](/_modals/voice/guides/ncco-reference/endpoint.md).
+`from` | The endpoint you are calling from. Possible value are the same as *to*.
+`status` | Filter on the status of this Call. @[Possible values](/_modals/voice/api/calls/status.md)
+`direction` | Possible values are `outbound` or `inbound`.
+`rate` | The price per minute for this Call.
+`price` | The total price charged for this Call.
+`duration` | The time elapsed for the Call to take place in seconds.
+`start_time` | The time the Call started in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2015-02-04 22:45:00`.
+`end_time` | The time the Call ended in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2015-02-04 22:46:00`.
+`network` | The [Mobile Country Code Mobile Network Code (MCCMNC)](https://en.wikipedia.org/wiki/Mobile_country_code) for the carrier network used to make this Call.
+
 
 ### [GET] `https://api.nexmo.com/v1/calls/{uuid}`
 
 You use a GET request to retrieve information about a single Call.
 
-<ul class="nav nav-tabs">
-  <li class="active"><a data-toggle="tab" href="#call_retrieve_php">PHP</a></li>
-  <li ><a data-toggle="tab" href="#call_retrieve_python">Python</a></li>
-  <li ><a data-toggle="tab" href="#call_retrieve_ruby">Ruby</a></li>
-	</ul>
-<div class="tab-content">
-	<div id="call_retrieve_php" class="tab-pane fade in active">(nexcode: call_retrieve.php lang: php product: voice_api)</div>
-	<div id="call_retrieve_python" class="tab-pane fade">(nexcode: call_retrieve.py lang: python product: voice_api)</div>
-	<div id="call_retrieve_ruby" class="tab-pane fade">(nexcode: call_retrieve.rb lang: ruby product: voice_api)</div>
-</div>
-
+```tabbed_examples
+source: '/_examples/api/voice/calls/show'
+```
 
 This request contains:
 
@@ -194,36 +247,36 @@ There are no parameters for this request.
 
 The JSON responses looks like:
 
-<ul class="nav nav-tabs">
-  <li class="active"><a data-toggle="tab" href="#callcomplete">Call completed</a></li>
-  <li><a data-toggle="tab" href="#callinprogress">Call in progress</a></li>
-	</ul>
-<div class="tab-content">
-	<div id="callcomplete" class="tab-pane fade in active">(nexcode: call_retrieve_single_response_complete.json lang: json product: voice_api)</div>
-  <div id="callinprogress" class="tab-pane fade">(nexcode: call_retrieve_single_response_inprogress.json lang: json product: voice_api)</div>
-</div>
+```tabbed_content
+source: '/_examples/api/voice/calls/show-response'
+```
 
 The 200 response contains the following keys and values:
 
 Key | Value
 -- | --
-(appapi_links_response: nutin)
-(vapi_pagination_response: nutin)
+`_links` | A series of links between resources in this API in the http://stateless.co/hal_specification.html. @[Possible links](/_modals/voice/api/calls/links.md).
+`uuid` | uuid	A unique identifier for this Call.
+`conversation_uuid` | The unique identifier for the conversation this call leg is part of.
+`to` | The single or mixed collection of endpoint types you connected to. @[Possible values](/_modals/voice/guides/ncco-reference/endpoint.md).
+`from` | The endpoint you are calling from. Possible value are the same as *to*.
+`status` | Filter on the status of this Call. @[Possible values](/_modals/voice/api/calls/status.md)
+`direction` | Possible values are `outbound` or `inbound`.
+`rate` | The price per minute for this Call.
+`price` | The total price charged for this Call.
+`duration` | The time elapsed for the Call to take place in seconds.
+`start_time` | The time the Call started in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2015-02-04 22:45:00`.
+`end_time` | The time the Call ended in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2015-02-04 22:46:00`.
+`network` | The [Mobile Country Code Mobile Network Code (MCCMNC)](https://en.wikipedia.org/wiki/Mobile_country_code) for the carrier network used to
+
 
 ### [PUT] `https://api.nexmo.com/v1/calls/{uuid}`
 
-You use a PUT request to modify an existing Call.
-<ul class="nav nav-tabs">
-  <li class="active"><a data-toggle="tab" href="#call_modify_php">PHP</a></li>
-  <li ><a data-toggle="tab" href="#call_modify_python">Python</a></li>
-  <li ><a data-toggle="tab" href="#call_modify_ruby">Ruby</a></li>
-	</ul>
-<div class="tab-content">
-	<div id="call_modify_php" class="tab-pane fade in active">(nexcode: call_modify.php lang: php product: voice_api)</div>
-	<div id="call_modify_python" class="tab-pane fade">(nexcode: call_modify.py lang: python product: voice_api)</div>
-	<div id="call_modify_ruby" class="tab-pane fade">(nexcode: call_modify.rb lang: ruby product: voice_api)</div>
-</div>
+You use a [PUT] request to modify an existing Call.
 
+```tabbed_examples
+source: '/_examples/api/voice/calls/update'
+```
 
 This request contains:
 
@@ -242,53 +295,85 @@ All requests to modify an existing Call must contain:
 
 The payload to modify a Call looks like.
 
-<ul class="nav nav-tabs">
-  <li class="active"><a data-toggle="tab" href="#call_modify_hangup">Hangup</a></li>
-	</ul>
-<div class="tab-content">
-	<div id="call_modify_hangup" class="tab-pane fade in active">(nexcode: call_modify_hangup.json lang: json product: voice_api)</div>
-</div>
+**Hangup**
+
+```json
+{
+  "action": "hangup"
+}
+```
 
 The following table shows the parameters you use to modify a Call:
 
 Parameter | Description | Required
---- | --- | ---
-action | Use one of the following options to modify *uuid*: <ul><li>hangup - end this Call.</li></ul> | Yes
+-- | -- | --
+`action` | Possible values are `hangup` | Yes
 
 
 #### Response
 
 The JSON response looks like:
 
-(nexpayload:  call_modify_one_active_response.json lang: json product: voice_api )
-
+```json
+{
+  "_links": {
+    "self": {
+      "href": "/calls/63f61863-4a51-4f6b-86e1-46edebcf9356"
+    }
+  },
+  "uuid": "63f61863-4a51-4f6b-86e1-46edebcf9356",
+  "conversation_uuid": "63f61863-4a51-4f6b-86e1-46edebio0123",
+  "to": [{
+    "type": "phone",
+    "number": "441632960960"
+  }],
+  "from": {
+    "type": "phone",
+    "number": "441632960961"
+  },
+  "status": "complete",
+  "direction": "outbound",
+  "rate": "0.39",
+  "price": "23.40",
+  "duration": "60",
+  "start_time": "2015-02-04T22:45:00Z",
+  "end_time": "2015-02-04T23:45:00Z",
+  "network": "65512"
+}
+```
 The 200 response contains the following keys and values:
 
-| Key | Value |
-| --- | --- |
-(appapi_links_response: nutin)
-(vapi_pagination_response: nutin)
+Key | Value
+-- | --
+`_links` | A series of links between resources in this API in the http://stateless.co/hal_specification.html. @[Possible links](/_modals/voice/api/calls/links.md).
+`uuid` | uuid	A unique identifier for this Call.
+`conversation_uuid` | The unique identifier for the conversation this call leg is part of.
+`to` | The single or mixed collection of endpoint types you connected to. @[Possible values](/_modals/voice/guides/ncco-reference/endpoint.md).
+`from` | The endpoint you are calling from. Possible value are the same as *to*.
+`status` | Filter on the status of this Call. @[Possible values](/_modals/voice/api/calls/status.md)
+`direction` | Possible values are `outbound` or `inbound`.
+`rate` | The price per minute for this Call.
+`price` | The total price charged for this Call.
+`duration` | The time elapsed for the Call to take place in seconds.
+`start_time` | The time the Call started in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2015-02-04 22:45:00`.
+`end_time` | The time the Call ended in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2015-02-04 22:46:00`.
+`network` | The [Mobile Country Code Mobile Network Code (MCCMNC)](https://en.wikipedia.org/wiki/Mobile_country_code) for the carrier network used to make this Call.
+
 
 ## Streams
+
 You use the following requests to start and stop streaming audio to an active Call:
 
-* <a href="#stream_put">PUT `https://api.nexmo.com/v1/calls/{uuid}/stream`</a> - stream an audio file to an active Call
-* <a href="#stream_delete">DELETE `https://api.nexmo.com/v1/calls/{uuid}/stream`</a> - stop streaming an audio file to an active Call
+* [PUT] `https://api.nexmo.com/v1/calls/{uuid}/stream` - stream an audio file to an active Call
+* [DELETE] `https://api.nexmo.com/v1/calls/{uuid}/stream` - stop streaming an audio file to an active Call
 
 ### [PUT] `https://api.nexmo.com/v1/calls/{uuid}/stream`
 
 You use a PUT request to stream an audio file to an active Call.
-<ul class="nav nav-tabs">
-  <li class="active"><a data-toggle="tab" href="#call_stream_php">PHP</a></li>
-  <li ><a data-toggle="tab" href="#call_stream_python">Python</a></li>
-  <li ><a data-toggle="tab" href="#call_stream_ruby">Ruby</a></li>
-	</ul>
-<div class="tab-content">
-	<div id="call_stream_php" class="tab-pane fade in active">(nexcode: call_stream.php lang: php product: voice_api)</div>
-	<div id="call_stream_python" class="tab-pane fade">(nexcode: call_stream.py lang: python product: voice_api)</div>
-	<div id="call_stream_ruby" class="tab-pane fade">(nexcode: call_stream.rb lang: ruby product: voice_api)</div>
-</div>
 
+```tabbed_examples
+source: '/_examples/api/voice/calls/streams/update'
+```
 
 This request contains:
 
@@ -310,36 +395,35 @@ All requests must contain:
 The following table shows the parameters you use to stream audio to a Call:
 
 Parameter | Description | Required
---- | --- | ---
-stream_url | An array containing a single URL to an mp3 or wav (16-bit) audio file to stream to the Call or Conversation. | Yes
-loop | The number of times the audio file at *stream_url* is repeated before the stream ends. The default value is 1. Set to 0 to loop infinitely. | No
+-- | -- | --
+`stream_url` | An array containing a single URL to an mp3 or wav (16-bit) audio file to stream to the Call or Conversation. | Yes
+`loop` | The number of times the audio file at *stream_url* is repeated before the stream ends. The default value is 1. Set to 0 to loop infinitely. | No
 
 #### Response
 
 The JSON response looks like:
 
-(nexpayload:  call_stream_put_response.json lang: json product: voice_api )
+```json
+{
+  "message": "Stream started",
+  "uuid": "ssf61863-4a51-ef6b-11e1-w6edebcf93bb"
+}
+```
 
 The 200 response contains the following keys and values:
 
-| Key | Value |
-|---- | --- |
-(vapi_stream_talk_dtmf_response: nutin)
+Key | Value
+-- | --
+`message` | A string explaining the state of this request.
+`uuid` | The unique id for this request.
 
 ### [DELETE] `https://api.nexmo.com/v1/calls/{uuid}/stream`
 
-You use a DELETE request to stop streaming audio to an active Call.
-<ul class="nav nav-tabs">
-  <li class="active"><a data-toggle="tab" href="#call_stream_stop_php">PHP</a></li>
-  <li ><a data-toggle="tab" href="#call_stream_stop_python">Python</a></li>
-  <li ><a data-toggle="tab" href="#call_stream_stop_ruby">Ruby</a></li>
-	</ul>
-<div class="tab-content">
-	<div id="call_stream_stop_php" class="tab-pane fade in active">(nexcode: call_stream_stop.php lang: php product: voice_api)</div>
-	<div id="call_stream_stop_python" class="tab-pane fade">(nexcode: call_stream_stop.py lang: python product: voice_api)</div>
-	<div id="call_stream_stop_ruby" class="tab-pane fade">(nexcode: call_stream_stop.rb lang: ruby product: voice_api)</div>
-</div>
+You use a [DELETE] request to stop streaming audio to an active Call.
 
+```tabbed_examples
+source: '/_examples/api/voice/calls/streams/destroy'
+```
 
 This request contains:
 
@@ -364,35 +448,35 @@ There are no parameters for this request.
 
 The JSON response looks like:
 
-(nexpayload:  call_stream_delete_response.json lang: json product: voice_api )
+```json
+{
+  "message": "Stream stopped",
+  "uuid": "ssf61863-4a51-ef6b-11e1-w6edebcf93bb"
+}
+```
 
 The 200 response contains the following keys and values:
 
-| Key | Value |
-|---- | --- |
-(vapi_stream_talk_dtmf_response: nutin)
+Key | Value
+-- | --
+`message` | A string explaining the state of this request.
+`uuid` | The unique id for this request.
 
 
 ## Talk
 
 You use the following requests to start and stop synthesized audio messages in an active Call:
 
-* <a href="#talk_put">PUT `https://api.nexmo.com/v1/calls/{uuid}/talk`</a> - send a synthesized speech message to an active Call
-* <a href="#talk_delete">DELETE `https://api.nexmo.com/v1/calls/{uuid}/talk`</a> - stop sending a synthesized speech message to an active Call
+* [PUT] `https://api.nexmo.com/v1/calls/{uuid}/talk` - send a synthesized speech message to an active Call
+* [DELETE] `https://api.nexmo.com/v1/calls/{uuid}/talk` - stop sending a synthesized speech message to an active Call
 
 ### [PUT] `https://api.nexmo.com/v1/calls/{uuid}/talk`
 
 You use a PUT request to send a synthesized speech message to an active Call.
-<ul class="nav nav-tabs">
-  <li class="active"><a data-toggle="tab" href="#call_talk_php">PHP</a></li>
-  <li ><a data-toggle="tab" href="#call_talk_python">Python</a></li>
-  <li ><a data-toggle="tab" href="#call_talk_ruby">Ruby</a></li>
-	</ul>
-<div class="tab-content">
-	<div id="call_talk_php" class="tab-pane fade in active">(nexcode: call_talk.php lang: php product: voice_api)</div>
-	<div id="call_talk_python" class="tab-pane fade">(nexcode: call_talk.py lang: python product: voice_api)</div>
-	<div id="call_talk_ruby" class="tab-pane fade">(nexcode: call_talk.rb lang: ruby product: voice_api)</div>
-</div>
+
+```tabbed_examples
+source: '/_examples/api/voice/calls/talk/update'
+```
 
 
 This request contains:
@@ -414,102 +498,37 @@ All requests must contain:
 
 The following table shows the parameters you use to send synthesized audio to a Call:
 
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr><td>text</td><td>A UTF-8 and URL encoded string of up to 1500 characters containing the message to be synthesized in the Call or Conversation. Each comma in <i>text</i> adds a short pause to the synthesized speech.</td><td>Yes </td></tr>
-<tr><td>voice_name</td><td markdown="1">
-The name of the voice used to deliver `text`. You use the `voice_name` that has the correct language, gender and accent for the message you are sending. For example, the default voice `Kimberly` is a female who speaks English with an American accent (en-US). Possible values for `voice_name` are:
-
-* Salli - en-US female
-* Joey - en-US male
-* Naja - da-DK femaleMads - da-DK male
-* Marlene - de-DE female
-* Hans - de-DE male
-* Nicole - en-AU female
-* Russell - en-AU male
-* Amy - en-GB female
-* Brian - en-GB male
-* Emma - en-GB female
-* Gwyneth - en-GB-WLS female
-* Geraint - en-GB-WLS male
-* Gwyneth - cy-GB-WLS female
-* Geraint - cy-GB-WLS male
-* Raveena - en-IN female
-* Chipmunk - en-US male
-* Eric - en-US male
-* Ivy - en-US female
-* Jennifer - en-US female
-* Justin - en-US male
-* Kendra - en-US female
-* Kimberly - en-US female
-* Conchita - es-ES female
-* Enrique - es-ES male
-* Penelope - es-US female
-* Miguel - es-US male
-* Chantal - fr-CA female
-* Celine - fr-FR female
-* Mathieu - fr-FR male
-* Dora - is-IS female
-* Karl - is-IS male
-* Carla - it-IT female
-* Giorgio - it-IT male
-* Liv - nb-NO female
-* Lotte - nl-NL female
-* Ruben - nl-NL male
-* Agnieszka - pl-PL female
-* Jacek - pl-PL male
-* Ewa - pl-PL female
-* Jan - pl-PL male
-* Maja - pl-PL female
-* Vitoria - pt-BR female
-* Ricardo - pt-BR male
-* Cristiano - pt-PT male
-* Ines - pt-PT female
-* Carmen - ro-RO female
-* Maxim - ru-RU male
-* Tatyana - ru-RU female
-* Astrid - sv-SE female
-* Filiz - tr-TR female
-
-</td><td>No</td></td></tr>
-<tr><td>loop</td><td>The number of times the audio file at <i>stream_url</i> is repeated before the stream ends. The default value is <i>1</i>. Set to <i>0</i> to loop infinitely.</td><td>No </td></tr>
-</tbody>
-</table>
-
+Parameter | Description | Required
+-- | -- | --
+`text` | A UTF-8 and URL encoded string of up to 1500 characters containing the message to be synthesized in the Call or Conversation. Each comma in text adds a short pause to the synthesized speech. | Yes
+`voice_name` | The name of the voice used to deliver text. You use the `voice_name` that has the correct language, gender and accent for the message you are sending. For example, the default voice Kimberly is a female who speaks English with an American accent (`en-US`). @[Possible values](/_modals/voice/guides/ncco-reference/voice-name.md). | No
+`loop` | The number of times the audio file at `stream_url` is repeated before the stream ends. The default value is `1`. Set to `0` to loop infinitely. | Yes
 
 #### Response
 
 The JSON response looks like:
 
-(nexpayload:  call_talk_put_response.json lang: json product: voice_api )
+```json
+{
+  "message": "Talk started",
+  "uuid": "ssf61863-4a51-ef6b-11e1-w6edebcf93bb"
+}
+```
 
 The 200 response contains the following keys and values:
 
-| Key | Value |
-|---- | --- |
-(vapi_stream_talk_dtmf_response: nutin)
+Key | Value
+-- | --
+`message` | A string explaining the state of this request.
+`uuid` | The unique id for this request.
 
 ### [DELETE] `https://api.nexmo.com/v1/calls/{uuid}/talk`
 
 You use a DELETE request to stop send synthesized audio to an active Call.
-<ul class="nav nav-tabs">
-  <li class="active"><a data-toggle="tab" href="#call_talk_stop_php">PHP</a></li>
-  <li ><a data-toggle="tab" href="#call_talk_stop_python">Python</a></li>
-  <li ><a data-toggle="tab" href="#call_talk_stop_ruby">Ruby</a></li>
-	</ul>
-<div class="tab-content">
-	<div id="call_talk_stop_php" class="tab-pane fade in active">(nexcode: call_talk_stop.php lang: php product: voice_api)</div>
-	<div id="call_talk_stop_python" class="tab-pane fade">(nexcode: call_talk_stop.py lang: python product: voice_api)</div>
-	<div id="call_talk_stop_ruby" class="tab-pane fade">(nexcode: call_talk_stop.rb lang: ruby product: voice_api)</div>
-</div>
 
+```tabbed_examples
+source: '/_examples/api/voice/calls/talk/destroy'
+```
 
 This request contains:
 
@@ -522,6 +541,7 @@ Information about the synthesized audio is sent to you in the:
 * [Response](#ctdresponse) - parameters sent synchronously when the synthesized audio stops.
 
 #### Base URL
+
 All requests must contain:
 
 * `https://api.nexmo.com/v1/calls/{uuid}/talk`
@@ -530,39 +550,37 @@ All requests must contain:
 
 There are no parameters for this request.
 
-
 #### Response
 
 The JSON response looks like:
 
-(nexpayload:  call_talk_delete_response.json lang: json product: voice_api )
+```json
+{
+  "message": "Talk stopped",
+  "uuid": "ssf61863-4a51-ef6b-11e1-w6edebcf93bb"
+}
+```
 
 The 200 response contains the following keys and values:
 
-| Key | Value |
-|---- | --- |
-(vapi_stream_talk_dtmf_response: nutin)
+Key | Value
+-- | --
+`message` | A string explaining the state of this request.
+`uuid` | The unique id for this request.
 
 ## DTMF
 
 You use the following requests to use DTMF in your Calls:
 
-* <a href="#dtmf_put">PUT `https://api.nexmo.com/v1/calls/{uuid}/dtmf`</a> - send Dual-tone multi-frequency(DTMF) tones to an active Call
+* [PUT] `https://api.nexmo.com/v1/calls/{uuid}/dtmf` - send Dual-tone multi-frequency(DTMF) tones to an active Call
 
 ### [PUT] `https://api.nexmo.com/v1/calls/{uuid}/dtmf`
 
 You use a PUT request to send DTMF tones to an active Call.
-<ul class="nav nav-tabs">
-  <li class="active"><a data-toggle="tab" href="#call_dtfm_php">PHP</a></li>
-  <li ><a data-toggle="tab" href="#call_dtfm_python">Python</a></li>
-  <li ><a data-toggle="tab" href="#call_dtfm_ruby">Ruby</a></li>
-	</ul>
-<div class="tab-content">
-	<div id="call_dtfm_php" class="tab-pane fade in active">(nexcode: call_dtfm.php lang: php product: voice_api)</div>
-	<div id="call_dtfm_python" class="tab-pane fade">(nexcode: call_dtfm.py lang: python product: voice_api)</div>
-	<div id="call_dtfm_ruby" class="tab-pane fade">(nexcode: call_dtfm.rb lang: ruby product: voice_api)</div>
-</div>
 
+```tabbed_examples
+source: '/_examples/api/voice/calls/dtmf/update'
+```
 
 This request contains:
 
@@ -584,30 +602,45 @@ All requests must contain:
 The following table shows the parameters you use to stream audio to a Call:
 
 Parameter | Description | Required
---- | --- | ---
-digits | The array of digits to send to the Call | Yes
+-- | -- | --
+`digits` | The array of digits to send to the Call | Yes
 
 #### Response
 
 The JSON response looks like:
 
-(nexpayload:  call_dtmf_put_response.json lang: json product: voice_api )
+```json
+{
+  "message": "DTMF sent",
+  "uuid": "ssf61863-4a51-ef6b-11e1-w6edebcf93bb"
+}
+```
 
 The 200 response contains the following keys and values:
 
-| Key | Value |
-|---- | --- |
-(vapi_stream_talk_dtmf_response: nutin)
+Key | Value
+-- | --
+`message` | A string explaining the state of this request.
+`uuid` | The unique id for this request.
 
-
-##Security and authentication
+## Security and authentication
 
 Each call you make to this API must have:
 
 * [Security](#security )
 * [Encoding](#encode)
 
-(security_encoding: somevalue)
+### Encoding
+
+You submit all requests with a [POST] or [GET] call using UTF-8 encoding and URL encoded values. The expected `Content-Type` for [POST] is `application/x-www-form-urlencoded`. For calls to a JSON endpoint, we also support:
+
+* `application/json`
+* `application/jsonrequest`
+* `application/x-javascript`
+* `text/json`
+* `text/javascript`
+* `text/x-javascript`
+* `text/x-json` when posting parameters as a JSON object.
 
 ## Generating a JWT
 
@@ -617,17 +650,34 @@ A JWT consists of a header, a payload and a signature in the structure xxxxx.yyy
 
 The following code examples show how to generate a JWT token:
 
-<ul class="nav nav-tabs">
-  <li class="active"><a data-toggle="tab" href="#application_jwt_mint_php">PHP</a></li>
-  <li ><a data-toggle="tab" href="#application_jwt_mint_python">Python</a></li>
-  <li ><a data-toggle="tab" href="#application_jwt_mint_ruby">Ruby</a></li>
-	</ul>
-<div class="tab-content">
-	<div id="application_jwt_mint_php" class="tab-pane fade in active">(nexcode: application_jwt_mint.php lang: php product: application_api)</div>
-	<div id="application_jwt_mint_python" class="tab-pane fade">(nexcode: application_jwt_mint.py lang: python product: application_api)</div>
-	<div id="application_jwt_mint_ruby" class="tab-pane fade">(nexcode: application_jwt_mint.rb lang: ruby product: application_api)</div>
-</div>
+```tabbed_examples
+source: '/_examples/api/voice/jwt/'
+```
 
 When you use JWTs for authentication, you must still follow [Security](#security ) and [Encoding](#encode).
 
-(nexmo_errors: somevalue)
+# Errors
+
+The following HTTP codes are supported:
+
+Code | Description
+-- | --
+`200` | Success
+`201` | Resource created
+`204` | No content
+`401` | Unauthorized
+`404` | Not found
+`429` | Rate limited
+`500` | Nexmo server error
+
+The error format is standardized to the `4xx`/`5xx` range with a code and a human readable explanation. For example, for an authentication failure.
+
+```json
+{
+  "type": "TYPE",
+  "error_title":"TITLE",
+  "invalid_parameters":{
+    "type":"Is required."
+  }
+}
+```

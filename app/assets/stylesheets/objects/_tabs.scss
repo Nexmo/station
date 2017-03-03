@@ -14,11 +14,12 @@
 .tabs {
   background-color: darken($atom, 5%);
   padding-left: 0;
-  border-radius: $radius-top;
   overflow: hidden;
   border: none;
+
+  border-radius: $radius-top;
   box-shadow: $shadow-soft;
-  border: 1px solid $mint;;
+  border: $border;
 
   .tabs-title {
     > a {

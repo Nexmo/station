@@ -79,7 +79,7 @@ ul, ol, p, h1, h2, h3, h4, h5, h6, table {
   code {
     padding: 0 5px;
     display: inline-block;
-    border: 1px solid $mint;
+    border: $border;
     color: $pink;
     background: $white;
     border-radius: 5px;
@@ -161,7 +161,7 @@ pre {
 blockquote {
   background: $white;
   box-shadow: $shadow-soft;
-  border: 1px solid $mint;
+  border: $shadow;
   border-left: 5px solid $pink;
   padding: $spacing * 0.75;
   font-style: italic;
@@ -185,7 +185,7 @@ blockquote {
 .reveal {
   border-radius: 3px;
   outline: none;
-  border: 1px solid $mint;
+  border: $border;
   box-shadow: $shadow;
   font-size: 0.85em;
 
