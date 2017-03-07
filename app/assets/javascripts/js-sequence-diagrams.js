@@ -7,7 +7,7 @@ $(document).on('turbolinks:load', function() {
     $('.diagram rect')
       .attr('rx', 3)
       .css('stroke-width', 1)
-      .attr('stroke', '#E4EEF3')
+      .attr('stroke', '#93B6C7')
 
     $('.diagram .actor text')
       .attr('fill', '#E6547B')
