@@ -13,7 +13,9 @@
   display: block;
   box-sizing: border-box;
   background: $white;
-  border: 1px solid #ccc;
+  border: $border;
+  shadow: $shadow-soft;
+  border-radius: $radius;
   margin-right: 20px;
   margin-bottom: 20px;
   padding: 20px;
