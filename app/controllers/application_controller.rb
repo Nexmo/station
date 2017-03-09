@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   rescue_from Errno::ENOENT, with: :no_document
   protect_from_forgery with: :exception
 
-  http_basic_authenticate_with name: ENV['USERNAME'], password: ENV['PASSWORD'], if: :need_authentication?
+  http_basic_authenticate_with name: ENV['USERNAME'], password: ENV['PASSWORD'], if: :requires_authentication?
 
   def not_found
     redirect = Redirector.find(request)
@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def need_authentication?
+  def requires_authentication?
     ENV['USERNAME'] && ENV['PASSWORD']
   end
 

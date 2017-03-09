@@ -65,6 +65,10 @@ table {
   tr:last-child td {
     border-bottom: none;
   }
+
+  code {
+    white-space: nowrap;
+  }
 }
 
 table, td, th { border-collapse:separate; }

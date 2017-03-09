@@ -28,4 +28,20 @@ class StaticController < ApplicationController
 
     render layout: 'documentation'
   end
+
+  def copyguide
+    # Read document
+    document = File.read("#{Rails.root}/app/views/static/copyguide.md")
+
+    # Parse frontmatter
+    @frontmatter = YAML.load(document)
+
+    @title = @frontmatter["title"]
+
+    @side_navigation = "api/copyguide"
+
+    @content = MarkdownPipeline.new.call(document)
+
+    render layout: 'documentation'
+  end
 end

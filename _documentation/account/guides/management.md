@@ -1,5 +1,5 @@
 ---
-title: Management
+title: Account management
 ---
 
 # Account management

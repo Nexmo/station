@@ -132,7 +132,7 @@ In practice, some carriers either do not send the delivery receipt or send a fak
 Before you start your messaging campaign:
 
 1. Check the [Country Specific Features](#country-specific-features) for the countries you are sending to.
-2. If the country you are sending to does not supply reliable DLRs, use [Conversion API](/messaging/sms/guides/conversion-api) so Nexmo has more data points to ensure the best routing.
+2. If the country you are sending to does not supply reliable DLRs, use [Conversion API](/messaging/conversion-api/overview) so Nexmo has more data points to ensure the best routing.
 
 ## Country specific features
 

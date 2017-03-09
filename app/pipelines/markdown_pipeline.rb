@@ -14,6 +14,7 @@ class MarkdownPipeline < Banzai::Pipeline
       CredentialsFilter,
       HeadingFilter,
       LabelFilter,
+      BreakFilter,
     )
   end
 end
