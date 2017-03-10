@@ -22,8 +22,16 @@
 
   ul {
     list-style: none;
-    overflow: hidden;
     padding-left: 0;
+  }
+
+  ul {
+    overflow: hidden;
+
+    &.has-label {
+      overflow: visible;
+      border-left: none;
+    }
   }
 
   .expanded {
@@ -37,6 +45,9 @@
 
   ul, li {
     margin: 0;
+  }
+
+  li {
     position: relative;
   }
 
