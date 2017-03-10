@@ -4,8 +4,7 @@
   line-height: 18px;
 
   > ul {
-    position: fixed;
-    width: 250px;
+    position: relative;
   }
 
   a {
@@ -62,6 +61,23 @@
       a {
         font-weight: 500;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .sidenav {
+    > ul {
+      position: relative;
+      width: auto;
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .sidenav {
+    > ul {
+      width: 20%;
     }
   }
 }

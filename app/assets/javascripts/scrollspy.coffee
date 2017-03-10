@@ -1,8 +1,24 @@
+startScroll = 125
+
 onScroll = ->
   currentPosition = $(document).scrollTop()
   delta = currentPosition + 20
 
   $activeHeading = undefined
+
+  if currentPosition > startScroll
+    $('.sidenav > ul').css({
+      'width': $('.sidenav').width(),
+      'top': 20,
+    })
+
+    $('.sidenav > ul').css('position', 'fixed')
+  else
+    $('.sidenav > ul').css({
+      'width': 'auto',
+      'position': 'relative',
+      'top': 0,
+    })
 
   $('#primary-content').find('h1,h2,h3,h4,h5,h6').each ->
     $heading = $(@)
@@ -21,5 +37,6 @@ onScroll = ->
       $nextHeading.addClass('active')
 
 $(document).ready ->
-  onScrollThrottled = _.throttle(onScroll, 20);
+  # onScrollThrottled = _.throttle(onScroll, 20);
+  onScrollThrottled = onScroll
   $(document).scroll(onScrollThrottled)

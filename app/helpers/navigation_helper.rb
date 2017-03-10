@@ -1,13 +1,17 @@
 module NavigationHelper
-  def navigation_from_content(content)
+  def navigation_from_content(content:, title: nil)
+    if title
+      content = "<h0 class='injected'>#{title}</h0>\n" + content
+    end
+
     document = build_document(content)
 
-    nodes = ['<ul>']
+    nodes = ['<ul class="js-scrollspy">']
     last_node = nil
 
     document.css('.reveal').remove
 
-    document.css('h2,h3,h4,h5,h6').each do |heading|
+    document.css('h0,h2,h3,h4,h5,h6').each do |heading|
       if last_node == nil || heading.name == last_node.name
         # Do nothing (cleaner than adding wrapping furterh conditions
       elsif heading.name >= last_node.name # e.g. h2 -> h3
@@ -26,6 +30,6 @@ module NavigationHelper
   private
 
   def build_document(content)
-    Nokogiri::HTML::DocumentFragment.parse(@content)
+    Nokogiri::HTML::DocumentFragment.parse(content)
   end
 end
