@@ -1,6 +1,6 @@
 startScroll = 125
 
-onScroll = ->
+onScrollOrResize = ->
   currentPosition = $(document).scrollTop()
   delta = currentPosition + 20
 
@@ -37,5 +37,6 @@ onScroll = ->
       $nextHeading.addClass('active')
 
 $(document).ready ->
-  onScrollThrottled = _.throttle(onScroll, 20);
-  $(document).scroll(onScrollThrottled)
+  onScrollOrResizeThrottled = _.throttle(onScrollOrResize, 20);
+  $(document).scroll(onScrollOrResizeThrottled)
+  $(document).resize(onScrollOrResizeThrottled)
