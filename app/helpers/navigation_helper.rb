@@ -20,7 +20,12 @@ module NavigationHelper
         nodes << '</li></ul>'
       end
 
-      nodes << "<li><a href='##{heading.text.parameterize}'>#{heading.text}</a>"
+      nodes << <<~HEREDOC
+        <li>
+          <a href="##{heading.text.parameterize}" data-scrollspy-id="#{heading['data-id']}">
+            #{heading.text}
+          </a>
+      HEREDOC
       last_node = heading
     end
     nodes << '</li></ul>'

@@ -29,8 +29,13 @@ onScrollOrResize = ->
 
 
   if $activeHeading && $activeHeading.length > 0
-    id = $activeHeading.attr('id')
-    $nextHeading = $(".js-scrollspy a[href='##{id}']")
+    scrollSpyId = $activeHeading.data('id')
+    $nextHeading = $(".js-scrollspy a[data-scrollspy-id='#{scrollSpyId}']")
+
+    if $nextHeading.length == 0
+      console.log 'no no no'
+      id = $activeHeading.attr('id')
+      $nextHeading = $(".js-scrollspy a[href='##{id}']")
 
     if $nextHeading.length > 0
       $(".js-scrollspy .active").removeClass('active')
