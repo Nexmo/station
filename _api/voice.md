@@ -108,7 +108,9 @@ Key | Value
 `duration` | The time elapsed for the Call to take place in seconds.
 `end_time` | The time the Call ended in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2015-02-04 22:46:00`.
 
-### [GET] `https://api.nexmo.com/v1/calls`
+### Retrieve information about all your Calls
+
+[GET] `https://api.nexmo.com/v1/calls`
 
 You use a [GET] request to retrieve the details about all your Calls.
 
@@ -216,8 +218,9 @@ Key | Value
 `end_time` | The time the Call ended in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2015-02-04 22:46:00`.
 `network` | The [Mobile Country Code Mobile Network Code (MCCMNC)](https://en.wikipedia.org/wiki/Mobile_country_code) for the carrier network used to make this Call.
 
+### Retrieve information about a single Call
 
-### [GET] `https://api.nexmo.com/v1/calls/{uuid}`
+[GET] `https://api.nexmo.com/v1/calls/{uuid}`
 
 You use a GET request to retrieve information about a single Call.
 
@@ -269,8 +272,9 @@ Key | Value
 `end_time` | The time the Call ended in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2015-02-04 22:46:00`.
 `network` | The [Mobile Country Code Mobile Network Code (MCCMNC)](https://en.wikipedia.org/wiki/Mobile_country_code) for the carrier network used to
 
+### Modify an existing Call
 
-### [PUT] `https://api.nexmo.com/v1/calls/{uuid}`
+[PUT] `https://api.nexmo.com/v1/calls/{uuid}`
 
 You use a [PUT] request to modify an existing Call.
 
@@ -308,7 +312,6 @@ The following table shows the parameters you use to modify a Call:
 Parameter | Description | Required
 -- | -- | --
 `action` | Possible values are `hangup` | Yes
-
 
 #### Response
 
@@ -362,12 +365,11 @@ Key | Value
 
 ## Streams
 
-You use the following requests to start and stop streaming audio to an active Call:
+You use the following requests to start and stop streaming audio to an active Call.
 
-* [PUT] `https://api.nexmo.com/v1/calls/{uuid}/stream` - stream an audio file to an active Call
-* [DELETE] `https://api.nexmo.com/v1/calls/{uuid}/stream` - stop streaming an audio file to an active Call
+### Stream an audio file to an active Call
 
-### [PUT] `https://api.nexmo.com/v1/calls/{uuid}/stream`
+[PUT] `https://api.nexmo.com/v1/calls/{uuid}/stream`
 
 You use a PUT request to stream an audio file to an active Call.
 
@@ -417,7 +419,9 @@ Key | Value
 `message` | A string explaining the state of this request.
 `uuid` | The unique id for this request.
 
-### [DELETE] `https://api.nexmo.com/v1/calls/{uuid}/stream`
+### Stop streaming an audio file to an active Call
+
+[DELETE] `https://api.nexmo.com/v1/calls/{uuid}/stream`
 
 You use a [DELETE] request to stop streaming audio to an active Call.
 
@@ -465,19 +469,17 @@ Key | Value
 
 ## Talk
 
-You use the following requests to start and stop synthesized audio messages in an active Call:
+You use the following requests to start and stop synthesized audio messages in an active Call.
 
-* [PUT] `https://api.nexmo.com/v1/calls/{uuid}/talk` - send a synthesized speech message to an active Call
-* [DELETE] `https://api.nexmo.com/v1/calls/{uuid}/talk` - stop sending a synthesized speech message to an active Call
+### Send a synthesized speech message to an active Call
 
-### [PUT] `https://api.nexmo.com/v1/calls/{uuid}/talk`
+[PUT] `https://api.nexmo.com/v1/calls/{uuid}/talk`
 
 You use a PUT request to send a synthesized speech message to an active Call.
 
 ```tabbed_examples
 source: '/_examples/api/voice/calls/talk/update'
 ```
-
 
 This request contains:
 
@@ -522,7 +524,9 @@ Key | Value
 `message` | A string explaining the state of this request.
 `uuid` | The unique id for this request.
 
-### [DELETE] `https://api.nexmo.com/v1/calls/{uuid}/talk`
+### Stop sending a synthesized speech message to an active Call
+
+[DELETE] `https://api.nexmo.com/v1/calls/{uuid}/talk`
 
 You use a DELETE request to stop send synthesized audio to an active Call.
 
@@ -570,11 +574,11 @@ Key | Value
 
 ## DTMF
 
-You use the following requests to use DTMF in your Calls:
+You use the following requests to use DTMF in your Calls.
 
-* [PUT] `https://api.nexmo.com/v1/calls/{uuid}/dtmf` - send Dual-tone multi-frequency(DTMF) tones to an active Call
+### Send Dual-tone multi-frequency (DTMF) tones to an active Call
 
-### [PUT] `https://api.nexmo.com/v1/calls/{uuid}/dtmf`
+[PUT] `https://api.nexmo.com/v1/calls/{uuid}/dtmf`
 
 You use a PUT request to send DTMF tones to an active Call.
 
