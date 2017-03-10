@@ -11,11 +11,14 @@ onScroll = ->
     return false if headingOffset > delta
     $activeHeading = $heading
 
-  $(".js-scrollspy .active").removeClass('active')
 
   if $activeHeading && $activeHeading.length > 0
     id = $activeHeading.attr('id')
-    $(".js-scrollspy a[href='##{id}']").addClass('active')
+    $nextHeading = $(".js-scrollspy a[href='##{id}']")
+
+    if $nextHeading.length > 0
+      $(".js-scrollspy .active").removeClass('active')
+      $nextHeading.addClass('active')
 
 $(document).ready ->
   onScrollThrottled = _.throttle(onScroll, 20);
