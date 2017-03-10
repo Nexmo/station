@@ -37,6 +37,5 @@ onScroll = ->
       $nextHeading.addClass('active')
 
 $(document).ready ->
-  # onScrollThrottled = _.throttle(onScroll, 20);
-  onScrollThrottled = onScroll
+  onScrollThrottled = _.throttle(onScroll, 20);
   $(document).scroll(onScrollThrottled)
