@@ -101,12 +101,12 @@ Key | Value
 `direction` | Possible values are `outbound` or `inbound`.
 `recording_url` | The URL to download a Call or Conversation recording from.
 `rate` | The price per minute for this call.
-`start_time` | The time the Call started in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2015-02-04 22:45:00`.
+`start_time` | The time the Call started in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2020-01-01 12:00:00`.
 `network` | The [Mobile Country Code Mobile Network Code (MCCMNC)](https://en.wikipedia.org/wiki/Mobile_country_code) for the carrier network used to make this Call.
 `status` | The status of the call. @[Possible values](/_modals/voice/api/calls/status.md).
 `price` | The total price charged for this Call.
 `duration` | The time elapsed for the Call to take place in seconds.
-`end_time` | The time the Call ended in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2015-02-04 22:46:00`.
+`end_time` | The time the Call ended in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2020-01-01 12:00:00`.
 
 ### Retrieve information about all your Calls
 
@@ -174,11 +174,11 @@ The JSON response looks like:
         "conversation_uuid": "63f61863-4a51-4f6b-86e1-46edebio0123",
         "to": [{
           "type": "phone",
-          "number": "441632960960"
+          "number": "447700900000"
         }],
         "from": {
           "type": "phone",
-          "number": "441632960961"
+          "number": "447700900001"
         },
         "status": "completed",
         "direction": "outbound",
@@ -214,8 +214,8 @@ Key | Value
 `rate` | The price per minute for this Call.
 `price` | The total price charged for this Call.
 `duration` | The time elapsed for the Call to take place in seconds.
-`start_time` | The time the Call started in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2015-02-04 22:45:00`.
-`end_time` | The time the Call ended in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2015-02-04 22:46:00`.
+`start_time` | The time the Call started in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2020-01-01 12:00:00`.
+`end_time` | The time the Call ended in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2020-01-01 12:00:00`.
 `network` | The [Mobile Country Code Mobile Network Code (MCCMNC)](https://en.wikipedia.org/wiki/Mobile_country_code) for the carrier network used to make this Call.
 
 ### Retrieve information about a single Call
@@ -268,8 +268,8 @@ Key | Value
 `rate` | The price per minute for this Call.
 `price` | The total price charged for this Call.
 `duration` | The time elapsed for the Call to take place in seconds.
-`start_time` | The time the Call started in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2015-02-04 22:45:00`.
-`end_time` | The time the Call ended in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2015-02-04 22:46:00`.
+`start_time` | The time the Call started in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2020-01-01 12:00:00`.
+`end_time` | The time the Call ended in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2020-01-01 12:00:00`.
 `network` | The [Mobile Country Code Mobile Network Code (MCCMNC)](https://en.wikipedia.org/wiki/Mobile_country_code) for the carrier network used to
 
 ### Modify an existing Call
@@ -328,11 +328,11 @@ The JSON response looks like:
   "conversation_uuid": "63f61863-4a51-4f6b-86e1-46edebio0123",
   "to": [{
     "type": "phone",
-    "number": "441632960960"
+    "number": "447700900000"
   }],
   "from": {
     "type": "phone",
-    "number": "441632960961"
+    "number": "447700900001"
   },
   "status": "complete",
   "direction": "outbound",
@@ -358,8 +358,8 @@ Key | Value
 `rate` | The price per minute for this Call.
 `price` | The total price charged for this Call.
 `duration` | The time elapsed for the Call to take place in seconds.
-`start_time` | The time the Call started in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2015-02-04 22:45:00`.
-`end_time` | The time the Call ended in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2015-02-04 22:46:00`.
+`start_time` | The time the Call started in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2020-01-01 12:00:00`.
+`end_time` | The time the Call ended in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2020-01-01 12:00:00`.
 `network` | The [Mobile Country Code Mobile Network Code (MCCMNC)](https://en.wikipedia.org/wiki/Mobile_country_code) for the carrier network used to make this Call.
 
 
@@ -666,7 +666,7 @@ The following HTTP codes are supported:
 
 Code | Description
 -- | --
-`200` | Success
+ | Success
 `201` | Resource created
 `204` | No content
 `401` | Unauthorized

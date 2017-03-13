@@ -13,11 +13,11 @@ menu_weight: 1
     "action": "connect",
     "eventUrl": ["https://example.com/events","https://example.com/backup"],
     "timeout": "45",
-    "from": "441632960977",
+    "from": "447700900007",
      "endpoint": [
       {
         "type": "phone",
-        "number": "441632960960"
+        "number": "447700900000"
       }
     ]
   }

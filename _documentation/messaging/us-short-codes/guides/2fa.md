@@ -49,4 +49,4 @@ To use the 2FA API you:
     source: '_examples/messaging/us-short-codes-api/generic/delivery-receipt'
     ```
 
-> Note: remember to return a `200` status code when you receive the delivery receipt.
+> Note: remember to return a  status code when you receive the delivery receipt.

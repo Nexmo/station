@@ -55,7 +55,7 @@ As well as your `api_key` and `api_secret`, the following table shows the parame
 Parameter | Description | Required
 -- | -- | --
 `cmd` | Set to `subscribe` | Yes
-`to` | The phone number of the user you are subscribing to your topic in [E.164](https://en.wikipedia.org/wiki/E.164). For example, `to=447525856424`. You can set one recipient only for each request. | Yes
+`to` | The phone number of the user you are subscribing to your topic in [E.164](https://en.wikipedia.org/wiki/E.164). For example, `to=447700900000`. You can set one recipient only for each request. | Yes
 `topic` | Your SNS Topic. For example, `topic=arn:aws:sns:us-east:1:1:000000000000:my_sms_channel` | Yes
 
 ### Subscribe Response
@@ -97,7 +97,7 @@ As well as your `api_key` and `api_secret`, the following table shows the parame
 Parameter | Description | Required
 -- | -- | --
 `cmd` | Set to `publish`. | Yes
-`to` | Leave this blank to publish to all subscribers. The phone number of the user you are publishing your topic in [E.164](https://en.wikipedia.org/wiki/E.164) to. For example, `to=447525856424`. You can set one recipient only for each request. | Yes
+`to` | Leave this blank to publish to all subscribers. The phone number of the user you are publishing your topic in [E.164](https://en.wikipedia.org/wiki/E.164) to. For example, `to=447700900000`. You can set one recipient only for each request. | Yes
 `topic` | Your SNS Topic. For example, `topic=arn:aws:sns:us-east:1:1:000000000000:my_sms_channel` | Yes
 `from` | An alphanumeric string giving your sender address. For example, `from=MyCompany20`. See our information in [Global messaging](/messaging/sms/guides/global-messaging). This is also called the SenderID. | Yes
 `message` | The message to publish to your users. | Yes

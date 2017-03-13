@@ -23,17 +23,17 @@ Enter the URL for Nexmo to make a request to when an SMS is received and then pr
 
 ## Payload
 
-When a message is received on your number you will receive a `GET` request on the specified Webhook URL. Below you can find an example of what to expect in the payload.
+When a message is received on your number you will receive a [GET] request on the specified Webhook URL. Below you can find an example of what to expect in the payload.
 
 **URL Parameters**
 
 Parameter | Description | Type | Example
 -- | -- | -- | --
-`msisdn` | The number that the message originated from | `string` | `441234567890`
-`to` | The number that the message was sent to | `string` | `441234567890`
+`msisdn` | The number that the message originated from | `string` | `447700900000`
+`to` | The number that the message was sent to | `string` | `447700900000`
 `messageId` | A sixteen character long message ID string. | `string` | `0A12345678BC90D`
 `text` | The body of the message | `string` | `Hello Nexmo!`
-`message-timestamp` | The timestamp that the message was received | `string` (`ISO 8601`) | `2020-01-01 14:00:00`
+`message-timestamp` | The timestamp that the message was received | `string` (`ISO 8601`) | `2020-01-01 12:00:00`
 
 **Headers**
 

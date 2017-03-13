@@ -38,11 +38,11 @@ Use the `record` action to record a Call or part of a Call:
   {
     "action": "connect",
     "eventUrl": ["https://example.com/events"],
-    "from":"441632960960",
+    "from":"447700900000",
     "endpoint": [
       {
         "type": "phone",
-        "number": "441632960961"
+        "number": "447700900001"
       }
     ]
   }
@@ -86,8 +86,8 @@ Possible return parameters are:
  -- | --
  `recording_uuid` | The unique ID for the Call. <br>**Note**: recording_uuid is not the same as the file uuid in *recording_url*.
  `recording_url` | The  URL to the file containing the Call recording. To download a recording, see [Record calls and conversations](voice/voice-api/recordings).
- `start_time`  | The time the recording started in the following format: `YYYY-MM-DD HH:MM:SS`. For example `2015-02-04 22:45:00`
- `end_time`  | The time the recording finished in the following format: `YYYY-MM-DD HH:MM:SS`. For example `2015-02-04 23:30:00`
+ `start_time`  | The time the recording started in the following format: `YYYY-MM-DD HH:MM:SS`. For example `2020-01-01 12:00:00`
+ `end_time`  | The time the recording finished in the following format: `YYYY-MM-DD HH:MM:SS`. For example `2020-01-01 12:00:00`
  `size` | The size of the recording at *recording_url* in bytes. For example: `603423`
  `conversation_uuid` | The unique ID for this Call.
 
@@ -157,11 +157,11 @@ The following NCCO examples show how to configure different types of connection:
     "action": "connect",
     "eventUrl": ["https://example.com/events"],
     "timeout": "45",
-    "from": "441632960960",
+    "from": "447700900000",
     "endpoint": [
       {
         "type": "phone",
-        "number": "441632960961",
+        "number": "447700900001",
         "dtmfAnswer": "2p02p"
       }
     ]
@@ -182,7 +182,7 @@ The following NCCO examples show how to configure different types of connection:
     "eventUrl": [
       "https://example.com/events"
     ],
-    "from": "441632960960",
+    "from": "447700900000",
     "endpoint": [
     {
       "type": "websocket",
@@ -210,7 +210,7 @@ You can provide a fallback for Calls that do not connect. To do this set the `ev
 [
   {
     "action": "connect",
-    "from": "441632960960",
+    "from": "447700900000",
     "timeout": 5,
     "eventType": "synchronous",
     "eventUrl": [
@@ -219,7 +219,7 @@ You can provide a fallback for Calls that do not connect. To do this set the `ev
     "endpoint": [
       {
         "type": "phone",
-        "number": "441632960961"
+        "number": "447700900001"
       }
     ]
   }
@@ -239,7 +239,7 @@ You can provide a fallback for Calls that do not connect. To do this set the `ev
     "eventUrl": [
       "https://example.com/events"
     ],
-    "from": "441632960960",
+    "from": "447700900000",
     "endpoint": [
       {
         "type": "sip",
@@ -261,11 +261,11 @@ You can provide a fallback for Calls that do not connect. To do this set the `ev
   {
     "action": "connect",
     "eventUrl": ["https://example.com/events"],
-    "from": "441632960960",
+    "from": "447700900000",
     "endpoint": [
       {
         "type": "phone",
-        "number": "441632960961"
+        "number": "447700900001"
       }
     ]
   }
@@ -395,7 +395,7 @@ The following HTTP codes are supported:
 
 Status | Description
 -- | --
-`200` | Success
+ | Success
 `201` | Resource created
 `204` | No content
 `401` | Unauthorised

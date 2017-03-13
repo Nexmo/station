@@ -23,6 +23,7 @@ To Number | `TO_NUMBER` | -
 Timestamp | `2020-01-01 12:00:00` | -
 Epoch | `1577880000` | -
 HTTP Method | ``[GET]`` or ``[POST]`` | [GET] or [POST]
+HTTP Response | `` `200 OK` `` or §§ `` `404 Not Found` `` | `200 OK` or §§ `404 Not Found`
 
 > *Note*: When there is a `$` proceeding the value can later be used to indicate
 > a values that we later will be dynamic. For example `$API_KEY` would become
@@ -75,5 +76,5 @@ n3xm0rocks
 TwoMenWentToMowWentTOMowAMeadowT
 12ab34cd
 44123456789
-2012-04-05 09:22:57
+2020-01-01 12:00:00
 ```

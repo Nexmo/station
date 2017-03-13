@@ -54,7 +54,7 @@ The following table shows the parameters you use in the request:
 Parameter | Description | Required
 -- | -- | --
 `from` | An alphanumeric string giving your sender address. For example, `from=MyCompany20`. See our information [Global messaging](messaging/sms-api/building-global-apps). This is also called the SenderID. | Yes.
-`to` | A single phone number in **international format**, that is [E.164](https://en.wikipedia.org/wiki/E.164). For example, `to=447525856424`. You can set one recipient only for each request. | Yes.
+`to` | A single phone number in **international format**, that is [E.164](https://en.wikipedia.org/wiki/E.164). For example, `to=447700900000`. You can set one recipient only for each request. | Yes.
 `type` | Default value is `text`. Possible values are: <ul><li>text - for plain text SMS, you must also set the *`text`* parameter.</li><li>binary - for binary SMS you must also set the **udh** and *`body`* parameters. Do not set the *`text`* parameter.</li><li>wappush - a [WAP Push](https://en.wikipedia.org/wiki/Wireless_Application_Protocol#WAP_Push). You must also set the `title` and `url` parameters. Do not set the `text` or `body` parameters.</a></li><li>unicode - SMS in [unicode](https://en.wikipedia.org/wiki/unicode) contain fewer characters than `text`. Only use *unicode* when your SMS must contain special characters. For more information, see [Encoding](messaging/sms-api/building-global-apps#encoding). </li><li>vcal - send a calendar event. You send your [vCal](https://en.wikipedia.org/wiki/VCal) encoded calendar event in the *vcal* parameter.</li><li>vcard - send a business card. You send your [vCard](https://en.wikipedia.org/wiki/VCard) encoded business card in the the *vcard* parameter. </li></ul>| No.
 `text` |  The SMS body. Messages where *type* is text (the default) are in UTF-8 with URL encoding. You send "Déjà vu" as a text (type=text) message as long as you encode it as D%C3%A9j%C3%A0+vu. You can see the full UTF-8 character set [here](http://www.fileformat.info/info/charset/UTF-8/list.htm). To test if your message can be URL encoded, use: <http://www.url-encode-decode.com/>. If you cannot find the character you want to send in these two references, you should use unicode. For more information, see [Encoding](messaging/sms-api/building-global-apps#encoding).   | For `text` type SMS.
 `status-report-req` | Set to `1` to receive a [Delivery Receipt](#delivery_receipt) (DLR). To receive the DLR, you have to either: <ul><li>Configure a [webhook endpoint](/account/guides/webhooks) in Dashboard.</li><li>Set the *callback* parameter.</li></ul> | No.
@@ -94,7 +94,7 @@ To ensure privacy, you must use HTTPS for all Nexmo API requests.
 
 #### Encoding
 
-You submit all requests with a `POST` or `GET` call using `UTF-8` encoding and URL encoded values. The expected Content-Type for `POST` is `application/x-www-form-urlencoded`. For calls to a JSON endpoint, we also support:
+You submit all requests with a [POST] or [GET] call using `UTF-8` encoding and URL encoded values. The expected Content-Type for [POST] is `application/x-www-form-urlencoded`. For calls to a JSON endpoint, we also support:
 
 * `application/json`
 * `application/jsonrequest`
@@ -258,14 +258,14 @@ Key | Value
 `err-code` | If the status is not accepted, this key will have one of the these @[possible values](_examples/api/us-short-codes/alerts/delivery-receipt/err-code.md)
 `price` | How much it cost to send this message.
 `scts` | The Coordinated Universal Time (UTC) when the DLR was recieved from the carrier. The scts is in the following format: YYMMDDHHMM. For example, 1101181426 is 2011 Jan 18th 14:26.
-`message-timestamp` | The time at UTC±00:00 when Nexmo started to push this Delivery Receipt to your webhook endpoint. The message-timestamp is in the following format YYYY-MM-DD HH:MM:SS. For example, 2012-04-05 09:22:57.
+`message-timestamp` | The time at UTC±00:00 when Nexmo started to push this Delivery Receipt to your webhook endpoint. The message-timestamp is in the following format YYYY-MM-DD HH:MM:SS. For example, 2020-01-01 12:00:00.
 `client-ref` | The client-ref you set in the request.
 
 ### Inbound messages
 
 If you rent one or more virtual numbers from Nexmo, inbound messages to that number are sent to your [webhook endpoint](/account/guides/webhooks). inbound messages comply to the SMS format, if a message sent to your virtual number is longer than maximum number of characters, *concat* is *true* and you receive the message in parts. Use the `concat-ref`, `concat-total` and `concat-part` parameters to reassemble the parts into the message.
 
-Inbound messages are sent using a `GET` or `POST` HTTP request to your [webhook endpoint](/account/guides/webhooks). When you receive an inbound message, you must send a `200 OK` response. If you do not send the `200 OK`, Nexmo resends the inbound message for the next 24 hours.
+Inbound messages are sent using a [GET] or [POST] HTTP request to your [webhook endpoint](/account/guides/webhooks). When you receive an inbound message, you must send a `200 OK` response. If you do not send the `200 OK`, Nexmo resends the inbound message for the next 24 hours.
 
 
 #### Keys and Values
@@ -278,7 +278,7 @@ type | Possible values are: <ul><li>text - standard text.</li><li>unicode - [URL
 to| The phone number the message was sent to. **This is your virtual number**.| Yes|
 msisdn| The phone number that this inbound message was sent from. | Yes|
 messageId| The Nexmo ID for this message.| Yes|
-<span style="white-space:nowrap;">message-timestamp</span>| The time at [UTC±00:00](https://en.wikipedia.org/wiki/UTC%C2%B100:00 target: blank) that Nexmo started to push this inbound message to your [webhook endpoint](/account/guides/webhooks). The *message-timestamp* is in the following format *YYYY-MM-DD HH:MM:SS*. For example, *2012-04-05 09:22:57*.| Yes|
+<span style="white-space:nowrap;">message-timestamp</span>| The time at [UTC±00:00](https://en.wikipedia.org/wiki/UTC%C2%B100:00 target: blank) that Nexmo started to push this inbound message to your [webhook endpoint](/account/guides/webhooks). The *message-timestamp* is in the following format *YYYY-MM-DD HH:MM:SS*. For example, *2020-01-01 12:00:00*.| Yes|
 timestamp | A unix timestamp representation of *message-timestamp*. | If your messages are [signed](messaging/signing-messages)|
 nonce | A random string that forms part of the signed set of parameters, it adds an extra element of unpredictability into the signature for the request. You use the *nonce* and *timestamp* parameters with your shared secret to calculate and validate the signature for inbound messages. | If your messages are [signed](messaging/signing-messages) |
 

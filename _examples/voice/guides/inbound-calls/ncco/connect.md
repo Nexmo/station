@@ -8,11 +8,11 @@ menu_weight: 1
     {
         "action": "connect",
         "eventUrl": ["https://example.com/events"],
-        "from": "441632960960",
+        "from": "447700900000",
         "endpoint": [
           {
             "type": "phone",
-            "number": "441632960961"
+            "number": "447700900001"
           }
         ]
     }

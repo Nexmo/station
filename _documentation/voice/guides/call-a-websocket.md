@@ -89,7 +89,7 @@ To connect an inbound PSTN call to the echo server using a WebSocket:
         "eventUrl":[
           "https://example.com/events"
         ],
-        "from":"441632960960",
+        "from":"447700900000",
         "endpoint":[
           {
             "type":"websocket",
