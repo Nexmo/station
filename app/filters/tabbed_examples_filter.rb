@@ -53,7 +53,7 @@ class TabbedExamplesFilter < Banzai::Filter
       highlighted_source = highlight(example[:source], example[:language])
 
       # Freeze to prevent Markdown formatting edge cases
-      highlighted_source = "FREEZESTART#{Base64.encode64(highlighted_source)}FREEZEEND"
+      highlighted_source = "FREEZESTART#{Base64.urlsafe_encode64(highlighted_source)}FREEZEEND"
 
       content << <<~HEREDOC
         <div class="tabs-panel #{index == 0 ? 'is-active' : ''}" id="#{example_uid}" data-language="#{example[:language]}">

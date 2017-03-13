@@ -96,19 +96,43 @@ To ensure privacy, you must use HTTPS for all Nexmo API requests.
 
 You submit all requests with a `POST` or `GET` call using `UTF-8` encoding and URL encoded values. The expected Content-Type for `POST` is `application/x-www-form-urlencoded`. For calls to a JSON endpoint, we also support:
 
-* application/json
-* application/jsonrequest
-* application/x-javascript
-* text/json
-* text/javascript
-* text/x-javascript
-* text/x-json when posting parameters as a JSON object.
+* `application/json`
+* `application/jsonrequest`
+* `application/x-javascript`
+* `text/json`
+* `text/javascript`
+* `text/x-javascript`
+* `text/x-json` when posting parameters as a JSON object.
 
 If you are using `GET`, you must set [`Content-Length`](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields#Request_fields) in the request header.
 
 ### Response
 
-#### Payload
+Each request you make using the SMS API returns a:
+
+[Response](#keys) - the status and price of your request to Nexmo in JSON or XML format.
+[Delivery receipt](#delivery_receipt) - the status and cost of the SMS sent by Nexmo to your user.
+
+> *Note*: you are only charged for correctly submitted outbound SMS. If status is not 0, you are not charged.
+
+The response is send in the api.txt file when you make a request from the browser.
+
+Each response comes:
+
+* In a specific [Format](#format)
+* With [Keys and values](#keys)
+
+### Format
+
+You set the response type using the [Base URL](#base). The following table shows example responses in JSON or XML:
+
+```tabbed_examples
+source: '/_examples/api/sms/sending/response-format'
+```
+
+### Keys and Values
+
+The response contains the following keys and values:
 
 Key |	Description |	Response type
 -- | -- | --
@@ -196,6 +220,46 @@ source: '_examples/api/sms/sending/successful-response-multi-part'
 source: '_examples/api/sms/sending/error-response'
 ```
 
+## Delivery Receipt
+
+Each request you make using the Nexmo API returns a:
+
+* Response - the status and cost of your request to Nexmo in JSON or XML format.
+* Delivery Receipt - if you have set a webhook endpoint, Nexmo forwards this delivery receipt to it. Carriers return a Delivery Receipt (DLR) to Nexmo to explain the delivery status of your message. If the message is not received, the delivery receipt explains why your message failed to arrive.
+
+The Delivery Receipt is sent using a [GET] HTTP request to your webhook endpoint. When you receive the DLR, you must send a 200 OK response. If you do not send the `200 OK`, Nexmo resends the delivery receipt for the next 72 hours.
+
+When you implement your response, ensure that your logic is not case-sensitive for the response codes.
+
+A Delivery Receipt has a:
+
+* Format
+* Keys and Values
+
+### Format
+
+The following code shows an example of a Delivery Receipt:
+
+```tabbed_content
+source: '_examples/api/us-short-codes/alerts/delivery-receipt-format'
+```
+
+### Keys and Values
+
+The Nexmo Delivery Receipt includes:
+
+Key | Value
+-- | --
+`to` | The SenderID you set in from in your request.
+`network-code` | The Mobile Country Code Mobile Network Code (MCCMNC) of the carrier this phone number is registered with.
+`messageId` | The Nexmo ID for this message.
+`msisdn` | The phone number this message was sent to.
+`status` | A code that explains where the message is in the delivery process., If status is not delivered check err-code for more information. If status is accepted ignore the value of err-code. @[Possible values](_examples/api/us-short-codes/alerts/delivery-receipt/status.md)
+`err-code` | If the status is not accepted, this key will have one of the these @[possible values](_examples/api/us-short-codes/alerts/delivery-receipt/err-code.md)
+`price` | How much it cost to send this message.
+`scts` | The Coordinated Universal Time (UTC) when the DLR was recieved from the carrier. The scts is in the following format: YYMMDDHHMM. For example, 1101181426 is 2011 Jan 18th 14:26.
+`message-timestamp` | The time at UTC±00:00 when Nexmo started to push this Delivery Receipt to your webhook endpoint. The message-timestamp is in the following format YYYY-MM-DD HH:MM:SS. For example, 2012-04-05 09:22:57.
+`client-ref` | The client-ref you set in the request.
 
 ### Inbound messages
 
@@ -205,6 +269,7 @@ Inbound messages are sent using a `GET` or `POST` HTTP request to your [webhook 
 
 
 #### Keys and Values
+
 The inbound message includes:
 
 Key | Value | Required

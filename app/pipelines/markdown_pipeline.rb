@@ -3,6 +3,7 @@ class MarkdownPipeline < Banzai::Pipeline
     super(
       # As Markdown
       FrontmatterFilter,
+      InlineEscapeFilter,
       TabbedExamplesFilter,
       TabbedContentFilter,
       ModalFilter,
@@ -10,11 +11,11 @@ class MarkdownPipeline < Banzai::Pipeline
       MarkdownFilter,
 
       # As HTML
-      UnfreezeFilter,
       CredentialsFilter,
       HeadingFilter,
       LabelFilter,
       BreakFilter,
+      UnfreezeFilter,
     )
   end
 end

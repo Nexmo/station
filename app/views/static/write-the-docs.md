@@ -21,6 +21,8 @@ API Secret | `$API_SECRET` | `API_SECRET`
 From Number | `FROM_NUMBER` | -
 To Number | `TO_NUMBER` | -
 Timestamp | `2020-01-01 12:00:00` | -
+Epoch | `1577880000` | -
+HTTP Method | ``[GET]`` or ``[POST]`` | [GET] or [POST]
 
 > *Note*: When there is a `$` proceeding the value can later be used to indicate
 > a values that we later will be dynamic. For example `$API_KEY` would become

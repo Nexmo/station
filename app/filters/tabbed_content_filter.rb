@@ -44,7 +44,7 @@ class TabbedContentFilter < Banzai::Filter
       markdownified_source = MarkdownPipeline.new.call(content[:source])
 
       # Freeze to prevent Markdown formatting edge cases
-      markdownified_source = "FREEZESTART#{Base64.encode64(markdownified_source)}FREEZEEND"
+      markdownified_source = "FREEZESTART#{Base64.urlsafe_encode64(markdownified_source)}FREEZEEND"
 
       body << <<~HEREDOC
         <div class="tabs-panel #{index == 0 ? 'is-active' : ''}" id="#{content_uid}">
