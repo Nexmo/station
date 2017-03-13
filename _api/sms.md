@@ -4,14 +4,14 @@ title: API Reference
 
 # API Reference
 
-This defines the SMS API:
+## Send an SMS
 
 * [Request](#request) - send an sms to your user.
 * [Response](#response) - ensure that your request to the SMS API was successful.
 * [Delivery Receipt](#delivery_receipt) - check that your user received your message.
 * [Inbound message](#inbound) - handle inbound messages from your user.
 
-## Request
+### Request
 
 An SMS API *request* looks like:
 
@@ -32,7 +32,7 @@ This request contains:
 * [Security](#security)
 * [Encoding](#encode)
 
-### Base URL
+#### Base URL
 
 All requests to the SMS API must contain `https://rest.nexmo.com/sms` followed by either `/json` or `/xml` depending on the response content type. Your base URL becomes either:
 
@@ -48,7 +48,7 @@ https://rest.nexmo.com/sms/json
 https://rest.nexmo.com/sms/xml
 ```
 
-### Parameters
+#### Parameters
 The following table shows the parameters you use in the request:
 
 Parameter | Description | Required
@@ -70,7 +70,7 @@ Parameter | Description | Required
 `url` | The URL your user taps to navigate to your website. | For `wappush` type SMS.
 `validity` | The availability period for a `wappush` type SMS in milliseconds. For example, validity=86400000. If you do not set this parameter, the default is 48 hours. | No.
 
-### Authentication information
+#### Authentication information
 
 If you are not using applications, you use the following parameters for calls to Nexmo API:
 
@@ -88,11 +88,11 @@ Parameter | Description
 `api_key` | Your Key. For example: `api_key=n3xm0rocks`
 `sig` | The hash of the request parameters in alphabetical order, a timestamp and the signature secret. For example: `sig=TwoMenWentToMowWentTOMowAMeadowT`
 
-### Security
+#### Security
 
 To ensure privacy, you must use HTTPS for all Nexmo API requests.
 
-### Encoding
+#### Encoding
 
 You submit all requests with a `POST` or `GET` call using `UTF-8` encoding and URL encoded values. The expected Content-Type for `POST` is `application/x-www-form-urlencoded`. For calls to a JSON endpoint, we also support:
 
@@ -106,9 +106,9 @@ You submit all requests with a `POST` or `GET` call using `UTF-8` encoding and U
 
 If you are using `GET`, you must set [`Content-Length`](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields#Request_fields) in the request header.
 
-## Response
+### Response
 
-### Payload
+#### Payload
 
 Key |	Description |	Response type
 -- | -- | --
@@ -129,7 +129,7 @@ Key |	Description |	Response type
 `error-text` | If an error occurred, this explains what happened. | JSON
 `errorText` | If an error occurred, this explains what happened. | XML
 
-### Error codes
+#### Error codes
 
 Code | Text | Meaning
 -- | -- | --
@@ -174,7 +174,7 @@ Code | Text
 `102` | `RESPONSE_INVALID_CAMPAIGN_SHORTCODE`
 `103` | `RESPONSE_INVALID_MSISDN`
 
-### Examples
+#### Examples
 
 This section gives examples of:
 
@@ -197,14 +197,14 @@ source: '_examples/api/sms/sending/error-response'
 ```
 
 
-## Inbound messages
+### Inbound messages
 
 If you rent one or more virtual numbers from Nexmo, inbound messages to that number are sent to your [webhook endpoint](/account/guides/webhooks). inbound messages comply to the SMS format, if a message sent to your virtual number is longer than maximum number of characters, *concat* is *true* and you receive the message in parts. Use the `concat-ref`, `concat-total` and `concat-part` parameters to reassemble the parts into the message.
 
 Inbound messages are sent using a `GET` or `POST` HTTP request to your [webhook endpoint](/account/guides/webhooks). When you receive an inbound message, you must send a `200 OK` response. If you do not send the `200 OK`, Nexmo resends the inbound message for the next 24 hours.
 
 
-### Keys and Values
+#### Keys and Values
 The inbound message includes:
 
 Key | Value | Required

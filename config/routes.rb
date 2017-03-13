@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get '/community', to: 'static#community'
 
   get '/styleguide', to: 'static#styleguide'
+  get '/write-the-docs', to: 'static#write_the_docs'
+
   match '/search', to: 'search#results', via: [:get, :post]
   match '/quicksearch', to: 'search#quicksearch', via: [:get, :post]
 
