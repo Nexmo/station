@@ -33,7 +33,7 @@ $negative: $red;
 $warning: $orange;
 $background: $ice;
 $text: $stone;
-$code-backgound: $atom;
+$code-background: $atom;
 
 $spacing: 20px;
 $radius: 3px;
@@ -50,6 +50,7 @@ $border: 1px solid darken($mint, 5%);
 @import "syntax";
 
 @import "objects/card";
+@import "objects/focus";
 @import "objects/github-cards";
 @import "objects/navigation";
 @import "objects/tabs";
