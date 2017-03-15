@@ -6,3 +6,5 @@
 /sms/quickstart: /messaging/sms/quickstarts/sending-an-sms
 /messaging/sms/guides: /messaging/sms/guides/us-short-codes/overview
 /sms/guides: /messaging/sms/guides/us-short-codes/overview
+
+/tools/cli: /tools
