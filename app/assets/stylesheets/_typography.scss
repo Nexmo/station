@@ -215,6 +215,10 @@ blockquote {
     font-size: 1em;
     margin-bottom: 5px;
   }
+
+  .tight {
+    margin: 0;
+  }
 }
 
 .label {
@@ -270,4 +274,8 @@ blockquote {
     .navigation & { color: mix($warning, $background, 80%); }
 
   }
+}
+
+.tight {
+  margin: 0;
 }
