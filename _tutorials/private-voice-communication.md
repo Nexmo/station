@@ -1,8 +1,10 @@
 ---
 title: Private voice communication
+products: voice
+description: For market place scenarios such as food delivery or taxi and passenger communications, if your users see each other's phone number and talk to each other without you knowing your application cannot control or track the communication threads. By implementing private communication with Voice API you ensure that your users cannot bypass the required or preferred communication workflows and audits.
 ---
 
-## Private voice communication
+# Private voice communication
 
 For market place scenarios such as food delivery or taxi and passenger communications, if your users see each other's phone number and talk to each other without you knowing your application cannot control or track the communication threads. By implementing private communication with Voice API you ensure that your users cannot bypass the required or preferred communication workflows and audits.
 
@@ -113,9 +115,13 @@ The following call:
 * [Maps phone numbers to real numbers](#map-phone-numbers)
 * [Sends an confirmation SMS](#send-confirmation-sms)
 
-(codsnippet: lib/VoiceProxy.js lang: javascript product: node-voice-proxy line_number: true  from_line: 89 to_line: 102)
+```code
+source: '_code/voice_proxy.js'
+from_line: 89
+to_line: 102
+```
 
-### Validate the phone numbers{#validate-phone-numbers}
+### Validate the phone numbers
 
 When your application users supply their phone numbers use Number Insight to ensure that they are valid. You can also see which country the phone numbers are registered in:
 
@@ -125,7 +131,7 @@ from_line: 104
 to_line: 113
 ```
 
-### Map phone numbers to real numbers{#map-phone-numbers}
+### Map phone numbers to real numbers
 
 Once you are sure that the phone numbers are valid, map each real number to a [virtual number](#provision-virtual-voice-numbers) and save the call:
 
@@ -189,7 +195,11 @@ The call direction can be identified as:
 * The `from` number is UserA real number and the `to` number is UserB virtual number
 * The `from` number is UserB real number and the `to` number is UserA virtual number
 
-(codsnippet: lib/VoiceProxy.js lang: javascript product: node-voice-proxy line_number: true  from_line: 172 to_line: 205)
+```code
+source: '_code/voice_proxy.js'
+from_line: 172
+to_line: 205
+```
 
 With the number looking performed all that's left to do is proxy the call.
 

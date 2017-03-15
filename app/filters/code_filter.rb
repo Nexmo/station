@@ -25,7 +25,7 @@ class CodeFilter < Banzai::Filter
 
       <<~HEREDOC
         <div class="focus" style="height: #{height}px;">
-          <div class="focus__lines">#{line_numbers.join('')}</div><pre class="highlight #{lexer.tag}" style="top: -#{top}px;"><code>#{highlighted_source}</code></pre>
+          <div class="focus__lines" style="top: -#{top}px;">#{line_numbers.join('')}</div><pre class="highlight #{lexer.tag}" style="top: -#{top}px;"><code>#{highlighted_source}</code></pre>
         </div>
       HEREDOC
     end

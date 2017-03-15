@@ -1,5 +1,7 @@
-$code-context: 88px;
+$code-line-height: 22px;
+$code-context: $code-line-height * 5;
 $code-background-dark: darken($code-background, 5%);
+
 .focus {
   overflow: hidden;
   position: relative;
@@ -12,10 +14,10 @@ $code-background-dark: darken($code-background, 5%);
   }
 
   &:after {
-    // content: " ";
+    content: " ";
     display: block;
-    // background: linear-gradient(to bottom, rgba($code-background, 0.6) 0%,rgba($code-background-dark, 0.8) 12%);
-    background: rgba($code-background-dark, 0.85);
+    background: linear-gradient(to bottom, rgba($code-background, 0.6) 0%,rgba($code-background-dark, 0.8) 12%);
+    // background: rgba($code-background-dark, 0.85);
     position: absolute;
     bottom: 0;
     right: 0;
@@ -24,10 +26,10 @@ $code-background-dark: darken($code-background, 5%);
   }
 
   &:before {
-    // content: " ";
+    content: " ";
     display: block;
-    // background: linear-gradient(to top, rgba($code-background, 0.6) 0%,rgba($code-background-dark, 0.8) 12%);
-    background: rgba($code-background-dark, 0.85);
+    background: linear-gradient(to top, rgba($code-background, 0.6) 0%,rgba($code-background-dark, 0.8) 12%);
+    // background: rgba($code-background-dark, 0.85);
     position: absolute;
     top: 0;
     left: 0;
@@ -44,7 +46,7 @@ $code-background-dark: darken($code-background, 5%);
   left: 0;
   z-index: 1;
   text-align: right;
-  width: 40px;
+  width: 35px;
   line-height: 22px;
   padding: $spacing 0;
 }
