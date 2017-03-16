@@ -19,6 +19,8 @@ By default all text SMS sent by Nexmo are in UTF-8 with URL encoding. A message 
 
 However, sending `Привет мир`, `שלום עולם` or `مرحبا بالعالم` requires more thought. Languages such as Arabic, Chinese, Korean, Japanese, or Cyrillic alphabet languages need the 16-bit characters available in unicode. You can also send messages in binary, wappush, vcal and vcard formats.
 
+### Maximum number of characters
+
 The maximum number of characters you can fit into a single message depends on the encoding you are using:
 
 * 7-bit encoding such as latin-1/9 and GSM8 - 160 characters.
@@ -77,8 +79,7 @@ source: '_examples/messaging/chinese-parts'
 
 You are charged for each SMS sent as part of a concatenated SMS.
 
-If you rent one or more virtual numbers from Nexmo, inbound SMS to that number are sent to your webhook endpoint using either GET or POST. Inbound messages comply with the SMS format. If an SMS sent to your virtual number is longer than the [maximum number of characters]
-(#maxchars) for an individual SMS, you should receive the concatenated message in SMS parts. Use the `concat-ref`, `concat-total` and `concat-part` parameters to reassemble the parts into the message. However, you can only receive inbound concatenated SMS if the carrier your user is sending through supports them. If the carrier who sent the inbound SMS does not support concatenation, a workaround is to consider messages coming from the same number within a close time period as concatenated.
+If you rent one or more virtual numbers from Nexmo, inbound SMS to that number are sent to your webhook endpoint using either GET or POST. Inbound messages comply with the SMS format. If an SMS sent to your virtual number is longer than the [maximum number of characters](#maximum-number-of-characters) for an individual SMS, you should receive the concatenated message in SMS parts. Use the `concat-ref`, `concat-total` and `concat-part` parameters to reassemble the parts into the message. However, you can only receive inbound concatenated SMS if the carrier your user is sending through supports them. If the carrier who sent the inbound SMS does not support concatenation, a workaround is to consider messages coming from the same number within a close time period as concatenated.
 
 Before you start your messaging campaign:
 
@@ -90,8 +91,8 @@ Before you start your messaging campaign:
 
 3. Check in the [Country Specific Features](#country-specific-features) if concatenated messages are supported in the country you are sending to. If they are not:
 
-  * Keep your message concise. Calculate the number of characters you can send in a message for your character set.
-  * Configure your app for the time period workaround for inbound messages.
+    * Keep your message concise. Calculate the number of characters you can send in a message for your character set.
+    * Configure your app for the time period workaround for inbound messages.
 
 ## Custom senderID
 
