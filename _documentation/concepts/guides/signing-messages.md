@@ -1,9 +1,9 @@
 ---
-title: Signing messages
+title: Signing requests
 description: Add an extra layer of security by sending and receiving signed requests.
 ---
 
-# Signing messages
+# Signing requests
 
 Signatures validate the authenticity of the person who interacts with Nexmo.
 
@@ -33,7 +33,7 @@ https://rest.nexmo.com/sms/xml?api_key=API_KEY&from=Nexmo&to=447700900000&type=t
 
 The workflow for using signed messages is:
 
-![Signing messages workflow](/assets/images/workflow_call_api_outbound.svg)
+![Signing requests workflow](/assets/images/workflow_call_api_outbound.svg)
 
 1. Create a signed [request](/api/sms#request) to send an SMS.
 2. Check the [response codes](/api/sms#status-codes) and ensure that you sent the request correctly.

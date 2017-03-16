@@ -1,9 +1,9 @@
 ---
-title: Accept inbound calls
+title: Receive a phone call
 navigation_weight: 2
 ---
 
-# Accept inbound calls
+# Receive a phone call
 
 **Content for this page has not yet been migrated. This is a placeholder.**
 

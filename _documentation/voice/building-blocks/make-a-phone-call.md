@@ -1,9 +1,9 @@
 ---
-title: Make an outbound call
+title: Make a phone call
 navigation_weight: 1
 ---
 
-# Make an outbound call
+# Make a phone call
 
 **Content for this page has not yet been migrated. This is a placeholder.**
 

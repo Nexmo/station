@@ -2,9 +2,11 @@
 /sms: /messaging/sms/overview
 /voice: /voice/overview
 
-/messaging/sms/quickstart: /messaging/sms/quickstarts/sending-an-sms
-/sms/quickstart: /messaging/sms/quickstarts/sending-an-sms
+/messaging/sms/building-blocks: /messaging/sms/building-blocks/send-an-sms
+/sms/building-blocks: /messaging/sms/building-blocks/send-an-sms
 /messaging/sms/guides: /messaging/sms/guides/us-short-codes/overview
 /sms/guides: /messaging/sms/guides/us-short-codes/overview
+
+/voice/building-blocks: /voice/building-blocks/make-a-phone-call
 
 /tools/cli: /tools

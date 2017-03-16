@@ -1,5 +1,5 @@
 ---
-title: Sending an SMS
+title: Send an SMS
 description: How to send an SMS with the Nexmo SMS API
 navigation_weight: 1
 ---

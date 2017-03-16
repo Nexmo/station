@@ -44,8 +44,8 @@ source: '/_examples/messaging/sending-an-sms/basic'
 
 ## SMS API Features
 
-* [Sending an SMS](/messaging/sms/quickstarts/sending-an-sms)
-* [Receiving an SMS](/messaging/sms/quickstarts/receiving-an-sms)
+* [Sending an SMS](/messaging/sms/building-blocks/send-an-sms)
+* [Receiving an SMS](/messaging/sms/building-blocks/receiving-an-sms)
 
 ## References
 
