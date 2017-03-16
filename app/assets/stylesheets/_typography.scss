@@ -199,8 +199,13 @@ blockquote {
 
 
 #primary-content {
+  h1, h2, h3, h4, h5, h6 {
+    color: darken($text, 5%);
+  }
+
   h2, h3, h4, h5, h6 {
     margin-top: 40px;
+    font-weight: 600;
   }
 
   li ul, li ol {
