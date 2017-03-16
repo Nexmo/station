@@ -90,8 +90,20 @@ class TabbedExamplesFilter < Banzai::Filter
     end
   end
 
+  def language_to_lexer_name(language)
+    language.downcase!
+    case language.downcase
+    when 'curl'; 'sh'
+    when 'node'; 'javascript'
+    when 'node.js'; 'javascript'
+    when '.net'; 'c#'
+    when 'ncco'; 'json'
+    else; language
+    end
+  end
+
   def language_to_lexer(language)
-    language = language.downcase
+    language = language_to_lexer_name(language)
     Rouge::Lexer.find(language) || Rouge::Lexer.find('text')
   end
 end
