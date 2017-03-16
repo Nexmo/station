@@ -6,6 +6,130 @@ title: Write the docs
 
 This document provides a guide for writing documentation for Nexmo Developer.
 
+## How should I structure documents?
+
+The NDP content should be designed to be clear, concise and consistent in that order. Exceptions can be made to break consistency where it makes sense, particularly in scenarios where the content would be unnecessary verbose or the structures outlined in this guide are unsuited to material. This guide outlines what we consider to be best practice for our documentation, feel free to open an pull request if you feel as though the advise could be improved upon.
+
+### Structure
+
+The NDP is structured by context and by product. The four main sections of the NDP are:
+
+*Documentation*
+
+This section hosts the bulk of the written content for the NDP. The content is structured by products each of which have the following four sections:
+
+  * [Overview](#overview)
+  * [Guides](#guides)
+  * [Building Blocks](#building-blocks)
+  * [Tutorials](#tutorials)
+
+*API Reference*
+
+The future structure for the API Reference is still under consideration. At this time the content represents a migration from docs.nexmo.com.
+
+*SDKs & Tools*
+
+A section that outlines our SDKs, Tools, Libraries etc. The repo README's should speak for themselves so the content for this page is deliberately very bare.
+
+*Community*
+
+As it develops the community section will be host for 'cool hacks', open source projects that use Nexmo, the events that we are present at or support and links to posts that the community have written about Nexmo.
+
+### Content guides
+
+Different types of content have different requirements, the following should be used as a guideline and broken only when good rational is provided to do so.
+
+#### Overviews
+
+Overview pages are the first pages you reach when you select a product. They serve to support the user to understand the product and direct them to the most appropriate resources.
+
+*Opening*
+
+Explain what the product is and with bullet points what you can do with the product.
+
+> Note: The opening has no heading as the `Overview` heading serves this purpose.
+
+*Contents*
+
+This should be a bulleted outline the contents of the current page, each item should be an anchor link to a page heading.
+
+*Concepts*
+
+It's important to make sure that the user has a grasp of subjects that are common throughout the product you are documenting. Concepts introduces these in brief and links off to further reading where appropriate.
+
+*Getting started*
+
+This section is designed to prove to the user the product does what it claims to. This could be an interactive demonstration or an opinionated & basic getting started guide.
+
+*Further reading*
+
+Further reading isn't a section itself but rather contains links off to the product Building Blocks, Guides, API references & Tutorials.
+
+#### Guides
+
+The guides provide an in depth look into an actionable task such as "How do I send an SMS programmatically". The guides support the user through this problem in an opinionated, isolated way that follows best practice.
+
+*Opening*
+
+Explain what the problem is and outline the steps that you'll take to overcome it in bullet points.
+
+> Note: The opening has no heading as the heading should serve this purpose.
+
+*Guide*
+
+Every guide has its own problem to solve. Use headings and sections that align with the steps one would take to overcome the problem.
+
+*Conclusion*
+
+Point to resources:
+
+* Tutorials - More in depth guides to support the user even further
+* API Reference - Given that the guide is opinionated, provide this as a resource to allow the user to see what other options are available to them.
+* Other relevant guides - Some guides are closely aligned, for example "Send an SMS" should suggest "Receive a delivery receipt" as further reading.
+
+Reflect on:
+
+* What you have done
+* How you could extend on what you have learnt
+
+#### Building Blocks
+
+Building Blocks are used as a quick reference of how to so something specific. They are aimed at users who are somewhat familiar with the product and require a 'snippet' of code or supplementary information to support them during development phase.
+
+*Further reading*
+
+Point to resources:
+
+* Guide - The same subject with more supporting content
+* API Reference - Provide this as a resource to allow the user to see what other options are available to them
+
+#### Tutorials
+
+Tutorials are complete example of how to build something practical. They are step by step and self contained providing all necessary content inline and may combine many different products.
+
+*Opening*
+
+Explain what the problem is and outline the steps that you'll take to overcome it in bullet points.
+
+> Note: The opening has no heading as the heading should serve this purpose.
+
+*Guide*
+
+Every tutorial has its own problem to solve. Use headings and sections that align with the steps one would take to overcome the problem.
+
+*Conclusion*
+
+Reflect on:
+
+* What you have done
+* How you could extend on what you have learnt
+
+Point to resources:
+
+* Guides - Guides covering the actions used in the tutorial.
+* API Reference - Given that the tutorial is opinionated, provide this as a resource to allow the user to see what other options are available to them.
+* Other relevant tutorials.
+
 ## What should I use in place of variables?
 
 When working with keys, phone numbers or accounts we should always be clear
@@ -76,5 +200,4 @@ n3xm0rocks
 TwoMenWentToMowWentTOMowAMeadowT
 12ab34cd
 44123456789
-2020-01-01 12:00:00
 ```
