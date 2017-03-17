@@ -60,18 +60,22 @@ h1, h2, h3, h4 {
 
 h1 {
   font-size: 36px;
+  line-height: 36px;
 }
 
 h2 {
   font-size: 24px;
+  line-height: 24px;
 }
 
 h3 {
   font-size: 20px;
+  line-height: 20px;
 }
 
 h4 {
   font-size: 18px;
+  line-height: 18px;
 }
 
 p {
@@ -201,6 +205,7 @@ blockquote {
 #primary-content {
   h1, h2, h3, h4, h5, h6 {
     color: darken($text, 5%);
+    position: relative;
   }
 
   h2, h3, h4, h5, h6 {
@@ -283,4 +288,24 @@ blockquote {
 
 .tight {
   margin: 0;
+}
+
+.heading-permalink {
+  position: absolute;
+  padding: 5px 8px;
+  left: -28px;
+  top: -4px;
+  font-size: 15px;
+  border: none;
+  color: $stone-light;
+  opacity: 0;
+  transition: opacity 100ms ease-in-out;
+
+  &:hover {
+    color: $blue;
+  }
+
+  h1:hover &, h2:hover &, h3:hover &, h4:hover &, h5:hover &, h6:hover & {
+    opacity: 1;
+  }
 }

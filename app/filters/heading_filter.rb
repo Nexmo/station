@@ -4,9 +4,17 @@ class HeadingFilter < Banzai::Filter
     @headings = []
 
     document.css('h1,h2,h3,h4,h5,h6').each do |heading|
-      heading['id'] = parameterized_heading_without_collision(heading)
+      parameterized_heading = parameterized_heading_without_collision(heading)
+      heading['id'] = parameterized_heading
       heading['data-id'] = SecureRandom.hex
+
+      heading.prepend_child <<~HEREDOC
+        <a href="##{parameterized_heading}" class="heading-permalink">
+          <i class="fa fa-link"></i>
+        </a>
+      HEREDOC
     end
+
     @document.to_html
   end
 
