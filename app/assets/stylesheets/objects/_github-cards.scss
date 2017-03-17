@@ -10,6 +10,7 @@
 }
 
 .github-card {
+  position: relative;
   display: block;
   box-sizing: border-box;
   background: $white;
@@ -44,4 +45,10 @@
 
 .github-card__meta > i {
   font-size: 16px;
+}
+
+.github-card__badge {
+  position: absolute;
+  top: 20px;
+  right: 10px;
 }
