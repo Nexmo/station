@@ -6,11 +6,13 @@ class StaticController < ApplicationController
 
   def tools
     @navigation = :tools
+    render layout: 'page'
   end
 
   def community
     @navigation = :community
     @upcoming_events = Event.upcoming
+    render layout: 'page'
   end
 
   def styleguide
