@@ -18,6 +18,7 @@ class MarkdownPipeline < Banzai::Pipeline
       LabelFilter,
       BreakFilter,
       UnfreezeFilter,
+      ExternalLinkFilter,
     )
   end
 end
