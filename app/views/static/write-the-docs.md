@@ -61,6 +61,10 @@ It's important to make sure that the user has a grasp of subjects that are commo
 
 This section is designed to prove to the user the product does what it claims to. This could be an interactive demonstration or an opinionated & basic getting started guide.
 
+*Features*
+
+Now that the user has an understanding of what the product it's important we tell them what are the capabilities of the product and with links off to guides.
+
 *Further reading*
 
 Further reading isn't a section itself but rather contains links off to the product Building Blocks, Guides, API references & Tutorials.
