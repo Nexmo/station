@@ -5,6 +5,9 @@ class ExternalLinkFilter < Banzai::Filter
     document.css('a').each do |link|
       if link['href'].start_with? "http"
         link['target'] = '_blank'
+        link.add_child <<~HEREDOC
+          &nbsp;<i class="fa fa-external-link"></i>
+        HEREDOC
       end
     end
 
