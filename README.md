@@ -8,6 +8,7 @@ Nexmo Developer is a platform hosting the Nexmo documentation, API reference, SD
 
 - Ruby 2.4.0 + bundler
 - Postgresql
+- Elasticsearch 5.2.x
 
 ### Setup
 
@@ -31,6 +32,20 @@ $ rails server
 
 - Dynamic content for community section
 - Interactive examples of the Nexmo APIs
+
+## Pulling in code from other repos
+
+Some examples require code from repos such as [nexmo-community/nexmo-ruby-quickstart](https://github.com/nexmo-community/nexmo-ruby-quickstart) these repos can be defined in `config/repos.yml` as such:
+
+```
+nexmo-community/nexmo-ruby-quickstart: 'master'
+```
+
+The code can then be pulled into the `.repo` directory with the following command:
+
+```
+$ rake repos:pull
+```
 
 ## Contributing
 
