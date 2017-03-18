@@ -60,6 +60,9 @@ gem 'elasticsearch'
 # Administrate is heavily inspired by projects like Rails Admin and ActiveAdmin, but aims to provide a better user experience for site admins
 gem 'administrate', '~> 0.4.0'
 
+# Ruby/ProgressBar is a text progress bar library for Ruby.
+gem 'ruby-progressbar'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
