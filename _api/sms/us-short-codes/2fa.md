@@ -1,6 +1,7 @@
 ---
 title: API reference
 description: Reference guide for Two-factor Authentication API.
+api: 2FA
 ---
 
 # API reference
@@ -140,9 +141,9 @@ Key |	Description |	Response type
 Each [request](#request) you make using the Short Codes API returns a:
 
 * [response](#keys) - the status and cost of your request to Nexmo in [JSON or XML](#base) format.
-* Delivery receipt - if you have set a [webhook endpoint](messaging/setup-callbacks), Nexmo forwards this delivery receipt to it. Carriers return a delivery receipt (DLR) to Nexmo to explain the delivery status of your message. If the message is not received, the delivery receipt explains why your message failed to arrive.
+* Delivery receipt - if you have set a [webhook endpoint](/concepts/guides/webhooks), Nexmo forwards this delivery receipt to it. Carriers return a delivery receipt (DLR) to Nexmo to explain the delivery status of your message. If the message is not received, the delivery receipt explains why your message failed to arrive.
 
-The delivery receipt is sent using a [GET] HTTP request to your [webhook endpoint](messaging/setup-callbacks). When you receive the DLR, you must send a `200 OK` response. If you do not send the `200 OK`, Nexmo resends the delivery receipt for the next 72 hours.
+The delivery receipt is sent using a [GET] HTTP request to your [webhook endpoint](/concepts/guides/webhooks). When you receive the DLR, you must send a `200 OK` response. If you do not send the `200 OK`, Nexmo resends the delivery receipt for the next 72 hours.
 
 A delivery receipt has a:
 

@@ -9,12 +9,12 @@ A Nexmo Call Control Object (NCCO) is a JSON array of actions that you use to co
 
 This section tells you:
 
-* [About Nexmo Call Control Objects ](#about)
-* [Creating a custom Call or Conversation for each user](#controlling)
+* [About Nexmo Call Control Objects ](#about-nexmo-call-control-objects)
+* [Creating a custom Call or Conversation for each user](#creating-a-custom-call-or-conversation-for-each-user)
 
 ## About Nexmo Call Control Objects
 
-The Call event model is asynchronous. A static or dynamically created NCCO script provides the business logic for your Call. When a Call starts, Nexmo makes a synchronous request to your webhook endpoint at [answer_url](voice/voice-api/api-reference#answer_url) and retrieves the [NCCO object](#controlling) that controls the Call.
+The Call event model is asynchronous. A static or dynamically created NCCO script provides the business logic for your Call. When a Call starts, Nexmo makes a synchronous request to your webhook endpoint at [answer_url](/api/voice#answer_url) and retrieves the [NCCO object](#controlling) that controls the Call.
 
 The general schema of an NCCO is:
 

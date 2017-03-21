@@ -7,8 +7,8 @@ description: Record the audio from a Call or Conversation.
 
 Recordings are contextual, they are attached to the UUID of each leg in a Call or a Conversation. You use different NCCOs to record:  
 
-* Calls - you set the [record](voice/voice-api/ncco-reference#record) action at the start of your NCCO so everything is recorded. Recording starts when the *record* action is executed in the NCCO and finishes when the synchronous condition in the action is met. That is, *endOnSilence*, *timeOut* or *endOnKey*. If you do not set a synchronous condition, the Voice API immediately executes the next NCCO without recording.
-* Conversations - you set the *record* option in the [conversation](voice/voice-api/ncco-reference#conversation) action. For standard conversations, recordings start when one or more attendee connects to the conversation and terminate when the last attendee disconnects. For moderated conversations, recordings start when the moderator joins. That is, when an NCCO is executed for the named conversation where ‘startOnEnter’ is set to *true*. When the recording is terminated, the URL you download the recording from is sent to the event URL.
+* Calls - you set the [record](/voice/guides/ncco-reference#record) action at the start of your NCCO so everything is recorded. Recording starts when the *record* action is executed in the NCCO and finishes when the synchronous condition in the action is met. That is, *endOnSilence*, *timeOut* or *endOnKey*. If you do not set a synchronous condition, the Voice API immediately executes the next NCCO without recording.
+* Conversations - you set the *record* option in the [conversation](/voice/guides/ncco-reference#conversation) action. For standard conversations, recordings start when one or more attendee connects to the conversation and terminate when the last attendee disconnects. For moderated conversations, recordings start when the moderator joins. That is, when an NCCO is executed for the named conversation where ‘startOnEnter’ is set to *true*. When the recording is terminated, the URL you download the recording from is sent to the event URL.
 
 The workflow to create a recording is:
 
@@ -34,7 +34,7 @@ The workflow to create a recording is:
     ```
 
 
-    > **Note**: `recording_uuid` is not the same as the file uuid in `recording_url`. See the [parameters](voice/voice-api/api-reference#ccwebhook) sent to eventURL.
+    > **Note**: `recording_uuid` is not the same as the file uuid in `recording_url`. See the [parameters](/api/voice#ccwebhook) sent to eventURL.
 
 3. Make a GET request using your JWT for authentication in order to retrieve the recording from *recording_url*.
 

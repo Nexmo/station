@@ -1,6 +1,7 @@
 ---
 title: API reference
 description: Voice API reference
+api: Voice API
 ---
 
 # API reference
@@ -20,7 +21,7 @@ source: '/_examples/api/voice/calls/post'
 This request contains:
 
 * A [Base URL](#ccbase)
-* [Payload](#ccparameters )
+* [Payload](#ccparameters)
 * [JWT](#jwt_minting)
 
 Information about the Call is sent to you in the:
@@ -650,7 +651,7 @@ You submit all requests with a [POST] or [GET] call using UTF-8 encoding and URL
 
 You use JWTs to authenticate calls to Nexmo APIs for your application. You generate a JWT by encrypting a JSON object containing the ID and private key of your application plus the current time. You add your JWT to the header in your requests to Nexmo API. The JWT authenticates your requests and tells Nexmo which application you are using.
 
-A JWT consists of a header, a payload and a signature in the structure xxxxx.yyyyy.zzzzz. For more information, see  <https://jwt.io/introduction/> and the [JWT reference ](tools/application-api/application-security#reference).
+A JWT consists of a header, a payload and a signature in the structure xxxxx.yyyyy.zzzzz. For more information, see  <https://jwt.io/introduction/> and the [JWT reference ](https://docs.nexmo.com/tools/application-api/application-security#reference).
 
 The following code examples show how to generate a JWT token:
 

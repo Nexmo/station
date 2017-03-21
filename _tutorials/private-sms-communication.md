@@ -4,7 +4,7 @@ products: messaging/sms
 description: All mobile phones can send and receive SMS messages, and nearly everybody has a phone. This makes SMS a great choice to communicate with your users from your application.
 ---
 
-# Messaging - private SMS communication
+# Private SMS communication
 
 All mobile phones can send and receive SMS messages, and nearly everybody has a phone. This makes SMS a great choice to communicate with your users from your application.
 
@@ -19,9 +19,9 @@ This tutorial is based on the [Private SMS Communication](https://www.nexmo.com/
 In this tutorial you see how to build an SMS proxy for private communication system using Nexmo APIs and libraries:
 
 * [Provision virtual numbers](#provision-virtual-numbers) - rent and configure the virtual numbers you use to mask real numbers
-* [Initiate private SMS communication](#create-a-conversation) - setup the conversation between two numbers
-* [Validate phone numbers](#validate-numbers) - validate the numbers for two users and determine their country using Number Insight
-* [Send a confirmation SMS](#send-sms) - send an SMS to each user so they can interact securely using the provisioned virtual numbers
+* [Initiate private SMS communication](#initiate-private-sms-communication) - setup the conversation between two numbers
+* [Validate numbers](#validate-numbers) - validate the numbers for two users and determine their country using Number Insight
+* [Send a confirmation SMS](#send-a-confirmation-sms) - send an SMS to each user so they can interact securely using the provisioned virtual numbers
 * [Handle inbound SMS](#handle-inbound-sms) - configure your webhook endpoint to handle incoming SMS, find the phone number it is associated with and tell Nexmo what to do with the message
 * [Proxy the SMS](#proxy-the-sms) - send an SMS to the phone number the virtual number is associated with
 

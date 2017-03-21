@@ -16,26 +16,26 @@ The workflow for sending Event Based Alerts is:
 
 ![Event Based Alerts Workflow](/assets/images/workflow_sending_event_based_alerts.svg)
 
-1. Send an Event Based Alerts [request](/api/sms/us-short-codes/alerts#request).
+1. Send an Event Based Alerts [request](/api/sms/us-short-codes/alerts/sending#request).
 
-2. Check the [response codes](/api/sms/us-short-codes/alerts#status-codes) in the [response](/api/sms/us-short-codes/alerts#response) and ensure that  you sent the request to Nexmo correctly.
+2. Check the [response codes](/api/sms/us-short-codes/alerts/sending##response) in the [response](/api/sms/us-short-codes/alerts/sending#response) and ensure that  you sent the request to Nexmo correctly.
 
 3. Nexmo sends the alert to your user.
 
-4. Receive the [delivery receipt](/api/sms/us-short-codes/alerts#delivery-receipt) at your [webhook endpoint](/account/guides/webhooks) and verify delivery.
+4. Receive the [delivery receipt](/api/sms/us-short-codes/alerts/sending#delivery-receipt) at your [webhook endpoint](/concepts/guides/webhooks) and verify delivery.
 
 
 ### Implementing the Event Based Alerts workflow
 
 To send Event Based Alerts to your users:
 
-1. Send an Event Based Alerts [request](/api/sms/us-short-codes/alerts#request). If you have multiple templates, remember to set the <i>template</i> number in your request.
+1. Send an Event Based Alerts [request](/api/sms/us-short-codes/alerts/sending#request). If you have multiple templates, remember to set the <i>template</i> number in your request.
 
     ```tabbed_examples
     source: '_examples/messaging/us-short-codes-api/alerts/send-alerts-request'
     ```
 
-2. Check the [response codes](/api/sms/us-short-codes/alerts#status-codes) in the [response](/api/sms/us-short-codes/alerts#response) and ensure that you sent the request to Nexmo correctly:
+2. Check the [response codes](/api/sms/us-short-codes/alerts/sending#response) in the [response](/api/sms/us-short-codes/alerts/sending#response) and ensure that you sent the request to Nexmo correctly:
 
     ```tabbed_examples
     source: '_examples/messaging/us-short-codes-api/generic/check-the-response-codes'
@@ -43,9 +43,9 @@ To send Event Based Alerts to your users:
 
 3. Nexmo sends the alert to your user.
 
-4. Receive the [delivery receipt](/api/sms/us-short-codes/alerts#delivery_receipt) at your [webhook endpoint](/account/guides/webhooks) so you can see:
+4. Receive the [delivery receipt](/api/sms/us-short-codes/alerts/sending#delivery-receipt) at your [webhook endpoint](/concepts/guides/webhooks) so you can see:
 
-    1. If the [status](/api/sms/us-short-codes/alerts#dlr_status) was `delivered`.
+    1. If the [status](/api/sms/us-short-codes/alerts/sending#response) was `delivered`.
 
     2. When and how the message was made.
 

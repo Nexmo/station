@@ -8,7 +8,11 @@
       <div class="container">
         <div class="row">
           <nav class="columns small-12 medium-3 sidenav" data-turbolinks-permanent>
-            <%= render partial: "layouts/partials/#{@side_navigation}" %>
+            <% begin %>
+              <%= render partial: "layouts/partials/#{@side_navigation}" %>
+            <% rescue ActionView::MissingTemplate %>
+              <%= navigation_from_content(content: @content, title: @side_navigation_title) %>
+            <% end %>
           </nav>
           <div class="columns small-12 medium-9" id="primary-content">
             <%= yield %>

@@ -93,6 +93,16 @@ ul, ol, p, h1, h2, h3, h4, h5, h6, table {
     margin: 0 2px;
   }
 
+  a code {
+    &:after {
+      font: normal normal normal 14px/1 FontAwesome;
+      content: "\f138";
+      margin-left: 5px;
+      font-size: 0.8em;
+      color: $stone-light;
+    }
+  }
+
   tbody tr:nth-child(even) code {
     background: $ice;
   }

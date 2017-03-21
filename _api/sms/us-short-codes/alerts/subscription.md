@@ -1,6 +1,7 @@
 ---
 title: API reference
 description: Reference guide for the Campaign Subscription Management.
+api: Alerts API - Subscribing
 ---
 
 # API reference
@@ -105,7 +106,7 @@ Each [request](#request) you make using this API returns a:
 The response is returned either:
 
 * Directly to you. For example, if you are using the command line, you see the response on the command line.
-* To a [webhook endpoint](messaging/setup-callbacks) if you set it in Dashboard.
+* To a [webhook endpoint](/concepts/guides/webhooks) if you set it in Dashboard.
 
 Each response comes:
 

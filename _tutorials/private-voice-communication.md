@@ -153,7 +153,7 @@ from_line: 150
 to_line: 170
 ```
 
-The users cannot SMS each other. To enable this functionality you need to setup [Private SMS communication](/tutorials/sms-api-proxy).
+The users cannot SMS each other. To enable this functionality you need to setup [Private SMS communication](/tutorials/private-sms-communication).
 
 In this tutorial each user has received the virtual number in an SMS. In other systems this could be supplied using email, in-app notifications or a predefined number.
 
@@ -228,7 +228,7 @@ from_line: 6
 to_line: 24
 ```
 
-> **Note**: take a look at the [NCCO reference](/voice/voice-api/ncco-reference) for more information.
+> **Note**: take a look at the [NCCO reference](/voice/guides/ncco-reference) for more information.
 
 The NCCO is returned to Nexmo by the web server.
 (codsnippet: lib/server.js lang: javascript product: node-voice-proxy line_number: true  from_line: 19 to_line: 25)

@@ -38,7 +38,7 @@ To rent a Nexmo virtual number:
 
 If your account has no credit your virtual numbers are released for resale. To avoid this, enable [auto-reload payments](#add_payment_method).
 
-**Note**: to rent virtual numbers programmatically, call [Number: Search](tools/developer-api/number-search) to list the available numbers, then [Number: Buy](tools/developer-api/number-buy) to rent one of the numbers returned by the search.
+> **Note**: to rent virtual numbers programmatically, call [Number: Search](https://docs.nexmo.com/tools/developer-api/number-search) to list the available numbers, then [Number: Buy](https://docs.nexmo.com/tools/developer-api/number-buy) to rent one of the numbers returned by the search.
 
 ## Configure a virtual number
 
@@ -53,7 +53,7 @@ To configure a Nexmo virtual number:
 
 ## Setting up Two-factor authentication
 
-To use [Two-factor Authentication API](messaging/us-short-codes-api/two-factor-authentication):
+To use [Two-factor Authentication API](/api/sms/us-short-codes/2fa):
 
 1. [Sign in](https://dashboard.nexmo.com/sign-in) to Dashboard.
 2. Click **Numbers**, then **Buy Numbers**.
@@ -79,7 +79,7 @@ You will receive no more than 2 msgs/day. To opt-out at any time, send STOP to 9
 
 ## Setting up event based alerts
 
-To send [Event Based Alerts](messaging/us-short-codes-api/event-based-alerts) to your users:
+To send [Event Based Alerts](/api/sms/us-short-codes/alerts/sending) to your users:
 
 1. [Sign in](https://dashboard.nexmo.com/sign-in) to Dashboard.
 2. Click **Numbers**, then **Buy Numbers**.

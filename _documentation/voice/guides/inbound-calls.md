@@ -18,7 +18,7 @@ The workflow for incoming calls is:
 
 To handle inbound calls with the Voice API:
 
-1. [Create a Nexmo application](tools/application-api#apps_quickstart).
+1. [Create a Nexmo application](https://docs.nexmo.com/tools/application-api#apps_quickstart).
 
     > **Note**: `answer_url` in the application you created points to a static Conversation NCCO.
 

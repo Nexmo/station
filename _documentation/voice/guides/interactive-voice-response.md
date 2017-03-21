@@ -16,9 +16,9 @@ In this section you will see how to build an IVR system using Nexmo APIs:
 
 To follow the steps in this tutorial you need to:
 
-* Setup a [Nexmo account](tools/dashboard#setting-up-your-nexmo-account)
-* Rent a virtual number using [Dashboard](tools/dashboard#rent-vn) or [Developer API](tools/developer-api/number-buy) and set the webhook endpoint to your app
-* [Create an application](tools/application-api#apps_quickstart) and associate it with your virtual number. Nexmo retrieves the initial NCCO from the *answer_url* webhook and sends the dtmf input to the *eventUrl* webhook defined in the initial NCCO
+* Setup a [Nexmo account](/account/guides/management#create-and-configure-a-nexmo-account)
+* Rent a virtual number using [Dashboard](/account/guides/numbers#rent-virtual-numbers) or [Developer API](https://docs.nexmo.com/tools/developer-api/number-buy) and set the webhook endpoint to your app
+* [Create an application](https://docs.nexmo.com/tools/application-api#apps_quickstart) and associate it with your virtual number. Nexmo retrieves the initial NCCO from the *answer_url* webhook and sends the dtmf input to the *eventUrl* webhook defined in the initial NCCO
 
 ## Create your IVR
 

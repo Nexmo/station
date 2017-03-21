@@ -55,7 +55,7 @@ source: '/_examples/messaging/sending-an-sms/basic'
 
 * [Passwordless authentication](http://docs.nexmo.com/tutorials/verify-passwordless-login)
 * [Two-factor authentication](http://docs.nexmo.com/tutorials/verify-two-factor-authentication)
-* [Private SMS communication](http://docs.nexmo.com/tutorials/sms-api-proxy)
+* [Private SMS communication](/tutorials/private-sms-communication)
 * [Mobile app invites](http://docs.nexmo.com/tutorials/mobile-app-promotion)
 * [Two-way SMS for customer engagement](http://docs.nexmo.com/tutorials/two-way-notifications)
 * [SMS Customer Support](http://docs.nexmo.com/tutorials/sms-customer-support)

@@ -25,10 +25,10 @@ In this document you can learn about:
 
 ## Concepts
 
-* **Authentication with JWTs** - interaction with the Voice API are authenticated using JWTs. The [Nexmo libraries](/tools/libraries) handle JWT generation using a unique Nexmo Voice Application ID and a Private Key. For more information on see [Authenticating your applications](/tools/application-api/application-security)
-* **Nexmo Voice Applications** - Nexmo Voice Applications represent a one-to-one mapping with the application that you are building. They contain configuration such virtual numbers and webhook callback URLs. You can create Nexmo Voice Applications using the [Nexmo CLI](/tools/nexmo-cli) or the [Application API](/tools/application-api)
+* **Authentication with JWTs** - interaction with the Voice API are authenticated using JWTs. The [Nexmo libraries](/tools) handle JWT generation using a unique Nexmo Voice Application ID and a Private Key. For more information on see [Authenticating your applications](/concepts/guides/authentication)
+* **Nexmo Voice Applications** - Nexmo Voice Applications represent a one-to-one mapping with the application that you are building. They contain configuration such virtual numbers and webhook callback URLs. You can create Nexmo Voice Applications using the [Nexmo CLI](/tools) or the [Application API](https://docs.nexmo.com/tools/application-api)
 * **Webhooks** - when any event takes place relating to your Nexmo application HTTP callbacks are made to your application web server so that you can act upon them. For example, when an inbound call is made to a number associated with your Nexmo application.
-* **NCCOs** - Nexmo Call Control Objects are a set of actions that instruct the Nexmo how to control call to your Nexmo application. For example, you can `connect` a call, send synthesized speech using `talk`, `stream` audio, or `record` a call. They are represented in JSON form as an Array of objects. For more information see the [NCCO Reference](/voice/voice-api/ncco-reference) and [NCCO guide](/voice/voice-api/nexmo-call-control-objects).
+* **NCCOs** - Nexmo Call Control Objects are a set of actions that instruct the Nexmo how to control call to your Nexmo application. For example, you can `connect` a call, send synthesized speech using `talk`, `stream` audio, or `record` a call. They are represented in JSON form as an Array of objects. For more information see the [NCCO Reference](/voice/guides/ncco-reference) and [NCCO guide](/voice/guides/ncco).
 
 ## Getting Started
 
@@ -37,7 +37,7 @@ Before you being:
 * Sign up for a [Nexmo account](https://dashboard.nexmo.com/signup)
 * Install [Node.JS](https://nodejs.org/en/download/)
 
-> *Note: If you do not wish to install Node in order to use the [Nexmo CLI](/tools/nexmo-cli) you can also create applications using the [Application API](/tools/application-api)*
+> *Note*: If you do not wish to install Node in order to use the [Nexmo CLI](/tools) you can also create applications using the [Application API](https://docs.nexmo.com/tools/application-api)*
 
 Install and Setup the Nexmo CLI (Command Line Interface)
 
@@ -89,36 +89,36 @@ source: '_examples/voice/make-a-tts-call'
 
 The Nexmo Voice API provides features which are actioned in one of two ways:
 
-1. Through a call to the [Voice REST API](/voice/voice-api/api-reference)
-2. By returning [NCCOs](/voice/voice-api/ncco-reference) from your app server webhook endpoints
+1. Through a call to the [Voice REST API](/api/voice)
+2. By returning [NCCOs](/voice/guides/ncco-reference) from your app server webhook endpoints
 
 The following table shows the features available and how are achieved.
 
 Action + Guide | NCCO | API
 -- | -- | --
-[Create outbound calls](/voice/voice-api/calls) | | [`POST /calls`](/voice/voice-api/api-reference#call_create) |
-[Accept inbound calls](/voice/voice-api/inbound-calls) | See [Nexmo Call Control Objects](/voice/voice-api/nexmo-call-control-objects) |
-Retrieve all call information | | [`GET /calls`](/voice/voice-api/api-reference#call_retrieve)
-Retrieve information for a call | | [`GET /calls/{uuid}`](/voice/voice-api/api-reference#call_retrieve_single)
-End an in-progress call | | [`PUT /calls/{uuid}`](/voice/voice-api/api-reference#call_modify_single)
-[Record a call](/voice/voice-api/recordings) | [`record`](/voice/voice-api/ncco-reference#record) |
-[Collect user input from a call (IVR)](/voice/voice-api/voice-ivr) | [`input`](/voice/voice-api/ncco-reference#input) |
-[Create conference calls](/voice/voice-api/conversation) | [`conversation`](/voice/voice-api/ncco-reference#conversation) |
-[Connect calls to phone endpoints](/voice/voice-api/connect-two-users) | [`connect`](/voice/voice-api/ncco-reference#connect) |
-[Connect calls to websocket endpoints](/voice/voice-api/websockets) | [`connect`](/voice/voice-api/ncco-reference#connect) |
-Stream audio to a call | [`stream`](/voice/voice-api/ncco-reference#stream) | [`PUT /calls/{uuid}/stream`](/voice/voice-api/api-reference#stream_put)
-Stop streaming audio to a call | | [`DELETE /calls/{uuid}/stream`](/voice/voice-api/api-reference#stream_delete)
-Send synthesized speech to a call | [`talk`](/voice/voice-api/ncco-reference#talk) | [`PUT /calls/{uuid}/talk`](/voice/voice-api/api-reference#talk_put)
-Stop sending synthesized speech to a call | | [`DELETE /calls/{uuid}/talk`](/voice/voice-api/api-reference#talk_delete)
-Send Dual-tone multi-frequency (DTMF) to a call | | [`PUT calls/{uuid}/dtmf`](/voice/voice-api/api-reference#dtmf_put)
+[Create outbound calls](/voice/guides/outbound-calls) | | [`POST /calls`](/api/voice#create-an-outbound-call) |
+[Accept inbound calls](/voice/guides/inbound-calls) | See [Nexmo Call Control Objects](/voice/guides/ncco) |
+Retrieve all call information | | [`GET /calls`](/api/voice#call_retrieve)
+Retrieve information for a call | | [`GET /calls/{uuid}`](/api/voice#call_retrieve_single)
+End an in-progress call | | [`PUT /calls/{uuid}`](/api/voice#call_modify_single)
+[Record a call](/voice/guides/record-calls-and-conversations) | [`record`](/voice/guides/ncco-reference#record) |
+[Collect user input from a call (IVR)](/voice/guides/interactive-voice-response) | [`input`](/voice/guides/ncco-reference#input) |
+[Create conference calls](/voice/guides/create-conferences) | [`conversation`](/voice/guides/ncco-reference#conversation) |
+[Connect calls to phone endpoints](/voice/guides/connect-two-users) | [`connect`](/voice/guides/ncco-reference#connect) |
+[Connect calls to websocket endpoints](/voice/guides/call-a-websocket) | [`connect`](/voice/guides/ncco-reference#connect) |
+Stream audio to a call | [`stream`](/voice/guides/ncco-reference#stream) | [`PUT /calls/{uuid}/stream`](/api/voice#stream_put)
+Stop streaming audio to a call | | [`DELETE /calls/{uuid}/stream`](/api/voice#stream_delete)
+Send synthesized speech to a call | [`talk`](/voice/guides/ncco-reference#talk) | [`PUT /calls/{uuid}/talk`](/api/voice#talk_put)
+Stop sending synthesized speech to a call | | [`DELETE /calls/{uuid}/talk`](/api/voice#talk_delete)
+Send Dual-tone multi-frequency (DTMF) to a call | | [`PUT calls/{uuid}/dtmf`](/api/voice#dtmf_put)
 
 ## References
 
-* [Voice API Reference](/voice/voice-api/api-reference)
-* [NCCO Reference](/voice/voice-api/ncco-reference)
+* [Voice API Reference](/api/voice)
+* [NCCO Reference](/voice/guides/ncco-reference)
 
 ## Tutorials
 
-* [Private voice communication](/tutorials/voice-api-proxy)
-* [Call tracking](/tutorials/voice-api-call-tracking)
-* [Interactive voice response](/tutorials/voice-simple-ivr)
+* [Private voice communication](/tutorials/private-voice-communication)
+* [Call tracking](/tutorials/call-tracking)
+* [Interactive voice response](/tutorials/interactive-voice-response)

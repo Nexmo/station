@@ -17,9 +17,9 @@ In this section you see how to build a voice proxy for masked communication syst
 
 To follow the steps in this tutorial you need to:
 
-* Setup a [Nexmo account](tools/dashboard#setting-up-your-nexmo-account)
-* Rent two virtual numbers using [Dashboard](tools/dashboard#rent-vn) or [Developer API](tools/developer-api/number-buy)
-* [Create an application](tools/application-api#apps_quickstart) and associate it with your virtual number. Nexmo retrieve the NCCO for both virtual numbers from the *answer_url* webhook endpoint in your application.
+* Setup a [Nexmo account](/account/guides/management#create-and-configure-a-nexmo-account)
+* Rent two virtual numbers using [Dashboard](/account/guides/numbers#rent-virtual-numbers) or [Developer API](https://docs.nexmo.com/tools/developer-api/number-buy)
+* [Create an application](https://docs.nexmo.com/tools/application-api#apps_quickstart) and associate it with your virtual number. Nexmo retrieve the NCCO for both virtual numbers from the *answer_url* webhook endpoint in your application.
 
 ## Create your voice proxy NCCO
 

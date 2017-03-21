@@ -15,7 +15,7 @@ The workflow for Two-factor Authentication API is:
 1. Send a 2FA [request](/api/sms#request).
 2. Check the [response codes](/api/sms/#response) in the [response](/api/sms#response) and ensure that you sent the request to Nexmo correctly.
 3. Nexmo delivers your PIN to your user's handset. Your user enters this PIN into your APP.
-4. Receive the [delivery receipt](/api/sms#delivery-receipt) at your [webhook endpoint](/account/guides/webhooks) and verify delivery.
+4. Receive the [delivery receipt](/api/sms#delivery-receipt) at your [webhook endpoint](/concepts/guides/webhooks) and verify delivery.
 
 To ensure that your traffic is send over the best possible route, use [Conversion API](/messaging/conversion-api/overview) to tell us about the reliability of your 2FA communication. Adding your conversion data means Nexmo delivers your messages faster and more reliably.
 
@@ -39,9 +39,9 @@ To use the 2FA API you:
 
 3. Nexmo delivers your PIN to your user's handset. Your user enters this PIN into your APP.
 
-4. Receive the [delivery receipt](/api/sms#delivery-receipt) at your [webhook endpoint](/account/guides/webhooks) so you can see:
+4. Receive the [delivery receipt](/api/sms#delivery-receipt) at your [webhook endpoint](/concepts/guides/webhooks) so you can see:
 
-    1. If the [status](/api/sms#status) was successful.
+    1. If the [status](/api/sms#keys-and-values) was successful.
     2. When and how the call was made.
     3. How much the call cost.
 

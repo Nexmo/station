@@ -33,10 +33,10 @@ Using the Voice API or NCCOs you can:
 
 Action | NCCO | API
 -- | -- | --
-Connect to a phone number. | [`connect`](voice/voice-api/ncco-reference#connect) | [`POST https://api.nexmo.com/v1/calls` ](voice/voice-api/api-reference#call_create)
-Record your Call. | [`record`](voice/voice-api/ncco-reference#record) | &nbsp;
-Create a standard or moderated conference. | [`conversation`](voice/voice-api/ncco-reference#conversation) | &nbsp;
-Send synthesized speech to a Call or Conversation. | [`talk`](voice/voice-api/ncco-reference#talk) | [PUT `https://api.nexmo.com/v1/calls/{uuid}/talk` ](voice/voice-api/api-reference#talk_put)
-Send an audio stream to a Call or Conversation. | [`stream`](voice/voice-api/ncco-reference#stream) | &nbsp;
-Collect digits input by the person you are calling.  | [`input`](voice/voice-api/ncco-reference#input) | &nbsp;
-Send dual-tone multi-frequency signalling (DTMF) tones to an active call | &nbsp; | [PUT `https://api.nexmo.com/v1/calls/{uuid}/dtmf` ](voice/voice-api/api-reference#dtmf_put)
+Connect to a phone number. | [`connect`](/voice/guides/ncco-reference#connect) | [`POST https://api.nexmo.com/v1/calls` ](/api/voice#create-an-outbound-call)
+Record your Call. | [`record`](/voice/guides/ncco-reference#record) | &nbsp;
+Create a standard or moderated conference. | [`conversation`](/voice/guides/ncco-reference#conversation) | &nbsp;
+Send synthesized speech to a Call or Conversation. | [`talk`](/voice/guides/ncco-reference#talk) | [`PUT https://api.nexmo.com/v1/calls/{uuid}/talk` ](/api/voice#talk_put)
+Send an audio stream to a Call or Conversation. | [`stream`](/voice/guides/ncco-reference#stream) | &nbsp;
+Collect digits input by the person you are calling.  | [`input`](/voice/guides/ncco-reference#input) | &nbsp;
+Send dual-tone multi-frequency signalling (DTMF) tones to an active call | &nbsp; | [`PUT https://api.nexmo.com/v1/calls/{uuid}/dtmf` ](/api/voice#dtmf_put)

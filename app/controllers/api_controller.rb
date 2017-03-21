@@ -12,6 +12,7 @@ class ApiController < ApplicationController
 
     # Parse frontmatter
     @frontmatter = YAML.load(document)
+    @side_navigation_title = @frontmatter.fetch('api')
 
     @content = MarkdownPipeline.new.call(document)
 
@@ -22,6 +23,8 @@ class ApiController < ApplicationController
 
   def set_navigation
     @navigation = :api
+
+    # If side navigation is not present then the navigation_from_content helper will be used
     @side_navigation = "api/#{@document}"
   end
 
