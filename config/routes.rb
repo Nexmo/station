@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   namespace :admin do
     resources :events
-    root to: "events#index"
+    root to: 'events#index'
   end
 
   get 'markdown/show'

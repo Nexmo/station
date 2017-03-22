@@ -22,9 +22,9 @@ class StaticController < ApplicationController
     # Parse frontmatter
     @frontmatter = YAML.load(document)
 
-    @title = @frontmatter["title"]
+    @title = @frontmatter['title']
 
-    @side_navigation = "api/styleguide"
+    @side_navigation = 'api/styleguide'
 
     @content = MarkdownPipeline.new.call(document)
 
@@ -38,9 +38,9 @@ class StaticController < ApplicationController
     # Parse frontmatter
     @frontmatter = YAML.load(document)
 
-    @title = @frontmatter["title"]
+    @title = @frontmatter['title']
 
-    @side_navigation = "api/write-the-docs"
+    @side_navigation = 'api/write-the-docs'
 
     @content = MarkdownPipeline.new.call(document)
 

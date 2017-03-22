@@ -1,5 +1,5 @@
 IGNORED_PATHS = ['..', '.', '.DS_Store']
-NAVIGATION_WEIGHT = YAML.load_file("#{Rails.root}/config/navigation.yml")["navigation_weight"]
+NAVIGATION_WEIGHT = YAML.load_file("#{Rails.root}/config/navigation.yml")['navigation_weight']
 FLATTEN_TREES = []
 COLLAPSIBLE = ['Messaging', 'SMS', 'Conversion API', 'SNS', 'US Short Codes', 'Voice', 'Account', 'Global']
 
@@ -25,7 +25,7 @@ module ApplicationHelper
       sort_array = []
       sort_array << (NAVIGATION_WEIGHT[normalised_title(item)] || 1000)
       sort_array << (item[:is_file?] ? 1 : 0)
-      sort_array << (item[:is_file?] && document_meta(item[:path])["navigation_weight"] ? document_meta(item[:path])["navigation_weight"] : 1000)
+      sort_array << (item[:is_file?] && document_meta(item[:path])['navigation_weight'] ? document_meta(item[:path])['navigation_weight'] : 1000)
       sort_array
     end
     context
@@ -48,7 +48,7 @@ module ApplicationHelper
   end
 
   def normalised_title(item)
-    (item[:is_file?] ? document_meta(item[:path])["title"] : I18n.t("menu.#{item[:title]}"))
+    (item[:is_file?] ? document_meta(item[:path])['title'] : I18n.t("menu.#{item[:title]}"))
   end
 
   def directory(context = directory_hash("#{Rails.root}/_documentation")[:children], root = true, received_flatten = false)
@@ -67,7 +67,7 @@ module ApplicationHelper
       end
 
       ss << directory(child[:children], false, flatten) if child[:children]
-      ss << "</li>" unless received_flatten
+      ss << '</li>' unless received_flatten
       ss.join("\n")
     end
     s << '</ul>' unless received_flatten

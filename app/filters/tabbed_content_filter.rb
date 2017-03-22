@@ -20,7 +20,7 @@ class TabbedContentFilter < Banzai::Filter
 
   def sort_contents(contents)
     contents.sort_by do |content|
-      content[:frontmatter]["menu_weight"] || 999
+      content[:frontmatter]['menu_weight'] || 999
     end
   end
 
@@ -53,8 +53,8 @@ class TabbedContentFilter < Banzai::Filter
       HEREDOC
     end
 
-    tabs << "</ul>"
-    body << "</div>"
+    tabs << '</ul>'
+    body << '</div>'
 
     # Wrap in an extra Div prevents markdown for formatting
     "<div>#{tabs.join('')}#{body.join('')}</div>"

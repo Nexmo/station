@@ -10,7 +10,7 @@ class MarkdownController < ApplicationController
     # Parse frontmatter
     @frontmatter = YAML.load(document)
 
-    @title = @frontmatter["title"]
+    @title = @frontmatter['title']
 
     @content = MarkdownPipeline.new.call(document)
 

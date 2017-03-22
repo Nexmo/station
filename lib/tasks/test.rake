@@ -8,10 +8,10 @@ namespace :test do
     task.patterns = ['app/**/*.rb', 'lib/**/*.rb', 'test/**/*.rb']
 
     # Make it easier to disable cops.
-    task.options << "--display-cop-names"
+    task.options << '--display-cop-names'
 
     # Run extra Rails cops
-    task.options << "--rails"
+    task.options << '--rails'
 
     # Abort on failures (fix your code first)
     task.fail_on_error = false

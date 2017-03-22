@@ -13,18 +13,18 @@
 ActiveRecord::Schema.define(version: 20170215101603) do
 
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "events", force: :cascade do |t|
-    t.string   "title",       null: false
-    t.text     "description"
-    t.datetime "starts_at",   null: false
-    t.datetime "ends_at",     null: false
-    t.string   "url"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["ends_at"], name: "index_events_on_ends_at", using: :btree
-    t.index ["starts_at"], name: "index_events_on_starts_at", using: :btree
+  create_table 'events', force: :cascade do |t|
+    t.string   'title',       null: false
+    t.text     'description'
+    t.datetime 'starts_at',   null: false
+    t.datetime 'ends_at',     null: false
+    t.string   'url'
+    t.datetime 'created_at',  null: false
+    t.datetime 'updated_at',  null: false
+    t.index ['ends_at'], name: 'index_events_on_ends_at', using: :btree
+    t.index ['starts_at'], name: 'index_events_on_starts_at', using: :btree
   end
 
 end

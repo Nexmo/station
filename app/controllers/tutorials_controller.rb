@@ -25,7 +25,7 @@ class TutorialsController < ApplicationController
 
     @tutorials.compact!
 
-    @title = "Tutorials"
+    @title = 'Tutorials'
     render layout: 'documentation'
   end
 

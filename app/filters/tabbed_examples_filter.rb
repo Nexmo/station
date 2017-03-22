@@ -62,8 +62,8 @@ class TabbedExamplesFilter < Banzai::Filter
       HEREDOC
     end
 
-    tabs << "</ul>"
-    content << "</div>"
+    tabs << '</ul>'
+    content << '</div>'
 
     # Wrap in an extra Div prevents markdown for formatting
     "<div>#{tabs.join('')}#{content.join('')}</div>"
