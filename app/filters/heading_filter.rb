@@ -31,7 +31,7 @@ class HeadingFilter < Banzai::Filter
     loop do
       if index
         parameterized_heading = "#{heading.text.parameterize}-#{index}"
-        index = index + 1
+        index += 1
       else
         parameterized_heading = heading.text.parameterize
         index = 2

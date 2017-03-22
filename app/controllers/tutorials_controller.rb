@@ -18,8 +18,6 @@ class TutorialsController < ApplicationController
 
       if frontmatter['products'].split(',').map(&:strip).include? @product
         { title: title, description: description, path: relative_path, body: document }
-      else
-        nil
       end
     end
 
