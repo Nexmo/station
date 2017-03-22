@@ -4,7 +4,7 @@ FLATTEN_TREES = [].freeze
 COLLAPSIBLE = ['Messaging', 'SMS', 'Conversion API', 'SNS', 'US Short Codes', 'Voice', 'Account', 'Global'].freeze
 
 module ApplicationHelper
-  def directory_hash(path, name=nil)
+  def directory_hash(path, name = nil)
     data = { title: (name || path), path: path }
     data[:children] = []
     Dir.foreach(path) do |entry|
@@ -36,12 +36,11 @@ module ApplicationHelper
   end
 
   def first_link_in_directory(context)
-    if context.any?
-      if context.first[:is_file?]
-        path_to_url(context.first[:path])
-      elsif context.first[:children]
-        first_link_in_directory(context.first[:children])
-      end
+    return nil if context.empty?
+    if context.first[:is_file?]
+      path_to_url(context.first[:path])
+    elsif context.first[:children]
+      first_link_in_directory(context.first[:children])
     end
   end
 

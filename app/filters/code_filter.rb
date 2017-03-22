@@ -14,7 +14,7 @@ class CodeFilter < Banzai::Filter
 
       total_lines = code.lines.count
       focused_lines = config['to_line'] - config['from_line']
-      top = config['from_line'] * CODE_LINE_HEIGHT  - (CODE_PADDING / 2) - (CODE_CONTEXT)
+      top = config['from_line'] * CODE_LINE_HEIGHT - (CODE_PADDING / 2) - CODE_CONTEXT
       height = (focused_lines * CODE_LINE_HEIGHT) + (CODE_PADDING * 2) + (CODE_CONTEXT * 2)
 
       line_numbers = (1..total_lines).map do |line_number|

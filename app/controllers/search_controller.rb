@@ -1,8 +1,7 @@
 class SearchController < ApplicationController
   before_action :set_results
 
-  def results
-  end
+  def results; end
 
   def quicksearch
     render layout: false
@@ -15,8 +14,7 @@ class SearchController < ApplicationController
   end
 
   def set_results
-    if params['query']
-      @results = client.search index: 'documents', body: { query: { fuzzy: { title: params['query'] } } }
-    end
+    return unless params['query']
+    @results = client.search index: 'documents', body: { query: { fuzzy: { title: params['query'] } } }
   end
 end
