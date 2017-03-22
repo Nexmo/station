@@ -66,7 +66,8 @@ gem 'ruby-progressbar'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
-  gem 'rawler', git: 'git@github.com:oscardelben/rawler.git', require: false
+  gem 'rawler', git: 'git://github.com/oscardelben/rawler.git', require: false
+  gem 'rubocop'
 end
 
 
