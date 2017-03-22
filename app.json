@@ -2,13 +2,10 @@
   "environments": {
     "test": {
       "addons":[
-         "heroku-redis",
          "heroku-postgresql"
       ],
       "scripts": {
-        "test-setup": "gem install rubocop",
-        "test": "rubocop .",
-        "foo": "rubocop ."
+        "test": "rake test:all"
       }
     }
   }

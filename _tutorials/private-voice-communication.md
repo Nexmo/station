@@ -74,8 +74,7 @@ To provision a virtual number you search through the available numbers that meet
 ```code
 source: '_code/voice_proxy.js'
 from_line: 1
-old_to_line: 46
-to_line: 244
+to_line: 46
 ```
 
 Then rent the numbers you want and associate them with your application. When any even occurs relating to each number associated with an application, Nexmo sends a request to your webhook endpoint with information about the event. After configuration you store the phone number for later user.

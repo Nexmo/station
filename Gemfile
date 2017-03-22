@@ -68,6 +68,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rawler', git: 'git://github.com/oscardelben/rawler.git', require: false
   gem 'rubocop'
+  gem 'rspec-rails', '~> 3.5'
 end
 
 
