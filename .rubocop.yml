@@ -6,3 +6,15 @@ Metrics/LineLength:
 
 Style/TrailingCommaInLiteral:
   EnforcedStyleForMultiline: comma
+
+Style/BlockComments:
+  Enabled: false
+
+Style/AlignParameters:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Rails/FilePath:
+  Enabled: false

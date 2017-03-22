@@ -19,7 +19,7 @@ namespace :test do
 
   desc 'Run all tests'
   task all: :environment do
-      Rake::Task['test:rubocop'].invoke
-      Rake::Task['spec'].invoke
+    Rake::Task['test:rubocop'].invoke
+    Rake::Task['spec'].invoke
   end
 end
