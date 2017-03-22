@@ -1,6 +1,6 @@
 namespace :repos do
   desc 'Pull repos to local'
-  task :pull => :environment do
+  task pull: :environment do
     repos = YAML.load_file("#{Rails.root}/config/repos.yml")
     progressbar = ProgressBar.create(total: repos.count)
 
