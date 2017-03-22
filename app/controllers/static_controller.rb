@@ -20,7 +20,7 @@ class StaticController < ApplicationController
     document = File.read("#{Rails.root}/app/views/static/styleguide.md")
 
     # Parse frontmatter
-    @frontmatter = YAML.load(document)
+    @frontmatter = YAML.safe_load(document)
 
     @title = @frontmatter['title']
 
@@ -36,7 +36,7 @@ class StaticController < ApplicationController
     document = File.read("#{Rails.root}/app/views/static/write-the-docs.md")
 
     # Parse frontmatter
-    @frontmatter = YAML.load(document)
+    @frontmatter = YAML.safe_load(document)
 
     @title = @frontmatter['title']
 

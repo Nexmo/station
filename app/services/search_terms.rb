@@ -4,7 +4,7 @@ class SearchTerms
 
     document_paths.map do |document_path|
       document = File.read(document_path)
-      frontmatter = YAML.load(document)
+      frontmatter = YAML.safe_load(document)
       title = frontmatter['title']
       description = frontmatter['description']
 

@@ -1,7 +1,7 @@
-IGNORED_PATHS = ['..', '.', '.DS_Store']
+IGNORED_PATHS = ['..', '.', '.DS_Store'].freeze
 NAVIGATION_WEIGHT = YAML.load_file("#{Rails.root}/config/navigation.yml")['navigation_weight']
-FLATTEN_TREES = []
-COLLAPSIBLE = ['Messaging', 'SMS', 'Conversion API', 'SNS', 'US Short Codes', 'Voice', 'Account', 'Global']
+FLATTEN_TREES = [].freeze
+COLLAPSIBLE = ['Messaging', 'SMS', 'Conversion API', 'SNS', 'US Short Codes', 'Voice', 'Account', 'Global'].freeze
 
 module ApplicationHelper
   def directory_hash(path, name=nil)
@@ -39,10 +39,8 @@ module ApplicationHelper
     if context.any?
       if context.first[:is_file?]
         path_to_url(context.first[:path])
-      else
-        if context.first[:children]
-          first_link_in_directory(context.first[:children])
-        end
+      elsif context.first[:children]
+        first_link_in_directory(context.first[:children])
       end
     end
   end
@@ -76,6 +74,6 @@ module ApplicationHelper
   end
 
   def document_meta(path)
-    document = YAML.load_file(path)
+    YAML.load_file(path)
   end
 end

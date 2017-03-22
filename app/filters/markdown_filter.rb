@@ -10,7 +10,7 @@ class MarkdownFilter < Banzai::Filter
   end
 
   def markdown
-    @markdown ||= Redcarpet::Markdown.new(renderer,
+    @markdown ||= Redcarpet::Markdown.new(renderer, {
       no_intra_emphasis: true,
       tables: true,
       strikethrough: true,
@@ -19,6 +19,6 @@ class MarkdownFilter < Banzai::Filter
       highlight: true,
       fenced_code_blocks: true,
       disable_indented_code_blocks: true,
-    )
+    })
   end
 end

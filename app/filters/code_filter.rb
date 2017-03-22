@@ -4,10 +4,10 @@ CODE_CONTEXT = 88
 
 class CodeFilter < Banzai::Filter
   def call(input)
-    input.gsub(/```code(.+?)```/m) do |s|
-      config = YAML.load($1)
-      code = File.read("#{Rails.root}/#{config["source"]}")
-      language = File.extname("#{Rails.root}/#{config["source"]}")[1..-1]
+    input.gsub(/```code(.+?)```/m) do |_s|
+      config = YAML.safe_load($1)
+      code = File.read("#{Rails.root}/#{config['source']}")
+      language = File.extname("#{Rails.root}/#{config['source']}")[1..-1]
       lexer = language_to_lexer(language)
 
       highlighted_source = highlight(code, lexer)
@@ -15,7 +15,7 @@ class CodeFilter < Banzai::Filter
       total_lines = code.lines.count
       focused_lines = config['to_line'] - config['from_line']
       top = config['from_line'] * CODE_LINE_HEIGHT  - (CODE_PADDING / 2) - (CODE_CONTEXT)
-      height = (focused_lines * CODE_LINE_HEIGHT) + (CODE_PADDING * 2)  + (CODE_CONTEXT * 2)
+      height = (focused_lines * CODE_LINE_HEIGHT) + (CODE_PADDING * 2) + (CODE_CONTEXT * 2)
 
       line_numbers = (1..total_lines).map do |line_number|
         <<~HEREDOC

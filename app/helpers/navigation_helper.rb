@@ -1,8 +1,6 @@
 module NavigationHelper
   def navigation_from_content(content:, title: nil)
-    if title
-      content = "<h0 class='injected'>#{title}</h0>\n" + content
-    end
+    content = "<h0 class='injected'>#{title}</h0>\n" + content if title
 
     document = build_document(content)
 
@@ -12,7 +10,7 @@ module NavigationHelper
     document.css('.reveal').remove
 
     document.css('h0,h2,h3,h4,h5,h6').each do |heading|
-      if last_node == nil || heading.name == last_node.name
+      if last_node.nil? || heading.name == last_node.name
         # Do nothing (cleaner than adding wrapping furterh conditions
       elsif heading.name >= last_node.name # e.g. h2 -> h3
         nodes << '<ul>'

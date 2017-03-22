@@ -2,7 +2,7 @@ class ModalFilter < Banzai::Filter
   def call(input)
     modals = []
 
-    input.gsub!(/@\[(.+?)\]\((.+?)\)/) do |s|
+    input.gsub!(/@\[(.+?)\]\((.+?)\)/) do |_s|
       uuid = SecureRandom.uuid
       modals << { document: $2, uuid: uuid }
       "<a data-open='#{uuid}'>#{$1}</a>"

@@ -1,12 +1,12 @@
 class TabbedContentFilter < Banzai::Filter
   def call(input)
-    input.gsub(/```tabbed_content(.+?)```/m) do |s|
-      config = YAML.load($1)
-      contents_path = "#{Rails.root}/#{config["source"]}"
+    input.gsub(/```tabbed_content(.+?)```/m) do |_s|
+      config = YAML.safe_load($1)
+      contents_path = "#{Rails.root}/#{config['source']}"
 
       contents = Dir["#{contents_path}/*"].map do |content_path|
         source = File.read(content_path)
-        frontmatter = YAML.load(source)
+        frontmatter = YAML.safe_load(source)
         { frontmatter: frontmatter, source: source }
       end
 
@@ -36,7 +36,7 @@ class TabbedContentFilter < Banzai::Filter
     contents.each_with_index do |content, index|
       content_uid = "code-#{SecureRandom.uuid}"
       tabs << <<~HEREDOC
-        <li class="tabs-title #{index == 0 ? 'is-active' : ''}" data-language="#{content[:frontmatter]['language']}">
+        <li class="tabs-title #{index.zero? ? 'is-active' : ''}" data-language="#{content[:frontmatter]['language']}">
           <a href="##{content_uid}">#{content[:frontmatter]['title']}</a>
         </li>
       HEREDOC
@@ -47,7 +47,7 @@ class TabbedContentFilter < Banzai::Filter
       markdownified_source = "FREEZESTART#{Base64.urlsafe_encode64(markdownified_source)}FREEZEEND"
 
       body << <<~HEREDOC
-        <div class="tabs-panel #{index == 0 ? 'is-active' : ''}" id="#{content_uid}">
+        <div class="tabs-panel #{index.zero? ? 'is-active' : ''}" id="#{content_uid}">
           #{markdownified_source}
         </div>
       HEREDOC

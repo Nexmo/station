@@ -8,24 +8,24 @@
 
 Event.create({
   title: 'Small business hackathon',
-  starts_at: DateTime.parse('2017-03-04'),
-  ends_at: DateTime.parse('2017-03-05'),
+  starts_at: Time.zone.parse('2017-03-04'),
+  ends_at: Time.zone.parse('2017-03-05'),
   url: 'http://www.smallbizhack.com/',
   description: 'Hack to create new innovations that help small businesses save time so they can get back to their passions',
 })
 
 Event.create({
   title: 'Forward JS',
-  starts_at: DateTime.parse('2017-03-01'),
-  ends_at: DateTime.parse('2017-03-01'),
+  starts_at: Time.zone.parse('2017-03-01'),
+  ends_at: Time.zone.parse('2017-03-01'),
   url: 'https://forwardjs.com/',
   description: 'Illuminating lectures, & enlightening workshops',
 })
 
 Event.create({
   title: 'Render',
-  starts_at: DateTime.parse('2017-03-30'),
-  ends_at: DateTime.parse('2017-03-31'),
+  starts_at: Time.zone.parse('2017-03-30'),
+  ends_at: Time.zone.parse('2017-03-31'),
   url: 'http://2017.render-conf.com/',
   description: 'A 2-day conference for front-end developers',
 })

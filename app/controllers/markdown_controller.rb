@@ -8,7 +8,7 @@ class MarkdownController < ApplicationController
     document = File.read("#{Rails.root}/_documentation/#{@product}/#{@document}.md")
 
     # Parse frontmatter
-    @frontmatter = YAML.load(document)
+    @frontmatter = YAML.safe_load(document)
 
     @title = @frontmatter['title']
 

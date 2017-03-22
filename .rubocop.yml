@@ -18,3 +18,27 @@ Style/Documentation:
 
 Rails/FilePath:
   Enabled: false
+
+Style/IndentHash:
+  Enabled: false
+
+Style/BracesAroundHashParameters:
+  Enabled: false
+
+Style/NumericLiterals:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Rails/OutputSafety:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Style/UnneededInterpolation:
+  Enabled: false
+
+Style/WordArray:
+  Enabeld: false

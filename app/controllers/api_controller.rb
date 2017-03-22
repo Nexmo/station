@@ -11,7 +11,7 @@ class ApiController < ApplicationController
     document = File.read("#{Rails.root}/_api/#{@document}.md")
 
     # Parse frontmatter
-    @frontmatter = YAML.load(document)
+    @frontmatter = YAML.safe_load(document)
     @side_navigation_title = @frontmatter.fetch('api')
 
     @content = MarkdownPipeline.new.call(document)

@@ -1,8 +1,8 @@
 class TabbedExamplesFilter < Banzai::Filter
   def call(input)
-    input.gsub(/```tabbed_examples(.+?)```/m) do |s|
-      config = YAML.load($1)
-      examples_path = "#{Rails.root}/#{config["source"]}"
+    input.gsub(/```tabbed_examples(.+?)```/m) do |_s|
+      config = YAML.safe_load($1)
+      examples_path = "#{Rails.root}/#{config['source']}"
 
       examples = Dir["#{examples_path}/*"].map do |example_path|
         language = example_path.sub("#{examples_path}/", '')
@@ -21,13 +21,13 @@ class TabbedExamplesFilter < Banzai::Filter
   def sort_examples(examples)
     examples.sort_by do |example|
       case example[:language].downcase
-      when 'curl'; 1
-      when 'node'; 2
-      when 'ruby'; 3
-      when 'python'; 4
-      when 'php'; 5
-      when 'java'; 6
-      when 'c#'; 7
+      when 'curl' then 1
+      when 'node' then 2
+      when 'ruby' then 3
+      when 'python' then 4
+      when 'php' then 5
+      when 'java' then 6
+      when 'c#' then 7
       else 1000
       end
     end
@@ -45,7 +45,7 @@ class TabbedExamplesFilter < Banzai::Filter
     examples.each_with_index do |example, index|
       example_uid = "code-#{SecureRandom.uuid}"
       tabs << <<~HEREDOC
-        <li class="tabs-title #{index == 0 ? 'is-active' : ''}" data-language="#{example[:language]}">
+        <li class="tabs-title #{index.zero? ? 'is-active' : ''}" data-language="#{example[:language]}">
           <a href="##{example_uid}">#{language_label(example[:language])}</a>
         </li>
       HEREDOC
@@ -56,7 +56,7 @@ class TabbedExamplesFilter < Banzai::Filter
       highlighted_source = "FREEZESTART#{Base64.urlsafe_encode64(highlighted_source)}FREEZEEND"
 
       content << <<~HEREDOC
-        <div class="tabs-panel #{index == 0 ? 'is-active' : ''}" id="#{example_uid}" data-language="#{example[:language]}">
+        <div class="tabs-panel #{index.zero? ? 'is-active' : ''}" id="#{example_uid}" data-language="#{example[:language]}">
           <pre class="highlight #{example[:language]}"><code>#{highlighted_source}</code></pre>
         </div>
       HEREDOC
@@ -76,28 +76,23 @@ class TabbedExamplesFilter < Banzai::Filter
   end
 
   def language_label(language)
-    language = case language.downcase
-    when 'c#'
-      '.NET'
-    when 'node'
-      'Node.js'
-    when 'json'
-      'JSON'
-    when 'xml'
-      'XML'
-    else
-      language
+    case language.downcase
+    when 'c#' then '.NET'
+    when 'node' then 'Node.js'
+    when 'json' then 'JSON'
+    when 'xml' then 'XML'
+    else; language
     end
   end
 
   def language_to_lexer_name(language)
     language.downcase!
     case language.downcase
-    when 'curl'; 'sh'
-    when 'node'; 'javascript'
-    when 'node.js'; 'javascript'
-    when '.net'; 'c#'
-    when 'ncco'; 'json'
+    when 'curl' then 'sh'
+    when 'node' then 'javascript'
+    when 'node.js' then 'javascript'
+    when '.net' then 'c#'
+    when 'ncco' then 'json'
     else; language
     end
   end
