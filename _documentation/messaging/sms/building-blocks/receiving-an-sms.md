@@ -60,8 +60,4 @@ When a message is received on your number you will receive a [GET] request on th
 
 Below you can find an example of what to expect in the payload.
 
-```partial
-source: _tmp/webhook-params.md
-```
-
 ## See also
