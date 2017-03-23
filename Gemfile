@@ -62,12 +62,13 @@ gem 'administrate', '~> 0.4.0'
 # Ruby/ProgressBar is a text progress bar library for Ruby.
 gem 'ruby-progressbar'
 
+gem 'rubocop'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   gem 'rawler', git: 'git://github.com/oscardelben/rawler.git', require: false
   gem 'rspec-rails', '~> 3.5'
-  gem 'rubocop'
 end
 
 group :development do
