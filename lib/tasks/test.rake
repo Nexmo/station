@@ -29,30 +29,8 @@ namespace :test do
     exit $?.exitstatus unless $?.exitstatus.zero?
   end
 
-  desc 'Debug'
-  task debug: :environment do
-    puts <<~HEREDOC
-
-      ##################################################################
-      ENV
-      ##################################################################
-
-    HEREDOC
-    puts ENV.to_h
-
-    puts <<~HEREDOC
-
-      ##################################################################
-      Processes
-      ##################################################################
-
-    HEREDOC
-    puts system("ps -ax")
-  end
-
   desc 'Run all tests'
   task all: :environment do
-    Rake::Task['test:debug'].invoke
     Rake::Task['test:rubocop'].invoke
     Rake::Task['spec'].invoke
     Rake::Task['test:crawl'].invoke
