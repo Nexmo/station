@@ -26,5 +26,6 @@ namespace :test do
   task all: :environment do
     Rake::Task['test:rubocop'].invoke
     Rake::Task['spec'].invoke
+    Rake::Task['test:crawl'].invoke
   end
 end
