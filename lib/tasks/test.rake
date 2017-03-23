@@ -21,10 +21,12 @@ namespace :test do
   desc 'Crawl'
   task crawl: :environment do
     if ENV['PORT']
-      puts %x{ rawler 127.0.0.1:#{ENV['PORT']} --local --wait 0 --ignore-fragments | awk '/ERROR/ { print  > "/dev/stderr"; next; }; 1' }
+      system("rawler 127.0.0.1:#{ENV['PORT']} --local --wait 0 --ignore-fragments")
     else
-      puts %x{ rawler developer.dev --local --wait 0 --ignore-fragments | awk '/ERROR/ { print  > "/dev/stderr"; next; }; 1' }
+      system("rawler developer.dev --local --wait 0 --ignore-fragments")
     end
+
+    exit $?.exitstatus unless $?.exitstatus.zero?
   end
 
   desc 'Debug'
