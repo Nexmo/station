@@ -1,4 +1,5 @@
 require 'rubocop/rake_task'
+require 'pty'
 
 # Add additional test suite definitions to the default test task here
 namespace :test do
@@ -19,11 +20,37 @@ namespace :test do
 
   desc 'Crawl'
   task crawl: :environment do
-    puts system('rawler developer.dev --local --wait 0 --ignore-fragments')
+    if ENV['PORT']
+      puts %x{ rawler 127.0.0.1:#{ENV['PORT']} --local --wait 0 --ignore-fragments | awk '/ERROR/ { print  > "/dev/stderr"; next; }; 1' }
+    else
+      puts %x{ rawler developer.dev --local --wait 0 --ignore-fragments | awk '/ERROR/ { print  > "/dev/stderr"; next; }; 1' }
+    end
+  end
+
+  desc 'Debug'
+  task debug: :environment do
+    puts <<~HEREDOC
+
+      ##################################################################
+      ENV
+      ##################################################################
+
+    HEREDOC
+    puts ENV.to_h
+
+    puts <<~HEREDOC
+
+      ##################################################################
+      Processes
+      ##################################################################
+
+    HEREDOC
+    puts system("ps -ax")
   end
 
   desc 'Run all tests'
   task all: :environment do
+    Rake::Task['test:debug'].invoke
     Rake::Task['test:rubocop'].invoke
     Rake::Task['spec'].invoke
     Rake::Task['test:crawl'].invoke

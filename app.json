@@ -5,6 +5,7 @@
          "heroku-postgresql"
       ],
       "scripts": {
+        "test-setup": "rails s -d",
         "test": "rake test:all"
       }
     }
