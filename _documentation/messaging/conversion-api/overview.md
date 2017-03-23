@@ -30,8 +30,7 @@ Once you have access, to use Conversion API:
 1. Start a 2FA workflow using either:
 
     1. [SMS API](/messaging/sms/overview)
-    2. [Text-to-Speech API](/voice/guides/text-to-speech)
-    3. [Text-to-Speech Prompt API](https://docs.nexmo.com/voice/voice-deprecated/text-to-speech-prompt)
+    2. [Text-to-Speech Prompt API](https://docs.nexmo.com/voice/voice-deprecated/text-to-speech-prompt)
 
 2. Nexmo sends a text or voice message to your user.
 

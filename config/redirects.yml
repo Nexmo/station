@@ -1,10 +1,11 @@
 /messaging/sms: /messaging/sms/overview
 /sms: /messaging/sms/overview
 /voice: /voice/overview
+/voice/guides: /voice/overview#references
 
 /messaging/sms/building-blocks: /messaging/sms/building-blocks/send-an-sms
 /sms/building-blocks: /messaging/sms/building-blocks/send-an-sms
-/messaging/sms/guides: /messaging/sms/guides/us-short-codes/overview
+/messaging/sms/guides: /messaging/sms/overview#sms-api-features
 /sms/guides: /messaging/sms/guides/us-short-codes/overview
 
 /voice/building-blocks: /voice/building-blocks/make-a-phone-call

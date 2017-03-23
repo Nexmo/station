@@ -14,7 +14,7 @@ This defines Event Based Alerts API:
 
 ## Request
 
-Before calling this API, you need to configure your message in Nexmo [Dashboard](@app.root@). A message template normally contains custom parameters that you supply in your request.
+Before calling this API, you need to configure your message in Nexmo [Dashboard](https://dashboard.nexmo.com). A message template normally contains custom parameters that you supply in your request.
 
 A basic Short Code Event Based Alert *request* looks like:
 

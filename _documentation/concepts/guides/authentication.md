@@ -17,7 +17,7 @@ In this document you can learn about:
 
 ## Concepts
 
-* **Authentication with JWTs** - interaction with the Voice API are authenticated using JWTs. The [Nexmo libraries](/tools) handle JWT generation using a unique Nexmo Voice Application ID and a Private Key. For more information on see [Authenticating your applications](/tools/application-api/application-security)
+* **Authentication with JWTs** - interaction with the Voice API are authenticated using JWTs. The [Nexmo libraries](/tools) handle JWT generation using a unique Nexmo Voice Application ID and a Private Key.
 
 ## API Key & Secret
 
@@ -34,4 +34,4 @@ Donec sed odio dui. Praesent commodo cursus magna, vel scelerisque nisl consecte
 ## References
 
 * [Voice API Reference](/api/voice)
-* [SMS API Reference](/api/messaging/sms)
+* [SMS API Reference](/api/sms)

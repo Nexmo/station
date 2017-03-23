@@ -18,7 +18,7 @@ The workflow for sending Event Based Alerts is:
 
 1. Send an Event Based Alerts [request](/api/sms/us-short-codes/alerts/sending#request).
 
-2. Check the [response codes](/api/sms/us-short-codes/alerts/sending##response) in the [response](/api/sms/us-short-codes/alerts/sending#response) and ensure that  you sent the request to Nexmo correctly.
+2. Check the [response codes](/api/sms/us-short-codes/alerts/sending#response) in the [response](/api/sms/us-short-codes/alerts/sending#response) and ensure that  you sent the request to Nexmo correctly.
 
 3. Nexmo sends the alert to your user.
 

@@ -83,7 +83,7 @@ Key | Value
 
 #### Webhook
 
-Nexmo sends the following parameters asynchronously to [event_url](#event_url) when [*status* changes](voice/voice-api/handle-call-state):
+Nexmo sends the following parameters asynchronously to [event_url](#event_url) when [*status* changes](/voice/guides/handle-call-status):
 
 ```tabbed_content
 source: '/_examples/api/voice/calls/webhook'
