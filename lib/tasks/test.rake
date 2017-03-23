@@ -17,6 +17,11 @@ namespace :test do
     task.fail_on_error = false
   end
 
+  desc 'Crawl'
+  task crawl: :environment do
+    puts system('rawler developer.dev --local --wait 0 --ignore-fragments')
+  end
+
   desc 'Run all tests'
   task all: :environment do
     Rake::Task['test:rubocop'].invoke
