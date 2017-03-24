@@ -24,6 +24,8 @@ Rails.application.routes.draw do
 
   get '/:product/*document', to: 'markdown#show', constraints: DocumentationConstraint.new
 
+  get '/robots.txt', to: 'static#robots'
+
   get '*unmatched_route', to: 'application#not_found'
 
   root 'static#landing'

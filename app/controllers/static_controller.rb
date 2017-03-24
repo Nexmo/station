@@ -46,4 +46,8 @@ class StaticController < ApplicationController
 
     render layout: 'static'
   end
+
+  def robots
+    render 'robots.txt'
+  end
 end
