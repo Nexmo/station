@@ -3,7 +3,7 @@ $ball-size: 44px;
 @mixin card--product($color) {
   color: $color;
   hr { border-top-color: mix($color, $white, 20%) }
-  a { color: $color; }
+  a, h3 { color: $color; }
 
   .card--with-icon__divider {
     border-bottom: 2px solid $color;
@@ -67,6 +67,10 @@ $ball-size: 44px;
       display: block;
       padding: 3px 0;
 
+      h3 {
+        // color: $blue;
+      }
+
       &:hover {
         font-weight: 600;
       }
@@ -88,6 +92,7 @@ $ball-size: 44px;
   &--chat { @include card--product(mix($chat, $blue, 80%)); }
   &--verify { @include card--product(mix($verify, $blue, 80%)); }
   &--developer { @include card--product(mix($atom, $blue, 80%)); }
+  &--global { @include card--product($blue); }
 }
 
 .card-in-development {
@@ -155,4 +160,14 @@ $ball-size: 44px;
     left: $spacing;
     top: -$ball-size/2;
   }
+}
+
+.spacious {
+  margin: ($spacing/2) 0;
+}
+
+.card--invisible {
+  // background: none;
+  // border: none;
+  // box-shadow: none;
 }
