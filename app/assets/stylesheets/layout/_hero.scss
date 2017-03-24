@@ -3,7 +3,7 @@ $hero-gradient: darken($mint, 3%);
 #hero {
   margin-top: -20px;
   padding: $spacing * 2;
-  background: linear-gradient(180deg, $hero-gradient 10%, rgba($hero-gradient, 0) 100%);
+  background: linear-gradient(180deg, $hero-gradient 10%, rgba($ice, 0) 100%);
 
   h1 {
     font-size: 42px;
@@ -16,7 +16,7 @@ $hero-gradient: darken($mint, 3%);
   border-radius: $radius;
   box-shadow: $shadow;
   border-radius: $radius;
-  padding: 0.2em;
+  padding: 0.2em 0.25em;
   border-bottom: none;
   border: 1px solid $border;
   transition: all 300ms ease-in-out;

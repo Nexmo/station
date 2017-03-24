@@ -17,6 +17,9 @@ body {
 
 .wrapper {
   flex: 1;
+  &--tint {
+    background: $ice;
+  }
 }
 
 .container {
