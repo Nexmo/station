@@ -24,7 +24,8 @@ class TutorialsController < ApplicationController
     @tutorials.compact!
 
     @title = 'Tutorials'
-    render layout: 'documentation'
+
+    render layout: 'documentation-index'
   end
 
   def show

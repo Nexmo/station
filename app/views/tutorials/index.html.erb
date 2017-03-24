@@ -1,18 +1,25 @@
 <h1>Tutorials</h1>
 
+<br>
+<hr>
+<br>
+
 <div class="row">
-  <div class="columns small-12 large-6">
-    <% @tutorials.each do |tutorial| %>
-      <div class="card">
-        <h2 class="tight">
-          <%= link_to tutorial[:title], tutorial[:path].gsub('_', ''), data: { 'turbolinks-action' => 'replace' } %>
+  <% @tutorials.each_with_index do |tutorial, index| %>
+    <div class="columns small-12 large-6 <%= index == @tutorials.count - 1 ? 'end' : '' %>">
+      <a href="<%= tutorial[:path].gsub('_', '') %>" class="card card--with-icon">
+        <h2>
+          <span class="unstyled spacious">
+            <%= tutorial[:title] %>
+          </span>
         </h2>
-        <nav>
-          <a href="<%= tutorial[:path].gsub('_', '') %>" class="card-description">
-            <%= tutorial[:description] %>
-          </a>
-        </nav>
-      </div>
-    <% end %>
-  </div>
+
+        <div class="card--with-icon__divider">
+          <i class="fa fa-book"></i>
+        </div>
+
+        <p class="color-text"><%= tutorial[:description] %></p>
+      </a>
+    </div>
+  <% end %>
 </div>

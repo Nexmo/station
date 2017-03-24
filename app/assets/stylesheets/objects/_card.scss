@@ -14,6 +14,7 @@ $ball-size: 44px;
 }
 
 .card {
+  display: block;
   position: relative;
   background: $white;
   border: $border;
@@ -22,6 +23,11 @@ $ball-size: 44px;
   margin-bottom: $spacing;
   overflow: hidden;
   font-size: 16px;
+
+  .spacious {
+    padding: $spacing 0;
+    margin: ($spacing/2) 0;
+  }
 
   a {
     display: inline-block;
@@ -43,6 +49,10 @@ $ball-size: 44px;
       color: $text;
     }
 
+    span {
+      display: block;
+    }
+
     small {
       display: block;
       font-style: italic;
@@ -59,7 +69,7 @@ $ball-size: 44px;
     display: block;
   }
 
-  nav {
+  > nav, > p {
     position: relative;
     padding: 10px $spacing;
 
@@ -74,15 +84,6 @@ $ball-size: 44px;
       &:hover {
         font-weight: 600;
       }
-    }
-  }
-
-  .card-description {
-    margin: 15px 0;
-    p {
-      color: $text;
-      margin: 0;
-      font-weight: normal;
     }
   }
 
@@ -136,7 +137,7 @@ $ball-size: 44px;
 }
 
 .card--with-icon {
-  h2, nav {
+  h2, > nav, > p {
     padding-left: ($spacing * 2) + $ball-size;
   }
 }
@@ -160,10 +161,6 @@ $ball-size: 44px;
     left: $spacing;
     top: -$ball-size/2;
   }
-}
-
-.spacious {
-  margin: ($spacing/2) 0;
 }
 
 .card--invisible {
