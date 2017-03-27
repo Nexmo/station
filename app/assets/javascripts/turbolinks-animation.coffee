@@ -14,7 +14,6 @@ injectFutureContent = ->
     $('#primary-content').html window.futureContent
     window.futureContent = undefined
     TweenLite.fromTo($('#primary-content'), 0.3, { alpha: 0 }, { alpha: 1 });
-    # $(document).trigger 'nexmo:load'
 
 $(document).on 'turbolinks:before-render', (event) ->
   window.futureContent = $(event.originalEvent.data.newBody).find('#primary-content').html()

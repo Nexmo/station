@@ -186,7 +186,8 @@ blockquote {
   border-left: 5px solid $pink;
   padding: $spacing * 0.75;
   font-style: italic;
-  margin-bottom: 20px;
+  margin-bottom: $spacing;
+  margin-top: $spacing;
   font-size: 15px;
   border-radius: 3px;
 

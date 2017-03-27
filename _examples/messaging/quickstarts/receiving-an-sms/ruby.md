@@ -18,4 +18,8 @@ get '/incoming-sms' do
 end
 ```
 
-Store this as `app.rb` and run it locally using `ruby app.rb`.
+Store this as `app.rb` and run it locally using:
+
+```
+$ ruby app.rb
+```
