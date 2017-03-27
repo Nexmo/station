@@ -1,5 +1,7 @@
 class MarkdownPipeline < Banzai::Pipeline
   def initialize
+    Rails.logger.info 'MarkdownPipeline#initialize'
+
     super(
       # As Markdown
       FrontmatterFilter,
