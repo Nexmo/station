@@ -4,6 +4,10 @@
 
   <title><%= (@title && @product) ? "Nexmo Developer | #{@product.titleize} > #{@title}" : "Nexmo Developer" %></title>
 
+  <% if @frontmatter && @frontmatter['description'] %>
+    <meta name="description" content="<%= @frontmatter['description'] %>">
+  <% end %>
+
   <%= stylesheet_link_tag    "application" %>
   <%= stylesheet_link_tag    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
