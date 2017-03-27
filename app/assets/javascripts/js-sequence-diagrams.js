@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function() {
+$(document).on('nexmo:load', function() {
   $(".diagram").sequenceDiagram({
     theme: 'simple'
   })

@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function() {
+$(document).on('nexmo:load', function() {
   $('[data-github]').each(function () {
     var _this = this;
     var repo = $(_this).data('github');

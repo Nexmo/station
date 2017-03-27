@@ -16,7 +16,7 @@
 //= require turbolinks
 //= require_tree .
 
-$(document).on('turbolinks:load', function(){
+$(document).on('nexmo:load', function(){
   $(document).foundation();
   new TabbedExamples
 });
