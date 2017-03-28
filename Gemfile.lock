@@ -82,6 +82,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
+    colorize (0.8.1)
     concurrent-ruby (1.0.4)
     datetime_picker_rails (0.0.7)
       momentjs-rails (>= 2.8.1)
@@ -293,6 +294,7 @@ DEPENDENCIES
   bugsnag
   byebug
   coffee-rails (~> 4.2)
+  colorize
   dotenv-rails
   elasticsearch
   foundation-rails (= 6.3.0.0)

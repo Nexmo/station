@@ -1,6 +1,45 @@
-nexmo-community/nexmo-ruby-quickstart: 'master'
-nexmo-community/nexmo-node-quickstart: 'master'
-nexmo-community/nexmo-ruby-quickstart: 'master'
-nexmo-community/nexmo-php-quickstart: 'master'
-nexmo-community/nexmo-dotnet-quickstart: 'master'
-nexmo-community/nexmo-java-quickstart: 'master'
+# Nexmo repos
+# ===========
+#
+# Used by code examples.
+#
+# Basic Usage
+# -----------
+#
+# $ bundle exec rake repos:pull
+#
+# Changes made should be committed into this repo so
+# they can be reviewed alongside pull-requests
+#
+# Developing Locally
+# ------------------
+#
+# Uncomment the path and point it to your local
+# working copy of the repo. Running the script
+# create a symlink to that directory in place.
+#
+# Once you are happy with the changes push your
+# working repo branch up and comment out the path
+# referencing it on GitHub and rerun the command.
+#
+
+nexmo-community/nexmo-ruby-quickstart:
+  branch: master
+  github: nexmo-community/nexmo-ruby-quickstart
+  # path: ../nexmo-ruby-quickstart
+nexmo-community/nexmo-node-quickstart:
+  branch: master
+  github: nexmo-community/nexmo-node-quickstart
+  # path: ../nexmo-node-quickstart
+nexmo-community/nexmo-php-quickstart:
+  branch: master
+  github: nexmo-community/nexmo-php-quickstart
+  # path: ../nexmo-php-quickstart
+nexmo-community/nexmo-dotnet-quickstart:
+  branch: master
+  github: nexmo-community/nexmo-dotnet-quickstart
+  # path: ../nexmo-dotnet-quickstart
+nexmo-community/nexmo-java-quickstart:
+  branch: master
+  github: nexmo-community/nexmo-java-quickstart
+  # path: ../nexmo-java-quickstart
