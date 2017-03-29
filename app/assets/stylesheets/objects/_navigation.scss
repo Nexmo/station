@@ -68,8 +68,9 @@
 @media screen and (max-width: 640px) {
   .sidenav {
     > ul {
-      position: relative;
-      width: auto;
+      position: relative !important;
+      width: auto !important;
+      margin-bottom: 40px;
     }
   }
 }
