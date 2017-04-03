@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
     if redirect
       redirect_to redirect
     else
-      render 'static/404', status: :not_found
+      render 'static/404', status: :not_found, formats: [:html]
     end
   end
 
