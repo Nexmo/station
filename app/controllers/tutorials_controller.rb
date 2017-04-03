@@ -16,7 +16,10 @@ class TutorialsController < ApplicationController
       document_path = Pathname.new(document_path)
       relative_path = "/#{document_path.relative_path_from(origin)}".gsub('.md', '')
 
-      if frontmatter['products'].split(',').map(&:strip).include? @product
+
+      if params['product'] && frontmatter['products'].split(',').map(&:strip).include?(@product)
+        { title: title, description: description, path: relative_path, body: document }
+      else
         { title: title, description: description, path: relative_path, body: document }
       end
     end
@@ -24,6 +27,8 @@ class TutorialsController < ApplicationController
     @tutorials.compact!
 
     @title = 'Tutorials'
+
+
 
     render layout: 'documentation-index'
   end
