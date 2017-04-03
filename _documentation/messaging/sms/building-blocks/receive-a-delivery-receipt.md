@@ -7,7 +7,7 @@ navigation_weight: 3
 
 ## Implement a delivery receipt webhook
 
-To get a delivery receipt we need to implement the endpoint that the webhook will send the payload to.
+To get a delivery receipt we need to implement a webhook endpoint the API will send the payload to.
 
 ```tabbed_content
 source: '_examples/messaging/sms/building-blocks/receive-a-delivery-receipt'
@@ -15,7 +15,7 @@ source: '_examples/messaging/sms/building-blocks/receive-a-delivery-receipt'
 
 ## Make your machine publicly available
 
-You need your machine publicly available for Nexmo to send the payload to it. We reccomend you use [Ngrok](https://ngrok.com) to do this easily.
+You need your machine to be publicly available for Nexmo to send the payload to it. We recommend you try [Ngrok](https://ngrok.com) to do this quite easily.
 
 ```
 $ ngrok http 5000
@@ -35,7 +35,7 @@ $ ngrok http 5000
 
 ## Send a message
 
-We're now ready to send the message, you can do this with the [Nexmo CLI](/tools) as such:
+We are now ready to send the message, you can do this with the [Nexmo CLI](/tools) as such:
 
 ```
 $ nexmo sms 447700900000 "This is a message from Nexmo API"
