@@ -18,7 +18,7 @@ source: '_examples/messaging/sms/building-blocks/receive-a-delivery-receipt'
 You need your machine publicly available for Nexmo to send the payload to it. We reccomend you use [Ngrok](https://ngrok.com) to do this easily.
 
 ```
-$ ngrok http 3000
+$ ngrok http 5000
 
     ngrok by @inconshreveable                                                                                           (Ctrl+C to quit)
 
@@ -26,8 +26,8 @@ $ ngrok http 3000
     Version                       2.1.18
     Region                        United States (us)
     Web Interface                 http://127.0.0.1:4040
-    Forwarding                    http://0bae3e3a.ngrok.io -> localhost:3000
-    Forwarding                    https://0bae3e3a.ngrok.io -> localhost:3000
+    Forwarding                    http://0bae3e3a.ngrok.io -> localhost:5000
+    Forwarding                    https://0bae3e3a.ngrok.io -> localhost:5000
 
     Connections                   ttl     opn     rt1     rt5     p50     p90
                                   0       0       0.00    0.00    0.00    0.00
