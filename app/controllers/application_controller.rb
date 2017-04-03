@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
 
   http_basic_authenticate_with name: ENV['USERNAME'], password: ENV['PASSWORD'], if: :requires_authentication?
 
+  before_action :set_show_feedback
+
   def not_found
     redirect = Redirector.find(request)
     if redirect
@@ -22,5 +24,9 @@ class ApplicationController < ActionController::Base
 
   def no_document
     not_found
+  end
+
+  def set_show_feedback
+    @show_feedback = true
   end
 end

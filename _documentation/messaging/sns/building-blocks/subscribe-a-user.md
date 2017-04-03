@@ -1,6 +1,7 @@
 ---
 title: Subscribe a user
 navigation_weight: 1
+wip: true
 ---
 
 # Subscribe a user

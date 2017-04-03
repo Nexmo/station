@@ -1,6 +1,7 @@
 ---
 title: Sending a message
 navigation_weight: 2
+wip: true
 ---
 
 # Sending a message

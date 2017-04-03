@@ -16,7 +16,12 @@ class MarkdownController < ApplicationController
 
     @content = MarkdownPipeline.new.call(document)
 
-    render layout: 'documentation'
+    if !Rails.env.development? && @frontmatter['wip']
+      @show_feedback = false
+      render 'wip', layout: 'documentation'
+    else
+      render layout: 'documentation'
+    end
   end
 
   private
