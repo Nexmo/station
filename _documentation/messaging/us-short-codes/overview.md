@@ -17,3 +17,8 @@ Customers using the US Short Codes API use separate endpoints for sending messag
 * [Alerts](/messaging/us-short-codes/guides/alerts) — how to send event-based alerts
 * [Two-factor Authentication API](/messaging/us-short-codes/guides/2fa) – how to send two-factor authentication (2FA) codes
 * [Campaign Subscription Management](/messaging/us-short-codes/guides/campaign-subscription-management) – handling unsubscribe and resubscribe requests
+
+## API Reference
+
+* [Alerts API - Subscribing](/api/sms/us-short-codes/alerts/subscription)
+* [Alerts API - Receiving](/api/sms/us-short-codes/alerts/sending)
