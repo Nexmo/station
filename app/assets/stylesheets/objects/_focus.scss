@@ -13,31 +13,6 @@ $code-background-dark: darken($code-background, 5%);
     padding-left: 50px;
   }
 
-  &:after {
-    content: " ";
-    display: block;
-    background: linear-gradient(to bottom, rgba($code-background, 0.6) 0%,rgba($code-background-dark, 0.8) 12%);
-    // background: rgba($code-background-dark, 0.85);
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    height: $code-context;
-  }
-
-  &:before {
-    content: " ";
-    display: block;
-    background: linear-gradient(to top, rgba($code-background, 0.6) 0%,rgba($code-background-dark, 0.8) 12%);
-    // background: rgba($code-background-dark, 0.85);
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: $code-context;
-    z-index: 2;
-  }
-
 }
 
 .focus__lines {

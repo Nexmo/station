@@ -1,6 +1,6 @@
 CODE_LINE_HEIGHT = 22
 CODE_PADDING = 20
-CODE_CONTEXT = 88
+CODE_CONTEXT = 0
 
 class CodeFilter < Banzai::Filter
   def call(input)
@@ -13,8 +13,12 @@ class CodeFilter < Banzai::Filter
       highlighted_source = highlight(code, lexer)
 
       total_lines = code.lines.count
-      focused_lines = config['to_line'] - config['from_line']
-      top = config['from_line'] * CODE_LINE_HEIGHT - (CODE_PADDING / 2) - CODE_CONTEXT
+
+      from_line = config['from_line'] || 0
+      to_line = config['to_line'] || total_lines
+
+      focused_lines = to_line - from_line
+      top = from_line * CODE_LINE_HEIGHT - (CODE_PADDING / 2) - CODE_CONTEXT
       height = (focused_lines * CODE_LINE_HEIGHT) + (CODE_PADDING * 2) + (CODE_CONTEXT * 2)
 
       line_numbers = (1..total_lines).map do |line_number|

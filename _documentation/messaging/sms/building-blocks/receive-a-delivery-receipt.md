@@ -9,21 +9,8 @@ navigation_weight: 3
 
 To get a delivery receipt we need to implement the endpoint that the webhook will send the payload to.
 
-```ruby
-require 'sinatra'
-require 'pp'
-
-set :port, 3000
-
-get '/delivery-receipt' do
-  pp params
-end
-```
-
-Then run the server with:
-
-```
-$ ruby app.rb
+```tabbed_content
+source: '_examples/messaging/sms/building-blocks/receive-a-delivery-receipt'
 ```
 
 ## Make your machine publicly available
