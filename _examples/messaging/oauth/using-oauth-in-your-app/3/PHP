@@ -1,3 +1,4 @@
+<?php
 // nexmoOAuthDriver.php
 try {
   //Retrieve the OAuth token from Nexmo
