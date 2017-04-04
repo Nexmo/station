@@ -13,8 +13,6 @@ To get a delivery receipt we need to implement a webhook endpoint the API will s
 source: '_examples/messaging/sms/building-blocks/receive-a-delivery-receipt'
 ```
 
-Run the script you have created.
-
 ## Make your machine publicly available
 
 Your computer needs to be publicly available for Nexmo to send the payload to it. We recommend you try [Ngrok](https://ngrok.com) to do this quite easily.
