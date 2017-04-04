@@ -1,12 +1,13 @@
 ---
 title: Overview
-wip: true
 ---
 
 # Account Overview
 
-**Limited content currently exists for this page. This is a placeholder.**
+Your Nexmo account can be managed via the [Dashboard](https://dashboard.nexmo.com/), [CLI](/tools) and the [Developer API](https://docs.nexmo.com/tools/developer-api).
 
-Vestibulum id ligula porta felis euismod semper. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam quis risus eget urna mollis ornare vel eu leo. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nullam quis risus eget urna mollis ornare vel eu leo. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
+## Guides
 
-Cras mattis consectetur purus sit amet fermentum. Cras mattis consectetur purus sit amet fermentum. Donec ullamcorper nulla non metus auctor fringilla. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Aenean lacinia bibendum nulla sed consectetur.
+* [Account management](/account/guides/management) – how to use the Dashboard
+* [Numbers](/account/guides/numbers) - how to rent numbers
+* [Payments](/account/guides/payments) — setting up payment methods, auto reload, and balance notifications
