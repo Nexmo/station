@@ -30,7 +30,7 @@ This request contains:
 
 ### Base URL
 
-All requests to the Shortcode 2FA API must contain:
+All requests to the Short Code 2FA API must contain:
 
 * `https://rest.nexmo.com/sc/us/2fa`
 * A response object: *json* or *xml*

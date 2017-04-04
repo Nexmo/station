@@ -2,10 +2,23 @@
 title: Overview
 ---
 
-# US Shortcodes Overview
+# US Short Codes Overview
 
-**No content currently exists for this page. This is a placeholder.**
+Nexmo provide an API for sending SMS messages from a shared short code to mobile device users in the United States.
 
-Vestibulum id ligula porta felis euismod semper. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam quis risus eget urna mollis ornare vel eu leo. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nullam quis risus eget urna mollis ornare vel eu leo. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
+Customers using the US Short Code API must have the text of their campaign approved by Nexmo. Please contact
+[support@nexmo.com](mailto:support@nexmo.com) if you need to use this API. There are
+[compilance requirements for use of US Short Codes](https://help.nexmo.com/hc/en-us/articles/204015403-Pre-approved-US-Short-Codes-compliance-requirements).
 
-Cras mattis consectetur purus sit amet fermentum. Cras mattis consectetur purus sit amet fermentum. Donec ullamcorper nulla non metus auctor fringilla. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Aenean lacinia bibendum nulla sed consectetur.
+Customers using the US Short Codes API use separate endpoints for sending messages to the standard [SMS API](/messaging/sms/overview).
+
+## Guides
+
+* [Alerts](/messaging/us-short-codes/guides/alerts) – how to send event-based alerts
+* [Two-factor Authentication API](/messaging/us-short-codes/guides/2fa) – how to send two-factor authentication (2FA) codes
+* [Campaign Subscription Management](/messaging/us-short-codes/guides/campaign-subscription-management) — handling unsubscribe and resubscribe requests
+
+## API Reference
+
+* [Alerts API - Subscribing](/api/sms/us-short-codes/alerts/subscription)
+* [Alerts API - Receiving](/api/sms/us-short-codes/alerts/sending)

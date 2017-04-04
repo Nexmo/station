@@ -8,7 +8,7 @@ Countries have different technical standards and restrictions around the [SMS] s
 
 - [Encoding](#encoding) - set the correct encoding so your users can read your message clearly.
 - [Concatenation](#concatenation) - check the length of the message in relation to the character set and send the minimum number of SMS.
-- [Custom senderIDs](#custom-senderid) - can you use your company brand for each message or must it be a virtual number, a shortcode or a random number?
+- [Custom senderIDs](#custom-senderid) - can you use your company brand for each message or must it be a virtual number, a short code or a random number?
 - [Delivery receipts](#delivery-receipts) - check if the country you are sending to will correctly validate that each message is delivered.
 - [Country specific features](#country-specific-features) - a comprehensive list of the sms features available internationally.
 
@@ -106,7 +106,7 @@ However, depending on the jurisdiction one or more of the following can happen:
 
 * Your senderID must be a virtual number.
 * SMS filtering is applied and the senderID is modified.
-* Numeric-only senderIDs are replaced by shortcodes.
+* Numeric-only senderIDs are replaced by short codes.
 * You can only send traffic in a limited time window.
 * For marketing traffic you have to implement a STOP system.
 
@@ -139,7 +139,7 @@ Before you start your messaging campaign:
 
 The following table shows the features available in different countries. Click the column header to sort countries by feature:
 
-| Country | Reliable DLR | Alphanumeric | Shortcode | Your virtual number | Longcode | Preregistered | Concatenated SMS | Unicode |
+| Country | Reliable DLR | Alphanumeric | Short code | Your virtual number | Long code | Preregistered | Concatenated SMS | Unicode |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
 | Australia           | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ |
 | Brazil              | ✖ | ✖ | ✖ | ✖ | ✖ | ✖ | ✖ | ✖ |

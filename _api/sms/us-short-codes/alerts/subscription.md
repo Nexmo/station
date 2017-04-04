@@ -39,7 +39,7 @@ This request contains:
 
 ### Base URL
 
-All requests to the Shortcode Event Based Alert API must contain:
+All requests to the Short Code Event Based Alert API must contain:
 
 * Either:
   * `https://rest.nexmo.com/sc/us/alert/opt-in/query`
