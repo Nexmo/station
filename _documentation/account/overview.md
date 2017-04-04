@@ -10,4 +10,4 @@ Your Nexmo account can be managed via the [Dashboard](https://dashboard.nexmo.co
 
 * [Account management](/account/guides/management) – how to use the Dashboard
 * [Numbers](/account/guides/numbers) - how to rent numbers
-* [Payments](/account/guides/payment) — setting up payment methods, auto reload, and balance notifications
+* [Payments](/account/guides/payments) — setting up payment methods, auto reload, and balance notifications
