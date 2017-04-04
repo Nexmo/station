@@ -11,16 +11,16 @@ class TutorialsController < ApplicationController
       frontmatter = YAML.safe_load(document)
       title = frontmatter['title']
       description = frontmatter['description']
+      products = frontmatter['products'].split(',').map(&:strip)
 
       origin = Pathname.new("#{Rails.root}/_documentation")
       document_path = Pathname.new(document_path)
       relative_path = "/#{document_path.relative_path_from(origin)}".gsub('.md', '')
 
-
-      if params['product'] && frontmatter['products'].split(',').map(&:strip).include?(@product)
-        { title: title, description: description, path: relative_path, body: document }
+      if params['product'] && products.include?(@product)
+        { title: title, description: description, path: relative_path, body: document, products: products }
       else
-        { title: title, description: description, path: relative_path, body: document }
+        { title: title, description: description, path: relative_path, body: document, products: products }
       end
     end
 

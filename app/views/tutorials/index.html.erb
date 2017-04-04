@@ -1,15 +1,16 @@
 <h1>Tutorials</h1>
 
-<br>
-<hr>
+<p>Get started with Nexmo with tutorials that will walk you through building a variety of practical applications</p>
+
 <br>
 
-<div class="row">
+<div class="masonry">
   <% @tutorials.each_with_index do |tutorial, index| %>
-    <div class="columns small-12 large-6 <%= index == @tutorials.count - 1 ? 'end' : '' %>">
+    <div class="item">
       <a href="<%= tutorial[:path].gsub('_', '') %>" class="card card--with-icon">
         <h2>
           <span class="unstyled spacious">
+            <small><i><%= tutorial_subtitle(tutorial) %></i></small>
             <%= tutorial[:title] %>
           </span>
         </h2>
