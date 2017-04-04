@@ -1,3 +1,4 @@
+<?php
 // nexmoOAuthDriver.php
 
 $this->request_string = 'request_token';

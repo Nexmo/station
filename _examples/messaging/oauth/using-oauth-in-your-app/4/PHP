@@ -1,3 +1,4 @@
+<?php
 // nexmoOAuthDriver.php
 
 $authorization_url = $this->oauth_baseurl
