@@ -13,9 +13,11 @@ To get a delivery receipt we need to implement a webhook endpoint the API will s
 source: '_examples/messaging/sms/building-blocks/receive-a-delivery-receipt'
 ```
 
+Run the script you have created.
+
 ## Make your machine publicly available
 
-You need your machine to be publicly available for Nexmo to send the payload to it. We recommend you try [Ngrok](https://ngrok.com) to do this quite easily.
+Your computer needs to be publicly available for Nexmo to send the payload to it. We recommend you try [Ngrok](https://ngrok.com) to do this quite easily.
 
 ```
 $ ngrok http 5000
@@ -32,6 +34,17 @@ $ ngrok http 5000
     Connections                   ttl     opn     rt1     rt5     p50     p90
                                   0       0       0.00    0.00    0.00    0.00
 ```
+
+## Tell Nexmo about your webhook endpoint
+
+Now that your webhook endpoint is running, you need to tell Nexmo to send delivery receipts to this address.
+
+The webhook URL is the forwarding address given to you by ngrok combined with `/delivery-receipt`.
+
+For instance: `https://0bae3e3a.ngrok.io/delivery-receipt`
+
+Paste your webhook URL into the [settings section of Nexmo Dashboard](https://dashboard.nexmo.com/settings)
+in the field marked labelled "Webhook URL for Delivery Receipt" and press 'Save Changes'.
 
 ## Send a message
 
@@ -56,3 +69,7 @@ Shortly after your server should print the parameters:
   "message-timestamp"=>"2020-01-01 14:00:00"
 }
 ```
+
+## See also
+
+* [Webhooks Guide](/concepts/guides/webhooks) — a detailed guide to how to use webhooks with Nexmo's platform
