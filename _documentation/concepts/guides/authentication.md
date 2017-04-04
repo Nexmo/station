@@ -4,32 +4,41 @@ title: Authentication
 
 # Authentication
 
-Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur blandit tempus porttitor.
+Nexmo API provides various means of Authentication depending on what product you are using.
+
+API | API Key & Secret | JSON Web Token (JWT) | OAuth
+-- | -- | -- | --
+SMS API | ✅ | ❎ | ✅
+Conversion API | ✅ | ❎| ❎
+Number Insight | ✅ | ❎| ❎
+Developer API | ✅ | ❎| ❎
+Voice API | ❎ | ✅ | ❎
 
 ## Contents
 
 In this document you can learn about:
 
-* [API Key & Secret)(#)
-* [Justo Elit Ipsum Fermentum Mattis)(#api-key-secret)
-* [Justo Elit Ipsum Fermentum Mattis)(#json-web-tokens-jwt)
-* [Justo Elit Ipsum Fermentum Mattis)(#oauth)
-
-## Concepts
-
-* **Authentication with JWTs** - interaction with the Voice API are authenticated using JWTs. The [Nexmo libraries](/tools) handle JWT generation using a unique Nexmo Voice Application ID and a Private Key.
+* [API Key & Secret](#api-key-secret)
+* [JSON Web Tokens (JWT)](#json-web-tokens-jwt)
+* [OAuth](#oauth)
 
 ## API Key & Secret
 
-Donec sed odio dui. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+When you create a Nexmo account you will be provided an API key and secret. These can be found in your [account settings](https://dashboard.nexmo.com/settings) in the Nexmo Dashboard. The secret should always be kept secure and never shared: be careful when adding it to your codebase to make sure it is not shared with anyone who may use it maliciously.
+
+The API key and secret should be included in the parameters of requests you make to the SMS, Conversion, Number Insight or Developer API.
 
 ## JSON Web Tokens (JWT)
 
-Donec sed odio dui. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+JSON Web Tokens (JWT) are a compact, URL-safe means of representing claims to be transferred between two parties.
+
+JWTs are supported by the Voice API as a means of authenticating your requests. The [Nexmo libraries](/tools) and CLI handle JWT generation using a unique Nexmo Voice Application ID and a Private Key.
+
+If you are not using a Nexmo library you should refer to [RFC 719](https://tools.ietf.org/html/rfc7519) to implement JWT.
 
 ## OAuth
 
-Donec sed odio dui. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+Some Nexmo APIs support OAuth as a means of authenticating. We provide an in-depth guide on how to authenticate with OAuth [here](/concepts/guides/oauth).
 
 ## References
 

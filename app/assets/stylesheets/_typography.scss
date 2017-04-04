@@ -328,3 +328,15 @@ blockquote {
 .color-text {
   color: $text;
 }
+
+.color--warn {
+  color: $orange;
+}
+
+.color--error {
+  color: $red;
+}
+
+.color--success {
+  color: $green;
+}

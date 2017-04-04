@@ -65,12 +65,12 @@ table {
     line-height: 1.5em;
   }
 
-  tr:last-child td {
-    border-bottom: none;
-  }
-
   code {
     white-space: nowrap;
+  }
+
+  .fa-check-circle, .fa-times-cirle {
+    align-self: center;
   }
 }
 
