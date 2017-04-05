@@ -141,3 +141,13 @@ Andrew->>China: I am good thanks!
 Sometimes content is too verbose to put on the surface (particularly if it's in a table). You can include a file in a modal:
 
 Why not @[give it a try](/_modals/styleguide/example.md) now?
+
+## Languages (custom plugin)
+
+Inline language support is supported as such.
+
+Language | Key | Text
+-- | -- | --
+English | none | Hello World
+Spanish | `es` | [Hola Mundo](lang: 'es')
+French | `fr` | [Bonjour le monde](lang: 'fr')

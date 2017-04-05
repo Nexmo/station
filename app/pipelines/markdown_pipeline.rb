@@ -13,6 +13,7 @@ class MarkdownPipeline < Banzai::Pipeline
       JsSequenceDiagramFilter,
       PartialFilter,
       IconFilter,
+      LanguageFilter,
       MarkdownFilter,
 
       # As HTML
