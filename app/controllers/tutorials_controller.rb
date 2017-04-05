@@ -17,8 +17,12 @@ class TutorialsController < ApplicationController
       document_path = Pathname.new(document_path)
       relative_path = "/#{document_path.relative_path_from(origin)}".gsub('.md', '')
 
-      if params['product'] && products.include?(@product)
-        { title: title, description: description, path: relative_path, body: document, products: products }
+      if params['product']
+        if products.include?(@product)
+          { title: title, description: description, path: relative_path, body: document, products: products }
+        else
+          nil
+        end
       else
         { title: title, description: description, path: relative_path, body: document, products: products }
       end
