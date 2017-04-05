@@ -10,11 +10,23 @@ class SearchController < ApplicationController
   private
 
   def client
-    @client ||= Rails.configuration.elastic_search_client({ cluser_name: 'nexmo_development' })
+    @client ||= Rails.configuration.elastic_search_client({ cluser_name: "nexmo_#{Rails.env}" })
   end
 
   def set_results
     return unless params['query']
-    @results = client.search index: 'documents', body: { query: { fuzzy: { title: params['query'] } } }
+    #
+    query = {
+      query: {
+        match: {
+          title: {
+            query: params['query'],
+            minimum_should_match: '80%',
+          },
+        },
+      },
+    }
+
+    @results = client.search index: 'documents', body: query
   end
 end
