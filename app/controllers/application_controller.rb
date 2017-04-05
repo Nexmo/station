@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   http_basic_authenticate_with name: ENV['USERNAME'], password: ENV['PASSWORD'], if: :requires_authentication?
 
+  force_ssl if: :ssl_configured?
   before_action :set_show_feedback
 
   def not_found
@@ -28,5 +29,9 @@ class ApplicationController < ActionController::Base
 
   def set_show_feedback
     @show_feedback = true
+  end
+
+  def ssl_configured?
+    !Rails.env.development?
   end
 end
