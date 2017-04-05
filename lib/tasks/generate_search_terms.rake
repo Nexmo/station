@@ -21,7 +21,9 @@ namespace :search_terms do
 
   desc 'Drop the search terms'
   task drop: :environment do
-    client = Rails.configuration.elastic_search_client(cluser_name: "nexmo_#{Rails.env}")
-    client.delete_by_query index: 'documents', type: 'document', body: { query: { match_all: {} } }
+    if client.indices.exists index: 'documents'
+      client = Rails.configuration.elastic_search_client(cluser_name: "nexmo_#{Rails.env}")
+      client.delete_by_query index: 'documents', type: 'document', body: { query: { match_all: {} } }
+    end
   end
 end
