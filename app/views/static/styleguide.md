@@ -144,10 +144,13 @@ Why not @[give it a try](/_modals/styleguide/example.md) now?
 
 ## Languages (custom plugin)
 
-Inline language support is supported as such.
+Inline [IETF language tag](https://en.wikipedia.org/wiki/IETF_language_tag) support, using both primary language tags and subtags, is provided using the following syntax.
 
 Language | Key | Text
 -- | -- | --
 English | none | Hello World
 Spanish | `es` | [Hola Mundo](lang: 'es')
 French | `fr` | [Bonjour le monde](lang: 'fr')
+Brazilian Portuguese | `pt-BR` | [Olá Mundo](lang: 'pt-BR')
+Hebrew | `il` | [שלום עולם](lang: 'il')
+
