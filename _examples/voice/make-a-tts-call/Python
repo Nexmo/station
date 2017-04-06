@@ -11,7 +11,17 @@ pip install nexmo
 Create a `call.py`:
 
 ```python
-// Example pending
+import nexmo
+
+PRIVATE_KEY = open(PRIVATE_KEY_PATH, 'r').read()
+client = nexmo.Client(key=NEXMO_API_KEY, secret=NEXMO_API_SECRET,
+    application_id=APPLICATION_ID, private_key=PRIVATE_KEY)
+
+response = client.create_call({
+  'to': [{'type': 'phone', 'number': 'TO_NUMBER'}],
+  'from': {'type': 'phone', 'number': 'FROM_NUMBER'},
+  'answer_url': ['https://nexmo-community.github.io/ncco-examples/first_call_talk.json']
+})
 ```
 
 Run:
