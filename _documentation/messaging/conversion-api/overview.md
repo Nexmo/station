@@ -8,7 +8,7 @@ You use the Conversion API to tell Nexmo about the reliability of your 2FA commu
 
 Conversion data is confidential, Nexmo does not share it with third parties.
 
-In order to identify the carriers who provide the best performance, Nexmo continually tests the routes used to deliver SMS and Voice. Using Adaptive Routing(™) Nexmo actively reroutes messages through different carrier routes and ensures optimum delivery for your messages. The route choice is made using millions of real-time conversion data points.
+In order to identify the carriers who provide the best performance, Nexmo continually tests the routes used to deliver SMS and Voice. Using Adaptive Routing™, Nexmo actively reroutes messages through different carrier routes and ensures faster and more reliable delivery for your messages. The route choice is made using millions of real-time conversion data points.
 
 Message delivery indicators are:
 
