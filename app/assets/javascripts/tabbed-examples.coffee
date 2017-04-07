@@ -23,4 +23,7 @@ window.TabbedExamples = class TabbedExamples
 
   setLanguage: (language) ->
     $(".tabs--code [data-language='#{language}'] a").each ->
-      @.click()
+      tabs = $(@).parents('.tabs')
+      tab = $(@).parent()
+
+      $(tabs).foundation('_handleTabChange', tab, true)
