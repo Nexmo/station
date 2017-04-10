@@ -8,7 +8,7 @@ api: Voice API
 
 ## Calls
 
-You use the following requests to create, terminate, record and retrieve information about your Calls:
+You use the following requests to create, terminate, record and retrieve information about your calls:
 
 ###  Create an outbound call
 
@@ -24,40 +24,40 @@ This request contains:
 * [Payload](#ccparameters)
 * [JWT](#jwt_minting)
 
-Information about the Call is sent to you in the:
+Information about the call is sent to you in the:
 
-* [Response](#ccresponse) - parameters sent synchronously when the Call starts.
+* [Response](#ccresponse) - parameters sent synchronously when the call starts.
 * [Webhook](#ccwebhook) - parameters sent asynchronously when the status changes
 
 
 #### Base URL
 
-All requests to create a Call must contain:
+All requests to create a call must contain:
 
 * `https://api.nexmo.com/v1/calls`
 
 #### Payload
 
-The payload to create a new Call looks like:
+The payload to create a new call looks like:
 
 ```tabbed_content
 source: '/_examples/api/voice/calls/post-response'
 ```
 
 
-The following table shows the parameters you use to create a Call:
+The following table shows the parameters you use to create a call:
 
 Parameter | Description | Required
 -- | -- | --
 `to` | The single or mixed collection of endpoint types you connected to. @[Possible values](/_modals/voice/guides/ncco-reference/endpoint.md).
 `from` | The endpoint you are calling from. Possible value are the same as *to*. | Yes
-`answer_url` | The webhook endpoint where you provide the Nexmo Call Control Object that governs this Call. As soon as your user answers a call, Platform requests this NCCO from `answer_url`. Use `answer_method` to manage the HTTP method. | yes
+`answer_url` | The webhook endpoint where you provide the Nexmo Call Control Object that governs this call. As soon as your user answers a call, Platform requests this NCCO from `answer_url`. Use `answer_method` to manage the HTTP method. | yes
 `answer_method` | A [GET] request. | no
-`event_url` | Platform sends event information asynchronously to this endpoint when status changes. For more information about the values sent, see Callback. | no
+`event_url` | Platform sends event information asynchronously to this endpoint when status changes. For more information about the values sent, see callback. | no
 `event_method` | 	The HTTP method used to send event information to `event_url`. The default value is [POST]. | no
 `machine_detection` | Configure the behavior when Nexmo detects that a destination is an answerphone. @[Possible values](/_modals/voice/api/calls/machine_detection.md). | no
-`length_timer` | Set the number of seconds that elapse before Nexmo hangs up after the Call state changes to *in_progress*. The default value is 7200, two hours. This is also the maximum value. | No that elapse before Nexmo hangs up after the Call state changes to *‘ringing’*. The default value is 60, the maximum value is 120. | No
-`ringing_timer` | Set the number of seconds that elapse before Nexmo hangs up after the Call state changes to ‘ringing’. The default value is 60, the maximum value is 120. | no
+`length_timer` | Set the number of seconds that elapse before Nexmo hangs up after the call state changes to *in_progress*. The default value is 7200, two hours. This is also the maximum value. | No that elapse before Nexmo hangs up after the call state changes to *‘ringing’*. The default value is 60, the maximum value is 120. | No
+`ringing_timer` | Set the number of seconds that elapse before Nexmo hangs up after the call state changes to ‘ringing’. The default value is 60, the maximum value is 120. | no
 
 #### Response
 
@@ -95,25 +95,25 @@ Possible values are:
 
 Key | Value
 -- | --
-`uuid` | The unique identifier for this call leg. The uuid is created when your call request is accepted by Nexmo. You use uuid in all requests for individual live calls. @[Possible values](/_modals/voice/api/calls/uuid.md).
+`uuid` | The unique identifier for this call leg. The UUID is created when your call request is accepted by Nexmo. You use the UUID in all requests for individual live calls. @[Possible values](/_modals/voice/api/calls/uuid.md).
 `conversation_uuid` | The unique identifier for the conversation this call leg is part of.
 `to` | The single or mixed collection of endpoint types you connected to. @[Possible values](/_modals/voice/guides/ncco-reference/endpoint.md).
 `from` | The endpoint you called from. Possible values are the same as `to`.
 `direction` | Possible values are `outbound` or `inbound`.
-`recording_url` | The URL to download a Call or Conversation recording from.
+`recording_url` | The URL to download a call or conversation recording from.
 `rate` | The price per minute for this call.
-`start_time` | The time the Call started in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2020-01-01 12:00:00`.
-`network` | The [Mobile Country Code Mobile Network Code (MCCMNC)](https://en.wikipedia.org/wiki/Mobile_country_code) for the carrier network used to make this Call.
+`start_time` | The time the call started in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2020-01-01 12:00:00`.
+`network` | The [Mobile Country Code Mobile Network Code (MCCMNC)](https://en.wikipedia.org/wiki/Mobile_country_code) for the carrier network used to make this call.
 `status` | The status of the call. @[Possible values](/_modals/voice/api/calls/status.md).
-`price` | The total price charged for this Call.
-`duration` | The time elapsed for the Call to take place in seconds.
-`end_time` | The time the Call ended in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2020-01-01 12:00:00`.
+`price` | The total price charged for this call.
+`duration` | The time elapsed for the call to take place in seconds.
+`end_time` | The time the call ended in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2020-01-01 12:00:00`.
 
-### Retrieve information about all your Calls
+### Retrieve information about all your calls
 
 [GET] `https://api.nexmo.com/v1/calls`
 
-You use a [GET] request to retrieve the details about all your Calls.
+You use a [GET] request to retrieve the details about all your calls.
 
 ```tabbed_examples
 source: '/_examples/api/voice/calls/get'
@@ -126,27 +126,27 @@ This request contains:
 * [Parameters](#craparameters)
 * [JWT](#jwt_minting)
 
-You receive the Call details in the [response](#craresponse).
+You receive the call details in the [response](#craresponse).
 
 #### Base URL
 
-All requests to retrieve details about all your Calls must contain:
+All requests to retrieve details about all your calls must contain:
 
 * `https://api.nexmo.com/v1/calls`
 
 #### Parameters
 
-The following table shows the parameters you use to filter the information you retrieve about your Calls:
+The following table shows the parameters you use to filter the information you retrieve about your calls:
 
 Parameter | Description | Required
 -- | -- | --
-`status` | Filter on the status of this Call. @[Possible values](/_modals/voice/api/calls/status.md) | No
+`status` | Filter on the status of this call. @[Possible values](/_modals/voice/api/calls/status.md) | No
 `date_start` | Return the records that occurred after this point in time. Set this parameter in ISO_8601 format: `YYYY-MM-DDTHH:MM:SSZ`. For example, `2016-11-14T07:45:14Z`. | No
 `date_end` | Return the records that occurred before this point in time. Set this parameter in ISO_8601 format. | No
 `page_size` | Return this amount of records in the response. The default value is 10. | No
-`record_index` | Return `page_size` Calls from this index in the response. That is, if your request returns `300` Calls, set `record_index` to 5 in order to return Calls `50` to `59`. The default value is `0`. That is, the first `page_size` Calls. | No
+`record_index` | Return `page_size` calls from this index in the response. That is, if your request returns `300` calls, set `record_index` to 5 in order to return calls `50` to `59`. The default value is `0`. That is, the first `page_size` calls. | No
 `order` | Either `asc` for ascending order (default) or `desc` for descending order. | No
-`conversation_uuid` | Return all the records associated with a specific Conversation. | No
+`conversation_uuid` | Return all the records associated with a specific conversation. | No
 
 
 #### Response
@@ -202,28 +202,28 @@ Key | Value
 -- | --
 `count` | The total number of records returned by your request.
 `page_size` | The amount of records returned in this response.
-`record_index` | Return `page_size` Calls from this index in the response. That is, if your request returns `300` Calls, set `record_index` to 5 in order to return Calls `50` to `59`. The default value is `0`. That is, the first `page_size` Calls.
+`record_index` | Return `page_size` calls from this index in the response. That is, if your request returns `300` calls, set `record_index` to 5 in order to return calls `50` to `59`. The default value is `0`. That is, the first `page_size` calls.
 `_links` | A series of links between resources in this API in the http://stateless.co/hal_specification.html. @[Possible links](/_modals/voice/api/calls/links.md).
 `_embedded` | The collections of JSON objects returned in this response.
 `calls` | The collection of `page_size` calls returned by your request. Each call in this response has the parameters listed below.
-`uuid` | uuid	A unique identifier for this Call.
+`uuid` | uuid	A unique identifier for this call.
 `conversation_uuid` | The unique identifier for the conversation this call leg is part of.
 `to` | The single or mixed collection of endpoint types you connected to. @[Possible values](/_modals/voice/guides/ncco-reference/endpoint.md).
 `from` | The endpoint you are calling from. Possible value are the same as *to*.
-`status` | Filter on the status of this Call. @[Possible values](/_modals/voice/api/calls/status.md)
+`status` | Filter on the status of this call. @[Possible values](/_modals/voice/api/calls/status.md)
 `direction` | Possible values are `outbound` or `inbound`.
-`rate` | The price per minute for this Call.
-`price` | The total price charged for this Call.
-`duration` | The time elapsed for the Call to take place in seconds.
-`start_time` | The time the Call started in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2020-01-01 12:00:00`.
-`end_time` | The time the Call ended in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2020-01-01 12:00:00`.
-`network` | The [Mobile Country Code Mobile Network Code (MCCMNC)](https://en.wikipedia.org/wiki/Mobile_country_code) for the carrier network used to make this Call.
+`rate` | The price per minute for this call.
+`price` | The total price charged for this call.
+`duration` | The time elapsed for the call to take place in seconds.
+`start_time` | The time the call started in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2020-01-01 12:00:00`.
+`end_time` | The time the call ended in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2020-01-01 12:00:00`.
+`network` | The [Mobile Country Code Mobile Network Code (MCCMNC)](https://en.wikipedia.org/wiki/Mobile_country_code) for the carrier network used to make this call.
 
-### Retrieve information about a single Call
+### Retrieve information about a single call
 
 [GET] `https://api.nexmo.com/v1/calls/{uuid}`
 
-You use a GET request to retrieve information about a single Call.
+You use a GET request to retrieve information about a single call.
 
 ```tabbed_examples
 source: '/_examples/api/voice/calls/show'
@@ -235,11 +235,11 @@ This request contains:
 * (link: #crsparameterstext: Payload)
 * [JWT](#jwt_minting)
 
-You receive the Call details in the [response](#crsresponse).
+You receive the call details in the [response](#crsresponse).
 
 #### Base URL
 
-All requests to retrieve information about a single Call must contain:
+All requests to retrieve information about a single call must contain:
 
 * `https://api.nexmo.com/v1/calls/{uuid}`
 
@@ -260,24 +260,24 @@ The 200 response contains the following keys and values:
 Key | Value
 -- | --
 `_links` | A series of links between resources in this API in the http://stateless.co/hal_specification.html. @[Possible links](/_modals/voice/api/calls/links.md).
-`uuid` | uuid	A unique identifier for this Call.
+`uuid` | uuid	A unique identifier for this call.
 `conversation_uuid` | The unique identifier for the conversation this call leg is part of.
 `to` | The single or mixed collection of endpoint types you connected to. @[Possible values](/_modals/voice/guides/ncco-reference/endpoint.md).
 `from` | The endpoint you are calling from. Possible value are the same as *to*.
-`status` | Filter on the status of this Call. @[Possible values](/_modals/voice/api/calls/status.md)
+`status` | Filter on the status of this call. @[Possible values](/_modals/voice/api/calls/status.md)
 `direction` | Possible values are `outbound` or `inbound`.
-`rate` | The price per minute for this Call.
-`price` | The total price charged for this Call.
-`duration` | The time elapsed for the Call to take place in seconds.
-`start_time` | The time the Call started in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2020-01-01 12:00:00`.
-`end_time` | The time the Call ended in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2020-01-01 12:00:00`.
+`rate` | The price per minute for this call.
+`price` | The total price charged for this call.
+`duration` | The time elapsed for the call to take place in seconds.
+`start_time` | The time the call started in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2020-01-01 12:00:00`.
+`end_time` | The time the call ended in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2020-01-01 12:00:00`.
 `network` | The [Mobile Country Code Mobile Network Code (MCCMNC)](https://en.wikipedia.org/wiki/Mobile_country_code) for the carrier network used to
 
-### Modify an existing Call
+### Modify an existing call
 
 [PUT] `https://api.nexmo.com/v1/calls/{uuid}`
 
-You use a [PUT] request to modify an existing Call.
+You use a [PUT] request to modify an existing call.
 
 ```tabbed_examples
 source: '/_examples/api/voice/calls/update'
@@ -289,16 +289,16 @@ This request contains:
 * [Payload](#cmsparameters )
 * [JWT](#jwt_minting)
 
-You receive details about the Call in the [response](#cmsresponse).
+You receive details about the all in the [response](#cmsresponse).
 
 #### Base URL
-All requests to modify an existing Call must contain:
+All requests to modify an existing call must contain:
 
 * `https://api.nexmo.com/v1/calls/{uuid}`
 
 #### Payload
 
-The payload to modify a Call looks like.
+The payload to modify a call looks like.
 
 **Hangup**
 
@@ -308,7 +308,7 @@ The payload to modify a Call looks like.
 }
 ```
 
-The following table shows the parameters you use to modify a Call:
+The following table shows the parameters you use to modify a call:
 
 Parameter | Description | Required
 -- | -- | --
@@ -350,29 +350,29 @@ The 200 response contains the following keys and values:
 Key | Value
 -- | --
 `_links` | A series of links between resources in this API in the http://stateless.co/hal_specification.html. @[Possible links](/_modals/voice/api/calls/links.md).
-`uuid` | uuid	A unique identifier for this Call.
+`uuid` | uuid	A unique identifier for this call.
 `conversation_uuid` | The unique identifier for the conversation this call leg is part of.
 `to` | The single or mixed collection of endpoint types you connected to. @[Possible values](/_modals/voice/guides/ncco-reference/endpoint.md).
 `from` | The endpoint you are calling from. Possible value are the same as *to*.
-`status` | Filter on the status of this Call. @[Possible values](/_modals/voice/api/calls/status.md)
+`status` | Filter on the status of this call. @[Possible values](/_modals/voice/api/calls/status.md)
 `direction` | Possible values are `outbound` or `inbound`.
-`rate` | The price per minute for this Call.
-`price` | The total price charged for this Call.
-`duration` | The time elapsed for the Call to take place in seconds.
-`start_time` | The time the Call started in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2020-01-01 12:00:00`.
-`end_time` | The time the Call ended in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2020-01-01 12:00:00`.
-`network` | The [Mobile Country Code Mobile Network Code (MCCMNC)](https://en.wikipedia.org/wiki/Mobile_country_code) for the carrier network used to make this Call.
+`rate` | The price per minute for this call.
+`price` | The total price charged for this call.
+`duration` | The time elapsed for the call to take place in seconds.
+`start_time` | The time the call started in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2020-01-01 12:00:00`.
+`end_time` | The time the call ended in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2020-01-01 12:00:00`.
+`network` | The [Mobile Country Code Mobile Network Code (MCCMNC)](https://en.wikipedia.org/wiki/Mobile_country_code) for the carrier network used to make this call.
 
 
 ## Streams
 
-You use the following requests to start and stop streaming audio to an active Call.
+You use the following requests to start and stop streaming audio to an active call.
 
-### Stream an audio file to an active Call
+### Stream an audio file to an active call
 
 [PUT] `https://api.nexmo.com/v1/calls/{uuid}/stream`
 
-You use a PUT request to stream an audio file to an active Call.
+You use a PUT request to stream an audio file to an active call.
 
 ```tabbed_examples
 source: '/_examples/api/voice/calls/streams/update'
@@ -395,11 +395,11 @@ All requests must contain:
 
 #### Payload
 
-The following table shows the parameters you use to stream audio to a Call:
+The following table shows the parameters you use to stream audio to a call:
 
 Parameter | Description | Required
 -- | -- | --
-`stream_url` | An array containing a single URL to an mp3 or wav (16-bit) audio file to stream to the Call or Conversation. | Yes
+`stream_url` | An array containing a single URL to an mp3 or wav (16-bit) audio file to stream to the call or conversation. | Yes
 `loop` | The number of times the audio file at *stream_url* is repeated before the stream ends. The default value is 1. Set to 0 to loop infinitely. | No
 
 #### Response
@@ -420,11 +420,11 @@ Key | Value
 `message` | A string explaining the state of this request.
 `uuid` | The unique id for this request.
 
-### Stop streaming an audio file to an active Call
+### Stop streaming an audio file to an active call
 
 [DELETE] `https://api.nexmo.com/v1/calls/{uuid}/stream`
 
-You use a [DELETE] request to stop streaming audio to an active Call.
+You use a [DELETE] request to stop streaming audio to an active call.
 
 ```tabbed_examples
 source: '/_examples/api/voice/calls/streams/destroy'
@@ -470,13 +470,13 @@ Key | Value
 
 ## Talk
 
-You use the following requests to start and stop synthesized audio messages in an active Call.
+You use the following requests to start and stop synthesized audio messages in an active call.
 
-### Send a synthesized speech message to an active Call
+### Send a synthesized speech message to an active call
 
 [PUT] `https://api.nexmo.com/v1/calls/{uuid}/talk`
 
-You use a PUT request to send a synthesized speech message to an active Call.
+You use a PUT request to send a synthesized speech message to an active call.
 
 ```tabbed_examples
 source: '/_examples/api/voice/calls/talk/update'
@@ -499,11 +499,11 @@ All requests must contain:
 
 #### Payload
 
-The following table shows the parameters you use to send synthesized audio to a Call:
+The following table shows the parameters you use to send synthesized audio to a call:
 
 Parameter | Description | Required
 -- | -- | --
-`text` | A UTF-8 and URL encoded string of up to 1500 characters containing the message to be synthesized in the Call or Conversation. Each comma in text adds a short pause to the synthesized speech. | Yes
+`text` | A UTF-8 and URL encoded string of up to 1500 characters containing the message to be synthesized in the call or conversation. Each comma in text adds a short pause to the synthesized speech. | Yes
 `voice_name` | The name of the voice used to deliver text. You use the `voice_name` that has the correct language, gender and accent for the message you are sending. For example, the default voice Kimberly is a female who speaks English with an American accent (`en-US`). @[Possible values](/_modals/voice/guides/ncco-reference/voice-name.md). | No
 `loop` | The number of times the audio file at `stream_url` is repeated before the stream ends. The default value is `1`. Set to `0` to loop infinitely. | Yes
 
@@ -525,11 +525,11 @@ Key | Value
 `message` | A string explaining the state of this request.
 `uuid` | The unique id for this request.
 
-### Stop sending a synthesized speech message to an active Call
+### Stop sending a synthesized speech message to an active call
 
 [DELETE] `https://api.nexmo.com/v1/calls/{uuid}/talk`
 
-You use a DELETE request to stop send synthesized audio to an active Call.
+You use a DELETE request to stop send synthesized audio to an active call.
 
 ```tabbed_examples
 source: '/_examples/api/voice/calls/talk/destroy'
@@ -575,13 +575,13 @@ Key | Value
 
 ## DTMF
 
-You use the following requests to use DTMF in your Calls.
+You can use the following requests to use DTMF tones in your calls.
 
-### Send Dual-tone multi-frequency (DTMF) tones to an active Call
+### Send Dual-tone multi-frequency (DTMF) tones to an active call
 
 [PUT] `https://api.nexmo.com/v1/calls/{uuid}/dtmf`
 
-You use a PUT request to send DTMF tones to an active Call.
+You use a PUT request to send DTMF tones to an active call.
 
 ```tabbed_examples
 source: '/_examples/api/voice/calls/dtmf/update'
@@ -604,11 +604,11 @@ All requests must contain:
 
 #### Payload
 
-The following table shows the parameters you use to stream audio to a Call:
+The following table shows the parameters you use to stream audio to a call:
 
 Parameter | Description | Required
 -- | -- | --
-`digits` | The array of digits to send to the Call | Yes
+`digits` | The array of digits to send to the call | Yes
 
 #### Response
 
@@ -632,7 +632,7 @@ Key | Value
 
 Each call you make to this API must have:
 
-* [Security](#security )
+* [Security](#security)
 * [Encoding](#encode)
 
 ### Encoding
@@ -649,7 +649,7 @@ You submit all requests with a [POST] or [GET] call using UTF-8 encoding and URL
 
 ## Generating a JWT
 
-You use JWTs to authenticate calls to Nexmo APIs for your application. You generate a JWT by encrypting a JSON object containing the ID and private key of your application plus the current time. You add your JWT to the header in your requests to Nexmo API. The JWT authenticates your requests and tells Nexmo which application you are using.
+The Nexmo Voice API uses JWTs to authenticate calls from your application. You generate a JWT by encrypting a JSON object containing the ID and private key of your application plus the current time. You add your JWT to the header in your requests to Nexmo API. The JWT authenticates your requests and tells Nexmo which application you are using.
 
 A JWT consists of a header, a payload and a signature in the structure xxxxx.yyyyy.zzzzz. For more information, see  <https://jwt.io/introduction/> and the [JWT reference ](https://docs.nexmo.com/tools/application-api/application-security#reference).
 
@@ -659,7 +659,7 @@ The following code examples show how to generate a JWT token:
 source: '/_examples/api/voice/jwt/'
 ```
 
-When you use JWTs for authentication, you must still follow [Security](#security ) and [Encoding](#encode).
+When you use JWTs for authentication, you must still follow [Security](#security) and [Encoding](#encode).
 
 # Errors
 

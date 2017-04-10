@@ -4,7 +4,7 @@ title: 2FA
 
 # Two-factor Authentication API
 
-You use Two-factor Authentication API to prove a user's identity. Provision a US Short Code with a standard or custom template that specifies the custom parameters for two-factor authentication (2FA) messages. These APIs support 2FA for the US and Canada.
+You can use Two-factor Authentication API to prove a user's identity. Provision a US Short Code with a standard or custom template that specifies the custom parameters for two-factor authentication (2FA) messages. These APIs support 2FA for the US and Canada.
 
 Two-factor authentication (also known as 2FA) provides user identification by combining two different components. In this case, a phone number associated with your user and a PIN. Before you use this API you have to [Setup a Pre-approved Short Code for 2FA](/account/guides/numbers#setting-up-two-factor-authentication).
 

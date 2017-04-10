@@ -32,7 +32,7 @@ In this document you can learn about:
 
 ## Getting Started
 
-Before you being:
+Before you begin:
 
 * Sign up for a [Nexmo account](https://dashboard.nexmo.com/signup)
 * Install [Node.JS](https://nodejs.org/en/download/)
