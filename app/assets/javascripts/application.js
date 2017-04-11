@@ -20,3 +20,7 @@ $(document).on('nexmo:load', function(){
   $(document).foundation();
   new TabbedExamples
 });
+
+$(document).on('turbolinks:load', function(){
+  $(document).foundation();
+});
