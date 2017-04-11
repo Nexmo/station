@@ -8,15 +8,35 @@
 // layout file, like app/views/layouts/application.html.erb
 
 import Scrollspy from './Scrollspy';
+import GithubCards from './GithubCards';
 import TabbedExamples from './TabbedExamples';
+import JsSequenceDiagrams from './JsSequenceDiagrams';
+import Navigation from './Navigation';
+import Search from './Search';
+import Scroll from './Scroll';
 
-Scrollspy()
-new TabbedExamples
+import {
+  preventSamePage as turbolinksPreventSamePage,
+  animate as turbolinksAnimate
+} from './Turbolinks';
 
-$(document).on('ready', function() {
-  // new TabbedExamples
-});
+Navigation()
+Search()
+turbolinksPreventSamePage()
+turbolinksAnimate()
+
+let refresh = () => {
+  GithubCards()
+  Scrollspy()
+  JsSequenceDiagrams()
+  $(document).foundation();
+  new TabbedExamples
+}
 
 $(document).on('nexmo:load', function() {
-  new TabbedExamples
+  refresh()
+});
+
+$(document).on('ready', function(){
+  refresh()
 });

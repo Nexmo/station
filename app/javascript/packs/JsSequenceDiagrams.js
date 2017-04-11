@@ -1,7 +1,8 @@
-$(document).on('nexmo:load', function() {
-  $(".diagram").sequenceDiagram({
+export default () => {
+  $(".js-diagram").sequenceDiagram({
     theme: 'simple'
   })
+  .addClass('diagram')
 
   setTimeout(function(){
     $('.diagram rect')
@@ -26,4 +27,4 @@ $(document).on('nexmo:load', function() {
     $('.diagram line')
       .attr('stroke', '#93B6C7')
   }, 500)
-});
+};

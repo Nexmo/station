@@ -1,6 +1,5 @@
 export default class TabbedExamples {
   constructor() {
-    console.log('code ran');
     this.restoreTabs = this.restoreTabs.bind(this);
     this.setupEvents = this.setupEvents.bind(this);
     this.onTabClick = this.onTabClick.bind(this);
