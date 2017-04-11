@@ -1,6 +1,5 @@
 window.TabbedExamples = class TabbedExamples
   constructor: () ->
-    console.log 'wat'
     @restoreTabs()
     @setupEvents()
 
