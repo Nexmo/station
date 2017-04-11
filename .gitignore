@@ -17,3 +17,5 @@
 .byebug_history
 .env
 .powder
+/public/packs
+/node_modules

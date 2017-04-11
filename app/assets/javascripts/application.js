@@ -18,5 +18,4 @@
 
 $(document).on('nexmo:load', function(){
   $(document).foundation();
-  new TabbedExamples
 });
