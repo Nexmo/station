@@ -9,5 +9,5 @@ source: '.repos/nexmo-community/nexmo-dotnet-quickstart/blob/ASPNET/NexmoDotNetQ
 Then run the project using IIS Express:
 
 ```
-:arrow_forward: IIS Express
+▶️ IIS Express
 ```
