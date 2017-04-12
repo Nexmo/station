@@ -19,7 +19,16 @@ $ cp .env.example .env
 $ bundle install
 $ rake db:create
 $ rake db:migrate
+$ ./bin/yarn install
 $ rails server
+```
+
+### Compiling assets
+
+To compile assets in runtime simply start the webpack server with:
+
+```
+$ ./bin/webpack-dev-server
 ```
 
 ### Features
