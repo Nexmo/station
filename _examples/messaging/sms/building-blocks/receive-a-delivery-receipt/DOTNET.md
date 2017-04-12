@@ -3,7 +3,9 @@ title: ASP .NET MVC
 ---
 
 ```code
-source: '.repos/nexmo-community/nexmo-dotnet-quickstart/blob/ASPNET/NexmoDotNetQuickStarts/Controllers/SMSController.cs#L64-L77'
+source: '.repos/nexmo-community/nexmo-dotnet-quickstart/NexmoDotNetQuickStarts/Controllers/SMSController.cs'
+from_line: 64
+to_line: 77
 ```
 
 Then run the project using IIS Express:

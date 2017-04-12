@@ -36,7 +36,7 @@ nexmo-community/nexmo-php-quickstart:
   github: nexmo-community/nexmo-php-quickstart
   # path: ../nexmo-php-quickstart
 nexmo-community/nexmo-dotnet-quickstart:
-  branch: master
+  branch: ASPNET
   github: nexmo-community/nexmo-dotnet-quickstart
   # path: ../nexmo-dotnet-quickstart
 nexmo-community/nexmo-java-quickstart:
