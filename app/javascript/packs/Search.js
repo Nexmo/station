@@ -1,5 +1,4 @@
-var search = function (event) {
-  console.log('search');
+const search = function (event) {
   fetch('/quicksearch?query=' + $(event.target).val())
   .then(function(response) {
     return response.text()
@@ -10,6 +9,8 @@ var search = function (event) {
   })
 }
 
-$(document).ready(function(){
-  $(document).on('input', '#search', _.debounce(search, 250));
-});
+export default () => {
+  $(document).ready(function(){
+    $(document).on('input', '#search', _.debounce(search, 250));
+  });
+}
