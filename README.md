@@ -31,6 +31,12 @@ To compile assets in runtime simply start the webpack server with:
 $ ./bin/webpack-dev-server
 ```
 
+You can run both the Rails server and Webpack simultaneously using Foreman:
+
+```
+$ foreman start
+```
+
 ### Features
 
 - A powerful markup engine with pipeline (see [this blog post](https://lab.io/articles/2017/02/12/extending-markdown-with-middleware/) for details on how this works).
