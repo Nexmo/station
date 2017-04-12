@@ -118,6 +118,8 @@ GEM
     faraday (0.11.0)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.17)
+    foreman (0.84.0)
+      thor (~> 0.19.1)
     formatador (0.2.5)
     foundation-rails (6.3.0.0)
       railties (>= 3.1.0)
@@ -306,6 +308,7 @@ DEPENDENCIES
   colorize
   dotenv-rails
   elasticsearch
+  foreman
   foundation-rails (= 6.3.0.0)
   guard-livereload (~> 2.5)
   jbuilder (~> 2.5)
@@ -334,4 +337,4 @@ RUBY VERSION
    ruby 2.4.0p0
 
 BUNDLED WITH
-   1.13.7
+   1.14.6
