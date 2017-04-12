@@ -5,14 +5,14 @@ let init = function(animate){
   if (animate == null) { animate = false; }
   $('.js-navigation > li > ul').each(function() {
     if ($(this).find('.active').length === 0) {
-      return TweenLite.set($(this), { height: 0 });
+      TweenLite.set($(this), { height: 0 });
     } else {
       $(this).addClass('expanded');
       $(this).find('a.active').first().closest('.js--collapsible').siblings().find('ul').hide();
 
       let height = $(this).height();
       $(this).data('height', height);
-      if (animate) { return TweenLite.fromTo($(this), animationSpeed, { height: 0 }, { height }); }
+      if (animate) { TweenLite.fromTo($(this), animationSpeed, { height: 0 }, { height }); }
     }
   });
 
@@ -27,20 +27,20 @@ let init = function(animate){
     return true;
   });
 
-  return $('.js-navigation > a').click(() => TweenLite.to($('.js-navigation .expanded'), animationSpeed, { height: 0, onComplete: navigationAnimationComplete }));
+  $('.js-navigation > a').click(() => TweenLite.to($('.js-navigation .expanded'), animationSpeed, { height: 0, onComplete: navigationAnimationComplete }));
 };
 
 let injectFutureNavigation = function() {
   if (window.futureNavigation && !window.navigationAnimationInProgress) {
     $('.js-navigation').html(window.futureNavigation);
     window.futureNavigation = undefined;
-    return init(window.animateNavigationOnLoadIn);
+    init(window.animateNavigationOnLoadIn);
   }
 };
 
 var navigationAnimationComplete = function() {
   window.navigationAnimationInProgress = false;
-  return injectFutureNavigation();
+  injectFutureNavigation();
 };
 
 export default () => {

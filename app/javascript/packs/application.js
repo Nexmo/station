@@ -22,6 +22,7 @@ import {
 
 Navigation()
 Search()
+Scroll()
 turbolinksPreventSamePage()
 turbolinksAnimate()
 
@@ -34,9 +35,5 @@ let refresh = () => {
 }
 
 $(document).on('nexmo:load', function() {
-  refresh()
-});
-
-$(document).on('ready', function(){
   refresh()
 });
