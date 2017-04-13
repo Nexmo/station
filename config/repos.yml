@@ -43,3 +43,7 @@ nexmo-community/nexmo-java-quickstart:
   branch: master
   github: nexmo-community/nexmo-java-quickstart
   # path: ../nexmo-java-quickstart
+nexmo-community/nexmo-python-quickstart:
+  branch: master
+  github: nexmo-community/nexmo-python-quickstart
+  # path: ../nexmo-python-quickstart
