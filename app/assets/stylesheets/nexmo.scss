@@ -56,7 +56,9 @@ $border: 1px solid darken($mint, 5%);
 @import "objects/masonry";
 @import "objects/navigation";
 @import "objects/tabs";
+@import "objects/truncate";
 @import "objects/loading-bar";
+@import "objects/video";
 
 @import "layout/header";
 @import "layout/hero";

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   namespace :admin do
     resources :events
+    resources :sessions
     root to: 'events#index'
   end
 

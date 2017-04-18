@@ -12,6 +12,7 @@ class StaticController < ApplicationController
   def community
     @navigation = :community
     @upcoming_events = Event.upcoming
+    @sessions = Session.all
     render layout: 'page'
   end
 
