@@ -10,8 +10,22 @@ class Session < ApplicationRecord
     video_id = video_url.gsub('https://www.youtube.com/watch?v=', '')
     <<~HEREDOC
       <div class="video">
-        <iframe src="https://www.youtube.com/embed/#{video_id}?showinfo=0" frameborder="0" allowfullscreen></iframe>
+        <iframe src="#{embed_url}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
       </div>
     HEREDOC
+  end
+
+  private
+
+  def embed_url
+    if video_url.include? 'youtube'
+      video_id = video_url.match(/v=(.{11})/)[1]
+      return "https://www.youtube.com/embed/#{video_id}?showinfo=0"
+    end
+
+    if video_url.include? 'vimeo'
+      video_id = video_url.match(/(\d{7})/)[1]
+      return "https://player.vimeo.com/video/#{video_id}"
+    end
   end
 end
