@@ -14,5 +14,9 @@ module NexmoDeveloper
 
     config.autoload_paths << "#{Rails.root}/app/constraints"
     config.autoload_paths << "#{Rails.root}/lib"
+
+    config.generators do |g|
+      g.orm :active_record, primary_key_type: :uuid
+    end
   end
 end

@@ -10,19 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170215101603) do
-  # These are extensions that must be enabled in order to support this database
-  enable_extension 'plpgsql'
+ActiveRecord::Schema.define(version: 20170413154510) do
 
-  create_table 'events', force: :cascade do |t|
-    t.string   'title', null: false
-    t.text     'description'
-    t.datetime 'starts_at',   null: false
-    t.datetime 'ends_at',     null: false
-    t.string   'url'
-    t.datetime 'created_at',  null: false
-    t.datetime 'updated_at',  null: false
-    t.index ['ends_at'], name: 'index_events_on_ends_at', using: :btree
-    t.index ['starts_at'], name: 'index_events_on_starts_at', using: :btree
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+  enable_extension "uuid-ossp"
+  enable_extension "pgcrypto"
+
+  create_table "events", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.string "title", null: false
+    t.text "description"
+    t.datetime "starts_at", null: false
+    t.datetime "ends_at", null: false
+    t.string "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ends_at"], name: "index_events_on_ends_at"
+    t.index ["starts_at"], name: "index_events_on_starts_at"
   end
+
+  create_table "sessions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "author"
+    t.uuid "event_id"
+    t.string "video_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
 end
