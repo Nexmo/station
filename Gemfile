@@ -79,6 +79,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rawler', git: 'git://github.com/oscardelben/rawler.git', require: false
   gem 'rspec-rails', '~> 3.5'
+  gem 'foreman'
 end
 
 group :development do

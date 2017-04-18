@@ -134,11 +134,33 @@ Point to resources:
 * API Reference - Given that the tutorial is opinionated, provide this as a resource to allow the user to see what other options are available to them.
 * Other relevant tutorials.
 
+## Code samples
+
+## Use the library
+
+If an existing Nexmo-supported API library supports the functionality, you should use that library for code samples.
+
+### Principle of Least Astonishment
+
+Code samples should match the expectations and experience of a median-level competent developer in a language and try hard to not surprise or confuse them. Code samples for APIs are not a place to use flashy, experimental or cutting-edge techniques, but to try to maximise compatibility, and reduce ambiguity.
+
+Code samples **MUST NOT** use any technique widely considered to be insecure, badly designed or likely to cause harm or confusion to the user.
+
+### JavaScript
+
+Documentation should be clear whether JavaScript code is intended to run on the server (using, say, node.js), the client, or both.
+
+### Python
+
+Python code should adhere to [PEP8](http://pep8.org/).
+
+Avoid code that is significantly different in Python 2 and 3. When this is unavoidable, abstract away the incompatible code to the smallest area possible and use [`__future__`](https://docs.python.org/2/library/__future__.html) to ensure backwards compatibility with Python 2.
+
+Inbound HTTP calls should use a WSGI-compatible web framework, preferably the [Flask](http://flask.pocoo.org/) micro-framework. Explanations of how to integrate Nexmo APIs with [Django](https://www.djangoproject.com/) are sensible too.
+
 ## What should I use in place of variables?
 
-When working with keys, phone numbers or accounts we should always be clear
-about our intent for the customer to replace such values with their own. Use the
-following as a guideline:
+When working with keys, phone numbers or accounts we should always be clear about our intent for the customer to replace such values with their own. Use the following as a guideline:
 
 ### Keys & Placeholders
 
@@ -157,8 +179,7 @@ HTTP Response | `` `200 OK` `` or §§ `` `404 Not Found` `` | `200 OK` or §§ 
 > a values that we later will be dynamic. For example `$API_KEY` would become
 > the logged in users actual API Key or just `API_KEY` if they are not signed in.
 
-When using a real number is not avoidable for example when listing out the result
-of `nexmo numbers:list` in the CLI use the following numbers:
+When using a real number is not avoidable for example when listing out the result of `nexmo numbers:list` in the CLI use the following numbers:
 
 ### Numbers
 
