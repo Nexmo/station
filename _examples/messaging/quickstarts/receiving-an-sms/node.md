@@ -7,7 +7,7 @@ Install Express by typing: `npm install express`
 
 The code below handles the incoming SMS messages.
 
-```ruby
+```js
 import { Express } from express
 
 let app = Express()
@@ -20,4 +20,4 @@ app.get('/incoming-sms', (req, res) => {
 app.listen(3000)
 ```
 
-Store this as `app.js` and run it locally using `node app.rb`.
+Store this as `app.js` and run it locally using `node app.js`.
