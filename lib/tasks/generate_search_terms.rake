@@ -1,3 +1,5 @@
+require 'algoliasearch'
+
 namespace :search_terms do
   desc 'Drop and regenerate the search terms'
   task regenerate: :environment do
@@ -25,5 +27,13 @@ namespace :search_terms do
     if client.indices.exists index: 'documents'
       client.delete_by_query index: 'documents', type: 'document', body: { query: { match_all: {} } }
     end
+  end
+
+  desc 'Publish search terms to algolia'
+  task algolia: :environment do
+    Algolia.init(application_id: ENV['ALGOLIA_APPLICATION_ID'], api_key: ENV['ALGOLIA_API_KEY'])
+    index = Algolia::Index.new "#{Rails.env}_nexmo_developer"
+    search_articles = SearchTerms.generate
+    index.add_objects(search_articles)
   end
 end

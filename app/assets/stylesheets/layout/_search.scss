@@ -1,0 +1,60 @@
+form {
+  position: relative;
+}
+
+.aa-dropdown-menu {
+  background: white;
+  border: $radius;
+  padding: 20px;
+  border: $border;
+  box-shadow: $shadow;
+  width: 600px;
+  margin-left: 200px - 600px;
+  margin-top: 5px;
+
+  > div {
+    float: left;
+    width: 50%;
+  }
+}
+
+.aa-suggestion {
+  border-left: 3px solid $mint;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  padding: 0;
+  padding-left: 8px !important;
+  margin-top: $spacing;
+  margin-right: $spacing;
+
+  em {
+    background: lighten(yellow, 40%);
+    color: $pink;
+  }
+
+  > * {
+    display: block;
+    padding: 0 !important;
+  }
+
+  a {
+    font-size: 0.9em;
+    color: $blue !important;
+  }
+
+  small {
+    color: $gray;
+    font-style: italic;
+    em {
+      color: $primary;
+    }
+  }
+}
+
+.aa-suggestion-product {
+  display: block;
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: lighten($gray, 10%);
+}

@@ -21,7 +21,6 @@ import {
 } from './Turbolinks';
 
 Navigation()
-Search()
 Scroll()
 turbolinksPreventSamePage()
 turbolinksAnimate()
@@ -32,6 +31,7 @@ let refresh = () => {
   JsSequenceDiagrams()
   $(document).foundation();
   new TabbedExamples
+  Search()
 }
 
 $(document).on('nexmo:load', function() {

@@ -12,7 +12,13 @@ class SearchTerms
       document_path = Pathname.new(document_path)
       relative_path = "/#{document_path.relative_path_from(origin)}".gsub('.md', '')
 
-      { title: title, description: description, path: relative_path, body: document }
+      product = relative_path.split('/')[1]
+
+      if product == 'messaging'
+        product = "#{relative_path.split('/')[1]} > #{relative_path.split('/')[2]}"
+      end
+
+      { title: title, description: description, path: relative_path, body: document, product: product }
     end
   end
 end
