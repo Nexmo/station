@@ -3,6 +3,7 @@
 /sms: /messaging/sms/overview
 /voice: /voice/overview
 /voice/guides: /voice/overview#references
+/verify: /verify/overview
 
 /messaging/sms/building-blocks: /messaging/sms/building-blocks/send-an-sms
 /sms/building-blocks: /messaging/sms/building-blocks/send-an-sms
