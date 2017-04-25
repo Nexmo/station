@@ -1,0 +1,7 @@
+var Nexmo = require('nexmo');
+
+var nexmo = new Nexmo({
+    apiKey: API_KEY,
+    apiSecret: API_SECRET,
+  });
+nexmo.verify.request({number: NUMBER_TO_VERIFY, brand: "MyApp"}, callback);
