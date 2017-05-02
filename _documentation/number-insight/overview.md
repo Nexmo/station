@@ -2,7 +2,7 @@
 title: Overview
 ---
 
-# Number Insight Overview
+# Number Insight
 
 Nexmo's Number Insight provides details about the validity, reachability and roaming status of a mobile phone number, as well as give you details on how to format the number properly in your application.
 
@@ -56,4 +56,3 @@ $ nexmo setup API_KEY API_SECRET
 
 ```bash
 $ nexmo insight:basic 447555555555
-```
