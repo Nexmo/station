@@ -7,84 +7,38 @@ api: Number Insight
 # API reference
 
 This defines the Number Insight Basic API:
+
 * [Request](#request) - ask for information about a phone number
 * [Response](#response) - the information you requested about a phone number
 
 ## Request
 
-A Number Insight Basic API *request* looks like:
+Getting information about a number with Nexmo is easy. Simply [sign up for an account](https://dashboard.nexmo.com/sign-up) and replace the following variables in the example below:
 
-(nexpayload: request.sh lang: php  product: number_insight_basic_api)
+| Key | Description |
+| -------- | ----------- |
+| `API_KEY` | You can find this in your [account overview](https://dashboard.nexmo.com/account-overview) |
+| `API_SECRET` | You can find this in your [account overview](https://dashboard.nexmo.com/account-overview) |
+| `NUMBER` | A single phone number that you need insight about in national or international format. The number may include any or all of the following: `white space`, `-`, `+`, `(`, `)`. |
+| `LEVEL` | Should be `basic`, `standard` or `advanced`. See features in the table below. |
+| `FORMAT` | Should be `json`, `xml`. |
 
-This request contains:
-* A [Base URL](#base)
-* [Parameters](#parameters )
-* [Authentication information](#authentic )
-* [Security](#security )
-* [Encoding](#encode)
-
-### Base URL
-All requests to Number Insight Basic API must contain:
-* `https://api.nexmo.com/ni/basic`
-* A response object: *json* or *xml*
-
-Your base URL becomes either:
-
-**JSON**
-
-```
-https://api.nexmo.com/ni/basic/json
+```sh
+curl "https://api.nexmo.com/ni/:LEVEL/:FORMAT" \
+   -d "api_key=API_KEY" \
+   -d "api_secret=API_SECRET" \
+   -d "number=NUMBER"
 ```
 
-*or* **XML**
-
-```
-https://api.nexmo.com/ni/basic/xml
-```
-
-###  Parameters
+###  Optional Parameters
 
 The following table shows the parameters you use in the request:
 
 Parameter | Description | Required
 -- | -- | --
-`number` | A single phone number that you need insight about in national or international format. For example: `to=447700900000` when sending to UK. The number may include any or all of the following: `white space`, `-`, `+`, `(`, `)`. | Yes
 `country` | If number does not have a country code or is uncertain, set the two-character country code. This code must be in ISO 3166-1 alpha-2 format. For example, GB or US. If you set country and number is already in E.164 format, country must match the country code in number,| No
 `cnam` | Indicates if the name of the person who owns the phone number should be looked up and returned in the response. Set to true to receive phone number owner name in the response. This features is available for US numbers only and incurs and additional charge. Default value is false. | No
 
-#### Authentication information
-
-If you are not using applications, you use the following parameters for calls to Nexmo API:
-
-Parameter | Description
--- | --
-`api_key` | Your Key. For example: `api_key=n3xm0rocks`
-`api_secret` | Your Secret. For example: `api_secret=12ab34cd`
-
-> Note: You find your Key and Secret in Dashboard.
-
-If you are using signatures to verify your requests use:
-
-Parameter | Description
--- | --
-`api_key` | Your Key. For example: `api_key=n3xm0rocks`
-`sig` | The hash of the request parameters in alphabetical order, a timestamp and the signature secret. For example: `sig=TwoMenWentToMowWentTOMowAMeadowT`
-
-#### Security
-
-To ensure privacy, you must use HTTPS for all Nexmo API requests.
-
-#### Encoding
-
-You submit all requests with a [POST] or [GET] call using `UTF-8` encoding and URL encoded values. The expected Content-Type for [POST] is `application/x-www-form-urlencoded`. For calls to a JSON endpoint, we also support:
-
-* `application/json`
-* `application/jsonrequest`
-* `application/x-javascript`
-* `text/json`
-* `text/javascript`
-* `text/x-javascript`
-* `text/x-json` when posting parameters as a JSON object.
 
 ## Response
 
