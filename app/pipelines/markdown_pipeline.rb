@@ -14,7 +14,6 @@ class MarkdownPipeline < Banzai::Pipeline
       PartialFilter,
       IconFilter,
       LanguageFilter,
-      TableFilter,
       MarkdownFilter,
 
       # As HTML
