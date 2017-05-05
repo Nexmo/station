@@ -3,6 +3,7 @@ navigation_weight:
   SMS: 1
   Voice: 2
   Verify: 3
+  Number Insight: 4
   Account: 99
   Concepts: 0
 
