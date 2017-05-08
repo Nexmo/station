@@ -1,6 +1,6 @@
 ---
 title: API Reference
-description: Reference guide for Number Insight Basic API.
+description: Reference guide for Number Insight API.
 api: Number Insight
 ---
 
@@ -42,7 +42,7 @@ Parameter | Description | Required
 
 ## Response
 
-The response to each *request* you make to Number Insight Basic API returns the:
+The response to each *request* you make to Number Insight API returns the:
 
 * Status of your request to Nexmo in [JSON or XML](#format) format.
 * Information you asked for in the request.
