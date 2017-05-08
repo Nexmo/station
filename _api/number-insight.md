@@ -13,7 +13,7 @@ This defines the Number Insight Basic API:
 
 ## Request
 
-Getting information about a number with Nexmo is easy. Simply [sign up for an account](https://dashboard.nexmo.com/sign-up) and replace the following variables in the example below:
+Getting information about a number with Nexmo's Number Verify API is easy. Simply [sign up for an account](https://dashboard.nexmo.com/sign-up) and replace the following variables in the example below:
 
 | Key | Description |
 | -------- | ----------- |
@@ -30,14 +30,14 @@ curl "https://api.nexmo.com/ni/:LEVEL/:FORMAT" \
    -d "number=NUMBER"
 ```
 
-###  Optional Parameters
+###  Optional parameters
 
-The following table shows the parameters you use in the request:
+The following table shows extra parameters you can use in the request:
 
 Parameter | Description | Required
 -- | -- | --
-`country` | If number does not have a country code or is uncertain, set the two-character country code. This code must be in ISO 3166-1 alpha-2 format. For example, GB or US. If you set country and number is already in E.164 format, country must match the country code in number,| No
-`cnam` | Indicates if the name of the person who owns the phone number should be looked up and returned in the response. Set to true to receive phone number owner name in the response. This features is available for US numbers only and incurs and additional charge. Default value is false. | No
+`country` | If a number does not have a country code or is uncertain, set the two-character country code. This code must be in ISO 3166-1 alpha-2 format and in upper case. For example, GB or US. If you set country and number is already in E.164 format, country must match the country code in number.| ❎
+`cnam` | Indicates if the name of the person who owns the phone number should be looked up and returned in the response. Set to true to receive phone number owner name in the response. This features is available for US numbers only and incurs an additional charge. Default value is false. | ❎
 
 
 ## Response
