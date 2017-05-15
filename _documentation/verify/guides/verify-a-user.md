@@ -10,7 +10,7 @@ wip: true
 Once you have collected a user's phone number, you can start the verification process by sending an API request to Nexmo with the user's phone number.
 
 ```tabbed_examples
-source: '_examples/verify/send-verification-request'
+source: '_examples/verify/building-blocks/send-verification-request'
 ```
 
 The API will return an `request_id`. This is used in subsequent API calls.
