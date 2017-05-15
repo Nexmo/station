@@ -20,7 +20,7 @@ The API will return an `request_id`. This is used in subsequent API calls.
 Your application should now show a form to allow the user to enter the PIN they have received. Once you have received the PIN, you should send it back to Nexmo along with the `request_id` from the first step. The API will tell you whether it is correct.
 
 ```tabbed_examples
-source: '_examples/verify/check-verification-request'
+source: '_examples/verify/guides/verify-a-user/check-verification-request'
 ```
 
 ## Cancel
@@ -28,7 +28,7 @@ source: '_examples/verify/check-verification-request'
 If the user decides to cancel the verification process, you should send a cancellation request to Nexmo. This will prevent the verification process being completed even if the correct PIN is returned.
 
 ```tabbed_examples
-source: 'examples/verify/cancel-verification-request'
+source: '_examples/verify/guides/verify-a-user/cancel-verification-request'
 ```
 
 ## Trigger next verification process
@@ -38,5 +38,5 @@ The Verify API starts the verification process by sending a text message to the 
 You can make the API switch to the next verification process by sending an API call to the Verify Control endpoint. In the context of integrating the Verify API into your application, you should generally send this call to the API if the user has confirmed they would prefer to get a phone call.
 
 ```tabbed_examples
-source: 'examples/verify/trigger-next-verification-process'
+source: '_examples/verify/guides/verify-a-user/trigger-next-verification-process'
 ```
