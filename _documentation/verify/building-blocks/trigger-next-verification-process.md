@@ -1,6 +1,6 @@
 ---
 title: Trigger Next Verification Process
-menu_weight: 4
+navigation_weight: 4
 ---
 
 # Check Verify request

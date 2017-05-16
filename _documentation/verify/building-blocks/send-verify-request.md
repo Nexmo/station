@@ -1,6 +1,6 @@
 ---
 title: Send Verify request
-menu_weight: 1
+navigation_weight: 1
 ---
 
 # Send Verify request

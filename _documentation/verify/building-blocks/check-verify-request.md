@@ -1,6 +1,6 @@
 ---
 title: Check Verify request
-menu_weight: 2
+navigation_weight: 2
 ---
 
 # Check Verify request

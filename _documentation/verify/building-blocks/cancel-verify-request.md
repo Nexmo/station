@@ -1,6 +1,6 @@
 ---
 title: Cancel Verify request
-menu_weight: 3
+navigation_weight: 3
 ---
 
 # Check Verify request
