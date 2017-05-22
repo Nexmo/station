@@ -47,22 +47,7 @@ Parameter | Description | Required
 
 ### Response
 
-Each *request* you make to the Verify API returns a:
-
-* Response - the status and cost of your request to Nexmo in [JSON or XML](#rbase) format.
-
-*Note*: you are only charged for correctly submitted requests.
-
-The response is send in the *api.txt* file when you make a request from the browser.
-
-Each response comes:
-
-* In a specific [Format](#format)
-* With [Keys and values](#keys-and-values)
-
-#### Format
-
-You set the response type using the [Base URL](#rbase). The following table shows example Responses in JSON or XML:
+The following table shows example Responses in JSON or XML:
 
 **JSON**
 
@@ -121,20 +106,7 @@ Parameter | Description | Required
 
 ###Response
 
-Each Verify Check *request* you make to Verify returns a:
-
-* Response - the status and cost of your request to Nexmo in [JSON or XML](#cbase) format.
-
-> *Note*: you are only charged for correctly submitted requests.
-
-Each response comes:
-
-* In a specific [Format](#cformat)
-* With [Keys and values](#ckeys)
-
-#### Format
-
-You set the response type using the [Base URL](#cbase). The following table shows example responses in JSON or XML:
+The following table shows example responses in JSON or XML:
 
 **JSON**
 
@@ -168,7 +140,7 @@ The response contains the following keys and values:
 Key | Value
 -- | --
 `event_id` | The identifier of the SMS [message-id](/api/sms#message-id).
-`status` | If the value of status is `0`, your user entered the correct PIN. If it is not, check the [response codes](#).
+`status` | If the value of status is `0`, your user entered the correct PIN. If it is not, check the @[response codes](/_modals/api/verify/check/response/status.md).
 `price` | The price charged for this Verify request.
 `currency` | Currency code.
 `error_text` | If status is not 0, this is brief explanation about the error.
@@ -197,21 +169,7 @@ Parameter | Description | Required
 
 ### Response
 
-Each *request* you make to Verify Search returns a:
-
-* Response - the status and cost of your request to Nexmo in [JSON or XML](#sbase) format.
-
-> *Note*: you are only charged for correctly submitted requests.
-
-Each response comes:
-
-* In a specific [Format](#sformat)</a>
-* With <a href="#skeys">Keys and values</a>
-
-<a name="sformat"></a>
-####Format
-
-You set the response type using the [Base URL](#sbase). The following table shows example responses in JSON or XML:
+The following table shows example responses in JSON or XML:
 
 **JSON**
 
@@ -310,20 +268,7 @@ Parameter | Description | Required
 
 ### Response
 
-Each *request* you make to Verify Control returns a:
-
-* Response - the status and cost of your request to Nexmo in [JSON or XML](#conbase) format.
-
-*Note*: you are only charged for correctly submitted requests.
-
-Each response comes:
-
-* In a specific [Format](#)
-* With [Keys and values](#)
-
-#### Format
-
-You set the response type using the [Base URL](#conbase). The following table shows example responses in JSON or XML:
+The following table shows example responses in JSON or XML:
 
 **JSON**
 
@@ -350,8 +295,5 @@ The response contains the following keys and values:
 
 Key | Value
 -- | --
-`status` | The Verify Control Response code that explains how your request proceeded:
+`status` | The Verify Control Response code that explains how your request proceeded. @[Possible Values](/_modals/api/verify/control/response/status.md).
 `command` | The [cmd](#cmd) you sent in the request.
-
-
-(security: somevalue)
