@@ -21,7 +21,7 @@ TTS messages are read in the locale that matches the phone number. (For example,
 
 Using the Verify API, the workflow to confirm that your user can be contacted at a specific phone number is:
 
-![Verify API Overview image](https://docs.nexmo.com/assets/images/workflow_verify_api.svg)
+![Verify API Overview image](/assets/images/workflow_verify_api.svg)
 
 ## Concepts
 
@@ -29,7 +29,7 @@ Using the Verify API, the workflow to confirm that your user can be contacted at
 
 ## Guides
 
-* **[Verify a user](/verify/guides/verify-a-user)**
+* [Verify a user](/verify/guides/verify-a-user)
 
 ## References
 

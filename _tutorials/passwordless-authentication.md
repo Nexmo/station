@@ -1,6 +1,7 @@
 ---
 title: Passwordless authentication
 products: verify
+description: Using the Verify API to allow users to login to a Ruby application.
 ---
 # Passwordless authentication
 
