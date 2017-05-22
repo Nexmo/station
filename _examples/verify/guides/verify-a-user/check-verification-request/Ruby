@@ -1,0 +1,2 @@
+resp = client.check_verification(verify_resp['request_id'], code: '1234')
+puts "User verification complete!" if response['status'] == '0'

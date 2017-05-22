@@ -30,9 +30,12 @@ en:
     sms: SMS
     guides: Guides
     quickstarts: Quickstarts
+    tutorials: Tutorials
 
     conversion-api: Conversion API
     sns: SNS
 
     concepts: Concepts
     building-blocks: Building Blocks
+
+    verify: Verify

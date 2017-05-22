@@ -2,6 +2,7 @@ navigation_weight:
   Messaging: 1
   SMS: 1
   Voice: 2
+  Verify: 3
   Account: 99
   Concepts: 0
 
