@@ -1,5 +1,6 @@
 ---
 title: Passwordless authentication
+products: verify
 ---
 # Passwordless authentication
 
