@@ -40,9 +40,9 @@ Parameter | Description | Required
 `brand` | The name of the company or App you are using Verify for.  This 18 character alphanumeric string is used in the body of Verify message. For example: "Your *brand* PIN is ..". |  Yes
 `sender_id` | An 11 character alphanumeric string to specify the SenderID for SMS sent by Verify. Depending on the destination of the phone number you are applying, restrictions may apply. By default, `sender_id` is VERIFY.   |  No
 `code_length` |  The length of the PIN. Possible values are 6 or 4 characters. The default value is 4. |  No
-`lg` |  By default, TTS are generated in the locale that matches *number*. For example, the TTS for a 33* number is sent in French. Use this parameter to explicitly control the [language, accent and gender](voice/voice-deprecated/supported-languages) used for the Verify request. The default language is en-us. |  No
-`require_type` |  Restrict verification to a certain network type. Possible values are: <ul><li>All (Default)</li><li>Mobile</li><li>Landline</li></ul><br>**Note**: contact [mailto:support@nexmo.com](support@nexmo.com) to enable this feature. |  No
-`pin_expiry` |  The PIN validity time from generation. This is an integer value between 60 and 3600 seconds. The default is 300 seconds. When specified together, pin_expiry must be an integer multiple of *next_event_wait*. Otherwise, pin_expiry is set to next_event_wait. For example: <ul><li><i>pin_expiry= 360 seconds, next_event_wait=120 seconds</i> - all three attempts have the same PIN.</li><li><i>pin_expiry=240 seconds, next_event_wait=120 seconds</i> - 1st and 2nd attempts have the same PIN, third attempt has a different PIN.</li><li><i>pin_expiry=120 (or 200 or 400 seconds)</i> - each attempt has a different PIN.</li></ul> |  No
+`lg` |  By default, the text-to-speech (TTS) message is generated in the locale that matches the *number*. For example, the TTS for a 33* number is sent in French. Use this parameter to explicitly control the [language, accent and gender](voice/voice-deprecated/supported-languages) used for the Verify request. The default language is `en-us`. |  No
+`require_type` |  Restrict verification to a certain network type. Possible values are: <ul><li>All (Default)</li><li>Mobile</li><li>Landline</li></ul><br>**Note**: contact [support@nexmo.com](mailto:support@nexmo.com) to enable this feature. |  No
+`pin_expiry` |  The PIN validity time from generation. This is an integer value between 60 and 3600 seconds. The default is 300 seconds. When specified together, pin_expiry must be an integer multiple of `next_event_wait`. Otherwise, pin_expiry is set to equal next_event_wait. For example: <ul><li>`pin_expiry` = 360 seconds, so `next_event_wait` = 120 seconds - all three attempts have the same PIN.</li><li>`pin_expiry` = 240 seconds, so `next_event_wait` = 120 seconds - 1st and 2nd attempts have the same PIN, third attempt has a different PIN.</li><li>`pin_expiry` = 120 (or 200 or 400 seconds) - each attempt has a different PIN.</li></ul> |  No
 `next_event_wait` |  An integer value between 60 and 900 seconds inclusive that specifies the wait time between attempts to deliver the PIN. Verify calculates the default value based on the average time taken by users to complete verification. |  No
 
 ### Response
@@ -99,10 +99,10 @@ The following table shows the parameters you use in the request:
 
 Parameter | Description | Required
 -- | -- | --
-`format` | The response format. Either `json` or `xml` | Yes
+`format` | The response format. Either `json` or `xml`. | Yes
 `request_id` | The identifier of the Verify request to check. This is the [request_id](#request_id) you received in the Verify Request [response](#rresponse).  | Yes
 `code` | The PIN given by your user. | Yes
-`ip_address` | The IP Address used by your user when he or she provided the PIN. Nexmo uses this information to identify fraud and spam patterns across our customer base. This ultimately benefits all Nexmo customers | No
+`ip_address` | The IP Address used by your user when they entered the PIN. Nexmo uses this information to identify fraud and spam patterns across our customer base. This ultimately benefits all Nexmo customers. | No
 
 ###Response
 
