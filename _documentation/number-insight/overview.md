@@ -25,7 +25,7 @@ Asynchronous API available | ❎ | ❎ | ✅
 
 ## Concepts
 
-* **Webhooks** - the Advanced Async API uses webhooks to return more comprehensive data when it becomes available.
+* [Webhooks](/concepts/guides/webhooks) - the Advanced Async API uses webhooks to return more comprehensive data when it becomes available.
 
 ## Getting Started
 
@@ -57,3 +57,5 @@ $ nexmo setup API_KEY API_SECRET
 ```bash
 $ nexmo insight:basic 447555555555
 ```
+
+See [Number Insight Basic](/number-insight/building-blocks/number-insight-basic) Building Block for details on how to use this in detail.
