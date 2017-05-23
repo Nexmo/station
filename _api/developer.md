@@ -211,10 +211,10 @@ The following shows the parameters you use in the request:
 
 Parameter | Description | Required
 -- | -- | --
-`index` | Page index [Default: 1] | no
-`size` | Page size [Max: 100] [Default: 10] | no
-`pattern` | A matching pattern | no
-`search_pattern` | Strategy for matching pattern. Expected values: `0` (starts with, default), `1` (anywhere), `2` (ends with). | no
+`index` | Page index [Default: 1] | No
+`size` | Page size [Max: 100] [Default: 10] | No
+`pattern` | A matching pattern | No
+`search_pattern` | Strategy for matching pattern. Expected values: `0` (starts with, default), `1` (anywhere), `2` (ends with). | No
 
 #### Response
 
@@ -271,6 +271,83 @@ Key | Value
 -- | --
 `count` | The total amount of numbers owned by account.
 `numbers` | An paginated array of numbers and their details.
+
+### Search available numbers
+
+Retrieve inbound numbers that are available for a given country.
+
+#### Request
+
+```
+[GET] https://rest.nexmo.com/numbers/search
+```
+
+##### Parameters
+
+The following shows the parameters you use in the request:
+
+Parameter | Description | Required
+-- | -- | --
+`country` | The two character country code in ISO 3166-1 alpha-2 format. | Yes
+`pattern` | A number pattern to search for. | No
+`search_pattern` | Strategy for matching pattern. Expected values: `0` (starts with, default), `1` (anywhere), `2` (ends with). | No
+`features` | Available features are SMS and VOICE. For both features, use a comma-separated value SMS,VOICE. | No
+`size` | Page size [Max: 100] [Default: 10] | No
+`index` | Page index [Default: 1] | No
+
+#### Response
+
+The following shows example Responses in JSON or XML:
+
+**JSON**
+
+```json
+{
+  "count": 1234,
+  "numbers": [
+    {
+      "country": "GB",
+      "msisdn": "447700900000",
+      "cost": "0.50",
+      "type": "mobile",
+      "features": [
+        "VOICE",
+        "SMS",
+      ]
+    },
+    ...
+  ]
+}
+```
+
+*or* **XML**
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<inbound-numbers>
+  <count>1234</count>
+  <numbers>
+     <country>GB</country>
+     <msisdn>447700900000</msisdn>
+     <cost>0.50</cost>
+     <type>mobile</type>
+     <features>
+        <feature>VOICE</feature>
+        <feature>SMS</feature>
+     </features>
+  </numbers>
+  ...
+</inbound-numbers>
+```
+
+##### Keys and Values
+
+The response contains the following keys and values:
+
+Key | Value
+-- | --
+`count` | The total amount of numbers available in the pool.
+`numbers` | An paginated array of available numbers and their details.
 
 ### Buy a number
 
