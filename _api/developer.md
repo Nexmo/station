@@ -33,7 +33,7 @@ Retrieve the current balance of your Nexmo account
 
 #### Response
 
-The following table shows example Responses in JSON or XML:
+The following shows example Responses in JSON or XML:
 
 **JSON**
 
@@ -75,7 +75,7 @@ Retrieve our outbound pricing for a given country
 
 ##### Parameters
 
-The following table shows the parameters you use in the request:
+The following shows the parameters you use in the request:
 
 Parameter | Description | Required
 -- | -- | --
@@ -83,7 +83,7 @@ Parameter | Description | Required
 
 #### Response
 
-The following table shows example Responses in JSON or XML:
+The following shows example Responses in JSON or XML:
 
 **JSON**
 
@@ -144,7 +144,7 @@ Retrieve our outbound pricing for a given country
 
 ##### Parameters
 
-The following table shows the parameters you use in the request:
+The following shows the parameters you use in the request:
 
 Parameter | Description | Required
 -- | -- | --
@@ -154,7 +154,7 @@ Parameter | Description | Required
 
 #### Response
 
-The following table shows example Responses in JSON or XML:
+The following shows example Responses in JSON or XML:
 
 **JSON**
 
@@ -193,7 +193,9 @@ Key | Value
 `max-outbound-request` | The maximum amount of outbound messages per second.
 `max-inbound-request` | The maximum amount of inbound messages per second.
 
-### Numbers
+## Numbers
+
+### List owned numbers
 
 Retrieve all the inbound numbers associated with your Nexmo account.
 
@@ -205,7 +207,7 @@ Retrieve all the inbound numbers associated with your Nexmo account.
 
 ##### Parameters
 
-The following table shows the parameters you use in the request:
+The following shows the parameters you use in the request:
 
 Parameter | Description | Required
 -- | -- | --
@@ -216,7 +218,7 @@ Parameter | Description | Required
 
 #### Response
 
-The following table shows example Responses in JSON or XML:
+The following shows example Responses in JSON or XML:
 
 **JSON**
 
@@ -259,6 +261,108 @@ The following table shows example Responses in JSON or XML:
       <voice-callback-value>aaaaaaaa-bbbb-cccc-dddd-0123456789ab</voice-callback-value>
    </numbers>
 </inbound-numbers>
+```
+
+##### Keys and Values
+
+The response contains the following keys and values:
+
+Key | Value
+-- | --
+`count` | The total amount of numbers owned by account.
+`numbers` | An paginated array of numbers and their details.
+
+### Buy a number
+
+Request to purchase a specific inbound number.
+
+#### Request
+
+```
+[POST] https://rest.nexmo.com/number/buy
+```
+
+##### Parameters
+
+The following shows the parameters you use in the request:
+
+Parameter | Description | Required
+-- | -- | --
+`country` | The two character country code in ISO 3166-1 alpha-2 format. | Yes
+`msisdn` | An available inbound virtual number. For example, `447700900000`. | Yes
+
+#### Response
+
+The following shows example Responses in JSON or XML:
+
+**JSON**
+
+```json
+{
+  "error-code":"200",
+  "error-code-label":"success"
+}
+```
+
+*or* **XML**
+
+```xml
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<response>
+  <error-code>200</error-code>
+  <error-code-label>success</error-code-label>
+</response>
+```
+
+##### Keys and Values
+
+The response contains the following keys and values:
+
+Key | Value
+-- | --
+`count` | The total amount of numbers owned by account.
+`numbers` | An paginated array of numbers and their details.
+
+### Cancel a number
+
+Cancel your subscription for a specific inbound number.
+
+#### Request
+
+```
+[POST] https://rest.nexmo.com/number/cancel
+```
+
+##### Parameters
+
+The following shows the parameters you use in the request:
+
+Parameter | Description | Required
+-- | -- | --
+`country` | The two character country code in ISO 3166-1 alpha-2 format. | Yes
+`msisdn` | One of your inbound numbers. For example, `447700900000`. | Yes
+
+#### Response
+
+The following shows example Responses in JSON or XML:
+
+**JSON**
+
+```json
+{
+  "error-code":"200",
+  "error-code-label":"success"
+}
+```
+
+*or* **XML**
+
+```xml
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<response>
+  <error-code>200</error-code>
+  <error-code-label>success</error-code-label>
+</response>
 ```
 
 ##### Keys and Values
