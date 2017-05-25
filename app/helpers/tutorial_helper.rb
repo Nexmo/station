@@ -11,6 +11,7 @@ module TutorialHelper
 
   def normalise_product_title(product)
     return "SMS" if product == 'messaging/sms'
+    return "Number Insight" if product == "number-insight"
     return product.camelcase
   end
 end
