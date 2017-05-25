@@ -15,4 +15,7 @@
 
 /voice/building-blocks: /voice/building-blocks/make-a-phone-call
 
+/number-insight: /number-insight/overview
+/number-insight/guides: /number-insight/guides/cnam
+
 /tools/cli: /tools
