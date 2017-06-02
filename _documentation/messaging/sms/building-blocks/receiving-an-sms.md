@@ -7,7 +7,7 @@ navigation_weight: 2
 
 With Nexmo's SMS API you can receive SMS messages on your virtual numbers.
 
-To receive SMS messages, you need to buy a number and setup an webhook endpoint.
+To receive SMS messages, you need to buy a number and setup a webhook endpoint.
 
 ## Buy a number
 
