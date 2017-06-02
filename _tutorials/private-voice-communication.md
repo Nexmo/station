@@ -6,7 +6,7 @@ description: For market place scenarios such as food delivery or taxi and passen
 
 # Private voice communication
 
-For market place scenarios such as food delivery or taxi and passenger communications, if your users see each other's phone number and talk to each other without you knowing your application cannot control or track the communication threads. By implementing private communication with Voice API you ensure that your users cannot bypass the required or preferred communication workflows and audits.
+For marketplace scenarios such as food delivery or taxi and passenger communications, if your users see each other's phone number and talk to each other without you knowing your application cannot control or track the communication threads. By implementing private communication with Voice API you ensure that your users cannot bypass the required or preferred communication workflows and audits.
 
 
 This tutorial is based on the [Private Voice Communication](https://www.nexmo.com/use-cases/private-voice-communication/) use case. You can download the code from <https://github.com/Nexmo/node-voice-proxy>.
