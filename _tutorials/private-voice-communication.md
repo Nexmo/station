@@ -1,7 +1,7 @@
 ---
 title: Private voice communication
 products: voice
-description: For market place scenarios such as food delivery or taxi and passenger communications, if your users see each other's phone number and talk to each other without you knowing your application cannot control or track the communication threads. By implementing private communication with Voice API you ensure that your users cannot bypass the required or preferred communication workflows and audits.
+description: Protect user's number privacy by connecting users together for private voice communication.
 ---
 
 # Private voice communication
