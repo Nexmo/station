@@ -549,7 +549,7 @@ Retrieve information about a single messages that you sent using SMS API or were
 #### Request
 
 ```
-[POST] https://rest.nexmo.com/search/message
+[GET] https://rest.nexmo.com/search/message
 ```
 
 ##### Parameters
@@ -671,7 +671,7 @@ Retrieve multiple messages that you sent using SMS API or were received on your 
 #### Request
 
 ```
-[POST] https://rest.nexmo.com/search/messages
+[GET] https://rest.nexmo.com/search/messages
 ```
 
 ##### Parameters
@@ -791,3 +791,77 @@ Key | Value
 `error-code-label` | A text label to explain `error-code`
 `status` | A code that explains where the message is in the delivery process. If status is not `delivered` check `error-code` for more information. If status is `accepted` ignore the value of `error-code`. @[Possible values](/_modals/api/developer/message/search/response/status.md).
 `error-code` | If the `status` is not `accepted` this key will have one of these @[possible values](/_modals/api/developer/message/search/response/error-code.md).
+
+### Retrieve rejected messages
+
+Search for messages that have been rejected by Nexmo. Messages rejected by carrier do not appear.
+
+#### Request
+
+```
+[GET] https://rest.nexmo.com/search/rejections
+```
+
+##### Parameters
+
+The following shows the parameters you use in the request:
+
+Parameter | Description | Required
+-- | -- | --
+`date` | The date the request to SMS API was submitted in the following format: `YYYY-MM-DD` | Yes
+`to` | The phone number the message was sent to. | Yes
+
+#### Response
+
+The following shows example Responses in JSON or XML:
+
+**JSON**
+
+```json
+```
+{
+  "count": 1,
+  "items": [
+    {
+      "account-id": "API_KEY",
+      "from": "447700900000",
+      "to": "INVALID",
+      "date-received": "2020-01-01 12:00:00",
+      "error-code": "3",
+      "error-code-label": "to address is not numeric"
+    }
+  ]
+}
+```
+
+*or* **XML**
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<rejections>
+  <count>1</count>
+  <items>
+    <rejection>
+      <account-id>API_KEY</account-id>
+      <from>Nexmo</from>
+      <to>INVALID</to>
+      <date-received>2020-01-01 12:00:00</date-received>
+      <error-code>3</error-code>
+      <error-code-label>to address is not numeric</error-code-label>
+    </rejection>
+  </items>
+</rejections>
+```
+
+##### Keys and Values
+
+The response contains the following keys and values:
+
+Key | Value
+-- | --
+`account-id` | Your API Key
+`from` | Sender number
+`to` | Recipient number
+`date-received` | Date when we have received the message YYYY-MM-DD HH:MM:SS expressed in UTC time.
+`error-code` | Delivery receipt error code.
+`error-code-label` | Delivery receipt error code label.
