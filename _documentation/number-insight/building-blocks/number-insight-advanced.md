@@ -14,7 +14,7 @@ Number Insight Advanced Async API is a synchronous, easy-to-use RESTful web serv
 * Line type detection (mobile/landline/virtual number/premium/toll-free)
 * Detect mobile country code (MCC) and mobile network code (MNC)
 * Detect if number is ported
-* Identify caller name (USA only)
+* Identify caller name (USA only) - see the [CNAM guide](/number-insight/guides/cnam) for details
 * Identify network when roaming
 * Confirm user's IP address is in same location as their mobile phone
 
