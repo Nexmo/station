@@ -6,8 +6,6 @@ description: Use the Number Insight and Developer API from Ruby code to validate
 
 # Validate a number
 
-Title: Phone number validation
-
 By asking your customer to provide a phone number — and then validating the legitimacy of that number — you minimize fraud and ensure that you can easily contact that customer in the future. Using Number Insight you also distinguish mobile from landline numbers and ensure that you only send text messages to mobile phone numbers.
 
 Number Insight has three product levels:
