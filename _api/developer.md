@@ -544,7 +544,7 @@ The following shows example Responses in JSON or XML:
 
 ### Search
 
-Cancel your subscription for a specific inbound number.
+Retrieve information about a single messages that you sent using SMS API or were received on your number.
 
 #### Request
 
@@ -634,6 +634,134 @@ The following shows example Responses in JSON or XML:
   <date-received>2020-01-01 12:00:00</date-received>
   <type>MO</type>
 </message>
+```
+
+##### Keys and Values
+
+The response contains the following keys and values:
+
+Key | Value
+-- | --
+`type` | The message type. `MT` (mobile terminated or outbound) or `MO` (mobile originated or inbound)
+`message-id` | The id of the message you sent.
+`account-id` | Your API Key.
+`network` | The [MCCMNC](https://en.wikipedia.org/wiki/Mobile_Network_Code) for the carrier who delivered the message.
+`from` | The sender ID the message was sent from. Could be a phone number or name.
+`to` | The phone number the message was sent to.
+`body` | The body of the message
+`date-received` | The date and time at UTC+0 when Platform received your request in the following format: `YYYY-MM-DD HH:MM:SS`.
+
+**Fields for MT messages only**
+
+Key | Value
+-- | --
+`price` | Price in Euros for a MT message
+`date-closed` | The date and time at UTC+0 when Platform received the delivery receipt from the carrier who delivered the MT message. This parameter is in the following format YYYY-MM-DD HH:MM:SS
+`latency` | The overall latency between `date-received` and `date-closed` in milliseconds.
+`client-ref` | The [internal reference](/api/sms#keys-and-values) you set in the request.
+`final-status` | The status of `message-id` at `date-closed`. @[Possible values](/_modals/api/developer/message/search/response/final-status.md).
+`error-code-label` | A text label to explain `error-code`
+`status` | A code that explains where the message is in the delivery process. If status is not `delivered` check `error-code` for more information. If status is `accepted` ignore the value of `error-code`. @[Possible values](/_modals/api/developer/message/search/response/status.md).
+`error-code` | If the `status` is not `accepted` this key will have one of these @[possible values](/_modals/api/developer/message/search/response/error-code.md).
+
+### Retrieve multiple messages
+
+Retrieve multiple messages that you sent using SMS API or were received on your number.
+
+#### Request
+
+```
+[POST] https://rest.nexmo.com/search/messages
+```
+
+##### Parameters
+
+The following shows the parameters you use in the request:
+
+**Search by message ID**
+
+Parameter | Description | Required
+-- | -- | --
+`ids` | The list of up to 10 message IDs to search for. For example: `ids=00A0B0C0&ids=00A0B0C1&ids=00A0B0C2` | Yes
+
+*or* **Search by recipient and date**
+
+Parameter | Description | Required
+-- | -- | --
+`date` | The date the request to SMS API was submitted in the following format: `YYYY-MM-DD` | Yes
+`to` | The phone number the message was sent to. | Yes
+
+#### Response
+
+The following shows example Responses in JSON or XML:
+
+**JSON**
+
+```json
+{
+  "count": 2,
+  "items": [
+    {
+      "message-id": "0A00000000ABCD00",
+      "account-id": "API_KEY",
+      "network": "012345",
+      "from": "Nexmo",
+      "to": "447700900000",
+      "body": "A text message sent using the Nexmo SMS API",
+      "price": "0.03330000",
+      "date-received": "2020-01-01 12:00:00",
+      "final-status": "DELIVRD",
+      "date-closed": "2020-01-01 12:00:00",
+      "latency": 3000,
+      "type": "MT"
+    },
+    {
+      "message-id": "0B00000053FFB40F",
+      "account-id": "API_KEY",
+      "network": "012345",
+      "from": "447700900000",
+      "to": "447700900001",
+      "body": "This is an inbound message test",
+      "date-received": "2020-01-01 12:00:00",
+      "type": "MO"
+    }
+  ]
+}
+```
+
+*or* **XML**
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<messages>
+  <count>2</count>
+  <items>
+    <message>
+      <message-id>0A00000000ABCD00</message-id>
+      <account-id>API_KEY</account-id>
+      <network>12345</network>
+      <from>447700900000</from>
+      <to>447700900001</to>
+      <body>This is an inbound message test</body>
+      <date-received>2017-05-22020-01-01 12:00:00 09:50:43</date-received>
+      <type>MO</type>
+    </message>
+    <message>
+      <message-id>0A00000000ABCD01</message-id>
+      <account-id>API_KEY</account-id>
+      <network>12345</network>
+      <from>Nexmo</from>
+      <to>447700900000</to>
+      <body>A text message sent using the Nexmo SMS API</body>
+      <price>0.03330000</price>
+      <date-received>2020-01-01 12:00:00</date-received>
+      <final-status>DELIVRD</final-status>
+      <date-closed>2020-01-01 12:00:00</date-closed>
+      <latency>3000</latency>
+      <type>MT</type>
+    </message>
+  </items>
+</messages>
 ```
 
 ##### Keys and Values
