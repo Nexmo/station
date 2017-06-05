@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<account-settings>
+   <api-secret>API_SECRET</api-secret>
+   <mo-callback-url>https://example.com/mo</mo-callback-url>
+   <dr-callback-url>https://example.com/dr</dr-callback-url>
+   <max-outbound-request>30</max-outbound-request>
+   <max-inbound-request>30</max-inbound-request>
+</account-settings>
