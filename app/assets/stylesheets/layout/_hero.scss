@@ -1,12 +1,10 @@
 $hero-gradient: darken($mint, 3%);
 
 #hero {
-  margin-top: -20px;
   padding: $spacing * 2;
-  background: linear-gradient(180deg, $hero-gradient 10%, rgba($ice, 0) 100%);
 
   h1 {
-    font-size: 42px;
+    font-size: 55px;
   }
 }
 
