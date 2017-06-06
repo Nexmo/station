@@ -2,12 +2,16 @@ class ExternalLinkFilter < Banzai::Filter
   def call(input)
     @input = input
 
-    document.css('a').each do |link|
+    Rails.logger.debug('WATTT')
+
+    document.css('a').each_with_index do |link, index|
       if link['href'] && link['href'].start_with?('http')
         link['target'] = '_blank'
-        link.add_child <<~HEREDOC
-          &nbsp;<i class="fa fa-external-link"></i>
-        HEREDOC
+        if link.css('.fa-external-link').empty?
+          link.add_child <<~HEREDOC
+            &nbsp;<i class="fa fa-external-link"></i>
+          HEREDOC
+        end
       end
     end
 
