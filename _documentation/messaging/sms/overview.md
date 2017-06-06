@@ -9,7 +9,7 @@ With low latency and high deliverability, our SMS API is the most reliable way t
 * Programmatically send and receive high volume of SMS anywhere in the world
 * Build apps that scale with the web technologies that you are already using
 * Send SMS with low latency and high delivery rates
-* Receive SMS for free and tap into the worlds largest inventory of SMS-enabled numbers in real time.
+* Receive SMS for free and tap into the world's largest inventory of SMS-enabled numbers in real time.
 * Only pay for what you use, nothing more.
 
 ## Contents
