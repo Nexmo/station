@@ -34,7 +34,7 @@ Before you begin:
 * Sign up for a [Nexmo account](https://dashboard.nexmo.com/signup)
 * Install [Node.JS](https://nodejs.org/en/download/)
 
-> *Note*: If you do not wish to install Node in order to use the [Nexmo CLI](/tools) you can also create applications using the [Application API](https://docs.nexmo.com/tools/application-api)*
+> *Note*: If you do not wish to install Node in order to use the [Nexmo CLI](/tools) you can also create applications using the [Application API](https://docs.nexmo.com/tools/application-api)
 
 Install and Setup the Nexmo CLI (Command Line Interface)
 
@@ -44,7 +44,7 @@ Install the Nexmo CLI:
 $ npm install -g nexmo-cli
 ```
 
-*Note: depending on your system setup you may need to prefix the above command with `sudo`*
+> *Note*: depending on your system setup you may need to prefix the above command with `sudo`*
 
 Using your Nexmo `API_KEY` and `API_SECRET`, available from the [dashboard getting started page](https://dashboard.nexmo.com/getting-started-guide), you now setup the CLI with these credentials.
 
