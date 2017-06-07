@@ -8,7 +8,7 @@ api: Developer API
 
 @TODO: Add intro copy
 
-## Message
+## Messages
 
 ### Search
 
