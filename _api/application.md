@@ -20,7 +20,7 @@ You use a POST request to create a new application:
 source: _examples/api/application/create-an-application
 ```
 
-#### Parameters
+### Parameters
 
 The following table shows the parameters you use to create a new application:
 
@@ -33,7 +33,7 @@ Parameter | Description | Required
 `event_url` | Nexmo sends event information asynchronously to this URL when status changes. | Yes
 `event_method` | The HTTP method used to send event information to event_url. The default value is POST. | No
 
-#### Response
+### Response
 
 The JSON object for a `201 Created` response looks like:
 
@@ -94,7 +94,7 @@ You use a [GET] request to retrieve details of all applications associated with 
 source: _examples/api/application/retrieve-your-applications
 ```
 
-#### Parameters
+### Parameters
 
 The following table shows the parameters you use to list your apps:
 
@@ -103,7 +103,7 @@ Parameter | Description | Required
 `page_size` | Set the number of items returned on each call to this endpoint. The default is 10 records. | No
 `page_index` | Set the offset from the first page. The default value is `0`. | No
 
-#### Response
+### Response
 
 The JSON object for a 200 success response looks like:
 
@@ -181,7 +181,7 @@ You use a [GET] request to retrieve details about a single application:
 source: _examples/api/application/retrieve-an-application
 ```
 
-#### Response
+### Response
 
 The JSON object for a `200 OK` response looks like:
 
@@ -240,7 +240,7 @@ You use a [PUT] request to update an existing application:
 source: _examples/api/application/update-an-application
 ```
 
-#### Parameters
+### Parameters
 
 The following table shows the parameters you use to update an application:
 
@@ -253,7 +253,7 @@ Parameter | Description | Required
 `event_url` | Nexmo sends event information asynchronously to this URL when status changes. | Yes
 `event_method` | The HTTP method used to send event information to event_url. The default value is POST. | No
 
-####Response
+### Response
 
 The JSON object for a 200 success response looks like:
 
@@ -312,6 +312,6 @@ You use a [DELETE] request to delete a single application:
 source: _examples/api/application/destroy-an-application
 ```
 
-#### Response
+### Response
 
 Nexmo returns a `204 No Content` status code when your application is successfully deleted.
