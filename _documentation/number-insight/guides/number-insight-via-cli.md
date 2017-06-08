@@ -51,7 +51,7 @@ You can get fuller details of what's contained in the API response by using the 
 $ nexmo insight:basic --verbose 447700900000
 ```
 
-```
+````
 [status]
 0
 
@@ -59,7 +59,7 @@ $ nexmo insight:basic --verbose 447700900000
 Success
 
 [request_id]
-baaa398d-f725-4912-a521-c548e52ea1d6
+aaaaaaaa-bbbb-cccc-dddd-0123456789ab
 
 [international_format_number]
 447700900000
@@ -78,7 +78,7 @@ United Kingdom
 
 [country_prefix]
 44
-```
+````
 
 This human readable output mirrors the field names and data available in the JSON response: it gives you back some data about your request (`status`, `status_message`, `request_id`) and details of the country of the number (`country_name`, `country_prefix` etc.) and how to format the number appropriately for that country (`national_format_number`).
 
@@ -96,7 +96,7 @@ $ nexmo insight:standard --verbose 447700900000
 
 The response will look like this:
 
-```
+````
 [status]
 0
 
@@ -104,7 +104,7 @@ The response will look like this:
 Success
 
 [request_id]
-e4cf96bb-208f-49eb-87ab-390ee7e9442f
+aaaaaaaa-bbbb-cccc-dddd-0123456789ab
 
 [international_format_number]
 447700900000
@@ -156,4 +156,4 @@ mobile
 
 [ported]
 assumed_ported
-```
+````
