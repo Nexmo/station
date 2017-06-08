@@ -6,8 +6,8 @@ Nexmo Developer is a platform hosting the Nexmo documentation, API reference, SD
 
 ### Prerequisites
 
-- Ruby 2.4.0 + bundler
-- Postgresql
+- Ruby 2.4.1 + bundler
+- PostgreSQL
 - Elasticsearch 5.2.x
 
 ### Setup
@@ -21,6 +21,23 @@ $ rake db:create
 $ rake db:migrate
 $ ./bin/yarn install
 $ rails server
+```
+
+### Setting up with Docker
+
+If you don't want to install Ruby & PostgreSQL then you can use docker to sandbox Nexmo Developer into its own containers. After you [Install Docker](https://docs.docker.com/engine/installation/) run the following:
+
+```
+$ docker-compose up
+$ docker-compose run web rake db:setup
+```
+
+You will still need to run the webpack-dev-server on your local machine.
+
+To stop the server cleanly run:
+
+```
+$ docker-compose down
 ```
 
 ### Compiling assets
