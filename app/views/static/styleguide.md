@@ -107,6 +107,19 @@ For tabbed code we use a custom plugin.
 source: '/_examples/messaging/sending-an-sms/basic'
 ```
 
+**Tabbed Examples (custom plugin) + pulling code in from external repository**
+
+For tabbed code we use a custom plugin.
+
+> You'll have to view the `styleguide.md` source to see how since showing you the syntax would result in it being processed.
+
+```tabbed_examples
+tabs:
+  Ruby:
+    source: .repos/nexmo-community/nexmo-ruby-quickstart/sms/send.rb
+    from_line: 8
+```
+
 ## Tables
 
 > Pipes should only be between cells. Two hyphens `--` should be used to 'underline' the headings.
