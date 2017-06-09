@@ -115,7 +115,9 @@ For tabbed code we use a custom plugin.
 
 ```tabbed_examples
 tabs:
-  Ruby: .repos/nexmo-community/nexmo-ruby-quickstart/sms/send.rb
+  Ruby:
+    source: .repos/nexmo-community/nexmo-ruby-quickstart/sms/send.rb
+    from_line: 8
 ```
 
 ## Tables

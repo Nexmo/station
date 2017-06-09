@@ -23,8 +23,15 @@ class TabbedExamplesFilter < Banzai::Filter
   end
 
   def load_examples_from_tabs
-    @config['tabs'].map do |title, path|
-      source = File.read(path)
+    @config['tabs'].map do |title, config|
+      source = File.read(config['source'])
+
+      total_lines = source.lines.count
+      from_line = config['from_line'] || 0
+      to_line = config['to_line'] || total_lines
+
+      source = source.lines[from_line..to_line].join
+
       { language: title.dup, source: source }
     end
   end
