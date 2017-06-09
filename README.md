@@ -16,12 +16,16 @@ Nexmo Developer is a platform hosting the Nexmo documentation, API reference, SD
 $ git clone git@github.com:Nexmo/nexmo-developer.git
 $ cd nexmo-developer
 $ cp .env.example .env
-$ bundle install
+$ bundle install -j8 #bundler does not parallelize installs by default
 $ rake db:create
 $ rake db:migrate
-$ ./bin/yarn install
+$ ./bin/yarn install #run brew install yarn if you don't have yarn
 $ rails server
 ```
+
+If a webpack error occurs during setup, run the `webpack-dev-server` like so:
+
+```$ ./bin/webpack-dev-server```
 
 ### Setting up with Docker
 
