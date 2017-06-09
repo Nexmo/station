@@ -122,7 +122,7 @@ Key | Description
 ## Tabbed Content (custom plugin)
 
 ```tabbed_content
-source: '/_examples/styleguide/tabbed-examples'
+source: '/_examples/styleguide/tabbed-content'
 ```
 
 ## JS Sequence Diagram (custom plugin)
@@ -153,4 +153,3 @@ Spanish | `es` | [Hola Mundo](lang: 'es')
 French | `fr` | [Bonjour le monde](lang: 'fr')
 Brazilian Portuguese | `pt-BR` | [Olá Mundo](lang: 'pt-BR')
 Hebrew | `il` | [שלום עולם](lang: 'il')
-
