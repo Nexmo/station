@@ -2,8 +2,6 @@ class ExternalLinkFilter < Banzai::Filter
   def call(input)
     @input = input
 
-    Rails.logger.debug('WATTT')
-
     document.css('a').each_with_index do |link, index|
       if link['href'] && link['href'].start_with?('http')
         link['target'] = '_blank'
