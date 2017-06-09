@@ -9,6 +9,7 @@ Nexmo Developer is a platform hosting the Nexmo documentation, API reference, SD
 - Ruby 2.4.1 + bundler
 - PostgreSQL
 - Elasticsearch 5.2.x
+- Yarn
 
 ### Setup
 
@@ -16,16 +17,12 @@ Nexmo Developer is a platform hosting the Nexmo documentation, API reference, SD
 $ git clone git@github.com:Nexmo/nexmo-developer.git
 $ cd nexmo-developer
 $ cp .env.example .env
-$ bundle install -j8 #bundler does not parallelize installs by default
+$ bundle install
 $ rake db:create
 $ rake db:migrate
-$ ./bin/yarn install #run brew install yarn if you don't have yarn
+$ ./bin/yarn install
 $ rails server
 ```
-
-If a webpack error occurs during setup, run the `webpack-dev-server` like so:
-
-```$ ./bin/webpack-dev-server```
 
 ### Setting up with Docker
 
@@ -97,6 +94,14 @@ This is because Docker wasn't shut down cleanly. To fix this run:
 
 ```
 $ docker-compose run web rm /myapp/tmp/pids/server.pid
+```
+
+#### A webpack error occurs during setup
+
+Run the `webpack-dev-server` like so:
+
+```
+$ ./bin/webpack-dev-server
 ```
 
 ## Contributing
