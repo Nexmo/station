@@ -4,6 +4,18 @@ FLATTEN_TREES = [].freeze
 COLLAPSIBLE = ['Messaging', 'SMS', 'Conversion API', 'SNS', 'US Short Codes', 'Voice', 'Number Insight', 'Account', 'Global'].freeze
 
 module ApplicationHelper
+  def last_updated
+    date = DateTime.strptime(`git show --format=%at`, '%s').to_formatted_s(:long)
+    display = `git show --pretty=%ar`
+    sha = `git rev-parse HEAD`.strip
+
+    (
+    <<~HEREDOC
+      Last updated <abbr title="Current SHA: #{sha}">#{date}</abbr>
+    HEREDOC
+    ).html_safe
+  end
+
   def directory_hash(path, name = nil)
     data = { title: (name || path), path: path }
     data[:children] = []
