@@ -1,7 +1,6 @@
 ---
 title: Receive a phone call
 navigation_weight: 2
-wip: false
 ---
 
 # Make a phone call
