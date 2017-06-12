@@ -13,11 +13,11 @@ You can purchase numbers using the Dashboard in the [Your Numbers](https://dashb
 ### Search for a number
 
 ```tabbed_content
-source: _examples/concepts/buy-a-number-search/
+source: _examples/concepts/buy-a-number-search
 ```
 
 ### Buy a number
 
 ```tabbed_content
-source: _examples/concepts/buy-a-number-purchase/
+source: _examples/concepts/buy-a-number-purchase
 ```

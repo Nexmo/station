@@ -19,4 +19,7 @@
 /number-insight/guides: /number-insight/guides/cnam
 /number-insight/building-blocks: /number-insight/building-blocks/number-insight-basic
 
+/account/guides: /account/guides/management
+/account/building-blocks: /account/building-blocks/buy-a-number
+
 /tools/cli: /tools
