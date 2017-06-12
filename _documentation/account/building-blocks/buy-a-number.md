@@ -1,7 +1,6 @@
 ---
 title: Buy a number
 navigation_weight: 1
-wip: true
 ---
 
 # Buy a number
