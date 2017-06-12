@@ -5,7 +5,7 @@ COLLAPSIBLE = ['Messaging', 'SMS', 'Conversion API', 'SNS', 'US Short Codes', 'V
 
 module ApplicationHelper
   def last_updated
-    date = DateTime.strptime(`git show --format=%at`, '%s').to_formatted_s(:long)
+    date = DateTime.strptime(`git log -1 --format=%at`.strip, '%s').to_formatted_s(:long)
     display = `git show --pretty=%ar`
     sha = `git rev-parse HEAD`.strip
 
