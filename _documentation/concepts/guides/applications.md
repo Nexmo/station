@@ -8,7 +8,7 @@ Description: A Nexmo application contains the security and configuration informa
 
 A Nexmo application contains the security and configuration information you need to connect to Nexmo endpoints and easily use our products. You use one or more applications to supply a service based on a Nexmo Product. For example, you may create one Voice application to record calls to your support center, and another application for internal conferences.
 
-![Application API Workdlow](/assets/images/capi_architecture.svg)
+![Application API Workflow](/assets/images/capi_architecture.svg)
 
 ## Structure
 
