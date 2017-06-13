@@ -1,6 +1,6 @@
 ---
 title: Mobile app invites
-products: sms
+products: SMS
 description: We live in a world of data and analytics where we use unique identifiers to measure the impact of past decisions in order to fine tune future ones. You can use phone numbers in this way too. For example, you track the most popular phone numbers used for television radio, magazine, print or online advertising, and the times those phone numbers are used, in order to improve future campaigns.
 ---
 
