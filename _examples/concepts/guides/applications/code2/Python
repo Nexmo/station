@@ -1,0 +1,38 @@
+import urllib
+import urllib2
+import json
+
+base_url = 'https://rest.nexmo.com'
+action = '/number/update'
+
+#Change msisdn and country to match your virtual number
+msisdn = '447700900000'
+country = 'GB'
+
+params = {
+    'api_key': 'API_KEY',
+    'api_secret': 'API_SECRET',
+    'country' : country,
+    'msisdn' : msisdn,
+    'voiceCallbackType':  'app',
+    'voiceCallbackValue': 'APPLICATION_ID'
+}
+
+url =  base_url + action
+data =  urllib.urlencode(params)
+
+request = urllib2.Request(url, urllib.urlencode(params))
+request.add_header('Accept', 'application/json')
+
+try:
+    response = urllib2.urlopen(request)
+    data = response.read()
+    if response.code == 200:
+        print "SUCESSS!"
+        app = json.loads(data.decode('utf-8'))
+        print json.dumps(app, indent=4)
+    else:
+        print "HTTP Response: " + response.code
+        print data
+except urllib2.HTTPError as e:
+    print e

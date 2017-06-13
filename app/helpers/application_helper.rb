@@ -1,7 +1,7 @@
 IGNORED_PATHS = ['..', '.', '.DS_Store'].freeze
 NAVIGATION_WEIGHT = YAML.load_file("#{Rails.root}/config/navigation.yml")['navigation_weight']
 FLATTEN_TREES = [].freeze
-COLLAPSIBLE = ['Messaging', 'SMS', 'Conversion API', 'SNS', 'US Short Codes', 'Voice', 'Account', 'Global'].freeze
+COLLAPSIBLE = ['Messaging', 'SMS', 'Conversion API', 'SNS', 'US Short Codes', 'Voice', 'Number Insight', 'Account', 'Global'].freeze
 
 module ApplicationHelper
   def directory_hash(path, name = nil)

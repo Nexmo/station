@@ -7,10 +7,10 @@ api: SMS
 
 ## Send an SMS
 
-* [Request](#request) - send an sms to your user.
+* [Request](#request) - send an SMS to a user.
 * [Response](#response) - ensure that your request to the SMS API was successful.
-* [Delivery Receipt](#delivery_receipt) - check that your user received your message.
-* [Inbound message](#inbound) - handle inbound messages from your user.
+* [Delivery Receipt](#delivery_receipt) - check that the user received your message.
+* [Inbound message](#inbound) - handle inbound messages from the user.
 
 ### Request
 
@@ -135,24 +135,9 @@ source: '/_examples/api/sms/sending/response-format'
 
 The response contains the following keys and values:
 
-Key |	Description |	Response type
--- | -- | --
-`message-count` | The number of parts the message was split into. | JSON
-`messages` | Contains each message part. For an XML response, the `count` attribute contains the value of `message-count` JSON key. | BOTH
-`message` | A single message part. | XML
-`status` | Shows how the SMS send is processing. | BOTH
-`message-id` | The ID of the SMS that was submitted (8 to 16 characters). | JSON
-`messageId` | The ID of the SMS that was submitted (8 to 16 characters). | XML
-`to` | The phone number your request was sent to. | BOTH
-`client-ref` | The client-ref you set in your request. | JSON
-`clientRef` | The client-ref you set in your request. | XML
-`remaining-balance` | The remaining balance in your account. The value is in EUR. | JSON
-`remainingBalance` | The remaining balance in your account. The value is in EUR. | XML
-`message-price` | The price charged for your request. The value is in EUR. | JSON
-`messagePrice` | The price charged for your request. The value is in EUR. | XML
-`network` | The Mobile Country Code Mobile Network Code (MCCMNC) for the carrier that to is registered with. | BOTH
-`error-text` | If an error occurred, this explains what happened. | JSON
-`errorText` | If an error occurred, this explains what happened. | XML
+```tabbed_content
+source: '/_examples/api/sms/sending/keys-and-values/'
+````
 
 #### Error codes
 

@@ -76,23 +76,22 @@ $ball-size: 44px;
       display: block;
       padding: 3px 0;
 
-      h3 {
-        // color: $blue;
-      }
-
       &:hover {
         font-weight: 600;
       }
     }
+
+    br {
+      line-height: 30px;
+    }
   }
 
-  &--sms { @include card--product(mix($sms, $blue, 80%)); }
-  &--number-insight { @include card--product(mix($number-insight, $blue, 80%)); }
-  &--voice { @include card--product(mix($voice, $blue, 80%)); }
-  &--chat { @include card--product(mix($chat, $blue, 80%)); }
-  &--verify { @include card--product(mix($verify, $blue, 80%)); }
-  &--developer { @include card--product(mix($atom, $blue, 80%)); }
-  &--global { @include card--product($blue); }
+  &--sms { @include card--product($sms); }
+  &--number-insight { @include card--product($number-insight); }
+  &--voice { @include card--product($voice); }
+  &--chat { @include card--product($chat); }
+  &--verify { @include card--product($verify); }
+  &--account { @include card--product($atom); }
 }
 
 .card-in-development {

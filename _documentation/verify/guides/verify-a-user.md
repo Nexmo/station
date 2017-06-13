@@ -1,6 +1,5 @@
 ---
 title: Verify a user
-wip: true
 ---
 
 # Verify a user

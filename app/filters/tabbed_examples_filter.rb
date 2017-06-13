@@ -1,15 +1,9 @@
 class TabbedExamplesFilter < Banzai::Filter
   def call(input)
     input.gsub(/```tabbed_examples(.+?)```/m) do |_s|
-      config = YAML.safe_load($1)
-      examples_path = "#{Rails.root}/#{config['source']}"
+      @config = YAML.safe_load($1)
 
-      examples = Dir["#{examples_path}/*"].map do |example_path|
-        language = example_path.sub("#{examples_path}/", '')
-        source = File.read(example_path)
-        { language: language, source: source }
-      end
-
+      examples = @config['source'] ? load_examples_from_source : load_examples_from_tabs
       examples = sort_examples(examples)
 
       build_html(examples)
@@ -17,6 +11,30 @@ class TabbedExamplesFilter < Banzai::Filter
   end
 
   private
+
+  def load_examples_from_source
+    examples_path = "#{Rails.root}/#{@config['source']}"
+
+    Dir["#{examples_path}/*"].map do |example_path|
+      language = example_path.sub("#{examples_path}/", '')
+      source = File.read(example_path)
+      { language: language, source: source }
+    end
+  end
+
+  def load_examples_from_tabs
+    @config['tabs'].map do |title, config|
+      source = File.read(config['source'])
+
+      total_lines = source.lines.count
+      from_line = config['from_line'] || 0
+      to_line = config['to_line'] || total_lines
+
+      source = source.lines[from_line..to_line].join
+
+      { language: title.dup, source: source }
+    end
+  end
 
   def sort_examples(examples)
     examples.sort_by do |example|

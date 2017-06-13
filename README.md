@@ -6,9 +6,10 @@ Nexmo Developer is a platform hosting the Nexmo documentation, API reference, SD
 
 ### Prerequisites
 
-- Ruby 2.4.0 + bundler
-- Postgresql
+- Ruby 2.4.1 + bundler
+- PostgreSQL
 - Elasticsearch 5.2.x
+- Yarn
 
 ### Setup
 
@@ -21,6 +22,29 @@ $ rake db:create
 $ rake db:migrate
 $ ./bin/yarn install
 $ rails server
+```
+
+### Setting up with Docker
+
+If you don't want to install Ruby & PostgreSQL then you can use docker to sandbox Nexmo Developer into its own containers. After you [Install Docker](https://docs.docker.com/engine/installation/) run the following:
+
+```
+# Start the web server
+$ docker-compose up
+
+# Setup the Database (you only need to do this once)
+$ docker-compose run web rake db:setup
+
+# Open the browser
+$ open http://localhost:3000
+```
+
+You will still need to run the webpack-dev-server on your local machine.
+
+To stop the server cleanly run:
+
+```
+$ docker-compose down
 ```
 
 ### Compiling assets
@@ -60,6 +84,24 @@ The code can then be pulled into the `.repo` directory with the following comman
 
 ```
 $ rake repos:pull
+```
+
+## Troubleshooting
+
+#### I'm getting an error `A server is already running.  Check /myapp/tmp/pids/server.pid.` when I run `docker-compose up`.
+
+This is because Docker wasn't shut down cleanly. To fix this run:
+
+```
+$ docker-compose run web rm /myapp/tmp/pids/server.pid
+```
+
+#### A webpack error occurs during setup
+
+Run the `webpack-dev-server` like so:
+
+```
+$ ./bin/webpack-dev-server
 ```
 
 ## Contributing

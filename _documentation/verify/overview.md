@@ -1,7 +1,6 @@
 ---
 title: Overview
 description: the Verify API overview.
-wip: true
 ---
 
 # Verify API Overview

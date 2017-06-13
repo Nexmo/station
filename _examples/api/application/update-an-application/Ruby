@@ -1,0 +1,36 @@
+require "net/http"
+require 'net/https'
+require "uri"
+require "json"
+
+base_url = "https://api.nexmo.com"
+version = "/v1"
+action = "/applications "
+
+params = {
+  'api_key' =>  'API_KEY',
+    'api_secret' => 'API_SECRET',
+  'name' => 'MyFirstApplication',
+  'type' => 'voice',
+  'answer_url' => 'https://example.com/ncco',
+  'event_url' => 'https://example.com/status'
+}
+uri = URI.parse(base_url + version + action + "/APPLICATION_ID?" )
+post_request = Net::HTTP::Put.new(uri.request_uri)
+post_request.form_data = params
+
+http = Net::HTTP.new(uri.host, Net::HTTP.https_default_port)
+http.use_ssl = true
+
+response = http.request(post_request)
+
+case response
+when Net::HTTPCreated
+  application = JSON.parse(response.body )
+  print "Application " + application['name'] + " has an ID of: " + application['id'] + "\n"
+  application['voice']['webhooks'].each do |webhook|
+      print "  " + webhook['endpoint_type'] + " is " + webhook['endpoint'] + "\n"
+  end
+else
+  puts response.code + " error sending message"
+end
