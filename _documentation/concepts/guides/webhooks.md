@@ -53,14 +53,12 @@ Voice API | For an individual call, set the answer_url parameter used to retriev
 
 To interact with Nexmo webhooks:
 
-1. You:
+1. Create a Nexmo account.
+2. Write scripts to handle the information sent or requested by Nexmo. Your scripts must always respond with HTTP 200 to inbound messages from Nexmo.
+3. Put your scripts on your HTTP server.
+4. Send a *request* with the [webhook endpoint](#setting) set.
 
-    1. Create a Nexmo account.
-    2. Write scripts to handle the information sent or requested by Nexmo. Your scripts must always respond with HTTP 200 to inbound messages from Nexmo.
-    3. Put your scripts on your HTTP server.
-    4. Send a *request* with the [webhook endpoint](#setting) set.
-
-2. Information about your request is sent to your webhook endpoint.
+Information about your request is then sent to your webhook endpoint.
 
 The following code examples are webhooks for the SMS API:
 
