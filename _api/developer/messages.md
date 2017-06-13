@@ -6,9 +6,9 @@ api: Developer API
 
 # API reference
 
-@TODO: Add intro copy
-
 ## Messages
+
+The Messages API lets you retrieve messages you have sent via the SMS API by ID, as well as retrieve details of messages that were rejected.
 
 ### Search
 

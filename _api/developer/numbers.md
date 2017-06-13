@@ -6,7 +6,7 @@ api: Developer API
 
 # API reference
 
-@TODO: Add intro copy
+The Numbers API lets you manage your numbers and buy new virtual numbers for use with Nexmo's APIs.
 
 ## Numbers
 

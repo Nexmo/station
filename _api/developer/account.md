@@ -4,13 +4,11 @@ description: Reference guide for the Account API.
 api: Developer API
 ---
 
-# API reference
-
-@TODO: Add intro copy
+# API Reference
 
 ## Account
 
-@TODO: Add account copy
+The Account API allows you to retrieve your balance, change settings on your account, and lookup pricing information for particular countries.
 
 ### Authentication information
 
