@@ -24,8 +24,6 @@ $ball-size: 44px;
   overflow: hidden;
   font-size: 16px;
 
-  @include card--product(mix($atom, $blue, 80%));
-
   .spacious {
     padding: $spacing 0;
   }
@@ -87,6 +85,13 @@ $ball-size: 44px;
       line-height: 30px;
     }
   }
+
+  &--sms { @include card--product($sms); }
+  &--number-insight { @include card--product($number-insight); }
+  &--voice { @include card--product($voice); }
+  &--chat { @include card--product($chat); }
+  &--verify { @include card--product($verify); }
+  &--account { @include card--product($atom); }
 }
 
 .card-in-development {
