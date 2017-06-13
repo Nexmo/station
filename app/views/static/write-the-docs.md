@@ -174,6 +174,8 @@ Timestamp | `2020-01-01 12:00:00` | -
 Epoch | `1577880000` | -
 HTTP Method | ``[GET]`` or ``[POST]`` | [GET] or [POST]
 HTTP Response | `` `200 OK` `` or §§ `` `404 Not Found` `` | `200 OK` or §§ `404 Not Found`
+Balance | `3.14159` | -
+Latency | `3000` | -
 UUID | `aaaaaaaa-bbbb-cccc-dddd-0123456789ab` | -
 SNS ARN | `arn:aws:sns:us-east-1:01234567890:example` | -
 

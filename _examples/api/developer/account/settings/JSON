@@ -1,0 +1,7 @@
+{
+  "api-secret": "API_SECRET",
+  "mo-callback-url": "https://example.com/mo",
+  "dr-callback-url": "https://example.com/dr",
+  "max-outbound-request": 30,
+  "max-inbound-request": 30
+}

@@ -23,5 +23,5 @@
 /account/building-blocks: /account/building-blocks/buy-a-number
 
 /tools/cli: /tools
-
+/api/developer: /api/developer/account
 /events: /community

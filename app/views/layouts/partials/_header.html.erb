@@ -23,7 +23,7 @@
 
     <% if Rails.configuration.search_enabled %>
       <%= form_tag '/search' do %>
-        <input type="text" id="search" name="query" placeholder="Search" name="query" autocomplete="off" value="<%= @search_term || '' %>">
+        <input type="text" id="searchbox" name="query" placeholder="Search" name="query" autocomplete="off" value="<%= @search_term || '' %>">
       <% end %>
     <% end %>
     <div id="search-results" style="display: none;"></div>

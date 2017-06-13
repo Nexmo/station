@@ -11,6 +11,6 @@ const search = function (event) {
 
 export default () => {
   $(document).ready(function(){
-    $(document).on('input', '#search', _.debounce(search, 250));
+    $(document).on('input', '#searchbox', _.debounce(search, 250));
   });
 }
