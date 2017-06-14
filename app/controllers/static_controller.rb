@@ -3,6 +3,11 @@ class StaticController < ApplicationController
     render layout: 'landing'
   end
 
+  def documentation
+    @navigation = :documentation
+    render layout: 'documentation'
+  end
+
   def tools
     @navigation = :tools
     render layout: 'page'
