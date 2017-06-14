@@ -160,7 +160,7 @@ The response includes the cost to send an SMS message or the price-per-minute fo
 }
 ```
 
-See the (link: tools/developer-api/account-pricing text: API reference) for more information about the Developer API.
+See the [API reference](/api/developer/account#pricing) for more information about the Developer API.
 
 ## Determine the type
 
@@ -207,7 +207,6 @@ insight = nexmo.get_advanced_number_insight(
 p insight['valid_number']
 ```
 
- false)      
 In this case the number is valid.
 
 ```ruby
