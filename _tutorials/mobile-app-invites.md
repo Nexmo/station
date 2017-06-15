@@ -1,5 +1,5 @@
 ---
-title: Two-way SMS for customer engagement
+title: Mobile app invites
 products: messaging/sms
 description: Link your customers to your app with SMS
 ---
@@ -20,8 +20,8 @@ You see how easy it is to build a mobile app invites system using the Nexmo APIs
 
 1. [Create a Web app](#create-a-web-app) - create a Web app with download buttons.
 2. [Detect desktop users](#detect-desktop-users) - show the correct download button for desktop or mobile users.
-3. [Collect a name and phone number](#collect-a-phone-number) - for desktop browsers, display a form to collect user information.
-4. [Send the download link in an SMS](#send-link-over-sms) - send an SMS to your user containing the download link for your app.
+3. [Collect a name and phone number](#collect-a-name-and-phone-number) - for desktop browsers, display a form to collect user information.
+4. [Send the download link in an SMS](#send-the-download-link-in-an-sms) - send an SMS to your user containing the download link for your app.
 4. [Run this tutorial](#run-this-tutorial) - run the tutorial and send the download URL to your phone number.
 
 ## Prerequisites
@@ -186,7 +186,7 @@ When your user clicks *Continue*, you use SMS API to send them a text message co
 
 You can also send a direct link to the correct stores in the SMS. To do this you update the form so the user can choose their device.
 
-## Send the download link in an SMS {#send-link-over-sms}
+## Send the download link in an SMS
 
 You send an SMS using a single call to SMS API, Nexmo takes care of all the routing and delivery. The following diagram shows the workflow followed in this tutorial to send an SMS:
 

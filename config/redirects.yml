@@ -3,6 +3,10 @@
 /voice: /voice/overview
 /voice/guides: /voice/overview#references
 /verify: /verify/overview
+/account: /account/overview
+/messaging/us-short-codes: /messaging/us-short-codes/overview
+/messaging/conversion-api: /messaging/conversion-api/overview
+/messaging/sns: /messaging/sns/overview
 
 /messaging/sms/building-blocks: /messaging/sms/building-blocks/send-an-sms
 /sms/building-blocks: /messaging/sms/building-blocks/send-an-sms

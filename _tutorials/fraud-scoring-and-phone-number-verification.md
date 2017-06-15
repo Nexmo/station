@@ -1,7 +1,7 @@
 ---
-title: Phone number validation
+title: Fraud scoring and phone number verification
 products: number-insight
-description: By asking your customer to provide a phone number — and then validating the legitimacy of that number — you minimize fraud and ensure that you can easily contact that customer in the future.
+description: While it would be easy to confirm a phone number with Nexmo Verify every time a user provides you with their number this is hardly always necessary. By combining Nexmo Verify with Nexmo Number Insight, and applying your own fraud scoring logic, it is extremely easy to build your own fraud detection system.
 ---
 
 # Fraud scoring and phone number verification
