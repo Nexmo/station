@@ -19,7 +19,7 @@ In this document you can learn about:
 
 * [Nexmo Voice API Concepts](#concepts)
 * [How to Get Started with the Voice API](#getting-started)
-* [Voice API Features](#features)
+* [Voice API Features](#voice-api-features)
 * [References](#references)
 * [Tutorials](#tutorials)
 
