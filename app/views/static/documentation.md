@@ -4,7 +4,7 @@ title: Documentation
 
 # Documentation
 
-Welcome to the Nexmo Developer Documentation. Get familiar with [concepts](#concepts) common to Nexmo APIs, [documentation types](#documentation-types) and [products](#products). Then start building connected applications with Nexmo.</p>
+Welcome to the Nexmo Developer Documentation. Get familiar with [concepts](#concepts) common to Nexmo APIs and [products](#products). Then start building connected applications with Nexmo.
 
 ## Concepts
 
@@ -16,7 +16,7 @@ There are a number of shared concepts between the various Nexmo APIs:
 - [Signing requests](/concepts/guides/signing-messages) – How to cryptographically sign requests
 - [Webhooks](/concepts/guides/webhooks) – Nexmo's API can send data back to your web server via a webhook
 
-## Documentation Types
+## Products
 
 Documentation within Nexmo Developer is organised by product. Within each product section you'll find the following types of documentation:
 
@@ -24,8 +24,6 @@ Documentation within Nexmo Developer is organised by product. Within each produc
 - **Building** Blocks - Quick access code samples to help you construct your programmable communications apps
 - **Tutorials** - Step-by-step tutorials to help you build common communications use cases
 - **API Reference** - The resources, parameters and payload examples
-
-## Products
 
 <div class="row">
   <div class="columns small-12">
