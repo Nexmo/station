@@ -196,7 +196,7 @@ CallTracker.prototype.answer = function (from, to) {
   return ncco;
 ```
 
-> **Note**: take a look at the (link:/voice/voice-api/ncco-reference text: NCCO reference) for information.
+> **Note**: take a look at the  [NCCO reference](/voice/guides/ncco-reference) for information.
 
 Your web server provides Nexmo with this NCCO and the Call is proxied to the `to` phone number.
 
