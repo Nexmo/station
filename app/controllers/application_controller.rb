@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
 
   force_ssl if: :ssl_configured?
   before_action :set_show_feedback
+  before_action :set_notices
 
   def not_found
     redirect = Redirector.find(request)
@@ -33,5 +34,9 @@ class ApplicationController < ActionController::Base
 
   def ssl_configured?
     !Rails.env.development?
+  end
+
+  def set_notices
+    @notices ||= YAML.load_file("#{Rails.root}/config/notices.yml")
   end
 end

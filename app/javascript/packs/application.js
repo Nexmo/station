@@ -14,6 +14,7 @@ import JsSequenceDiagrams from './JsSequenceDiagrams';
 import Navigation from './Navigation';
 import Search from './Search';
 import Scroll from './Scroll';
+import Notices from './Notices';
 
 import {
   preventSamePage as turbolinksPreventSamePage,
@@ -27,6 +28,7 @@ turbolinksPreventSamePage()
 turbolinksAnimate()
 
 let refresh = () => {
+  Notices()
   GithubCards()
   Scrollspy()
   JsSequenceDiagrams()

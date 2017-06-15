@@ -1,40 +1,41 @@
 .notices {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: $spacing;
-  z-index: 3;
+  margin-top: -$spacing;
+  margin-bottom: $spacing;
+  border-bottom: 2px solid darken($mint, 3%);
+  background: $mint;
 }
 
 .notice {
-  position: relative;
-  max-width: 980px;
-  background: $white;
-  box-shadow: 0 0 60px 10px rgba(0,0,0,0.25);
-  border: 2px solid #bbb;
-  padding: $spacing;
-  padding-bottom: $spacing / 2;
-  margin: auto;
-  border-radius: 8px;
-  margin-bottom: $spacing;
+  overflow: hidden;
 
-  * {
-    // color: $white;
+  > div {
+    position: relative;
+    max-width: 1200px;
+    background: $white;
+    box-shadow: 0 0 30px 6px rgba(0,0,0,0.1);
+    border: 2px solid #ccc;
+    padding: $spacing;
+    padding-bottom: $spacing / 2;
+    margin: $spacing * 2 auto;
+    margin-bottom: 0;
+    border-radius: 8px;
+  }
+
+  &:last-child > div {
+    margin-bottom: $spacing * 2;
   }
 
   .fa-times {
     position: absolute;
-    top: $spacing;
-    right: $spacing;
-    // color: $white;
+    top: 0;
+    right: 0;
+    padding: $spacing;
+    font-size: 24px;
   }
 
   h2 {
     margin-bottom: 10px;
   }
-
-
 }
 
 .beta {
