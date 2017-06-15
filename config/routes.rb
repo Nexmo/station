@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/tutorials/*document', to: 'tutorials#show'
   get '/*product/tutorials', to: 'tutorials#index'
 
+  get '/documentation', to: 'static#documentation'
   get '/tools', to: 'static#tools'
   get '/community', to: 'static#community'
 
