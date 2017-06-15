@@ -67,6 +67,16 @@ module ApplicationHelper
       ss << '</li>' unless received_flatten
       ss.join("\n")
     end
+
+    if root && @side_navigation_extra_links
+      s << '<hr>'
+      @side_navigation_extra_links.each do |title, path|
+        s << <<~HEREDOC
+          <a href="#{path}" class="#{path == request.path ? 'active' : ''}">#{title}</a>
+        HEREDOC
+      end
+    end
+
     s << '</ul>' unless received_flatten
 
     s.join("\n").html_safe

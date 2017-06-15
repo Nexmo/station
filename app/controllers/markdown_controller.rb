@@ -28,6 +28,9 @@ class MarkdownController < ApplicationController
 
   def set_navigation
     @navigation = :documentation
+    @side_navigation_extra_links = {
+      'Tutorials' => '/tutorials',
+    }
   end
 
   def set_product

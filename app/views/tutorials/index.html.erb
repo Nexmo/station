@@ -4,7 +4,7 @@
 
 <br>
 
-<div class="masonry">
+<div class="masonry" data-turbolinks="false">
   <% @tutorials.each_with_index do |tutorial, index| %>
     <div class="item">
       <a href="<%= tutorial[:path].gsub('_', '') %>" class="card card--with-icon">

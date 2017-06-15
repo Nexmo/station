@@ -58,5 +58,8 @@ class TutorialsController < ApplicationController
 
   def set_navigation
     @navigation = :documentation
+    @side_navigation_extra_links = {
+      'Tutorials' => '/tutorials',
+    }
   end
 end
