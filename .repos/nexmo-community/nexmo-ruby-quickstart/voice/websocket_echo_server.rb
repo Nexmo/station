@@ -8,7 +8,7 @@ Dotenv.load
 
 FROM_NUMBER = ENV['FROM_NUMBER']
 
-# See https://docs.nexmo.com/voice/voice-api/websockets for more instructions
+# See https://developer.nexmo.com/concepts/guides/webhooks for more instructions
 
 Faye::WebSocket.load_adapter('thin')
 
