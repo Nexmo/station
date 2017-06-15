@@ -4,7 +4,18 @@ class StaticController < ApplicationController
   end
 
   def documentation
-    @navigation = :documentation
+    # Read document
+    document = File.read("#{Rails.root}/app/views/static/documentation.md")
+
+    # Parse frontmatter
+    @frontmatter = YAML.safe_load(document)
+
+    @title = @frontmatter['title']
+
+    @side_navigation = 'api/styleguide'
+
+    @content = MarkdownPipeline.new.call(document)
+
     render layout: 'documentation'
   end
 
