@@ -21,7 +21,7 @@ $ bundle install
 $ rake db:create
 $ rake db:migrate
 $ ./bin/yarn install
-$ rails server
+$ foreman start
 ```
 
 ### Setting up with Docker
