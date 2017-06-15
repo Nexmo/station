@@ -1,6 +1,6 @@
 ---
 title: Mobile app invites
-products: messaging/sms
+products: SMS
 description: Link your customers to your app with SMS
 ---
 
