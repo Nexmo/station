@@ -3,7 +3,20 @@ require 'colorize'
 namespace :repos do
   desc 'Pull repos to local'
   task pull: :environment do
-    repos = YAML.load_file("#{Rails.root}/config/repos.yml")
+
+    ARGV.each { |a| task a.to_sym do ; end }
+
+    repos = {}
+
+    if ARGV[1]
+      repos[ARGV[1]] = {
+        'branch' => ARGV[2] || 'master',
+        'github' => ARGV[1],
+      }
+    else
+      repos = YAML.load_file("#{Rails.root}/config/repos.yml")
+    end
+
     progressbar = ProgressBar.create(total: repos.count)
 
     warnings = []

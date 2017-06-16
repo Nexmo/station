@@ -86,6 +86,12 @@ The code can then be pulled into the `.repo` directory with the following comman
 $ rake repos:pull
 ```
 
+To pull a single repo provide the GitHub repo name and optional branch:
+
+```
+$ rake repos:pull nexmo-community/nexmo-ruby-quickstart master
+```
+
 ## Troubleshooting
 
 #### I'm getting an error `A server is already running.  Check /myapp/tmp/pids/server.pid.` when I run `docker-compose up`.
