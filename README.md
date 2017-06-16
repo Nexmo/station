@@ -113,3 +113,9 @@ $ ./bin/webpack-dev-server
 ## Contributing
 
 Contributions are welcome, please follow [GitHub Flow](https://guides.github.com/introduction/flow/index.html)
+
+## License
+
+See the `LICENSE` file for full licenses. The code is licensed under the MIT License; documentation is licensed under both the MIT License and the Creative Commons Attribution 4.0 International license.
+
+Copyright &copy; 2017 Nexmo.
