@@ -9,8 +9,8 @@ let onScrollOrResize = function() {
   if (currentPosition > startScroll) {
     $('.sidenav > ul').css({
       'width': $('.sidenav').width(),
-      'top': 20,
-    });
+    })
+    .addClass('navigation--fixed');
 
     $('.sidenav > ul').css('position', 'fixed');
   } else {
@@ -18,7 +18,8 @@ let onScrollOrResize = function() {
       'width': 'auto',
       'position': 'relative',
       'top': 0,
-    });
+    })
+    .removeClass('navigation--fixed');
   }
 
   $('#primary-content').find('h1,h2,h3,h4,h5,h6').each(function() {

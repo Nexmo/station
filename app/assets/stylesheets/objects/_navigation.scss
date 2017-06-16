@@ -70,6 +70,12 @@
   }
 }
 
+.navigation--fixed {
+  padding-top: 20px;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
 @media screen and (max-width: 640px) {
   .sidenav {
     > ul {
