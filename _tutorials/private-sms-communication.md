@@ -429,6 +429,6 @@ All the code for this tutorial and more is [available on GitHub](https://github.
 
 ## Resources
 
-* [Number Insight API](https://docs.nexmo.com/number-insight)
+* [Number Insight API](/number-insight)
 * [SMS Overview](/messaging/sms/overview)
 * [SMS API reference guide](/api/sms)

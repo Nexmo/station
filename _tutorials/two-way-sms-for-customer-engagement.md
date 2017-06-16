@@ -180,7 +180,7 @@ To verify that this SMS was received by the customer, check the [delivery receip
 
 ## Process the reply SMS
 
-When your customer replies to your notification SMS, Nexmo forwards the [inbound message](https://docs.nexmo.com/messaging/sms-api/api-reference#inbound) to the webhook endpoint associated with the virtual number.
+When your customer replies to your notification SMS, Nexmo forwards the [inbound message](/api/sms#inbound) to the webhook endpoint associated with the virtual number.
 
 In this tutorial app you process the incoming webhook, extract the text and number, and send a confirmation message back to the customer.
 
