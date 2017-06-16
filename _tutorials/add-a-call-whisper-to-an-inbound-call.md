@@ -106,7 +106,7 @@ With that the basic server is in place.
 
 Whenever someone calls one of the numbers that are linked to the Nexmo application, Nexmo will receive an incoming call. Nexmo will then notify your web application of that call. It does this by making a webhook request to your web app's `answer_url` endpoint.
 
-For this functionality you should use a [Nexmo client library](/libraries). Add the Nexmo client to your application and initialize it with our credentials and application key.
+For this functionality you should use a [Nexmo client library](/tools). Add the Nexmo client to your application and initialize it with our credentials and application key.
 
 **lib/routes.js**
 
@@ -126,7 +126,7 @@ var nexmo = new Nexmo({
 
 ## Make an Outbound Phone Call
 
-When a call is made to the number linked to the voice application the [Answer Webhook](/voice/voice-api/api-reference#cc_answer_webhook) will be recieved by the app webhook endpoint. When this happens, start a new call to the call center.
+When a call is made to the number linked to the voice application the [Answer Webhook](/api/voice#cc_answer_webhook) will be recieved by the app webhook endpoint. When this happens, start a new call to the call center.
 
 **lib/routes.js**
 
@@ -168,11 +168,11 @@ module.exports = function(app){
 }
 ```
 
-*Note: Take a look at the [Voice API reference](/voice/voice-api/api-reference) for more info.*
+*Note: Take a look at the [Voice API reference](/api/voice) for more info.*
 
 ## Place the caller into a conference
 
-Once the outbound call has started, your code will need to return an [Nexmo Call Control Object (NCCO)](/voice/voice-api/nexmo-call-control-objects) to give instructions to our servers on how to handle the call. The []`talk`](/voice/guides/ncco-reference#talk) action lets you play text-to-speech to the caller to inform them they are being connected.
+Once the outbound call has started, your code will need to return an [Nexmo Call Control Object (NCCO)](/voice/guides/ncco) to give instructions to our servers on how to handle the call. The []`talk`](/voice/guides/ncco-reference#talk) action lets you play text-to-speech to the caller to inform them they are being connected.
 
 Then use the [`conversation`](/voice/guides/ncco-reference#conversation) NCCO action to put the caller into a conference. Since the caller is the only participant. This effectively puts them on hold and you can inform Nexmo to play hold music to them using the `musicOnHoldUrl` attribute. This music will stop when the next caller joins the conference.
 
