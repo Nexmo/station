@@ -14,8 +14,6 @@ class StaticController < ApplicationController
 
     @title = @frontmatter['title']
 
-    @side_navigation = 'api/styleguide'
-
     @content = MarkdownPipeline.new.call(document)
 
     render layout: 'documentation'
@@ -31,6 +29,20 @@ class StaticController < ApplicationController
     @upcoming_events = Event.upcoming
     @sessions = Session.all
     render layout: 'page'
+  end
+
+  def contribute
+    # Read document
+    document = File.read("#{Rails.root}/app/views/static/contribute.md")
+
+    # Parse frontmatter
+    @frontmatter = YAML.safe_load(document)
+
+    @title = @frontmatter['title']
+
+    @content = MarkdownPipeline.new.call(document)
+
+    render layout: 'static'
   end
 
   def styleguide

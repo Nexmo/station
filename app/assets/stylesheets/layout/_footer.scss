@@ -1,13 +1,22 @@
 #footer {
   background: $gray-dark;
-  color: $white;
+  color: $gray;
   padding: $spacing 0;
   margin-top: $spacing;
   line-height: 36px;
   z-index: 2;
 
   a {
-    color: $white;
+    color: $gray;
+    &:hover {
+      color: $white;
+    }
+  }
+}
+
+#footer-copyright {
+  a {
+    border-bottom: 1px dotted lighten($atom, 20%);
   }
 }
 
