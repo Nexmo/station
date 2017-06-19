@@ -38,6 +38,14 @@
   <meta name="msapplication-TileImage" content="/mstile-144x144.png">
   <meta name="theme-color" content="#ffffff">
 
+  <meta property="og:url" content="<%= request.base_url + request.fullpath %>" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="<%= @title %>" />
+  <meta property="og:image" content="<%= request.base_url %>/assets/images/nexmo-circle-512.png" />
+  <% if @frontmatter && @frontmatter['description'] %>
+    <meta property="og:description" content="<%= @frontmatter['description'] %>" />
+  <% end %>
+
   <%= javascript_pack_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
