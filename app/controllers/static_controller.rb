@@ -12,7 +12,7 @@ class StaticController < ApplicationController
     # Parse frontmatter
     @frontmatter = YAML.safe_load(document)
 
-    @title = @frontmatter['title']
+    @document_title = @frontmatter['title']
 
     @content = MarkdownPipeline.new.call(document)
 
@@ -21,11 +21,13 @@ class StaticController < ApplicationController
 
   def tools
     @navigation = :tools
+    @document_title = "SDKs & Tools"
     render layout: 'page'
   end
 
   def community
     @navigation = :community
+    @document_title = "Community"
     @upcoming_events = Event.upcoming
     @sessions = Session.all
     render layout: 'page'
@@ -38,7 +40,7 @@ class StaticController < ApplicationController
     # Parse frontmatter
     @frontmatter = YAML.safe_load(document)
 
-    @title = @frontmatter['title']
+    @document_title = @frontmatter['title']
 
     @content = MarkdownPipeline.new.call(document)
 
@@ -52,7 +54,7 @@ class StaticController < ApplicationController
     # Parse frontmatter
     @frontmatter = YAML.safe_load(document)
 
-    @title = @frontmatter['title']
+    @document_title = @frontmatter['title']
 
     @side_navigation = 'api/styleguide'
 
@@ -68,7 +70,7 @@ class StaticController < ApplicationController
     # Parse frontmatter
     @frontmatter = YAML.safe_load(document)
 
-    @title = @frontmatter['title']
+    @document_title = @frontmatter['title']
 
     @side_navigation = 'api/write-the-docs'
 
