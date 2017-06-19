@@ -20,6 +20,6 @@ The styleguide is a document that provides examples of how to implement and use 
 
 Nexmo Developer is an open-source platform built using a mix of Ruby on Rails, HTML, JavaScript (ES7 + Webpack), Sass and a custom Markdown parser. All of the tooling and documentation is available for you to contribute to or remix for your own project.
 
-### [Contirbution Guidelines](https://github.com/nexmo/nexmo-developer)
+### [Contribution Guidelines](https://github.com/nexmo/nexmo-developer)
 
 The Contribution Guidelines outline the process and steps for reporting bugs or suggesting features as well as the semantics of contributing to our codebase and dealing with pull requests.
