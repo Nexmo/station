@@ -2,8 +2,6 @@
 
 Nexmo Developer is a platform hosting the Nexmo documentation, API reference, SDKs, Tools & Community content.
 
-> Note: Nexmo Developer is in ongoing early stage active development. Breaking changes may be introduced at this point.
-
 ### Prerequisites
 
 - Ruby 2.4.1 + bundler
