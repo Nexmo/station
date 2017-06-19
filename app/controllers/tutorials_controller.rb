@@ -32,8 +32,6 @@ class TutorialsController < ApplicationController
 
     @title = 'Tutorials'
 
-
-
     render layout: 'documentation-index'
   end
 

@@ -4,6 +4,16 @@ FLATTEN_TREES = [].freeze
 COLLAPSIBLE = ['Messaging', 'SMS', 'Conversion API', 'SNS', 'US Short Codes', 'Voice', 'Number Insight', 'Account', 'Global'].freeze
 
 module ApplicationHelper
+  def title
+    if @product && @document_title
+      "Nexmo Developer | #{@product.titleize} > #{@document_title}"
+    elsif @document_title
+      "Nexmo Developer | #{@document_title}"
+    else
+      'Nexmo Developer'
+    end
+  end
+
   def directory_hash(path, name = nil)
     data = { title: (name || path), path: path }
     data[:children] = []
