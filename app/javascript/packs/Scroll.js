@@ -3,15 +3,15 @@ export default () => {
     smoothScroll.init({
       selector: 'a[href^="#"]',
       offset: 10,
-    });
-  });
+    })
+  })
 
   $(document).on('click', 'a[href^="#"]', function(event) {
-    scrollspyId = $(event.currentTarget).data('scrollspy-id');
+    const scrollspyId = $(event.currentTarget).data('scrollspy-id')
     if (scrollspyId) {
       $elm = $('[data-id="' + scrollspyId + '"]')
-      smoothScroll.animateScroll($elm[0]);
-      event.preventDefault();
+      smoothScroll.animateScroll($elm[0])
+      event.preventDefault()
     }
   })
 }
