@@ -16,7 +16,7 @@ In this section you see how you can make a scheduled call to two users with Nexm
 To follow the steps in this section you need:
 
 * [Nexmo account](/account/guides/management#create-and-configure-a-nexmo-account)
-* [Nexmo application](https://docs.nexmo.com/tools/application-api#apps_quickstart)
+* [Nexmo application](/concepts/guides/applications#apps_quickstart)
 * An HTTP server to provide the NCCOs
 * The connection information for both users
 
@@ -54,7 +54,7 @@ Sales team->Customer: Hi.
     source: '/_examples/voice/guides/connect-two-users/2'
     ```
 
-    Ensure that answer_url for your Application is pointing to the webhook endpoint providing your NCCO. If not, use the [Nexmo CLI](/tools) or [Application API](https://docs.nexmo.com/tools/application-api/api-reference#update) to update answer_url.
+    Ensure that answer_url for your Application is pointing to the webhook endpoint providing your NCCO. If not, use the [Nexmo CLI](/tools) or [Application API](/api/application#update) to update answer_url.
 
 
 3. Nexmo initiates the second leg of the Call and your users are connected in a Voice call.

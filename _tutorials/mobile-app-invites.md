@@ -224,7 +224,7 @@ nexmo = Nexmo::Client.new(
 
 > **Note**: Do not store your API credentials in your code, use environment variables instead.
 
-Use the initialized library to make a request to [SMS API](https://docs.nexmo.com/messaging/sms-api/api-reference#request):
+Use the initialized library to make a request to [SMS API](/api/sms#request):
 
 **app.rb**
 

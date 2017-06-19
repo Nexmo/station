@@ -156,7 +156,7 @@ gem 'dotenv-rails'
 
 > *Note*: To initialize the Nexmo client library you will need to pass it your [API key and secret](https://dashboard.nexmo.com/settings). We highly recommend that you do not store your API credentials in your code but to use environment variables instead.*
 
-With the library initialized the application can now make an [SMS Request](https://docs.nexmo.com/messaging/sms-api/api-reference#request). Only send a response if this was the first message on this ticket.
+With the library initialized the application can now make an [SMS Request](/api/sms#request). Only send a response if this was the first message on this ticket.
 
 ```ruby
 def send_response

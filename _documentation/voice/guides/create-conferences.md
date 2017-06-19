@@ -18,7 +18,7 @@ The workflow for a conference is:
 
 To create a conference with the Voice API:
 
-1. [Create a Nexmo application](https://docs.nexmo.com/tools/application-api#apps_quickstart). Set `answer_url` to the URL of server that provides your NCCOs.  
+1. [Create a Nexmo application](/concepts/guides/applications#apps_quickstart). Set `answer_url` to the URL of server that provides your NCCOs.  
 2. Create the NCCOs for the business logic you are implementing in your Voice app:
 
     ```tabbed_content

@@ -28,7 +28,7 @@ In this section you see how to easily test a Voice API *connect* to a WebSocket 
 To follow the steps in this section you need a:
 
 * [Nexmo account](/account/guides/management#create-and-configure-a-nexmo-account)
-* [Nexmo application](https://docs.nexmo.com/tools/application-api#apps_quickstart)
+* [Nexmo application](/concepts/guides/applications#apps_quickstart)
 * If you are working locally, an HTTP tunneling software such as https://ngrok.com/
 
 ## Create an echo server
@@ -106,7 +106,7 @@ To connect an inbound PSTN call to the echo server using a WebSocket:
 
 2. Place `ncco.json` in the same directory as `echo_server.py`.
 
-3. Ensure that answer_url for your Application is pointing to the echo server. If not, use the [Nexmo CLI](/tools) or [Application API](https://docs.nexmo.com/tools/application-api/api-reference#update) to update `answer_url`.
+3. Ensure that answer_url for your Application is pointing to the echo server. If not, use the [Nexmo CLI](/tools) or [Application API](/api/application#update) to update `answer_url`.
 
 4. Call the virtual number associated with your Application and listen to your own words of wisdom.
 

@@ -38,7 +38,7 @@ To rent a Nexmo virtual number:
 
 If your account has no credit your virtual numbers are released for resale. To avoid this, enable [auto-reload payments](#add_payment_method).
 
-> **Note**: to rent virtual numbers programmatically, call [Number: Search](https://docs.nexmo.com/tools/developer-api/number-search) to list the available numbers, then [Number: Buy](https://docs.nexmo.com/tools/developer-api/number-buy) to rent one of the numbers returned by the search.
+> **Note**: to rent virtual numbers programmatically, call [Number: Search](/api/developer/numbers#search-available-numbers) to list the available numbers, then [Number: Buy](/api/developer/numbers#buy-a-number) to rent one of the numbers returned by the search.
 
 ## Configure a virtual number
 
