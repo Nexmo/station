@@ -14,7 +14,7 @@ Documentation for documentation... how very meta. The Write the Docs guide provi
 
 ### [Styleguide](/styleguide)
 
-The styleguide is a document that provides examples of how to implement and use all the various components throughout Nexmo Developer from typography and headings to tabbed code examples and syntax highlighting.
+The styleguide provides examples of how to implement and use all the various components throughout Nexmo Developer from typography and headings to tabbed code examples and syntax highlighting.
 
 ### [GitHub: Nexmo Developer](https://github.com/nexmo/nexmo-developer)
 
