@@ -6,7 +6,7 @@ wip: true
 
 # Connect a phone call
 
-The code below shows you how to setup an endpoint to connect incoming calls from one number to another. This enables you to forward calls made to a Nexmo number to another number.
+The code below shows you how to setup an endpoint to connect incoming calls from one number to another. This enables you to forward voice calls made to a Nexmo number to another number of your choosing.
 
 ```tabbed_examples
 tabs:
