@@ -7,6 +7,7 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
+import Collapsible from './Collapsible';
 import Scrollspy from './Scrollspy';
 import GithubCards from './GithubCards';
 import TabbedExamples from './TabbedExamples';
@@ -21,6 +22,7 @@ import {
   animate as turbolinksAnimate
 } from './Turbolinks';
 
+Collapsible()
 Navigation()
 Search()
 Scroll()

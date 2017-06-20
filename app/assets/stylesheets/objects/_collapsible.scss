@@ -1,0 +1,24 @@
+.collapsible {
+  #primary-content & {
+    margin: $spacing 0;
+    margin-bottom: $spacing * 1.2;
+  }
+
+  &:before {
+    color: $stone-light;
+    content: "▸";
+  }
+
+  &--active {
+    &:before {
+      content: "▾";
+    }
+  }
+}
+
+.collapsible-content {
+  padding-left: 15px;
+  border-left: 2px solid $mint;
+  margin-left: 5px;
+  margin-bottom: $spacing;
+}
