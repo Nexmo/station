@@ -29,7 +29,15 @@ class StaticController < ApplicationController
     @navigation = :community
     @document_title = "Community"
     @upcoming_events = Event.upcoming
+    @past_events_count = Event.past.count
     @sessions = Session.all
+    render layout: 'page'
+  end
+
+  def past_events
+    @navigation = :community
+    @document_title = "Community"
+    @past_events = Event.past
     render layout: 'page'
   end
 

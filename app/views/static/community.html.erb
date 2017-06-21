@@ -31,12 +31,12 @@
 
 <div class="row">
   <% @upcoming_events.each_with_position do |event, first, last| %>
-    <div class="columns small-12 medium-6 large-4 <%= 'end' if last %>">
-      <br>
-      <h2><%= link_to event.title, event.url, target: '_blank' %></h2>
-      <p><b><%= event.date_range %></b></p>
-      <p><%= event.description %></p>
-      <br>
-    </div>
+    <%= render 'event', event: event, first: first, last: last %>
   <% end %>
 </div>
+
+<% if @past_events_count > 0 %>
+  <p class="center">
+    <%= link_to "view #{pluralize @past_events_count, 'past event'}", community_past_events_path %>
+  </p>
+<% end %>

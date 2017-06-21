@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get '/contribute', to: 'static#contribute'
   get '/tools', to: 'static#tools'
   get '/community', to: 'static#community'
+  get '/community/past-events', to: 'static#past_events'
 
   get '/styleguide', to: 'static#styleguide'
   get '/write-the-docs', to: 'static#write_the_docs'
