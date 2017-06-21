@@ -3,7 +3,7 @@
   <div class="columns small-12 medium-8 medium-centered large-6 medium-centered">
     <center>
       <h1>Nexmo ❤️ community</h1>
-      <h2>You can find us at these upcoming events:</h2>
+      <h2>Resources for and by the Community</h2>
     </center>
     <br>
     <hr class="hr--mini">
@@ -30,6 +30,8 @@
 <br>
 
 <div class="row">
+  <h2 class="center">You can find us at these upcoming events:</h2>
+
   <% @upcoming_events.each_with_position do |event, first, last| %>
     <%= render 'event', event: event, first: first, last: last %>
   <% end %>
