@@ -1,8 +1,16 @@
-let startScroll = 125;
 
 let onScrollOrResize = function() {
   let currentPosition = $(document).scrollTop();
   let delta = currentPosition + 20;
+
+  $('.sidenav > ul').css({
+    'width': 'auto',
+    'position': 'relative',
+    'top': 0,
+  })
+  .removeClass('navigation--fixed');
+
+  let startScroll = $(".js-scrollspy, .js-navigation").offset().top - 20;
 
   let $activeHeading = undefined;
 
@@ -13,13 +21,6 @@ let onScrollOrResize = function() {
     .addClass('navigation--fixed');
 
     $('.sidenav > ul').css('position', 'fixed');
-  } else {
-    $('.sidenav > ul').css({
-      'width': 'auto',
-      'position': 'relative',
-      'top': 0,
-    })
-    .removeClass('navigation--fixed');
   }
 
   $('#primary-content').find('h1,h2,h3,h4,h5,h6').each(function() {
