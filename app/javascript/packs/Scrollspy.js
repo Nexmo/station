@@ -10,7 +10,7 @@ let onScrollOrResize = function() {
   })
   .removeClass('navigation--fixed');
 
-  let startScroll = $(".js-navigation").offset().top - 20;
+  let startScroll = $(".js-scrollspy, .js-navigation").offset().top - 20;
 
   let $activeHeading = undefined;
 
