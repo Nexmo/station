@@ -1,9 +1,9 @@
 ---
-title: SIP
+title: Overview
 description: Use Nexmo SIP to forward inbound and send outbound Voice calls that use the Session Initiation Protocol.
 ---
 
-# SIP
+# SIP Overview
 
 You use Nexmo SIP to [forward inbound](#forward-inbound) and [send outbound](#sip-outbound) Voice calls that use the [Session Initiation Protocol](https://en.wikipedia.org/wiki/Session_Initiation_Protocol).
 
