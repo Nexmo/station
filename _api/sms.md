@@ -9,8 +9,8 @@ api: SMS
 
 * [Request](#request) - send an SMS to a user.
 * [Response](#response) - ensure that your request to the SMS API was successful.
-* [Delivery Receipt](#delivery_receipt) - check that the user received your message.
-* [Inbound message](#inbound) - handle inbound messages from the user.
+* [Delivery Receipt](#delivery-receipt) - check that the user received your message.
+* [Inbound messages](#inbound-messages) - handle inbound messages from the user.
 
 ### Request
 
