@@ -6,20 +6,20 @@ description: "Replace your toll-free numbers (e.g. 800, 0800) with easy to use, 
 
 # Voice - Smart Local Numbers
 
-While toll-free numbers can be expensive, they're also one of the least personal ways to provide a customer with a way to reach you. So with that in mind we're going to replace your expensive toll-free number with multiple localized regional numbers. This will allow you to give your customers a friendly local number to dial, while saving you on expensive toll-free number rental costs.
+While toll-free numbers can be expensive, they're also one of the least personal ways to provide a customer with a way to reach you. So with that in mind, we're going to replace your expensive toll-free number with multiple localised regional numbers. This will allow you to give your customers a friendly local number to dial while saving you on expensive toll-free number rental costs.
 
-Additionally, with the power of local numbers we will show you how you can take some smart steps to provide a more bespoke experience for anyone dialled in, while simultaneously collecting valuable information about your customer's ever changing requirements.
+Additionally, with the power of local numbers, we will show you how you can take some smart steps to provide a more bespoke experience for anyone dialled in, while simultaneously collecting valuable information about your customer's ever changing requirements.
 
 ## In this tutorial
 
 We will be creating an application for a fake transit authority, allowing users to dial in with a local number, instantly getting an update on their local transit system, and additionally allowing them to get an update on other cities as well.
 
-* [Create a Voice Application](#create-a-voice-application) - create a voice application using the Nexmo CLI and configuring answer and event webhook endpoints
-* [Buy Phone Numbers](#buy-phone-numbers) - buy multiple, local numbers for the inbound calls
-* [Link the Phone Numbers to a Nexmo Application](#link-the-phone-numbers-to-a-nexmo-application) - configure the voice enabled phone numbers to be associated with your Voice Application
-* [Create a Web Server](#create-a-web-server) - create a webserver that can handle calls coming in
-* [Receive an Inbound Local Phone Call](#receive-an-inbound-phone-call) - use your webhook endpoint to handle an incoming voice call
-* [Prompt for Other Localities](#prompt-for-other-localities) - use a menu to allow someone to also get information on other localities, as if they had dialled from a different number
+* [Create a Voice Application](#create-a-voice-application) - Create a voice application using the Nexmo CLI and configuring answer and event webhook endpoints
+* [Buy Phone Numbers](#buy-phone-numbers) - Buy multiple, local numbers for the inbound calls
+* [Link the Phone Numbers to a Nexmo Application](#link-the-phone-numbers-to-a-nexmo-application) - Configure the voice enabled phone numbers to be associated with your Voice Application
+* [Create a Web Server](#create-a-web-server) - Create a webserver that can handle calls coming in
+* [Receive an Inbound Local Phone Call](#receive-an-inbound-phone-call) - Use your webhook endpoint to handle an incoming voice call
+* [Prompt for Other Localities](#prompt-for-other-localities) - Use a menu to allow someone to also get information on other localities as if they had dialled from a different number
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ To create a voice application within the Nexmo platform you execute the followin
 
 ```bash
 $ nexmo app:create "Transit Authority" https://example.com/answer https://example.com/event --save app.key
-Application created: 5555f9df-05bb-4a99-9427-6e43c83849b8
+Application created: aaaaaaaa-bbbb-cccc-dddd-0123456789ab
 ```
 
 "Transit Authority" is the name of the application and the next parameter is the webhook endpoint that Nexmo will make a request to when a call is made to a number associated with the application. The final parameter is also a webhook endpoint so that Nexmo can inform your application of other events related your Nexmo app.
@@ -87,7 +87,7 @@ require 'sinatra'
 require 'json'
 ```
 
-With that the basic server is in place.
+With that, the basic server is in place.
 
 ## Receive an Inbound Phone Call
 
@@ -140,7 +140,7 @@ The final step is to reply to the webhook with a set of actions in the form of a
 def respond_with(location, status)
   content_type :json
   return [
-    # A friendly localized welcome message
+    # A friendly localised welcome message
     {
       'action': 'talk',
       'text': "Current status for the #{location} Transport Authority:"
@@ -216,11 +216,11 @@ end
 
 ## Conclusion
 
-You have created a voice application, purchased phone numbers and linked them to a Nexmo voice application. You have then built a Smart Local Number application that receives an inbound call, maps the called number to a standard input, and then collects more input from the user to play back more further info to them.
+You have created a voice application, purchased phone numbers and linked them to a Nexmo voice application. You have then built a Smart Local Number application that receives an inbound call, maps the called number to a standard input, and then collects more input from the user to play back further info to them.
 
 ## Get the Code
 
-All the code for this tutorial and more is in the [800 Replacement repository on GitHub](https://github.com/Nexmo/ruby-800-replacement).
+All the code for this tutorial and more is in the [800 Replacement repository on GitHub](https://github.com/Nexmo/800-replacement).
 
 ## Resources
 
