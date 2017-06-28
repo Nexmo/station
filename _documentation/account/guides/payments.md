@@ -98,7 +98,7 @@ Nexmo's operating currency is the Euro. By default, your balance is displayed in
 To change the currency your balance is displayed in:
 
 1. Navigate to [Settings](https://dashboard.nexmo.com/billing-and-payments/settings) in Dashboard.
-2. Set *Display balance in* to your currencey of choice.
+2. Set *Display balance in* to your currency of choice.
 
 *Note*: this only changes the display in Dashboard you are always charged in Euro. Prices shown in USD fluctuate with the USD-EUR exchange rate.
 

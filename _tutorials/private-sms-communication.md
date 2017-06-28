@@ -183,7 +183,7 @@ First check the numbers, then save the conversation and finally send and SMS not
 
 ```js
 /**
- * Initiate anonymous SMS communicatin so there is a real/virtual mapping of numbers.
+ * Initiate anonymous SMS communication so there is a real/virtual mapping of numbers.
  */
 SmsProxy.prototype.createConversation = function(userANumber, userBNumber, cb) {
   this.checkNumbers(userANumber, userBNumber)
