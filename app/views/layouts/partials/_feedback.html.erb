@@ -2,13 +2,24 @@
   <br>
   <hr>
 
-  <% if Rails.env.production? %>
-    <iframe
-      src="https://feedbot-nexmo-developer.herokuapp.com/feedbacks/new?source=<%= request.base_url + request.fullpath %>"
-      id="feedback" height="300" style="width: 100%;" frameBorder="0"
-    ></iframe>
-  <% else %>
-    <br>
-    <p><i>The feedback tool is disabled in <%= Rails.env %></i></p>
-  <% end %>
+  <div class="row">
+    <div class="columns small-12 medium-6">
+      <% if Rails.env.production? %>
+        <iframe
+          src="https://feedbot-nexmo-developer.herokuapp.com/feedbacks/new?source=<%= request.base_url + request.fullpath %>"
+          id="feedback" height="300" style="width: 100%;" frameBorder="0"
+        ></iframe>
+      <% else %>
+        <br>
+        <p><i>The feedback tool is disabled in <%= Rails.env %></i></p>
+      <% end %>
+    </div>
+    <div class="columns small-12 medium-6 right" id="feedback__improve">
+      <% if @document_path %>
+        <p>
+          <i class="fa fa-github"></i> <%= link_to("Improve this page", "https://github.com/Nexmo/nexmo-developer/blob/master/#{@document_path}", target: "_blank") %>
+        </p>
+      <% end %>
+    </div>
+  </div>
 <% end %>

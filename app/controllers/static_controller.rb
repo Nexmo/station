@@ -6,8 +6,10 @@ class StaticController < ApplicationController
   def documentation
     @navigation = :documentation
 
+    @document_path = "/app/views/static/documentation.md"
+
     # Read document
-    document = File.read("#{Rails.root}/app/views/static/documentation.md")
+    document = File.read("#{Rails.root}/#{@document_path}")
 
     # Parse frontmatter
     @frontmatter = YAML.safe_load(document)
