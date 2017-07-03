@@ -7,7 +7,8 @@ class MarkdownController < ApplicationController
 
   def show
     # Read document
-    document = File.read("#{Rails.root}/_documentation/#{@product}/#{@document}.md")
+    @document_path = "_documentation/#{@product}/#{@document}.md"
+    document = File.read("#{Rails.root}/#{@document_path}")
 
     # Parse frontmatter
     @frontmatter = YAML.safe_load(document)
