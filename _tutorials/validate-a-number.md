@@ -38,13 +38,13 @@ In order to work through this tutorial you need:
 
 After you have created a project, add the `nexmo` library to your `Gemfile`.
 
-````ruby
+```ruby
 gem 'nexmo', '~> 4.4.0'
-````
+```
 
 Set the NEXMO_API_KEY and NEXMO_API_SECRET environmental variables to initialize the library:
 
-````ruby
+```ruby
 # Initialize nexmo with the NEXMO_API_KEY and
 # NEXMO_API_SECRET environment variables
 
@@ -53,21 +53,21 @@ nexmo = Nexmo::Client.new(
   api_key: ENV['NEXMO_API_KEY'],
   api_secret: ENV['NEXMO_API_SECRET']
 )
-````
+```
 
 ## Determine the country
 
 To retrieve country information about a phone number:
 
-````ruby
+```ruby
 # Perform a  Number Insight basic inquiry
 puts nexmo.get_basic_number_insight(number:  "442079460000")
-````
+```
 
 
 This returns the phone number in international format as well as the name, code, and prefix for the country the phone number is registered in.
 
-````ruby
+```ruby
 {
     "status" => 0,
     "status_message" => "Success",
@@ -79,7 +79,7 @@ This returns the phone number in international format as well as the name, code,
     "country_name" => "United Kingdom",
     "country_prefix" => "44"
 }
-````
+```
 
 Requests to the Number Insight Basic API are free. See the [API reference](/api/number-insight) for more information.
 
@@ -90,7 +90,7 @@ Your user may not supply a phone number in international format. That is, with t
 
 To retrieve a phone number in international format, call the Number Insight Basic API with a phone number in local format and a country code:
 
-````ruby
+```ruby
 # Perform a Number Insight basic inquiry
 insight = nexmo.get_basic_number_insight(
   number:  "020 7946 0000",
@@ -98,13 +98,13 @@ insight = nexmo.get_basic_number_insight(
 )
 
 puts insight['international_format_number']
-````
+```
 
 And it returns the phone number in international format:
 
-````
+```
 "442079460000"
-````
+```
 
 You can use the phone number returned in requests to the Nexmo APIs.
 
@@ -116,7 +116,7 @@ You use a phone number in international format to find out more about the produc
 
 To make a request to the Developer API and retrieve the cost of making a voice call or sending an SMS:
 
-````ruby
+```ruby
 # Perform a Number Insight basic inquiry
 insight = nexmo.get_basic_number_insight(
   number:  "020 7946 0000",
@@ -128,11 +128,11 @@ sms_pricing   = nexmo.get_sms_pricing(insight['international_format_number'])
 voice_pricing = nexmo.get_voice_pricing(insight['international_format_number'])
 
 puts { sms: sms_pricing, voice: voice_pricing }
-````
+```
 
 The response includes the cost to send an SMS message or the price-per-minute for a voice call to the phone number:
 
-````ruby
+```ruby
 {
       :sms => {
              "network" => "GB-FIXED",
@@ -147,7 +147,7 @@ The response includes the cost to send an SMS message or the price-per-minute fo
                "price" => "0.01200000"
     }
 }
-````
+```
 
 <!--
 TODO: reactivate when API docs migrated:
@@ -158,7 +158,7 @@ TODO: reactivate when API docs migrated:
 
 The Number Insight Standard API supplies a lot more information about a phone number. One of the most useful features is to to determine the type of number you are dealing with:
 
-````ruby
+```ruby
 # Perform a Number Insight Standard inquiry
 insight = nexmo.get_standard_number_insight(
   number:  "020 7946 0000",
@@ -166,18 +166,18 @@ insight = nexmo.get_standard_number_insight(
 )
 
 puts insight['current_carrier']
-````
+```
 
 You see that this phone number is assigned to a UK landline:
 
-````ruby
+```ruby
 {
     "network_code" => "GB-FIXED",
             "name" => "United Kingdom Landline",
          "country" => "GB",
     "network_type" => "landline"
 }
-````
+```
 Requests to the Number Insight Standard API are not free. See the [API reference](/api/number-insight) for more information.
 
 ## Validate a mobile phone number
@@ -186,7 +186,7 @@ The Number Insight Advanced API is a much more powerful API. For mobile phone nu
 
 To see if a phone number is valid:
 
-````ruby
+```ruby
 # Perform a Number Insight Advanced inquiry
 insight = nexmo.get_advanced_number_insight(
   number:  "020 7946 0000",
@@ -194,25 +194,25 @@ insight = nexmo.get_advanced_number_insight(
 )
 
 puts insight['valid_number']
-````
+```
 
 In this case the number is valid.
 
-````ruby
+```ruby
 "valid"
-````
+```
 
 If you remove a few digits from the phone number and make it invalid:
 
-````ruby
+```ruby
 "not_valid"
-````
+```
 
 You receive an invalid or unknown response:
 
-````ruby
+```ruby
 "unknown"
-````
+```
 
 Requests to Number Insight Advanced API are not free. See the [API reference](/api/number-insight) for more details.
 
