@@ -4,8 +4,9 @@ title: SMPP access
 
 # SMPP access
 
-By default, your Nexmo account is configured for REST. Unlike REST, SMPP is heavy in resources. However, most of the SMS volume processed at Nexmo uses SMPP and we would love to assist you to switch your traffic to us.
-If you already use SMPP and want to use Nexmo, switch to us in minutes without changing your App. Just update your configuration to point to the Nexmo SMPP server.
+By default, your Nexmo account is configured for REST. Compared to REST, SMPP is heavier in resource use. However, most of the SMS volume processed at Nexmo uses SMPP and if you would prefer to use SMPP, we are happy to assist you to switch your traffic over to us.
+
+If you already use SMPP and want to use Nexmo, you can switch to us in minutes without changing your app. Just update your configuration to point to Nexmo's SMPP server.
 
 - [Standard SMPP access](#standard-smpp-access)
 - [SMPP access with Kannel](#smpp-access-with-kannel)
@@ -14,7 +15,7 @@ If you already use SMPP and want to use Nexmo, switch to us in minutes without c
 
 To switch to Nexmo:
 
-1. Email your monthly volume forecast to us at [smpp@nexmo.com](mailto:smpp@nexmo.com). We configure our system for you and send you your SMPP credentials.
+1. Email your monthly volume forecast to us at [smpp@nexmo.com](mailto:smpp@nexmo.com). We will configure our system for you and send back your SMPP credentials.
 
 2. Check out our [SMPP API FAQ] to find out more about supported character encodings, delivery receipt formats, throttle management, sending concatenated messages and more.
 
@@ -24,7 +25,7 @@ If you use version 1.4.3 or higher of [Kannel](http://www.kannel.org/download.sh
 
 To use our configuration:
 
-1. Email your monthly volume forecast to us at [smpp@nexmo.com](mailto:smpp@nexmo.com). We configure our system for you and send you your SMPP credentials.
+1. Email your monthly volume forecast to us at [smpp@nexmo.com](mailto:smpp@nexmo.com). We will configure our system for you and send back your SMPP credentials.
 
 2. Download the kannel.conf configuration from: <https://help.nexmo.com/hc/en-us/article_attachments/201429553/kannel.conf>.
 

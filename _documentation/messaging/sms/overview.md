@@ -9,7 +9,7 @@ With low latency and high deliverability, our SMS API is the most reliable way t
 * Programmatically send and receive high volume of SMS anywhere in the world
 * Build apps that scale with the web technologies that you are already using
 * Send SMS with low latency and high delivery rates
-* Receive SMS for free and tap into the worlds largest inventory of SMS-enabled numbers in real time.
+* Receive SMS for free and tap into the world's largest inventory of SMS-enabled numbers in real time.
 * Only pay for what you use, nothing more.
 
 ## Contents
@@ -53,9 +53,9 @@ source: '/_examples/messaging/sending-an-sms/basic'
 
 ## Tutorials
 
-* [Passwordless authentication](http://docs.nexmo.com/tutorials/verify-passwordless-login)
-* [Two-factor authentication](http://docs.nexmo.com/tutorials/verify-two-factor-authentication)
+* [Passwordless authentication](/tutorials/passwordless-authentication)
+* [Two-factor authentication](/tutorials/two-factor-authentication)
 * [Private SMS communication](/tutorials/private-sms-communication)
-* [Mobile app invites](http://docs.nexmo.com/tutorials/mobile-app-promotion)
-* [Two-way SMS for customer engagement](http://docs.nexmo.com/tutorials/two-way-notifications)
-* [SMS Customer Support](http://docs.nexmo.com/tutorials/sms-customer-support)
+* [Mobile app invites](/tutorials/mobile-app-invites)
+* [Two-way SMS for customer engagement](/tutorials/two-way-sms-for-customer-engagement)
+* [SMS Customer Support](/tutorials/sms-customer-support)

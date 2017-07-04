@@ -28,7 +28,7 @@ You set the your webhook endpoint either in Dashboard or through the API. The hi
 
 * Account - using the *Settings* in [Dashboard](https://dashboard.nexmo.com ), set the webhook endpoint that handles [Inbound Messages](/api/sms#inbound) and [Delivery Receipts](/api/sms#delivery_receipt). These webhooks also handle [US Short Codes API](/messaging/us-short-codes/overview).
 * Virtual Number - using the Number settings in [Dashboard](https://dashboard.nexmo.com) set the webhook endpoints associated with each virtual number you rent.
-* App - use the [Application API](https://docs.nexmo.com/tools/application-api) to set or update the default webhook endpoints for all communication with this app.
+* App - use the [Application API](/concepts/guides/applications) to set or update the default webhook endpoints for all communication with this app.
 * Request - using the request parameters set the webhook endpoint for each request.
 * NCCO - for Voice API, set the webhook endpoints used for each action in the NCCO stack
 
@@ -38,7 +38,7 @@ The following table shows how to set the webhook endpoint for the Nexmo APIs:
 
 API | Request and return parameters
 -- | --
-Application API | Set or update the answer_url parameter used to retrieve NCCOs and the event_url parameter used to send call status information. <ul><li>[`POST https://api.nexmo.com/v1/applications`](https://docs.nexmo.com/tools/application-api/api-reference#create)</li><li>[PUT `https://api.nexmo.com/v1/applications/{app_uuid}`](https://docs.nexmo.com/tools/application-api/api-reference#update)</li></ul></ul>
+Application API | Set or update the answer_url parameter used to retrieve NCCOs and the event_url parameter used to send call status information. <ul><li>[`POST https://api.nexmo.com/v1/applications`](/api/application#create)</li><li>[PUT `https://api.nexmo.com/v1/applications/{app_uuid}`](/api/application#update)</li></ul></ul>
 Developer API | Developer API does not use webhooks.
 NCCO |  The webhooks endpoints you set in an NCCO receive data about an action: <ul><li>[record.eventUrl](/voice/guides/ncco-reference#record) - set the webhook endpoint that receives information about the recording for a Call or Conversation</li><li>[conversation.eventUrl](/voice/guides/ncco-reference#conversation) - set the URL to the webhook endpoint Nexmo calls asynchronously when a conversation changes state for this conversation action</li><li>[connect.eventUrl](/voice/guides/ncco-reference#connect) - set the URL to the webhook endpoint Nexmo calls asynchronously when a conversation changes state for this connect action</li><li>[input.eventUrl](/voice/guides/ncco-reference#input) - set the URL to the webhook endpoint Nexmo sends the digits pressed by the callee</li><li>[stream.streamUrl](/voice/guides/ncco-reference#stream) - set an array of URLS  pointing to the webhook endpoints hosting the audio file to stream to the Call or Conversation</li></ul> |
 Number Insight Advanced API  | Send information about this *request* to [callback](https://docs.nexmo.com/number-insight/advanced-async/api-reference#callback) in a single callback. <ul><li>[callback ](https://docs.nexmo.com/number-insight/advanced-async/api-reference#callback) </li><li>[return parameters ](https://docs.nexmo.com/number-insight/advanced-async/api-reference#ni-return-parameters ) </li></ul>  
@@ -53,14 +53,12 @@ Voice API | For an individual call, set the answer_url parameter used to retriev
 
 To interact with Nexmo webhooks:
 
-1. You:
+1. Create a Nexmo account.
+2. Write scripts to handle the information sent or requested by Nexmo. Your scripts must always respond with HTTP 200 to inbound messages from Nexmo.
+3. Put your scripts on your HTTP server.
+4. Send a *request* with the [webhook endpoint](#setting) set.
 
-    1. Create a Nexmo account.
-    2. Write scripts to handle the information sent or requested by Nexmo. Your scripts must always respond with HTTP 200 to inbound messages from Nexmo.
-    3. Put your scripts on your HTTP server.
-    4. Send a *request* with the [webhook endpoint](#setting) set.
-
-2. Information about your request is sent to your webhook endpoint.
+Information about your request is then sent to your webhook endpoint.
 
 The following code examples are webhooks for the SMS API:
 

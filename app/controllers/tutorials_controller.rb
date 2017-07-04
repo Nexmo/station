@@ -32,14 +32,14 @@ class TutorialsController < ApplicationController
 
     @title = 'Tutorials'
 
-
-
     render layout: 'documentation-index'
   end
 
   def show
+    @document_path = "_tutorials/#{@document}.md"
+
     # Read document
-    document = File.read("#{Rails.root}/_tutorials/#{@document}.md")
+    document = File.read("#{Rails.root}/#{@document_path}")
 
     # Parse frontmatter
     @frontmatter = YAML.safe_load(document)
@@ -58,5 +58,8 @@ class TutorialsController < ApplicationController
 
   def set_navigation
     @navigation = :documentation
+    @side_navigation_extra_links = {
+      'Tutorials' => '/tutorials',
+    }
   end
 end

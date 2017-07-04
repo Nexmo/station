@@ -6,9 +6,9 @@ api: 2FA
 
 # API reference
 
-This defines Two-factor Authentication API for the:
+This describes the US Short Code Two-factor Authentication API in the following steps:
 
-* [Request](#request) - send a PIN to  your user
+* [Request](#request) - send a PIN to your user
 * [Response](#response) - check the [response codes](#response-code) and ensure that you sent the request to Nexmo correctly.
 * [Delivery receipt](#delivery-receipt) - see the status and cost of your request.
 

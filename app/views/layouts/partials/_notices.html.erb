@@ -1,0 +1,12 @@
+<% if @notices.any? %>
+  <div class="notices">
+    <% @notices.each do |id, contents| %>
+      <div class="notice" data-notice-id="<%= id %>">
+        <div>
+          <a data-close><i class="fa fa-times"></i></a>
+          <%= contents.html_safe %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

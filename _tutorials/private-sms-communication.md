@@ -8,7 +8,7 @@ description: All mobile phones can send and receive SMS messages, and nearly eve
 
 All mobile phones can send and receive SMS messages, and nearly everybody has a phone. This makes SMS a great choice to communicate with your users from your application.
 
-For market place scenarios such as food delivery or taxi and passenger communications, if your users see each other's real phone numbers and bypass your marketplace, your application cannot track the communication threads. To avoid security and privacy concerns it is best practice that users do not have access to each other real phone numbers.
+For marketplace scenarios such as food delivery or taxi and passenger communications, if users see each other's real phone numbers they can bypass your marketplace and your application cannot track the communication threads. To avoid security and privacy concerns it is best practice that users do not have access to each other real phone numbers.
 
 By implementing private communication over SMS you ensure your users cannot bypass the required or preferred communication workflows and audits.
 
@@ -429,6 +429,6 @@ All the code for this tutorial and more is [available on GitHub](https://github.
 
 ## Resources
 
-* [Number Insight API](https://docs.nexmo.com/number-insight)
+* [Number Insight API](/number-insight)
 * [SMS Overview](/messaging/sms/overview)
 * [SMS API reference guide](/api/sms)

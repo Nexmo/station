@@ -1,14 +1,30 @@
-/documentation: /messaging/sms/overview
 /messaging/sms: /messaging/sms/overview
 /sms: /messaging/sms/overview
 /voice: /voice/overview
 /voice/guides: /voice/overview#references
+/verify: /verify/overview
+/account: /account/overview
+/messaging/us-short-codes: /messaging/us-short-codes/overview
+/messaging/conversion-api: /messaging/conversion-api/overview
+/messaging/sns: /messaging/sns/overview
 
 /messaging/sms/building-blocks: /messaging/sms/building-blocks/send-an-sms
 /sms/building-blocks: /messaging/sms/building-blocks/send-an-sms
 /messaging/sms/guides: /messaging/sms/overview#sms-api-features
 /sms/guides: /messaging/sms/guides/us-short-codes/overview
+/verify/guides: /verify/guides/verify-a-user
+/verify/tutorial: /verify/tutorials/passwordless-authentication
+/verify/building-blocks: /verify/building-blocks/send-verify-request
 
 /voice/building-blocks: /voice/building-blocks/make-a-phone-call
 
+/number-insight: /number-insight/overview
+/number-insight/guides: /number-insight/guides/cnam
+/number-insight/building-blocks: /number-insight/building-blocks/number-insight-basic
+
+/account/guides: /account/guides/management
+/account/building-blocks: /account/building-blocks/buy-a-number
+
 /tools/cli: /tools
+/api/developer: /api/developer/account
+/events: /community

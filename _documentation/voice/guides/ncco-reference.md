@@ -323,6 +323,25 @@ Option | Description | Required
 `bargeIn` | Set to *true* so this action is terminated when the user presses a button on the keypad. Use this feature to enable users to choose an option without having to listen to the whole message in your [Interactive Voice Response (IVR](/voice/guides/interactive-voice-response) ). If you set `bargeIn` to `true` the next action in the NCCO stack **must** be an `input` action. The default value is `false`. | No
 `loop` | The number of times `text` is repeated before the Call is closed. The default value is `1`. Set to `0` to loop infinitely. | No
 
+The audio stream referred to should be a file in MP3 or WAV format. If you have issues with the file playing, please encode it to the following technical specification:
+
+MP3:
+
+* MPEG Audio Layer 3, version 2
+* Constant bit rate
+* Bit rate: 16 Kbps (8, 32, 64 also supported)
+* Sampling rate: 16.0 KHz
+* 1 channel
+* Lossy compression
+* Stream size: 10.1 KiB (91%)
+* Encoded with LAME 3.99.5
+
+WAV:
+
+* 8 or 16-bit Linear PCM
+* G.711 A-law/u-law
+* Microsoft GSM
+
 ## Input
 
 You use the `input` action to collect digits input by the person you are calling. This action is synchronous, Nexmo processes the input and forwards it in the [parameters](#input_return_parameters) sent to the `eventURL` webhook endpoint you configure in your request. Your webhook endpoint should return another NCCO that replaces the existing NCCO and controls the Call based on the user input. You use this functionality to create an Interactive Voice Response (IVR). For example, if your user presses *4*, you return a [connect](#connect) NCCO that forwards the call to your sales department.

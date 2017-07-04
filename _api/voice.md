@@ -651,7 +651,7 @@ You submit all requests with a [POST] or [GET] call using UTF-8 encoding and URL
 
 The Nexmo Voice API uses JWTs to authenticate calls from your application. You generate a JWT by encrypting a JSON object containing the ID and private key of your application plus the current time. You add your JWT to the header in your requests to Nexmo API. The JWT authenticates your requests and tells Nexmo which application you are using.
 
-A JWT consists of a header, a payload and a signature in the structure xxxxx.yyyyy.zzzzz. For more information, see  <https://jwt.io/introduction/> and the [JWT reference ](https://docs.nexmo.com/tools/application-api/application-security#reference).
+A JWT consists of a header, a payload and a signature in the structure xxxxx.yyyyy.zzzzz. For more information, see  <https://jwt.io/introduction/> and the [JWT reference ](/concepts/guides/applications#reference).
 
 The following code examples show how to generate a JWT token:
 

@@ -129,7 +129,7 @@ class Search extends React.Component {
       <div>
         <input
           type="text"
-          id="search"
+          id="searchbox"
           name="query"
           placeholder="Search"
           name="query"
@@ -149,8 +149,6 @@ class Search extends React.Component {
       </div>
     )
   }
-
-
 }
 
 export default Search

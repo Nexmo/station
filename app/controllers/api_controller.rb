@@ -3,16 +3,20 @@ class ApiController < ApplicationController
   before_action :set_navigation
 
   def index
+    @document_title = 'API Reference'
     render layout: 'application'
   end
 
   def show
+    @document_path = "_api/#{@document}.md"
+
     # Read document
-    document = File.read("#{Rails.root}/_api/#{@document}.md")
+    document = File.read("#{Rails.root}/#{@document_path}")
 
     # Parse frontmatter
     @frontmatter = YAML.safe_load(document)
     @side_navigation_title = @frontmatter.fetch('api')
+    @document_title = "#{@side_navigation_title} > #{@frontmatter.fetch('title')}"
 
     @content = MarkdownPipeline.new.call(document)
 

@@ -1,11 +1,21 @@
 IGNORED_PATHS = ['..', '.', '.DS_Store'].freeze
 NAVIGATION_WEIGHT = YAML.load_file("#{Rails.root}/config/navigation.yml")['navigation_weight']
 FLATTEN_TREES = [].freeze
-COLLAPSIBLE = ['Messaging', 'SMS', 'Conversion API', 'SNS', 'US Short Codes', 'Voice', 'Account', 'Global'].freeze
+COLLAPSIBLE = ['Messaging', 'SMS', 'Conversion API', 'SNS', 'US Short Codes', 'Voice', 'Number Insight', 'Account', 'Global'].freeze
 
 module ApplicationHelper
   def search_enabled?
     Rails.configuration.search_enabled && defined? ALGOLIA_CONFIG
+  end
+
+  def title
+    if @product && @document_title
+      "Nexmo Developer | #{@product.titleize} > #{@document_title}"
+    elsif @document_title
+      "Nexmo Developer | #{@document_title}"
+    else
+      'Nexmo Developer'
+    end
   end
 
   def directory_hash(path, name = nil)
@@ -71,6 +81,16 @@ module ApplicationHelper
       ss << '</li>' unless received_flatten
       ss.join("\n")
     end
+
+    if root && @side_navigation_extra_links
+      s << '<hr>'
+      @side_navigation_extra_links.each do |title, path|
+        s << <<~HEREDOC
+          <a href="#{path}" class="#{path == request.path ? 'active' : ''}">#{title}</a>
+        HEREDOC
+      end
+    end
+
     s << '</ul>' unless received_flatten
 
     s.join("\n").html_safe

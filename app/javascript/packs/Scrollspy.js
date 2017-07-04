@@ -1,24 +1,30 @@
-let startScroll = 125;
 
 let onScrollOrResize = function() {
   let currentPosition = $(document).scrollTop();
   let delta = currentPosition + 20;
+
+  $('.sidenav > ul').css({
+    'width': 'auto',
+    'position': 'relative',
+    'top': 0,
+  })
+  .removeClass('navigation--fixed');
+
+  if ($(".js-scrollspy, .js-navigation").length === 0) {
+    return
+  }
+
+  let startScroll = $(".js-scrollspy, .js-navigation").offset().top - 20;
 
   let $activeHeading = undefined;
 
   if (currentPosition > startScroll) {
     $('.sidenav > ul').css({
       'width': $('.sidenav').width(),
-      'top': 20,
-    });
+    })
+    .addClass('navigation--fixed');
 
     $('.sidenav > ul').css('position', 'fixed');
-  } else {
-    $('.sidenav > ul').css({
-      'width': 'auto',
-      'position': 'relative',
-      'top': 0,
-    });
   }
 
   $('#primary-content').find('h1,h2,h3,h4,h5,h6').each(function() {

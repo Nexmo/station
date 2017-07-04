@@ -9,7 +9,7 @@ Each time the status of Call or Conversation changes Nexmo sends a JSON object w
 
 The event webhook is defined in the following:
 
-* Application configuration - [`POST /applications`](https://docs.nexmo.com/tools/application-api/api-reference#create) - the default event webhook endpoint for all Calls and Conversations that use this application
+* Application configuration - [`POST /applications`](/api/application#create) - the default event webhook endpoint for all Calls and Conversations that use this application
 * A Call request - [`POST /calls`](/api/voice#payload) - the event webhook endpoint used for a particular Call
 * A [connect](/voice/guides/ncco-reference#connect) NCCO action - when you use the connect NCCO action to connect a voice call to an endpoint
 

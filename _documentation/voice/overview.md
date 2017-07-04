@@ -19,14 +19,14 @@ In this document you can learn about:
 
 * [Nexmo Voice API Concepts](#concepts)
 * [How to Get Started with the Voice API](#getting-started)
-* [Voice API Features](#features)
+* [Voice API Features](#voice-api-features)
 * [References](#references)
 * [Tutorials](#tutorials)
 
 ## Concepts
 
 * **Authentication with JWTs** - interaction with the Voice API are authenticated using JWTs. The [Nexmo libraries](/tools) handle JWT generation using a unique Nexmo Voice Application ID and a Private Key. For more information on see [Authenticating your applications](/concepts/guides/authentication)
-* **Nexmo Voice Applications** - Nexmo Voice Applications represent a one-to-one mapping with the application that you are building. They contain configuration such virtual numbers and webhook callback URLs. You can create Nexmo Voice Applications using the [Nexmo CLI](/tools) or the [Application API](https://docs.nexmo.com/tools/application-api)
+* **Nexmo Voice Applications** - Nexmo Voice Applications represent a one-to-one mapping with the application that you are building. They contain configuration such virtual numbers and webhook callback URLs. You can create Nexmo Voice Applications using the [Nexmo CLI](/tools) or the [Application API](/concepts/guides/applications)
 * **Webhooks** - when any event takes place relating to your Nexmo application HTTP callbacks are made to your application web server so that you can act upon them. For example, when an inbound call is made to a number associated with your Nexmo application.
 * **NCCOs** - Nexmo Call Control Objects are a set of actions that instruct the Nexmo how to control call to your Nexmo application. For example, you can `connect` a call, send synthesized speech using `talk`, `stream` audio, or `record` a call. They are represented in JSON form as an Array of objects. For more information see the [NCCO Reference](/voice/guides/ncco-reference) and [NCCO guide](/voice/guides/ncco).
 
@@ -37,7 +37,7 @@ Before you begin:
 * Sign up for a [Nexmo account](https://dashboard.nexmo.com/signup)
 * Install [Node.JS](https://nodejs.org/en/download/)
 
-> *Note*: If you do not wish to install Node in order to use the [Nexmo CLI](/tools) you can also create applications using the [Application API](https://docs.nexmo.com/tools/application-api)*
+> *Note*: If you do not wish to install Node in order to use the [Nexmo CLI](/tools) you can also create applications using the [Application API](/concepts/guides/applications)*
 
 Install and Setup the Nexmo CLI (Command Line Interface)
 

@@ -14,7 +14,7 @@
   </div>
 </header>
 
-<nav id="subnav">
+<nav id="subnav" data-turbolinks="false">
   <div class="container">
     <a href="/documentation" class="<%= @navigation == :documentation ? 'active' : '' %>">Documentation</a>
     <a href="/api" class="<%= @navigation == :api ? 'active' : '' %>">API Reference</a>
@@ -24,9 +24,11 @@
     <% if search_enabled? %>
       <%= form_tag '/search' do %>
         <div id="SearchComponent">
-          <input type="text" id="search" name="query" placeholder="Search" name="query" autocomplete="off" value="<%= @search_term || '' %>">
+          <input type="text" id="searchbox" name="query" placeholder="Search" name="query" autocomplete="off" value="<%= @search_term || '' %>">
         </div>
       <% end %>
     <% end %>
   </div>
 </nav>
+
+<%= render partial: 'layouts/partials/notices' %>

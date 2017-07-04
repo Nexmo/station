@@ -1,6 +1,6 @@
 @import "reset";
 
-$blue: #1C8ECD;
+$blue: #0077C8;
 $pink: #E6547B;
 $purple: #936FD2;
 $green: #32BA86;
@@ -51,11 +51,13 @@ $border: 1px solid darken($mint, 5%);
 @import "syntax";
 
 @import "objects/card";
+@import "objects/collapsible";
 @import "objects/focus";
 @import "objects/github-cards";
 @import "objects/js-sequence-diagram";
 @import "objects/masonry";
 @import "objects/navigation";
+@import "objects/notices";
 @import "objects/tabs";
 @import "objects/truncate";
 @import "objects/loading-bar";
@@ -63,5 +65,6 @@ $border: 1px solid darken($mint, 5%);
 
 @import "layout/header";
 @import "layout/hero";
+@import "layout/feedback";
 @import "layout/footer";
 @import "layout/search";

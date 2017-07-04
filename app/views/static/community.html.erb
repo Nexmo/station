@@ -3,7 +3,7 @@
   <div class="columns small-12 medium-8 medium-centered large-6 medium-centered">
     <center>
       <h1>Nexmo ❤️ community</h1>
-      <h2>You can find us at these upcoming events:</h2>
+      <h2>Resources for and by the Community</h2>
     </center>
     <br>
     <hr class="hr--mini">
@@ -30,13 +30,15 @@
 <br>
 
 <div class="row">
+  <h2 class="center">You can find us at these upcoming events:</h2>
+
   <% @upcoming_events.each_with_position do |event, first, last| %>
-    <div class="columns small-12 medium-6 large-4 <%= 'end' if last %>">
-      <br>
-      <h2><%= link_to event.title, event.url, target: '_blank' %></h2>
-      <p><b><%= event.date_range %></b></p>
-      <p><%= event.description %></p>
-      <br>
-    </div>
+    <%= render 'event', event: event, first: first, last: last %>
   <% end %>
 </div>
+
+<% if @past_events_count > 0 %>
+  <p class="center">
+    <%= link_to "view #{pluralize @past_events_count, 'past event'}", community_past_events_path %>
+  </p>
+<% end %>

@@ -4,7 +4,7 @@ class TabbedContentFilter < Banzai::Filter
       config = YAML.safe_load($1)
       contents_path = "#{Rails.root}/#{config['source']}"
 
-      contents = Dir["#{contents_path}/*"].map do |content_path|
+      contents = Dir["#{contents_path}/*.md"].map do |content_path|
         source = File.read(content_path)
         frontmatter = YAML.safe_load(source)
         { frontmatter: frontmatter, source: source }

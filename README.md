@@ -2,13 +2,12 @@
 
 Nexmo Developer is a platform hosting the Nexmo documentation, API reference, SDKs, Tools & Community content.
 
-> Note: Nexmo Developer is in ongoing early stage active development. Breaking changes may be introduced at this point.
-
 ### Prerequisites
 
-- Ruby 2.4.0 + bundler
-- Postgresql
+- Ruby 2.4.1 + bundler
+- PostgreSQL
 - Elasticsearch 5.2.x
+- Yarn
 
 ### Setup
 
@@ -20,7 +19,30 @@ $ bundle install
 $ rake db:create
 $ rake db:migrate
 $ ./bin/yarn install
-$ rails server
+$ foreman start
+```
+
+### Setting up with Docker
+
+If you don't want to install Ruby & PostgreSQL then you can use docker to sandbox Nexmo Developer into its own containers. After you [Install Docker](https://docs.docker.com/engine/installation/) run the following:
+
+```
+# Start the web server
+$ docker-compose up
+
+# Setup the Database (you only need to do this once)
+$ docker-compose run web rake db:setup
+
+# Open the browser
+$ open http://localhost:3000
+```
+
+You will still need to run the webpack-dev-server on your local machine.
+
+To stop the server cleanly run:
+
+```
+$ docker-compose down
 ```
 
 ### Compiling assets
@@ -62,6 +84,36 @@ The code can then be pulled into the `.repo` directory with the following comman
 $ rake repos:pull
 ```
 
+To pull a single repo provide the GitHub repo name and optional branch:
+
+```
+$ rake repos:pull nexmo-community/nexmo-ruby-quickstart master
+```
+
+## Troubleshooting
+
+#### I'm getting an error `A server is already running.  Check /myapp/tmp/pids/server.pid.` when I run `docker-compose up`.
+
+This is because Docker wasn't shut down cleanly. To fix this run:
+
+```
+$ docker-compose run web rm /myapp/tmp/pids/server.pid
+```
+
+#### A webpack error occurs during setup
+
+Run the `webpack-dev-server` like so:
+
+```
+$ ./bin/webpack-dev-server
+```
+
 ## Contributing
 
 Contributions are welcome, please follow [GitHub Flow](https://guides.github.com/introduction/flow/index.html)
+
+## License
+
+See the `LICENSE.txt` file for full licenses. The code is licensed under the MIT License; documentation is licensed under both the MIT License and the Creative Commons Attribution 4.0 International license.
+
+Copyright &copy; 2017 Nexmo.
