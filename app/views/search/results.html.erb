@@ -1,19 +1,26 @@
 <center>
-  <% if @results && @results['hits']['total'] > 0 %>
-    <h1>We found <%= @results['hits']['total'] %> <%= 'results'.pluralize(@results['hits']['total']) %> for '<%= params['query'] %>'</h1>
+  <% if @results && @results_total > 0 %>
+    <h1>We found <%= @results_total %> <%= 'results'.pluralize(@results_total) %> for '<%= params['query'] %>'</h1>
 
     <hr>
 
     <br>
 
-    <% @results['hits']['hits'].each do |document| %>
-      <h2>
-        <%= link_to document['_source']['title'], document['_source']['path'] %>
-      </h2>
-      <p><%= document['_source']['description'] %></p>
-      <br>
-      <br>
-    <% end %>
+    <div class="row">
+      <% @results.each do |index| %>
+        <div class="columns small-12 medium-6">
+          <%= index.name %>
+          <% index.hits.each do |hit| %>
+            <h2>
+              <%= link_to hit.title, "https://help.nexmo.com/hc/en-us/articles/#{hit.id}" %>
+            </h2>
+            <p><%= hit.description %></p>
+            <br>
+            <br>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   <% else %>
     <h1>Uh oh. We couldn't find anything.</h1>
     <p>Click <a href="/">here</a> to go back to the start</p>

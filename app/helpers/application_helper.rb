@@ -4,6 +4,10 @@ FLATTEN_TREES = [].freeze
 COLLAPSIBLE = ['Messaging', 'SMS', 'Conversion API', 'SNS', 'US Short Codes', 'Voice', 'Account', 'Global'].freeze
 
 module ApplicationHelper
+  def search_enabled?
+    Rails.configuration.search_enabled && defined? ALGOLIA_CONFIG
+  end
+
   def directory_hash(path, name = nil)
     data = { title: (name || path), path: path }
     data[:children] = []
