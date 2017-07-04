@@ -1,60 +1,100 @@
+.search-result {
+  > a {
+    display: block;
+    padding: $spacing/2 0;
+
+    .quicksearch & {
+      padding: 0;
+    }
+  }
+
+  > a > div {
+    border-left: 2px solid darken($mint, 3%);
+    padding-left: 15px;
+
+    h3 {
+      color: $link;
+
+      .quicksearch & {
+        font-size: 0.85em;
+        margin: 0;
+      }
+    }
+
+    .meta {
+      .quicksearch & {
+        font-size: 0.6em;
+        margin: 0;
+      }
+    }
+
+    p {
+      overflow: hidden;
+      font-style: italic;
+      color: $text-subtle;
+      font-size: 0.85em;
+
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+
+      .quicksearch & {
+        font-size: 0.75em;
+      }
+    }
+  }
+
+  &:hover {
+    > a > div {
+      h3 {
+        color: darken($link, 10%);
+      }
+
+      p {
+        color: $text;
+      }
+
+      border-left-color: $primary;
+    }
+  }
+}
+
 form {
   position: relative;
 }
 
-.aa-dropdown-menu {
+.quicksearch {
+  @extend .clearfix;
   background: white;
+  position: absolute;
   border: $radius;
   padding: 20px;
   border: $border;
   box-shadow: $shadow;
   width: 600px;
   margin-left: 200px - 600px;
-  margin-top: 5px;
+  margin-top: 40px;
+  z-index: 5;
 
-  > div {
+  .search-result > a {
+    padding: 0;
+  }
+
+  > .results-index {
     float: left;
     width: 50%;
   }
 }
 
-.aa-suggestion {
-  border-left: 3px solid $mint;
-  margin-bottom: 10px;
-  padding-left: 10px;
-  padding: 0;
-  padding-left: 8px !important;
-  margin-top: $spacing;
-  margin-right: $spacing;
-
-  em {
-    background: lighten(yellow, 40%);
-    color: $pink;
+#search-clear {
+  position: absolute;
+  right: 4px;
+  top: 7px;
+  padding: 5px;
+  font-size: 17px;
+  color: darken($mint, 5%);
+  cursor: pointer;
+  &:hover {
+    color: $stone-light;
   }
-
-  > * {
-    display: block;
-    padding: 0 !important;
-  }
-
-  a {
-    font-size: 0.9em;
-    color: $blue !important;
-  }
-
-  small {
-    color: $gray;
-    font-style: italic;
-    em {
-      color: $primary;
-    }
-  }
-}
-
-.aa-suggestion-product {
-  display: block;
-  font-size: 10px;
-  text-transform: uppercase;
-  font-weight: bold;
-  color: lighten($gray, 10%);
 }

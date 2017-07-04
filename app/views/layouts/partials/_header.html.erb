@@ -23,9 +23,10 @@
 
     <% if search_enabled? %>
       <%= form_tag '/search' do %>
-        <input type="text" id="search" name="query" placeholder="Search" name="query" autocomplete="off" value="<%= @search_term || '' %>">
+        <div id="SearchComponent">
+          <input type="text" id="search" name="query" placeholder="Search" name="query" autocomplete="off" value="<%= @search_term || '' %>">
+        </div>
       <% end %>
     <% end %>
-    <div id="search-results" style="display: none;"></div>
   </div>
 </nav>

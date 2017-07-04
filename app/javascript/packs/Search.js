@@ -1,51 +1,156 @@
-const icons = {
-  'messaging / sms': 'fa-comments-o',
-  'messaging / conversion-api': 'fa-reply',
-  'messaging / sns': 'fa-bullhorn',
-  'messaging / us-short-codes': 'fa-comments-o',
-  'voice': 'fa-microphone',
-  'verify': 'fa-key',
-  'number-insight': 'fa-eye',
-  'developer': 'fa-code',
-  'account': 'fa-user-circle-o',
-  'concepts': 'fa-globe',
-}
-
-export default () => {
-  const algoliaApplicationId = $('meta[name=algoia_application_id]').attr('content')
-  const algoliaPublishableKey = $('meta[name=algoia_publishable_key]').attr('content')
-
-  const algolia = algoliasearch(algoliaApplicationId, algoliaPublishableKey);
-  const helpIndex = algolia.initIndex('zendesk_nexmo_articles');
-  const ndpIndex = algolia.initIndex('development_nexmo_developer');
-
-  autocomplete('#search', { hint: false }, [
-    {
-      source: autocomplete.sources.hits(helpIndex, { hitsPerPage: 5 }),
-      displayKey: 'title',
-      templates: {
-        header: '<div class="aa-suggestions-category">Knowledgebase</div>',
-        suggestion: function(suggestion) {
-          var template =  `<span class="aa-suggestion-product">${suggestion.section.full_path}</span>`
-          template += `<a href="https://help.nexmo.com/hc/en-us/articles/${suggestion.id}">${suggestion._highlightResult.title.value}</a>`
-          return template
-        }
-      }
-    },
-    {
-      source: autocomplete.sources.hits(ndpIndex, { hitsPerPage: 5 }),
-      displayKey: 'title',
-      templates: {
-        header: '<div class="aa-suggestions-category">Nexmo Developer</div>',
-        suggestion: function(suggestion) {
-          var template =  `<span class="aa-suggestion-product"><i class='fa ${icons[suggestion.product]}'></i> ${suggestion.product}</span>`
-          template +=  `<a href="${suggestion.path}">${suggestion._highlightResult.title.value}</a>`
-          if (suggestion.description) {
-            template += `<small>${suggestion._highlightResult.description.value}</small></div>`
-          }
-          return template
-        }
-      }
+class Search extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      results: [],
+      query: '',
+      loading: false,
     }
-  ]);
+  }
+
+  handleChange(event) {
+    if (event.target.value === '') {
+      return this.reset()
+    }
+
+    this.setState({
+      query: event.target.value,
+      loading: true,
+    })
+
+    fetch(`/search.json?query=${event.target.value}`)
+    .then((response) => {
+      return response.json()
+    })
+    .then((payload) => {
+      this.setState({ results: payload, loading: false })
+    })
+  }
+
+  handleKeyDown(event) {
+    // Handle escape
+    if (event.keyCode === 27) {
+      this.reset()
+    }
+  }
+
+  reset() {
+    this.refs.input.value = '';
+    this.setState({
+      results: [],
+      query: '',
+      loading: false,
+    })
+  }
+
+  shouldShowResults() {
+    if (this.state.query != '') {
+      return true
+    }
+  }
+
+  renderIndexResults(index) {
+    return index.hits.map((hit) => {
+      if (index.index == 'zendesk_nexmo_articles') {
+        return (
+          <div className="search-result">
+            <a href={ `https://help.nexmo.com/hc/en-us/articles/${hit.id}` } target="_blank">
+              <div>
+                <span className="meta">{ hit.section.full_path }</span>
+                <h3>{ hit.title }</h3>
+                <p>{ hit.body_safe.substring(0, 150) }</p>
+              </div>
+            </a>
+          </div>
+        )
+      } else if (index.index.includes('nexmo_developer')) {
+        return (
+          <div className="search-result">
+            <a href={ hit.path }>
+              <div>
+                <span className="meta">{ hit.product }</span>
+                <h3>{ hit.title }</h3>
+                <p>{ hit.description ? hit.description.substring(0, 150) : '' }</p>
+              </div>
+            </a>
+          </div>
+        )
+      }
+    })
+  }
+
+  renderHeading(indexName) {
+    if (indexName == 'zendesk_nexmo_articles') {
+      return "Knowlegebase"
+    } else if (indexName.includes('nexmo_developer')) {
+      return "Nexmo Developer"
+    }
+  }
+
+  renderIndexResultsEmpty() {
+    return (
+      <p><i>No results</i></p>
+    )
+  }
+
+  renderLoading() {
+    return (
+      <div className="spinner">
+        <i className="fa fa-cog"></i>
+      </div>
+    )
+  }
+
+  renderResults() {
+    if (this.state.loading) {
+      return this.renderLoading()
+    } else {
+      return this.state.results.map((index) => {
+        return(
+          <div className="results-index">
+            <h3>{ this.renderHeading(index.index) }</h3>
+            { index.hits.length > 0 ? this.renderIndexResults(index) : this.renderIndexResultsEmpty(index) }
+          </div>
+        )
+      })
+    }
+  }
+
+  renderClearButton() {
+    if (this.state.query !== '') {
+      return (
+        <i id="search-clear" className="fa fa-times-circle" onClick={ this.reset.bind(this) }></i>
+      )
+    }
+  }
+
+  render() {
+    return (
+      <div>
+        <input
+          type="text"
+          id="search"
+          name="query"
+          placeholder="Search"
+          name="query"
+          autoComplete="off"
+          onChange={ this.handleChange.bind(this) }
+          onKeyDown={ this.handleKeyDown.bind(this) }
+          ref="input"
+        />
+
+        { this.renderClearButton() }
+
+        { this.shouldShowResults() &&
+          <div className="quicksearch">
+            { this.renderResults() }
+          </div>
+        }
+      </div>
+    )
+  }
+
+
 }
+
+export default Search

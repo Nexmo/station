@@ -1,10 +1,21 @@
 class SearchController < ApplicationController
   include ApplicationHelper
 
+  before_action :validate_query_is_present
   before_action :check_search_is_enabled
-  before_action :set_results
 
-  def results; end
+  def results
+    respond_to do |format|
+      format.html do
+        @results = JSON.parse(get_results.to_json, object_class: OpenStruct).results
+        @results_total = @results.sum(&:nbHits)
+      end
+      format.json do
+        @hits_per_page = 4
+        render json: get_results['results']
+      end
+    end
+  end
 
   def quicksearch
     render layout: false
@@ -16,13 +27,18 @@ class SearchController < ApplicationController
     @client ||= Rails.configuration.elastic_search_client({ cluser_name: "nexmo_#{Rails.env}" })
   end
 
-  def set_results
+  def validate_query_is_present
+    redirect_to root_path unless params['query']
+  end
+
+  def get_results
     return unless params['query']
 
     algolia_search_parameters = ALGOLIA_CONFIG.map do |index, config|
       algolia_index_search_parameters = {
         index_name: index,
         query: params['query'],
+        hitsPerPage: @hits_per_page || 25,
       }
 
       if config && config['filters']
@@ -39,10 +55,7 @@ class SearchController < ApplicationController
       algolia_index_search_parameters
     end
 
-    results = Algolia.multiple_queries(algolia_search_parameters)
-
-    @results = JSON.parse(results.to_json, object_class: OpenStruct).results
-    @results_total = @results.sum(&:nbHits)
+    Algolia.multiple_queries(algolia_search_parameters)
   end
 
   def check_search_is_enabled

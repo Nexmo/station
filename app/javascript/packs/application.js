@@ -12,8 +12,8 @@ import GithubCards from './GithubCards';
 import TabbedExamples from './TabbedExamples';
 import JsSequenceDiagrams from './JsSequenceDiagrams';
 import Navigation from './Navigation';
-import Search from './Search';
 import Scroll from './Scroll';
+import Search from './Search';
 
 import {
   preventSamePage as turbolinksPreventSamePage,
@@ -31,7 +31,8 @@ let refresh = () => {
   JsSequenceDiagrams()
   $(document).foundation();
   new TabbedExamples
-  Search()
+
+  ReactDOM.render(<Search/>, document.getElementById('SearchComponent'))
 }
 
 $(document).on('nexmo:load', function() {
