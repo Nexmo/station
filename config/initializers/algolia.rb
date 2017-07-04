@@ -10,4 +10,6 @@ rescue Exception => e
   # No config is found, therefor search will simply be disabled.
 end
 
-Algolia.init(application_id: ENV['ALGOLIA_APPLICATION_ID'], api_key: ENV['ALGOLIA_API_KEY'])
+if ENV['ALGOLIA_APPLICATION_ID'] && ENV['ALGOLIA_API_KEY']
+  Algolia.init(application_id: ENV['ALGOLIA_APPLICATION_ID'], api_key: ENV['ALGOLIA_API_KEY'])
+end
