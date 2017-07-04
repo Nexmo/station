@@ -61,6 +61,9 @@
     <meta property="og:description" content="<%= @frontmatter['description'] %>" />
   <% end %>
 
+  <meta name="basic_auth_username" content="<%= ENV['USERNAME'] %>" />
+  <meta name="basic_auth_password" content="<%= ENV['PASSWORD'] %>" />
+
   <%= javascript_pack_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
