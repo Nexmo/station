@@ -23,10 +23,6 @@ class SearchController < ApplicationController
 
   private
 
-  def client
-    @client ||= Rails.configuration.elastic_search_client({ cluser_name: "nexmo_#{Rails.env}" })
-  end
-
   def validate_query_is_present
     redirect_to root_path unless params['query']
   end

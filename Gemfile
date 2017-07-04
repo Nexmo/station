@@ -57,9 +57,6 @@ gem 'nokogiri', '1.7.0.1'
 # Autoload dotenv in Rails.
 gem 'dotenv-rails', groups: [:development, :test]
 
-# Ruby integrations for Elasticsearch (client, API, etc.)
-gem 'elasticsearch'
-
 # Administrate is heavily inspired by projects like Rails Admin and ActiveAdmin, but aims to provide a better user experience for site admins
 gem 'administrate', '~> 0.4.0'
 
