@@ -1,3 +1,5 @@
+$quick-search-width: 800px;
+
 .search-result {
   > a {
     display: block;
@@ -16,14 +18,14 @@
       color: $link;
 
       .quicksearch & {
-        font-size: 0.85em;
+        font-size: 0.95em;
         margin: 0;
       }
     }
 
     .meta {
       .quicksearch & {
-        font-size: 0.6em;
+        font-size: 0.7em;
         margin: 0;
       }
     }
@@ -39,7 +41,7 @@
       -webkit-box-orient: vertical;
 
       .quicksearch & {
-        font-size: 0.75em;
+        font-size: 0.8em;
       }
     }
   }
@@ -71,8 +73,8 @@ form {
   padding: 20px;
   border: $border;
   box-shadow: $shadow;
-  width: 600px;
-  margin-left: 200px - 600px;
+  width: $quick-search-width;
+  margin-left: 200px - $quick-search-width;
   margin-top: 40px;
   z-index: 5;
 
@@ -83,6 +85,11 @@ form {
   > .results-index {
     float: left;
     width: 50%;
+
+    > h3 {
+      font-size: 1.1em;
+      margin-bottom: $spacing;
+    }
   }
 }
 
