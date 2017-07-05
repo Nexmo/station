@@ -7,6 +7,12 @@
     position: relative;
   }
 
+  .sidenav-back {
+    color: $link-subtle;
+    font-size: 0.9em;
+    font-weight: 500;
+  }
+
   a {
     color: $gray;
     font-weight: 600;

@@ -28,3 +28,6 @@
 /tools/cli: /tools
 /api/developer: /api/developer/account
 /events: /community
+
+/styleguide: /contribute/styleguide
+/write-the-docs: /contribute/write-the-docs
