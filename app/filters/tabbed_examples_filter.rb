@@ -41,11 +41,11 @@ class TabbedExamplesFilter < Banzai::Filter
       case example[:language].downcase
       when 'curl' then 1
       when 'node' then 2
-      when 'ruby' then 3
-      when 'python' then 4
+      when 'java' then 3
+      when 'c#' then 4
       when 'php' then 5
-      when 'java' then 6
-      when 'c#' then 7
+      when 'python' then 6
+      when 'ruby' then 7
       else 1000
       end
     end

@@ -20,7 +20,17 @@ class TabbedContentFilter < Banzai::Filter
 
   def sort_contents(contents)
     contents.sort_by do |content|
-      content[:frontmatter]['menu_weight'] || 999
+      case content[:frontmatter]['title'].downcase
+      when 'curl' then 1
+      when 'node' then 2
+      when 'node.js' then 2
+      when 'java' then 3
+      when 'c#' then 4
+      when 'php' then 5
+      when 'python' then 6
+      when 'ruby' then 7
+      else content[:frontmatter]['menu_weight'] || 999
+      end
     end
   end
 
