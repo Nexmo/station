@@ -7,6 +7,7 @@ class MarkdownPipeline < Banzai::Pipeline
       FrontmatterFilter,
       InlineEscapeFilter,
       BlockEscapeFilter,
+      AnchorFilter,
       CollapsibleFilter,
       TabbedExamplesFilter,
       TabbedContentFilter,

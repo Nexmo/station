@@ -2,7 +2,10 @@
 title: Styleguide
 ---
 
+⚓ Anchor Example
+
 # Styleguide
+
 
 Here is a complete overview of the basic markdown and custom plugins that Nexmo Developer supports.
 
@@ -184,3 +187,31 @@ Spanish | `es` | [Hola Mundo](lang: 'es')
 French | `fr` | [Bonjour le monde](lang: 'fr')
 Brazilian Portuguese | `pt-BR` | [Olá Mundo](lang: 'pt-BR')
 Hebrew | `il` | [שלום עולם](lang: 'il')
+
+## Anchors (custom plugin)
+
+Adding custom anchors and retaining support for old headings can be done as such:
+
+````
+⚓ This is the old heading
+````
+
+This would produce the following HTML:
+
+```html
+<a name="this-is-the-old-heading"></a>
+```
+
+If you are adding support for a changed header this would normally go above the old heading as such:
+
+````
+⚓ Send with Short Message Service
+⚓ Send with SMS
+
+# Sending an SMS
+````
+
+
+### Example
+
+[Go to the anchor](#anchor-example). I've placed at the top of this document.
