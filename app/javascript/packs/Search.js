@@ -1,3 +1,5 @@
+import _ from 'lodash'
+
 class Search extends React.Component {
   constructor(props) {
     super(props)
@@ -9,13 +11,22 @@ class Search extends React.Component {
   }
 
   handleChange(event) {
+    event.persist()
+    if (this.state.query === '') {
+      this.onChange.bind(this)(event)
+    } else {
+      _.debounce(this.onChange.bind(this), 250)(event)
+    }
+  }
+
+  onChange(event) {
     if (event.target.value === '') {
       return this.reset()
     }
 
     this.setState({
       query: event.target.value,
-      loading: true,
+      loading: this.state.query === '',
     })
 
     let options = {}

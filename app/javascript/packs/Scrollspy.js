@@ -1,3 +1,4 @@
+import _ from 'lodash'
 
 let onScrollOrResize = function() {
   let currentPosition = $(document).scrollTop();
