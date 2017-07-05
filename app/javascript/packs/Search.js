@@ -1,4 +1,4 @@
-import _ from 'lodash'
+import debounce from 'lodash/debounce'
 
 class Search extends React.Component {
   constructor(props) {
@@ -15,7 +15,7 @@ class Search extends React.Component {
     if (this.state.query === '') {
       this.onChange.bind(this)(event)
     } else {
-      _.debounce(this.onChange.bind(this), 250)(event)
+      debounce(this.onChange.bind(this), 250)(event)
     }
   }
 

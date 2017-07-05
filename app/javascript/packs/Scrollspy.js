@@ -1,4 +1,4 @@
-import _ from 'lodash'
+import throttle from 'lodash/throttle'
 
 let onScrollOrResize = function() {
   let currentPosition = $(document).scrollTop();
@@ -55,7 +55,7 @@ let onScrollOrResize = function() {
 
 export default () => {
   $(document).ready(function() {
-    let onScrollOrResizeThrottled = _.throttle(onScrollOrResize, 20);
+    let onScrollOrResizeThrottled = throttle(onScrollOrResize, 20);
     $(document).scroll(onScrollOrResizeThrottled);
     return $(document).resize(onScrollOrResizeThrottled);
   });
