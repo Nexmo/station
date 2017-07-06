@@ -32,7 +32,7 @@ class TutorialsController < ApplicationController
 
     @title = 'Tutorials'
 
-    render layout: 'documentation-index'
+    render layout: 'page'
   end
 
   def show
@@ -57,7 +57,7 @@ class TutorialsController < ApplicationController
   end
 
   def set_navigation
-    @navigation = :documentation
+    @navigation = :tutorials
     @side_navigation_extra_links = {
       'Tutorials' => '/tutorials',
     }
