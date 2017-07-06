@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   get '/api', to: 'api#index'
   get '/api/*document', to: 'api#show'
 
+  get '/*product/api-reference', to: 'markdown#api'
   get '/:product/*document', to: 'markdown#show', constraints: DocumentationConstraint.new
 
   get '/robots.txt', to: 'static#robots'
