@@ -1,0 +1,34 @@
+<% @definition.raw['paths'].each do |path, methods| %>
+  <% methods.each do |method, specification| %>
+    <div class="row">
+      <div class="columns small-12 medium-8">
+        <h2><span class="label"><%= method.upcase %></span> - <%= path %></h2>
+        <p><%= specification['description'].truncate(200) %></p>
+
+        <table>
+          <thead>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Required</th>
+          </thead>
+          <tbody>
+            <% specification['parameters'].each do |parameter| %>
+              <tr>
+                <td><%= parameter['name'] %></td>
+                <td><%= parameter['description'] %></td>
+                <td><%= parameter['required'] ? 'Yes' : 'No' %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <div class="columns small-12 medium-4">
+<pre class="highlight"><code>{
+  "id": "<%= SecureRandom.uuid %>",
+  "tag": "example",
+}
+</code></pre>
+      </div>
+    </div>
+  <% end %>
+<% end %>

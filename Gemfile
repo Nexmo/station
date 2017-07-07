@@ -81,6 +81,9 @@ gem 'recaptcha', require: "recaptcha/rails"
 # Implements the iCalendar specification (RFC-5545) in Ruby.
 gem 'icalendar'
 
+# A parser for Open API specifications
+gem 'open_api_parser'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
