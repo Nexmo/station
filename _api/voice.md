@@ -101,13 +101,13 @@ Key | Value
 `from` | The endpoint you called from. Possible values are the same as `to`.
 `direction` | Possible values are `outbound` or `inbound`.
 `recording_url` | The URL to download a call or conversation recording from.
-`rate` | The price per minute for this call.
 `start_time` | The time the call started in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2020-01-01 12:00:00`.
 `network` | The [Mobile Country Code Mobile Network Code (MCCMNC)](https://en.wikipedia.org/wiki/Mobile_country_code) for the carrier network used to make this call.
 `status` | The status of the call. @[Possible values](/_modals/voice/api/calls/status.md).
-`price` | The total price charged for this call.
-`duration` | The time elapsed for the call to take place in seconds.
-`end_time` | The time the call ended in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2020-01-01 12:00:00`.
+`rate` | The price per minute for this call. This is only sent if `status` is `completed`.
+`price` | The total price charged for this call. This is only sent if `status` is `completed`.
+`duration` | The time elapsed for the call to take place in seconds. This is only sent if `status` is `completed`.
+`end_time` | The time the call ended in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2020-01-01 12:00:00`. This is only sent if `status` is `completed`.
 
 ### Retrieve information about all your calls
 
