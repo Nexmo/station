@@ -31,3 +31,8 @@
 
 /styleguide: /contribute/styleguide
 /write-the-docs: /contribute/write-the-docs
+
+/voice/api-reference: /api/voice
+/messaging/sms/api-reference: /api/sms
+/verify/api-reference: /api/verify
+/number-insight/api-reference: /api/number-insight
