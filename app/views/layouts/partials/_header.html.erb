@@ -22,12 +22,13 @@
     <a href="/tools" class="<%= @navigation == :tools ? 'active' : '' %>">SDKs &amp; Tools</a>
     <a href="/community" class="<%= @navigation == :community ? 'active' : '' %>">Community</a>
 
-    <% if Rails.configuration.search_enabled %>
+    <% if search_enabled? %>
       <%= form_tag '/search' do %>
-        <input type="text" id="searchbox" name="query" placeholder="Search" name="query" autocomplete="off" value="<%= @search_term || '' %>">
+        <div id="SearchComponent">
+          <input type="text" id="searchbox" name="query" placeholder="Search" name="query" autocomplete="off" value="<%= @search_term || '' %>">
+        </div>
       <% end %>
     <% end %>
-    <div id="search-results" style="display: none;"></div>
   </div>
 </nav>
 

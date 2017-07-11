@@ -1,3 +1,4 @@
+import throttle from 'lodash/throttle'
 
 let onScrollOrResize = function() {
   let currentPosition = $(document).scrollTop();
@@ -9,6 +10,10 @@ let onScrollOrResize = function() {
     'top': 0,
   })
   .removeClass('navigation--fixed');
+
+  if ($(".js-scrollspy, .js-navigation").length === 0) {
+    return
+  }
 
   let startScroll = $(".js-scrollspy, .js-navigation").offset().top - 20;
 
@@ -50,7 +55,7 @@ let onScrollOrResize = function() {
 
 export default () => {
   $(document).ready(function() {
-    let onScrollOrResizeThrottled = _.throttle(onScrollOrResize, 20);
+    let onScrollOrResizeThrottled = throttle(onScrollOrResize, 20);
     $(document).scroll(onScrollOrResizeThrottled);
     return $(document).resize(onScrollOrResizeThrottled);
   });

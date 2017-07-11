@@ -34,6 +34,7 @@ $negative: $red;
 $warning: $orange;
 $background: $ice;
 $text: $stone;
+$text-subtle: desaturate(lighten($text, 15%), 20%);
 $code-background: $atom;
 
 $spacing: 20px;
@@ -67,3 +68,4 @@ $border: 1px solid darken($mint, 5%);
 @import "layout/hero";
 @import "layout/feedback";
 @import "layout/footer";
+@import "layout/search";

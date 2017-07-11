@@ -1,0 +1,114 @@
+$quick-search-width: 800px;
+
+.search-result {
+  > a {
+    display: block;
+    padding: $spacing/2 0;
+
+    .quicksearch & {
+      padding: 0;
+    }
+  }
+
+  > a > div {
+    border-left: 2px solid darken($mint, 3%);
+    padding-left: 15px;
+
+    h3 {
+      color: $link;
+
+      .quicksearch & {
+        font-size: 0.95em;
+        margin: 0;
+      }
+    }
+
+    .meta {
+      .quicksearch & {
+        font-size: 0.7em;
+        margin: 0;
+      }
+    }
+
+    p {
+      overflow: hidden;
+      font-style: italic;
+      color: $text-subtle;
+      font-size: 0.85em;
+
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+
+      .quicksearch & {
+        font-size: 0.8em;
+      }
+    }
+  }
+
+  &:hover {
+    > a > div {
+      h3 {
+        color: darken($link, 10%);
+      }
+
+      p {
+        color: $text;
+      }
+
+      border-left-color: $primary;
+    }
+  }
+}
+
+form {
+  position: relative;
+}
+
+.quicksearch {
+  @extend .clearfix;
+  background: white;
+  position: absolute;
+  border: $radius;
+  padding: 20px;
+  border: $border;
+  box-shadow: $shadow;
+  width: $quick-search-width;
+  margin-left: 200px - $quick-search-width;
+  margin-top: 40px;
+  z-index: 5;
+
+  .search-result > a {
+    padding: 0;
+  }
+
+  > .results-index {
+    float: left;
+    width: 50%;
+
+    > h3 {
+      font-size: 1.1em;
+      margin-bottom: $spacing;
+    }
+  }
+}
+
+#search-clear {
+  position: absolute;
+  right: 4px;
+  top: 7px;
+  padding: 5px;
+  font-size: 17px;
+  color: darken($mint, 5%);
+  cursor: pointer;
+  &:hover {
+    color: $stone-light;
+  }
+}
+
+.search-highlighted {
+  em {
+    background: lighten(yellow, 40%);
+    color: $pink;
+  }
+}

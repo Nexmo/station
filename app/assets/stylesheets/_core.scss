@@ -84,8 +84,33 @@ hr {
   &.hr--mini {
     width: 150px;
   }
+
+  &.spacious {
+    margin: $spacing 0;
+    padding: 0;
+  }
 }
 
 .spacious {
   padding: $spacing*2 0;
+}
+
+.clearfix {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@keyframes spin {
+  0%   {-webkit-transform: rotate(0deg)}
+  100% {-webkit-transform: rotate(359deg)}
+}
+
+.spinner {
+  text-align: center;
+  animation: spin 1.2s infinite ease-in-out;
+  i {
+    font-size: 40px;
+    color: $mint;
+  }
 }

@@ -19,3 +19,4 @@
 .powder
 /public/packs
 /node_modules
+/config/algolia.yml

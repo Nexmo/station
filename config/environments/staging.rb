@@ -84,5 +84,6 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
+  # Note: Also depends on ALGOLIA_CONFIG being present
   config.search_enabled = true
 end

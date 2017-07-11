@@ -4,6 +4,13 @@ FLATTEN_TREES = [].freeze
 COLLAPSIBLE = ['Messaging', 'SMS', 'Conversion API', 'SNS', 'US Short Codes', 'Voice', 'Number Insight', 'Account', 'Global'].freeze
 
 module ApplicationHelper
+  def search_enabled?
+    return false unless defined? ALGOLIA_CONFIG
+    return false unless ENV['ALGOLIA_APPLICATION_ID']
+    return false unless ENV['ALGOLIA_API_KEY']
+    Rails.configuration.search_enabled
+  end
+
   def title
     if @product && @document_title
       "Nexmo Developer | #{@product.titleize} > #{@document_title}"
