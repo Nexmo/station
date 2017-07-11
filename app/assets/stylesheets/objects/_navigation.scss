@@ -1,3 +1,18 @@
+@mixin highlighted-navigation($color) {
+  border: 1px solid $color;
+  color: $color;
+  border-radius: 4px;
+  padding: 1px 4px;
+  margin: 4px 0;
+  font-size: 0.85em;
+  opacity: 0.6;
+  transition: opacity 200ms ease-in-out;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
 .sidenav {
   font-size: 18px;
   font-weight: 600;
@@ -5,6 +20,12 @@
 
   > ul {
     position: relative;
+  }
+
+  .sidenav-back {
+    color: $link-subtle;
+    font-size: 0.9em;
+    font-weight: 500;
   }
 
   a {
@@ -75,6 +96,14 @@
   padding-top: 20px;
   max-height: 100vh;
   overflow-y: auto;
+}
+
+.navigation-item--tutorials a {
+  @include highlighted-navigation($pink);
+}
+
+.navigation-item--api-reference a {
+  @include highlighted-navigation($blue);
 }
 
 @media screen and (max-width: 640px) {

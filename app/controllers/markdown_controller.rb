@@ -25,13 +25,19 @@ class MarkdownController < ApplicationController
     end
   end
 
+  def api
+    redirect = Redirector.find(request)
+    if redirect
+      redirect_to redirect
+    else
+      render 'static/404', status: :not_found, formats: [:html]
+    end
+  end
+
   private
 
   def set_navigation
     @navigation = :documentation
-    @side_navigation_extra_links = {
-      'Tutorials' => '/tutorials',
-    }
   end
 
   def set_product

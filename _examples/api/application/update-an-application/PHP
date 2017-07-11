@@ -1,6 +1,8 @@
+<?php
+
 $base_url = 'https://api.nexmo.com' ;
 $version = '/v1';
-$action = '/applications ';
+$action = '/applications';
 $app_id = '/APPLICATION_ID?';
 
 $url = $base_url . $version . $action .  $app_id . http_build_query([

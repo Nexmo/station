@@ -1,7 +1,7 @@
 class Event < ApplicationRecord
   default_scope -> { order(:starts_at) }
-  scope :upcoming, -> { where('starts_at > ?', Time.zone.today) }
-  scope :past, -> { where('starts_at < ?', Time.zone.today) }
+  scope :upcoming, -> { where('ends_at > ?', Time.zone.today) }
+  scope :past, -> { where('starts_at < ?', Time.zone.today).reverse_order }
 
   has_many :sessions
 

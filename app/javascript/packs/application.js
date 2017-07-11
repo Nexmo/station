@@ -35,8 +35,14 @@ let refresh = () => {
   JsSequenceDiagrams()
   $(document).foundation();
   new TabbedExamples
-
   ReactDOM.render(<Search/>, document.getElementById('SearchComponent'))
+
+  if(window.location.hash) {
+    const anchor = document.querySelector(window.location.hash);
+    if (anchor) {
+      smoothScroll.animateScroll( anchor );
+    }
+  }
 }
 
 $(document).on('nexmo:load', function() {

@@ -28,6 +28,7 @@ $verify: #6b85d2;
 
 $primary: $pink;
 $link: $blue;
+$link-subtle: desaturate(lighten($link, 25%), 65%);
 $positive: $green;
 $negative: $red;
 $warning: $orange;

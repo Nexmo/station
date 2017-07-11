@@ -70,6 +70,11 @@ class StaticController < ApplicationController
 
     @content = MarkdownPipeline.new.call(document)
 
+    @return_link = {
+      title: "Contribute",
+      path: contribute_path,
+    }
+
     render layout: 'static'
   end
 
@@ -85,6 +90,11 @@ class StaticController < ApplicationController
     @side_navigation = 'api/write-the-docs'
 
     @content = MarkdownPipeline.new.call(document)
+
+    @return_link = {
+      title: "Contribute",
+      path: contribute_path,
+    }
 
     render layout: 'static'
   end

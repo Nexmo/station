@@ -12,13 +12,15 @@ Rails.application.routes.draw do
   get '/*product/tutorials', to: 'tutorials#index'
 
   get '/documentation', to: 'static#documentation'
+
   get '/contribute', to: 'static#contribute'
+  get '/contribute/styleguide', to: 'static#styleguide'
+  get '/contribute/write-the-docs', to: 'static#write_the_docs'
+
   get '/tools', to: 'static#tools'
   get '/community', to: 'static#community'
   get '/community/past-events', to: 'static#past_events'
 
-  get '/styleguide', to: 'static#styleguide'
-  get '/write-the-docs', to: 'static#write_the_docs'
 
   match '/search', to: 'search#results', via: [:get, :post]
   match '/quicksearch', to: 'search#quicksearch', via: [:get, :post]
@@ -26,6 +28,7 @@ Rails.application.routes.draw do
   get '/api', to: 'api#index'
   get '/api/*document', to: 'api#show'
 
+  get '/*product/api-reference', to: 'markdown#api'
   get '/:product/*document', to: 'markdown#show', constraints: DocumentationConstraint.new
 
   get '/robots.txt', to: 'static#robots'

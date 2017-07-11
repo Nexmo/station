@@ -73,7 +73,7 @@ module ApplicationHelper
       class_name = (COLLAPSIBLE.include? normalised_title(child)) ? 'js--collapsible' : ''
 
       ss = []
-      ss << "<li class='#{class_name}'>" unless received_flatten
+      ss << "<li class='#{class_name} navigation-item navigation-item--#{normalised_title(child).parameterize}'>" unless received_flatten
 
       unless flatten
         url = (child[:is_file?] ? path_to_url(child[:path]) : first_link_in_directory(child[:children]))
