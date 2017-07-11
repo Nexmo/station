@@ -17,13 +17,13 @@ A signature is the [MD5 hash](https://en.wikipedia.org/wiki/MD5) of:
 
 * The parameters - all the parameters in a request sorted in alphabetic order
 * A timestamp - a UNIX timestamp at UTC + 0 to protect against replay attacks
-* Your `SECURITY_SECRET` - the key supplied by Nexmo that you use to sign or validate requests
+* Your `SIGNATURE_SECRET` - the key supplied by Nexmo that you use to sign or validate requests
 
-The signature has a leading `&`. All parameters in the hash input, apart from your `SECURITY_SECRET` are separated by `&`.
+The signature has a leading `&`. All parameters in the hash input, apart from your `SIGNATURE_SECRET` are separated by `&`.
 
 [HMAC-SHA1/256/512 ](https://en.wikipedia.org/wiki/SHA-2) is also supported. Contact support@nexmo.com for more information.
 
-> Note: Using signatures is an *optional* improvement on using the standard `api_secret`. You use the `SECURITY_SECRET` instead of your api_secret in a signed request.
+> Note: Using signatures is an *optional* improvement on using the standard `api_secret`. You use the `SIGNATURE_SECRET` instead of your api_secret in a signed request.
 
 The following example shows a signed request to the SMS API:
 
@@ -50,7 +50,7 @@ To setup message signing:
   * Outbound messages must be signed.
   * Inbound messages and DLRs sent to your webhook endpoint are signed.
 
-2. Nexmo supplies you with the `SECURITY_SECRET` you use to encode and decode signatures.
+2. Nexmo supplies you with the `SIGNATURE_SECRET` you use to encode and decode signatures.
 
     > Note: this is not your `api_secret`.
 
