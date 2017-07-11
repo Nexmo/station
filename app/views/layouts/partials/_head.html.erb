@@ -55,10 +55,12 @@
 
   <meta property="og:url" content="<%= request.base_url + request.fullpath %>" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="<%= @title %>" />
-  <meta property="og:image" content="<%= request.base_url %>/assets/images/nexmo-circle-512.png" />
+  <meta property="og:title" content="<%= title %>" />
+  <meta property="og:image" content="<%= request.base_url %>/assets/images/nexmo-developer-card.png" />
   <% if @frontmatter && @frontmatter['description'] %>
     <meta property="og:description" content="<%= @frontmatter['description'] %>" />
+  <% else %>
+    <meta property="og:description" content="Everything you need to build connected applications with Nexmo" />
   <% end %>
 
   <meta name="basic_auth_username" content="<%= ENV['USERNAME'] %>" />
