@@ -85,5 +85,5 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Note: Also depends on ALGOLIA_CONFIG being present
-  config.search_enabled = false
+  config.search_enabled = true
 end
