@@ -35,6 +35,7 @@ class SearchController < ApplicationController
         index_name: index,
         query: params['query'],
         hitsPerPage: @hits_per_page || 25,
+        attributesToSnippet: ['body', 'body_safe'],
       }
 
       if config && config['filters']

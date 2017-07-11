@@ -83,7 +83,10 @@ class Search extends React.Component {
               <div>
                 <span className="meta">{ hit.section.full_path }</span>
                 <h3>{ hit.title }</h3>
-                <p>{ hit.body_safe.substring(0, 150) }</p>
+                <p
+                  className="search-highlighted"
+                  dangerouslySetInnerHTML={{ __html: `...${hit._snippetResult.body_safe.value}...` }}
+                ></p>
               </div>
             </a>
           </div>
@@ -95,7 +98,12 @@ class Search extends React.Component {
               <div>
                 <span className="meta">{ hit.product }</span>
                 <h3>{ hit.title }</h3>
-                <p>{ hit.description ? hit.description.substring(0, 150) : '' }</p>
+                <p><b>{ hit.description ? hit.description.substring(0, 150) : '' }</b></p>
+                <p
+                  className="search-highlighted"
+                  dangerouslySetInnerHTML={{ __html: `...${hit._snippetResult.body.value}...` }}
+                >
+                </p>
               </div>
             </a>
           </div>

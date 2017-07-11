@@ -105,3 +105,10 @@ form {
     color: $stone-light;
   }
 }
+
+.search-highlighted {
+  em {
+    background: lighten(yellow, 40%);
+    color: $pink;
+  }
+}

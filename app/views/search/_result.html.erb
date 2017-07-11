@@ -4,7 +4,10 @@
       <div>
         <span class="meta"><%= hit.section.full_path %></span>
         <h3><%= hit.title %></h3>
-        <p><%= hit.body_safe.truncate(300) %></p>
+
+        <p class="search-highlighted">
+          <%= hit._snippetResult.body_safe.value.html_safe %>
+        </p>
       </div>
     </a>
   <% end %>
@@ -15,7 +18,12 @@
       <div>
         <span class="meta"><%= hit.product %></span>
         <h3><%= hit.title %></h3>
-        <p><%= hit.description %></p>
+        <p><b><%= hit.description %></b></p>
+
+
+        <p class="search-highlighted">
+          ...<%= hit._snippetResult.body.value.html_safe %>...
+        </p>
       </div>
     </a>
   <% end %>
