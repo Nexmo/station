@@ -39,7 +39,7 @@ class TabbedExamplesFilter < Banzai::Filter
   def sort_examples(examples)
     examples.sort_by do |example|
       if language_configuration[example[:language]]
-        language_configuration[example[:language]]['weight']
+        language_configuration[example[:language]]['weight'] || 1000
       else
         1000
       end
