@@ -20,16 +20,10 @@ class TabbedContentFilter < Banzai::Filter
 
   def sort_contents(contents)
     contents.sort_by do |content|
-      case content[:frontmatter]['title'].downcase
-      when 'curl' then 1
-      when 'node' then 2
-      when 'node.js' then 2
-      when 'java' then 3
-      when 'c#' then 4
-      when 'php' then 5
-      when 'python' then 6
-      when 'ruby' then 7
-      else content[:frontmatter]['menu_weight'] || 999
+      if content[:frontmatter]['language']
+        language_configuration[content[:frontmatter]['language']]['weight']
+      else
+        content[:frontmatter]['menu_weight'] || 999
       end
     end
   end
@@ -68,5 +62,9 @@ class TabbedContentFilter < Banzai::Filter
 
     # Wrap in an extra Div prevents markdown for formatting
     "<div>#{tabs.join('')}#{body.join('')}</div>"
+  end
+
+  def language_configuration
+    @language_configuration ||= YAML.load_file("#{Rails.root}/config/code_languages.yml")
   end
 end
