@@ -1,5 +1,5 @@
 class MarkdownPipeline < Banzai::Pipeline
-  def initialize
+  def initialize(options = {})
     Rails.logger.info 'MarkdownPipeline#initialize'
 
     super(
@@ -9,7 +9,7 @@ class MarkdownPipeline < Banzai::Pipeline
       BlockEscapeFilter,
       AnchorFilter,
       CollapsibleFilter,
-      TabbedExamplesFilter,
+      TabbedExamplesFilter.new(options),
       TabbedContentFilter,
       CodeFilter,
       ModalFilter,
@@ -25,7 +25,7 @@ class MarkdownPipeline < Banzai::Pipeline
       LabelFilter,
       BreakFilter,
       UnfreezeFilter,
-      ExternalLinkFilter,
+      ExternalLinkFilter
     )
   end
 end

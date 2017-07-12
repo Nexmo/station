@@ -46,30 +46,37 @@ class TabbedExamplesFilter < Banzai::Filter
     end
   end
 
+  def active_class(index, language, options = {})
+    if options[:code_language]
+      'is-active' if language == options[:code_language]
+    elsif index.zero?
+      'is-active'
+    end
+  end
+
   def build_html(examples)
     examples_uid = "code-#{SecureRandom.uuid}"
 
     tabs = []
     content = []
 
-    tabs << "<ul class='tabs tabs--code' data-tabs id='#{examples_uid}'>"
+    tabs << "<ul class='tabs tabs--code' data-tabs id='#{examples_uid}' data-initial-language=#{options[:code_language]}>"
     content << "<div class='tabs-content tabs-content--code' data-tabs-content='#{examples_uid}'>"
 
     examples.each_with_index do |example, index|
       example_uid = "code-#{SecureRandom.uuid}"
       tabs << <<~HEREDOC
-        <li class="tabs-title #{index.zero? ? 'is-active' : ''}" data-language="#{example[:language]}">
+        <li class="tabs-title #{active_class(index, example[:language], options)}" data-language="#{example[:language]}">
           <a href="##{example_uid}">#{language_label(example[:language])}</a>
         </li>
       HEREDOC
-
       highlighted_source = highlight(example[:source], example[:language])
 
       # Freeze to prevent Markdown formatting edge cases
       highlighted_source = "FREEZESTART#{Base64.urlsafe_encode64(highlighted_source)}FREEZEEND"
 
       content << <<~HEREDOC
-        <div class="tabs-panel #{index.zero? ? 'is-active' : ''}" id="#{example_uid}" data-language="#{example[:language]}">
+        <div class="tabs-panel #{active_class(index, example[:language], options)}" id="#{example_uid}" data-language="#{example[:language]}" aria-hidden="#{!!!active_class(index, example[:language], options)}">
           <pre class="highlight #{example[:language]}"><code>#{highlighted_source}</code></pre>
         </div>
       HEREDOC

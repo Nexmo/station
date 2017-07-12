@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   force_ssl if: :ssl_configured?
   before_action :set_show_feedback
   before_action :set_notices
+  before_action :set_code_language
 
   def not_found
     redirect = Redirector.find(request)
@@ -30,6 +31,10 @@ class ApplicationController < ActionController::Base
 
   def set_show_feedback
     @show_feedback = true
+  end
+
+  def set_code_language
+    @code_language = request.params[:code_language]
   end
 
   def ssl_configured?
