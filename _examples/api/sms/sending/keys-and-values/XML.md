@@ -1,6 +1,8 @@
 ---
 title: XML
+language: xml
 ---
+
 Key |	Description
 -- | --
 `messages` | Contains each message part. The `count` attribute contains the number of message parts.

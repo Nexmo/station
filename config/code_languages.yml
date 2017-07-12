@@ -33,3 +33,9 @@ ruby:
 ncco:
   label: NCCO
   lexer: json
+json:
+  label: JSON
+  lexer: json
+xml:
+  label: XML
+  lexer: xml
