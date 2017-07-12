@@ -28,6 +28,14 @@ class TabbedContentFilter < Banzai::Filter
     end
   end
 
+  def active_class(index, language, options = {})
+    if options[:code_language]
+      'is-active' if language == options[:code_language]
+    elsif index.zero?
+      'is-active'
+    end
+  end
+
   def build_html(contents)
     contents_uid = "code-#{SecureRandom.uuid}"
 
@@ -40,7 +48,7 @@ class TabbedContentFilter < Banzai::Filter
     contents.each_with_index do |content, index|
       content_uid = "code-#{SecureRandom.uuid}"
       tabs << <<~HEREDOC
-        <li class="tabs-title #{index.zero? ? 'is-active' : ''}" data-language="#{content[:frontmatter]['language']}">
+        <li class="tabs-title #{active_class(index, content[:frontmatter]['language'], options)}" data-language="#{content[:frontmatter]['language']}">
           <a href="##{content_uid}">#{content[:frontmatter]['title']}</a>
         </li>
       HEREDOC
@@ -51,7 +59,7 @@ class TabbedContentFilter < Banzai::Filter
       markdownified_source = "FREEZESTART#{Base64.urlsafe_encode64(markdownified_source)}FREEZEEND"
 
       body << <<~HEREDOC
-        <div class="tabs-panel #{index.zero? ? 'is-active' : ''}" id="#{content_uid}">
+        <div class="tabs-panel #{active_class(index, content[:frontmatter]['language'], options)}" id="#{content_uid}" aria-hidden="#{!!!active_class(index, content[:frontmatter]['language'], options)}">
           #{markdownified_source}
         </div>
       HEREDOC

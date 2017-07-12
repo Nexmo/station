@@ -10,7 +10,7 @@ class MarkdownPipeline < Banzai::Pipeline
       AnchorFilter,
       CollapsibleFilter,
       TabbedExamplesFilter.new(options),
-      TabbedContentFilter,
+      TabbedContentFilter.new(options),
       CodeFilter,
       ModalFilter,
       JsSequenceDiagramFilter,
