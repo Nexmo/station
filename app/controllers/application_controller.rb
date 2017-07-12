@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
   before_action :set_show_feedback
   before_action :set_notices
   before_action :set_code_language
+  before_action :set_canonical_url
 
   def not_found
     redirect = Redirector.find(request)
@@ -43,5 +44,12 @@ class ApplicationController < ActionController::Base
 
   def set_notices
     @notices ||= YAML.load_file("#{Rails.root}/config/notices.yml")
+  end
+
+  def set_canonical_url
+    if params[:code_language]
+      @canonical_url = request.path.gsub("/#{params[:code_language]}", '')
+      @canonical_url.prepend(request.base_url)
+    end
   end
 end
