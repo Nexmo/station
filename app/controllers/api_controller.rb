@@ -18,7 +18,7 @@ class ApiController < ApplicationController
     @side_navigation_title = @frontmatter.fetch('api')
     @document_title = "#{@side_navigation_title} > #{@frontmatter.fetch('title')}"
 
-    @content = MarkdownPipeline.new.call(document)
+    @content = MarkdownPipeline.new({ code_language: @code_language }).call(document)
 
     render layout: 'api'
   end
