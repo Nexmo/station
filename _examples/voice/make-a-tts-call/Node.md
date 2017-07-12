@@ -1,5 +1,6 @@
 ---
 title: Node.js
+language: node
 ---
 
 Install the Nexmo Node library:

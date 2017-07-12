@@ -1,5 +1,6 @@
 ---
 title: PHP
+language: php
 ---
 
 Install the Nexmo PHP client

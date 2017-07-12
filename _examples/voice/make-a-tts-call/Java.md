@@ -1,5 +1,6 @@
 ---
 title: Java
+language: java
 ---
 
 Create your `build.gradle file` and list your dependencies:
