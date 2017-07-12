@@ -1,17 +1,14 @@
 class DocumentationConstraint
   def self.all
-    {
-      code_language: code_language,
-      product: product,
-    }
+    code_language.merge(product)
   end
 
   def self.code_language
-    Regexp.new(language_configuration.keys.join('|'))
+    { code_language: Regexp.new(language_configuration.keys.join('|')) }
   end
 
   def self.product
-    /voice|messaging|verify|number-insight|account|concepts/
+    { product: /voice|messaging|verify|number-insight|account|concepts/ }
   end
 
   def self.language_configuration
