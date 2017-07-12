@@ -7,10 +7,14 @@ class DocumentationConstraint
   end
 
   def self.code_language
-    /curl|node|java|dotnet|php|python|ruby|csharp/
+    Regexp.new(language_configuration.keys.join('|'))
   end
 
   def self.product
     /voice|messaging|verify|number-insight|account|concepts/
+  end
+
+  def self.language_configuration
+    @language_configuration ||= YAML.load_file("#{Rails.root}/config/code_languages.yml")
   end
 end
