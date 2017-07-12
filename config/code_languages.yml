@@ -14,7 +14,7 @@ dotnet:
   weight: 4
   label: .NET
   lexer: c#
-c#:
+csharp:
   weight: 4
   label: C#
   lexer: c#
