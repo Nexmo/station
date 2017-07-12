@@ -16,7 +16,7 @@ class StaticController < ApplicationController
 
     @document_title = @frontmatter['title']
 
-    @content = MarkdownPipeline.new({ code_language: @code_language }).call(document)
+    @content = MarkdownPipeline.new.call(document)
 
     render layout: 'documentation'
   end
