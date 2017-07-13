@@ -17,7 +17,7 @@ Easy WebSocket connections using Voice API enables some innovative use cases, in
   * Take inbound calls and make their expertise more readily available. For example, a doctor in a small village in Tanzania can call a medical expert bot and get access to the same medical advice available to specialists at the Mayo Clinic.
 * Third party voice recognition, recording, and transcription engines.
 
-In this section you see how to easily test a Voice API *connect* to a WebSocket endpoint. You create a NCCO that connects an inbound PSTN call to the echo server using WebSocket and a dual function server that provisions NCCOs and echos voice messages back to a Websocket:
+In this section you see how to easily test a Voice API *connect* to a WebSocket endpoint. You create a NCCO that connects an inbound PSTN call to the echo server using WebSocket and a dual function server that provisions NCCOs and echoes voice messages back to a Websocket:
 
 * [Prerequisites](#prerequisites) - what you need to follow the instructions in this section
 * [Create your echo server](#create_echo) - create an echo server for WebSocket

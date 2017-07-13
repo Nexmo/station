@@ -34,7 +34,7 @@ JSON Web Tokens (JWT) are a compact, URL-safe means of representing claims to be
 
 JWTs are supported by the Voice API as a means of authenticating your requests. The [Nexmo libraries](/tools) and CLI handle JWT generation using a unique Nexmo Voice Application ID and a Private Key.
 
-If you are not using a Nexmo library you should refer to [RFC 719](https://tools.ietf.org/html/rfc7519) to implement JWT.
+If you are not using a Nexmo library you should refer to [RFC 7519](https://tools.ietf.org/html/rfc7519) to implement JWT.
 
 ## OAuth
 
