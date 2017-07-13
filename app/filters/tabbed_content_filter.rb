@@ -36,6 +36,19 @@ class TabbedContentFilter < Banzai::Filter
     end
   end
 
+  def language_data(content)
+    language = content[:frontmatter]['language']
+    return unless language
+
+    configuration = language_configuration[language]
+    return unless configuration
+
+    <<~HEREDOC
+      data-language="#{language}"
+      data-language-linkable="#{configuration['linkable'] != false}"
+    HEREDOC
+  end
+
   def build_html(contents)
     contents_uid = "code-#{SecureRandom.uuid}"
 
@@ -48,7 +61,7 @@ class TabbedContentFilter < Banzai::Filter
     contents.each_with_index do |content, index|
       content_uid = "code-#{SecureRandom.uuid}"
       tabs << <<~HEREDOC
-        <li class="tabs-title #{active_class(index, content[:frontmatter]['language'], options)}" data-language="#{content[:frontmatter]['language']}">
+        <li class="tabs-title #{active_class(index, content[:frontmatter]['language'], options)}" #{language_data(content)}">
           <a href="##{content_uid}">#{content[:frontmatter]['title']}</a>
         </li>
       HEREDOC

@@ -33,9 +33,14 @@ ruby:
 ncco:
   label: NCCO
   lexer: json
+  linkable: false
 json:
+  weight: 1
   label: JSON
   lexer: json
+  linkable: false
 xml:
+  weight: 2
   label: XML
   lexer: xml
+  linkable: false

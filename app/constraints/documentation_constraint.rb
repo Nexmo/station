@@ -4,7 +4,10 @@ class DocumentationConstraint
   end
 
   def self.code_language
-    { code_language: Regexp.new(language_configuration.keys.join('|')) }
+    linkable_languages = language_configuration.map do |language, configuration|
+      language unless configuration["linkable"] == false
+    end
+    { code_language: Regexp.new(linkable_languages.compact.join('|')) }
   end
 
   def self.product

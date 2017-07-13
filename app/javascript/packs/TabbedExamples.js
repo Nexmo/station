@@ -19,9 +19,14 @@ export default class TabbedExamples {
   restoreTabs() {
     if (!this.initialLanguage()) {
       if (window.localStorage) {
-        var language = window.localStorage.getItem('languagePreference', language)
+        var language = window.localStorage.getItem('languagePreference')
         if (language) { this.setLanguage(language) }
       }
+    }
+
+    if (window.localStorage) {
+      var secondaryLanguage = window.localStorage.getItem('secondaryLanguagePreference')
+      if (secondaryLanguage) { this.setLanguage(secondaryLanguage) }
     }
   }
 
@@ -33,12 +38,11 @@ export default class TabbedExamples {
   }
 
   setupEvents() {
-    $('.tabs--code li').click(this.onTabClick)
+    $('.tabs li').click(this.onTabClick)
     $(window).on('popstate', this.onPopState)
   }
 
   onPopState(event) {
-    console.log('onPopState');
     if (window.history.state.language) {
       this.setLanguage(window.history.state.language);
     }
@@ -46,32 +50,40 @@ export default class TabbedExamples {
 
   onTabClick(event) {
     const language = $(event.currentTarget).data('language')
+    const linkable = $(event.currentTarget).data('language-linkable')
+
     if (language) {
       this.setLanguage(language)
 
-      if (window.history.state.language || this.initialLanguage()) {
-        window.history.pushState({ language }, 'language', language)
-      } else {
-        let path = window.location.pathname.replace(/\/$/, '')
-        window.history.pushState({ language }, 'language', `${path}/${language}`)
+      if (linkable) {
+        if (window.history.state.language || this.initialLanguage()) {
+          window.history.pushState({ language }, 'language', language)
+        } else {
+          let path = window.location.pathname.replace(/\/$/, '')
+          window.history.pushState({ language }, 'language', `${path}/${language}`)
+        }
       }
 
-      this.persistLanguage(language)
+      this.persistLanguage(language, linkable)
     }
   }
 
-  persistLanguage(language) {
+  persistLanguage(language, linkable) {
     if (language && window.localStorage) {
-      window.localStorage.setItem('languagePreference', language)
+      if (linkable) {
+        window.localStorage.setItem('languagePreference', language)
+      } else {
+        window.localStorage.setItem('secondaryLanguagePreference', language)
+      }
     }
   }
 
   setLanguage(language) {
-    return $(`.tabs--code [data-language='${language}'] a`).each(function() {
+    $(`.tabs [data-language='${language}'] a`).each(function() {
       let tabs = $(this).parents('.tabs')
       let tab = $(this).parent()
 
-      return $(tabs).foundation('_handleTabChange', tab, true)
+      $(tabs).foundation('_handleTabChange', tab, true)
     })
   }
 }

@@ -54,6 +54,17 @@ class TabbedExamplesFilter < Banzai::Filter
     end
   end
 
+  def language_data(example)
+    language = example[:language]
+    configuration = language_configuration[language]
+    return unless configuration
+
+    <<~HEREDOC
+      data-language="#{language}"
+      data-language-linkable="#{configuration['linkable'] != false}"
+    HEREDOC
+  end
+
   def build_html(examples)
     examples_uid = "code-#{SecureRandom.uuid}"
 
@@ -66,7 +77,7 @@ class TabbedExamplesFilter < Banzai::Filter
     examples.each_with_index do |example, index|
       example_uid = "code-#{SecureRandom.uuid}"
       tabs << <<~HEREDOC
-        <li class="tabs-title #{active_class(index, example[:language], options)}" data-language="#{example[:language]}">
+        <li class="tabs-title #{active_class(index, example[:language], options)}" #{language_data(example)}>
           <a href="##{example_uid}">#{language_label(example[:language])}</a>
         </li>
       HEREDOC
@@ -76,7 +87,7 @@ class TabbedExamplesFilter < Banzai::Filter
       highlighted_source = "FREEZESTART#{Base64.urlsafe_encode64(highlighted_source)}FREEZEEND"
 
       content << <<~HEREDOC
-        <div class="tabs-panel #{active_class(index, example[:language], options)}" id="#{example_uid}" data-language="#{example[:language]}" aria-hidden="#{!!!active_class(index, example[:language], options)}">
+        <div class="tabs-panel #{active_class(index, example[:language], options)}" id="#{example_uid}" aria-hidden="#{!!!active_class(index, example[:language], options)}">
           <pre class="highlight #{example[:language]}"><code>#{highlighted_source}</code></pre>
         </div>
       HEREDOC
