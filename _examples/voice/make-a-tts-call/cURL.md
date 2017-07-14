@@ -1,5 +1,6 @@
 ---
 title: cURL
+language: curl
 ---
 
 Create a JWT for authentication using the Application ID and the Nexmo CLI:

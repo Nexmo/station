@@ -1,5 +1,6 @@
 ---
 title: Python
+language: python
 ---
 
 Install the Nexmo Python package:

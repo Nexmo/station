@@ -1,5 +1,6 @@
 ---
 title: Node.js
+language: node
 menu_weight: 2
 ---
 

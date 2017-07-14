@@ -1,5 +1,6 @@
 ---
 title: Ruby
+language: ruby
 ---
 
 ```code

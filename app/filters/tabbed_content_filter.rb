@@ -20,18 +20,33 @@ class TabbedContentFilter < Banzai::Filter
 
   def sort_contents(contents)
     contents.sort_by do |content|
-      case content[:frontmatter]['title'].downcase
-      when 'curl' then 1
-      when 'node' then 2
-      when 'node.js' then 2
-      when 'java' then 3
-      when 'c#' then 4
-      when 'php' then 5
-      when 'python' then 6
-      when 'ruby' then 7
-      else content[:frontmatter]['menu_weight'] || 999
+      if content[:frontmatter]['language']
+        language_configuration[content[:frontmatter]['language']]['weight']
+      else
+        content[:frontmatter]['menu_weight'] || 999
       end
     end
+  end
+
+  def active_class(index, language, options = {})
+    if options[:code_language]
+      'is-active' if language == options[:code_language]
+    elsif index.zero?
+      'is-active'
+    end
+  end
+
+  def language_data(content)
+    language = content[:frontmatter]['language']
+    return unless language
+
+    configuration = language_configuration[language]
+    return unless configuration
+
+    <<~HEREDOC
+      data-language="#{language}"
+      data-language-linkable="#{configuration['linkable'] != false}"
+    HEREDOC
   end
 
   def build_html(contents)
@@ -46,7 +61,7 @@ class TabbedContentFilter < Banzai::Filter
     contents.each_with_index do |content, index|
       content_uid = "code-#{SecureRandom.uuid}"
       tabs << <<~HEREDOC
-        <li class="tabs-title #{index.zero? ? 'is-active' : ''}" data-language="#{content[:frontmatter]['language']}">
+        <li class="tabs-title #{active_class(index, content[:frontmatter]['language'], options)}" #{language_data(content)}">
           <a href="##{content_uid}">#{content[:frontmatter]['title']}</a>
         </li>
       HEREDOC
@@ -57,7 +72,7 @@ class TabbedContentFilter < Banzai::Filter
       markdownified_source = "FREEZESTART#{Base64.urlsafe_encode64(markdownified_source)}FREEZEEND"
 
       body << <<~HEREDOC
-        <div class="tabs-panel #{index.zero? ? 'is-active' : ''}" id="#{content_uid}">
+        <div class="tabs-panel #{active_class(index, content[:frontmatter]['language'], options)}" id="#{content_uid}" aria-hidden="#{!!!active_class(index, content[:frontmatter]['language'], options)}">
           #{markdownified_source}
         </div>
       HEREDOC
@@ -68,5 +83,9 @@ class TabbedContentFilter < Banzai::Filter
 
     # Wrap in an extra Div prevents markdown for formatting
     "<div>#{tabs.join('')}#{body.join('')}</div>"
+  end
+
+  def language_configuration
+    @language_configuration ||= YAML.load_file("#{Rails.root}/config/code_languages.yml")
   end
 end

@@ -1,5 +1,6 @@
 ---
 title: cURL
+language: curl
 ---
 
 ````bash

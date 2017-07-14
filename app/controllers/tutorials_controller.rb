@@ -45,7 +45,7 @@ class TutorialsController < ApplicationController
     @frontmatter = YAML.safe_load(document)
     @document_title = @frontmatter['title']
 
-    @content = MarkdownPipeline.new.call(document)
+    @content = MarkdownPipeline.new({ code_language: @code_language }).call(document)
 
     render layout: 'static'
   end

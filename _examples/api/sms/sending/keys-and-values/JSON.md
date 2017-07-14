@@ -1,6 +1,8 @@
 ---
 title: JSON
+language: json
 ---
+
 Key |	Description
 -- | --
 `message-count` | The number of parts the message was split into.

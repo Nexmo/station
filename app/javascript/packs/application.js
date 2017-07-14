@@ -35,7 +35,10 @@ let refresh = () => {
   JsSequenceDiagrams()
   $(document).foundation();
   new TabbedExamples
-  ReactDOM.render(<Search/>, document.getElementById('SearchComponent'))
+
+  if (document.getElementById('SearchComponent')) {
+    ReactDOM.render(<Search/>, document.getElementById('SearchComponent'))
+  }
 
   if(window.location.hash) {
     const anchor = document.querySelector(window.location.hash);

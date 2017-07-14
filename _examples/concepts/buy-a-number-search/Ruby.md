@@ -1,5 +1,6 @@
 ---
-title: Ruby 
+title: Ruby
+language: ruby 
 ---
 
 ```ruby

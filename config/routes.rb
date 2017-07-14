@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'markdown/show'
 
   get '/tutorials', to: 'tutorials#index'
-  get '/tutorials/*document', to: 'tutorials#show'
+  get '/tutorials/*document(/:code_language)', to: 'tutorials#show', constraints: DocumentationConstraint.code_language
   get '/*product/tutorials', to: 'tutorials#index'
 
   get '/documentation', to: 'static#documentation'
@@ -26,10 +26,10 @@ Rails.application.routes.draw do
   match '/quicksearch', to: 'search#quicksearch', via: [:get, :post]
 
   get '/api', to: 'api#index'
-  get '/api/*document', to: 'api#show'
+  get '/api/*document(/:code_language)', to: 'api#show', constraints: DocumentationConstraint.code_language
 
   get '/*product/api-reference', to: 'markdown#api'
-  get '/:product/*document', to: 'markdown#show', constraints: DocumentationConstraint.new
+  get '/:product/*document(/:code_language)', to: 'markdown#show', constraints: DocumentationConstraint.all
 
   get '/robots.txt', to: 'static#robots'
 

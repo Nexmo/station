@@ -15,7 +15,7 @@ class MarkdownController < ApplicationController
 
     @document_title = @frontmatter['title']
 
-    @content = MarkdownPipeline.new.call(document)
+    @content = MarkdownPipeline.new({ code_language: @code_language }).call(document)
 
     if !Rails.env.development? && @frontmatter['wip']
       @show_feedback = false

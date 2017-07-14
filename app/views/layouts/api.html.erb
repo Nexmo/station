@@ -14,7 +14,7 @@
               <%= navigation_from_content(content: @content, title: @side_navigation_title) %>
             <% end %>
           </nav>
-          <div class="columns small-12 medium-9" id="primary-content">
+          <div class="columns small-12 medium-9" id="primary-content" data-initial-language="<%= @code_language %>">
             <%= yield %>
             <%= render partial: 'layouts/partials/feedback' %>
           </div>

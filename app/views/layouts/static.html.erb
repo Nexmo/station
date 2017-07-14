@@ -16,7 +16,7 @@
             <% end %>
             <%= navigation_from_content(content: @content, title: @document_title) %>
           </nav>
-          <div class="columns small-12 medium-9" id="primary-content" data-turbolinks="false">
+          <div class="columns small-12 medium-9" id="primary-content" data-turbolinks="false" data-initial-language="<%= @code_language %>">
             <%= yield %>
             <%= render partial: 'layouts/partials/feedback' %>
           </div>

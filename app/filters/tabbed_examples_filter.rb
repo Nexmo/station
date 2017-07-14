@@ -16,7 +16,7 @@ class TabbedExamplesFilter < Banzai::Filter
     examples_path = "#{Rails.root}/#{@config['source']}"
 
     Dir["#{examples_path}/*"].map do |example_path|
-      language = example_path.sub("#{examples_path}/", '')
+      language = example_path.sub("#{examples_path}/", '').downcase
       source = File.read(example_path)
       { language: language, source: source }
     end
@@ -32,23 +32,37 @@ class TabbedExamplesFilter < Banzai::Filter
 
       source = source.lines[from_line..to_line].join
 
-      { language: title.dup, source: source }
+      { language: title.dup.downcase, source: source }
     end
   end
 
   def sort_examples(examples)
     examples.sort_by do |example|
-      case example[:language].downcase
-      when 'curl' then 1
-      when 'node' then 2
-      when 'java' then 3
-      when 'c#' then 4
-      when 'php' then 5
-      when 'python' then 6
-      when 'ruby' then 7
-      else 1000
+      if language_configuration[example[:language]]
+        language_configuration[example[:language]]['weight'] || 1000
+      else
+        1000
       end
     end
+  end
+
+  def active_class(index, language, options = {})
+    if options[:code_language]
+      'is-active' if language == options[:code_language]
+    elsif index.zero?
+      'is-active'
+    end
+  end
+
+  def language_data(example)
+    language = example[:language]
+    configuration = language_configuration[language]
+    return unless configuration
+
+    <<~HEREDOC
+      data-language="#{language}"
+      data-language-linkable="#{configuration['linkable'] != false}"
+    HEREDOC
   end
 
   def build_html(examples)
@@ -57,24 +71,23 @@ class TabbedExamplesFilter < Banzai::Filter
     tabs = []
     content = []
 
-    tabs << "<ul class='tabs tabs--code' data-tabs id='#{examples_uid}'>"
+    tabs << "<ul class='tabs tabs--code' data-tabs id='#{examples_uid}' data-initial-language=#{options[:code_language]}>"
     content << "<div class='tabs-content tabs-content--code' data-tabs-content='#{examples_uid}'>"
 
     examples.each_with_index do |example, index|
       example_uid = "code-#{SecureRandom.uuid}"
       tabs << <<~HEREDOC
-        <li class="tabs-title #{index.zero? ? 'is-active' : ''}" data-language="#{example[:language]}">
+        <li class="tabs-title #{active_class(index, example[:language], options)}" #{language_data(example)}>
           <a href="##{example_uid}">#{language_label(example[:language])}</a>
         </li>
       HEREDOC
-
       highlighted_source = highlight(example[:source], example[:language])
 
       # Freeze to prevent Markdown formatting edge cases
       highlighted_source = "FREEZESTART#{Base64.urlsafe_encode64(highlighted_source)}FREEZEEND"
 
       content << <<~HEREDOC
-        <div class="tabs-panel #{index.zero? ? 'is-active' : ''}" id="#{example_uid}" data-language="#{example[:language]}">
+        <div class="tabs-panel #{active_class(index, example[:language], options)}" id="#{example_uid}" aria-hidden="#{!!!active_class(index, example[:language], options)}">
           <pre class="highlight #{example[:language]}"><code>#{highlighted_source}</code></pre>
         </div>
       HEREDOC
@@ -94,29 +107,27 @@ class TabbedExamplesFilter < Banzai::Filter
   end
 
   def language_label(language)
-    case language.downcase
-    when 'c#' then '.NET'
-    when 'node' then 'Node.js'
-    when 'json' then 'JSON'
-    when 'xml' then 'XML'
-    else; language
+    if language_configuration[language]
+      language_configuration[language]['label']
+    else
+      language
     end
   end
 
   def language_to_lexer_name(language)
-    language.downcase!
-    case language.downcase
-    when 'curl' then 'sh'
-    when 'node' then 'javascript'
-    when 'node.js' then 'javascript'
-    when '.net' then 'c#'
-    when 'ncco' then 'json'
-    else; language
+    if language_configuration[language]
+      language_configuration[language]['lexer']
+    else
+      language
     end
   end
 
   def language_to_lexer(language)
     language = language_to_lexer_name(language)
     Rouge::Lexer.find(language) || Rouge::Lexer.find('text')
+  end
+
+  def language_configuration
+    @language_configuration ||= YAML.load_file("#{Rails.root}/config/code_languages.yml")
   end
 end
