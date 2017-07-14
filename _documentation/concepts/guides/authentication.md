@@ -34,6 +34,24 @@ JSON Web Tokens (JWT) are a compact, URL-safe means of representing claims to be
 
 JWTs are supported by the Voice API as a means of authenticating your requests. The [Nexmo libraries](/tools) and CLI handle JWT generation using a unique Nexmo Voice Application ID and a Private Key.
 
+Values for the Header are:
+
+Name | Description | Required
+-- | -- | --
+`alg` | The encryption algorithm used to generate the JWT. RS256 is supported. | ✅
+`typ` | The token structure. Set to JWT. | ✅
+
+The values for the payload claim are:
+
+Name | Description | Required
+-- | -- | --
+`application_id` | The unique ID allocated to your application by Nexmo. | ✅
+`iat` | The UNIX timestamp at UTC + 0 indicating the moment the JWT was requested. | ✅
+`jti` | The unique ID of the JWT. | ✅
+`sub` | The name for the User you are trying to authenticate. For example, when you start a session. | ❎
+`nbf` | The UNIX timestamp at UTC + 0 indicating the moment the JWT became valid. | ❎
+`exp` | The UNIX timestamp at UTC + 0 indicating the moment the JWT is no longer valid. | ❎
+
 If you are not using a Nexmo library you should refer to [RFC 7519](https://tools.ietf.org/html/rfc7519) to implement JWT.
 
 ## OAuth
