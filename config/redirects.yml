@@ -36,3 +36,5 @@
 /messaging/sms/api-reference: /api/sms
 /verify/api-reference: /api/verify
 /number-insight/api-reference: /api/number-insight
+
+/sip: /voice/guides/sip
