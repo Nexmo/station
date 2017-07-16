@@ -120,6 +120,12 @@ module ApplicationHelper
       end
     end
 
-    JSON.pretty_generate(output)
+    output = <<~HEREDOC
+      <br>
+      <h3>#{specification['responses'].keys.first}</h3>
+      <pre class="highlight"><code>#{ JSON.pretty_generate(output) }</code></pre>
+    HEREDOC
+
+    output.html_safe
   end
 end

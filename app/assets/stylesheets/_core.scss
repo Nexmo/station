@@ -126,6 +126,9 @@ hr {
 
 .background--code {
   background: darken($atom, 2%);
+  h3 {
+    color: $white;
+  }
   > pre {
     margin: $spacing 0;
   }
