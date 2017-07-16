@@ -103,4 +103,23 @@ module ApplicationHelper
   def document_meta(path)
     YAML.load_file(path)
   end
+
+  def render_response(definition, specification, path, method)
+    response_status = specification['responses'].keys.first,
+    path = path.gsub('{id}', '1'),
+    endpoint = definition.endpoint(path, method)
+    response_body_schema = endpoint.response_body_schema(response_status)
+    response_body_schema_formatted = JSON.pretty_generate(response_body_schema)
+    output = {}
+    response_body_schema['properties'].map do |key, value|
+      case value['type']
+      when 'integer'
+        output[key] = 1
+      when 'string'
+        output[key] = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit'
+      end
+    end
+
+    JSON.pretty_generate(output)
+  end
 end

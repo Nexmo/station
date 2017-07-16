@@ -1,6 +1,6 @@
 <% @definition.raw['paths'].each do |path, methods| %>
   <% methods.each do |method, specification| %>
-    <div class="row">
+    <div class="row-fluid flex">
       <div class="columns small-12 medium-8">
         <h2><span class="label"><%= method.upcase %></span> - <%= path %></h2>
         <p><%= specification['description'].truncate(200) %></p>
@@ -22,11 +22,9 @@
           </tbody>
         </table>
       </div>
-      <div class="columns small-12 medium-4">
-<pre class="highlight"><code>{
-  "id": "<%= SecureRandom.uuid %>",
-  "tag": "example",
-}
+      <div class="columns small-12 medium-4 background--code">
+<pre class="highlight"><code>
+<%= render_response(@definition, specification, path, method) %>
 </code></pre>
       </div>
     </div>

@@ -123,3 +123,14 @@ hr {
     color: $mint;
   }
 }
+
+.background--code {
+  background: darken($atom, 2%);
+  > pre {
+    margin: $spacing 0;
+  }
+}
+
+.flex {
+  display: flex;
+}
