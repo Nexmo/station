@@ -37,4 +37,5 @@
 /verify/api-reference: /api/verify
 /number-insight/api-reference: /api/number-insight
 
-/sip: /voice/guides/sip
+/sip: /voice/sip
+/voice/guides/sip: /voice/sip
