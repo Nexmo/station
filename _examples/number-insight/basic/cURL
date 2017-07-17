@@ -1,1 +1,4 @@
-curl "https://api.nexmo.com/ni/basic/json/?api_key=API_KEY&api_secret=API_SECRET&number=447700900000"
+curl -X "POST" "https://api.nexmo.com/ni/basic/json" \
+-d "api_key=API_KEY" \
+-d "api_secret=API_SECRET" \
+-d "number=447700900000"
