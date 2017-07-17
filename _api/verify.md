@@ -25,7 +25,7 @@ To use Verify Request you:
 ### Request
 
 ```
-[POST] https://api.nexmo.com/verify/:format
+[GET] https://api.nexmo.com/verify/:format
 ```
 
 #### Parameters
@@ -90,7 +90,7 @@ To use Verify Check you:
 ### Request
 
 ```
-[POST] https://api.nexmo.com/verify/check/:format
+[GET] https://api.nexmo.com/verify/check/:format
 ```
 
 #### Parameters
