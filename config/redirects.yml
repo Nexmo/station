@@ -1,6 +1,7 @@
 /messaging/sms: /messaging/sms/overview
 /sms: /messaging/sms/overview
 /voice: /voice/overview
+/voice/sip: /voice/sip/overview
 /voice/guides: /voice/overview#references
 /verify: /verify/overview
 /account: /account/overview
@@ -38,4 +39,5 @@
 /number-insight/api-reference: /api/number-insight
 
 /sip: /voice/sip
+/voice/guides/sip: /voice/sip
 /voice/guides/sip: /voice/sip
