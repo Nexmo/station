@@ -3,6 +3,12 @@ title: API reference
 description: Voice API reference
 api: Voice API
 ---
+<!-- 
+Note for editors:
+
+If you add/move/rename sections (etc.), be sure to update the sidebar:
+app/views/layouts/partials/api/_voice.html.erb
+-->
 
 # API reference
 
