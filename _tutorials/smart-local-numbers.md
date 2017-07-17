@@ -6,7 +6,7 @@ description: "Replace your toll-free numbers (e.g. 800, 0800) with easy to use, 
 
 # Voice - Smart Local Numbers
 
-While toll-free numbers can be expensive, they're also one of the least personal ways to provide a customer with a way to reach you. So with that in mind, we're going to replace your expensive toll-free number with multiple localised regional numbers. This will allow you to give your customers a friendly local number to dial while saving you on expensive toll-free number rental costs.
+While toll-free numbers can be expensive, they're also one of the least personal ways to provide a customer with a way to reach you. So with that in mind, we're going to replace your expensive toll-free number with multiple localized regional numbers. This will allow you to give your customers a friendly local number to dial while saving you on expensive toll-free number rental costs.
 
 Additionally, with the power of local numbers, we will show you how you can take some smart steps to provide a more bespoke experience for anyone dialled in, while simultaneously collecting valuable information about your customer's ever changing requirements.
 
@@ -140,7 +140,7 @@ The final step is to reply to the webhook with a set of actions in the form of a
 def respond_with(location, status)
   content_type :json
   return [
-    # A friendly localised welcome message
+    # A friendly localized welcome message
     {
       'action': 'talk',
       'text': "Current status for the #{location} Transport Authority:"
