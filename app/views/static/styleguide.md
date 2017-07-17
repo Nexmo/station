@@ -39,6 +39,10 @@ This is a [link](http://google.com) to Google.
 
 > **Note**: You can use a `>` to specify a blockquote. We use these for tips like this.
 
+**Tooltips (custom plugin)**
+
+Find out ^[more](Tooltips are useful for when you have more information to convey, but don't want to break context.).
+
 ## Images
 
 ![Please always add alt-text](https://media.giphy.com/media/pDTLSpqNvNxlu/giphy.gif)
