@@ -25,7 +25,7 @@ To use Verify Request you:
 ### Request
 
 ```
-[POST] https://api.nexmo.com/verify/:format
+[GET] https://api.nexmo.com/verify/:format
 ```
 
 #### Parameters
@@ -90,7 +90,7 @@ To use Verify Check you:
 ### Request
 
 ```
-[POST] https://api.nexmo.com/verify/check/:format
+[GET] https://api.nexmo.com/verify/check/:format
 ```
 
 #### Parameters
@@ -164,8 +164,8 @@ The following table shows the parameters you use in the request:
 Parameter | Description | Required
 -- | -- | --
 `format` | The response format. Either `json` or `xml` | Yes
-`request_id` | The [request_id](#request_id) you received in the Verify Request [Response](#rresponse).| No
-`request_ids` | More than one [request_id](#request_id). Each request_id is a new parameter in the Verify Search request. | No
+`request_id` | The [request_id](#request_id) you received in the Verify Request [Response](#rresponse). | ^[Conditional](Either `request_id` or `request_ids` must be provided)
+`request_ids` | More than one [request_id](#request_id). Each request_id is a new parameter in the Verify Search request. | ^[Conditional](Either `request_id` or `request_ids` must be provided)
 
 ### Response
 
@@ -264,7 +264,7 @@ Parameter | Description | Required
 -- | -- | --
 `format` | The response format. Either `json` or `xml` | Yes
 `request_id` | The [request_id](#request_id) you received in the Verify Request [Response](#rresponse).| Yes
-`cmd` | Change the command workflow. Supported values are: <ul><li>cancel - stop the request</li><li>trigger_next_event - advance the request to the next part of the process.</li></ul> Verification requests can't be cancelled within the first 30 seconds.	You must wait at least 30s after sending a Verify Request before cancelling. | Yes
+`cmd` | Change the command workflow. Supported values are: <ul><li>`cancel` - stop the request</li><li>`trigger_next_event` - advance the request to the next part of the process.</li></ul> Verification requests can't be cancelled within the first 30 seconds.	You must wait at least 30s after sending a Verify Request before cancelling. | Yes
 
 ### Response
 

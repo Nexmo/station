@@ -353,3 +353,51 @@ blockquote {
   font-size: 13px;
   margin-bottom: 5px;
 }
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  color: $text-subtle;
+  border-bottom: 1px dotted $stone-light;
+  font-size: 0.95em;
+  cursor: pointer;
+
+  &:before {
+    display: none;
+    content: ' ';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 10px 12px 10px;
+    border-color: transparent transparent $atom transparent;
+    position: absolute;
+    left: 50%;
+    margin-left: -5px;
+    bottom: -12px;
+  }
+
+  &:after {
+    display: none;
+    content: attr(data-text);
+    pointer-events: none;
+    background: $atom;
+    color: $white;
+    padding: $spacing / 2;
+    position: absolute;
+    width: 300px;
+    left: 50%;
+    margin-left: -150px;
+    margin-top: 10px;
+    text-align: center;
+    z-index: 2;
+  }
+
+  &:hover, &:focus {
+    outline: none;
+    color: $pink;
+    border-bottom-color: $pink;
+    &:before, &:after {
+      display: block;
+    }
+  }
+}
