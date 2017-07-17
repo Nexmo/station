@@ -79,7 +79,7 @@ Key | Value
 `uuid` | The unique identifier for this call leg. The uuid is created when your call request is accepted by Nexmo. You use uuid in all requests for individual live calls. @[Possible values](/_modals/voice/api/calls/uuid.md).
 `conversation_uuid` | The unique identifier for the conversation this call leg is part of.
 `direction` | Possible values are `outbound` or `inbound`.
-`status` | The status of the call. @[Possible values](/_modals/voice/api/calls/status.md).
+`status` | The status of the call. [Possible values](#status-values).
 
 #### Webhook
 
@@ -103,7 +103,7 @@ Key | Value
 `recording_url` | The URL to download a call or conversation recording from.
 `start_time` | The time the call started in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2020-01-01 12:00:00`.
 `network` | The [Mobile Country Code Mobile Network Code (MCCMNC)](https://en.wikipedia.org/wiki/Mobile_country_code) for the carrier network used to make this call.
-`status` | The status of the call. @[Possible values](/_modals/voice/api/calls/status.md).
+`status` | The status of the call. [Possible values](#status-values).
 `rate` | The price per minute for this call. This is only sent if `status` is `completed`.
 `price` | The total price charged for this call. This is only sent if `status` is `completed`.
 `duration` | The time elapsed for the call to take place in seconds. This is only sent if `status` is `completed`.
@@ -140,7 +140,7 @@ The following table shows the parameters you use to filter the information you r
 
 Parameter | Description | Required
 -- | -- | --
-`status` | Filter on the status of this call. @[Possible values](/_modals/voice/api/calls/status.md) | No
+`status` | Filter on the status of this call. [Possible values](#status-values) | No
 `date_start` | Return the records that occurred after this point in time. Set this parameter in ISO_8601 format: `YYYY-MM-DDTHH:MM:SSZ`. For example, `2016-11-14T07:45:14Z`. | No
 `date_end` | Return the records that occurred before this point in time. Set this parameter in ISO_8601 format. | No
 `page_size` | Return this amount of records in the response. The default value is 10. | No
@@ -210,7 +210,7 @@ Key | Value
 `conversation_uuid` | The unique identifier for the conversation this call leg is part of.
 `to` | The single or mixed collection of endpoint types you connected to. @[Possible values](/_modals/voice/guides/ncco-reference/endpoint.md).
 `from` | The endpoint you are calling from. Possible value are the same as *to*.
-`status` | Filter on the status of this call. @[Possible values](/_modals/voice/api/calls/status.md)
+`status` | Filter on the status of this call. [Possible values](#status-values).
 `direction` | Possible values are `outbound` or `inbound`.
 `rate` | The price per minute for this call.
 `price` | The total price charged for this call.
@@ -264,7 +264,7 @@ Key | Value
 `conversation_uuid` | The unique identifier for the conversation this call leg is part of.
 `to` | The single or mixed collection of endpoint types you connected to. @[Possible values](/_modals/voice/guides/ncco-reference/endpoint.md).
 `from` | The endpoint you are calling from. Possible value are the same as *to*.
-`status` | Filter on the status of this call. @[Possible values](/_modals/voice/api/calls/status.md)
+`status` | Filter on the status of this call. [Possible values](#status-values)
 `direction` | Possible values are `outbound` or `inbound`.
 `rate` | The price per minute for this call.
 `price` | The total price charged for this call.
@@ -354,7 +354,7 @@ Key | Value
 `conversation_uuid` | The unique identifier for the conversation this call leg is part of.
 `to` | The single or mixed collection of endpoint types you connected to. @[Possible values](/_modals/voice/guides/ncco-reference/endpoint.md).
 `from` | The endpoint you are calling from. Possible value are the same as *to*.
-`status` | Filter on the status of this call. @[Possible values](/_modals/voice/api/calls/status.md)
+`status` | Filter on the status of this call. [Possible values](#status-values)
 `direction` | Possible values are `outbound` or `inbound`.
 `rate` | The price per minute for this call.
 `price` | The total price charged for this call.
@@ -661,7 +661,27 @@ source: '/_examples/api/voice/jwt/'
 
 When you use JWTs for authentication, you must still follow [Security](#security) and [Encoding](#encode).
 
-# Errors
+## `status` values
+
+The table below lists the possible values for the status of a call as returned by a number of Voice API endpoints.
+
+Value | Description
+-- | --
+`started` | Platform has stared the call.
+`ringing` | The user's handset is ringing.
+`answered` | The user has answered your call.
+`machine` | Platform detected an answering machine.
+`complete` | Platform has terminated this call.
+`timeout` | Your user did not answer your call within `ringing_timer` seconds.
+`failed` | The call failed to complete
+`rejected` | The call was rejected
+`unanswered` | The call was not answered
+`busy` | The number being dialled was on another call
+
+When a Call enters a state of `timeout`, `failed`, `rejected`, `unanswered` or `busy` the `event_url` webhook endpoint can optionally return an NCCO to override the current NCCO. See [Connect with fallback NCCO](/voice/guides/ncco-reference#connect_fallback).
+
+
+## Errors
 
 The following HTTP codes are supported:
 
