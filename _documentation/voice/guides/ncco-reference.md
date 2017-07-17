@@ -53,7 +53,6 @@ The record action is asynchronous. Recording starts when the record action is ex
 
 For information about the workflow to follow, see [Recordings](/voice/guides/record-calls-and-conversations).
 
-
 You use the following options to control a `record` action:
 
 Option | Description | Required
@@ -61,7 +60,7 @@ Option | Description | Required
 `format` | Record the Call in a specific format.  Options are: <ul><li>mp3</li><li>wav</li></ul> The default value is *mp3*. | No
 `endOnSilence` | Stop recording after n seconds of silence. Once the recording is stopped the recording data is sent to *event_url*. The range of possible values is *3<=endOnSilence<=10*. | No
 `endOnKey` | Stop recording when a digit is pressed on the handset. Possible values are: `*`, `#` or any single digit e.g. `9` | No
-`timeOut` | The maximum length of a recording in seconds. One the recording is stopped the recording data is sent to *event_url*. The range of possible values is 3<=timeOut<=7200 | No
+`timeOut` | The maximum length of a recording in seconds. One the recording is stopped the recording data is sent to *event_url*. The range of possible values is between `3` seconds and `7200` seconds (2 hours) | No
 `beepStart` | Set to *true* to play a beep when a recording starts | No
 `eventUrl` | The URL to the webhook endpoint that is called asynchronously when a recording is finished. If the message recording is hosted by Nexmo, this webhook contains the [URL you need to download the recording and other meta data](#recording_return_parameters). | No
 `eventMethod` | The HTTP method used to make the request to `eventUrl`. The default value is `POST`. | No
@@ -84,7 +83,7 @@ Possible return parameters are:
 
  Name | Description
  -- | --
- `recording_uuid` | The unique ID for the Call. <br>**Note**: recording_uuid is not the same as the file uuid in *recording_url*.
+ `recording_uuid` | The unique ID for the Call. <br>**Note**: `recording_uuid` is not the same as the file uuid in *recording_url*.
  `recording_url` | The  URL to the file containing the Call recording. To download a recording, see [Record calls and conversations](/voice/guides/record-calls-and-conversations).
  `start_time`  | The time the recording started in the following format: `YYYY-MM-DD HH:MM:SS`. For example `2020-01-01 12:00:00`
  `end_time`  | The time the recording finished in the following format: `YYYY-MM-DD HH:MM:SS`. For example `2020-01-01 12:00:00`
@@ -130,7 +129,7 @@ Option | Description | Required
 `from` | A number in e.164 format that identifies the caller. | No
 `eventType` | Set to `synchronous` to: <ul markdown="1"><li>make the `connect` action synchronous</li><li>enable `eventUrl` to return an NCCO that overrides the current NCCO when a call moves to specific states. See the [Connect with fallback NCCO example](#connect_fallback).</li></ul> | No
 `timeout` |  If the call is unanswered, set the number in seconds before Nexmo stops ringing `endpoint`. The default value is `60`.
-`limit` | Maximum length of the call in seconds. The default and maximum value is `7200`s. | No
+`limit` | Maximum length of the call in seconds. The default and maximum value is `7200` seconds (2 hours). | No
 `machineDetection` | Configure the behavior when Nexmo detects that a destination is an answerphone. Set to either: <ul markdown="1"><li>`continue` - Nexmo sends an HTTP request to `event_url` with the Call event `machine`</li><li>`hangup` - end the Call</li></ul>   |
 `eventUrl` | Set the webhook endpoint that Nexmo calls asynchronously on each of the possible [Call states](/api/voice#status). If `eventType` is set to `synchronous` the `eventUrl` can return an NCCO that overrides the current NCCO when a timeout occurs. | Yes
 `eventMethod` | The HTTP method Nexmo uses to make the request to <i>eventUrl</i>. The default value is `POST`. | No
