@@ -3,7 +3,7 @@ title: Receive a phone call
 navigation_weight: 2
 ---
 
-# Make a phone call
+# Receive a phone call
 
 ```tabbed_examples
 tabs:
