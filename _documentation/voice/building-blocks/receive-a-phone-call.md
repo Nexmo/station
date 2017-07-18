@@ -10,4 +10,6 @@ tabs:
   node:
     source: .repos/nexmo-community/nexmo-node-quickstart/voice/receive-call-webhook.js
     from_line: 13
+  Ruby:
+    source: .repos/nexmo-community/nexmo-ruby-quickstart/voice/inbound_tts_call.rb
 ```
