@@ -99,25 +99,6 @@ class StaticController < ApplicationController
     render layout: 'static'
   end
 
-  def changelog
-    document_paths = Dir.glob("#{Rails.root}/_changelog/**/*.md")
-
-    @side_navigation = 'api/write-the-docs'
-
-    @versions = document_paths.map do |document_path|
-      document = File.read(document_path)
-      body = MarkdownPipeline.new.call(document)
-      frontmatter = YAML.safe_load(document)
-      title = frontmatter['title']
-      version = frontmatter['version']
-      date = Date.parse(frontmatter['date'])
-
-      { title: title, version: version, body: body, date: date }
-    end
-
-    render layout: 'page'
-  end
-
   def robots
     render 'robots.txt'
   end

@@ -23,7 +23,9 @@ Rails.application.routes.draw do
   get '/tools', to: 'static#tools'
   get '/community', to: 'static#community'
   get '/community/past-events', to: 'static#past_events'
-  get '/changelog', to: 'static#changelog'
+
+  get '/changelog', to: 'changelog#index'
+  get '/changelog/:version', to: 'changelog#show', constraints: { version: /\d\.\d\.\d/ }
 
   match '/search', to: 'search#results', via: [:get, :post]
   match '/quicksearch', to: 'search#quicksearch', via: [:get, :post]

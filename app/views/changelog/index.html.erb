@@ -1,0 +1,12 @@
+<center>
+  <h1>Changelog</h1>
+</center>
+
+
+<div class="row" id="primary-content">
+  <div class="columns small-12 medium-10 small-centered medium-centered">
+    <% @versions.reverse.each do |version| %>
+      <%= render 'show', version: version %>
+    <% end %>
+  </div>
+</div>
