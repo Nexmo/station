@@ -19,6 +19,8 @@ class ApplicationController < ActionController::Base
       Bugsnag.notify('404 - Not Found') do |notification|
         notification.add_tab(:request, {
           params: request.params,
+          path: request.path,
+          base_url: request.base_url,
         })
       end
       render 'static/404', status: :not_found, formats: [:html]
