@@ -7,6 +7,15 @@
       "scripts": {
         "test-setup": "rails s -d",
         "test": "rake test:all"
+      },
+      "env": {
+        "ALGOLIA_API_KEY": {},
+        "ALGOLIA_APPLICATION_ID": {},
+        "ALGOLIA_CONFIG": {},
+        "ALGOLIA_PUBLISHABLE_KEY": {},
+        "BUGSNAG_API_KEY": { "required": true },
+        "RACK_ENV": { "required": true },
+        "RAILS_ENV": { "required": true }
       }
     }
   }
