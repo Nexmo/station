@@ -24,6 +24,8 @@ en:
   menu:
     messaging: Messaging
     voice: Voice
+    voice-api: Voice API
+    sip: SIP
     account: Account
     number-insight: Number Insight
 
