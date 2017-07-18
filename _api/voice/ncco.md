@@ -25,7 +25,7 @@ All the actions can return the following [error codes ](#errors).
 
 > **Note**: [Controlling a Call with Nexmo Call Control Objects](/voice/guides/ncco#controlling) explains how to provide your NCCOs to Nexmo after you initiate a Call or Conference.
 
-## `record`
+## Record
 
 Use the `record` action to record a Call or part of a Call:
 
@@ -91,9 +91,9 @@ Possible return parameters are:
  `size` | The size of the recording at *recording_url* in bytes. For example: `603423`
  `conversation_uuid` | The unique ID for this Call.
 
-## `conversation`
+## Conversation
 
-You use the conversation NCCO to create standard or moderated Conversations. The first person to call the virtual number assigned to the Conversation creates it. This action is synchronous, the Conversation lasts until the number of participants is 0.
+You can use the `conversation` action to create standard or moderated Conversations. The first person to call the virtual number assigned to the Conversation creates it. This action is synchronous, the Conversation lasts until the number of participants is 0.
 
 > **Note**: you can invite up to 50 people to your Conversation.
 
@@ -116,9 +116,9 @@ Option | Description | Required
 `eventMethod` | Set the HTTP method used to make the request to `eventUrl`. The default value is POST. | No
 
 <a name="connect"></a>
-## `connect`
+## Connect
 
-Connect to endpoints such as phone numbers.
+You can use the `connect` action to connect a call to endpoints such as phone numbers.
 
 This action is synchronous, after a *connect* the next action in the NCCO stack is processed. A connect action ends when the endpoint you are calling is busy or unavailable. You ring endpoints sequentially by nesting connect actions.
 
@@ -272,9 +272,9 @@ You can provide a fallback for Calls that do not connect. To do this set the `ev
 ]
 ```
 
-## `talk`
+## Talk
 
-Send synthesized speech to a Conversation.
+The `talk` action sends synthesized speech to a Conversation.
 
 By default, the talk action is synchronous. However, if you set *bargeIn* to *true* you must set an *input* action later in the NCCO stack.  
 The following NCCO examples shows how to send a synthesized speech message to a Conversation or Call:
@@ -303,8 +303,8 @@ You use the following options to control a *talk* action:
 
 
 <a name="stream"></a>
-## `stream`
-Send an audio stream to a Conversation
+## Stream
+The `stream` action allows you to send an audio stream to a Conversation
 
 By default, the talk action is synchronous. However, if you set *bargeIn* to *true* you must set an *input* action later in the NCCO stack.  
 
