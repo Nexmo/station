@@ -41,3 +41,4 @@
 /sip: /voice/sip
 /voice/guides/sip: /voice/sip
 /voice/guides/sip: /voice/sip
+/voice/overview: /voice/voice-api/overview
