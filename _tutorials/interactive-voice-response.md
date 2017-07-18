@@ -1,6 +1,6 @@
 ---
 title: Interactive Voice Response
-products: voice
+products: voice/voice-api
 description: Make it easy for visitors to navigate an Interactive Voice Response (IVR) application with simple text-to-speech (TTS) prompts.
 ---
 
