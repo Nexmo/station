@@ -1,6 +1,6 @@
 ---
 title: Private voice communication
-products: voice
+products: voice/voice-api
 description: Protect user's number privacy by connecting users together for private voice communication.
 ---
 
