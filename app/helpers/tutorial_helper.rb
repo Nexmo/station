@@ -11,6 +11,7 @@ module TutorialHelper
 
   def normalise_product_title(product)
     return "SMS" if product == 'messaging/sms'
+    return "Voice" if product == "voice/voice-api"
     return "Number Insight" if product == "number-insight"
     return product.camelcase
   end
