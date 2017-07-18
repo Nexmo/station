@@ -55,7 +55,7 @@ Retrieve inbound numbers that are available for a given country.
 #### Request
 
 ```
-[GET] https://rest.nexmo.com/numbers/search
+[GET] https://rest.nexmo.com/number/search
 ```
 
 ##### Parameters
