@@ -137,7 +137,7 @@
   font-family: 'Averta', sans-serif;
 
   &:focus {
-    border-color: mix($pink, $ice);
+    border-color: $blue;
   }
 
   @include tablet-only {
