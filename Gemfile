@@ -10,7 +10,7 @@ end
 gem 'rails', '~> 5.1.0.rc1'
 gem 'webpacker', github: 'rails/webpacker'
 
-gem 'actionpack-action_caching'
+gem 'actionpack-action_caching', github: 'nazarok/actionpack-action_caching', branch: 'fix_caches_action_with_layout_false'
 
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'

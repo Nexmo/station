@@ -6,6 +6,14 @@ GIT
       nokogiri (~> 1.5)
 
 GIT
+  remote: https://github.com/nazarok/actionpack-action_caching.git
+  revision: 2661f048e81bccfb4e7419473cf1cc5cfa03a6f1
+  branch: fix_caches_action_with_layout_false
+  specs:
+    actionpack-action_caching (1.2.0)
+      actionpack (>= 4.0.0, < 6)
+
+GIT
   remote: https://github.com/rails/webpacker.git
   revision: f612899f929ec87653eb6eb63a89d29cb83ebe50
   specs:
@@ -34,8 +42,6 @@ GEM
       rack-test (~> 0.6.3)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
-    actionpack-action_caching (1.2.0)
-      actionpack (>= 4.0.0, < 6)
     actionview (5.1.0.rc1)
       activesupport (= 5.1.0.rc1)
       builder (~> 3.1)
@@ -300,7 +306,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  actionpack-action_caching
+  actionpack-action_caching!
   administrate (~> 0.4.0)
   algoliasearch
   banzai (~> 0.1.2)
