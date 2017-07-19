@@ -20,8 +20,16 @@
 
     a {
       margin-left: $spacing;
+      letter-spacing: 0.13px;
+
       @include mobile {
         margin: 0 $spacing/2 0 $spacing/2;
+      }
+
+      &:hover {
+        color: $white;
+        font-weight: 600;
+        letter-spacing: 0px;
       }
     }
 
