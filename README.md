@@ -89,6 +89,14 @@ To pull a single repo provide the GitHub repo name and optional branch:
 $ rake repos:pull nexmo-community/nexmo-ruby-quickstart master
 ```
 
+### Pre-Commit hooks
+
+This repository uses Yelp's [Pre-Commit framework](http://pre-commit.com/) for managing shared pre-commit hooks.
+
+These include checks to ensure syntactic validity of XML, JSON and YAML files, as well as unfinished merge conflicts and case conflicts in filenames.
+
+This is optional. See the pre-commit website for installation instructions.
+
 ## Troubleshooting
 
 #### I'm getting an error `A server is already running.  Check /myapp/tmp/pids/server.pid.` when I run `docker-compose up`.
