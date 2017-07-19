@@ -20,6 +20,8 @@ class SlackController < ApplicationController
         case response['error']
         when 'already_invited'
           @notice = "It looks like you've already been sent an invitation."
+        when 'already_in_team'
+          @notice = 'You are already a member of this Slack'
         else
           Bugsnag.notify('Slack Error') do |notification|
             notification.add_tab(:slack, { response: response })
