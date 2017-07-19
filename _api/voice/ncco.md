@@ -1,6 +1,7 @@
 ---
 title: NCCO reference
 description: The Nexmo Call Control Objects used to manage your Voice API calls.
+api: "Voice API: NCCO"
 ---
 
 # NCCO reference
@@ -92,7 +93,7 @@ Possible return parameters are:
 
 ## Conversation
 
-You use the conversation NCCO to create standard or moderated Conversations. The first person to call the virtual number assigned to the Conversation creates it. This action is synchronous, the Conversation lasts until the number of participants is 0.
+You can use the `conversation` action to create standard or moderated Conversations. The first person to call the virtual number assigned to the Conversation creates it. This action is synchronous, the Conversation lasts until the number of participants is 0.
 
 > **Note**: you can invite up to 50 people to your Conversation.
 
@@ -115,9 +116,9 @@ Option | Description | Required
 `eventMethod` | Set the HTTP method used to make the request to `eventUrl`. The default value is POST. | No
 
 <a name="connect"></a>
-##Connect
+## Connect
 
-Connect to endpoints such as phone numbers.
+You can use the `connect` action to connect a call to endpoints such as phone numbers.
 
 This action is synchronous, after a *connect* the next action in the NCCO stack is processed. A connect action ends when the endpoint you are calling is busy or unavailable. You ring endpoints sequentially by nesting connect actions.
 
@@ -273,7 +274,7 @@ You can provide a fallback for Calls that do not connect. To do this set the `ev
 
 ## Talk
 
-Send synthesized speech to a Conversation.
+The `talk` action sends synthesized speech to a Conversation.
 
 By default, the talk action is synchronous. However, if you set *bargeIn* to *true* you must set an *input* action later in the NCCO stack.  
 The following NCCO examples shows how to send a synthesized speech message to a Conversation or Call:
@@ -302,8 +303,8 @@ You use the following options to control a *talk* action:
 
 
 <a name="stream"></a>
-##Stream
-Send an audio stream to a Conversation
+## Stream
+The `stream` action allows you to send an audio stream to a Conversation
 
 By default, the talk action is synchronous. However, if you set *bargeIn* to *true* you must set an *input* action later in the NCCO stack.  
 
@@ -341,7 +342,7 @@ WAV:
 * G.711 A-law/u-law
 * Microsoft GSM
 
-## Input
+## `input`
 
 You use the `input` action to collect digits input by the person you are calling. This action is synchronous, Nexmo processes the input and forwards it in the [parameters](#input_return_parameters) sent to the `eventURL` webhook endpoint you configure in your request. Your webhook endpoint should return another NCCO that replaces the existing NCCO and controls the Call based on the user input. You use this functionality to create an Interactive Voice Response (IVR). For example, if your user presses *4*, you return a [connect](#connect) NCCO that forwards the call to your sales department.
 
@@ -407,13 +408,13 @@ uuid | The unique ID of the Call leg for the user initiating the input.
 `dtmf` | The numbers input by your callee, in order.
 
 
-## Errors
+## Status Codes
 
 The following HTTP codes are supported:
 
 Status | Description
 -- | --
- | Success
+`200` | Success
 `201` | Resource created
 `204` | No content
 `401` | Unauthorised
