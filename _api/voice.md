@@ -20,10 +20,6 @@ You use the following requests to create, terminate, record and retrieve informa
 
 [POST] `https://api.nexmo.com/v1/calls`
 
-```tabbed_examples
-source: '/_examples/api/voice/calls/post'
-```
-
 This request contains:
 
 * A [Base URL](#ccbase)
@@ -120,11 +116,6 @@ Key | Value
 [GET] `https://api.nexmo.com/v1/calls`
 
 You use a [GET] request to retrieve the details about all your calls.
-
-```tabbed_examples
-source: '/_examples/api/voice/calls/get'
-```
-
 
 This request contains:
 
@@ -231,10 +222,6 @@ Key | Value
 
 You use a GET request to retrieve information about a single call.
 
-```tabbed_examples
-source: '/_examples/api/voice/calls/show'
-```
-
 This request contains:
 
 * A [Base URL](#crsbase)
@@ -284,10 +271,6 @@ Key | Value
 [PUT] `https://api.nexmo.com/v1/calls/{uuid}`
 
 You use a [PUT] request to modify an existing call.
-
-```tabbed_examples
-source: '/_examples/api/voice/calls/update'
-```
 
 This request contains:
 
@@ -380,10 +363,6 @@ You use the following requests to start and stop streaming audio to an active ca
 
 You use a PUT request to stream an audio file to an active call.
 
-```tabbed_examples
-source: '/_examples/api/voice/calls/streams/update'
-```
-
 This request contains:
 
 * A [Base URL](#cspbase)
@@ -432,10 +411,6 @@ Key | Value
 
 You use a [DELETE] request to stop streaming audio to an active call.
 
-```tabbed_examples
-source: '/_examples/api/voice/calls/streams/destroy'
-```
-
 This request contains:
 
 * A [Base URL](#csdbase)
@@ -483,10 +458,6 @@ You use the following requests to start and stop synthesized audio messages in a
 [PUT] `https://api.nexmo.com/v1/calls/{uuid}/talk`
 
 You use a PUT request to send a synthesized speech message to an active call.
-
-```tabbed_examples
-source: '/_examples/api/voice/calls/talk/update'
-```
 
 This request contains:
 
@@ -537,10 +508,6 @@ Key | Value
 
 You use a DELETE request to stop send synthesized audio to an active call.
 
-```tabbed_examples
-source: '/_examples/api/voice/calls/talk/destroy'
-```
-
 This request contains:
 
 * A [Base URL](#ctdbase)
@@ -588,10 +555,6 @@ You can use the following requests to use DTMF tones in your calls.
 [PUT] `https://api.nexmo.com/v1/calls/{uuid}/dtmf`
 
 You use a PUT request to send DTMF tones to an active call.
-
-```tabbed_examples
-source: '/_examples/api/voice/calls/dtmf/update'
-```
 
 This request contains:
 
@@ -660,10 +623,6 @@ The Nexmo Voice API uses JWTs to authenticate calls from your application. You g
 A JWT consists of a header, a payload and a signature in the structure xxxxx.yyyyy.zzzzz. For more information, see  <https://jwt.io/introduction/> and the [JWT reference ](/concepts/guides/applications#reference).
 
 The following code examples show how to generate a JWT token:
-
-```tabbed_examples
-source: '/_examples/api/voice/jwt/'
-```
 
 When you use JWTs for authentication, you must still follow [Security](#security) and [Encoding](#encode).
 
