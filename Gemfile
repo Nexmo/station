@@ -72,6 +72,9 @@ gem 'colorize'
 # A simple Ruby client for the algolia.com REST API
 gem 'algoliasearch'
 
+# A simple HTTP and REST client for Ruby, inspired by the Sinatra microframework style of specifying actions: get, put, post, delete.
+gem 'rest-client'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
