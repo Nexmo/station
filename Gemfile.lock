@@ -6,14 +6,6 @@ GIT
       nokogiri (~> 1.5)
 
 GIT
-  remote: https://github.com/nazarok/actionpack-action_caching.git
-  revision: 2661f048e81bccfb4e7419473cf1cc5cfa03a6f1
-  branch: fix_caches_action_with_layout_false
-  specs:
-    actionpack-action_caching (1.2.0)
-      actionpack (>= 4.0.0, < 6)
-
-GIT
   remote: https://github.com/rails/webpacker.git
   revision: f612899f929ec87653eb6eb63a89d29cb83ebe50
   specs:
@@ -306,7 +298,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  actionpack-action_caching!
   administrate (~> 0.4.0)
   algoliasearch
   banzai (~> 0.1.2)

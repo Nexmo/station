@@ -1,6 +1,4 @@
 class MarkdownController < ApplicationController
-  caches_action :show, layout: false
-
   before_action :set_navigation
   before_action :set_product
   before_action :set_document
