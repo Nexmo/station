@@ -156,6 +156,10 @@ a {
   color: $link;
   cursor: pointer;
 
+  &:hover {
+    color: $link-hover;
+  }
+
   nav &, h1 & {
     border-bottom: none;
   }

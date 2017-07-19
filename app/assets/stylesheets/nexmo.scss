@@ -1,6 +1,7 @@
 @import "reset";
 
 $blue: #0077C8;
+$blue-light: #00bfff;
 $pink: #E6547B;
 $purple: #936FD2;
 $green: #32BA86;
@@ -28,6 +29,7 @@ $verify: #6b85d2;
 
 $primary: $pink;
 $link: $blue;
+$link-hover: $blue-light;
 $link-subtle: desaturate(lighten($link, 25%), 65%);
 $positive: $green;
 $negative: $red;
