@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "postdeploy": "rake search_terms:algolia:refresh"
+  },
   "environments": {
     "test": {
       "addons":[
