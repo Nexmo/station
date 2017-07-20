@@ -120,7 +120,7 @@ ul, ol, p, h1, h2, h3, h4, h5, h6, table {
 
   a code {
     &:after {
-      font: normal normal normal 14px/1 FontAwesome;
+      font: normal normal normal 14px/1 icomoon;
       content: "\f138";
       margin-left: 5px;
       font-size: 0.8em;
@@ -164,7 +164,7 @@ a {
     border-bottom: none;
   }
 
-  .fa-external-link {
+  .icon-external-link {
     font-size: 0.7em;
   }
 }

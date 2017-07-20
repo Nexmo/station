@@ -6,7 +6,6 @@ title: Styleguide
 
 # Styleguide
 
-
 Here is a complete overview of the basic markdown and custom plugins that Nexmo Developer supports.
 
 We use plugins sparingly to extend functionality where the only other option would be HTML.
