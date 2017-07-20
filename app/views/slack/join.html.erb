@@ -4,8 +4,9 @@
   <h1 class="spacious">Join the Nexmo Community Slack</h1>
 
   <% unless @success %>
-      <%= email_field_tag :email, '', class: 'input input--large', placeholder: 'Enter Your Email Address' %>
     <%= form_tag community_slack_path do %>
+      <%= email_field_tag :email, (@email || ''), class: 'input input--large', placeholder: 'Enter Your Email Address' %>
+      <%= recaptcha_tags if ENV['RECAPTCHA_ENABLED'] %>
       <%= submit_tag 'Join', class: 'button' %>
     <% end %>
   <% end %>
