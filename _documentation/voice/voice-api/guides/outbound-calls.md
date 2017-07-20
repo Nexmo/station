@@ -10,11 +10,12 @@ The workflow to make a Call using the Voice API is:
 ![Outbound call workflow](/assets/images/workflow_voice_api_outbound_call.svg)
 
 1. You make an [authenticated](/concepts/guides/applications#minting) Call request to the Voice API.
-2. Nexmo accepts the request and sends response information.  
-3. Nexmo makes a GET request to retrieve an NCCO from your *answer_url* webhook endpoint.
-4. Nexmo places a call and follows the actions in your NCCO.
-4. Nexmo sends POST request to your *event_url* webhook endpoint when the Call status changes.
- For more advanced systems, depending on the input from your user, you can return an NCCO to customize their experience.
+2. Nexmo accepts the request and sends response information.
+3. Nexmo places a call and awaits an answer.
+4. On answer, Nexmo makes a GET request to retrieve an NCCO from your *answer_url* webhook endpoint and follows the actions in your NCCO.
+5. Nexmo sends a POST request to your *event_url* webhook endpoint when the Call status changes.
+
+For more advanced systems, depending on the input from your user, you can return an NCCO to customize their experience.
 
 To create a Call using the Voice API:
 

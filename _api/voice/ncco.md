@@ -1,6 +1,7 @@
 ---
 title: NCCO reference
 description: The Nexmo Call Control Objects used to manage your Voice API calls.
+api: "Voice API: NCCO"
 ---
 
 # NCCO reference
@@ -92,7 +93,7 @@ Possible return parameters are:
 
 ## Conversation
 
-You use the conversation NCCO to create standard or moderated Conversations. The first person to call the virtual number assigned to the Conversation creates it. This action is synchronous, the Conversation lasts until the number of participants is 0.
+You can use the `conversation` action to create standard or moderated Conversations. The first person to call the virtual number assigned to the Conversation creates it. This action is synchronous, the Conversation lasts until the number of participants is 0.
 
 > **Note**: you can invite up to 50 people to your Conversation.
 
@@ -115,9 +116,9 @@ Option | Description | Required
 `eventMethod` | Set the HTTP method used to make the request to `eventUrl`. The default value is POST. | No
 
 <a name="connect"></a>
-##Connect
+## Connect
 
-Connect to endpoints such as phone numbers.
+You can use the `connect` action to connect a call to endpoints such as phone numbers.
 
 This action is synchronous, after a *connect* the next action in the NCCO stack is processed. A connect action ends when the endpoint you are calling is busy or unavailable. You ring endpoints sequentially by nesting connect actions.
 
@@ -273,7 +274,7 @@ You can provide a fallback for Calls that do not connect. To do this set the `ev
 
 ## Talk
 
-Send synthesized speech to a Conversation.
+The `talk` action sends synthesized speech to a Conversation.
 
 By default, the talk action is synchronous. However, if you set *bargeIn* to *true* you must set an *input* action later in the NCCO stack.  
 The following NCCO examples shows how to send a synthesized speech message to a Conversation or Call:
@@ -296,14 +297,70 @@ You use the following options to control a *talk* action:
 <tr><td>text</td><td>A string of up to 1500 characters containing the message to be synthesized in the Call or Conversation. Each comma in <i>text</i> adds a short pause to the synthesized speech.</td><td>Yes</td></tr>
 <tr><td>bargeIn</td><td>Set to <i>true</i> so this action is terminated when the user presses a button on the keypad. Use this feature to enable users to choose an option without having to listen to the whole message in your [Interactive Voice Response (IVR](/voice/guides/interactive-voice-response) ). If you set <i>bargeIn</i> to <i>true</i> the next action in the NCCO stack <b>must</b> be an <i>input</i> action. The default value is <i>false</i>.</td><td>No</td></tr>
 <tr><td>loop</td><td>The number of times <i>text</i> is repeated before the Call is closed. The default value is 1. Set to 0 to loop infinitely.</td><td>No</td></tr>
-<tr><td>voiceName</td><td>The name of the voice used to deliver <i>text</i>. You use the voiceName that has the correct language, gender and accent for the message you are sending. For example, the default voice <i>kimberly</i> is a female who speaks English with an American accent (en-US). @[Possible values](/_modals/voice/guides/ncco-reference/voice-name.md)</td><td>No</td></tr>
+<tr><td>voiceName</td><td>The name of the voice used to deliver <i>text</i>. You use the voiceName that has the correct language, gender and accent for the message you are sending. For example, the default voice <i>kimberly</i> is a female who speaks English with an American accent (en-US). Possible values are listed below.</td><td>No</td></tr>
 </tbody>
 </table>
 
+### Voice names
+
+Name | Language | Gender
+-- | -- | --
+`Salli` | `en-US` | `female`
+`Joey` | `en-US` | `male`
+`Naja` | `da-DK` | `female`
+`Mads` | `da-DK` | `male`
+`Marlene` | `de-DE` | `female`
+`Hans` | `de-DE` | `male`
+`Nicole` | `en-AU` | `female`
+`Russell` | `en-AU` | `male`
+`Amy` | `en-GB` | `female`
+`Brian` | `en-GB` | `male`
+`Emma` | `en-GB` | `female`
+`Gwyneth` | `en-GB` | `WLS female`
+`Geraint` | `en-GB` | `WLS male`
+`Gwyneth` | `cy-GB` | `WLS female`
+`Geraint` | `cy-GB` | `WLS male`
+`Raveena` | `en-IN` | `female`
+`Chipmunk` | `en-US` | `male`
+`Eric` | `en-US` | `male`
+`Ivy` | `en-US` | `female`
+`Jennifer` | `en-US` | `female`
+`Justin` | `en-US` | `male`
+`Kendra` | `en-US` | `female`
+`Kimberly` | `en-US` | `female`
+`Conchita` | `es-ES` | `female`
+`Enrique` | `es-ES` | `male`
+`Penelope` | `es-US` | `female`
+`Miguel` | `es-US` | `male`
+`Chantal` | `fr-CA` | `female`
+`Celine` | `fr-FR` | `female`
+`Mathieu` | `fr-FR` | `male`
+`Dora` | `is-IS` | `female`
+`Karl` | `is-IS` | `male`
+`Carla` | `it-IT` | `female`
+`Giorgio` | `it-IT` | `male`
+`Liv` | `nb-NO` | `female`
+`Lotte` | `nl-NL` | `female`
+`Ruben` | `nl-NL` | `male`
+`Agnieszka` | `pl-PL` | `female`
+`Jacek` | `pl-PL` | `male`
+`Ewa` | `pl-PL` | `female`
+`Jan` | `pl-PL` | `male`
+`Maja` | `pl-PL` | `female`
+`Vitoria` | `pt-BR` | `female`
+`Ricardo` | `pt-BR` | `male`
+`Cristiano` | `pt-PT` | `male`
+`Ines` | `pt-PT` | `female`
+`Carmen` | `ro-RO` | `female`
+`Maxim` | `ru-RU` | `male`
+`Tatyana` | `ru-RU` | `female`
+`Astrid` | `sv-SE` | `female`
+`Filiz` | `tr-TR` | `female`
+
 
 <a name="stream"></a>
-##Stream
-Send an audio stream to a Conversation
+## Stream
+The `stream` action allows you to send an audio stream to a Conversation
 
 By default, the talk action is synchronous. However, if you set *bargeIn* to *true* you must set an *input* action later in the NCCO stack.  
 
@@ -341,7 +398,7 @@ WAV:
 * G.711 A-law/u-law
 * Microsoft GSM
 
-## Input
+## `input`
 
 You use the `input` action to collect digits input by the person you are calling. This action is synchronous, Nexmo processes the input and forwards it in the [parameters](#input_return_parameters) sent to the `eventURL` webhook endpoint you configure in your request. Your webhook endpoint should return another NCCO that replaces the existing NCCO and controls the Call based on the user input. You use this functionality to create an Interactive Voice Response (IVR). For example, if your user presses *4*, you return a [connect](#connect) NCCO that forwards the call to your sales department.
 
@@ -407,13 +464,13 @@ uuid | The unique ID of the Call leg for the user initiating the input.
 `dtmf` | The numbers input by your callee, in order.
 
 
-## Errors
+## Status Codes
 
 The following HTTP codes are supported:
 
 Status | Description
 -- | --
- | Success
+`200` | Success
 `201` | Resource created
 `204` | No content
 `401` | Unauthorised
