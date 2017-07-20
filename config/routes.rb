@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   get '/contribute/styleguide', to: 'static#styleguide'
   get '/contribute/write-the-docs', to: 'static#write_the_docs'
 
+  get '/community/slack', to: 'slack#join'
+  post '/community/slack', to: 'slack#invite'
+
   get '/tools', to: 'static#tools'
   get '/community', to: 'static#community'
   get '/community/past-events', to: 'static#past_events'
