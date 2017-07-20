@@ -1,4 +1,5 @@
 class SlackController < ApplicationController
+  before_action :set_header
   def join
   end
 
@@ -34,5 +35,11 @@ class SlackController < ApplicationController
     end
 
     render 'join'
+  end
+
+  private
+
+  def set_header
+    @navigation = :community
   end
 end
