@@ -274,6 +274,12 @@ You can use a [PUT] request to modify an existing call. You can use this to term
 
 These requests must be authenticated using a [JSON Web Token (JWT)](#jwt_minting).
 
+#### Base URL
+
+All requests to modify an existing call must contain:
+
+* `https://api.nexmo.com/v1/calls/{uuid}`
+
 #### Payload 
 
 The request body is a JSON-encoded object. The request body's content depends on the `action` performed.
