@@ -6,6 +6,12 @@ $hero-gradient: darken($mint, 3%);
   h1 {
     font-size: 55px;
     line-height: 55px;
+
+    @include mobile {
+
+        font-size: 32px;
+        line-height: 32px;
+    }
   }
 }
 
