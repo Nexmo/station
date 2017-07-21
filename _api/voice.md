@@ -270,42 +270,48 @@ Key | Value
 
 [PUT] `https://api.nexmo.com/v1/calls/{uuid}`
 
-You use a [PUT] request to modify an existing call.
+You can use a [PUT] request to modify an existing call. You can use this to terminate a call, mute or unmute a call, "earmuff" a call (which suspends audio to one call) or "unearmuff" it, and to transfer the call to a different NCCO.
 
-This request contains:
-
-* A [Base URL](#cmsbase)
-* [Payload](#cmsparameters )
-* [JWT](#jwt_minting)
-
-You receive details about the all in the [response](#cmsresponse).
+These requests must be authenticated using a [JSON Web Token (JWT)](#jwt_minting).
 
 #### Base URL
+
 All requests to modify an existing call must contain:
 
 * `https://api.nexmo.com/v1/calls/{uuid}`
 
-#### Payload
+#### Payload 
 
-The payload to modify a call looks like.
-
-**Hangup**
-
-```json
-{
-  "action": "hangup"
-}
-```
+The request body is a JSON-encoded object. The request body's content depends on the `action` performed.
 
 The following table shows the parameters you use to modify a call:
 
 Parameter | Description | Required
 -- | -- | --
-`action` | Possible values are `hangup` | Yes
+`action` | Possible values are described below. | Yes
+`destination` | A JSON object pointing to a replacement NCCO, when `action` is `transfer`. | No
+
+Possible values for `action` are:
+
+Action value | Description
+-------------| -----------
+`hangup`     | Terminates this call leg.
+`mute`       | Mutes this call leg.
+`unmute`     | Unmutes this call leg.
+`earmuff`    | Prevents the recipient of this call leg from hearing other parts of the conversation.
+`unearmuff`  | Removes the earmuff effect from this call leg.
+`transfer`   | Transfers this call leg to another NCCO, as specified by the `destination` parameter.
+
+For every action parameter except `transfer`, no further keys are required in the JSON document. For `transfer`, a `destination` key containing a JSON object must be provided. Examples for these are given below.
+
+```tabbed_content
+source: '_examples/api/voice/calls/put-request'
+```
+
 
 #### Response
 
-The JSON response looks like:
+The JSON response contains current details of the call. An example is provided below.
 
 ```json
 {
@@ -324,7 +330,7 @@ The JSON response looks like:
     "type": "phone",
     "number": "447700900001"
   },
-  "status": "complete",
+  "status": "completed",
   "direction": "outbound",
   "rate": "0.39",
   "price": "23.40",
@@ -636,7 +642,7 @@ Value | Description
 `ringing` | The user's handset is ringing.
 `answered` | The user has answered your call.
 `machine` | Platform detected an answering machine.
-`complete` | Platform has terminated this call.
+`completed` | Platform has terminated this call.
 `timeout` | Your user did not answer your call within `ringing_timer` seconds.
 `failed` | The call failed to complete
 `rejected` | The call was rejected
