@@ -52,6 +52,10 @@
     width: 43px;
     height: 38px;
   }
+
+  @include tablet-only {
+    font-size: 20px;
+  }
 }
 
 #subnav {
@@ -86,7 +90,7 @@
     float: right;
   }
 
-  @include mobile {
+  @include tablet {
     .container {
       display: flex;
       flex-wrap: wrap;
@@ -100,7 +104,7 @@
         flex-grow: 1;
         margin: 0;
         margin-bottom: 10px;
-        min-width: 300px;
+        min-width: 150px;
         input {
           float: none;
           width: 100%;
@@ -126,6 +130,10 @@
 
   &:focus {
     border-color: mix($pink, $ice);
+  }
+
+  @include tablet-only {
+    width: 150px;
   }
 }
 

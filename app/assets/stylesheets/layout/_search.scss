@@ -79,6 +79,11 @@ form {
   margin-top: 40px;
   z-index: 5;
 
+
+  @include tablet-only {
+    width: 100vw;
+  }
+
   .search-result > a {
     padding: 0;
   }

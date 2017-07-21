@@ -39,7 +39,7 @@ $desktop: 1024px;
 }
 
 @mixin tablet-only() {
-  $min: $mobile;
+  $min: $tablet;
   $max: $desktop - 1;
 
   @include media-query(
