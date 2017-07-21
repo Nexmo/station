@@ -42,3 +42,9 @@
     <%= link_to "view #{pluralize @past_events_count, 'past event'}", community_past_events_path %>
   </p>
 <% end %>
+
+<hr>
+
+<center class="spacious">
+  <h2><%= image_tag 'slack.svg', width: 40, id: 'community-slack-image' %> Join the <%= link_to "Nexmo Community Slack", community_slack_path %></h2>
+</center>

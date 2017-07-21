@@ -1,0 +1,26 @@
+$border: 1px solid darken($mint, 15%);
+
+.input {
+  display: inline-block;
+  width: 280px;
+  padding: 10px;
+  font-size: 14px;
+  line-height: 20px;
+  font-family: 'Averta';
+  border: $border;
+  border: $border;
+  box-shadow: $shadow;
+  background: $white;
+  border-radius: $radius;
+  vertical-align: bottom;
+
+  &:focus {
+    border-color: $blue;
+    outline: none;
+    -webkit-apperence: none;
+  }
+}
+
+.g-recaptcha {
+  margin: $spacing 0; 
+}
