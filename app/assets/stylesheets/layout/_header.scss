@@ -4,6 +4,11 @@
   color: $white;
   padding: $spacing 0;
 
+  @include mobile {
+    text-align: center;
+    padding: $spacing*0.75 0 $spacing*0.5 0;
+  };
+
   a {
     color: mix($white, $blue, 90%);
     border: none;
@@ -15,8 +20,17 @@
 
     a {
       margin-left: $spacing;
+      @include mobile {
+        margin: 0 $spacing/2 0 $spacing/2;
+      }
     }
+
+    @include mobile {
+      float: none;
+    };
   }
+
+  // @media screen and (max-width: )
 }
 
 #logo {
@@ -37,6 +51,10 @@
     background-size: contain;
     width: 43px;
     height: 38px;
+  }
+
+  @include tablet-only {
+    font-size: 20px;
   }
 }
 
@@ -71,6 +89,29 @@
   form {
     float: right;
   }
+
+  @include tablet {
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      > a {
+        margin-right: 0;
+        text-align: center;
+        flex-grow: 1;
+      }
+
+      form {
+        flex-grow: 1;
+        margin: 0;
+        margin-bottom: 10px;
+        min-width: 150px;
+        input {
+          float: none;
+          width: 100%;
+        }
+      }
+    }
+  };
 }
 
 #searchbox {
@@ -89,6 +130,10 @@
 
   &:focus {
     border-color: mix($pink, $ice);
+  }
+
+  @include tablet-only {
+    width: 150px;
   }
 }
 

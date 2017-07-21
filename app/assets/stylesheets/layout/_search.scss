@@ -1,6 +1,7 @@
 $quick-search-width: 800px;
 
 .search-result {
+  overflow: hidden;
   > a {
     display: block;
     padding: $spacing/2 0;
@@ -78,6 +79,11 @@ form {
   margin-top: 40px;
   z-index: 5;
 
+
+  @include tablet-only {
+    width: 100vw;
+  }
+
   .search-result > a {
     padding: 0;
   }
@@ -89,6 +95,30 @@ form {
     > h3 {
       font-size: 1.1em;
       margin-bottom: $spacing;
+    }
+  }
+
+
+  @include mobile {
+    display: block;
+    width: 100%;
+    margin-left: 0;
+    margin-top: 5px;
+
+    a {
+      text-align: left;
+    }
+
+    > .results-index {
+      float: none;
+      width: auto;
+    }
+
+    .search-result {
+      display: none;
+      &:nth-of-type(1), &:nth-of-type(2) {
+        display: block;
+      }
     }
   }
 }

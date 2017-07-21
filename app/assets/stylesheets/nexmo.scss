@@ -47,6 +47,8 @@ $shadow-hard: 0 1px 8px 0 rgba(0,0,0,0.30);
 
 $border: 1px solid darken($mint, 5%);
 
+@import "mixins";
+
 @import "core";
 @import "typography";
 @import "syntax";
