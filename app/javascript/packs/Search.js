@@ -129,7 +129,7 @@ class Search extends React.Component {
   renderLoading() {
     return (
       <div className="spinner">
-        <i className="fa fa-cog"></i>
+        <i className="icon icon-cog"></i>
       </div>
     )
   }
@@ -152,7 +152,7 @@ class Search extends React.Component {
   renderClearButton() {
     if (this.state.query !== '') {
       return (
-        <i id="search-clear" className="fa fa-times-circle" onClick={ this.reset.bind(this) }></i>
+        <i id="search-clear" className="icon icon-times-circle" onClick={ this.reset.bind(this) }></i>
       )
     }
   }
