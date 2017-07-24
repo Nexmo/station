@@ -84,7 +84,7 @@ This section tells you how to:
 
 To configure for SIP forwarding:
 
-1. Sign into [Dashboard](dashboard.nexmo.com/sign-in).
+1. Sign into [Dashboard](https://dashboard.nexmo.com/sign-in).
 2. In Dashboard, click *Products* > *Numbers*.
 3. Scroll to the number to forward from, then select *Forward to SIP*.
 4. Type a valid SIP URI and click *Update*. For example 1234567890@mydomain.com.

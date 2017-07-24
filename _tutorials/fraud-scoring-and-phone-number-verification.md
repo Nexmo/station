@@ -367,7 +367,7 @@ All the code for this tutorial and more is [available on GitHub](https://github.
 
 * [Nexmo Client Library for Node](https://github.com/Nexmo/nexmo-node)
 * [Verify API](/verify/api-reference/)
-* [Verify API reference guide](/api/verifiy)
+* [Verify API reference guide](/api/verify)
 * [Number Insight API](/number-insight)
 * [Number Insight Advanced API](/number-insight)
 * [Number Insight Advanced API Reference](/api/number-insight)

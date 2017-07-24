@@ -311,7 +311,7 @@ end
 
 ## Verify PIN
 
-To validate the PIN submitted by the user you use the [Nexmo REST API client for Ruby](https://github.com/Nexmo/nexmo-ruby) to make a [Verify Check](/api/verifiy#check) request. You pass the *request_id* and the PIN entered by the user to Verify.  
+To validate the PIN submitted by the user you use the [Nexmo REST API client for Ruby](https://github.com/Nexmo/nexmo-ruby) to make a [Verify Check](/api/verify#check) request. You pass the *request_id* and the PIN entered by the user to Verify.  
 
 The Verify API response tells you if the the user entered the correct PIN. If *status* is *0*, log the user in:
 
