@@ -1,6 +1,6 @@
 class ChangelogController < ApplicationController
   def index
-    document_paths = Dir.glob("#{Rails.root}/_changelog/**/*.md")
+    document_paths = Dir.glob("#{Rails.root}/_changelog/**/*.md").sort
 
     @versions = document_paths.map do |document_path|
       document = File.read(document_path)
@@ -12,8 +12,6 @@ class ChangelogController < ApplicationController
 
       { title: title, version: version, body: body, date: date }
     end
-
-    @versions = @versions.sort_by { |version| version['version'] }
 
     render layout: 'page'
   end
