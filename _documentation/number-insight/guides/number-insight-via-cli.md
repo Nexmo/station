@@ -86,7 +86,7 @@ If you are not getting a response using the Number Insight Basic API, you may ne
 
 ## Test the Standard or Advanced API
 
-Once you have checked to make sure a call to the free Number Insight Basic API has worked, you can use the Standard or Advanced APIs, which provide more detail about the number including details of mobile operator, roaming status and so on (see the [Overview](/number-oversight/overview) for a comparison table showing the difference between the various products).
+Once you have checked to make sure a call to the free Number Insight Basic API has worked, you can use the Standard or Advanced APIs, which provide more detail about the number including details of mobile operator, roaming status and so on (see the [Overview](/number-insight/overview) for a comparison table showing the difference between the various products).
 
 To test using the Number Insight Standard API, use `nexmo insight:standard` (or `nexmo is`). To use the Advanced API, use `insight:advanced` (or `ia`).
 
