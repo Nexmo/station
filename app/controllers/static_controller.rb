@@ -99,6 +99,18 @@ class StaticController < ApplicationController
     render layout: 'static'
   end
 
+  def legacy
+    # Read document
+    document = File.read("#{Rails.root}/app/views/static/legacy.md")
+
+    # Parse frontmatter
+    @frontmatter = YAML.safe_load(document)
+    @document_title = @frontmatter['title']
+    @content = MarkdownPipeline.new.call(document)
+
+    render layout: 'page'
+  end
+
   def robots
     render 'robots.txt'
   end
