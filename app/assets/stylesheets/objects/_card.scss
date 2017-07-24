@@ -3,7 +3,7 @@ $ball-size: 44px;
 @mixin card--product($color) {
   color: $color;
   hr { border-top-color: mix($color, $white, 20%) }
-  a, h3 { color: $color; }
+  h3 { color: $color; }
 
   .card--with-icon__divider {
     border-bottom: 2px solid $color;
@@ -31,6 +31,11 @@ $ball-size: 44px;
   a {
     display: inline-block;
     padding: $spacing/2 0;
+    color: $text;
+
+    &:hover {
+      color: $blue;
+    }
 
     &.poster {
       display: block;
@@ -61,6 +66,7 @@ $ball-size: 44px;
   }
 
   h3 {
+    color: $blue;
     margin-bottom: 5px;
   }
 
@@ -75,10 +81,6 @@ $ball-size: 44px;
     a {
       display: block;
       padding: 3px 0;
-
-      &:hover {
-        font-weight: 600;
-      }
     }
 
     br {
