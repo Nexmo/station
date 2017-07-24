@@ -114,6 +114,11 @@
       margin-bottom: 40px;
     }
   }
+
+
+  .navigation--fixed {
+    max-height: none;
+  }
 }
 
 @media screen and (max-width: 640px) {
