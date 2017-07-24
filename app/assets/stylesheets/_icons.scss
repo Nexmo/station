@@ -1,0 +1,214 @@
+$icon-community: "\e901";
+$icon-toolbox: "\e900";
+$icon-star: "\f005";
+$icon-close: "\f00d";
+$icon-remove: "\f00d";
+$icon-times: "\f00d";
+$icon-cog: "\f013";
+$icon-gear: "\f013";
+$icon-book: "\f02d";
+$icon-times-circle: "\f057";
+$icon-check-circle: "\f058";
+$icon-eye: "\f06e";
+$icon-key: "\f084";
+$icon-external-link: "\f08e";
+$icon-twitter: "\f099";
+$icon-github: "\f09b";
+$icon-chain: "\f0c1";
+$icon-link: "\f0c1";
+$icon-cloud: "\f0c2";
+$icon-linkedin: "\f0e1";
+$icon-comments-o: "\f0e6";
+$icon-angle-left: "\f104";
+$icon-angle-right: "\f105";
+$icon-spinner: "\f110";
+$icon-code: "\f121";
+$icon-code-fork: "\f126";
+$icon-microphone: "\f130";
+$icon-stack-overflow: "\f16c";
+$icon-slack: "\f198";
+$icon-id-badge: "\f2c1";
+
+@font-face {
+  font-family: 'icomoon';
+  src:  font-url('icomoon.eot?vz4q9h');
+  src:  font-url('icomoon.eot?vz4q9h#iefix') format('embedded-opentype'),
+        font-url('icomoon.ttf?vz4q9h') format('truetype'),
+        font-url('icomoon.woff?vz4q9h') format('woff'),
+        font-url('icomoon.svg?vz4q9h#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon--large {
+  font-size: 1.33333333em;
+  line-height: .75em;
+  line-height: .75em;
+  vertical-align: -15%;
+}
+
+.icon-community {
+  &:before {
+    content: $icon-community;
+  }
+}
+.icon-toolbox {
+  &:before {
+    content: $icon-toolbox;
+  }
+}
+.icon-star {
+  &:before {
+    content: $icon-star;
+  }
+}
+.icon-close {
+  &:before {
+    content: $icon-close;
+  }
+}
+.icon-remove {
+  &:before {
+    content: $icon-remove;
+  }
+}
+.icon-times {
+  &:before {
+    content: $icon-times;
+  }
+}
+.icon-cog {
+  &:before {
+    content: $icon-cog;
+  }
+}
+.icon-gear {
+  &:before {
+    content: $icon-gear;
+  }
+}
+.icon-book {
+  &:before {
+    content: $icon-book;
+  }
+}
+.icon-times-circle {
+  &:before {
+    content: $icon-times-circle;
+  }
+}
+.icon-check-circle {
+  &:before {
+    content: $icon-check-circle;
+  }
+}
+.icon-eye {
+  &:before {
+    content: $icon-eye;
+  }
+}
+.icon-key {
+  &:before {
+    content: $icon-key;
+  }
+}
+.icon-external-link {
+  &:before {
+    content: $icon-external-link;
+  }
+}
+.icon-twitter {
+  &:before {
+    content: $icon-twitter;
+  }
+}
+.icon-github {
+  &:before {
+    content: $icon-github;
+  }
+}
+.icon-chain {
+  &:before {
+    content: $icon-chain;
+  }
+}
+.icon-link {
+  &:before {
+    content: $icon-link;
+  }
+}
+.icon-cloud {
+  &:before {
+    content: $icon-cloud;
+  }
+}
+.icon-linkedin {
+  &:before {
+    content: $icon-linkedin;
+  }
+}
+.icon-comments-o {
+  &:before {
+    content: $icon-comments-o;
+  }
+}
+.icon-angle-left {
+  &:before {
+    content: $icon-angle-left;
+  }
+}
+.icon-angle-right {
+  &:before {
+    content: $icon-angle-right;
+  }
+}
+.icon-spinner {
+  &:before {
+    content: $icon-spinner;
+  }
+}
+.icon-code {
+  &:before {
+    content: $icon-code;
+  }
+}
+.icon-code-fork {
+  &:before {
+    content: $icon-code-fork;
+  }
+}
+.icon-microphone {
+  &:before {
+    content: $icon-microphone;
+  }
+}
+.icon-stack-overflow {
+  &:before {
+    content: $icon-stack-overflow;
+  }
+}
+.icon-slack {
+  &:before {
+    content: $icon-slack;
+  }
+}
+.icon-id-badge {
+  &:before {
+    content: $icon-id-badge;
+  }
+}

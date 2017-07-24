@@ -1,6 +1,5 @@
 #header {
   background: $blue;
-  background: linear-gradient(135deg, $blue 20%, $verify 80%);
   color: $white;
   padding: $spacing 0;
 
@@ -20,8 +19,16 @@
 
     a {
       margin-left: $spacing;
+      letter-spacing: 0.13px;
+
       @include mobile {
         margin: 0 $spacing/2 0 $spacing/2;
+      }
+
+      b, &:hover {
+        color: $white;
+        font-weight: 600;
+        letter-spacing: 0px;
       }
     }
 
@@ -129,7 +136,7 @@
   font-family: 'Averta', sans-serif;
 
   &:focus {
-    border-color: mix($pink, $ice);
+    border-color: $blue;
   }
 
   @include tablet-only {
