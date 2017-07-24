@@ -10,7 +10,7 @@ class HeadingFilter < Banzai::Filter
 
       heading.prepend_child <<~HEREDOC
         <a href="##{parameterized_heading}" class="heading-permalink">
-          <i class="fa fa-link"></i>
+          <i class="icon icon-link"></i>
         </a>
       HEREDOC
     end
