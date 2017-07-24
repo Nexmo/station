@@ -208,7 +208,7 @@ end
 
 ## Verify the PIN
 
-To verify the PIN submitted by the user you use the Nexmo library to make a [Verify Check](/api/verifiy#check) request. You pass in the `request_id` (which we stored in the user's session data) and the PIN entered by the user.
+To verify the PIN submitted by the user you use the Nexmo library to make a [Verify Check](/api/verify#check) request. You pass in the `request_id` (which we stored in the user's session data) and the PIN entered by the user.
 
 The Verify API response tells you if the user entered the correct PIN. If the `status` is `0`, log the user in.
 

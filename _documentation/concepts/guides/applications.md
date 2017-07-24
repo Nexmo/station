@@ -25,7 +25,7 @@ Name | Description
 
 > **Note**: by default, all HTTP requests are POST.
 
-You use Application API to [create, list, modify and delete applications](/api/developer/application).
+You use Application API to [create, list, modify and delete applications](/api/application).
 
 ## Getting started with applications
 

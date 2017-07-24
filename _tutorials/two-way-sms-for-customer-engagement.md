@@ -49,7 +49,7 @@ In order to work through this tutorial you need:
 
 Nexmo forwards inbound messages to the webhook endpoint associated with your Nexmo virtual number.
 
-You manage virtual numbers using [Developer API](tools/dashboard#rent-vn) or [Nexmo CLI](https://github.com/nexmo/nexmo-cli). The following examples use the [Nexmo CLI](https://github.com/nexmo/nexmo-cli) to rent a Nexmo virtual number:
+You manage virtual numbers using [Developer API](/api/developer/numbers) or [Nexmo CLI](https://github.com/nexmo/nexmo-cli). The following examples use the [Nexmo CLI](https://github.com/nexmo/nexmo-cli) to rent a Nexmo virtual number:
 
 ```sh
 $ nexmo number:buy --country_code US --confirm
