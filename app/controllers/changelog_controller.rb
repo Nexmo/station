@@ -13,6 +13,8 @@ class ChangelogController < ApplicationController
       { title: title, version: version, body: body, date: date }
     end
 
+    @versions = @versions.sort_by { |version| version['version'] }
+
     render layout: 'page'
   end
 
