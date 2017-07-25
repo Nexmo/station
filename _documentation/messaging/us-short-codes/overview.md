@@ -4,11 +4,11 @@ title: Overview
 
 # US Short Codes Overview
 
-Nexmo provide an API for sending SMS messages from a shared short code to mobile device users in the United States.
+Nexmo provides an API for sending SMS messages from a shared short code to mobile device users in the United States.
 
 Customers using the US Short Code API must have the text of their campaign approved by Nexmo. Please contact
 [support@nexmo.com](mailto:support@nexmo.com) if you need to use this API. There are
-[compilance requirements for use of US Short Codes](https://help.nexmo.com/hc/en-us/articles/204015403-Pre-approved-US-Short-Codes-compliance-requirements).
+[compliance requirements for use of US Short Codes](https://help.nexmo.com/hc/en-us/articles/204015403-Pre-approved-US-Short-Codes-compliance-requirements).
 
 Customers using the US Short Codes API use separate endpoints for sending messages to the standard [SMS API](/messaging/sms/overview).
 
