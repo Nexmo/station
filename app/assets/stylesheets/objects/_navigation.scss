@@ -104,8 +104,15 @@
     @include highlighted-navigation($blue);
   }
 
+  .expanded .navigation-item--conversation a {
+    @include highlighted-navigation(darken($green, 15%));
+  }
+
   .navigation-item--ncco-reference a {
     @include highlighted-navigation($gray-dark);
+    .navigation-item--ncco-reference a {
+      @include highlighted-navigation($gray-dark);
+    }
   }
 }
 

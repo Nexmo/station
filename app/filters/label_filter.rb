@@ -17,6 +17,8 @@ class LabelFilter < Banzai::Filter
       'label--code label--negative'
     when 'PUT'
       'label--code label--warning'
+    when 'Conversation'
+      'label--conversation'
     end
   end
 end

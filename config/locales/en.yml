@@ -38,6 +38,7 @@ en:
     sip: SIP
     account: Account
     number-insight: Number Insight
+    conversation: Conversation
 
     us-short-codes: US Short Codes
     sms: SMS

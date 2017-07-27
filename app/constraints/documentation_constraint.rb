@@ -11,7 +11,7 @@ class DocumentationConstraint
   end
 
   def self.product
-    { product: /voice|messaging|verify|number-insight|account|concepts/ }
+    { product: /voice|messaging|verify|number-insight|account|concepts|conversation/ }
   end
 
   def self.product_with_parent

@@ -66,7 +66,11 @@ module ApplicationHelper
   end
 
   def normalised_title(item)
-    (item[:is_file?] ? document_meta(item[:path])['title'] : I18n.t("menu.#{item[:title]}"))
+    if item[:is_file?]
+      document_meta(item[:path])['navigation'] || document_meta(item[:path])['title']
+    else
+      I18n.t("menu.#{item[:title]}")
+    end
   end
 
   def sidenav(path)
