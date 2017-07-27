@@ -35,8 +35,8 @@ The following table shows the parameters you use in the request:
 Parameter | Description | Required
 -- | -- | --
 `format` | The response format. Either `json` or `xml` | Yes
-`number` | The mobile or landline phone number to verify. Unless you are setting [country](#country) explicitly, this number must be in [E.164](http://www.e164.org/) format. For example, `447700900000`. | Yes
-`country` | If do not set *number* in international format or you are not sure if *number* is correctly formatted, set *country* with the two-character country code. For example, *GB*, *US*. Verify works out the international phone number for you. | No
+`number` | The mobile or landline phone number to verify. Unless you are setting `country` explicitly, this number must be in [E.164](http://www.e164.org/) format. For example, `447700900000`. | Yes
+`country` | If do not set *number* in international format or you are not sure if *number* is correctly formatted, set `country` with the two-character country code. For example, *GB*, *US*. Verify works out the international phone number for you. | No
 `brand` | The name of the company or App you are using Verify for.  This 18 character alphanumeric string is used in the body of Verify message. For example: "Your *brand* PIN is ..". |  Yes
 `sender_id` | An 11 character alphanumeric string to specify the SenderID for SMS sent by Verify. Depending on the destination of the phone number you are applying, restrictions may apply. By default, `sender_id` is VERIFY.   |  No
 `code_length` |  The length of the PIN. Possible values are 6 or 4 characters. The default value is 4. |  No
@@ -45,6 +45,7 @@ Parameter | Description | Required
 `pin_expiry` |  The PIN validity time from generation. This is an integer value between 60 and 3600 seconds. The default is 300 seconds. When specified together, pin_expiry must be an integer multiple of `next_event_wait`. Otherwise, pin_expiry is set to equal next_event_wait. For example: <ul><li>`pin_expiry` = 360 seconds, so `next_event_wait` = 120 seconds - all three attempts have the same PIN.</li><li>`pin_expiry` = 240 seconds, so `next_event_wait` = 120 seconds - 1st and 2nd attempts have the same PIN, third attempt has a different PIN.</li><li>`pin_expiry` = 120 (or 200 or 400 seconds) - each attempt has a different PIN.</li></ul> |  No
 `next_event_wait` |  An integer value between 60 and 900 seconds inclusive that specifies the wait time between attempts to deliver the PIN. Verify calculates the default value based on the average time taken by users to complete verification. |  No
 
+⚓ rresponse
 ### Response
 
 The following table shows example Responses in JSON or XML:
@@ -76,17 +77,42 @@ The response contains the following keys and values:
 
 Key | Value
 -- | --
-`request_id` | The unique ID of the Verify request you sent. The value of request_id is up to 32 characters long. You use this request_id for the [Verify Check](#check).
+`request_id` | The unique ID of the Verify request you sent. The value of request_id is up to 32 characters long. You use this request_id for the [Verify Check](#verify-check).
 `status` | The response code that explains how your request proceeded. (verify_response_codes: somevalue)
 `error_text` | If status is not 0, this explains the error encountered.
 
+#### Status values
+
+Status&nbsp;code | Text | Description
+--|--|--
+0 | Success | The request was successfully accepted by Nexmo.
+1 | Throttled | You are trying to send more than the maximum of 30 requests per second.
+2 | Your request is incomplete and missing the mandatory parameter: `$parameter` | The stated parameter is missing.
+3 | Invalid value for parameter: $parameter | Invalid value for parameter. If you see Facility not allowed in the error text, check that you are using the correct Base URL in your request.
+4 | Invalid credentials were provided | The supplied API key or secret in the request is either invalid or disabled.
+5 | Internal Error | An error occurred processing this request in the Cloud Communications Platform.
+6 | The Nexmo platform was unable to process this message for the following reason: $reason | The request could not be routed.
+7 | The number you are trying to verify is blacklisted for verification |
+8 | The api_key you supplied is for an account that has been barred from submitting messages | 
+9 | Partner quota exceeded | Your account does not have sufficient credit to process this request.
+10 | Concurrent verifications to the same number are not allowed | 
+15 | The destination number is not in a supported network | The request has been rejected.
+16 | The code inserted does not match the expected value | 
+17 | The wrong code was provided too many times | You can run Verify Check on a `request_id` up to three times unless a new PIN code is generated. If you check a request more than 3 times, it is set to FAILED and you cannot check it again.
+18 | Too many request_ids provided | You added more than the maximum of 10 `request_id`s to your request.
+19 | No more events are left to execute for the request | 
+101 | No request found | There are no matching Verify requests.
+
+
+⚓ check
 ## Verify Check
 
 To use Verify Check you:
 
-* Use a check [request](#crequest) to send the PIN you received from your user to Nexmo.
-* Check the response codes in the [response](#cresponse) to see if the PIN sent by your user matched the PIN generated by Nexmo.
+* Use a check [request](#request-2) to send the PIN you received from your user to Nexmo.
+* Check the response codes in the [response](#response-2) to see if the PIN sent by your user matched the PIN generated by Nexmo.
 
+⚓ crequest
 ### Request
 
 ```
@@ -100,11 +126,12 @@ The following table shows the parameters you use in the request:
 Parameter | Description | Required
 -- | -- | --
 `format` | The response format. Either `json` or `xml`. | Yes
-`request_id` | The identifier of the Verify request to check. This is the [request_id](#request_id) you received in the Verify Request [response](#rresponse).  | Yes
+`request_id` | The identifier of the Verify request to check. This is the [request_id](#keys-and-values) you received in the Verify Request [response](#response).  | Yes
 `code` | The PIN given by your user. | Yes
 `ip_address` | The IP Address used by your user when they entered the PIN. Nexmo uses this information to identify fraud and spam patterns across our customer base. This ultimately benefits all Nexmo customers. | No
 
-###Response
+⚓ cresponse
+### Response
 
 The following table shows example responses in JSON or XML:
 
@@ -139,8 +166,8 @@ The response contains the following keys and values:
 
 Key | Value
 -- | --
-`event_id` | The identifier of the SMS [message-id](/api/sms#message-id).
-`status` | If the value of status is `0`, your user entered the correct PIN. If it is not, check the @[response codes](/_modals/api/verify/check/response/status.md).
+`event_id` | The identifier of the [SMS](/api/sms) `message-id`.
+`status` | If the value of status is `0`, your user entered the correct PIN. If it is not, check the response code.
 `price` | The price charged for this Verify request.
 `currency` | Currency code.
 `error_text` | If status is not 0, this is brief explanation about the error.
@@ -148,9 +175,10 @@ Key | Value
 
 ## Verify Search
 
-1. Send a Verify Search [request](#srequest) containing the [request_id](#request_id)'s of the Verify requests to search for.
-2. Check the *status* response parameter in the Search (link:#sresponse text: Response) to see if the request was successfully completed.
+1. Send a Verify Search [request](#request-3) containing the [request_id](#keys-and-values)'s of the Verify requests to search for.
+2. Check the *status* response parameter in the Search [Response](#response-4) to see if the request was successfully completed.
 
+⚓ srequest
 ### Request
 
 ```
@@ -164,8 +192,8 @@ The following table shows the parameters you use in the request:
 Parameter | Description | Required
 -- | -- | --
 `format` | The response format. Either `json` or `xml` | Yes
-`request_id` | The [request_id](#request_id) you received in the Verify Request [Response](#rresponse). | ^[Conditional](Either `request_id` or `request_ids` must be provided)
-`request_ids` | More than one [request_id](#request_id). Each request_id is a new parameter in the Verify Search request. | ^[Conditional](Either `request_id` or `request_ids` must be provided)
+`request_id` | The [request_id](#keys-and-values) you received in the Verify Request [Response](#rresponse). | ^[Conditional](Either `request_id` or `request_ids` must be provided)
+`request_ids` | More than one [request_id](#keys-and-values). Each request_id is a new parameter in the Verify Search request. | ^[Conditional](Either `request_id` or `request_ids` must be provided)
 
 ### Response
 
@@ -229,13 +257,13 @@ The response contains the following keys and values:
 
 Key | Value
 -- | --
-`request_id` | The [request_id](#request_id) you received in the Verify Request [Response](#rresponse) and used in the Verify Search [request](#srequest).
+`request_id` | The [request_id](#keys-and-values) you received in the Verify Request [Response](#rresponse) and used in the Verify Search [request](#srequest).
 `account_id` | The Account ID the request was for.
-`status` | The status of the Verify Request. Possible values are: <ul><li>IN PROGRESS - still in progress.</li><li>SUCCESSFUL - your user entered the PIN correctly.</li><li>FAILED - user entered the wrong pin more than 3 times.</li><li>EXPIRED - no PIN entered during the [pin_expiry](#pin_expiry) time.</li><li>CANCELLED - the request was cancelled using Verify Control</li><li>101 - the [request_id](#request_id) you set in the Verify Search [request](#srequest) is invalid.</li><ul>
-`number` | The phone [number](#number) this *Verify Request* was made for.</td>
+`status` | The status of the Verify Request. Possible values are: <ul><li>`IN PROGRESS` - still in progress.</li><li>`SUCCESSFUL` - your user entered the PIN correctly.</li><li>`FAILED` - user entered the wrong pin more than 3 times.</li><li>`EXPIRED` - no PIN entered during the [pin_expiry](#keys-and-values) time.</li><li>`CANCELLED` - the request was cancelled using Verify Control</li><li>101 - the [request_id](#keys-and-values) you set in the Verify Search [request](#srequest) is invalid.</li><ul>
+`number` | The phone number this *Verify Request* was made for.</td>
 `price` | The price charged for this *Verify Request*.
 `currency` | The currency code.</td>
-`sender_id` | The [sender_id](#sender_id) you entered in the *Verify Request*.
+`sender_id` | The sender_id you provided in the *Verify Request*.
 `date_submitted` | The date and time the *Verification Request* was submitted. This response parameter  is in the following format YYYY-MM-DD HH:MM:SS. For example, *2012-04-05 09:22:57*.</td>
 `date_finalized` | The date and time the *Verification Request* was completed. This response parameter  is in the following format YYYY-MM-DD HH:MM:SS. For example, *2012-04-05 09:22:57*.</td>
 `first_event_date` | Time first attempt was made. This response parameter  is in the following format YYYY-MM-DD HH:MM:SS. For example, *2012-04-05 09:22:57*.</td>
@@ -247,9 +275,10 @@ error_text | If *status* is not *SUCCESSFUL*, this message explains the issue.
 
 To control the progress of your Verify Requests:
 
-1. Send a Verify [request](#conrequest).
-2. Check the [response](#conresponse).
+1. Send a Verify [request](#request-4).
+2. Check the [response](#response-4).
 
+⚓ conrequest
 ### Request
 
 ```
@@ -260,15 +289,18 @@ To control the progress of your Verify Requests:
 
 The following table shows the parameters you use in the request:
 
+⚓ cmd
+
 Parameter | Description | Required
 -- | -- | --
 `format` | The response format. Either `json` or `xml` | Yes
-`request_id` | The [request_id](#request_id) you received in the Verify Request [Response](#rresponse).| Yes
+`request_id` | The [request_id](#keys-and-values) you received in the Verify Request [Response](#rresponse).| Yes
 `cmd` | Change the command workflow. Supported values are: <ul><li>`cancel` - stop the request</li><li>`trigger_next_event` - advance the request to the next part of the process.</li></ul> Verification requests can't be cancelled within the first 30 seconds.	You must wait at least 30s after sending a Verify Request before cancelling. | Yes
 
+⚓ conresponse
 ### Response
 
-The following table shows example responses in JSON or XML:
+Example responses in JSON and XML:
 
 **JSON**
 
