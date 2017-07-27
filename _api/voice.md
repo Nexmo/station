@@ -646,10 +646,10 @@ Value | Description
 `timeout` | Your user did not answer your call within `ringing_timer` seconds.
 `failed` | The call failed to complete
 `rejected` | The call was rejected
-`unanswered` | The call was not answered
+`cancelled` | The call was not answered
 `busy` | The number being dialled was on another call
 
-When a Call enters a state of `timeout`, `failed`, `rejected`, `unanswered` or `busy` the `event_url` webhook endpoint can optionally return an NCCO to override the current NCCO. See [Connect with fallback NCCO](/voice/guides/ncco-reference#connect_fallback).
+When a Call enters a state of `timeout`, `failed`, `rejected`, `cancelled` or `busy` the `event_url` webhook endpoint can optionally return an NCCO to override the current NCCO. See [Connect with fallback NCCO](/voice/guides/ncco-reference#connect_fallback).
 
 
 ## Errors
