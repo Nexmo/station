@@ -113,4 +113,12 @@
     color: $blue;
     border: 1px solid $blue;
   }
+
+  &--conversation {
+    background: none;
+    border: 1px solid $conversation;
+    font-weight: 500;
+    color: $conversation;
+    .navigation & { color: mix($conversation, $background, 80%); }
+  }
 }
