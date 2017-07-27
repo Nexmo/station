@@ -79,12 +79,12 @@ gem 'rest-client'
 gem 'recaptcha', require: "recaptcha/rails"
 
 # Share git hooks in Ruby projects among all the collaborators automatically, without them having to do anything
-gem 'git-hookshot', git: 'git://github.com/brandonweiss/git-hookshot.git'
+gem 'git-hookshot', git: 'https://github.com/brandonweiss/git-hookshot.git'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
-  gem 'rawler', git: 'git://github.com/oscardelben/rawler.git', require: false
+  gem 'rawler', git: 'https://github.com/oscardelben/rawler.git', require: false
   gem 'rspec-rails', '~> 3.5'
   gem 'foreman'
 end
