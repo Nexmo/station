@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/brandonweiss/git-hookshot.git
+  revision: ba31e703d1fb5088d0aee0afcd3e4ffeece55564
+  specs:
+    git-hookshot (0.1.0)
+
+GIT
   remote: git://github.com/oscardelben/rawler.git
   revision: f2909b135fce7d35167f98026ac481926c94423e
   specs:
@@ -125,7 +131,6 @@ GEM
       railties (>= 3.1.0)
       sass (>= 3.3.0, < 3.5)
       sprockets-es6 (>= 0.9.0)
-    git-hookshot (0.1.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     guard (2.14.1)
@@ -325,7 +330,7 @@ DEPENDENCIES
   dotenv-rails
   foreman
   foundation-rails (= 6.3.0.0)
-  git-hookshot
+  git-hookshot!
   guard-livereload (~> 2.5)
   jbuilder (~> 2.5)
   jquery-rails
