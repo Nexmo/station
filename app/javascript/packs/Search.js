@@ -1,3 +1,4 @@
+import React from 'react'
 import debounce from 'lodash/debounce'
 
 class Search extends React.Component {

@@ -43,7 +43,7 @@ export default class TabbedExamples {
   }
 
   onPopState(event) {
-    if (window.history.state.language) {
+    if (window.history.state && window.history.state.language) {
       this.setLanguage(window.history.state.language);
     }
   }

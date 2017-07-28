@@ -7,6 +7,10 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
+import { TweenLite, CSSPlugin } from 'gsap';
+import React from 'react';
+import ReactDOM from 'react-dom';
+
 import Collapsible from './Collapsible';
 import Scrollspy from './Scrollspy';
 import GithubCards from './GithubCards';
@@ -33,18 +37,11 @@ let refresh = () => {
   GithubCards()
   Scrollspy()
   JsSequenceDiagrams()
-  $(document).foundation();
+  $(document).foundation()
   new TabbedExamples
 
   if (document.getElementById('SearchComponent')) {
     ReactDOM.render(<Search/>, document.getElementById('SearchComponent'))
-  }
-
-  if(window.location.hash) {
-    const anchor = document.querySelector(window.location.hash);
-    if (anchor) {
-      smoothScroll.animateScroll( anchor );
-    }
   }
 }
 

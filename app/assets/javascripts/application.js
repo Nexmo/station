@@ -14,4 +14,8 @@
 //= require jquery_ujs
 //= require foundation
 //= require turbolinks
-//= require_tree .
+//= require smooth-scroll
+//= require underscore
+//= require snap-svg
+//= require webfont
+//= require sequence-diagram-min
