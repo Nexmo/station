@@ -2,17 +2,19 @@ import { Tabs } from 'foundation-sites/js/foundation.tabs';
 
 export default class TabbedExamples {
   constructor() {
-    new Tabs($('[data-tabs]'))
+    if ($('[data-tabs]')[0]) {
+      new Tabs($('[data-tabs]'))
 
-    this.restoreTabs = this.restoreTabs.bind(this)
-    this.setInitialState = this.setInitialState.bind(this)
-    this.setupEvents = this.setupEvents.bind(this)
-    this.onTabClick = this.onTabClick.bind(this)
-    this.onPopState = this.onPopState.bind(this)
-    this.persistLanguage = this.persistLanguage.bind(this)
-    this.restoreTabs()
-    this.setInitialState()
-    this.setupEvents()
+      this.restoreTabs = this.restoreTabs.bind(this)
+      this.setInitialState = this.setInitialState.bind(this)
+      this.setupEvents = this.setupEvents.bind(this)
+      this.onTabClick = this.onTabClick.bind(this)
+      this.onPopState = this.onPopState.bind(this)
+      this.persistLanguage = this.persistLanguage.bind(this)
+      this.restoreTabs()
+      this.setInitialState()
+      this.setupEvents()
+    }
   }
 
   initialLanguage() {
