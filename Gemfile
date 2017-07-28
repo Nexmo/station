@@ -8,7 +8,7 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.0.rc1'
-gem 'webpacker', github: 'rails/webpacker'
+gem 'webpacker', '~> 2.0'
 
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
