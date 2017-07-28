@@ -7,24 +7,24 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
-import { TweenLite, CSSPlugin } from 'gsap';
-import React from 'react';
-import ReactDOM from 'react-dom';
+import { TweenLite, CSSPlugin } from 'gsap'
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-import Collapsible from './Collapsible';
-import Scrollspy from './Scrollspy';
-import GithubCards from './GithubCards';
-import TabbedExamples from './TabbedExamples';
-import JsSequenceDiagrams from './JsSequenceDiagrams';
-import Navigation from './Navigation';
-import Scroll from './Scroll';
-import Search from './Search';
-import Notices from './Notices';
+import Collapsible from './Collapsible'
+import Scrollspy from './Scrollspy'
+import GithubCards from './GithubCards'
+import TabbedExamples from './TabbedExamples'
+import JsSequenceDiagrams from './JsSequenceDiagrams'
+import Navigation from './Navigation'
+import Scroll from './Scroll'
+import Search from './Search'
+import Notices from './Notices'
 
 import {
   preventSamePage as turbolinksPreventSamePage,
   animate as turbolinksAnimate
-} from './Turbolinks';
+} from './Turbolinks'
 
 Collapsible()
 Navigation()
@@ -47,4 +47,4 @@ let refresh = () => {
 
 $(document).on('nexmo:load', function() {
   refresh()
-});
+})
