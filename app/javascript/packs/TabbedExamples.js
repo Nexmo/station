@@ -1,5 +1,9 @@
+import { Tabs } from 'foundation-sites/js/foundation.tabs';
+
 export default class TabbedExamples {
   constructor() {
+    new Tabs($('[data-tabs]'))
+
     this.restoreTabs = this.restoreTabs.bind(this)
     this.setInitialState = this.setInitialState.bind(this)
     this.setupEvents = this.setupEvents.bind(this)
@@ -83,7 +87,7 @@ export default class TabbedExamples {
       let tabs = $(this).parents('.tabs')
       let tab = $(this).parent()
 
-      $(tabs).foundation('_handleTabChange', tab, true)
+      new Tabs(tabs)._handleTabChange(tab, true)
     })
   }
 }

@@ -37,7 +37,6 @@ let refresh = () => {
   GithubCards()
   Scrollspy()
   JsSequenceDiagrams()
-  $(document).foundation()
   new TabbedExamples
 
   if (document.getElementById('SearchComponent')) {
