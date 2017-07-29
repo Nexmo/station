@@ -7,7 +7,7 @@ git_source(:github) do |repo_name|
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.0.rc1'
+gem 'rails', '~> 5.1.2'
 gem 'webpacker', '~> 2.0'
 
 # Use postgresql as the database for Active Record
@@ -56,7 +56,7 @@ gem 'nokogiri', '1.7.0.1'
 gem 'dotenv-rails', groups: [:development, :test]
 
 # Administrate is heavily inspired by projects like Rails Admin and ActiveAdmin, but aims to provide a better user experience for site admins
-gem 'administrate', '~> 0.4.0'
+gem 'administrate', '~> 0.8.1'
 
 # Ruby/ProgressBar is a text progress bar library for Ruby.
 gem 'ruby-progressbar'
