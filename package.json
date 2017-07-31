@@ -18,6 +18,7 @@
     "foundation-sites": "^6.4.1",
     "glob": "^7.1.2",
     "gsap": "^1.20.2",
+    "js-sequence-diagrams": "https://github.com/sergeyt/js-sequence-diagrams.git#modularity",
     "js-yaml": "^3.9.0",
     "lodash": "^4.17.4",
     "node-sass": "^4.5.3",

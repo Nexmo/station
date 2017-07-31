@@ -14,7 +14,4 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require smooth-scroll
-//= require underscore
-//= require snap-svg
 //= require webfont
-//= require sequence-diagram-min
