@@ -10,8 +10,12 @@ module OpenApi
     end
 
     def model
-      @model ||= parse(endpoint.response_body_schema(status))
-    end\
+      @model ||= parse(response_body_schema)
+    end
+
+    def response_body_schema
+      endpoint.response_body_schema(status)
+    end
 
     def json
       @json ||= model.to_json
@@ -39,7 +43,12 @@ module OpenApi
       case root_object['type']
       when 'object' then parse_object(root_object)
       when 'array' then parse_array(root_object)
-      when nil then nil
+      when nil
+        return nil if root_object['additionalProperties'] == false
+        return nil if root_object['properties'] == {}
+        # Handle objects with missing type
+        return parse_object(root_object.merge({ 'type' => 'object' })) if root_object['allOf']
+        raise StandardError.new("Unhandled object with missing type")
       else
         raise StandardError.new("Don't know how to parse #{root_object['type']}")
       end
@@ -50,7 +59,7 @@ module OpenApi
       raise StandardError.new("Not an object") unless object['type'] == 'object'
 
       if object['allOf']
-        merged_object = {}
+        merged_object = { 'type' => 'object' }
         object['allOf'].each { |o| merged_object = merged_object.deep_merge(o) }
         return parse_object(merged_object)
       elsif object['properties']
@@ -67,7 +76,19 @@ module OpenApi
 
     def parse_array(object)
       raise StandardError.new("Not an array") unless object['type'] == 'array'
-      [parse_object(object['items'])]
+
+      case object['items']['type']
+      when 'object'
+        [parse_object(object['items'])]
+      else
+        if object['items']
+          # Handle objects with missing type
+          object['items']['type'] = 'object'
+          [parse_object(object['items'])]
+        else
+          raise StandardError.new("parse_array: Don't know how to parse object")
+        end
+      end
     end
 
     def resolved_path
@@ -83,11 +104,12 @@ module OpenApi
       @status ||= endpoint.raw['responses'].keys.first.to_s
     end
 
-    private
 
     def endpoint
       @endpoint ||= @specification.endpoint(resolved_path, @method)
     end
+
+    private
 
     def parameters
       @parameters ||= @specification.raw['paths'][@path][@method]['parameters']

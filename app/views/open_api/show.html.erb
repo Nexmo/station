@@ -9,7 +9,7 @@
               <% @specification.raw['paths'].each do |path, methods| %>
                 <% methods.each do |method, endpoint| %>
                   <li>
-                    <a href="#<%= endpoint['summary'].parameterize %>">
+                    <a href="#<%= (endpoint['summary'] || endpoint['description']).parameterize %>">
                       <span class="label label--code label--positive"><%= method.upcase %></span>
                       <%= endpoint['summary'] || endpoint['description'] %>
                     </a>
@@ -26,7 +26,7 @@
       <% methods.each do |method, endpoint| %>
         <div class="row-fluid flex">
           <div class="columns small-12 medium-8">
-            <h2 id="<%= endpoint['summary'].parameterize %>"><%= endpoint['summary'] %></h2>
+            <h2 id="<%= (endpoint['summary'] || endpoint['description']).parameterize %>"><%= endpoint['summary'] %></h2>
             <p><%= endpoint['description'] %></p>
 
             <div class="api-path">
