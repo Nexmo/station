@@ -71,6 +71,7 @@ GEM
     ast (2.3.0)
     autoprefixer-rails (7.1.2.3)
       execjs
+    awesome_print (1.8.0)
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
       babel-source (>= 4.0, < 6)
@@ -138,6 +139,10 @@ GEM
       guard (~> 2.8)
       guard-compat (~> 1.0)
       multi_json (~> 1.8)
+    guard-rspec (4.7.3)
+      guard (~> 2.1)
+      guard-compat (~> 1.1)
+      rspec (>= 2.99.0, < 4.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     http_parser.rb (0.6.0)
@@ -244,6 +249,10 @@ GEM
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
     rouge (2.0.7)
+    rspec (3.6.0)
+      rspec-core (~> 3.6.0)
+      rspec-expectations (~> 3.6.0)
+      rspec-mocks (~> 3.6.0)
     rspec-core (3.6.0)
       rspec-support (~> 3.6.0)
     rspec-expectations (3.6.0)
@@ -328,6 +337,7 @@ PLATFORMS
 DEPENDENCIES
   administrate (~> 0.8.1)
   algoliasearch
+  awesome_print
   banzai (~> 0.1.2)
   better_errors
   binding_of_caller
@@ -340,6 +350,7 @@ DEPENDENCIES
   foundation-rails (= 6.4.1.2)
   git-hookshot!
   guard-livereload (~> 2.5)
+  guard-rspec
   icalendar
   jbuilder (~> 2.5)
   jquery-rails

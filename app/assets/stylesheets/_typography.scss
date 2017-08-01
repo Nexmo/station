@@ -440,3 +440,42 @@ blockquote {
 .version {
   margin-top: $spacing * 2;
 }
+
+b {
+  font-weight: 600;
+}
+
+.api-path {
+  display: block;
+  border: 2px solid $mint;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: $spacing;
+  font-size: 1.2em;
+
+  .api-path-parameter {
+    color: $pink;
+  }
+
+  .api-path-method {
+    display: inline-block;
+    font-family: Consolas, monospace;
+    color: $blue;
+    margin-right: 10px;
+    font-weight: 700;
+    background: mix($blue, $white, 5%);
+    border-right: 1px solid mix($blue, $white, 15%);
+    padding: 10px $spacing 5px $spacing;
+  }
+
+  .api-path-host {
+    margin-right: -10px;
+    color: mix($text-subtle, $gray-light);
+  }
+}
+
+.api-reference {
+  b {
+    color: $text-subtle;
+  }
+}

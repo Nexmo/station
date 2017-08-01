@@ -104,28 +104,16 @@ module ApplicationHelper
     YAML.load_file(path)
   end
 
-  def render_response(definition, specification, path, method)
-    response_status = specification['responses'].keys.first,
-    path = path.gsub('{id}', '1'),
-    endpoint = definition.endpoint(path, method)
-    response_body_schema = endpoint.response_body_schema(response_status)
-    response_body_schema_formatted = JSON.pretty_generate(response_body_schema)
-    output = {}
-    response_body_schema['properties'].map do |key, value|
-      case value['type']
-      when 'integer'
-        output[key] = 1
-      when 'string'
-        output[key] = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit'
-      end
-    end
+  def render_request(definition_name, path, method)
+    base_path = "_open_api_requests/#{definition_name + path}/#{method}/"
 
-    output = <<~HEREDOC
-      <br>
-      <h3>#{specification['responses'].keys.first}</h3>
-      <pre class="highlight"><code>#{ JSON.pretty_generate(output) }</code></pre>
+    markdown = <<~HEREDOC
+      ```tabbed_examples
+      source: #{base_path}
+      ```
     HEREDOC
 
-    output.html_safe
+    tabbed_examples = TabbedExamplesFilter.new.call(markdown)
+    UnfreezeFilter.new.call(tabbed_examples).html_safe
   end
 end

@@ -40,7 +40,7 @@ Rails.application.routes.draw do
   get '/*product/api-reference', to: 'markdown#api'
   get '/:product/*document(/:code_language)', to: 'markdown#show', constraints: DocumentationConstraint.documentation
 
-  get '/open-api/*definition', to: 'open_api#show'
+  get '/open-api/*specification', to: 'open_api#show'
 
   get '/robots.txt', to: 'static#robots'
 

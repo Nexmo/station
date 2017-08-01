@@ -1,30 +1,54 @@
-<% @definition.raw['paths'].each do |path, methods| %>
-  <% methods.each do |method, specification| %>
-    <div class="row-fluid flex">
-      <div class="columns small-12 medium-8">
-        <h2><span class="label"><%= method.upcase %></span> - <%= path %></h2>
-        <p><%= specification['description'].truncate(200) %></p>
+<div class="row-fluid">
+  <div class="columns small-12 medium-2">
+    <nav class="sidenav sidenav--spacious" data-turbolinks-permanent="">
 
-        <table>
-          <thead>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Required</th>
-          </thead>
-          <tbody>
-            <% specification['parameters'].each do |parameter| %>
-              <tr>
-                <td><%= parameter['name'] %></td>
-                <td><%= parameter['description'] %></td>
-                <td><%= parameter['required'] ? 'Yes' : 'No' %></td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
-      <div class="columns small-12 medium-4 background--code">
-        <%= render_response(@definition, specification, path, method) %>
-      </div>
-    </div>
-  <% end %>
-<% end %>
+        <ul class="navigation js-scrollspy has-label">
+          <li>
+            <a href="#">SMS</a>
+            <ul class="has-label">
+              <% @specification.raw['paths'].each do |path, methods| %>
+                <% methods.each do |method, endpoint| %>
+                  <li>
+                    <a href="#<%= endpoint['summary'].parameterize %>">
+                      <span class="label label--code label--positive"><%= method.upcase %></span>
+                      <%= endpoint['summary'] || endpoint['description'] %>
+                    </a>
+                  </li>
+                <% end %>
+              <% end %>
+            </ul>
+          </li>
+        </ul>
+    </nav>
+  </div>
+  <div class="columns small-12 medium-10 api-reference">
+    <% @specification.raw['paths'].each do |path, methods| %>
+      <% methods.each do |method, endpoint| %>
+        <div class="row-fluid flex">
+          <div class="columns small-12 medium-8">
+            <h2 id="<%= endpoint['summary'].parameterize %>"><%= endpoint['summary'] %></h2>
+            <p><%= endpoint['description'] %></p>
+
+            <div class="api-path">
+              <span class="api-path-method api-path-method--<%= method %>"><%= method.upcase %></span>
+              <code>
+                <span class="api-path-host"><%= @specification.raw['schemes'].first %>://<%= @specification.raw['host'] %></span>
+                <%= path.gsub(/\{(.+?)\}/, '<span class="api-path-parameter">:\1</span>').html_safe %>
+              </code>
+            </div>
+
+            <h3>Parameters</h3>
+            <%= render 'parameters', parameters: endpoint['parameters'].select { |parameter| parameter['in'] == 'path' } %>
+
+            <h3>Query</h3>
+            <%= render 'parameters', parameters: endpoint['parameters'].select { |parameter| parameter['in'] != 'path' } %>
+          </div>
+          <div class="columns small-12 medium-4 background--code">
+            <%= render_request(@specification_name, path, method) %>
+            <%= OpenApi::ExampleResponseResolver.new(@specification, path: path, method: method).html %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

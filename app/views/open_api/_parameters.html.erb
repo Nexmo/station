@@ -1,0 +1,39 @@
+<table>
+  <thead>
+    <th>Key</th>
+    <th>Description</th>
+    <th>Type</th>
+    <th>Example</th>
+    <th>Default</th>
+    <th>Required</th>
+  </thead>
+  <tbody>
+    <% parameters.each do |parameter| %>
+      <tr>
+        <td><code><%= parameter['name'] %></code></td>
+        <td>
+          <b><%= parameter['description'] %></b>
+          <% if parameter['enum'] %>
+            <br>
+            <small>
+              <i>
+                Must be one of:
+                <%= parameter['enum'].map { |s| "<code>#{s}</code>" }.to_sentence(last_word_connector: 'or', two_words_connector: 'or').html_safe %>
+              </i>
+            </small>
+          <% end %>
+        </td>
+        <td><code><%= parameter['type'] %></code></td>
+        <td><%= (parameter['example'] ? "<code>#{parameter['example']}</code>" : "<i>None</i>").html_safe %></td>
+        <td><%= (parameter['default'] ? "<code>#{parameter['default']}</code>" : "<i>None</i>").html_safe %></td>
+        <td class="center">
+          <%=
+            parameter['required'] ?
+            '<i class="icon icon--large icon-check-circle color--success">'.html_safe
+            : '<i class="icon icon--large icon-times-circle color--error">'.html_safe
+          %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
