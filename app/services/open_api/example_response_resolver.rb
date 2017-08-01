@@ -39,6 +39,13 @@ module OpenApi
       output.html_safe
     end
 
+    def treat_as_object?(object)
+      return true if object['type'] == 'object'
+      return true if object['allOf']
+      return true if object['properties']
+      false
+    end
+
     def parse(root_object)
       case root_object['type']
       when 'object' then parse_object(root_object)
@@ -46,8 +53,13 @@ module OpenApi
       when nil
         return nil if root_object['additionalProperties'] == false
         return nil if root_object['properties'] == {}
-        # Handle objects with missing type
-        return parse_object(root_object.merge({ 'type' => 'object' })) if root_object['allOf']
+
+        if treat_as_object?(root_object)
+          # Handle objects with missing type
+          return parse_object(root_object.merge({ 'type' => 'object' }))
+        end
+
+        ap root_object
         raise StandardError.new("Unhandled object with missing type")
       else
         raise StandardError.new("Don't know how to parse #{root_object['type']}")
@@ -112,7 +124,9 @@ module OpenApi
     private
 
     def parameters
-      @parameters ||= @specification.raw['paths'][@path][@method]['parameters']
+      raise StandardError.new("Path (#{@path}) does not exist") unless @specification.raw['paths'][@path]
+      raise StandardError.new("Method (#{method}) does not exist on path (#{@path})") unless @specification.raw['paths'][@path][@method]
+      @parameters ||= @specification.raw['paths'][@path][@method]['parameters'] || []
     end
 
     def path_parameters

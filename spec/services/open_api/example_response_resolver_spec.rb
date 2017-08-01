@@ -80,7 +80,6 @@ RSpec.describe OpenApi::ExampleResponseResolver do
     describe 'POST /pets' do
       it 'provides an example response for an object' do
         resolver = OpenApi::ExampleResponseResolver.new(@specification, path: '/pets', method: 'post')
-        ap resolver.response_body_schema
         expect(resolver.model['id']).to eq(1)
       end
     end
@@ -98,6 +97,38 @@ RSpec.describe OpenApi::ExampleResponseResolver do
       it 'provides an example response for an object' do
         resolver = OpenApi::ExampleResponseResolver.new(@specification, path: '/pets/{id}', method: 'delete')
         expect(resolver.model).to be_nil
+      end
+    end
+  end
+
+  context 'petstore-expanded' do
+    before(:each) do
+      @specification = OpenApiParser::Specification.resolve('_open_api/example/uber.yml')
+    end
+
+    it 'has a resolved path' do
+      resolver = OpenApi::ExampleResponseResolver.new(@specification, path: '/products', method: 'get')
+      expect(resolver.resolved_path).to eq('/products')
+    end
+
+    describe 'GET /products' do
+      it 'provides an example response for an object' do
+        resolver = OpenApi::ExampleResponseResolver.new(@specification, path: '/products', method: 'get')
+        expect(resolver.model.length).to eq(1)
+      end
+    end
+
+    describe 'GET /history' do
+      it 'provides an example response for an object' do
+        resolver = OpenApi::ExampleResponseResolver.new(@specification, path: '/history', method: 'get')
+        expect(resolver.model.length).to eq(4)
+      end
+    end
+
+    describe 'GET /me' do
+      it 'provides an example response for an object' do
+        resolver = OpenApi::ExampleResponseResolver.new(@specification, path: '/me', method: 'get')
+        expect(resolver.model.length).to eq(5)
       end
     end
   end

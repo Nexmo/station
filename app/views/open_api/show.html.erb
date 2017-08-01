@@ -37,11 +37,17 @@
               </code>
             </div>
 
-            <h3>Parameters</h3>
-            <%= render 'parameters', parameters: endpoint['parameters'].select { |parameter| parameter['in'] == 'path' } %>
+            <% if endpoint['parameters'] %>
+              <% if endpoint['parameters'].select { |parameter| parameter['in'] == 'path' }.any? %>
+                <h3>Parameters</h3>
+                <%= render 'parameters', parameters: endpoint['parameters'].select { |parameter| parameter['in'] == 'path' } %>
+              <% end %>
 
-            <h3>Query</h3>
-            <%= render 'parameters', parameters: endpoint['parameters'].select { |parameter| parameter['in'] != 'path' } %>
+              <% if endpoint['parameters'].select { |parameter| parameter['in'] != 'path' }.any? %>
+                <h3>Query</h3>
+                <%= render 'parameters', parameters: endpoint['parameters'].select { |parameter| parameter['in'] != 'path' } %>
+              <% end %>
+            <% end %>
           </div>
           <div class="columns small-12 medium-4 background--code">
             <%= render_request(@specification_name, path, method) %>
