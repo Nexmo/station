@@ -80,6 +80,13 @@
                 <%= render 'parameters', parameters: endpoint['parameters'].select { |parameter| parameter['in'] != 'path' } %>
               <% end %>
             <% end %>
+
+            <% if endpoint['requestBody'] %>
+              <h3>Query</h3>
+              <%=
+                render 'parameters', parameters: endpoint['requestBody']['content'].values[0]['schema']['properties'].map { |key, value| { 'name' => key }.merge(value) }
+              %>
+            <% end %>
           </div>
           <div class="columns small-12 medium-4 background--code">
             <%= render_request(@specification_name, path, method) %>
