@@ -23,7 +23,7 @@
             </small>
           <% end %>
         </td>
-        <td><code><%= parameter['type'] %></code></td>
+        <td><code><%= parameter['schema'] ? parameter['schema']['type'] : parameter['type'] %></code></td>
         <td><%= (parameter['example'] ? "<code>#{parameter['example']}</code>" : "<i>None</i>").html_safe %></td>
         <td><%= (parameter['default'] ? "<code>#{parameter['default']}</code>" : "<i>None</i>").html_safe %></td>
         <td class="center">

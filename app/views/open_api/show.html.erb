@@ -32,7 +32,7 @@
             <div class="api-path">
               <span class="api-path-method api-path-method--<%= method %>"><%= method.upcase %></span>
               <code>
-                <span class="api-path-host"><%= @specification.raw['schemes'].first %>://<%= @specification.raw['host'] %></span>
+                <span class="api-path-host"><%= @specification.raw['servers'].first['url'] %></span>
                 <%= path.gsub(/\{(.+?)\}/, '<span class="api-path-parameter">:\1</span>').html_safe %>
               </code>
             </div>

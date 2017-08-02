@@ -101,7 +101,18 @@ RSpec.describe OpenApi::ExampleResponseResolver do
     end
   end
 
-  context 'petstore-expanded' do
+  context 'petstore-jwt' do
+    before(:each) do
+      @specification = OpenApiParser::Specification.resolve('spec/fixtures/open_api/petstore-jwt.yml')
+    end
+
+    it 'has a resolved path' do
+      resolver = OpenApi::ExampleResponseResolver.new(@specification, path: '/pets', method: 'get')
+      expect(resolver.endpoint.raw['security']).to include('jwt')
+    end
+  end
+
+  context 'uber' do
     before(:each) do
       @specification = OpenApiParser::Specification.resolve('_open_api/example/uber.yml')
     end

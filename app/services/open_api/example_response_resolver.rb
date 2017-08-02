@@ -137,7 +137,7 @@ module OpenApi
 
     def parameter_value(parameter)
       return parameter['example'] if parameter['example']
-      case parameter['type']
+      case (parameter['schema'] ? parameter['schema']['type'] : parameter['type'])
       when 'integer' then return 1
       when 'number' then return 1.0
       when 'string' then return 'abc123'

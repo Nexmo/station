@@ -82,7 +82,7 @@ gem 'recaptcha', require: "recaptcha/rails"
 gem 'icalendar'
 
 # A parser for Open API specifications
-gem 'open_api_parser'
+gem 'open_api_parser', github: 'adambutler/open_api_parser', branch: 'openapi-specification-v3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
