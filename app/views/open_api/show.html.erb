@@ -37,6 +37,38 @@
               </code>
             </div>
 
+            <% if endpoint['security'] %>
+              <% if endpoint['security'].include? 'jwt' %>
+                <h2>Authentication</h2>
+                <table>
+                  <thead>
+                    <th>Key</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                    <th>Example</th>
+                    <th>Default</th>
+                    <th>Required</th>
+                  </thead>
+                  <tbody>
+                      <tr>
+                        <td><code>Authorization</code></td>
+                        <td>
+                          <b>Your JSON web token</b><br>
+                          <small><%= link_to "Read more about JWTs", "/concepts/guides/authentication#json-web-tokens-jwt" %></small>
+                        </td>
+                        <td><code>string</code></td>
+                        <td><code>Bearer &lt;JWT&gt;</code></td>
+                        <td><i>None</i></td>
+                        <td class="center">
+                          <i class="icon icon--large icon-check-circle color--success"></i>
+                        </td>
+                      </tr>
+                  </tbody>
+                </table>
+
+              <% end %>
+            <% end %>
+
             <% if endpoint['parameters'] %>
               <% if endpoint['parameters'].select { |parameter| parameter['in'] == 'path' }.any? %>
                 <h3>Parameters</h3>
