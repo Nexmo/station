@@ -91,49 +91,8 @@ $ball-size: 44px;
   &--sms { @include card--product($sms); }
   &--number-insight { @include card--product($number-insight); }
   &--voice { @include card--product($voice); }
-  &--chat { @include card--product($chat); }
   &--verify { @include card--product($verify); }
   &--account { @include card--product($atom); }
-}
-
-.card-in-development {
-  &:before {
-    content: " ";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: rgba($white, 0.85);
-    z-index: 1;
-  }
-
-  text-align: center;
-  padding: $spacing;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  font-size: 0.85em;
-
-  * {
-    position: relative;
-    z-index: 2;
-  }
-
-  p {
-    color: mix($text, $white, 80%);
-  }
-
-  a {
-    color: $blue;
-  }
-
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 2;
 }
 
 .card--with-icon {
@@ -161,10 +120,4 @@ $ball-size: 44px;
     left: $spacing;
     top: -$ball-size/2;
   }
-}
-
-.card--invisible {
-  // background: none;
-  // border: none;
-  // box-shadow: none;
 }

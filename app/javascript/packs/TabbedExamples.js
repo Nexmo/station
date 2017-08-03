@@ -1,14 +1,20 @@
+import { Tabs } from 'foundation-sites/js/foundation.tabs';
+
 export default class TabbedExamples {
   constructor() {
-    this.restoreTabs = this.restoreTabs.bind(this)
-    this.setInitialState = this.setInitialState.bind(this)
-    this.setupEvents = this.setupEvents.bind(this)
-    this.onTabClick = this.onTabClick.bind(this)
-    this.onPopState = this.onPopState.bind(this)
-    this.persistLanguage = this.persistLanguage.bind(this)
-    this.restoreTabs()
-    this.setInitialState()
-    this.setupEvents()
+    if ($('[data-tabs]')[0]) {
+      new Tabs($('[data-tabs]'))
+
+      this.restoreTabs = this.restoreTabs.bind(this)
+      this.setInitialState = this.setInitialState.bind(this)
+      this.setupEvents = this.setupEvents.bind(this)
+      this.onTabClick = this.onTabClick.bind(this)
+      this.onPopState = this.onPopState.bind(this)
+      this.persistLanguage = this.persistLanguage.bind(this)
+      this.restoreTabs()
+      this.setInitialState()
+      this.setupEvents()
+    }
   }
 
   initialLanguage() {
@@ -43,7 +49,7 @@ export default class TabbedExamples {
   }
 
   onPopState(event) {
-    if (window.history.state.language) {
+    if (window.history.state && window.history.state.language) {
       this.setLanguage(window.history.state.language);
     }
   }
@@ -83,7 +89,7 @@ export default class TabbedExamples {
       let tabs = $(this).parents('.tabs')
       let tab = $(this).parent()
 
-      $(tabs).foundation('_handleTabChange', tab, true)
+      new Tabs(tabs)._handleTabChange(tab, true)
     })
   }
 }

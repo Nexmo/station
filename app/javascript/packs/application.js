@@ -7,20 +7,24 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
-import Collapsible from './Collapsible';
-import Scrollspy from './Scrollspy';
-import GithubCards from './GithubCards';
-import TabbedExamples from './TabbedExamples';
-import JsSequenceDiagrams from './JsSequenceDiagrams';
-import Navigation from './Navigation';
-import Scroll from './Scroll';
-import Search from './Search';
-import Notices from './Notices';
+import { TweenLite, CSSPlugin } from 'gsap'
+import React from 'react'
+import ReactDOM from 'react-dom'
+
+import Collapsible from './Collapsible'
+import Scrollspy from './Scrollspy'
+import GithubCards from './GithubCards'
+import TabbedExamples from './TabbedExamples'
+import JsSequenceDiagrams from './JsSequenceDiagrams'
+import Navigation from './Navigation'
+import Scroll from './Scroll'
+import Search from './Search'
+import Notices from './Notices'
 
 import {
   preventSamePage as turbolinksPreventSamePage,
   animate as turbolinksAnimate
-} from './Turbolinks';
+} from './Turbolinks'
 
 Collapsible()
 Navigation()
@@ -33,21 +37,13 @@ let refresh = () => {
   GithubCards()
   Scrollspy()
   JsSequenceDiagrams()
-  $(document).foundation();
   new TabbedExamples
 
   if (document.getElementById('SearchComponent')) {
     ReactDOM.render(<Search/>, document.getElementById('SearchComponent'))
   }
-
-  if(window.location.hash) {
-    const anchor = document.querySelector(window.location.hash);
-    if (anchor) {
-      smoothScroll.animateScroll( anchor );
-    }
-  }
 }
 
 $(document).on('nexmo:load', function() {
   refresh()
-});
+})

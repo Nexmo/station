@@ -14,23 +14,3 @@ $hero-gradient: darken($mint, 3%);
     }
   }
 }
-
-.hero-link {
-  display: inline-block;
-  background: $white;
-  border-radius: $radius;
-  box-shadow: $shadow;
-  border-radius: $radius;
-  padding: 0.2em 0.25em;
-  border-bottom: none;
-  border: 1px solid $border;
-  transition: all 300ms ease-in-out;
-  margin-bottom: 10px;
-
-  &:hover {
-    transform: scale(1.03);
-    margin: 0 5px;
-    transform-origin: 75% center;
-    box-shadow: 0 2px 14px 0 rgba(0,0,0,0.25);
-  }
-}

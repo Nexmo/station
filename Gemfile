@@ -7,8 +7,8 @@ git_source(:github) do |repo_name|
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.0.rc1'
-gem 'webpacker', github: 'rails/webpacker'
+gem 'rails', '~> 5.1.2'
+gem 'webpacker', '~> 2.0'
 
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
@@ -47,7 +47,7 @@ gem 'rouge', '~> 2.0.7'
 gem 'banzai', '~> 0.1.2'
 
 # ZURB Foundation on Sass/Compass
-gem 'foundation-rails', '6.3.0.0'
+gem 'foundation-rails', '6.4.1.2'
 
 # Nokogiri (鋸) is an HTML, XML, SAX, and Reader parser. Among Nokogiri's many features is the ability to search documents via XPath or CSS3 selectors.
 gem 'nokogiri', '1.7.0.1'
@@ -56,7 +56,7 @@ gem 'nokogiri', '1.7.0.1'
 gem 'dotenv-rails', groups: [:development, :test]
 
 # Administrate is heavily inspired by projects like Rails Admin and ActiveAdmin, but aims to provide a better user experience for site admins
-gem 'administrate', '~> 0.4.0'
+gem 'administrate', '~> 0.8.1'
 
 # Ruby/ProgressBar is a text progress bar library for Ruby.
 gem 'ruby-progressbar'

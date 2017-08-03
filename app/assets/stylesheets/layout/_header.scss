@@ -143,26 +143,3 @@
     width: 150px;
   }
 }
-
-#search-results {
-  z-index: 99;
-  position: absolute;
-  top: 50px;
-  right: 10px;
-  background: $white;
-  border: $border;
-  box-shadow: $shadow;
-  border-radius: $radius;
-  padding: 10px $spacing;
-  padding-bottom: 0;
-  font-size: 0.85em;
-  border-top: 5px solid $pink;
-
-  h2, h3 {
-    margin-bottom: 0;
-    a {
-      padding: 0;
-      color: $blue;
-    }
-  }
-}

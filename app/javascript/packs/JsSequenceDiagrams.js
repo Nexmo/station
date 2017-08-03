@@ -1,30 +1,29 @@
+import SequenceDiagram from 'js-sequence-diagrams'
+
 export default () => {
-  $(".js-diagram").sequenceDiagram({
-    theme: 'simple'
+  $(".js-diagram").each(function() {
+    const $this = $(this)
+    const diagram = SequenceDiagram.parse($this.text())
+    $this.html('').addClass('diagram')
+    diagram.drawSVG(this, {
+      theme: 'simple'
+    })
   })
-  .addClass('diagram')
 
-  setTimeout(function(){
-    $('.diagram rect')
-      .attr('rx', 3)
-      .css('stroke-width', 1)
-      .attr('stroke', '#93B6C7')
+  $('.diagram rect[stroke-width=2]')
+    .attr('rx', 3)
+    .attr('stroke-width', 1)
+    .attr('stroke', '#93B6C7')
+    .css('fill', '#ffffff')
 
-    $('.diagram .actor text')
-      .attr('fill', '#E6547B')
-      .attr('font-family', 'Consolas, sans-serif')
+  $('.diagram text')
+    .css('font-family', 'Consolas, sans-serif')
 
-    $('.diagram')
-      .find('.note, .actor')
-      .attr('font-weight', 'bold')
+  $('.diagram use')
+    .css('fill', '93B6C7')
 
-    $('.diagram marker')
-      .css('fill', '93B6C7')
+  $(".diagram rect[fill='#ffffff']").remove()
 
-    $('.diagram .signal text')
-      .attr('fill', '#224E66')
-
-    $('.diagram line')
-      .attr('stroke', '#93B6C7')
-  }, 500)
-};
+  $('.diagram path[fill=none]')
+    .attr('stroke', '#93B6C7')
+}
