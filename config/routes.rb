@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   get '/tutorials', to: 'tutorials#index'
   get '/tutorials/*document(/:code_language)', to: 'tutorials#show', constraints: DocumentationConstraint.code_language
-  get '/*product/tutorials', to: 'tutorials#index'
+  get '/*product/tutorials', to: 'tutorials#index', constraints: DocumentationConstraint.product_with_parent
 
   get '/documentation', to: 'static#documentation'
 
@@ -36,7 +36,7 @@ Rails.application.routes.draw do
   get '/api/*document(/:code_language)', to: 'api#show', constraints: DocumentationConstraint.code_language
 
   get '/*product/api-reference', to: 'markdown#api'
-  get '/:product/*document(/:code_language)', to: 'markdown#show', constraints: DocumentationConstraint.all
+  get '/:product/*document(/:code_language)', to: 'markdown#show', constraints: DocumentationConstraint.documentation
 
   get '/robots.txt', to: 'static#robots'
 
