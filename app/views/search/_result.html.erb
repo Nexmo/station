@@ -6,7 +6,7 @@
         <h3><%= hit.title %></h3>
 
         <p class="search-highlighted">
-          <%= hit._snippetResult.body_safe.value.html_safe %>
+          <%= sanitize(hit._snippetResult.body_safe.value, tags: ['em']) %>
         </p>
       </div>
     </a>
@@ -22,7 +22,7 @@
 
 
         <p class="search-highlighted">
-          ...<%= hit._snippetResult.body.value.html_safe %>...
+          ...<%= sanitize(hit._snippetResult.body.value, tags: ['em']) %>...
         </p>
       </div>
     </a>
