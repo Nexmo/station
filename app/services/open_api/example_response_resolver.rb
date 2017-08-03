@@ -1,5 +1,10 @@
 module OpenApi
   class ExampleResponseResolver
+    attr_accessor :specification
+    attr_accessor :path
+    attr_accessor :method
+    attr_accessor :status
+
     def initialize(specification, path:, method:, status: nil)
       @specification = specification
       @path = path
@@ -37,6 +42,10 @@ module OpenApi
       HEREDOC
 
       output.html_safe
+    end
+
+    def server
+      @specification.raw['servers'].first['url']
     end
 
     def treat_as_object?(object)
@@ -116,9 +125,41 @@ module OpenApi
       @status ||= endpoint.raw['responses'].keys.first.to_s
     end
 
+    def jwt?
+      return false unless endpoint.raw['security']
+      endpoint.raw['security'].include? 'jwt'
+    end
 
     def endpoint
       @endpoint ||= @specification.endpoint(resolved_path, @method)
+    end
+
+    def title
+      endpoint.raw['summary'] || endpoint.raw['description']
+    end
+
+    def description
+      endpoint.raw['description']
+    end
+
+    def request_body_parameters
+      normalize_properties(endpoint.raw['requestBody']['content'].values[0]['schema']['properties'])
+    end
+
+    def path_parameters
+      @path_parameters ||= parameters.select do |parameter|
+        parameter['in'] == 'path'
+      end
+    end
+
+    def query_parameters
+      @path_parameters ||= parameters.select do |parameter|
+        parameter['in'] != 'path'
+      end
+    end
+
+    def normalize_properties(properties)
+      properties.map { |key, value| { 'name' => key }.merge(value) }
     end
 
     private
@@ -127,12 +168,6 @@ module OpenApi
       raise StandardError.new("Path (#{@path}) does not exist") unless @specification.raw['paths'][@path]
       raise StandardError.new("Method (#{method}) does not exist on path (#{@path})") unless @specification.raw['paths'][@path][@method]
       @parameters ||= @specification.raw['paths'][@path][@method]['parameters'] || []
-    end
-
-    def path_parameters
-      @path_parameters ||= parameters.select do |parameter|
-        parameter['in'] == 'path'
-      end
     end
 
     def parameter_value(parameter)

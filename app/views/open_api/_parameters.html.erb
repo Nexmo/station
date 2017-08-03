@@ -25,7 +25,7 @@
         </div>
 
         <div class="table-list-column" flex="3">
-          <b><%= parameter['description'] || "Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui." %></b>
+          <b><%= parameter['description'] %></b>
           <% if parameter['enum'] %>
             <br>
             <small>
@@ -57,7 +57,7 @@
       </div>
 
       <% if (parameter['schema'] ? parameter['schema']['type'] : parameter['type']) == 'array' %>
-        <%= render 'parameters', parameters: parameter['items']['properties'].map { |key, value| { 'name' => key }.merge(value) } %>
+        <%= render 'parameters', endpoint: endpoint, parameters: endpoint.normalize_properties(parameter['items']['properties']) %>
       <% end %>
     </li>
   <% end %>
