@@ -1,18 +1,31 @@
-<table>
-  <thead>
-    <th>Key</th>
-    <th>Description</th>
-    <th>Type</th>
-    <th>Example</th>
-    <th>Default</th>
-    <th>Required</th>
-  </thead>
-  <tbody>
-    <% parameters.each do |parameter| %>
-      <tr>
-        <td><code><%= parameter['name'] %></code></td>
-        <td>
-          <b><%= parameter['description'] %></b>
+<ul class="table-list">
+  <li class="table-list-header">
+    <div class="table-list-columns">
+      <div class="table-list-column">Key</div>
+      <div class="table-list-column">Type</div>
+      <div class="table-list-column" flex="3">Description</div>
+      <div class="table-list-column">Example</div>
+      <div class="table-list-column">Default</div>
+      <div class="table-list-column">Required</div>
+    </div>
+  </li>
+  <% parameters.each do |parameter| %>
+    <li>
+      <div class="table-list-columns">
+        <div class="table-list-column">
+          <code><%= parameter['name'] %></code>
+        </div>
+
+        <div class="table-list-column">
+          <code><%= (parameter['schema'] ? parameter['schema']['type'] : parameter['type']) %></code>
+          <% if (parameter['schema'] ? parameter['schema']['type'] : parameter['type']) == 'array' %>
+            <br>
+            <small><i>of <code><%= parameter['items']['type'] %></code>'s</i></small>
+          <% end %>
+        </div>
+
+        <div class="table-list-column" flex="3">
+          <b><%= parameter['description'] || "Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui." %></b>
           <% if parameter['enum'] %>
             <br>
             <small>
@@ -22,18 +35,30 @@
               </i>
             </small>
           <% end %>
-        </td>
-        <td><code><%= parameter['schema'] ? parameter['schema']['type'] : parameter['type'] %></code></td>
-        <td><%= (parameter['example'] ? "<code>#{parameter['example']}</code>" : "<i>None</i>").html_safe %></td>
-        <td><%= (parameter['default'] ? "<code>#{parameter['default']}</code>" : "<i>None</i>").html_safe %></td>
-        <td class="center">
-          <%=
-            parameter['required'] ?
-            '<i class="icon icon--large icon-check-circle color--success"></i>'.html_safe
-            : '<i class="icon icon--large icon-times-circle color--error"></i>'.html_safe
-          %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        </div>
+
+        <div class="table-list-column">
+          <%= (parameter['example'] ? "<code>#{parameter['example']}</code>" : "<i>None</i>").html_safe %>
+        </div>
+
+        <div class="table-list-column">
+          <%= (parameter['default'] ? "<code>#{parameter['default']}</code>" : "<i>None</i>").html_safe %>
+        </div>
+
+        <div class="table-list-column">
+          <div class="center">
+            <%=
+              parameter['required'] ?
+              '<i class="icon icon--large icon-check-circle color--success"></i>'.html_safe
+              : '<i class="icon icon--large icon-times-circle color--error"></i>'.html_safe
+            %>
+          </div>
+        </div>
+      </div>
+
+      <% if (parameter['schema'] ? parameter['schema']['type'] : parameter['type']) == 'array' %>
+        <%= render 'parameters', parameters: parameter['items']['properties'].map { |key, value| { 'name' => key }.merge(value) } %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
