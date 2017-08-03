@@ -61,6 +61,7 @@ components:
           type: string
         legs:
           type: array
+          description: A list of Legs
           items:
             $ref: '#/components/schemas/Leg'
         foo:
@@ -72,6 +73,7 @@ components:
       properties:
         paws:
           type: array
+          description: A list of Paws
           items:
             $ref: '#/components/schemas/Paw'
     Paw:
@@ -81,6 +83,13 @@ components:
       properties:
         position:
           type: string
+          description: Position of paw
+          example: front-left
+          enum:
+            - front-left
+            - front-right
+            - rear-left
+            - rear-right
     ErrorModel:
       type: object
       required:
