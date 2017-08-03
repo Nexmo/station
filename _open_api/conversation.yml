@@ -1,0 +1,124 @@
+swagger: '2.0'
+info:
+  title: Conversation API
+  version: v1.0.0
+host: api.nexmo.com
+securityDefinitions:
+  appJWT:
+    type: http
+    scheme: bearer
+    bearerFormat: JWT
+    in: header
+schemes:
+  - https
+paths:
+  /beta/conversations:
+    post:
+      summary: Make a conversation
+      description: Creates a new conversation
+      consumes:
+      - "application/json"
+      parameters:
+      - required: true
+        in: body
+        name: title
+        description: "Name of the conversation"
+        type: string
+        example: "My Conversation"
+      responses:
+        200:
+          description: Success
+          schema:
+            $ref: '#/definitions/ConversationNewResp'
+      security:
+        - appJWT: []
+  /beta/users:
+    post:
+      summary: Create a user
+      description: Creates a new user
+      consumes:
+      - "application/json"
+      parameters:
+        - required: true
+          in: body
+          name: name
+          description: "Name of the user"
+          type: string
+          example: "alice"
+        - required: false
+          in: body
+          name: display_name
+          description: "Display name of the user"
+          type: string
+          example: "Alice de User"
+      responses:
+        200:
+          description: Success
+          schema:
+            $ref: '#/definitions/UserNewResp'
+  "/beta/users/{id}":
+    get:
+      summary: Get details of User
+      description: Retrieves details about an individual user.
+      consumes:
+      - "application/json"
+      parameters:
+        - required: true
+          in: path
+          name: "id"
+          description: "UUID of the user"
+          example: "USR-e2123a2d-e7dc-4dc9-918a-a740eee40c24"
+          type: string
+      responses:
+        200:
+          description: Success
+          schema:
+            $ref: '#/definitions/UserResp'
+
+
+definitions:
+  JWT:
+    type: string
+    description: "JSON Web Token (application level)"
+    example: 'Bearer {jwt}'
+  ConversationNewResp:
+    type: object
+    properties:
+      id:
+        type: string
+        description: UUID of Conversation, prefixed with "CON-"
+        example: "CON-a1ccd090-7009-4578-9f39-ff179701042c"
+      href:
+        type: string
+        description: URL to retrieve details of Conversation
+        example: "http://conversation.local/v1/conversations/CON-a1ccd090-7009-4578-9f39-ff179701042c"
+  UserNewResp:
+    type: object
+    properties:
+      id:
+        type: string
+        description: UUID of User, prefixed with "USR-"
+        example: "USR-e2123a2d-e7dc-4dc9-918a-a740eee40c24"
+      href:
+        type: string
+        description: URL to retrieve details of User
+        example: "http://conversation.local/v1/users/USR-e2123a2d-e7dc-4dc9-918a-a740eee40c24"
+  UserResp:
+    type: object
+    properties:
+      id:
+        type: string
+        description: UUID of User, prefixed with "USR-"
+        example: "USR-e2123a2d-e7dc-4dc9-918a-a740eee40c24"
+      name:
+        type: string
+        description: Name of User
+        example: "alice"
+      channels:
+        type: object
+        description: Listing of Channels a User belongs to
+      href:
+        type: string
+        description: URL of User
+        example: "http://conversation.local/v1/users/USR-e2123a2d-e7dc-4dc9-918a-a740eee40c24"
+
