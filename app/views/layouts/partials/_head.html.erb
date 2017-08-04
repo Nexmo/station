@@ -33,17 +33,9 @@
     <link rel="canonical" href="<%= @canonical_url %>">
   <% end %>
 
-  <%= stylesheet_link_tag    "application" %>
+  <%= stylesheet_link_tag "application" %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js' %>
-  <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js' %>
-  <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.5.1/snap.svg-min.js' %>
-  <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/smooth-scroll/10.2.1/js/smooth-scroll.min.js' %>
-  <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.js' %>
-  <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.js' %>
-
-  <%= javascript_include_tag 'webfont' %>
-  <%= javascript_include_tag 'sequence-diagram-min' %>
+  <%= javascript_pack_tag 'application', defer: true %>
 
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -73,6 +65,5 @@
   <meta name="basic_auth_username" content="<%= ENV['USERNAME'] %>" />
   <meta name="basic_auth_password" content="<%= ENV['PASSWORD'] %>" />
 
-  <%= javascript_pack_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>

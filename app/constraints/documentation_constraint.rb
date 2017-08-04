@@ -1,5 +1,5 @@
 class DocumentationConstraint
-  def self.all
+  def self.documentation
     code_language.merge(product)
   end
 
@@ -12,6 +12,10 @@ class DocumentationConstraint
 
   def self.product
     { product: /voice|messaging|verify|number-insight|account|concepts/ }
+  end
+
+  def self.product_with_parent
+    { product: /voice\/sip|voice\/voice-api|messaging\/sms|messaging\/conversion-api|messaging\/sns|messaging\/us-short-codes|verify|number-insight|account|concepts/ }
   end
 
   def self.language_configuration
