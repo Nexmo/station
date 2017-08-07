@@ -17,10 +17,10 @@
         </div>
 
         <div class="table-list-column">
-          <code><%= (parameter['schema'] ? parameter['schema']['type'] : parameter['type']) %></code>
-          <% if (parameter['schema'] ? parameter['schema']['type'] : parameter['type']) == 'array' %>
+          <code><%= (parameter['type'] || parameter['schema']['type']) %></code>
+          <% if (parameter['type'] || parameter['schema']['type']) == 'array' %>
             <br>
-            <small><i>of <code><%= parameter['items']['type'] %></code>'s</i></small>
+            <small><i>of <code><%= (parameter['type'] || parameter['schema']['type']) %></code>'s</i></small>
           <% end %>
         </div>
 
@@ -56,8 +56,10 @@
         </div>
       </div>
 
-      <% if (parameter['schema'] ? parameter['schema']['type'] : parameter['type']) == 'array' %>
-        <%= render 'parameters', endpoint: endpoint, parameters: endpoint.normalize_properties(parameter['items']['properties']) %>
+      <% if (parameter['type'] || parameter['schema']['type']) == 'array' %>
+        <% if parameter['items'] %>
+          <%= render 'parameters', endpoint: endpoint, parameters: endpoint.normalize_properties(parameter['items']['properties']) %>
+        <% end %>
       <% end %>
     </li>
   <% end %>

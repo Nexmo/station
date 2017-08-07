@@ -143,6 +143,7 @@ module OpenApi
     end
 
     def request_body_parameters
+      return [] unless endpoint.raw['requestBody']
       normalize_properties(endpoint.raw['requestBody']['content'].values[0]['schema']['properties'])
     end
 
@@ -153,8 +154,8 @@ module OpenApi
     end
 
     def query_parameters
-      @path_parameters ||= parameters.select do |parameter|
-        parameter['in'] != 'path'
+      @query_parameters ||= parameters.select do |parameter|
+        parameter['in'] == 'query'
       end
     end
 
