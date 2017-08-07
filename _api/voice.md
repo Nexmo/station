@@ -3,7 +3,7 @@ title: API reference
 description: Voice API reference
 api: Voice API
 ---
-<!-- 
+<!--
 Note for editors:
 
 If you add/move/rename sections (etc.), be sure to update the sidebar:
@@ -22,15 +22,14 @@ You use the following requests to create, terminate, record and retrieve informa
 
 This request contains:
 
-* A [Base URL](#ccbase)
-* [Payload](#ccparameters)
-* [JWT](#jwt_minting)
+* A [Base URL](#base-url)
+* [Payload](#payload)
+* [JWT](#generating-a-jwt)
 
 Information about the call is sent to you in the:
 
-* [Response](#ccresponse) - parameters sent synchronously when the call starts.
-* [Webhook](#ccwebhook) - parameters sent asynchronously when the status changes
-
+* [Response](#response) - parameters sent synchronously when the call starts.
+* [Webhook](#webhook) - parameters sent asynchronously when the status changes
 
 #### Base URL
 
@@ -45,7 +44,6 @@ The payload to create a new call looks like:
 ```tabbed_content
 source: '/_examples/api/voice/calls/post-response'
 ```
-
 
 The following table shows the parameters you use to create a call:
 
@@ -280,7 +278,7 @@ All requests to modify an existing call must contain:
 
 * `https://api.nexmo.com/v1/calls/{uuid}`
 
-#### Payload 
+#### Payload
 
 The request body is a JSON-encoded object. The request body's content depends on the `action` performed.
 
