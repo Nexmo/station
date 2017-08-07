@@ -30,6 +30,8 @@ To handle inbound calls with the Voice API:
 
 3. Create the webhook that returns the NCCO for your Conversation. The code examples show how to create a private communication system where you connect an inbound call to a hidden outbound phone number:
 
+(Note: your must serve the NCCO with a `Content-Type` header of `application/json` or `text/plain`)
+
     ```tabbed_examples
     source: '_examples/voice/guides/inbound-calls/webhook'
     ```
