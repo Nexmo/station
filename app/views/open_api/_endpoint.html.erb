@@ -1,5 +1,5 @@
-<div class="row-fluid flex">
-  <div class="columns small-12 medium-8">
+<div class="slate-layout-documentation">
+  <div>
     <h2 id="<%= endpoint.title.parameterize %>"><%= endpoint.title %></h2>
     <p><%= endpoint.description %></p>
 
@@ -55,7 +55,10 @@
       <%= render 'parameters', endpoint: endpoint, parameters: endpoint.request_body_parameters %>
     <% end %>
   </div>
-  <div class="columns small-12 medium-4 background--code">
+</div>
+
+<div class="slate-layout-code">
+  <div>
     <%= render_request(@specification_name, endpoint.path, endpoint.method) %>
     <%= endpoint.html %>
   </div>
