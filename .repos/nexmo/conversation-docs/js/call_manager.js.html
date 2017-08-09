@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: call_manager.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: call_manager.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/*
+ * Conversation SDK
+ *  CallManager object model
+ *
+ * Copyright (c) Nexmo Inc. 2016
+ */
+
+// Conversation Client Error
+var ConversationClientError = require('./conversationClientError');
+
+var NexmoApiError = ConversationClientError.NexmoApiError;
+var NexmoClientError = ConversationClientError.NexmoClientError;
+
+/**
+ * @ignore
+ * A single CallManager Object.
+ * @class CallManager 
+ */
+
+var CallManager = function() {
+	//share the scope of the parent
+	that = this;
+};
+var that;
+
+
+/**
+ * Create audio call with the given user (id or name)
+ * 
+ * &lt;pre>
+ * 
+ * --> conversation:invite
+ *      payload = {
+ *          type: 'conversation:invite',
+ *          user_id: params.id,
+ *          user_name: params.user_name,
+ *          media: { audio: { mute: false, earmuff: false } }
+ *      }
+ * 
+ * &lt;-- [ack] conversation:invite:success
+ * 
+ * &lt;-- member:invited
+ * 
+ * &lt;/pre>
+ * 
+ * @param {Member} params  
+ * @param {String} [params.id or username] - the id or the username of the user to invite
+ * @param {Object} params.media - the media type (audio)
+ * @param {String} params.media.audio - the media type
+ * @param {String} [params.media.audio.mute = false] - start the callee muted
+ * @param {String} [params.media.audio.earmuff = false] - start the callee earmuffed
+ * @returns {Promise&lt;Member>}
+ * @example
+ * 
+ * function CallUser() {
+ *  //user_name or user_id
+	 conversation.callManager.createCall({
+			id: user_id,
+			user_name: user_name,
+			media: { audio: { mute: false, earmuff: false } }
+		})
+		.then(function(reply) {
+			console.log("Audio " + reply.state + " user: " + user_id + " " + user_name);
+			conversation.enableAudio();
+		}).catch(function(error) {
+			console.log(error);
+		});
+} //if you are a member in a conversation you can directly enable audio to wait for other members to do so and start a call directly
+ * 
+ */
+CallManager.prototype.createCall = function(params) {
+	var p = new Promise(function(resolve, reject) {
+		if (params.media.audio) {
+			that.invite(params)
+				.then(resolve)
+				.catch(reject);
+		} else {
+			reject(new NexmoClientError("set:media:type:error"));
+		}
+	});
+	return p;
+};
+
+
+/**
+ * Enable audio participation in the conversation for this application (requires WebRTC)
+ * &lt;pre>
+ * 
+ * --> rtc:new
+ *      payload = {
+ *       type: 'rtc:new',
+ *       cid: &amp;lt;conversation_id&amp;gt;,
+ *       from: &amp;lt;member_id&amp;gt;,
+ *       body: {
+ *           offer: &amp;lt;offer_sdp&amp;gt;,
+ *           label: params.label
+ *       }   
+ *      }
+ * 
+ * &lt;-- [ack] rtc:new:success
+ * 
+ * &lt;-- rtc:answer
+ * 
+ * &lt;/pre>
+ * @param {Object} params - rtc params
+ * @param {String} params.label - Label is an application defined tag, eg. ‘fullscreen’ or
+ *
+ * @returns {Promise}
+ * @example
+ * Send ringing event
+ * function enableAudio() {
+ *   conversation.callManager.enableAudio()
+ *      .then(function(response) {
+ *       }).catch(function(error) {
+ *           console.log(error);
+ *       });
+ * }
+ * 
+ * 
+ * 
+ **/
+CallManager.prototype.enableAudio = function(params) {
+	var p = new Promise(function(resolve, reject) {
+		function onError(error) {
+			// ToDo -- Untested
+			reject(new NexmoApiError(error));
+		}
+		if (that.me === null) {
+			reject(new NexmoClientError("error:self"));
+		} else {
+			var data = {};
+			navigator.getUserMedia({
+				video: false,
+				audio: true
+			},
+				function(localStream) {
+					/* jshint -W117 */
+					var pc = new RTCPeerConnection({
+						"iceServers": [{
+							"url": "stun:stun.l.google.com:19302"
+						}]
+					});
+					that.pc = pc;
+					pc.onicecandidate = function(event) {
+						if (!event.candidate) {
+							// Wait until we have all the candidates in...
+							var event_to_emit = {
+								type: 'rtc:new', //rtc:offer to update the sdp
+								cid: that.id,
+								from: that.me.id,
+								body: {
+									offer: that.pc.localDescription
+								}
+							}
+							if (params &amp;&amp; params.label) {
+								event_to_emit.label = params.label;
+							}
+							that.application.session.sendRequest(event_to_emit,
+								function(response) {
+									if (response.type === "rtc:new:success") {
+										that.me.rtc_id = response.body.rtc_id;
+										resolve(response.type);
+									} else {
+										reject(new NexmoApiError(response));
+									}
+								});
+						}
+					};
+					that.localStream = localStream;
+					pc.ontrack = function(evt) {
+						that.activeStream = evt.streams[0];
+						that.emit("rtc:stream", {
+							stream: evt.streams[0]
+						});
+					};
+					pc.addStream(localStream);
+					pc.createOffer(
+						function(desc) {
+							pc.setLocalDescription(desc, function(data) { }, onError);
+						},
+						onError);
+
+				},
+				function(error) {
+					reject(new NexmoClientError("error:getUserMedia:permissions"));
+				}
+			);
+			// We want to be able to handle these events, for this member, before they get propagated out
+			that.on('rtc:answer', function(event, body) {
+				that.pc.setRemoteDescription(new RTCSessionDescription({
+					type: 'answer',
+					sdp: body.answer
+				}),
+					function(data) { },
+					onError);
+			});
+
+		}
+	});
+	return p;
+};
+
+
+/**
+ * Disable audio partcipation in the conversation for this application
+ * &lt;pre>
+ * 
+ * --> rtc:terminate
+ *        payload = {
+ *          type: 'rtc:terminate',
+ *          from: &amp;lt;member_id&amp;gt;, //optional - If no member_id then it refers to the mix of conversation participants
+ *          rtc_id: &amp;lt;rtc_id&amp;gt;,
+ *          cid: &amp;lt;conversation_id&amp;gt;,
+ *          body: {
+ *               rtc_id: &amp;lt;rtc_id&amp;gt;
+ *              stream_id: &amp;lt;stream_id&amp;gt;
+ *          }  
+ *        }
+ * 
+ * &lt;-- [ack] rtc:terminate:success
+ * 
+ * &lt;/pre>
+ * 
+ * @param {Object} params - rtc params
+ * @param {String} params.rtc_id - it corrisponde to the call id
+ * @param {String} [params.stream_id] - If there is no stream_id then it is a request to terminate all streams in the rtc_id collection.
+ *
+ * 
+ * @returns {Promise}
+ * @example
+ *
+ * function disableAudio() {
+ *   conversation.callManager.disableAudio()
+ *      .then(function(response) {
+ *       }).catch(function(error) {
+ *           console.log(error);
+ *       });
+ * }
+ * 
+ * 
+ * 
+ **/
+
+CallManager.prototype.disableAudio = function(params) {
+	var p = new Promise(function(resolve, reject) {
+		if (!that.me.rtc_id) return;
+		that.application.session.sendRequest({
+			type: 'rtc:terminate',
+			cid: that.id,
+			from: that.me.id,
+			rtc_id: that.me.rtc_id,
+			body: params
+		}, function(response) {
+			if (response.type === "rtc:terminate:success") {
+				resolve(response.type);
+				if (that.localStream) {
+					that.localStream.getTracks()[0].stop();
+				};
+				if (that.activeStream) {
+					that.activeStream.getTracks()[0].stop();
+				}
+			} else {
+				reject(new NexmoApiError(response));
+			}
+		});
+	});
+	// TODO: do we need this?
+	// that.on('rtc:terminate:success', function() {
+	// });
+	return p;
+};
+
+// Play a stream to the conversation
+CallManager.prototype.playStream = function(params) {
+	var p = new Promise(function(resolve, reject) {
+		var msg = {
+			type: 'audio:play',
+			cid: that.id,
+			body: params
+		};
+		that.application.session.sendRequest(msg, function(response) {
+			if (response.type === 'audio:play:success') {
+				msg.id = response.body.id;
+				var event = new Event(that, response);
+				resolve(event);
+			} else {
+				reject(new NexmoApiError(response));
+			}
+		});
+	});
+	return p;
+};
+
+/**
+ * Send start ringing event
+ * &lt;pre>
+ * 
+ * --> audio:ringing:start
+ *      payload = {}
+ * 
+ * &lt;-- [ack] audio:ringing:start:success
+ * 
+ * &lt;-- audio:ringing:start
+ *      payload = { cid: &amp;lt;conversation_id&amp;gt; }
+ * 
+ * &lt;/pre>
+ * 
+ *  @todo expect the most convenient user identification (member id, username etc) to findout who's ringing
+ * 
+ * @returns {Promise}
+ * @example
+ * Send ringing event
+ * function ringingStart() {
+ *   conversation.callManager.ringingStart()
+ *      .then(function(response) {
+ *       }).catch(function(error) {
+ *           console.log(error);
+ *       });
+ * }
+ * 
+ * conversation.on('audio:ringing:start', function(data)){
+ * console.log("ringing");
+ * }
+ */
+CallManager.prototype.ringingStart = function() {
+	var p = new Promise(function(resolve, reject) {
+		var msg = {
+			type: 'audio:ringing:start',
+			cid: that.id,
+			from: that.me.id,
+			body: {}
+		};
+		that.application.session.sendRequest(msg, function(response) {
+			if (response.type === 'audio:ringing:start:success') {
+				msg.id = response.body.id;
+				var event = new Event(that, response);
+				resolve(event);
+			} else {
+				reject(new NexmoApiError(response));
+			}
+		});
+	});
+	return p;
+};
+
+/**
+ * Send stop ringing event
+ * 
+ * &lt;pre>
+ * 
+ * --> audio:ringing:stop
+ *      payload = {}
+ * 
+ * &lt;-- [ack] audio:ringing:stop:success
+ * 
+ * &lt;-- audio:ringing:stop
+ *      payload = { cid: &amp;lt;conversation_id&amp;gt; }
+ * 
+ * &lt;/pre>
+ *  
+ * @todo for the event audio:ringing:stop: expect the most convenient user identification (member id, username etc) to findout who's the sender
+ * 
+ * @returns {Promise}
+ * @example
+ * Send ringing event
+ * function ringingStop() {
+ *   conversation.callManager.ringingStop()
+ *      .then(function(response) {
+ *       }).catch(function(error) {
+ *           console.log(error);
+ *       });
+ * }
+ * 
+ * conversation.on('audio:ringing:stop', function(data)){
+ * console.log("ringing stopped");
+ * }
+ */
+CallManager.prototype.ringingStop = function(params) {
+	var p = new Promise(function(resolve, reject) {
+		var msg = {
+			type: 'audio:ringing:stop',
+			cid: that.id,
+			from: that.me.id,
+			body: {}
+		};
+		that.application.session.sendRequest(msg, function(response) {
+			if (response.type === 'audio:ringing:stop:success') {
+				msg.id = response.body.id;
+				var event = new Event(that, response);
+				resolve(event);
+			} else {
+				reject(new NexmoApiError(response));
+			}
+		});
+	});
+	return p;
+}
+
+// Say a message to the conversation, which will be relayed as text to speech
+CallManager.prototype.sayText = function(params) {
+	var p = new Promise(function(resolve, reject) {
+		var msg = {
+			type: 'audio:say',
+			cid: that.id,
+			body: params
+		};
+		that.application.session.sendRequest(msg, function(response) {
+			if (response.type === 'audio:say:success') {
+				msg.id = response.body.id;
+				var event = new Event(that, response);
+				resolve(event);
+			} else {
+				reject(new NexmoApiError(response));
+			}
+		});
+	});
+	return p;
+};
+
+// Record the conversation
+CallManager.prototype.record = function(params) {
+	var p = new Promise(function(resolve, reject) {
+		var msg = {
+			type: 'audio:record',
+			cid: that.id,
+			body: params
+		};
+		that.application.session.sendRequest(msg, function(response) {
+			if (response.type === 'audio:record:success') {
+				msg.id = response.body.id;
+				var event = new Event(that, response);
+				resolve(event);
+			} else {
+				reject(new NexmoApiError(response));
+			}
+		});
+	});
+	return p;
+};
+
+module.exports = {
+	CallManager: CallManager
+};</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="Member.html">Member</a></li><li><a href="Text.html">Text</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ConversationClientErrorTypes">ConversationClientErrorTypes</a></li><li><a href="global.html#me">me</a></li><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li><li><a href="global.html#NexmoClientErrorTypes">NexmoClientErrorTypes</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Tue Jul 25 2017 21:32:58 GMT+0300 (EEST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

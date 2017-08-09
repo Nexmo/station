@@ -1,0 +1,1797 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Conversation Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/Conversation" class="dashAnchor"></a>
+    <a title="Conversation Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">NexmoConversation Docs</a> (67% documented)</p>
+        <p class="header-right"><a href="https://github.com/Nexmo/conversation-ios-sdk"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">NexmoConversation Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        Conversation Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Client.html">Client</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/ConversationClient.html">ConversationClient</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ConversationClient/LoginResult.html">– LoginResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ConversationClient/State.html">– State</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ConversationClient/StateObjc.html">– StateObjc</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SynchronizingState.html">SynchronizingState</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Configuration.html">Configuration</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/Configuration.html">Configuration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Configuration/LogLevel.html">– LogLevel</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Facade.html">Facade</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/Conversation.html">Conversation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Conversation/Change.html">– Change</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Conversation/Errors.html">– Errors</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Member.html">Member</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ReceiptRecord.html">ReceiptRecord</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ReceiptRecord/ReceiptState.html">– ReceiptState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/User.html">User</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Controller.html">Controller</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AccountController.html">AccountController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AccountController/State.html">– State</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ConversationController.html">ConversationController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ConversationController/CreateConversation.html">– CreateConversation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ConversationController/JoinConversation.html">– JoinConversation</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Event.html">Event</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/EventBase.html">EventBase</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EventBase/EventType.html">– EventType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TextEvent.html">TextEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ImageEvent.html">ImageEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Event.html#/s:C17NexmoConversation15MembershipEvent">MembershipEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MemberLeftEvent.html">MemberLeftEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MemberJoinedEvent.html">MemberJoinedEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MemberInvitedEvent.html">MemberInvitedEvent</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Model.html">Model</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/Event.html">Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Event/EventType.html">– EventType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ConversationModel.html">ConversationModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MemberModel.html">MemberModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MemberModel/State.html">– State</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MemberModel/Action.html">– Action</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MemberModel/Channel.html">– Channel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/NetworkError.html">NetworkError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PushNotificationCertificate.html">PushNotificationCertificate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Session.html">Session</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/UploadedImage.html">UploadedImage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/UploadedImage/ImageType.html">– ImageType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/UploadedImage/Image.html">– Image</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Collection.html">Collection</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/LazyCollection.html">LazyCollection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ConversationCollection.html">ConversationCollection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MemberCollection.html">MemberCollection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ReceiptCollection.html">ReceiptCollection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EventCollection.html">EventCollection</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Other Guides.html">Other Guides</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../changelog.html">CHANGELOG</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../gettingstarted.html">GettingStarted</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../readme.html">README</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Other Classes.html">Other Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/ConversationPreviewModel.html">ConversationPreviewModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Signal.html">Signal</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SignalBase.html">SignalBase</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SignalReference.html">SignalReference</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Other Enums.html">Other Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/Change.html">Change</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Other Functions.html">Other Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Other Functions.html#/s:F17NexmoConversationoi2eeFTCS_12ConversationS0__Sb">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Other Functions.html#/s:F17NexmoConversationoi2eeFTCS_17ConversationModelS0__Sb">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Other Functions.html#/s:F17NexmoConversationoi2eeFTCS_24ConversationPreviewModelS0__Sb">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Other Functions.html#/s:F17NexmoConversationoi2eeFTCS_4UserS0__Sb">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Other Functions.html#/s:F17NexmoConversationoi2eeFTCS_6MemberS0__Sb">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Other Functions.html#/s:F17NexmoConversationoi2eeFTCS_9EventBaseS0__Sb">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Other Functions.html#/s:F17NexmoConversationoi2eeFTOCS_12Conversation6ErrorsS1__Sb">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Other Functions.html#/s:F17NexmoConversationoi2eeFTOCS_17AccountController5StateS1__Sb">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Other Functions.html#/s:F17NexmoConversationoi2eeFTOCS_18ConversationClient5StateS1__Sb">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Other Functions.html#/s:F17NexmoConversationoi2eeFTOS_18SynchronizingStateS0__Sb">==(_:_:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Other Protocols.html">Other Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/Deletable.html">Deletable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/NetworkErrorProtocol.html">NetworkErrorProtocol</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>Conversation</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">Conversation</span><span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                </div>
+              </div>
+            <p>Conversation Facade Object</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Typealias"></a>
+                <a name="//apple_ref/swift/Section/Typealias" class="dashAnchor"></a>
+                <a href="#/Typealias">
+                  <h3 class="section-name">Typealias</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C17NexmoConversation12Conversation12JoinResponse"></a>
+                    <a name="//apple_ref/swift/Alias/JoinResponse" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C17NexmoConversation12Conversation12JoinResponse">JoinResponse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Callback of requesting joining a conversation</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">JoinResponse</span> <span class="o">=</span> <span class="p">(</span><span class="cm">/* success */</span> <span class="kt">Bool</span><span class="p">,</span> <span class="cm">/* error */</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C17NexmoConversation12Conversation14InviteResponse"></a>
+                    <a name="//apple_ref/swift/Alias/InviteResponse" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C17NexmoConversation12Conversation14InviteResponse">InviteResponse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Callback of requesting an invite to a conversation</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">InviteResponse</span> <span class="o">=</span> <span class="p">(</span><span class="cm">/* user */</span><span class="kt"><a href="../Classes/Member.html">Member</a></span><span class="p">?,</span> <span class="cm">/* success */</span> <span class="kt">Bool</span><span class="p">,</span> <span class="cm">/* error */</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Enum"></a>
+                <a name="//apple_ref/swift/Section/Enum" class="dashAnchor"></a>
+                <a href="#/Enum">
+                  <h3 class="section-name">Enum</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:OC17NexmoConversation12Conversation6Change"></a>
+                    <a name="//apple_ref/swift/Enum/Change" class="dashAnchor"></a>
+                    <a class="token" href="#/s:OC17NexmoConversation12Conversation6Change">Change</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Changes to event observer</p>
+
+<ul>
+<li>reset: reset all events</li>
+<li>inserts: inserted events at indexpath</li>
+<li>deletes: deleted events at indexpath</li>
+<li>updates: updated events at indexpath</li>
+<li>move: moved events from and to</li>
+<li>beginBatchEditing: begin batch editing</li>
+<li>endBatchEditing: end batch editing</li>
+</ul>
+
+                        <a href="../Classes/Conversation/Change.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Change</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:OC17NexmoConversation12Conversation6Errors"></a>
+                    <a name="//apple_ref/swift/Enum/Errors" class="dashAnchor"></a>
+                    <a class="token" href="#/s:OC17NexmoConversation12Conversation6Errors">Errors</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Error</p>
+
+<ul>
+<li>eventBodyIsEmpty: event could not be found in cache or database</li>
+<li>cannotProcessRequest: cannot process request</li>
+</ul>
+
+                        <a href="../Classes/Conversation/Errors.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Errors</span><span class="p">:</span> <span class="kt">Error</span><span class="p">,</span> <span class="kt">Equatable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Properties"></a>
+                <a name="//apple_ref/swift/Section/Properties" class="dashAnchor"></a>
+                <a href="#/Properties">
+                  <h3 class="section-name">Properties</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC17NexmoConversation12Conversation4uuidSS"></a>
+                    <a name="//apple_ref/swift/Property/uuid" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC17NexmoConversation12Conversation4uuidSS">uuid</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>UUID identifying this conversation.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">uuid</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC17NexmoConversation12Conversation4nameSS"></a>
+                    <a name="//apple_ref/swift/Property/name" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC17NexmoConversation12Conversation4nameSS">name</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Conversation name</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC17NexmoConversation12Conversation5usersGSaCS_4User_"></a>
+                    <a name="//apple_ref/swift/Property/users" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC17NexmoConversation12Conversation5usersGSaCS_4User_">users</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>An array of all of the users in the conversation.</p>
+<pre class="highlight plaintext"><code>var users:[Users] = conversation.allUsers
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">users</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/User.html">User</a></span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC17NexmoConversation12Conversation12lastSequenceSi"></a>
+                    <a name="//apple_ref/swift/Property/lastSequence" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC17NexmoConversation12Conversation12lastSequenceSi">lastSequence</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Last event number</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">lastSequence</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC17NexmoConversation12Conversation7membersCS_16MemberCollection"></a>
+                    <a name="//apple_ref/swift/Property/members" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC17NexmoConversation12Conversation7membersCS_16MemberCollection">members</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A collection of all of the members in the conversation.</p>
+<pre class="highlight plaintext"><code>var members: NexmoConversation.LazyCollection&lt;Member&gt;  = conversation.allMembers
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">members</span><span class="p">:</span> <span class="kt"><a href="../Classes/MemberCollection.html">MemberCollection</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC17NexmoConversation12Conversation9allEventsCS_15EventCollection"></a>
+                    <a name="//apple_ref/swift/Property/allEvents" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC17NexmoConversation12Conversation9allEventsCS_15EventCollection">allEvents</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>All events in this conversation.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">private(set)</span> <span class="k">var</span> <span class="nv">allEvents</span><span class="p">:</span> <span class="kt"><a href="../Classes/EventCollection.html">EventCollection</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC17NexmoConversation12Conversation5stateOVS_11MemberModel5State"></a>
+                    <a name="//apple_ref/swift/Property/state" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC17NexmoConversation12Conversation5stateOVS_11MemberModel5State">state</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The state of the user in this conversation.  Can be any of the states in Member.State</p>
+<pre class="highlight plaintext"><code>var state: Member.State = conversation.state
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">state</span><span class="p">:</span> <span class="kt"><a href="../Structs/MemberModel.html">MemberModel</a></span><span class="o">.</span><span class="kt">State</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC17NexmoConversation12Conversation12creationDateV10Foundation4Date"></a>
+                    <a name="//apple_ref/swift/Property/creationDate" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC17NexmoConversation12Conversation12creationDateV10Foundation4Date">creationDate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Date conversation was created</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">creationDate</span><span class="p">:</span> <span class="kt">Date</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Properties%20-%20Observable"></a>
+                <a name="//apple_ref/swift/Section/Properties - Observable" class="dashAnchor"></a>
+                <a href="#/Properties%20-%20Observable">
+                  <h3 class="section-name">Properties - Observable</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC17NexmoConversation12Conversation11nameChangedGCS_6SignalT3oldGSqSS_3newGSqSS___"></a>
+                    <a name="//apple_ref/swift/Property/nameChanged" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC17NexmoConversation12Conversation11nameChangedGCS_6SignalT3oldGSqSS_3newGSqSS___">nameChanged</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Signal for when conversation name changes.</p>
+
+<p>Can add handlers to respond to changes in conversation name.</p>
+
+<p>Using selectors:</p>
+<pre class="highlight plaintext"><code>nameChanged.addHandler(self, selector: #selector(MyClass.handleNameChange))
+</code></pre>
+
+<p>Using swift handlers:</p>
+<pre class="highlight plaintext"><code>nameChanged.addHandler(self, handler: MyClass.handleNameChange)
+</code></pre>
+
+<p>Handler should have Conversation and 2 Strings (old and new names) as parameters:</p>
+<pre class="highlight plaintext"><code>func handleNameChange(conversation: Conversation, oldName: String, newName:String) {
+
+// Do something here
+
+}
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">nameChanged</span> <span class="o">=</span> <span class="kt"><a href="../Classes/Signal.html">Signal</a></span><span class="o">&lt;</span><span class="p">(</span><span class="nv">old</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">new</span><span class="p">:</span> <span class="kt">String</span><span class="p">?)</span><span class="o">&gt;</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC17NexmoConversation12Conversation16newEventReceivedGCS_6SignalCS_9EventBase_"></a>
+                    <a name="//apple_ref/swift/Property/newEventReceived" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC17NexmoConversation12Conversation16newEventReceivedGCS_6SignalCS_9EventBase_">newEventReceived</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Signal for when new event is received.</p>
+
+<p>Can add handlers to respond to new events in this conversation</p>
+
+<p>Using selectors:</p>
+<pre class="highlight plaintext"><code>newEventReceived.addHandler(self, selector: #selector(MyClass.handleNewEvent))
+</code></pre>
+
+<p>Using swift handlers:</p>
+<pre class="highlight plaintext"><code>newEventReceived.addHandler(self, handler: MyClass.handleNewEvent)
+</code></pre>
+
+<p>Handler should have Conversation and EventBase as parameters:</p>
+<pre class="highlight plaintext"><code>func handleNewEvent(conversation: Conversation, newEvent: EventBase) {
+
+// Do something here
+
+}
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">newEventReceived</span> <span class="o">=</span> <span class="kt"><a href="../Classes/Signal.html">Signal</a></span><span class="o">&lt;</span><span class="kt"><a href="../Classes/EventBase.html">EventBase</a></span><span class="o">&gt;</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC17NexmoConversation12Conversation9newMemberGCS_6SignalCS_6Member_"></a>
+                    <a name="//apple_ref/swift/Property/newMember" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC17NexmoConversation12Conversation9newMemberGCS_6SignalCS_6Member_">newMember</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Signal for when new member is added to the conversation</p>
+
+<p>Can add handlers to respond to new members in this conversation</p>
+
+<p>Using selectors:</p>
+<pre class="highlight plaintext"><code>newMember.addHandler(self, selector: #selector(MyClass.handleNewMember))
+</code></pre>
+
+<p>Using swift handlers:</p>
+<pre class="highlight plaintext"><code>newMember.addHandler(self, handler: MyClass.handleNewMember)
+</code></pre>
+
+<p>Handler should have Conversation and Member as parameters:</p>
+<pre class="highlight plaintext"><code>func handleNewMember(conversation: Conversation, newMember: Member) {
+
+// Do something here
+
+}
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">newMember</span> <span class="o">=</span> <span class="kt"><a href="../Classes/Signal.html">Signal</a></span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Member.html">Member</a></span><span class="o">&gt;</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC17NexmoConversation12Conversation10memberLeftGCS_6SignalCS_6Member_"></a>
+                    <a name="//apple_ref/swift/Property/memberLeft" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC17NexmoConversation12Conversation10memberLeftGCS_6SignalCS_6Member_">memberLeft</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Signal for when a member left the conversation</p>
+
+<p>Can add handlers to respond to a member leaving this conversation</p>
+
+<p>Using selectors:</p>
+<pre class="highlight plaintext"><code>memberLeft.addHandler(self, selector: #selector(MyClass.handleMemberLeft))
+</code></pre>
+
+<p>Using swift handlers:</p>
+<pre class="highlight plaintext"><code>memberLeft.addHandler(self, handler: MyClass.handleMemberLeft)
+</code></pre>
+
+<p>Handler should have Conversation and Member as parameters:</p>
+<pre class="highlight plaintext"><code>func handleMemberLeft(conversation: Conversation, member: Member) {
+
+// Do something here
+
+}
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">memberLeft</span> <span class="o">=</span> <span class="kt"><a href="../Classes/Signal.html">Signal</a></span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Member.html">Member</a></span><span class="o">&gt;</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC17NexmoConversation12Conversation12memberJoinedGCS_6SignalCS_6Member_"></a>
+                    <a name="//apple_ref/swift/Property/memberJoined" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC17NexmoConversation12Conversation12memberJoinedGCS_6SignalCS_6Member_">memberJoined</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Signal for when a member joined the conversation</p>
+
+<p>Can add handlers to respond to a member joining this conversation</p>
+
+<p>Using selectors:</p>
+<pre class="highlight plaintext"><code>memberJoined.addHandler(self, selector: #selector(MyClass.handleMemberJoined))
+</code></pre>
+
+<p>Using swift handlers:</p>
+<pre class="highlight plaintext"><code>memberJoined.addHandler(self, handler: MyClass.handleMemberJoined)
+</code></pre>
+
+<p>Handler should have Conversation and Member as parameters:</p>
+<pre class="highlight plaintext"><code>func handleMemberJoined(conversation: Conversation, member: Member) {
+
+// Do something here
+
+}
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">memberJoined</span> <span class="o">=</span> <span class="kt"><a href="../Classes/Signal.html">Signal</a></span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Member.html">Member</a></span><span class="o">&gt;</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC17NexmoConversation12Conversation13memberInvitedGCS_6SignalCS_6Member_"></a>
+                    <a name="//apple_ref/swift/Property/memberInvited" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC17NexmoConversation12Conversation13memberInvitedGCS_6SignalCS_6Member_">memberInvited</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Signal for when a member is invited to the conversation</p>
+
+<p>Can add handlers to respond to a member being invited to this conversation</p>
+
+<p>Using selectors:</p>
+<pre class="highlight plaintext"><code>memberInvited.addHandler(self, selector: #selector(MyClass.handleMemberInvited))
+</code></pre>
+
+<p>Using swift handlers:</p>
+<pre class="highlight plaintext"><code>memberInvited.addHandler(self, handler: MyClass.handleMemberInvited)
+</code></pre>
+
+<p>Handler should have Conversation and Member as parameters:</p>
+<pre class="highlight plaintext"><code>func handleMemberInvited(conversation: Conversation, member: Member) {
+
+// Do something here
+
+}
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">memberInvited</span> <span class="o">=</span> <span class="kt"><a href="../Classes/Signal.html">Signal</a></span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Member.html">Member</a></span><span class="o">&gt;</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC17NexmoConversation12Conversation14memberKnockingGCS_6SignalCS_6Member_"></a>
+                    <a name="//apple_ref/swift/Property/memberKnocking" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC17NexmoConversation12Conversation14memberKnockingGCS_6SignalCS_6Member_">memberKnocking</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Signal for when a member is asking to join to the conversation</p>
+
+<p>Can add handlers to respond to a member asking to join this conversation</p>
+
+<p>Using selectors:</p>
+<pre class="highlight plaintext"><code>memberKnocking.addHandler(self, selector: #selector(MyClass.handleMemberKnocking))
+</code></pre>
+
+<p>Using swift handlers:</p>
+<pre class="highlight plaintext"><code>memberKnocking.addHandler(self, handler: MyClass.handleMemberKnocking)
+</code></pre>
+
+<p>Handler should have Conversation and Member as parameters:</p>
+<pre class="highlight plaintext"><code>func handleMemberKnocking(conversation: Conversation, member: Member) {
+
+// Do something here
+
+}
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">memberKnocking</span> <span class="o">=</span> <span class="kt"><a href="../Classes/Signal.html">Signal</a></span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Member.html">Member</a></span><span class="o">&gt;</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC17NexmoConversation12Conversation14membersChangedGCS_6SignalT__"></a>
+                    <a name="//apple_ref/swift/Property/membersChanged" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC17NexmoConversation12Conversation14membersChangedGCS_6SignalT__">membersChanged</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Signal for when the members in this conversation change</p>
+
+<p>Can add handlers to respond to a change in the members in this conversation</p>
+
+<p>Using selectors:</p>
+<pre class="highlight plaintext"><code>membersChanged.addHandler(self, selector: #selector(MyClass.handleMembersChanged))
+</code></pre>
+
+<p>Using swift handlers:</p>
+<pre class="highlight plaintext"><code>membersChanged.addHandler(self, handler: MyClass.handleMembersChanged)
+</code></pre>
+
+<p>Handler should have Conversation as a parameter:</p>
+<pre class="highlight plaintext"><code>func handleMembersChanged(conversation: Conversation) {
+
+// Do something here
+
+}
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">membersChanged</span> <span class="o">=</span> <span class="kt"><a href="../Classes/Signal.html">Signal</a></span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC17NexmoConversation12Conversation11messageSentGCS_6SignalCS_9TextEvent_"></a>
+                    <a name="//apple_ref/swift/Property/messageSent" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC17NexmoConversation12Conversation11messageSentGCS_6SignalCS_9TextEvent_">messageSent</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Signal for when a text event is sent</p>
+
+<p>Can add handlers to respond to sending a text </p>
+
+<p>Using selectors:</p>
+<pre class="highlight plaintext"><code>messageSent.addHandler(self, selector: #selector(MyClass.handleMessageSent))
+</code></pre>
+
+<p>Using swift handlers:</p>
+<pre class="highlight plaintext"><code>messageSent.addHandler(self, handler: MyClass.handleMessageSent)
+</code></pre>
+
+<p>Handler should have Conversation and TextEvent as parameters:</p>
+<pre class="highlight plaintext"><code>func handleMessageSent(conversation: Conversation, textEvent: TextEvent) {
+
+// Do something here
+
+}
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">messageSent</span> <span class="o">=</span> <span class="kt"><a href="../Classes/Signal.html">Signal</a></span><span class="o">&lt;</span><span class="kt"><a href="../Classes/TextEvent.html">TextEvent</a></span><span class="o">&gt;</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC17NexmoConversation12Conversation6eventsGCS_6SignalT6eventsGSaCS_9TextEvent_6changeOS0_6Change__"></a>
+                    <a name="//apple_ref/swift/Property/events" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC17NexmoConversation12Conversation6eventsGCS_6SignalT6eventsGSaCS_9TextEvent_6changeOS0_6Change__">events</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Notification of deleted event
+Returns event and type of changes that where made</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">events</span> <span class="o">=</span> <span class="kt"><a href="../Classes/Signal.html">Signal</a></span><span class="o">&lt;</span><span class="p">(</span><span class="nv">events</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/TextEvent.html">TextEvent</a></span><span class="p">],</span> <span class="nv">change</span><span class="p">:</span> <span class="kt"><a href="../Classes/Conversation/Change.html">Change</a></span><span class="p">)</span><span class="o">&gt;</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/NSObject"></a>
+                <a name="//apple_ref/swift/Section/NSObject" class="dashAnchor"></a>
+                <a href="#/NSObject">
+                  <h3 class="section-name">NSObject</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC17NexmoConversation12Conversation9hashValueSi"></a>
+                    <a name="//apple_ref/swift/Property/hashValue" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC17NexmoConversation12Conversation9hashValueSi">hashValue</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Hashable</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">override</span> <span class="k">var</span> <span class="nv">hashValue</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC17NexmoConversation12Conversation11descriptionSS"></a>
+                    <a name="//apple_ref/swift/Property/description" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC17NexmoConversation12Conversation11descriptionSS">description</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Description</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">override</span> <span class="k">var</span> <span class="nv">description</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Event"></a>
+                <a name="//apple_ref/swift/Section/Event" class="dashAnchor"></a>
+                <a href="#/Event">
+                  <h3 class="section-name">Event</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC17NexmoConversation12Conversation4sendFzSST_"></a>
+                    <a name="//apple_ref/swift/Method/send(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC17NexmoConversation12Conversation4sendFzSST_">send(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Send text event</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    error if task cannot be added to queue or event is empty
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">send</span><span class="p">(</span><span class="n">_</span> <span class="nv">text</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>text</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>text</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC17NexmoConversation12Conversation4sendFzV10Foundation4DataT_"></a>
+                    <a name="//apple_ref/swift/Method/send(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC17NexmoConversation12Conversation4sendFzV10Foundation4DataT_">send(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Send image event</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    error if task cannot be added to queue or event is empty
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">send</span><span class="p">(</span><span class="n">_</span> <span class="nv">image</span><span class="p">:</span> <span class="kt">Data</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>image</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>raw image, use UIImagePNGRepresentation or UIImageJPEGRepresentation</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC17NexmoConversation12Conversation4sendFzCS_9TextEventT_"></a>
+                    <a name="//apple_ref/swift/Method/send(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC17NexmoConversation12Conversation4sendFzCS_9TextEventT_">send(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Send event</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p>error if task cannot be added to queue or event is empty</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">send</span><span class="p">(</span><span class="n">_</span> <span class="nv">event</span><span class="p">:</span> <span class="kt"><a href="../Classes/TextEvent.html">TextEvent</a></span><span class="p">)</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>event</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>event</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC17NexmoConversation12Conversation6deleteFCS_9TextEventSb"></a>
+                    <a name="//apple_ref/swift/Method/delete(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC17NexmoConversation12Conversation6deleteFCS_9TextEventSb">delete(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Delete event</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">delete</span><span class="p">(</span><span class="n">_</span> <span class="nv">event</span><span class="p">:</span> <span class="kt"><a href="../Classes/TextEvent.html">TextEvent</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>event</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>event to delete</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>if event is scheduled to be deleted</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Membership"></a>
+                <a name="//apple_ref/swift/Section/Membership" class="dashAnchor"></a>
+                <a href="#/Membership">
+                  <h3 class="section-name">Membership</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC17NexmoConversation12Conversation17membershipForUserFT4userCS_4User_GSaCS_6Member_"></a>
+                    <a name="//apple_ref/swift/Method/membershipForUser(user:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC17NexmoConversation12Conversation17membershipForUserFT4userCS_4User_GSaCS_6Member_">membershipForUser(user:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Memberships for User</p>
+
+<p>A user can have more than one membership in a conversation if they have left a conversation and then rejoined.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">membershipForUser</span><span class="p">(</span><span class="nv">user</span><span class="p">:</span> <span class="kt"><a href="../Classes/User.html">User</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt"><a href="../Classes/Member.html">Member</a></span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>user</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the user whose memberships you want</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An array of members for this user in this conversation</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC17NexmoConversation12Conversation4joinFFTSbGSqPs5Error___T_T_"></a>
+                    <a name="//apple_ref/swift/Method/join(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC17NexmoConversation12Conversation4joinFFTSbGSqPs5Error___T_T_">join(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Join this conversatation</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">join</span><span class="p">(</span><span class="n">_</span> <span class="nv">callback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/Conversation.html#/s:C17NexmoConversation12Conversation12JoinResponse">JoinResponse</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>callback</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>method called upon completion of member joining the conversation</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>an operation which joins the user to the conversation and can be used to cancel the request</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC17NexmoConversation12Conversation5leaveERR"></a>
+                    <a name="//apple_ref/swift/Method/leave()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC17NexmoConversation12Conversation5leaveERR">leave()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Leave this conversation</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">leave</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Single</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>callback</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>method called upon completion of member leaving the conversation</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>an operation which removes the user from the conversation and can be used to cancel the request</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC17NexmoConversation12Conversation6inviteFTCS_4UserFTGSqCS_6Member_SbGSqPs5Error___T__T_"></a>
+                    <a name="//apple_ref/swift/Method/invite(_:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC17NexmoConversation12Conversation6inviteFTCS_4UserFTGSqCS_6Member_SbGSqPs5Error___T__T_">invite(_:_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Invite someone to this conversation</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">invite</span><span class="p">(</span><span class="n">_</span> <span class="nv">user</span><span class="p">:</span> <span class="kt"><a href="../Classes/User.html">User</a></span><span class="p">,</span> <span class="n">_</span> <span class="nv">callback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/Conversation.html#/s:C17NexmoConversation12Conversation14InviteResponse">InviteResponse</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>callback</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>method called upon completion of inviting a member to the conversation</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Indicator"></a>
+                <a name="//apple_ref/swift/Section/Indicator" class="dashAnchor"></a>
+                <a href="#/Indicator">
+                  <h3 class="section-name">Indicator</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC17NexmoConversation12Conversation11startTypingFT_Sb"></a>
+                    <a name="//apple_ref/swift/Method/startTyping()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC17NexmoConversation12Conversation11startTypingFT_Sb">startTyping()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Indicate user is trying</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">startTyping</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>result of request was sent</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC17NexmoConversation12Conversation10stopTypingFT_Sb"></a>
+                    <a name="//apple_ref/swift/Method/stopTyping()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC17NexmoConversation12Conversation10stopTypingFT_Sb">stopTyping()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Indicate user has stopped trying</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">stopTyping</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>result of request was sent</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC17NexmoConversation12Conversation11membersObjcGSaCS_6Member_"></a>
+                    <a name="//apple_ref/swift/Property/membersObjc" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC17NexmoConversation12Conversation11membersObjcGSaCS_6Member_">membersObjc</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Members</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">membersObjc</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/Member.html">Member</a></span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Leave%20-%20(Objective-C%20compatibility%20support)"></a>
+                <a name="//apple_ref/swift/Section/Leave - (Objective-C compatibility support)" class="dashAnchor"></a>
+                <a href="#/Leave%20-%20(Objective-C%20compatibility%20support)">
+                  <h3 class="section-name">Leave - (Objective-C compatibility support)</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC17NexmoConversation12Conversation5leaveFT9onSuccessFT_T_9onFailureFPs5Error_T__T_"></a>
+                    <a name="//apple_ref/swift/Method/leave(onSuccess:onFailure:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC17NexmoConversation12Conversation5leaveFT9onSuccessFT_T_9onFailureFPs5Error_T__T_">leave(onSuccess:onFailure:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Leave current conversation</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">leave</span><span class="p">(</span><span class="nv">onSuccess</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">onFailure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>onSuccess</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>method called upon completion of member leaving the conversation</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>onFailure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>method called upon failing to leave conversation</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2017 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2017-07-21)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

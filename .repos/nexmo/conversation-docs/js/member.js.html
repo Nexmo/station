@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: member.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: member.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/*
+ * Conversation SDK
+ *  Member object model
+ *
+ * Copyright (c) Nexmo Inc. 2015
+ */
+
+var WildEmitter = require('wildemitter'),
+    Event = require('./event').Event,
+    Text = require('./text').Text;
+
+// Conversation Client Error
+var ConversationClientError = require('./conversationClientError');
+
+var NexmoApiError = ConversationClientError.NexmoApiError;
+var NexmoClientError = ConversationClientError.NexmoClientError;
+
+/**
+ * An individual user (i.e. conversation member).
+ * @class
+ * @param {Conversation} conversation
+ * @param {Object} params
+ * @param {Boolean} [is_ourselves=false] will append prototype functions for our user [e.g. typing indicator]
+ * 
+ */
+var Member = function(conversation, params, is_ourselves) {
+    is_ourselves = is_ourselves || false;
+    this.conversation = conversation;
+    // Map the params
+    for (var key in params) {
+        this[key] = params[key];
+    }
+    this._events = []; // A cache of events sent by this user
+    // call WildEmitter constructor
+    WildEmitter.call(this);
+
+    //use this flag to specify member specific prototypes
+    // if (is_ourselves) {
+
+    // }
+};
+
+Member.prototype = new WildEmitter();
+
+/*
+ * Retrieve a list of events sent by this member in this conversation
+ *
+ * @returns {Array&lt;Events>} - not implemented yet
+ */
+Member.prototype.events = function(params) {
+    var events = [];
+    return events;
+};
+
+
+
+/*
+ * Play the given stream only to this member within the conversation
+ * 
+ * @param {String} [params] 
+ * 
+ * @returns {Promise&lt;Event>} - not tested yet
+ */
+Member.prototype.playStream = function(params) {
+    var self = this;
+    var p = new Promise(function(resolve, reject) {
+        self.conversation.application.session.sendRequest({
+            type: 'audio:play',
+            cid: self.id,
+            to: self.id,
+            body: params
+        }, function(response) {
+            if (response.type === 'audio:play:success') {
+                var event = new Event(self.conversation, response);
+                resolve(event);
+            } else {
+                reject(new NexmoApiError(response));
+            }
+        });
+    });
+    return p;
+};
+
+/*
+ * Speak the given text only to this member within the conversation
+ * 
+ * @param {String} [params] 
+ * 
+ * @returns {Promise&lt;Event>} - not tested yet
+ */
+Member.prototype.sayText = function(params) {
+    var self = this;
+    var p = new Promise(function(resolve, reject) {
+        self.conversation.application.session.sendRequest({
+            type: 'audio:say',
+            cid: self.id,
+            to: self.id,
+            body: params
+        }, function(response) {
+            if (response.type === 'audio:say:success') {
+                var event = new Event(self.conversation, response);
+                resolve(event);
+            } else {
+                reject(new NexmoApiError(response));
+            }
+        });
+    });
+    return p;
+};
+
+/**
+ * Eject this member from the conversation
+ * &lt;pre>
+ * 
+ * --> conversation:member:delete
+ *      payload = {
+ *           type: 'conversation:member:delete',
+ *           cid: &amp;lt;conversation_id&amp;gt;,
+ *           from: &amp;lt;member_id&amp;gt;
+ *           to: &amp;lt;member_id&amp;gt;,
+ *           body: {
+ *               "member_id": &amp;lt;member_id&amp;gt; //this is the member id we want to kick
+ *           }
+ *      }
+ * 
+ * &lt;-- [ack] conversation:member:delete:success
+ * 
+ * &lt;-- conversation:member:delete
+ * 
+ * &lt;/pre>
+ * 
+ * @returns {Promise}
+ */
+Member.prototype.kick = function() {
+    var self = this;
+    var p = new Promise(function(resolve, reject) {
+        self.conversation.application.session.sendRequest({
+            type: 'conversation:member:delete',
+            cid: self.conversation.id,
+            from: self.conversation.me.id,
+            to: self.id,
+            body: {
+                "member_id": self.id
+            }
+        }, function(response) {
+            if (response.type === 'conversation:member:delete:success') {
+                resolve(response.body);
+            } else {
+                reject(new NexmoApiError(response));
+            }
+        });
+    });
+    return p;
+};
+
+/*
+ * Mute this member
+ * 
+ * @param {String} [params] 
+ * 
+ * @returns {Promise} - not tested yet
+ */
+Member.prototype.mute = function(mute) {
+    var self = this;
+    var params = {};
+    var p = new Promise(function(resolve, reject) {
+        var type = 'audio:mute:off';
+        if (mute) {
+            type = 'audio:mute:on';
+        }
+        self.conversation.application.session.sendRequest({
+            type: type,
+            cid: self.id,
+            to: self.id,
+            body: params
+        }, function(response) {
+            if (response.type === 'audio:mute:success') {
+                resolve(response.body);
+            } else {
+                reject(new NexmoApiError(response));
+            }
+        });
+    });
+    return p;
+};
+
+/*
+ * Control the volume of this member
+ * 
+ * @param {String} [params] 
+ * 
+ * @returns {Promise} - not tested yet
+ */
+Member.prototype.volume = function(up) {
+    var self = this;
+    var params = {};
+    var p = new Promise(function(resolve, reject) {
+        var type = 'audio:volume:down';
+        if (up) {
+            type = 'audio:volume:up';
+        }
+        self.conversation.application.session.sendRequest({
+            type: type,
+            cid: self.id,
+            to: self.id,
+            body: params
+        }, function(response) {
+            if (response.type === 'audio:volume:success') {
+                resolve(response.body);
+            } else {
+                reject(new NexmoApiError(response));
+            }
+        });
+    });
+    return p;
+};
+
+/*
+ * Earmuff this member
+ * 
+ * @param {String} [params] 
+ * 
+ * @returns {Promise} - not tested yet
+ */
+Member.prototype.earmuff = function(earmuff) {
+    var self = this;
+    var params = {};
+    var p = new Promise(function(resolve, reject) {
+        if (self.me === null) {
+            reject(new NexmoClientError("error:self"));
+        } else {
+            var type = 'audio:earmuff:off';
+            if (earmuff) {
+                type = 'audio:earmuff:on';
+            }
+            self.conversation.application.session.sendRequest({
+                type: type,
+                cid: self.id,
+                to: self.id,
+                body: params
+            }, function(response) {
+                if (response.type === 'audio:earmuff:success') {
+                    resolve(response.body);
+                } else {
+                    reject(new NexmoApiError(response));
+                }
+            });
+        }
+    });
+    return p;
+};
+
+/*
+ * Record this member
+ * 
+ * @param {String} [params] 
+ * 
+ * @returns {Promise} - not tested yet
+ */
+Member.prototype.record = function(params) {
+    var self = this;
+    var p = new Promise(function(resolve, reject) {
+        self.conversation.application.session.sendRequest({
+            type: 'audio:record',
+            cid: self.id,
+            to: self.id,
+            body: params
+        }, function(response) {
+            if (response.type === 'audio:record:success') {
+                var event = new Event(this.conversation, response);
+                resolve(event);
+            } else {
+                reject(new NexmoApiError(response));
+            }
+        });
+    });
+    return p;
+};
+
+Member.prototype._handleEvent = function(event) {
+    var self = this;
+    switch (event.type) {
+        case 'member:invited':
+            this.invited_by = event.body.invited_by;
+            this.name = event.body.user.name;
+            this.state = 'INVITED';
+        case 'member:joined':
+            this.state = 'JOINED';
+            this.name = event.body.user.name
+            self.emit(event.type, this);
+            break;
+        case 'text':
+            var text = new Text(this.conversation, event);
+            self.emit(event.type, text); // This needs to generate a text event so we can send a "seen"
+            break;
+        default:
+            self.emit(event.type, event.body);
+            break;
+    }
+};
+
+module.exports = {
+    Member: Member
+};</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="Member.html">Member</a></li><li><a href="Text.html">Text</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ConversationClientErrorTypes">ConversationClientErrorTypes</a></li><li><a href="global.html#me">me</a></li><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li><li><a href="global.html#NexmoClientErrorTypes">NexmoClientErrorTypes</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Tue Jul 25 2017 21:32:58 GMT+0300 (EEST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
