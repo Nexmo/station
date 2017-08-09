@@ -17,6 +17,10 @@ $slate-main-min-width: $slate-navigation-min * ($slate-main-flex / $slate-naviga
   margin-bottom: -$spacing;
   flex-wrap: wrap;
   min-height: 100vh;
+
+  h2 {
+    font-weight: 600;;
+  }
 }
 
 .slate-layout-navigation {
@@ -40,13 +44,16 @@ $slate-main-min-width: $slate-navigation-min * ($slate-main-flex / $slate-naviga
 }
 
 .slate-layout-main {
-  display: flex;
   flex: $slate-main-flex;
   min-width: $slate-main-min-width;
 
-  @include media-query($max-width: $slate-main-min-width) {
-    min-width: auto;
-    flex-wrap: wrap;
+  > div {
+    display: flex;
+
+    @include media-query($max-width: $slate-main-min-width) {
+      min-width: auto;
+      flex-wrap: wrap;
+    }
   }
 }
 
@@ -63,6 +70,7 @@ $slate-main-min-width: $slate-navigation-min * ($slate-main-flex / $slate-naviga
   background: $white;
   border-left: $border;
   box-shadow: $shadow-soft;
+  border-bottom: $border;
 
   > div {
     min-width: 700px;
@@ -74,6 +82,7 @@ $slate-main-min-width: $slate-navigation-min * ($slate-main-flex / $slate-naviga
   background: lighten($atom, 3%);
   color: $white;
   min-width: 480px;
+  border-bottom: 2px solid lighten($atom, 7%);
 
   h3 {
     color: $white;

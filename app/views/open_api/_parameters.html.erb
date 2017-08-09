@@ -1,7 +1,7 @@
 <ul class="table-list">
   <li class="table-list-header">
     <div class="table-list-columns">
-      <div class="table-list-column">Key</div>
+      <div class="table-list-column" flex="2">Key</div>
       <div class="table-list-column">Type</div>
       <div class="table-list-column" flex="3">Description</div>
       <div class="table-list-column">Example</div>
@@ -12,7 +12,7 @@
   <% parameters.each do |parameter| %>
     <li>
       <div class="table-list-columns">
-        <div class="table-list-column">
+        <div class="table-list-column" flex="2">
           <code><%= parameter['name'] %></code>
         </div>
 
