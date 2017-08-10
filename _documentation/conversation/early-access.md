@@ -49,8 +49,8 @@ iOS coming soon.
 
 ## SDK API Reference docs
 
-* [JavaScript](/sdk/conversation/js)
-* [Android](/sdk/conversation/android)
+* [JavaScript](/sdk/conversation/js/)
+* [Android](/sdk/conversation/android/)
 
 ## Additional Resources
 
