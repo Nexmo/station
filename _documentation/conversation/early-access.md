@@ -51,6 +51,7 @@ iOS coming soon.
 
 * [JavaScript](/sdk/conversation/js/)
 * [Android](/sdk/conversation/android/)
+* [iOS](/sdk/conversation/ios/)
 
 ## Additional Resources
 
