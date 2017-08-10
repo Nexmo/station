@@ -1,0 +1,12 @@
+{
+    "member_id": "MEM-a4cabede-8eed-4970-8bec-3bc5904a0ff1",
+    "user_id": "USR-b58e90e3-953b-4600-a2cb-8f6cd14c2fdb",
+    "name": "demo1@nexmo.com",
+    "state": "JOINED",
+    "timestamp": {
+        "invited": "2017-08-03T13:55:44.999Z",
+        "joined": "2017-08-03T13:55:50.697Z",
+        "left": "2017-08-08T09:34:57.985Z"
+    },
+    "invited_by": "demo3@nexmo.com"
+}

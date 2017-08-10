@@ -1,0 +1,10 @@
+{
+	"type": "event:delete",
+	"conversation_id": "con-1",
+	"from": "MEM-70477e3d-bfd6-4987-a7a9-2428a3ef0b20",
+	"body": {
+		"event_id": "2"
+	},
+	"timestamp": "2017-03-28T13:29:36.711Z",
+	"id": 5
+}

@@ -1,0 +1,112 @@
+#
+# Configurations
+fastlane_version "1.104.0"
+default_platform :ios
+
+#
+# iOS
+platform :ios do
+  #
+  # Actions
+  desc "Runs all the tests"
+  lane :test do
+    scan(
+      scheme: "NexmoConversation",
+      code_coverage: true,
+      open_report: true
+    )
+
+    xcov(
+      workspace: "NexmoConversation.xcworkspace",
+      scheme: "NexmoConversation",
+      include_targets: "NexmoConversation.framework"
+    )  
+  end
+
+  desc "Display test code coverage"
+  lane :code_coverage do
+    begin
+      scan(
+        scheme: "NexmoConversation",
+        code_coverage: true,
+        open_report: true
+      )
+    rescue => ex
+      UI.error("#{ex}")
+    end
+
+    xcov(
+      workspace: "NexmoConversation.xcworkspace",
+      scheme: "NexmoConversation",
+      include_targets: "NexmoConversation.framework",
+      output_directory: "./Docs/Coverage/"
+    )  
+  end
+
+  desc "Submit a new Beta Build to Apple TestFlight"
+  lane :beta do
+    gym(scheme: "ConversationDemo") # Build your app - more options available
+    pilot
+  end
+
+  desc "Update SDK docs"
+  lane :doc do
+    jazzy
+  end
+
+  desc "Create carthage"
+  lane :create_carthage do
+    carthage(command: "build", no_skip_current: true, platform: "iOS")
+    carthage(command: "archive")
+  end
+
+  lane :tag_for_deploy do
+    version = get_version_number(target: "NexmoConversation")
+    
+    if git_tag_exists(tag: version)
+      puts "Git tag already exist for: " + version
+      raise_error
+    end
+
+    puts "Will start deploy for version: " + version
+
+    # Git
+    sh("git add --all")
+    sh("git commit -m 'Bump version to #{version}'")
+    add_git_tag(tag: version)
+    push_to_git_remote
+    push_git_tags
+
+    github_release = set_github_release(
+      repository_name: "nexmoinc/conversation-ios-sdk",
+      api_token: $GITHUB_TOKEN,
+      tag_name: version,
+      name: "Pre-Release",
+      description: "tbh",
+      is_draft: true,
+      is_prerelease: false,
+      upload_assets: ["NexmoConversation.framework.zip"]
+    )
+  end
+
+  desc "Package SDK to a framework"
+  lane :deploy do
+    # testing
+    code_coverage
+
+    # docs
+    doc
+
+    # update podspec
+    # TODO fix podspec check
+    #version_bump_podspec(path: "NexmoConversation.podspec.json", version_number: get_version_number(target: "NexmoConversation"))
+
+    # deploy
+    create_carthage
+    # TODO: cocoapods pod spec here
+    tag_for_deploy
+
+    # TODO: push to trunk
+    rocket
+  end
+end

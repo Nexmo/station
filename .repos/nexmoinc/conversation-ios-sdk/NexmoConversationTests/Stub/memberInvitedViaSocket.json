@@ -1,0 +1,19 @@
+{
+    "from": "MEM-2e0b4e20-b58c-47d5-a7ed-b81432566eaf",
+    "body": {
+        "cname": "shams in 1",
+        "invited_by": "demo2@nexmo.com",
+        "user": {
+            "member_id": "MEM-2e0b4e20-b58c-47d5-a7ed-b81432566eaf",
+            "user_id": "USR-7e7ceb72-7653-4f47-9295-7360b229a8ba",
+            "media": {},
+            "name": "demo1@nexmo.com"
+        },
+        "timestamp": {
+            "invited": "2017-07-31T13:16:16.090Z"
+        }
+    },
+    "timestamp": "2017-07-31T13:16:16.091Z",
+    "id": 2,
+    "cid": "CON-cb0d973e-7f63-474a-83d0-d3573340f449"
+}

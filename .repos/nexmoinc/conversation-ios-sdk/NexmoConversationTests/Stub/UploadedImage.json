@@ -1,0 +1,21 @@
+{
+    "id": "b5b29d7d-c314-4967-8432-e596e1195a5b",
+    "original": {
+        "url": "http://localhost:3031/v1/files/794108f1-d62d-4205-97d9-a9a611e051c0",
+        "id": "794108f1-d62d-4205-97d9-a9a611e051c0",
+        "type": "ORIGINAL",
+        "size": 9529
+    },
+    "medium": {
+        "url": "http://localhost:3031/v1/files/be2f3a65-dac6-4be2-a7ac-b03048bbd74a",
+        "id": "be2f3a65-dac6-4be2-a7ac-b03048bbd74a",
+        "type": "MEDIUM",
+        "size": 3247
+    },
+    "thumbnail": {
+        "url": "http://localhost:3031/v1/files/a5215191-f00a-4791-8b9e-6f51b6d82537",
+        "id": "a5215191-f00a-4791-8b9e-6f51b6d82537",
+        "type": "THUMBNAIL",
+        "size": 873
+    }
+}

@@ -1,0 +1,9 @@
+{
+	"id": "MEM-3b3a6241-a36d-48d4-8c3b-f3daff9c9953",
+	"user_id": "USR-e2e847bb-e40f-4e04-9195-1beb1c1ca75d",
+	"state": "INVITED",
+	"timestamp": {
+		"invited": "2017-02-15T14:34:56.463Z"
+	},
+	"href": "http://localhost/v1/conversations/CON-0003185d-dde1-45e7-a235-d06a7aa0dcbf/members/MEM-3b3a6241-a36d-48d4-8c3b-f3daff9c9953"
+}

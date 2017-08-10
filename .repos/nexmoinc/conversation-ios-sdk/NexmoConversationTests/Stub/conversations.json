@@ -1,0 +1,114 @@
+[
+    {
+        "name": "NAM-255279d2-8a5d-4e4b-98fa-54041950b5b4",
+        "state": "JOINED",
+        "member_id": "MEM-1ea1ba63-0b62-4480-b74f-c39819cae946",
+        "sequence_number": 0,
+        "href": "http://localhost/v1/users/USR-706129b8-44ae-44b8-8b6b-9a004369d91a/conversations/CON-075e4e6a-d168-4c10-a29a-ccb29058c27c",
+        "id": "CON-075e4e6a-d168-4c10-a29a-ccb29058c27c"
+    },
+    {
+        "name": "NAM-7a427e8c-1deb-4355-b6a0-bfd03ccad775",
+        "state": "JOINED",
+        "member_id": "MEM-280ca3fc-483f-4f74-904c-0e7c5d995c41",
+        "sequence_number": 0,
+        "href": "http://localhost/v1/users/USR-706129b8-44ae-44b8-8b6b-9a004369d91a/conversations/CON-78ad1a1d-6215-473f-9098-84075e5580ea",
+        "id": "CON-78ad1a1d-6215-473f-9098-84075e5580ea"
+    },
+    {
+        "name": "NAM-d1df1a5e-89d0-4b02-8458-2bb31ec8ca16",
+        "state": "JOINED",
+        "member_id": "MEM-2b1d4f32-38b4-4933-be1f-db990c7fdc78",
+        "sequence_number": 0,
+        "href": "http://localhost/v1/users/USR-706129b8-44ae-44b8-8b6b-9a004369d91a/conversations/CON-e581a8db-e0ba-4f64-b717-cb255754e2c2",
+        "id": "CON-e581a8db-e0ba-4f64-b717-cb255754e2c2"
+    },
+    {
+        "name": "t2",
+        "state": "JOINED",
+        "member_id": "MEM-39f8267c-f42a-4ddd-befa-6716d09bb070",
+        "sequence_number": 48,
+        "href": "http://localhost/v1/users/USR-706129b8-44ae-44b8-8b6b-9a004369d91a/conversations/CON-afde682f-c94d-41e1-8408-698da741b97e",
+        "id": "CON-afde682f-c94d-41e1-8408-698da741b97e"
+    },
+    {
+        "name": "NAM-8f4b3eda-721e-4462-86bd-e313ba27bf1a",
+        "state": "JOINED",
+        "member_id": "MEM-69f473d7-a426-4c9a-ba08-36af88f28c89",
+        "sequence_number": 0,
+        "href": "http://localhost/v1/users/USR-706129b8-44ae-44b8-8b6b-9a004369d91a/conversations/CON-cf8bfce8-dbe9-4239-ad2e-ee936d317dcc",
+        "id": "CON-cf8bfce8-dbe9-4239-ad2e-ee936d317dcc"
+    },
+    {
+        "name": "NAM-8b17e450-71f7-44b2-b238-5218da5df46e",
+        "state": "JOINED",
+        "member_id": "MEM-7afda32b-8d55-47cf-806e-93c72d237fee",
+        "sequence_number": 0,
+        "href": "http://localhost/v1/users/USR-706129b8-44ae-44b8-8b6b-9a004369d91a/conversations/CON-9eb59ef8-5132-4c03-bcad-0ad04dfe7f1f",
+        "id": "CON-9eb59ef8-5132-4c03-bcad-0ad04dfe7f1f"
+    },
+    {
+        "name": "kickhere",
+        "state": "INVITED",
+        "member_id": "MEM-a7665218-23b5-44de-8340-da59403791ea",
+        "sequence_number": 161,
+        "href": "http://localhost/v1/users/USR-706129b8-44ae-44b8-8b6b-9a004369d91a/conversations/CON-7cfa3c8e-3563-48ed-8d04-9bfbfce0b42a",
+        "id": "CON-7cfa3c8e-3563-48ed-8d04-9bfbfce0b42a"
+    },
+    {
+        "name": "join this",
+        "state": "INVITED",
+        "member_id": "MEM-aa127000-51a9-483d-8107-d9819d6dff3f",
+        "sequence_number": 36,
+        "href": "http://localhost/v1/users/USR-706129b8-44ae-44b8-8b6b-9a004369d91a/conversations/CON-038dc8b5-6dfb-4d31-9c79-ab9c0a1294e5",
+        "id": "CON-038dc8b5-6dfb-4d31-9c79-ab9c0a1294e5"
+    },
+    {
+        "name": "convo with demo 2",
+        "state": "JOINED",
+        "member_id": "MEM-ae189f19-818c-4a15-8b56-b86b09f3174d",
+        "sequence_number": 621,
+        "href": "http://localhost/v1/users/USR-706129b8-44ae-44b8-8b6b-9a004369d91a/conversations/CON-3233bede-93a8-43f4-905d-c40930733aca",
+        "id": "CON-3233bede-93a8-43f4-905d-c40930733aca"
+    },
+    {
+        "name": "NAM-72f6131c-5fd6-4095-af71-84e613f8c1af",
+        "state": "JOINED",
+        "member_id": "MEM-b160e0ba-ccf7-4c51-9b26-0e4a3090f7cb",
+        "sequence_number": 0,
+        "href": "http://localhost/v1/users/USR-706129b8-44ae-44b8-8b6b-9a004369d91a/conversations/CON-6a70bcc1-dace-4ad8-b4a9-2ffdb6246c9b",
+        "id": "CON-6a70bcc1-dace-4ad8-b4a9-2ffdb6246c9b"
+    },
+    {
+        "name": "NAM-ecad47a0-2620-4b22-93b1-ef8cadee5053",
+        "state": "JOINED",
+        "member_id": "MEM-b2d72d99-0c69-4f8c-8978-221ea926c0ef",
+        "sequence_number": 0,
+        "href": "http://localhost/v1/users/USR-706129b8-44ae-44b8-8b6b-9a004369d91a/conversations/CON-909f92bc-dc4f-49d0-a4e8-44a5ad1b1ffb",
+        "id": "CON-909f92bc-dc4f-49d0-a4e8-44a5ad1b1ffb"
+    },
+    {
+        "name": "NAM-5871cbb2-6151-4900-88e6-be9457577940",
+        "state": "JOINED",
+        "member_id": "MEM-cc9bdccf-12ca-4ef7-94dd-609af6215ff9",
+        "sequence_number": 0,
+        "href": "http://localhost/v1/users/USR-706129b8-44ae-44b8-8b6b-9a004369d91a/conversations/CON-301b9835-2a8a-45e6-864a-e099b8de28e2",
+        "id": "CON-301b9835-2a8a-45e6-864a-e099b8de28e2"
+    },
+    {
+        "name": "CSJ-22-1480613318555",
+        "state": "JOINED",
+        "member_id": "MEM-fdeaae95-4465-4179-9ed0-8b2828a5c415",
+        "sequence_number": 7,
+        "href": "http://localhost/v1/users/USR-706129b8-44ae-44b8-8b6b-9a004369d91a/conversations/CON-be4de56a-9c5f-4916-8850-101b8d73ba6a",
+        "id": "CON-be4de56a-9c5f-4916-8850-101b8d73ba6a"
+    },
+    {
+        "name": "NAM-9841d7d4-eb66-4e0c-8de2-52fc603a18aa",
+        "state": "JOINED",
+        "member_id": "MEM-ffa4bde7-d536-46e7-9eaf-6f46aaef1a83",
+        "sequence_number": 0,
+        "href": "http://localhost/v1/users/USR-706129b8-44ae-44b8-8b6b-9a004369d91a/conversations/CON-0a9dd186-9903-4c38-a819-0915508d89c9",
+        "id": "CON-0a9dd186-9903-4c38-a819-0915508d89c9"
+    }
+]

@@ -1,0 +1,8 @@
+{
+    "id": "USR-706129b8-44ae-44b8-8b6b-9a004369d91a",
+    "name": "demo2@nexmo.com",
+    "image_url": "https://randomuser.me/api/portraits/men/33.jpg",
+    "display_name": "Bryan Hall",
+    "channels": {},
+    "href": "http://localhost/v1/users/USR-706129b8-44ae-44b8-8b6b-9a004369d91a"
+}

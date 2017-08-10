@@ -1,0 +1,8 @@
+{
+    "id": "USR-13c9bd1d-cae0-410b-a552-614029377f25",
+    "name": "demo1@nexmo.com",
+    "image_url": "https://randomuser.me/api/portraits/women/19.jpg",
+    "display_name": "Eva Martinez",
+    "channels": {},
+    "href": "http://localhost:8879/v1/users/USR-13c9bd1d-cae0-410b-a552-614029377f25"
+}

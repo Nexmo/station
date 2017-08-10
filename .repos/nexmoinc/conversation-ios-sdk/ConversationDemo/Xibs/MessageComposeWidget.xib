@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MessageComposeWidget" customModule="ConversationDemo" customModuleProvider="target">
+            <connections>
+                <outlet property="TextEntry" destination="zoz-RN-cCc" id="aMM-9C-6Zq"/>
+                <outlet property="sendButton" destination="U91-3Z-FfS" id="m9J-5H-dXI"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="2DC-JJ-Ope">
+            <rect key="frame" x="0.0" y="0.0" width="596" height="40"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ar4-lA-0Jo">
+                    <rect key="frame" x="4" y="6" width="30" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="Mkx-l3-dKK"/>
+                        <constraint firstAttribute="width" constant="30" id="OQV-k2-fyE"/>
+                    </constraints>
+                    <inset key="imageEdgeInsets" minX="4" minY="2" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="+" image="Paperclip"/>
+                    <connections>
+                        <action selector="AttachmentButtonPressed:" destination="-1" eventType="touchUpInside" id="88x-p4-Bsa"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U91-3Z-FfS">
+                    <rect key="frame" x="556" y="6" width="36" height="30"/>
+                    <state key="normal" title="Send"/>
+                    <connections>
+                        <action selector="sendButtonPressed:" destination="-1" eventType="touchUpInside" id="DaB-IS-cYy"/>
+                    </connections>
+                </button>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="514" placeholderIntrinsicHeight="30" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zoz-RN-cCc">
+                    <rect key="frame" x="38" y="6" width="514" height="30"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+            </subviews>
+            <color key="backgroundColor" red="0.95288226455897429" green="0.95288226455897429" blue="0.95288226455897429" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Ar4-lA-0Jo" secondAttribute="bottom" constant="4" id="CXS-7W-dbJ"/>
+                <constraint firstItem="U91-3Z-FfS" firstAttribute="top" secondItem="Ar4-lA-0Jo" secondAttribute="top" id="Jxu-mr-Kkl"/>
+                <constraint firstItem="zoz-RN-cCc" firstAttribute="top" secondItem="2DC-JJ-Ope" secondAttribute="top" constant="6" id="Q0l-xe-9kJ"/>
+                <constraint firstItem="U91-3Z-FfS" firstAttribute="leading" secondItem="zoz-RN-cCc" secondAttribute="trailing" constant="4" id="Z54-Bb-8Vf"/>
+                <constraint firstAttribute="bottom" secondItem="zoz-RN-cCc" secondAttribute="bottom" constant="4" id="lyE-Ru-SeI"/>
+                <constraint firstItem="Ar4-lA-0Jo" firstAttribute="leading" secondItem="2DC-JJ-Ope" secondAttribute="leading" constant="4" id="s5I-pE-Gow"/>
+                <constraint firstAttribute="trailing" secondItem="U91-3Z-FfS" secondAttribute="trailing" constant="4" id="tKu-Sf-x7Q"/>
+                <constraint firstItem="zoz-RN-cCc" firstAttribute="leading" secondItem="Ar4-lA-0Jo" secondAttribute="trailing" constant="4" id="ubd-Qf-fyC"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="432" y="191"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Paperclip" width="22" height="20"/>
+    </resources>
+</document>

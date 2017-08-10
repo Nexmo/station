@@ -1,0 +1,75 @@
+plugin "cocoapods-no-dev-schemes"
+
+# Source: Nexmo internal
+source 'git@github.com:Nexmo/PodSpec.git'
+# Source: Public 
+source 'git@github.com:CocoaPods/Specs.git'
+
+# Configurations
+platform :ios, '9.0'
+inhibit_all_warnings!
+use_frameworks!
+
+# Dependencies
+def shared_pods
+    # JSON
+    pod 'Gloss' # https://github.com/hkellaway/Gloss
+    
+    # Database
+    pod 'GRDB.swift', :git => 'git@github.com:Nexmo/GRDB.swift.git', :branch => 'xcode_fix' # https://github.com/groue/GRDB.swift
+    
+    # Networking
+    pod 'Alamofire' # https://github.com/Alamofire/Alamofire
+    pod 'Socket.IO-Client-Swift' # https://github.com/socketio/socket.io-client-swift
+
+    # Rx
+    pod 'RxCocoa' # https://github.com/ReactiveX/RxSwift
+end
+
+def shared_test_pods
+    pod 'RxBlocking', :configuration => 'Debug'
+    pod 'RxTest', :configuration => 'Debug'
+    pod 'Nimble', :configuration => 'Debug'
+    pod 'Quick', :configuration => 'Debug'
+    pod 'Mockingjay', :configuration => 'Debug', :git => 'git@github.com:kylef/Mockingjay.git', :branch => 'master'
+end
+
+# Targets
+target 'NexmoConversation' do
+    inherit! :search_paths
+    
+    shared_pods
+
+    target 'NexmoConversationTests' do
+        inherit! :search_paths
+
+        shared_test_pods
+    end
+    target 'NexmoConversationE2ETests' do
+        inherit! :search_paths
+
+        shared_test_pods
+    end
+    target 'NexmoConversationHermeticTests' do
+        inherit! :search_paths
+
+        shared_test_pods
+    end
+end 
+
+target 'ConversationDemo' do 
+    inherit! :search_paths
+
+    shared_pods
+
+    # Demo
+    pod 'Bugsnag'
+    pod 'Watchdog'
+    pod 'netfox', :git => 'git@github.com:kasketis/netfox.git', :branch => 'master'
+    
+    target 'ConversationDemoTests' do 
+        inherit! :search_paths
+
+        shared_test_pods
+    end
+end

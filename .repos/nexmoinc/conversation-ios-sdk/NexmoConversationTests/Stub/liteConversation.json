@@ -1,0 +1,8 @@
+{
+    "name": "NAM-255279d2-8a5d-4e4b-98fa-54041950b5b4",
+    "state": "JOINED",
+    "member_id": "MEM-1ea1ba63-0b62-4480-b74f-c39819cae946",
+    "sequence_number": 0,
+    "href": "http://localhost/v1/users/USR-706129b8-44ae-44b8-8b6b-9a004369d91a/conversations/CON-075e4e6a-d168-4c10-a29a-ccb29058c27c",
+    "id": "CON-075e4e6a-d168-4c10-a29a-ccb29058c27c"
+}

@@ -1,0 +1,4 @@
+{
+	"code": "conversation:error:member-already-joined",
+	"description": "this user already has a member joined in 'app' type"
+}

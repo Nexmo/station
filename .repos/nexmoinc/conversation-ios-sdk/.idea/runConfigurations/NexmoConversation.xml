@@ -1,0 +1,14 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="NexmoConversation" type="AppleRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="NexmoConversation" TARGET_NAME="NexmoConversation" CONFIG_NAME="Debug" SCHEME_NAME="NexmoConversation" MAKE_ACTIVE="TRUE">
+    <envs>
+      <env name="OS_ACTIVITY_MODE" value="disable" />
+      <env name="socket_url" value="" />
+      <env name="rest_url" value="" />
+      <env name="ips_url" value="" />
+    </envs>
+    <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
+      <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
+    </EXTENSION>
+    <method />
+  </configuration>
+</component>

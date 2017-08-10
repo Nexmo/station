@@ -1,0 +1,12 @@
+{
+    "id": "MEM-3ddf6273-df6d-49f9-9038-aa36c5c15f75",
+    "user_id": "USR-706129b8-44ae-44b8-8b6b-9a004369d91a",
+    "state": "JOINED",
+    "timestamp": {
+        "joined": "2017-02-15T13:21:12.717Z"
+    },
+    "channel": {
+        "type": "app"
+    },
+    "href": "http://localhost/v1/conversations/CON-ccaf3a7c-cf2b-484c-b202-7dc2efae7c65/members/MEM-3ddf6273-df6d-49f9-9038-aa36c5c15f75"
+}

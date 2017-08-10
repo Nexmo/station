@@ -1,0 +1,8 @@
+{
+    "member_id": "MEM-a38a24de-b12d-48c9-bf9a-7500ba8f708a",
+    "action": "join",
+    "channel": {
+        "type": "app"
+    },
+    "user_id": "USR-706129b8-44ae-44b8-8b6b-9a004369d91a"
+}

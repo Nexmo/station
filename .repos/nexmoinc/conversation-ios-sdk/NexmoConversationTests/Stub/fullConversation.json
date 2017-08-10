@@ -1,0 +1,33 @@
+{
+    "uuid": "CON-0a9dd186-9903-4c38-a819-0915508d89c9",
+    "name": "NAM-9841d7d4-eb66-4e0c-8de2-52fc603a18aa",
+    "display_name": "demo222",
+    "timestamp": {
+        "created": "2017-02-15T12:39:48.925Z"
+    },
+    "sequence_number": 0,
+    "numbers": {},
+    "members": [
+        {
+            "member_id": "MEM-ffa4bde7-d536-46e7-9eaf-6f46aaef1a83",
+            "user_id": "USR-706129b8-44ae-44b8-8b6b-9a004369d91a",
+            "name": "demo2@nexmo.com",
+            "state": "JOINED",
+            "timestamp": {
+                "joined": "2017-02-15T12:39:49.006Z"
+            }
+        }
+    ],
+    "mixer_id": "21659838-578d-4c71-9a74-05a0fe6e9869",
+    "api_key": "fa1ee648",
+    "_links": {
+        "self": {
+            "href": "http://localhost/v1/conversations/CON-0a9dd186-9903-4c38-a819-0915508d89c9"
+        }
+    },
+    "_embedded": {
+        "legs": {
+            "_links": []
+        }
+    }
+}

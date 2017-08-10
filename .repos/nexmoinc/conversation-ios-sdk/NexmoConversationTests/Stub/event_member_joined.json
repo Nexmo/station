@@ -1,0 +1,19 @@
+{
+  "id": 1,
+  "type": "member:joined",
+  "from": "MEM-01a9479c-c0ac-4de2-a50c-9a7ac96fe5db",
+  "to": null,
+  "conversation_id": "CON-4d95d410-3c5e-4968-8656-3480bad84398",
+  "body": {
+      "user": {
+          "user_id": "USR-13c9bd1d-cae0-410b-a552-614029377f25",
+          "name": "demo1@nexmo.com"
+      },
+      "timestamp": {
+          "joined": "2016-12-01T17:28:25.930Z"
+      }
+  },
+  "state": null,
+  "timestamp": "2016-12-01T17:28:25.933Z",
+  "href": "http://localhost:8879/v1/conversations/CON-4d95d410-3c5e-4968-8656-3480bad84398/events/1"
+}

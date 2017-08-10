@@ -1,0 +1,9 @@
+{
+    "body": {
+        "user_id": "USR-sdk-test", 
+        "id": "SES-f3564d40-e479-11e6-9614-38c98633bb5f", 
+        "name": "capi-test-sdk@nexmo.com"
+    }, 
+    "timestamp": "2017-01-27T10:18:30.607Z", 
+    "rid": "1485512310.60521"
+}

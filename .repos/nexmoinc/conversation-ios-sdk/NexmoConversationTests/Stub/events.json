@@ -1,0 +1,85 @@
+[
+    {
+        "id": 1,
+        "type": "member:joined",
+        "from": "MEM-fd3a8711-ecff-4e2a-b5ea-65251e55dc95",
+        "to": null,
+        "body": {
+            "user": {
+                "id": "USR-13c9bd1d-cae0-410b-a552-614029377f25",
+                "name": "demo1@nexmo.com"
+            },
+            "timestamp": {
+                "joined": "2017-02-10T17:29:51.237Z"
+            }
+        },
+        "state": null,
+        "timestamp": "2017-02-10T17:29:51.242Z",
+        "href": "http://localhost/v1/conversations/CON-6db4359f-6e61-4786-8094-65f7dac0fff1/events/1"
+    },
+    {
+        "id": 9,
+        "type": "text",
+        "from": "MEM-fd3a8711-ecff-4e2a-b5ea-65251e55dc95",
+        "to": null,
+        "body": {
+            "text": " Tw222"
+        },
+        "state": null,
+        "timestamp": "2017-02-15T12:55:49.091Z",
+        "href": "http://localhost/v1/conversations/CON-6db4359f-6e61-4786-8094-65f7dac0fff1/events/9"
+    },
+    {
+        "id": 18,
+        "type": "text",
+        "from": "MEM-fd3a8711-ecff-4e2a-b5ea-65251e55dc95",
+        "to": null,
+        "body": {
+            "text": "Ygffff"
+        },
+        "state": null,
+        "timestamp": "2017-02-15T12:56:20.969Z",
+        "href": "http://localhost/v1/conversations/CON-6db4359f-6e61-4786-8094-65f7dac0fff1/events/18"
+    },
+    {
+        "id": 20,
+        "type": "member:invited",
+        "from": "MEM-b06d3013-ba53-42e3-ad25-46136f8a1868",
+        "to": null,
+        "body": {
+            "cname": "1234",
+            "invited_by": "demo1@nexmo.com",
+            "user": {
+                "member_id": "MEM-b06d3013-ba53-42e3-ad25-46136f8a1868",
+                "user_id": "USR-706129b8-44ae-44b8-8b6b-9a004369d91a",
+                "media": {},
+                "name": "demo2@nexmo.com"
+            },
+            "timestamp": {
+                "invited": "2017-02-15T13:19:48.780Z"
+            }
+        },
+        "state": null,
+        "timestamp": "2017-02-15T13:19:48.784Z",
+        "href": "http://localhost/v1/conversations/CON-6db4359f-6e61-4786-8094-65f7dac0fff1/events/20"
+    },
+    {
+        "id": 21,
+        "type": "member:joined",
+        "from": "MEM-b06d3013-ba53-42e3-ad25-46136f8a1868",
+        "to": null,
+        "body": {
+            "user": {
+                "user_id": "USR-706129b8-44ae-44b8-8b6b-9a004369d91a",
+                "name": "demo2@nexmo.com"
+            },
+            "timestamp": {
+                "invited": "2017-02-15T13:19:48.780Z",
+                "joined": "2017-02-15T13:19:48.947Z"
+            }
+        },
+        "state": null,
+        "timestamp": "2017-02-15T13:19:48.952Z",
+        "href": "http://localhost/v1/conversations/CON-6db4359f-6e61-4786-8094-65f7dac0fff1/events/21"
+    }
+]
