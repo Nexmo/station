@@ -11,7 +11,7 @@
 /messaging/us-short-codes: /messaging/us-short-codes/overview
 /messaging/conversion-api: /messaging/conversion-api/overview
 /messaging/sns: /messaging/sns/overview
-/conversation: /conversation/overview
+/conversation: /conversation/early-access
 
 /messaging/sms/building-blocks: /messaging/sms/building-blocks/send-an-sms
 /messaging/sms/building-blocks/receive-a-delivery-receipt: /messaging/sms/guides/delivery-reciepts
