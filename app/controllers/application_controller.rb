@@ -46,6 +46,7 @@ class ApplicationController < ActionController::Base
   end
 
   def ssl_configured?
+    return false if ENV['DISABLE_SSL']
     return false if Rails.env.development?
     return false if Rails.env.test?
     return true
