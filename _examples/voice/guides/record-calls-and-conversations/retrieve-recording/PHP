@@ -1,5 +1,3 @@
-<?php
-
 include 'application_generate_jwt.php';
 
 //Retrieve the conversation ID from the JSON object sent to eventURL

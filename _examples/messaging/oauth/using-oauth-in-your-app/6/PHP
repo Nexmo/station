@@ -1,4 +1,3 @@
-<?php
 // nexmoOAuthDriver.php
 
 $this->params = array('from' => 'NexmoOauth' , 'text' => 'hello from Nexmo', 'to' => 'xxxxxxxxxxx' );

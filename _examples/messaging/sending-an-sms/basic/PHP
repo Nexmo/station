@@ -1,5 +1,3 @@
-<?php
-
 $credentials = new Nexmo\Client\Credentials\Basic('API_KEY', 'API_SECRET');
 $client = new Nexmo\Client($credentials);
 

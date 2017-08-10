@@ -1,4 +1,3 @@
-<?php
 $url = 'https://rest.nexmo.com/sc/us/alert/json?' . http_build_query([
         'api_key' => 'API_KEY',
         'api_secret' => 'API_SECRET',

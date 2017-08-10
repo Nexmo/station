@@ -1,4 +1,3 @@
-<?php
 // nexmoOAuthDriver.php
 
 $this->oauth->setToken($this->request_token, $this->request_token_secret);

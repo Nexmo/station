@@ -1,4 +1,3 @@
-<?php
 // nexmoOAuthDriver.php
 
 define('TOKEN', 'oauth_token');

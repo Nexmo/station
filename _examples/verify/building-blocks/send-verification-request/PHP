@@ -1,4 +1,3 @@
-<?php
 $client = new Nexmo\Client(new Nexmo\Client\Credentials\Basic(API_KEY, API_SECRET));
 $verification = $client->verify()->start([
     'number' => '447700900000',

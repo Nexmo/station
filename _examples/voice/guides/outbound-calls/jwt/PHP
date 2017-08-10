@@ -1,4 +1,3 @@
-<?php
 //This example uses a PHP library from composer require lcobucci/jwt.
 //To install: composer require lcobucci/jwt
 

@@ -1,4 +1,3 @@
-<?php
 // nexmoOAuthDriver.php
 
 // Set the OAuth object to the access token retrieved in getAccessToken.

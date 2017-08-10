@@ -84,8 +84,6 @@ This tutorial code uses a simple router to handle these inbound webhooks. The ro
 Data from webhook body is captured and passed in the request information to the Menu:
 
 ```php
-<?php
-
 // public/index.php
 
 require_once __DIR__ . '/../bootstrap.php';
@@ -97,8 +95,6 @@ $data = file_get_contents('php://input');
 Nexmo sends a webhook for every change in (link: voice/voice-api/handle-call-state text: Call status). For example, when the phone is `ringing`, the Call has been `answered` or is `complete`. Menu uses a switch to log this data for debug purposes. Every other request goes to the IVR code:
 
 ```php
-<?php
-
 // public/index.php
 
 switch($uri) {
@@ -121,8 +117,6 @@ Any request that is not for `/event` is mapped to an `Action` method on the `Men
 The `$config` array is passed to the `Menu` object, as it needs to know the base URL for the application when generating NCCOs:
 
 ```php
-<?php
-
 // src/Menu.php
 
 public function __construct($config)
@@ -140,8 +134,6 @@ To manage NCCOs this tutorial uses array manipulation and a few simple methods.
 The router handles encoding to JSON, the `Menu` object provides access to the the NCCO stack:
 
 ```php
-<?php
-
 // src/Menu.php
 
 public function getStack()
@@ -153,8 +145,6 @@ public function getStack()
 The following methods provide the foundation for managing the NCCO stack:
 
 ```php
-<?php
-
 // src/Menu.php
 
 protected function append($ncco)
@@ -173,8 +163,6 @@ protected function prepend($ncco)
 The `talk` action NCCO is added to the stack to greet the user:
 
 ```php
-<?php
-
 // src/Menu.php
 
 public function answerAction()
@@ -193,8 +181,6 @@ public function answerAction()
 The user is then prompted to input an order ID. This prompt is in a separate method so the user is not greeted every time they are prompted:
 
 ```php
-<?php
-
 // src/Menu.php
 
 protected function promptSearch()
@@ -222,8 +208,6 @@ A few other `input` specific properties are used. `timeOut` gives the user more 
 After the user has provided input, Nexmo sends a webhook to the `eventUrl` defined in the `input`. This is routed to `searchAction()`:
 
 ```php
-<?php
-
 // src/Menu.php
 
 public function searchAction($request)
@@ -258,8 +242,6 @@ There are few more methods in our `Menu` code. Many times a phone menu interface
 Properly communicating those values to the caller uses three methods. The `talkDate` method just returns a string with a date format that works well for spoken words.
 
 ```php
-<?php
-
 // src/Menu.php
 
 protected function talkDate(\DateTime $date)
@@ -272,8 +254,6 @@ The `talkCharacters` method puts a space between each character in a string, so 
 
 
 ```php
-<?php
-
 // src/Menu.php
 
 protected function talkCharacters($string)
@@ -285,8 +265,6 @@ protected function talkCharacters($string)
 The `talkStatus` method converts a very terse constant into a more conversational phrase.
 
 ```php
-<?php
-
 // src/Menu.php
 
 protected function talkStatus($status)

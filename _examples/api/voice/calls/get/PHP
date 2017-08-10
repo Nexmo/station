@@ -1,5 +1,3 @@
-<?php
-
 include 'application_generate_jwt.php';
 
 //Set the endpoint
