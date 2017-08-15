@@ -1,7 +1,7 @@
 <div>
   <div class="slate-layout-documentation">
     <div>
-      <h2 id="<%= endpoint.id %>"><%= endpoint.title %></h2>
+      <h3 id="<%= endpoint.id %>"><%= endpoint.title %></h3>
       <p><%= endpoint.description %></p>
 
       <div class="api-path">
@@ -13,7 +13,7 @@
       </div>
 
       <% if endpoint.jwt? %>
-        <h2>Authentication</h2>
+        <h3>Authentication</h3>
         <table>
           <thead>
             <th>Key</th>
@@ -42,17 +42,17 @@
       <% end %>
 
       <% if endpoint.path_parameters.any? %>
-        <h3>Parameters</h3>
+        <h4>Parameters</h4>
         <%= render 'parameters', endpoint: endpoint, parameters: endpoint.path_parameters %>
       <% end %>
 
       <% if endpoint.query_parameters.any? %>
-        <h3>Query</h3>
+        <h4>Query</h4>
         <%= render 'parameters', endpoint: endpoint, parameters: endpoint.query_parameters %>
       <% end %>
 
       <% if endpoint.request_body_parameters.any? %>
-        <h3>Query</h3>
+        <h4>Query</h4>
         <%= render 'parameters', endpoint: endpoint, parameters: endpoint.request_body_parameters %>
       <% end %>
     </div>

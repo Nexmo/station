@@ -5,7 +5,7 @@
 
           <ul class="navigation js-scrollspy has-label">
             <li>
-              <a href="#">SMS</a>
+              <a href="#"><%= @specification.raw['info']['title'] %></a>
               <ul class="has-label">
                 <% @groups.each do |group| %>
                   <% if group['name'] %>
@@ -32,12 +32,23 @@
     </div>
   </div>
   <div class="slate-layout-main">
+    <div>
+      <div class="slate-layout-documentation">
+        <div>
+          <h1><%= @specification.raw['info']['title'] %></h1>
+          <p><%= @specification.raw['info']['description'] %></p>
+        </div>
+      </div>
+      <div class="slate-layout-code"></div>
+    </div>
+
+
     <% @groups.each do |group| %>
       <% if group['name'] %>
         <div>
           <div class="slate-layout-documentation">
             <div>
-              <h1><%= group['name'] %></h1>
+              <h2><%= group['name'] %></h2>
               <p><%= group['description'] %></p>
             </div>
           </div>
