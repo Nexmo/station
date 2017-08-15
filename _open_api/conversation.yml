@@ -13,13 +13,13 @@ paths:
       parameters:
         - name: name
           in: query
-          description: Conversation name. Must be unique
+          description: Conversation name, must be unique but will auto-generated if you do not provide it.
           required: false
           schema:
             type: string
         - name: display_name
           in: query
-          description: maximum number of results to return
+          description: A personal name of your choosing.
           required: false
           schema:
             type: string
