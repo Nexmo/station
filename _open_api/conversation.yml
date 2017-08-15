@@ -9,6 +9,7 @@ info:
 paths:
   /conversations:
     post:
+      x-group: conversation
       summary: Create a conversation
       parameters:
         - name: name
@@ -33,6 +34,7 @@ paths:
                 $ref: '#/components/schemas/Conversation'
   /conversations/{id}:
     get:
+      x-group: conversation
       summary: Retrieve a conversation
       parameters:
         - name: id
@@ -52,6 +54,7 @@ paths:
                   $ref: '#/components/schemas/ConversationFull'
   /conversations/{id}/members:
     get:
+      x-group: member
       summary: Retrieve members of a conversation
       parameters:
         - name: id
@@ -70,6 +73,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/Member'
     post:
+      x-group: member
       summary: Add a user to a conversation
       parameters:
         - name: id
@@ -88,6 +92,7 @@ paths:
                 $ref: '#/components/schemas/MemberFull'
   /users:
     get:
+      x-group: user
       summary: Retrieve all users
       responses:
         '200':
@@ -99,6 +104,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/UserFull'
     post:
+      x-group: user
       summary: Create a user
       parameters:
         - name: name
@@ -117,6 +123,7 @@ paths:
                 $ref: '#/components/schemas/User'
   /users/{id}:
     get:
+      x-group: user
       summary: Retrive a user
       parameters:
         - name: id
@@ -306,3 +313,15 @@ components:
         href:
           type: string
           example: 'http://conversation.local/v1/users/USR-aaaaaaaa-bbbb-cccc-dddd-0123456789ab'
+x-groups:
+  conversation:
+    name: "Conversation"
+    order: 1
+    description: >-
+      Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Aenean lacinia bibendum nulla sed consectetur. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+  user:
+    name: "User"
+    order: 2
+  member:
+    name: "Member"
+    order: 3

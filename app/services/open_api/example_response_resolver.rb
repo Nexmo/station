@@ -11,7 +11,7 @@ module OpenApi
 
     def model
       @model ||= parse(endpoint.response_body_schema(status))
-    end\
+    end
 
     def json
       @json ||= model.to_json
