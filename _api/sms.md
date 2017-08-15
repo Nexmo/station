@@ -137,7 +137,7 @@ The response contains the following keys and values:
 
 ```tabbed_content
 source: '/_examples/api/sms/sending/keys-and-values/'
-````
+```
 
 #### Error codes
 
