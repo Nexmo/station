@@ -13,7 +13,7 @@
                       <a href="<%= group['name'].parameterize %>">
                         <%= group['name'] %>
                       </a>
-                      <ul>
+                      <ul class="has-label">
                         <% group[:resources].each do |resource| %>
                           <%= render 'menu-item', endpoint: OpenApi::ExampleResponseResolver.new(@specification, path: resource[:path], method: resource[:method]) %>
                         <% end %>
