@@ -3,7 +3,7 @@ servers:
   - url: 'https://api.nexmo.com/beta'
 info:
   version: 1.0.0
-  title: Conversation
+  title: Conversation API
   description: >-
     Maecenas sed diam eget risus varius blandit sit amet non magna. Donec sed odio dui.
 paths:
