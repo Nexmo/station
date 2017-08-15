@@ -134,12 +134,20 @@ module OpenApi
       @endpoint ||= @specification.endpoint(resolved_path, @method)
     end
 
+    def id
+      title.parameterize
+    end
+
     def title
       endpoint.raw['summary'] || endpoint.raw['description']
     end
 
     def description
       endpoint.raw['description']
+    end
+
+    def group
+      endpoint.raw['x-group']
     end
 
     def request_body_parameters

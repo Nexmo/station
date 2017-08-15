@@ -9,6 +9,8 @@ class OpenApiController < ApplicationController
     end
 
     @specification = OpenApiParser::Specification.resolve(@specification_path)
+    set_groups
+
     render layout: 'page-full'
   end
 
@@ -16,5 +18,29 @@ class OpenApiController < ApplicationController
 
   def set_specification
     @specification_name = params[:specification]
+  end
+
+  def set_groups
+    @groups = {}
+
+    @specification.raw['paths'].each do |path, methods|
+      methods.each do |method, endpoint|
+        group = endpoint['x-group']
+
+        if @groups[group].nil?
+          @groups[group] = @specification.raw['x-groups'] ? @specification.raw['x-groups'][endpoint['x-group']] : {}
+          @groups[group][:resources] = []
+        end
+
+        @groups[group][:resources] << {
+          path: path,
+          method: method,
+        }
+      end
+    end
+
+    @groups = @groups.values.sort_by do |group|
+      group['order'] || 999
+    end
   end
 end

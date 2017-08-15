@@ -7,14 +7,22 @@
             <li>
               <a href="#">SMS</a>
               <ul class="has-label">
-                <% @specification.raw['paths'].each do |path, methods| %>
-                  <% methods.each do |method, endpoint| %>
+                <% @groups.each do |group| %>
+                  <% if group['name'] %>
                     <li>
-                      <a href="#<%= (endpoint['summary'] || endpoint['description']).parameterize %>">
-                        <span class="label label--code label--<%= method %>"><%= method.upcase %></span>
-                        <%= endpoint['summary'] || endpoint['description'] %>
+                      <a href="<%= group['name'].parameterize %>">
+                        <%= group['name'] %>
                       </a>
+                      <ul>
+                        <% group[:resources].each do |resource| %>
+                          <%= render 'menu-item', endpoint: OpenApi::ExampleResponseResolver.new(@specification, path: resource[:path], method: resource[:method]) %>
+                        <% end %>
+                      </ul>
                     </li>
+                  <% else %>
+                    <% group[:resources].each do |resource| %>
+                      <%= render 'menu-item', endpoint: OpenApi::ExampleResponseResolver.new(@specification, path: resource[:path], method: resource[:method]) %>
+                    <% end %>
                   <% end %>
                 <% end %>
               </ul>
@@ -24,9 +32,22 @@
     </div>
   </div>
   <div class="slate-layout-main">
-    <% @specification.raw['paths'].each do |path, methods| %>
-      <% methods.each do |method, endpoint| %>
-        <%= render 'endpoint', endpoint: OpenApi::ExampleResponseResolver.new(@specification, path: path, method: method) %>
+    <% @groups.each do |group| %>
+      <% if group['name'] %>
+        <div>
+          <div class="slate-layout-documentation">
+            <div>
+              <h1><%= group['name'] %></h1>
+              <p><%= group['description'] %></p>
+            </div>
+          </div>
+          <div class="slate-layout-code"></div>
+        </div>
+      <% end %>
+
+
+      <% group[:resources].each do |resource| %>
+        <%= render 'endpoint', endpoint: OpenApi::ExampleResponseResolver.new(@specification, path: resource[:path], method: resource[:method]) %>
       <% end %>
     <% end %>
   </div>
