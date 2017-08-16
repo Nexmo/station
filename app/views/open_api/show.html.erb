@@ -37,6 +37,12 @@
         <div>
           <h1><%= @specification.raw['info']['title'] %></h1>
           <p><%= @specification.raw['info']['description'] %></p>
+
+          <%= link_to open_api_path({ format: @specification_format, params: request.query_parameters }), class: 'button button--secondary' do %>
+            <i class="icon icon-swagger"></i>
+            Download OpenAPI 3 Specification
+          <% end %>
+
         </div>
       </div>
       <div class="slate-layout-code"></div>

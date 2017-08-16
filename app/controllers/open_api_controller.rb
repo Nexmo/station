@@ -4,14 +4,28 @@ class OpenApiController < ApplicationController
   def show
     if File.file? "_open_api/#{@specification_name}.json"
       @specification_path = "_open_api/#{@specification_name}.json"
+      @specification_format = 'json'
     else
       @specification_path = "_open_api/#{@specification_name}.yml"
+      @specification_format = 'yml'
     end
 
-    @specification = OpenApiParser::Specification.resolve(@specification_path)
-    set_groups
+    respond_to do |format|
+      format.html do
+        @specification = OpenApiParser::Specification.resolve(@specification_path)
+        set_groups
 
-    render layout: 'page-full'
+        render layout: 'page-full'
+      end
+
+      format.json do
+        send_file(@specification_path)
+      end
+
+      format.yaml do
+        send_file(@specification_path)
+      end
+    end
   end
 
   private
