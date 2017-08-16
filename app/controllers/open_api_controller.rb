@@ -11,19 +11,12 @@ class OpenApiController < ApplicationController
     end
 
     respond_to do |format|
+      format.any(:json, :yaml) { send_file(@specification_path) }
       format.html do
         @specification = OpenApiParser::Specification.resolve(@specification_path)
         set_groups
 
         render layout: 'page-full'
-      end
-
-      format.json do
-        send_file(@specification_path)
-      end
-
-      format.yaml do
-        send_file(@specification_path)
       end
     end
   end
