@@ -167,7 +167,7 @@ module OpenApi
       end
     end
 
-    def normalize_properties(properties)
+    def self.normalize_properties(properties)
       properties.map { |key, value| { 'name' => key }.merge(value) }
     end
 

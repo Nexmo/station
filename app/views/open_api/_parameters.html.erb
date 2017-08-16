@@ -58,7 +58,7 @@
 
       <% if (parameter['type'] || parameter['schema']['type']) == 'array' %>
         <% if parameter['items'] %>
-          <%= render 'parameters', endpoint: endpoint, parameters: endpoint.normalize_properties(parameter['items']['properties']) %>
+          <%= render 'parameters', parameters: OpenApi::ExampleResponseResolver.normalize_properties(parameter['items']['properties']) %>
         <% end %>
       <% end %>
     </li>
