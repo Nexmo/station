@@ -146,6 +146,7 @@ components:
         created:
           example: "2020-01-01T12:00:00.000Z"
           type: string
+          description: The time the conversation was created
     JoinedTimestamp:
       properties:
         joined:
@@ -219,12 +220,18 @@ components:
         uuid:
           example: "CON-aaaaaaaa-bbbb-cccc-dddd-0123456789ab"
           type: string
+          description: >-
+            Unique identifier for the conversation
         name:
           example: "nexmo-chat"
           type: string
+          description: >-
+            The name of the conversation
         display_name:
           example: "Nexmo Chat"
           type: string
+          description: >-
+            The display name of the conversation
         timestamp:
           type: object
           items:
@@ -244,6 +251,7 @@ components:
         api_key:
           example: "abcd1234"
           type: string
+          description: The API Key of the owner of the conversation
         _links:
           example:
           type: object
