@@ -14,6 +14,10 @@ module OpenApi
       validate
     end
 
+    def new_by_schema(schema)
+      @model = parse(schema)
+    end
+
     def model
       @model ||= parse(response_body_schema)
     end
@@ -34,13 +38,21 @@ module OpenApi
     end
 
     def html
+      output = <<~HEREDOC
+        <br>
+        <h3><span class="label">#{@status}</span> HTTP response:</h3>
+        #{model_html}
+      HEREDOC
+
+      output.html_safe
+    end
+
+    def model_html
       formatter = Rouge::Formatters::HTML.new
       lexer = Rouge::Lexer.find('json')
       highlighted_response = formatter.format(lexer.lex(formatted_json))
 
       output = <<~HEREDOC
-        <br>
-        <h3><span class="label">#{@status}</span> HTTP response:</h3>
         <pre class="highlight json"><code>#{ highlighted_response }</code></pre>
       HEREDOC
 
@@ -155,7 +167,7 @@ module OpenApi
 
     def request_body_parameters
       return [] unless endpoint.raw['requestBody']
-      normalize_properties(endpoint.raw['requestBody']['content'].values[0]['schema']['properties'])
+      self.class.normalize_properties(endpoint.raw['requestBody']['content'].values[0]['schema']['properties'])
     end
 
     def path_parameters
@@ -172,6 +184,12 @@ module OpenApi
 
     def self.normalize_properties(properties)
       properties.map { |key, value| { 'name' => key }.merge(value) }
+    end
+
+    def self.new_by_schema(*args)
+      instance = allocate
+      instance.send(:new_by_schema, *args)
+      instance
     end
 
     private

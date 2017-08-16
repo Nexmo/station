@@ -56,9 +56,16 @@
             <div>
               <h2><%= group['name'] %></h2>
               <p><%= group['description'] %></p>
+              <% if group['schema'] %>
+                <%= render 'parameters', parameters: OpenApi::ExampleResponseResolver.normalize_properties(group['schema']['properties']), model: true %>
+              <% end %>
             </div>
           </div>
-          <div class="slate-layout-code"></div>
+          <div class="slate-layout-code">
+            <% if group['schema'] %>
+              <%= OpenApi::ExampleResponseResolver.new_by_schema(group['schema']).model_html %>
+            <% end %>
+          </div>
         </div>
       <% end %>
 
