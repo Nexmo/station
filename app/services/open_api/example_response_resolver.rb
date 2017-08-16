@@ -27,7 +27,10 @@ module OpenApi
     end
 
     def formatted_json
-      JSON.pretty_generate(model)
+      JSON.neat_generate(model, {
+        wrap: true,
+        after_colon: 1,
+      })
     end
 
     def html

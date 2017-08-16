@@ -84,6 +84,9 @@ gem 'icalendar'
 # A parser for Open API specifications
 gem 'open_api_parser', github: 'adambutler/open_api_parser', branch: 'openapi-specification-v3'
 
+# Generate JSON strings from Ruby objects with flexible formatting options.
+gem 'neatjson'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
