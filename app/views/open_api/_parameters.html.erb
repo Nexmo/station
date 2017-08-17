@@ -70,7 +70,7 @@
 
       <% if ['array', 'object'].include? parameter['type']  %>
         <% if parameter['items'] %>
-          <%= render 'parameters', parameters: OpenApi::ExampleResponseResolver.normalize_properties(parameter['items']['properties']) %>
+          <%= render 'parameters', parameters: OpenApi::EndpointResolver.normalize_properties(parameter['items']['properties']) %>
         <% end %>
       <% end %>
     </li>

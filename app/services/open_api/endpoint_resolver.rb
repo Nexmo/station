@@ -1,5 +1,5 @@
 module OpenApi
-  class ExampleResponseResolver
+  class EndpointResolver
     attr_accessor :specification
     attr_accessor :path
     attr_accessor :method

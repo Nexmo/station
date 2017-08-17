@@ -15,13 +15,13 @@
                       </a>
                       <ul class="has-label">
                         <% group[:resources].each do |resource| %>
-                          <%= render 'menu-item', endpoint: OpenApi::ExampleResponseResolver.new(@specification, path: resource[:path], method: resource[:method]) %>
+                          <%= render 'menu-item', endpoint: OpenApi::EndpointResolver.new(@specification, path: resource[:path], method: resource[:method]) %>
                         <% end %>
                       </ul>
                     </li>
                   <% else %>
                     <% group[:resources].each do |resource| %>
-                      <%= render 'menu-item', endpoint: OpenApi::ExampleResponseResolver.new(@specification, path: resource[:path], method: resource[:method]) %>
+                      <%= render 'menu-item', endpoint: OpenApi::EndpointResolver.new(@specification, path: resource[:path], method: resource[:method]) %>
                     <% end %>
                   <% end %>
                 <% end %>
@@ -57,13 +57,13 @@
               <h2><%= group['name'] %></h2>
               <p><%= group['description'] %></p>
               <% if group['schema'] %>
-                <%= render 'parameters', parameters: OpenApi::ExampleResponseResolver.normalize_properties(group['schema']['properties']), model: true %>
+                <%= render 'parameters', parameters: OpenApi::EndpointResolver.normalize_properties(group['schema']['properties']), model: true %>
               <% end %>
             </div>
           </div>
           <div class="slate-layout-code">
             <% if group['schema'] %>
-              <%= OpenApi::ExampleResponseResolver.new_by_schema(group['schema']).model_html %>
+              <%= OpenApi::EndpointResolver.new_by_schema(group['schema']).model_html %>
             <% end %>
           </div>
         </div>
@@ -71,7 +71,7 @@
 
 
       <% group[:resources].each do |resource| %>
-        <%= render 'endpoint', endpoint: OpenApi::ExampleResponseResolver.new(@specification, path: resource[:path], method: resource[:method]) %>
+        <%= render 'endpoint', endpoint: OpenApi::EndpointResolver.new(@specification, path: resource[:path], method: resource[:method]) %>
       <% end %>
     <% end %>
   </div>
