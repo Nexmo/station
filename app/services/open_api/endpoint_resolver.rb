@@ -141,8 +141,67 @@ module OpenApi
     end
 
     def jwt?
-      return false unless endpoint.raw['security']
-      endpoint.raw['security'].include? 'jwt'
+      jwt ? true : false
+    end
+
+    def jwt
+      return false unless specification_has_security_schemes?
+      security_references.each do |security_reference|
+        securityScheme = components['securitySchemes'][security_reference]
+        return securityScheme if securityScheme['bearerFormat'] == 'JWT'
+      end
+      false
+    end
+
+    def jwt_scopes
+      specification_security_scopes = []
+      endpoint_security_scopes = []
+
+      if @specification.raw['security']
+        specification_security_scopes = @specification.raw['security'].map do |security_reference|
+          security_reference.values[0]
+        end
+      end
+
+      if endpoint.raw['security']
+        endpoint_security_scopes = endpoint.raw['security'].map do |security_reference|
+          security_reference.values[0]
+        end
+      end
+
+      specification_security_scopes.flatten!
+      endpoint_security_scopes.flatten!
+
+      specification_security_scopes.concat(endpoint_security_scopes).uniq
+    end
+
+    def security_references
+      specification_security_references = []
+      endpoint_security_references = []
+
+      if @specification.raw['security']
+        specification_security_references = @specification.raw['security'].map do |security_reference|
+          security_reference.keys[0]
+        end
+      end
+
+      if endpoint.raw['security']
+        endpoint_security_references = endpoint.raw['security'].map do |security_reference|
+          security_reference.keys[0]
+        end
+      end
+
+      specification_security_references.concat(endpoint_security_references).uniq
+    end
+
+    def specification_has_security_schemes?
+      return false unless components
+      return false unless components['securitySchemes']
+      components['securitySchemes'].any?
+    end
+
+    def components
+      @specification.raw['components']
     end
 
     def endpoint

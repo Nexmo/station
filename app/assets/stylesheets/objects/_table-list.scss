@@ -58,10 +58,15 @@
 
 .table-list-column {
   padding: $spacing;
-  // background: mix(green, white, 10%);
   flex: 1;
 
   @for $i from 1 through 10 {
     &[flex='#{$i}'] { flex: #{$i}; }
+  }
+}
+
+.table-list--dark {
+  .table-list-header {
+    background: $gray-dark;
   }
 }

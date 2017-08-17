@@ -14,31 +14,45 @@
 
       <% if endpoint.jwt? %>
         <h3>Authentication</h3>
-        <table>
-          <thead>
-            <th>Key</th>
-            <th>Description</th>
-            <th>Type</th>
-            <th>Example</th>
-            <th>Default</th>
-            <th>Required</th>
-          </thead>
-          <tbody>
-              <tr>
-                <td><code>Authorization</code></td>
-                <td>
-                  <b>Your JSON web token</b><br>
-                  <small><%= link_to "Read more about JWTs", "/concepts/guides/authentication#json-web-tokens-jwt" %></small>
-                </td>
-                <td><code>string</code></td>
-                <td><code>Bearer &lt;JWT&gt;</code></td>
-                <td><i>None</i></td>
-                <td class="center">
-                  <i class="icon icon--large icon-check-circle color--success"></i>
-                </td>
-              </tr>
-          </tbody>
-        </table>
+        <ul class="table-list table-list--dark">
+          <li class="table-list-header">
+            <div class="table-list-columns">
+              <div class="table-list-column" flex="2">Key</div>
+              <div class="table-list-column" flex="2">Description</div>
+              <div class="table-list-column">Type</div>
+              <div class="table-list-column">Example</div>
+              <div class="table-list-column">Default</div>
+
+              <% if endpoint.jwt_scopes.any? %>
+                <div class="table-list-column">Scopes Required</div>
+              <% end %>
+
+              <div class="table-list-column">Required</div>
+            </div>
+          </li>
+          <li>
+            <div class="table-list-columns">
+              <div class="table-list-column" flex="2"><code>Authorization</code></div>
+              <div class="table-list-column" flex="2">
+                <b>Your JSON web token</b><br>
+                <small><%= link_to "Read more about JWTs", "/concepts/guides/authentication#json-web-tokens-jwt" %></small>
+              </div>
+              <div class="table-list-column"><code>string</code></div>
+              <div class="table-list-column"><code>Bearer &lt;JWT&gt;</code></div>
+              <div class="table-list-column"><i>None</i></div>
+
+              <% if endpoint.jwt_scopes.any? %>
+                <div class="table-list-column">
+                  <code><%= endpoint.jwt_scopes %></code>
+                </div>
+              <% end %>
+
+              <div class="table-list-column">
+                <i class="icon icon--large icon-check-circle color--success"></i>
+              </div>
+            </div>
+          </li>
+        </ul>
       <% end %>
 
       <% if endpoint.path_parameters.any? %>
