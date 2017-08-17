@@ -6,9 +6,13 @@ info:
   title: Conversation API
   description: >-
     Maecenas sed diam eget risus varius blandit sit amet non magna. Donec sed odio dui.
+security:
+  - bearerAuth: []
 paths:
   /conversations:
     post:
+      security:
+        - bearerAuth: []
       x-group: conversation
       summary: Create a conversation
       parameters:
@@ -32,6 +36,8 @@ paths:
               schema:
                 type: object
                 $ref: '#/components/schemas/Conversation'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
   /conversations/{id}:
     get:
       x-group: conversation
@@ -140,6 +146,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/UserShow'
 components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  responses:
+    UnauthorizedError:
+      description: Access token is missing or invalid
   schemas:
     CreatedTimestamp:
       properties:
