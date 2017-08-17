@@ -114,7 +114,7 @@ RSpec.describe OpenApi::ExampleResponseResolver do
 
   context 'uber' do
     before(:each) do
-      @specification = OpenApiParser::Specification.resolve('_open_api/example/uber.yml')
+      @specification = OpenApiParser::Specification.resolve('spec/fixtures/open_api/uber.yml')
     end
 
     it 'has a resolved path' do
