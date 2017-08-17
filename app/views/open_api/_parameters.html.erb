@@ -2,12 +2,10 @@
   <li class="table-list-header">
     <div class="table-list-columns">
       <div class="table-list-column" flex="2">Key</div>
-      <div class="table-list-column">Type</div>
       <div class="table-list-column" flex="3">Description</div>
-      <% unless defined? model && model %>
-        <div class="table-list-column">Example</div>
+      <% unless defined?(model) && model %>
+        <div class="table-list-column" flex="2">Example</div>
         <div class="table-list-column">Default</div>
-        <div class="table-list-column">Required</div>
       <% end %>
     </div>
   </li>
@@ -15,25 +13,30 @@
     <li>
       <div class="table-list-columns">
         <div class="table-list-column" flex="2">
-          <code><%= parameter['name'] %></code>
-        </div>
+          <b><%= parameter['name'] %></b><br>
 
-        <div class="table-list-column">
-          <code><%= (parameter['type'] || parameter['schema']['type']) %></code>
-
-          <% if parameter['type'] == 'array' %>
-            <br>
-            <% if parameter['items'] && parameter['items']['type'] %>
-              <small><i>of <code><%= (parameter['items']['type']) %></code>'s</i></small>
+          <small>
+            <% if parameter['required'] %>
+              <span class="flag flag--strong">Required</span> |
             <% end %>
-          <% end %>
+
+            <i>
+              <%= (parameter['type'] || parameter['schema']['type']) %>
+              <% if parameter['type'] == 'array' %>
+                <br>
+                <% if parameter['items'] && parameter['items']['type'] %>
+                  of <%= (parameter['items']['type']) %>'s
+                <% end %>
+              <% end %>
+            </i>
+          </small>
         </div>
 
         <div class="table-list-column" flex="3">
           <% if ['object', 'array'].include?(parameter['type']) && parameter['items'] %>
             <!-- Do not render a description when the parameter is an object or array and has items defined -->
           <% else %>
-            <%= (parameter['description'] ? "<b>#{parameter['description']}</b>" : '<i>None</i>').html_safe %>
+            <%= (parameter['description'] ? "#{parameter['description']}" : '<i>None</i>').html_safe %>
           <% end %>
 
           <% if parameter['enum'] %>
@@ -47,23 +50,13 @@
           <% end %>
         </div>
 
-        <% unless defined? model && model %>
-          <div class="table-list-column">
+        <% unless defined?(model) && model %>
+          <div class="table-list-column" flex="2">
             <%= (parameter['example'] ? "<code>#{parameter['example']}</code>" : '<i>None</i>').html_safe %>
           </div>
 
           <div class="table-list-column">
             <%= (parameter['default'] ? "<code>#{parameter['default']}</code>" : '<i>None</i>').html_safe %>
-          </div>
-
-          <div class="table-list-column">
-            <div class="center">
-              <%=
-                parameter['required'] ?
-                '<i class="icon icon--large icon-check-circle color--success"></i>'.html_safe
-                : '<i class="icon icon--large icon-times-circle color--error"></i>'.html_safe
-              %>
-            </div>
           </div>
         <% end %>
       </div>

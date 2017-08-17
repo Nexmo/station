@@ -18,8 +18,31 @@ $slate-main-min-width: $slate-navigation-min * ($slate-main-flex / $slate-naviga
   flex-wrap: wrap;
   min-height: 100vh;
 
+  h1, h2, h3 {
+    font-weight: 600;
+  }
+
+  h2, h3 {
+    font-weight: 500;
+  }
+
+  h3, h4 {
+    margin-bottom: $spacing;
+  }
+
   h2 {
-    font-weight: 600;;
+    font-size: 32px;
+    line-height: 32px;
+  }
+
+  h3 {
+    font-size: 28px;
+    line-height: 28px;
+  }
+
+  h4 {
+    font-size: 22px;
+    line-height: 22px;
   }
 }
 
@@ -71,9 +94,15 @@ $slate-main-min-width: $slate-navigation-min * ($slate-main-flex / $slate-naviga
   border-left: $border;
   box-shadow: $shadow-soft;
   border-bottom: $border;
+  border-bottom-color: mix($blue, $white, 10%);
+  font-size: 0.95em;
 
   > div {
     min-width: 700px;
+  }
+
+  &--group {
+    border-bottom: none;
   }
 }
 

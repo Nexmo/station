@@ -443,3 +443,13 @@ b {
     color: $text-subtle;
   }
 }
+
+.flag {
+  text-transform: uppercase;
+  font-size: 0.82em;
+  font-weight: 600;
+
+  &--strong {
+    color: $red;
+  }
+}
