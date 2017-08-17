@@ -16,7 +16,6 @@ RSpec.describe OpenApi::EndpointResolver do
       expect(resolver.status).to eq('200')
     end
 
-
     describe 'GET /pets' do
       it 'provides an example response for an object' do
         resolver = OpenApi::EndpointResolver.new(@specification, path: '/pets', method: 'get')
@@ -65,7 +64,6 @@ RSpec.describe OpenApi::EndpointResolver do
       resolver = OpenApi::EndpointResolver.new(@specification, path: '/pets/{id}', method: 'get')
       expect(resolver.status).to eq('200')
     end
-
 
     describe 'GET /pets' do
       it 'provides an example response for an object' do
