@@ -1,4 +1,4 @@
-import { Tabs } from 'foundation-sites/js/foundation.tabs';
+import { Tabs } from 'foundation-sites/js/foundation.tabs'
 
 export default class TabbedExamples {
   constructor() {
@@ -14,6 +14,10 @@ export default class TabbedExamples {
       this.restoreTabs()
       this.setInitialState()
       this.setupEvents()
+
+      // Reset so that the language is read as normal instead of the data
+      // attribute when the page loads in next time.
+      $('#primary-content').data('initial-language', false)
     }
   }
 
@@ -22,24 +26,44 @@ export default class TabbedExamples {
     return initialLanguage === '' ? false : initialLanguage
   }
 
-  restoreTabs() {
-    if (!this.initialLanguage()) {
-      if (window.localStorage) {
-        var language = window.localStorage.getItem('languagePreference')
-        if (language) { this.setLanguage(language) }
-      }
+  shouldRestoreTabs() {
+    const initialLanguage = this.initialLanguage()
+
+    if (initialLanguage) {
+      // Continue to restore the tab as if it were a normal page load if an
+      // initialLanguage (url) is set but the tab does not exist
+      return !this.doesTabLanguageExist(initialLanguage)
     }
 
-    if (window.localStorage) {
-      var secondaryLanguage = window.localStorage.getItem('secondaryLanguagePreference')
-      if (secondaryLanguage) { this.setLanguage(secondaryLanguage) }
-    }
+    // Normal page load: Try to restore the tab.
+    return true
+  }
+
+  doesTabLanguageExist(language) {
+    return $(this.context).find(`[data-language='${language}']`).length > 0
+  }
+
+  restoreTabs() {
+    $('[data-tabs]').each((index, element) => {
+      this.context = element
+      if (this.shouldRestoreTabs()) {
+        if (window.localStorage) {
+          var language = window.localStorage.getItem('languagePreference')
+          if (language) { this.setLanguage(language, this.context) }
+        }
+
+        if (window.localStorage) {
+          var secondaryLanguage = window.localStorage.getItem('secondaryLanguagePreference')
+          if (secondaryLanguage) { this.setLanguage(secondaryLanguage, this.context) }
+        }
+      }
+    })
   }
 
   setInitialState() {
     const initialLanguage = this.initialLanguage()
     if (initialLanguage) {
-      window.history.pushState({ language: initialLanguage }, 'language', initialLanguage)
+      this.persistLanguage(initialLanguage, true)
     }
   }
 
@@ -50,7 +74,7 @@ export default class TabbedExamples {
 
   onPopState(event) {
     if (window.history.state && window.history.state.language) {
-      this.setLanguage(window.history.state.language);
+      this.setLanguage(window.history.state.language)
     }
   }
 
@@ -84,8 +108,8 @@ export default class TabbedExamples {
     }
   }
 
-  setLanguage(language) {
-    $(`.tabs [data-language='${language}'] a`).each(function() {
+  setLanguage(language, context = '.tabs') {
+    $(context).find(`[data-language='${language}'] a`).each(function() {
       let tabs = $(this).parents('.tabs')
       let tab = $(this).parent()
 

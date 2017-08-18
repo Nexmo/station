@@ -3,10 +3,10 @@ class TabbedExamplesFilter < Banzai::Filter
     input.gsub(/```tabbed_examples(.+?)```/m) do |_s|
       @config = YAML.safe_load($1)
 
-      examples = @config['source'] ? load_examples_from_source : load_examples_from_tabs
-      examples = sort_examples(examples)
+      @examples = @config['source'] ? load_examples_from_source : load_examples_from_tabs
+      @examples = sort_examples
 
-      build_html(examples)
+      build_html
     end
   end
 
@@ -36,8 +36,8 @@ class TabbedExamplesFilter < Banzai::Filter
     end
   end
 
-  def sort_examples(examples)
-    examples.sort_by do |example|
+  def sort_examples
+    @examples.sort_by do |example|
       if language_configuration[example[:language]]
         language_configuration[example[:language]]['weight'] || 1000
       else
@@ -47,11 +47,15 @@ class TabbedExamplesFilter < Banzai::Filter
   end
 
   def active_class(index, language, options = {})
-    if options[:code_language]
+    if options[:code_language] && language_exists?(options[:code_language])
       'is-active' if language == options[:code_language]
     elsif index.zero?
       'is-active'
     end
+  end
+
+  def language_exists?(language)
+    @examples.detect { |example| example[:language] == language }
   end
 
   def language_data(example)
@@ -65,7 +69,7 @@ class TabbedExamplesFilter < Banzai::Filter
     HEREDOC
   end
 
-  def build_html(examples)
+  def build_html
     examples_uid = "code-#{SecureRandom.uuid}"
 
     tabs = []
@@ -74,7 +78,7 @@ class TabbedExamplesFilter < Banzai::Filter
     tabs << "<ul class='tabs tabs--code' data-tabs id='#{examples_uid}' data-initial-language=#{options[:code_language]}>"
     content << "<div class='tabs-content tabs-content--code' data-tabs-content='#{examples_uid}'>"
 
-    examples.each_with_index do |example, index|
+    @examples.each_with_index do |example, index|
       example_uid = "code-#{SecureRandom.uuid}"
       tabs << <<~HEREDOC
         <li class="tabs-title #{active_class(index, example[:language], options)}" #{language_data(example)}>
