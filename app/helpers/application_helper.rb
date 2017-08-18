@@ -77,7 +77,8 @@ module ApplicationHelper
 
       unless flatten
         url = (child[:is_file?] ? path_to_url(child[:path]) : first_link_in_directory(child[:children]))
-        ss << link_to(normalised_title(child), url, class: "#{url == request.path ? 'active' : ''}")
+        has_active_class = (request.path == url) || request.path.start_with?("#{url}/")
+        ss << link_to(normalised_title(child), url, class: "#{has_active_class ? 'active' : ''}")
       end
 
       ss << directory(child[:children], false, flatten) if child[:children]
