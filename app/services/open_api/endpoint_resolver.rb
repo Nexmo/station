@@ -38,11 +38,29 @@ module OpenApi
     end
 
     def html
-      output = <<~HEREDOC
-        <br>
-        <h3><span class="label">#{@status}</span> HTTP response:</h3>
-        #{model_html}
-      HEREDOC
+      output = '<br>'
+      original_status = @status
+
+      statuses.each_with_index do |status, index|
+        @status = status
+        remove_instance_variable(:@model) if @model
+
+        id = SecureRandom.hex
+        visible_on_initial_load = index.zero?
+
+        output += <<~HEREDOC
+          <h4 class="collapsible #{visible_on_initial_load ? 'collapsible--active' : ''}">
+            <a class="js-collapsible" data-collapsible-id="#{id}">
+              <span class="label label--status--#{@status[0]}xx">#{@status}</span> HTTP response
+            </a>
+          </h4>
+          <div id="#{id}" style="display: #{visible_on_initial_load ? 'block' : 'none'};">
+            #{model_html}
+          </div>
+        HEREDOC
+      end
+
+      @status = original_status
 
       output.html_safe
     end
@@ -136,8 +154,12 @@ module OpenApi
       @resolved_path
     end
 
+    def statuses
+      endpoint.raw['responses'].keys
+    end
+
     def status
-      @status ||= endpoint.raw['responses'].keys.first.to_s
+      @status ||= statuses.first.to_s
     end
 
     def jwt?

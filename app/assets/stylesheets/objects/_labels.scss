@@ -11,6 +11,17 @@
   border-color: $blue;
   .navigation & { color: mix($blue, $background, 80%); }
 
+  h4 & {
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  h5 & {
+    font-size: 14px;
+    font-weight: 600;
+    margin-right: 5px;
+  }
+
   &--code {
     font-family: Consolas, monospace;
     font-size: 15px;
@@ -45,5 +56,17 @@
   &--warning, &--put {
     background: $warning;
     .navigation & { color: mix($warning, $background, 80%); }
+  }
+
+  &--status--2xx {
+    background: $positive;
+  }
+
+  &--status--3xx {
+    background: $orange;
+  }
+
+  &--status--4xx {
+    background: $red;
   }
 }

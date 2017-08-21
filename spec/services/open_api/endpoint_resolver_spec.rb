@@ -34,11 +34,18 @@ RSpec.describe OpenApi::EndpointResolver do
     end
 
     describe 'GET /pets/{id}' do
+      before do
+        @resolver = OpenApi::EndpointResolver.new(@specification, path: '/pets/{id}', method: 'get')
+      end
+
       it 'provides an example response for an object' do
-        resolver = OpenApi::EndpointResolver.new(@specification, path: '/pets/{id}', method: 'get')
-        expect(resolver.model['id']).to eq(1)
-        expect(resolver.model['name']).to eq('abc123')
-        expect(resolver.model['tag']).to eq('abc123')
+        expect(@resolver.model['id']).to eq(1)
+        expect(@resolver.model['name']).to eq('abc123')
+        expect(@resolver.model['tag']).to eq('abc123')
+      end
+
+      it 'provides HTML for responses' do
+        expect(@resolver.html).to include('200')
       end
     end
 
@@ -46,6 +53,24 @@ RSpec.describe OpenApi::EndpointResolver do
       it 'provides an example response for an object' do
         resolver = OpenApi::EndpointResolver.new(@specification, path: '/pets/{id}', method: 'delete')
         expect(resolver.model).to be_nil
+      end
+    end
+  end
+
+  context 'petstore' do
+    before(:each) do
+      @specification = OpenApiParser::Specification.resolve('spec/fixtures/open_api/petstore-multiple-response.yml')
+    end
+
+    describe 'GET /pets/{id}' do
+      before do
+        @resolver = OpenApi::EndpointResolver.new(@specification, path: '/pets/{id}', method: 'get')
+      end
+
+      it 'provides HTML for responses' do
+        puts @resolver.html
+        expect(@resolver.html).to include('200')
+        expect(@resolver.html).to include('401')
       end
     end
   end

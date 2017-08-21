@@ -113,7 +113,11 @@ $slate-main-min-width: $slate-navigation-min * ($slate-main-flex / $slate-naviga
   min-width: 480px;
   border-bottom: 2px solid lighten($atom, 7%);
 
-  h3 {
+  h1, h2, h3, h4, h5, h6, p, a {
     color: $white;
+  }
+
+  a {
+    border: none;
   }
 }
