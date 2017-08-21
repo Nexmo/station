@@ -154,6 +154,20 @@ components:
   responses:
     UnauthorizedError:
       description: Access token is missing or invalid
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - code
+              - description
+            properties:
+              code:
+                type: 'string'
+                example: 'system:error:invalid-token'
+              description:
+                type: string
+                example: 'the token was rejected'
   schemas:
     CreatedTimestamp:
       properties:
