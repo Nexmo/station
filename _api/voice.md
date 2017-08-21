@@ -222,11 +222,11 @@ You use a GET request to retrieve information about a single call.
 
 This request contains:
 
-* A [Base URL](#crsbase)
-* (link: #crsparameterstext: Payload)
-* [JWT](#jwt_minting)
+* A [Base URL](#base-url-3)
+* [Payload](#payload-2)
+* [JWT](#generating-a-jwt)
 
-You receive the call details in the [response](#crsresponse).
+You receive the call details in the [response](#response-3).
 
 #### Base URL
 
