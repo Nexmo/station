@@ -44,3 +44,8 @@ xml:
   label: XML
   lexer: xml
   linkable: false
+cli:
+  weight: 99
+  label: CLI
+  lexer: sh
+  linkable: false
