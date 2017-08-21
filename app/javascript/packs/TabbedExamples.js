@@ -3,7 +3,9 @@ import { Tabs } from 'foundation-sites/js/foundation.tabs'
 export default class TabbedExamples {
   constructor() {
     if ($('[data-tabs]')[0]) {
-      new Tabs($('[data-tabs]'))
+      $('[data-tabs]').each(function(index, element) {
+        new Tabs($(element))
+      })
 
       this.restoreTabs = this.restoreTabs.bind(this)
       this.setInitialState = this.setInitialState.bind(this)
