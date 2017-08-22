@@ -1,0 +1,17 @@
+.media {
+  @extend .clearfix;
+  margin-bottom: $spacing;
+
+  > div {
+    display: table-cell;
+    vertical-align: top;
+  }
+
+  &-media {
+    width: 150px;
+    padding-right: $spacing;
+  }
+
+  &-body {
+  }
+}

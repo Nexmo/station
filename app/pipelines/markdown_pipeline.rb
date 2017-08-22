@@ -16,6 +16,8 @@ class MarkdownPipeline < Banzai::Pipeline
       TabbedExamplesFilter.new(options),
       TabbedContentFilter.new(options),
       CodeFilter,
+      IndentFilter,
+      MediaFilter,
       ModalFilter,
       JsSequenceDiagramFilter,
       PartialFilter,

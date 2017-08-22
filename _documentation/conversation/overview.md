@@ -33,13 +33,37 @@ The context of the conversations is maintained though each communication event t
 
 ## Concepts
 
-**Conversation** - Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam quis risus eget urna mollis ornare vel eu leo. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Nulla vitae elit libero, a pharetra augue.
+**Conversation**
+    > A conversation is a shared core component that Nexmo APIs rely on. Conversations happen over multiple mediums and and can have associated Users through Memberships.
 
-**User** - Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam quis risus eget urna mollis ornare vel eu leo. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Nulla vitae elit libero, a pharetra augue.
+**User**
+    > The concept of a user exists in Nexmo APIs, you can associate one with a user in your own application if you choose. A user can have multiple memberships to conversations and can communicate with other users through various different mediums.
 
-**Member** - Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam quis risus eget urna mollis ornare vel eu leo. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Nulla vitae elit libero, a pharetra augue.
+**Member**
+    > Memberships connect users with conversations. Each membership has one conversation and one user however a user can have many memberships to conversations just as conversations can have many members.
 
 ## Getting Started
+
+To start with you'll need a [Nexmo Account](/account/guides/management#create-and-configure-a-nexmo-account), an [Application](/concepts/guides/applications) and the  private key provided when you created the application. Follow the prerequisites if you've not got an Application already.
+
+| ### Prerequisites
+|
+| #### Create an Application
+|
+| Create an application named `My first Conversation Application` and store the returned private key as `private.key` within your current working directory.
+|
+| ```sh
+| $ nexmo app:create "My first Conversation Application" --type=rtc --keyfile=private.key
+| ```
+|
+|
+| #### Generate a JWT
+|
+| With a private key you can generate a JWT with the [Nexmo CLI](/tools):
+|
+| ```sh
+| $ nexmo jwt:generate ./private.key
+| ```
 
 ### Create a Conversation
 
