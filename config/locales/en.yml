@@ -57,3 +57,8 @@ en:
     configure: Configure
     contribute: Contribute
     structure: Structure
+
+    client_sdks: Client SDKs
+    android: Android
+    ios: iOS
+    javascript: JavaScript

@@ -1,4 +1,5 @@
 $ball-size: 44px;
+$card-animation-speed: 200ms;
 
 @mixin card--product($color, $color-light) {
   color: $color;
@@ -12,6 +13,15 @@ $ball-size: 44px;
       background: $color-light;
       border-color: $color;
     }
+  }
+}
+
+@mixin card--image($color, $name, $extension: 'png') {
+  background-image: url('/assets/images/cards/#{$name}.#{$extension}');
+  border-color: rgba($color, 0.5);
+
+  &:hover {
+    border-color: rgba($color, 1);
   }
 }
 
@@ -150,5 +160,40 @@ $ball-size: 44px;
     text-align: center;
     left: $spacing;
     top: -$ball-size/2;
+  }
+}
+
+.card {
+  &--android {
+    @include card--image(#A4C639, 'android');
+  }
+
+  &--ios {
+    @include card--image(#FF6537, 'ios');
+  }
+
+  &--javascript {
+    @include card--image(#F7DF1E, 'javascript');
+  }
+
+  &--image {
+    background-position: right center;
+    background-size: cover;
+    transition: border-color $card-animation-speed ease-in-out;
+
+    &:before {
+      content: ' ';
+      display: block;
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      background: rgba($white, 0.4);
+      transition: background $card-animation-speed ease-in-out;
+    }
+
+    &:hover {
+      &:before {
+        background: rgba($white, 0);
+      }
+    }
   }
 }
