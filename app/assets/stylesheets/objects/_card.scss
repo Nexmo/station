@@ -59,6 +59,7 @@ $card-animation-speed: 200ms;
     display: inline-block;
     padding: $spacing/2 0;
     color: $text;
+    border-bottom: none;
 
     &:hover {
       color: $blue;
@@ -126,6 +127,10 @@ $card-animation-speed: 200ms;
     br {
       line-height: 30px;
     }
+
+    &.tight {
+      padding-top: 0;
+    }
   }
 
   &--sms { @include card--product($sms, $sms-light); }
@@ -164,21 +169,17 @@ $card-animation-speed: 200ms;
 }
 
 .card {
-  &--android {
-    @include card--image(#A4C639, 'android');
-  }
-
-  &--ios {
-    @include card--image(#FF6537, 'ios');
-  }
-
-  &--javascript {
-    @include card--image(#F7DF1E, 'javascript');
-  }
+  &--android { @include card--image(#A4C639, 'android'); }
+  &--android-outline { @include card--image(#A4C639, 'android-outline'); }
+  &--ios { @include card--image(#FF6537, 'ios'); }
+  &--ios-outline { @include card--image(#FF6537, 'ios-outline'); }
+  &--javascript { @include card--image(#F7DF1E, 'javascript'); }
+  &--javascript-outline { @include card--image(#F7DF1E, 'javascript-outline'); }
 
   &--image {
     background-position: right center;
     background-size: cover;
+    background-repeat: no-repeat;
     transition: border-color $card-animation-speed ease-in-out;
 
     &:before {
