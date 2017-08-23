@@ -20,12 +20,14 @@ let onScrollOrResize = function() {
   let $activeHeading = undefined;
 
   if (currentPosition > startScroll) {
-    $('.sidenav > ul').css({
-      'width': $('.sidenav').width(),
-    })
-    .addClass('navigation--fixed');
+    if ($('#primary-content').height() > $('#sidenav').height()) {
+      $('.sidenav > ul').css({
+        'width': $('.sidenav').width(),
+      })
+      .addClass('navigation--fixed');
 
-    $('.sidenav > ul').css('position', 'fixed');
+      $('.sidenav > ul').css('position', 'fixed');
+    }
   }
 
   $('#primary-content').find('h1,h2,h3,h4,h5,h6').each(function() {
