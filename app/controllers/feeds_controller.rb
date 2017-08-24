@@ -1,6 +1,7 @@
 class FeedsController < ApplicationController
   def events
     calendar = Icalendar::Calendar.new
+    calendar.x_wr_calname = "Nexmo Developer Events"
 
     Event.all.each do |event|
       calendar.event do |e|
