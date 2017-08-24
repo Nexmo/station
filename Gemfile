@@ -82,7 +82,7 @@ gem 'recaptcha', require: "recaptcha/rails"
 gem 'icalendar'
 
 # A parser for Open API specifications
-gem 'open_api_parser', github: 'adambutler/open_api_parser', branch: 'openapi-specification-v3'
+gem 'open_api_parser', github: 'nexmo/open_api_parser', branch: 'openapi-specification-v3'
 
 # Generate JSON strings from Ruby objects with flexible formatting options.
 gem 'neatjson'
