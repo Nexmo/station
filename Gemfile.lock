@@ -141,6 +141,7 @@ GEM
     http_parser.rb (0.6.0)
     httpclient (2.8.3)
     i18n (0.8.6)
+    icalendar (2.4.1)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
@@ -332,6 +333,7 @@ DEPENDENCIES
   foundation-rails (= 6.4.1.2)
   git-hookshot!
   guard-livereload (~> 2.5)
+  icalendar
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
