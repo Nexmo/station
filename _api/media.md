@@ -55,17 +55,25 @@ If you remove the `/info` from the Location response header, the resulting URL a
 
 ### Parameters
 
-|Name|Description|Schema|Default|
-|---|---|---|---|
-|`api_key`  <br>*optional*|Username for password-based login|string||
-|`api_secret`  <br>*optional*|Password for password-based login|string|`"secret1"`|
-|`end_time`  <br>*optional*||string||
-|`metadata_primary`  <br>*optional*||string||
-|`metadata_secondary`  <br>*optional*||string||
-|`order`  <br>*optional*||string||
-|`page_index`  <br>*optional*||integer (int32)||
-|`page_size`  <br>*optional*||integer (int32)||
-|`start_time`  <br>*optional*||string||
+All parameters are optional, except `api_key` and `api_secret` if no JWT is provided.
+
+|Name|Description|Type|
+|---|---|---|
+|`api_key`|API key - not required if using JWT.|string|
+|`api_secret`|API secret - not required if using JWT.|string|
+|`order`|The order of search results: either `ascending` or `descending`.|string|
+|`page_index`|Which page to retrieve in pagination.|integer|
+|`page_size`|How many items per page.|integer|
+|`start_time`|Search criteria: finds media created after this date-time.|string (ISO 8601)|
+|`end_time`|Search criteria: finds media created before this point.|string (ISO 8601)|
+
+<!--
+
+Problematic:
+start_time - doesn't work
+end_time - doesn't work
+
+-->
 
 
 ### Responses
@@ -129,15 +137,15 @@ Deletes the media file. This API call must be authenticated using your API key a
 ### Parameters
 
 |Name|Description|Type|
-|---|---|---|---|
+|---|---|---|
 |`api_key`|API key of your account.|string|
 |`api_secret`|API secret of your account|string|
 
 
 ### Responses
 
-|HTTP Code|Description|Schema|
-|---|---|---|
+|HTTP Code|Description|
+|---|---|
 |204|Media item deleted|No Content|
 |401|Authentication failure|No Content|
 |403|Authorisation denied|No Content|
@@ -154,15 +162,15 @@ Authentication can be done using either API keys and secrets or using a JSON Web
 ### Parameters
 
 |Name|Description|Type|
-|---|---|---|---|---|
+|---|---|---|
 |`api_key`|Your API key|string|
-|`api_secret`||Your API secret|string|
+|`api_secret`|Your API secret|string|
 
 
 ### Responses
 
 |HTTP Code|Description|
-|---|---|---|
+|---|---|
 |`200`|successful operation|
 |`401`|Authentication failure|
 |`403`|Authorisation denied|
@@ -226,6 +234,27 @@ If the file is associated with an application, you must authenticate using a JSO
 |`api_key`|API key of your account.|string|✓|
 |`api_secret`|API secret of your account.|string|✓|
 
+### Request body
+
+The metadata you can update is listed below:
+
+|Name|Description|Type|Required|
+|----|-----------|----|--------|
+|`publicItem`|Whether the item is publicly available without authentication.|boolean|
+|`metadataPrimary`|A string (which can be JSON encoded) containing metadata about the media file.|string|
+|`metadataSecondary`|A string (which can be JSON encoded) containing further metadata about the media file.|string|
+|`title`|A string containing a title for the media file.|string|
+|`description`|A description of the media file.|string|
+|`mimeType`|The MIME type of the media file.|string|
+
+<!--
+Problematic:
+
+|`maxDownloadsAllowed`|For possible future use.|integer|
+|`requiresPinCode`|For possible future use.|boolean|
+
+
+-->
 
 ### Responses
 
@@ -253,8 +282,6 @@ If the file is associated with an application, you must authenticate using a JSO
 |`lastDownloaded`  <br>*optional*|string (date-time)|
 |`maxDownloadsAllowed`  <br>*optional*|integer (int32)|
 |`mediaSize`  <br>*optional*|integer (int64)|
-|`metadataPrimary`  <br>*optional*|string|
-|`metadataSecondary`  <br>*optional*|string|
 |`mimeType`  <br>*optional*|string|
 |`originalFileName`  <br>*optional*|string|
 |`path`  <br>*optional*|string|
