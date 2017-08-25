@@ -183,6 +183,8 @@ Authentication can be done using either API keys and secrets or using a JSON Web
 |`timesDownloaded`|Reserved for future use.|
 |`etag`|An identifier for the content. This will change if the content of the file has been changed (i.e. if you upload a new version of the file). For more information see [Wikipedia: HTTP ETag](https://en.wikipedia.org/wiki/HTTP_ETag)|
 |`mediaSize`|The size of the file in bytes.|
+|`metadataPrimary`|A string (which may be JSON encoded) to store metadata associated with the file.|
+|`metadataSecondary`|A string (which may be JSON encoded) to store metadata associated with the file.|
 |`timeCreated`|The time the file was created in milliseconds since epoch (1970-01-01).|
 |`timeLastUpdated`|The time the file was last modified in milliseconds since epoch (1970-01-01).|
 |`publicItem`|Whether the item is available for download without authentication.|
