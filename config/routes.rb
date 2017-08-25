@@ -35,10 +35,13 @@ Rails.application.routes.draw do
   match '/quicksearch', to: 'search#quicksearch', via: [:get, :post]
 
   get '/api', to: 'api#index'
+
+  get '/api/*specification(/:code_language)', to: 'open_api#show', as: 'open_api', constraints: { specification: /example/ }
   get '/api/*document(/:code_language)', to: 'api#show', constraints: DocumentationConstraint.code_language
 
   get '/*product/api-reference', to: 'markdown#api'
   get '/:product/*document(/:code_language)', to: 'markdown#show', constraints: DocumentationConstraint.documentation
+
 
   get '/robots.txt', to: 'static#robots'
 

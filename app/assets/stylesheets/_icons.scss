@@ -1,3 +1,5 @@
+$icon-swagger: "\e902";
+$icon-swagger-o: "\e903";
 $icon-community: "\e901";
 $icon-toolbox: "\e900";
 $icon-star: "\f005";
@@ -25,6 +27,7 @@ $icon-spinner: "\f110";
 $icon-code: "\f121";
 $icon-code-fork: "\f126";
 $icon-microphone: "\f130";
+$icon-chevron-circle-right: "\f138";
 $icon-stack-overflow: "\f16c";
 $icon-slack: "\f198";
 $icon-id-badge: "\f2c1";
@@ -62,6 +65,16 @@ $icon-id-badge: "\f2c1";
   vertical-align: -15%;
 }
 
+.icon-swagger {
+  &:before {
+    content: $icon-swagger;
+  }
+}
+.icon-swagger-o {
+  &:before {
+    content: $icon-swagger-o;
+  }
+}
 .icon-community {
   &:before {
     content: $icon-community;
@@ -195,6 +208,11 @@ $icon-id-badge: "\f2c1";
 .icon-microphone {
   &:before {
     content: $icon-microphone;
+  }
+}
+.icon-chevron-circle-right {
+  &:before {
+    content: $icon-chevron-circle-right;
   }
 }
 .icon-stack-overflow {
