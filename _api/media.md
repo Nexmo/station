@@ -149,24 +149,25 @@ Deletes the media file. This API call must be authenticated using your API key a
 
 [GET] `https://api.nexmo.com/v3/media/{media_id}/info`
 
+Authentication can be done using either API keys and secrets or using a JSON Web Token for the application the media is assocaited with.
 
 ### Parameters
 
-|Type|Name|Description|Schema|Default|
+|Name|Description|Type|
 |---|---|---|---|---|
-|`api_key`  <br>*optional*|Username for password-based login|string||
-|`api_secret`  <br>*optional*|Password for password-based login|string|`"secret1"`|
+|`api_key`|Your API key|string|
+|`api_secret`||Your API secret|string|
 
 
 ### Responses
 
-|HTTP Code|Description|Schema|
+|HTTP Code|Description|
 |---|---|---|
-|`200`|successful operation|[MediaItem](#mediaitem)|
-|`401`|Authentication failure|No Content|
-|`403`|Authorisation denied|No Content|
-|`404`|No such item|No Content|
-|`500`|Internal server error|No Content|
+|`200`|successful operation|
+|`401`|Authentication failure|
+|`403`|Authorisation denied|
+|`404`|No such item|
+|`500`|Internal server error|
 
 ### Keys and values
 
