@@ -69,11 +69,7 @@ $table-list-spacing: $spacing * 0.6;
 }
 
 .table-list-column {
-<<<<<<< HEAD
   padding: $table-list-spacing;
-=======
-  padding: $spacing;
->>>>>>> Add JWT support
   flex: 1;
 
   @for $i from 1 through 10 {
@@ -112,11 +108,5 @@ $table-list-spacing: $spacing * 0.6;
       border-radius: $radius-bottom;
       border-bottom-color: $gray-light;
     }
-  }
-}
-
-.table-list--dark {
-  .table-list-header {
-    background: $gray-dark;
   }
 }
