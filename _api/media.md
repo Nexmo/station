@@ -6,13 +6,15 @@ api: Media API
 
 # API Reference 
 
-The Media API allows you to manage media files associated with your account. You can authenticate either using your API keys (as query string parameters: `api_key` and `api_secret`) or using a JSON Web Token (JWT) in the `Authorization` header.
+The Media API allows you to manage media files associated with your account and its applications. You can authenticate either using your API keys (as query string parameters: `api_key` and `api_secret`) or using a JSON Web Token (JWT) in the `Authorization` header.
 
 ## Upload media
 
 [POST] `https://api.nexmo.com/v3/media`
 
 This endpoint is used to upload media files (usually audio) to the media service. Upon successful upload, you will get back an `application/json` document with status 201 giving you an identifier for the media file.
+
+If you authenticate with an application-based JSON Web Token (JWT), the media file will be associated with both your account _and_ the Application ID of the JWT you use.
 
 ### Request
 
@@ -95,7 +97,7 @@ Using the `If-Modified-Since` or `If-None-Match` headers allows you to efficient
 
 The `Range` header is supported and allows you to specify which bytes of the file you wish to receive.
 
-If the `publicItem` property in the file's properties is set to `true`, downloading from this endpoint requires no authentication. If it is set to `false`, you will need to supply your `api_key` and `api_secret` as query parameters.
+If the `publicItem` property in the file's properties is set to `true`, downloading from this endpoint requires no authentication. If it is set to `false`, you will need to authenticate your request using either API keys (by setting `api_key` and `api_secret` as query parameters) or by sending your application's JSON Web Token in the `Authorization` header.
 
 
 ### Parameters
@@ -122,14 +124,14 @@ If the `publicItem` property in the file's properties is set to `true`, download
 
 [DELETE] `https://api.nexmo.com/v3/media/{media_id}`
 
-Deletes the media file. This API call must be authenticated using your API key and secret.
+Deletes the media file. This API call must be authenticated using your API key and secret or the JWT of the application the media file is associated to (as appropriate).
 
 ### Parameters
 
-|Name|Description|Type|Required|
+|Name|Description|Type|
 |---|---|---|---|
-|`api_key`|API key of your account.|string|✓|
-|`api_secret`|API secret of your account|string|✓|
+|`api_key`|API key of your account.|string|
+|`api_secret`|API secret of your account|string|
 
 
 ### Responses
@@ -211,6 +213,8 @@ Deletes the media file. This API call must be authenticated using your API key a
 [PUT] `https://api.nexmo.com/v3/media/{media_id}/info`
 
 You can update a number of components of the media item's metadata. To do this, PUT a JSON object (with `Content-Type` of `application/json`) to the same URL as used to [retrieve data about it](#get-media-file-metadata) with the relevant keys.
+
+If the file is associated with an application, you must authenticate using a JSON Web Token signed using that application's private key. If the file is not associated with an application, you must authenticate using your API key and secret.
 
 ### Parameters
 
