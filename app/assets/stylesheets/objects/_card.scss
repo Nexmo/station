@@ -81,6 +81,10 @@ $ball-size: 44px;
     a {
       display: block;
       padding: 3px 0;
+
+      &.inline {
+        display: inline-block;
+      }
     }
 
     br {
