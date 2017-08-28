@@ -1,6 +1,6 @@
 $ball-size: 44px;
 
-@mixin card--product($color) {
+@mixin card--product($color, $color-light) {
   color: $color;
   hr { border-top-color: mix($color, $white, 20%) }
   h3 { color: $color; }
@@ -8,7 +8,9 @@ $ball-size: 44px;
   .card--with-icon__divider {
     border-bottom: 2px solid $color;
     i {
-      background: $color;
+      color: $color;
+      background: $color-light;
+      border-color: $color;
     }
   }
 }
@@ -88,11 +90,11 @@ $ball-size: 44px;
     }
   }
 
-  &--sms { @include card--product($sms); }
-  &--number-insight { @include card--product($number-insight); }
-  &--voice { @include card--product($voice); }
-  &--verify { @include card--product($verify); }
-  &--account { @include card--product($atom); }
+  &--sms { @include card--product($sms, $sms-light); }
+  &--number-insight { @include card--product($number-insight, $number-insight-light); }
+  &--voice { @include card--product($voice, $voice-light); }
+  &--verify { @include card--product($verify, $verify-light); }
+  &--account { @include card--product($account, $account-light); }
 }
 
 .card--with-icon {
@@ -108,8 +110,9 @@ $ball-size: 44px;
   z-index: 3;
 
   i {
-    background: $blue;
-    color: $white;
+    background: $ice;
+    color: $blue;
+    border: 1px solid $blue;
     border-radius: 100%;
     position: absolute;
     width: $ball-size;
