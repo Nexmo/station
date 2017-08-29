@@ -5,7 +5,7 @@ info:
   version: 1.0.0
   title: Conversation API
   description: >-
-    Maecenas sed diam eget risus varius blandit sit amet non magna. Donec sed odio dui.
+    The Nexmo Conversation API enables you to build conversation features where communication can take place across multiple mediums including IP Messaging, PSTN Voice, SMS and WebRTC Audio and Video. The context of the conversations is maintained though each communication event taking place within a conversation, no matter the medium.
 security:
   - bearerAuth: []
 paths:
@@ -354,12 +354,16 @@ x-groups:
     name: "Conversation"
     order: 1
     description: >-
-      Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Aenean lacinia bibendum nulla sed consectetur. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+      A conversation is a shared core component that Nexmo APIs rely on. Conversations happen over multiple mediums and and can have associated Users through Memberships.
     schema:
       $ref: '#/components/schemas/ConversationFull'
   user:
     name: "User"
     order: 2
+    description: >-
+      The concept of a user exists in Nexmo APIs, you can associate one with a user in your own application if you choose. A user can have multiple memberships to conversations and can communicate with other users through various different mediums.
   member:
     name: "Member"
     order: 3
+    description: >-
+      Memberships connect users with conversations. Each membership has one conversation and one user however a user can have many memberships to conversations just as conversations can have many members.

@@ -8,7 +8,7 @@ The Nexmo Conversation API enables you to build conversation features where comm
 
 The context of the conversations is maintained though each communication event taking place within a conversation, no matter the medium.
 
-> ### The Conversation API is in BETA
+> ### The Conversation API is in [developer preview](/conversation/developer-preview)
 >
 > Currently the Conversation API offers basic IP messaging with the following features:
 >

@@ -58,7 +58,7 @@ en:
     contribute: Contribute
     structure: Structure
 
-    client_sdks: Client SDKs
+    client-sdks: Client SDKs
     android: Android
     ios: iOS
     javascript: JavaScript

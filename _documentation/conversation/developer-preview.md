@@ -1,13 +1,13 @@
 ---
-title: Early Access
+title: Developer Preview
 ---
 
-# Conversation API Early Access
+# Conversation API Developer Preview
 
 This is the docs page for Nexmo’s Conversation API. Read more about:
 
 * [About the Conversation API](#about-the-conversation-api)
-* [Participating in the Early Adopter program](#participating-in-the-early-adopter-program)
+* [Participating in the developer preview](#participating-in-the-developer-preview)
 * [Trying out the quickstart examples](#try-out-the-quickstart-guides)
 * [Viewing the SDK API Reference docs](#sdk-api-reference-docs)
 * [Checking out the additional resources](#additional-resources)
@@ -31,11 +31,14 @@ Upcoming features will include:
 * Push notifications
 * Voice support
 
-## Participating in the Early Adopter program
+## Participating in the developer preview
 
-The Early Adopter (EA) program will take place for the next couple of months with a focus on the IP messaging capabilities. During this extended Beta program there will be frequent releases with new features and bug fixes based on your feedback. Changes will be communicated with each release outlying what changed. During the Beta it is possible (and probable) that there shall be breaking changes to the SDK and API but these will be explicitly communicated beforehand.
+This Developer Preview will focus on the IP messaging capabilities. During this program there will be frequent releases with new features and bug fixes based on your feedback. Changes will be communicated with each release outlying what changed. During the Beta it is possible (and probable) that there shall be breaking changes to the SDK and API but these will be explicitly communicated beforehand.
 
-If your team members require access to the docs or SDK repos contact [devrel@nexmo.com](mailto:devrel@nexmo.com). If you want communicate with us during the EA program you can:
+> #### If your team members require access to the docs or SDK repos contact us:§§
+> #### Email: [devrel@nexmo.com](mailto:devrel@nexmo.com).
+
+If you want communicate with us during the developer preview you can:
 
 * Join the [Nexmo community slack](https://developer.nexmo.com/community/slack/) and ask @chris, @laka or @leggetter for access to the private [#conversation-ea](https://nexmo-community.slack.com/messages/G5V788WHJ/) channel
 * Email [devrel@nexmo.com](mailto:devrel@nexmo.com) directly

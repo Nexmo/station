@@ -11,7 +11,7 @@
 /messaging/us-short-codes: /messaging/us-short-codes/overview
 /messaging/conversion-api: /messaging/conversion-api/overview
 /messaging/sns: /messaging/sns/overview
-/conversation: /conversation/early-access
+/conversation: /conversation/developer-preview
 
 /messaging/sms/building-blocks: /messaging/sms/building-blocks/send-an-sms
 /messaging/sms/building-blocks/receive-a-delivery-receipt: /messaging/sms/guides/delivery-reciepts
@@ -48,6 +48,7 @@
 /messaging/sms/api-reference: /api/sms
 /verify/api-reference: /api/verify
 /number-insight/api-reference: /api/number-insight
+/conversation/api-reference: /api/conversation
 
 /sip: /voice/sip
 /voice/guides/sip: /voice/sip
@@ -80,3 +81,5 @@
 
 /messaging/sms/guides/global-messaging: /messaging/sms/guides/country-specific-features
 /messaging/sms/guides/delivery-reciepts: /messaging/sms/guides/delivery-receipts
+
+/conversation/early-access: /conversation/developer-preview
