@@ -1,10 +1,10 @@
 <% if @notices && @notices.any? %>
   <div class="notices">
-    <% @notices.each do |id, contents| %>
+    <% @notices.each do |id, config| %>
       <div class="notice" data-notice-id="<%= id %>">
         <div>
           <a data-close><i class="icon icon-times"></i></a>
-          <%= contents.html_safe %>
+          <%= config['content'].html_safe %>
         </div>
       </div>
     <% end %>
