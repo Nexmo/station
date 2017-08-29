@@ -32,7 +32,7 @@ module NavigationHelper
 
       nodes << <<~HEREDOC
         <li>
-          <a href="##{heading.text.parameterize}" data-scrollspy-id="#{heading['data-id']}">
+          <a href="##{heading.attributes['id']}" data-scrollspy-id="#{heading['data-id']}">
             #{heading.text}
           </a>
       HEREDOC
