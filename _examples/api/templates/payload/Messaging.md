@@ -8,6 +8,6 @@ title: Messaging
   "lg" : "en-gb",
   "Type" : "text",
   "contact_email" : "xyz@example.com",   
-  "template" : "${pin} is your ${brand} verification code.",
+  "template" : "${pin} is your ${brand} verification code."
 }
 ```
