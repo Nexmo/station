@@ -77,7 +77,8 @@ module ApplicationHelper
 
       unless flatten
         url = (child[:is_file?] ? path_to_url(child[:path]) : first_link_in_directory(child[:children]))
-        ss << link_to(normalised_title(child), url, class: "#{url == request.path ? 'active' : ''}")
+        has_active_class = (request.path == url) || request.path.start_with?("#{url}/")
+        ss << link_to(normalised_title(child), url, class: "#{has_active_class ? 'active' : ''}")
       end
 
       ss << directory(child[:children], false, flatten) if child[:children]
@@ -101,5 +102,18 @@ module ApplicationHelper
 
   def document_meta(path)
     YAML.load_file(path)
+  end
+
+  def render_request(definition_name, path, method)
+    base_path = "_open_api_requests/#{definition_name + path}/#{method}/"
+
+    markdown = <<~HEREDOC
+      ```tabbed_examples
+      source: #{base_path}
+      ```
+    HEREDOC
+
+    tabbed_examples = TabbedExamplesFilter.new.call(markdown)
+    UnfreezeFilter.new.call(tabbed_examples).html_safe
   end
 end
