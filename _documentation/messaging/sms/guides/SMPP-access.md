@@ -17,7 +17,7 @@ To switch to Nexmo:
 
 1. Email your monthly volume forecast to us at [smpp@nexmo.com](mailto:smpp@nexmo.com). We will configure our system for you and send back your SMPP credentials.
 
-2. Check out our [SMPP API FAQ] to find out more about supported character encodings, delivery receipt formats, throttle management, sending concatenated messages and more.
+2. Check out our [SMPP FAQ] to find out more about supported character encodings, delivery receipt formats, throttle management, sending concatenated messages and more.
 
 ## SMPP access with Kannel
 
@@ -49,6 +49,6 @@ To use our configuration:
     https://localhost:13013/cgi-bin/sendsms?username=username&password=pwd&to=%2B33XXXXXXX&text=Hello%20World&from=test&charset=ISO-8859-1&dlr-mask=17
     ```
 
-> Note: Check out our [SMPP API FAQ] for information about supported character encodings, delivery receipt formats, throttle management, concatenated messages and more.
+> Note: Check out our [SMPP FAQ] for information about supported character encodings, delivery receipt formats, throttle management, concatenated messages and more.
 
-[SMPP API FAQ]: https://help.nexmo.com/hc/en-us/sections/200621223-FAQ-SMPP-API
+[SMPP FAQ]: https://help.nexmo.com/hc/en-us/sections/200621223-FAQ-SMPP-API
