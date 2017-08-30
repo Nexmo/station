@@ -81,17 +81,17 @@ source: _examples/conversations/overview/join-the-conversation/
 
 <div class="row">
   <div class="columns small-12 medium-4">
-    <a href="/conversation/client_sdks/javascript/overview" class="card spacious card--image card--javascript">
+    <a href="/conversation/client-sdks/javascript" class="card spacious card--image card--javascript">
       <h2>JavaScript</h2>
     </a>
   </div>
   <div class="columns small-12 medium-4">
-    <a href="/conversation/client_sdks/android/overview" class="card spacious card--image card--android">
+    <a href="/conversation/client-sdks/android" class="card spacious card--image card--android">
       <h2>Android</h2>
     </a>
   </div>
   <div class="columns small-12 medium-4">
-    <a href="/conversation/client_sdks/ios/overview" class="card spacious card--image card--ios">
+    <a href="/conversation/client-sdks/ios" class="card spacious card--image card--ios">
       <h2>iOS</h2>
     </a>
   </div>
@@ -99,11 +99,10 @@ source: _examples/conversations/overview/join-the-conversation/
 
 ## Conversation API Features
 
-* [IP Messaging](/guides/ip-messaging)
-* [PSTN Voice](/voice/voice-api/conversation)
-* [SMS](/voice/voice-api/sms)
-* [WebRTC Audio](/guides/webrtc-audio)
-* [WebRTC Video](/guides/webrtc-video)
+* [IP Messaging](/conversation/guides/ip-messaging)
+* PSTN Voice [Coming soon]
+* WebRTC Audio [Coming soon]
+* WebRTC Video [Coming soon]
 
 ## References
 
@@ -113,17 +112,17 @@ source: _examples/conversations/overview/join-the-conversation/
 
 <div class="row">
   <div class="columns small-12 medium-4">
-    <a href="/conversation/client_sdks/javascript/overview" class="card spacious card--image card--javascript-outline">
+    <a href="/sdk/conversation/javascript/" class="card spacious card--image card--javascript-outline">
       <h2>JavaScript</h2>
     </a>
   </div>
   <div class="columns small-12 medium-4">
-    <a href="/conversation/client_sdks/android/overview" class="card spacious card--image card--android-outline">
+    <a href="/sdk/conversation/android/" class="card spacious card--image card--android-outline">
       <h2>Android</h2>
     </a>
   </div>
   <div class="columns small-12 medium-4">
-    <a href="/conversation/client_sdks/ios/overview" class="card spacious card--image card--ios-outline">
+    <a href="/sdk/conversation/ios/" class="card spacious card--image card--ios-outline">
       <h2>iOS</h2>
     </a>
   </div>

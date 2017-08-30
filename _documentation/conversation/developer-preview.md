@@ -52,7 +52,7 @@ iOS coming soon.
 
 ## SDK API Reference docs
 
-* [JavaScript](/sdk/conversation/js/)
+* [JavaScript](/sdk/conversation/javascript/)
 * [Android](/sdk/conversation/android/)
 
 ## Additional Resources
