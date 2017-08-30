@@ -33,9 +33,9 @@ Upcoming features will include:
 
 ## Participating in the developer preview
 
-This Developer Preview will focus on the IP messaging capabilities. During this program there will be frequent releases with new features and bug fixes based on your feedback. Changes will be communicated with each release outlying what changed. During the Beta it is possible (and probable) that there shall be breaking changes to the SDK and API but these will be explicitly communicated beforehand.
+This Developer Preview will focus on the IP messaging capabilities. During this program there will be frequent releases with new features and bug fixes based on your feedback. During the preview it is possible (and probable) that there shall be breaking changes to the SDK and API but these will be explicitly communicated beforehand.
 
-> #### If your team members require access to the docs or SDK repos contact us:§§
+> #### If are interested in access to the Conversation Developer Preview:§§
 > #### Email: [devrel@nexmo.com](mailto:devrel@nexmo.com).
 
 If you want communicate with us during the developer preview you can:
