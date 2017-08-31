@@ -1,6 +1,5 @@
 ---
 title: JavaScript
-wip: true
 ---
 
 <center>
