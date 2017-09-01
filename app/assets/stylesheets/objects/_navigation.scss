@@ -95,13 +95,6 @@
   }
 }
 
-.navigation--fixed {
-  top: 0;
-  padding-top: 20px;
-  max-height: 100vh;
-  overflow-y: auto;
-}
-
 .navigation-item--tutorials a {
   @include highlighted-navigation($pink);
 }
@@ -121,11 +114,6 @@
       width: auto !important;
       margin-bottom: 40px;
     }
-  }
-
-
-  .navigation--fixed {
-    max-height: none;
   }
 }
 
