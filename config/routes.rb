@@ -39,7 +39,7 @@ Rails.application.routes.draw do
   get '/api/*specification(/:code_language)', to: 'open_api#show', as: 'open_api', constraints: { specification: /example/ }
   get '/api/*document(/:code_language)', to: 'api#show', constraints: DocumentationConstraint.code_language
 
-  get '/*product/api-reference', to: 'markdown#api'
+  get '/*product/(api|ncco)-reference', to: 'markdown#api'
   get '/:product/*document(/:code_language)', to: 'markdown#show', constraints: DocumentationConstraint.documentation
 
 
