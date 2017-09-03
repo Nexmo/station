@@ -5,10 +5,8 @@ COLLAPSIBLE = ['Messaging', 'SMS', 'Conversion API', 'SNS', 'US Short Codes', 'V
 
 module ApplicationHelper
   def search_enabled?
-    return false unless defined? ALGOLIA_CONFIG
-    return false unless ENV['ALGOLIA_APPLICATION_ID']
-    return false unless ENV['ALGOLIA_API_KEY']
-    Rails.configuration.search_enabled
+    return false unless ENV['SEARCH_URL']
+    true
   end
 
   def title

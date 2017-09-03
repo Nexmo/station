@@ -45,7 +45,7 @@ class Search extends React.Component {
       }
     }
 
-    fetch(`${searchUrl}?query=${event.target.value}`, options)
+    fetch(`${searchUrl}?query=${event.target.value}&hitsPerPage=4`, options)
     .then((response) => {
       return response.json()
     })
@@ -80,7 +80,7 @@ class Search extends React.Component {
     return index.hits.map((hit) => {
       if (index.index == 'zendesk_nexmo_articles') {
         return (
-          <div className="search-result">
+          <div className="search-result" key={ index.index + hit.objectID }>
             <a href={ `https://help.nexmo.com/hc/en-us/articles/${hit.id}` } target="_blank">
               <div>
                 <span className="meta">{ hit.section.full_path }</span>
@@ -95,7 +95,7 @@ class Search extends React.Component {
         )
       } else if (index.index.includes('nexmo_developer')) {
         return (
-          <div className="search-result">
+          <div className="search-result" key={ index.index + hit.objectID }>
             <a href={ hit.path }>
               <div>
                 <span className="meta">{ hit.product }</span>
@@ -142,7 +142,7 @@ class Search extends React.Component {
     } else {
       return this.state.results.map((index) => {
         return(
-          <div className="results-index">
+          <div className="results-index" key={ index.index }>
             <h3>{ this.renderHeading(index.index) }</h3>
             { index.hits.length > 0 ? this.renderIndexResults(index) : this.renderIndexResultsEmpty(index) }
           </div>
