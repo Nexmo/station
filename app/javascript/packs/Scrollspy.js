@@ -33,15 +33,19 @@ export default () => {
   $(document).ready(function() {
     let onScrollOrResizeThrottled = throttle(onScrollOrResize, 20);
     $(document).scroll(onScrollOrResizeThrottled);
-    return $(document).resize(onScrollOrResizeThrottled);
-  });
+    $(document).resize(onScrollOrResizeThrottled);
 
-  $('.navigation').scrollToFixed({
-    marginTop: 20,
-    minWidth: 575,
-    limit: () => {
-      return $('#footer').offset().top - $('.navigation').outerHeight(true) - 20
-    }
+    // Reset sidenav
+    $('.navigation').siblings('div').remove()
+    $('.navigation').removeAttr('style')
+
+    $('.navigation').scrollToFixed({
+      marginTop: 20,
+      minWidth: 575,
+      limit: () => {
+        return $('#footer').offset().top - $('.navigation').outerHeight(true) - 20
+      }
+    });
   });
 
 }
