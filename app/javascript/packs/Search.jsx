@@ -34,6 +34,7 @@ class Search extends React.Component {
     let basicAuthUsername = $('meta[name=basic_auth_username]').attr('content')
     let basicAuthPassword = $('meta[name=basic_auth_password]').attr('content')
     let searchUrl = $('meta[name=search_url]').attr('content')
+    let environment = $('meta[name=environment]').attr('content')
 
     if (basicAuthUsername && basicAuthPassword) {
       const base64Credentials = btoa(`${basicAuthUsername}:${basicAuthPassword}`)
@@ -45,7 +46,7 @@ class Search extends React.Component {
       }
     }
 
-    fetch(`${searchUrl}?query=${event.target.value}&hitsPerPage=4`, options)
+    fetch(`${searchUrl}?query=${event.target.value}&hitsPerPage=4&environment=${environment}`, options)
     .then((response) => {
       return response.json()
     })
