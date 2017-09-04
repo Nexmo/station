@@ -1,7 +1,7 @@
 ---
 title: API Reference
 api: Application
-description: Reference guide for Verify API
+description: Application API Reference
 ---
 
 # API Reference
