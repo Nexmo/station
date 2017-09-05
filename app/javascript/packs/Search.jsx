@@ -8,7 +8,27 @@ class Search extends React.Component {
       results: [],
       query: '',
       loading: false,
+      analyticsTriggered: false,
     }
+
+     this.triggerAnalyticalSearch =  this.triggerAnalyticalSearch.bind(this)
+
+     this.fetchOptions = {}
+     const basicAuthUsername = $('meta[name=basic_auth_username]').attr('content')
+     const basicAuthPassword = $('meta[name=basic_auth_password]').attr('content')
+
+     this.searchUrl = $('meta[name=search_url]').attr('content')
+     this.environment = $('meta[name=environment]').attr('content')
+
+     if (basicAuthUsername && basicAuthPassword) {
+       const base64Credentials = btoa(`${basicAuthUsername}:${basicAuthPassword}`)
+
+       this.fetchOptions = {
+         headers: {
+           'Authorization': `Basic ${base64Credentials}`,
+         }
+       }
+     }
   }
 
   handleChange(event) {
@@ -30,25 +50,15 @@ class Search extends React.Component {
     this.setState({
       query: event.target.value,
       loading: this.state.query === '',
+      analyticsTriggered: false,
     })
 
-    let options = {}
-    let basicAuthUsername = $('meta[name=basic_auth_username]').attr('content')
-    let basicAuthPassword = $('meta[name=basic_auth_password]').attr('content')
-    let searchUrl = $('meta[name=search_url]').attr('content')
-    let environment = $('meta[name=environment]').attr('content')
+    // Setup event listeners for Analytics
+    this.resetAnalyticsListeners()
+    this.analyticsStrongIndicationOfReadingTimer = setTimeout(this.triggerAnalyticalSearch, 2000)
+    window.addEventListener('mousemove', this.triggerAnalyticalSearch)
 
-    if (basicAuthUsername && basicAuthPassword) {
-      const base64Credentials = btoa(`${basicAuthUsername}:${basicAuthPassword}`)
-
-      options = {
-        headers: {
-          'Authorization': `Basic ${base64Credentials}`,
-        }
-      }
-    }
-
-    fetch(`${searchUrl}?query=${event.target.value}&hitsPerPage=4&environment=${environment}`, options)
+    fetch(`${this.searchUrl}?query=${event.target.value}&hitsPerPage=4&environment=${this.environment}&analytics=false`, this.fetchOptions)
     .then((response) => {
       return response.json()
     })
@@ -57,15 +67,31 @@ class Search extends React.Component {
     })
   }
 
+  triggerAnalyticalSearch() {
+    fetch(`${this.searchUrl}?query=${this.state.query}&hitsPerPage=1&environment=${this.environment}&analytics=true`, this.fetchOptions)
+    this.setState({ analyticsTriggered: true })
+    this.resetAnalyticsListeners()
+  }
+
+  resetAnalyticsListeners() {
+    clearTimeout(this.analyticsStrongIndicationOfReadingTimer)
+    window.removeEventListener('mousemove', this.triggerAnalyticalSearch)
+  }
+
   handleKeyDown(event) {
     // Handle escape
     if (event.keyCode === 27) {
+      if (!this.state.analyticsTriggered && this.state.query != '') {
+        this.triggerAnalyticalSearch()
+      }
+
       this.reset()
     }
   }
 
   reset() {
     $('.wrapper').removeClass('wrapper--blur')
+    this.resetAnalyticsListeners()
     this.refs.input.value = '';
     this.setState({
       results: [],
