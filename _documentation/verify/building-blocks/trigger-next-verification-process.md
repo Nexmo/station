@@ -1,5 +1,5 @@
 ---
-title: Trigger Next Verification Process
+title: Trigger next verification process
 navigation_weight: 4
 ---
 

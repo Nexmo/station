@@ -1,9 +1,9 @@
 ---
-title: Cancel Verify request
+title: Cancel verification request
 navigation_weight: 3
 ---
 
-# Check Verify request
+# Cancel verification request
 
 ```tabbed_examples
 source: '_examples/verify/building-blocks/cancel-verification-request'
