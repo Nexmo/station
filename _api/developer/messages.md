@@ -1,10 +1,10 @@
 ---
-title: API reference
+title: Developer - Messages API Reference
 description: Reference guide for the Account API.
 api: Developer API
 ---
 
-# API reference
+# Developer - Messages API Reference
 
 ## Messages
 

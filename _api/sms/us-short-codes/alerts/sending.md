@@ -1,10 +1,10 @@
 ---
-title: SMS > Alerts API
+title: Alerts - Sending API Reference
 description: Reference guide for Event Based Alerts.
 api: Alerts API - Sending
 ---
 
-# API reference
+# Alerts - Sending API Reference
 
 This defines Event Based Alerts API:
 

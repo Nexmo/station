@@ -1,12 +1,10 @@
 ---
-title: API Reference
+title: Number Insight API Reference
 description: Reference guide for Number Insight API.
 api: Number Insight
 ---
 
-# API reference
-
-This defines the Number Insight Basic API:
+# Number Insight API Reference
 
 * [Request](#request) - ask for information about a phone number
 * [Response](#response) - the information you requested about a phone number

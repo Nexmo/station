@@ -1,10 +1,10 @@
 ---
-title: API reference
+title: Verify API Reference
 description: Reference guide for the Verify API.
 api: Verify
 ---
 
-# API reference
+# Verify API Reference
 
 You use Verify API to Verify that a phone number is valid, reachable, and accessible by your user. You can customise the message used during verification.
 
@@ -93,14 +93,14 @@ Status&nbsp;code | Text | Description
 5 | Internal Error | An error occurred processing this request in the Cloud Communications Platform.
 6 | The Nexmo platform was unable to process this message for the following reason: $reason | The request could not be routed.
 7 | The number you are trying to verify is blacklisted for verification |
-8 | The api_key you supplied is for an account that has been barred from submitting messages | 
+8 | The api_key you supplied is for an account that has been barred from submitting messages |
 9 | Partner quota exceeded | Your account does not have sufficient credit to process this request.
-10 | Concurrent verifications to the same number are not allowed | 
+10 | Concurrent verifications to the same number are not allowed |
 15 | The destination number is not in a supported network | The request has been rejected.
-16 | The code inserted does not match the expected value | 
+16 | The code inserted does not match the expected value |
 17 | The wrong code was provided too many times | You can run Verify Check on a `request_id` up to three times unless a new PIN code is generated. If you check a request more than 3 times, it is set to FAILED and you cannot check it again.
 18 | Too many request_ids provided | You added more than the maximum of 10 `request_id`s to your request.
-19 | No more events are left to execute for the request | 
+19 | No more events are left to execute for the request |
 101 | No request found | There are no matching Verify requests.
 
 
