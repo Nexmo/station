@@ -8,7 +8,7 @@ menu_weight: 6
     "action": "transfer",
     "destination": {
       "type": "ncco",
-      "url:" ["http://example.org/new-ncco.json"]
+      "url": ["http://example.org/new-ncco.json"]
     }
 }
 ```
