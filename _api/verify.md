@@ -360,6 +360,6 @@ Code    | Language | Available genders
 `sv-se` | Swedish, Sweden | female
 `tr-tr` | Turkish, Turkish | female
 `zh-cn` | Chinese (Mandarin), Simplified Chinese | female / male
-`zh-tw` | Taiwanese, Traditional Chinese | text only - see note below
+`zh-tw` | Chinese, Traditional | text only - see note below
 
-If you request Taiwanese (`zh-tw`), the text message will be sent in Taiwanese, Traditional Chinese, but the voice call uses a female voice speaking English with a Chinese accent.
+If you request Taiwanese (`zh-tw`), the text message will be sent in Traditional Chinese, but the voice call uses a female voice speaking English with a Chinese accent.
