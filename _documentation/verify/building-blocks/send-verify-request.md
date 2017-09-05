@@ -29,7 +29,16 @@ tabs:
 
 * [Check verification code](/verify/building-blocks/check-verify-request)
 
-## Also see
+## Guides
 
 * [Verify a user Guide](/verify/guides/verify-a-user)
+
+## Building Blocks
+
+* [Check verification code](/verify/building-blocks/check-verify-request)
+* [Cancel verification request](/verify/building-blocks/cancel-verify-request)
+* [Trigger next verification process](/verify/building-blocks/trigger-next-verification-process)
+
+## Reference
+
 * [Verify API Reference](/api/verify)
