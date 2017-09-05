@@ -19,6 +19,5 @@
 .powder
 /public/packs
 /node_modules
-/config/algolia.yml
 /public/packs
 /public/packs-test

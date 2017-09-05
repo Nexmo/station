@@ -15,8 +15,12 @@ $quick-search-width: 800px;
     border-left: 2px solid darken($mint, 3%);
     padding-left: 15px;
 
-    h3 {
+    h3{
       color: $link;
+
+      small {
+        color: $link-subtle;
+      }
 
       .quicksearch & {
         font-size: 0.95em;

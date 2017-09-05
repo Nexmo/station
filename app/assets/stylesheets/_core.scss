@@ -17,8 +17,14 @@ body {
 
 .wrapper {
   flex: 1;
+  transition: filter 400ms ease-in-out;
+
   &--tint {
     background: $ice;
+  }
+
+  &--blur {
+    filter: blur(3px);
   }
 }
 

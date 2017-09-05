@@ -32,7 +32,6 @@ Rails.application.routes.draw do
   get '/changelog/:version', to: 'changelog#show', constraints: { version: /\d\.\d\.\d/ }
 
   match '/search', to: 'search#results', via: [:get, :post]
-  match '/quicksearch', to: 'search#quicksearch', via: [:get, :post]
 
   get '/api', to: 'api#index'
 
