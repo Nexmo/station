@@ -486,7 +486,7 @@ Parameter | Description | Required
 -- | -- | --
 `text` | A UTF-8 and URL encoded string of up to 1500 characters containing the message to be synthesized in the call or conversation. Each comma in text adds a short pause to the synthesized speech. | ✅
 `voice_name` | The name of the voice used to deliver text. You use the `voice_name` that has the correct language, gender and accent for the message you are sending. For example, the default voice Kimberly is a female who speaks English with an American accent (`en-US`). @[Possible values](/_modals/voice/guides/ncco-reference/voice-name.md). | ❎
-`loop` | The number of times the audio file at `stream_url` is repeated before the stream ends. The default value is `1`. Set to `0` to loop infinitely. | ✅
+`loop` | The number of times the audio file at `stream_url` is repeated before the stream ends. The default value is `1`. Set to `0` to loop infinitely. | ❎
 
 #### Response
 
