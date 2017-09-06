@@ -49,8 +49,8 @@ module Feedback
     # Overwrite this method to customize how resources are displayed
     # across all pages of the admin dashboard.
     #
-    # def display_resource(resource)
-    #   "Feedback::Resource ##{resource.id}"
-    # end
+    def display_resource(resource)
+      resource.uri
+    end
   end
 end
