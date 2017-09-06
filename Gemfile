@@ -90,8 +90,8 @@ gem 'neatjson'
 # Provides common authentication needs such as signing in/out, activating by email and resetting password.
 gem 'sorcery', '0.11.0'
 
-# Plugin/gem that provides comment functionality
-gem 'acts_as_commentable', '4.0.2'
+# Polymorphic threaded comments Rails gem for Rails 4+
+gem 'acts_as_commentable_with_threading', '2.0.1'
 
 
 group :development, :test do

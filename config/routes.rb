@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
     namespace :feedback do
       resources :resources
-      resources :feedbacks
+      resources :feedbacks do
+        post '/comments', action: :create_comment
+      end
     end
 
     root to: 'events#index'
