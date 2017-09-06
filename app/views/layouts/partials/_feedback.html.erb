@@ -4,7 +4,7 @@
 
   <div class="row">
     <div class="columns small-12 medium-6">
-      <% if Rails.env.production? %>
+      <% if !Rails.env.production? %>
         <iframe
           src="https://feedbot-nexmo-developer.herokuapp.com/feedbacks/new?source=<%= request.base_url + request.fullpath %>"
           id="feedback" height="300" style="width: 100%;" frameBorder="0"
@@ -23,3 +23,38 @@
     </div>
   </div>
 <% end %>
+
+
+<hr>
+
+<%= form_for Feedback::Feedback.new, remote: true, format: :js do |f| %>
+  <h1>Was this documentation helpful?</h1>
+  <div id="basicFields">
+    <%= f.hidden_field :id, value: nil %>
+    <%= f.hidden_field :source, value: "#{request.base_url}#{request.fullpath}" %>
+    <%= f.radio_button(:sentiment, 'negative') %>
+    <%= f.label(:sentiment_negative, '<i class="icon icon-thumbs-o-down"></i>'.html_safe, class: 'sentiment') %>
+    <%= f.radio_button(:sentiment, 'positive') %>
+    <%= f.label(:sentiment_positive, '<i class="icon-thumbs-o-up"></i>'.html_safe, class: 'sentiment') %>
+  </div>
+
+  <div id="positiveFeedback" style="display: none;">
+    <p>Great! <a href="#">Give us some feedback</a>.</p>
+  </div>
+
+  <div id="postFeedback" style="display: none;">
+    <p>Thank you for your feedback.</p>
+  </div>
+
+  <div id="extendedFields" style="display: none;">
+    <%= f.label(:email, 'Email (optional)') %>
+    <%= f.email_field :email, value: current_user ? current_user.email : nil %>
+    <%= f.label(:comment, 'How could we improve it? (optional)') %>
+    <%= f.text_area :comment %>
+    <%= f.submit 'Send Feedback' %>
+  </div>
+<% end %>
+
+<pre><code>
+<%= current_user.to_json %>
+</code></pre>

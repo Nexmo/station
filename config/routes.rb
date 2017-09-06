@@ -2,7 +2,18 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :events
     resources :sessions
+    resources :users
+
+    namespace :feedback do
+      resources :resources
+      resources :feedbacks
+    end
+
     root to: 'events#index'
+  end
+
+  namespace :feedback do
+    resources :feedbacks
   end
 
   get 'markdown/show'
@@ -40,7 +51,6 @@ Rails.application.routes.draw do
 
   get '/*product/(api|ncco)-reference', to: 'markdown#api'
   get '/:product/*document(/:code_language)', to: 'markdown#show', constraints: DocumentationConstraint.documentation
-
 
   get '/robots.txt', to: 'static#robots'
 
