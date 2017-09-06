@@ -11,6 +11,8 @@ This defines the Conversion API:
 * [Request](#request) - tell Nexmo if your message or call was successful
 * [Response](#response) - ensure that your request to the Conversion API was successful
 
+For more details, see [Conversation API Overview](/messaging/conversion-api/overview).
+
 ## Request
 
 A Conversion API *request* looks like:
