@@ -53,7 +53,7 @@ Parameter | Description | Required
 -- | -- | --
 `message-id` | The ID you receive in the response to a request. @[Possible Values](/_modals/api/conversion/parameters/message-id.md) | Yes
 `delivered` | Set to *true* if your user replied to the message you sent. Otherwise, set to *false*. <br>**Note**: for curl, use 0 and 1.  | Yes
-`timestamp` | The time you activated your app in [UTC±00:00](https://en.wikipedia.org/wiki/UTC%C2%B100:00) format: *yyyy-MM-dd HH:mm:ss*. <br/>If you do not set this parameter, Nexmo uses the time it receives this request. | Yes
+`timestamp` | When the user completed your call-to-action (e.g. visited your website, installed your app) in [UTC±00:00](https://en.wikipedia.org/wiki/UTC%C2%B100:00) format: *yyyy-MM-dd HH:mm:ss*. <br/>If you do not set this parameter, Nexmo uses the time it receives this request. | Yes
 
 #### Authentication information
 
