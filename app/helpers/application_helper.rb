@@ -9,6 +9,11 @@ module ApplicationHelper
     true
   end
 
+  def theme
+    return unless ENV['THEME']
+    "theme--#{ENV['THEME']}"
+  end
+
   def title
     if @product && @document_title
       "Nexmo Developer | #{@product.titleize} > #{@document_title}"
