@@ -1,0 +1,7 @@
+2:
+  path: '^\/(api\/)?conversation'
+  content:
+    <h2>Welcome to the Developer Preview for the Conversation API</h2>
+    <p>The JavaScript, iOS, and Android SDKs for the Conversation API are in developer preview and we plan to have frequent releases with new features and bug fixes based on your feedback.</p>
+    <p>Currently the API supports IP messaging, but upcoming features will include push notifications, image & voice support.</p>
+    <p>If you are interested in participating email us at <a href="mailto:devrel@nexmo.com">devrel@nexmo.com</a>.</p>

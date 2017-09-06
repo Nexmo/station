@@ -1,12 +1,14 @@
 <% if @notices && @notices.any? %>
   <div class="notices">
     <% @notices.each do |id, config| %>
-      <div class="notice" data-notice-id="<%= id %>">
-        <div>
-          <a data-close><i class="icon icon-times"></i></a>
-          <%= config['content'].html_safe %>
+      <% if config['path'].nil? || request.path.match(Regexp.new(config['path'])) %>
+        <div class="notice" data-notice-id="<%= id %>">
+          <div>
+            <a data-close><i class="icon icon-times"></i></a>
+            <%= config['content'].html_safe %>
+          </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
 <% end %>
