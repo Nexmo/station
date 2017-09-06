@@ -56,7 +56,7 @@ Parameter | Description | Required
 `event_url` | Platform sends event information asynchronously to this endpoint when status changes. For more information about the values sent, see callback. | no
 `event_method` | 	The HTTP method used to send event information to `event_url`. The default value is [POST]. | no
 `machine_detection` | Configure the behavior when Nexmo detects that a destination is an answerphone. @[Possible values](/_modals/voice/api/calls/machine_detection.md). | no
-`length_timer` | Set the number of seconds that elapse before Nexmo hangs up after the call state changes to *in_progress*. The default value is 7200, two hours. This is also the maximum value. | No that elapse before Nexmo hangs up after the call state changes to *‘ringing’*. The default value is 60, the maximum value is 120. | No
+`length_timer` | Set the number of seconds that elapse before Nexmo hangs up after the call state changes to *in_progress*. The default value is 7200, two hours. This is also the maximum value. | No
 `ringing_timer` | Set the number of seconds that elapse before Nexmo hangs up after the call state changes to ‘ringing’. The default value is 60, the maximum value is 120. | no
 
 #### Response
