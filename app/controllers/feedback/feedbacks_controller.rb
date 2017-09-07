@@ -38,9 +38,32 @@ module Feedback
       params.require(:feedback_feedback).permit(:sentiment, :comment, :source)
     end
 
+    def should_use_cookied_author?(author)
+      # Always use the cookied author if cookies[:feedback_author_id] is present
+      # but the author is not known by email
+      return true if author.email.nil?
+
+      # Always used the cookied author if present but no email has been provided
+      # for this request
+      return true if params['feedback_feedback']['email'].nil?
+
+      # If the cookied author is known by email, only use it if it matches the
+      # email sent in the parameters
+      return true if author.email == params['feedback_feedback']['email']
+
+      # Otherwise let's continue to try and lookup the author by email or create
+      # a new author if one can not be foundd.
+      false
+    end
+
     def owner
       return current_user if current_user
-      ::Feedback::Author.find_by_id(cookies[:feedback_author_id]) ||
+
+      if cookies[:feedback_author_id]
+        author = ::Feedback::Author.find_by_id(cookies[:feedback_author_id])
+        return author if should_use_cookied_author?(author)
+      end
+
       ::Feedback::Author.find_by_email(params['feedback_feedback']['email']) ||
       ::Feedback::Author.new
     end

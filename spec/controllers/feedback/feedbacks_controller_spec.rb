@@ -75,6 +75,22 @@ RSpec.describe Feedback::FeedbacksController, type: :controller do
 
         expect(Feedback::Feedback.last.owner).to eq(@author)
       end
+
+      context 'but the email does not match' do
+        it 'creates a new author' do
+          post :create, xhr: true, params: {
+            feedback_feedback: {
+              sentiment: 'positive',
+              comment: 'Some feedback text',
+              source: 'https://developer.nexmo.com/some/path',
+              email: Faker::Internet.safe_email,
+            },
+          }
+
+          expect(Feedback::Feedback.last.owner).to_not eq(@author)
+          expect(Feedback::Author.count).to eq(2)
+        end
+      end
     end
 
     context 'when a user is logged in' do
