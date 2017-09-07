@@ -47,12 +47,19 @@
   </div>
 
   <div id="extendedFields" style="display: none;">
-    <%= f.label(:email, 'Email (optional)') %>
-    <%= f.email_field :email, value: current_user ? current_user.email : nil %>
+    <% unless current_user %>
+      <%= f.label(:email, 'Email (optional)') %>
+      <%= f.email_field :email, value: @feedback_author ? @feedback_author.email : nil %>
+    <% end %>
+
     <%= f.label(:comment, 'How could we improve it? (optional)') %>
     <%= f.text_area :comment %>
     <%= f.submit 'Send Feedback' %>
   </div>
+
+  <% if current_user %>
+    <p>Logged in as <%= current_user.email %> - <%= link_to 'Sign out', signout_path %>
+  <% end %>
 <% end %>
 
 <pre><code>

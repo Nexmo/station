@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
   before_action :set_notices
   before_action :set_code_language
   before_action :set_canonical_url
+  before_action :set_feedback_author
 
   def not_found
     redirect = Redirector.find(request)
@@ -60,5 +61,10 @@ class ApplicationController < ActionController::Base
       @canonical_url = request.path.gsub("/#{params[:code_language]}", '')
       @canonical_url.prepend(request.base_url)
     end
+  end
+
+  def set_feedback_author
+    return unless cookies[:feedback_author_id]
+    @feedback_author = Feedback::Author.select(:email).find_by_id(cookies[:feedback_author_id])
   end
 end

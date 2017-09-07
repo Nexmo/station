@@ -56,6 +56,8 @@ Rails.application.routes.draw do
 
   get '/robots.txt', to: 'static#robots'
 
+  get '/signout', to: 'sessions#destroy'
+
   get '*unmatched_route', to: 'application#not_found'
 
   root 'static#landing'
