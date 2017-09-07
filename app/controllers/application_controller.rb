@@ -46,7 +46,9 @@ class ApplicationController < ActionController::Base
   end
 
   def ssl_configured?
-    !Rails.env.development?
+    return false if Rails.env.development?
+    return false if Rails.env.test?
+    return true
   end
 
   def set_notices

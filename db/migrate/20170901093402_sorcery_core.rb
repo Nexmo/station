@@ -1,7 +1,8 @@
 class SorceryCore < ActiveRecord::Migration[5.1]
   def change
     create_table :users, id: :uuid do |t|
-      t.string :email
+      t.string :email, unique: true, null: false
+      t.boolean :admin, null: false, default: false
       t.string :crypted_password
       t.string :salt
       t.string :remember_me_token
@@ -11,5 +12,6 @@ class SorceryCore < ActiveRecord::Migration[5.1]
 
     add_index :users, :email
     add_index :users, :remember_me_token
+    add_index :users, :admin
   end
 end

@@ -93,6 +93,11 @@ gem 'sorcery', '0.11.0'
 # Polymorphic threaded comments Rails gem for Rails 4+
 gem 'acts_as_commentable_with_threading', '2.0.1'
 
+# Faker, a port of Data::Faker from Perl, is used to easily generate fake data: names, addresses, phone numbers, etc.
+gem 'faker', '1.8.4'
+
+# factory_girl_rails provides integration between factory_girl and rails 3 or newer (currently just automatic factory definition loading)
+gem 'factory_girl_rails', '4.8.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

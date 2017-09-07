@@ -3,13 +3,13 @@ module Feedback
     acts_as_commentable
 
     belongs_to :resource
-    belongs_to :user
+    belongs_to :owner, polymorphic: true
 
     attr_accessor :email, :source
     before_validation :set_resource
 
     validates :sentiment, presence: true
-    validates :user, presence: true
+    validates :owner, presence: true
 
     default_scope -> { order(created_at: :desc) }
 
