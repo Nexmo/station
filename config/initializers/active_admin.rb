@@ -1,4 +1,12 @@
 ActiveAdmin.setup do |config|
+  config.before_action do
+    unless Rails.env.development?
+      authenticate_or_request_with_http_basic("Application") do |name, password|
+        name == ENV['ADMIN_USERNAME'] && password == ENV['ADMIN_PASSWORD']
+      end
+    end
+  end
+
   # == Site Title
   #
   # Set the title that is displayed on the main layout
