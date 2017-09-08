@@ -52,7 +52,7 @@ module Feedback
       return unless ENV['SLACK_WEBHOOK']
 
       notifier = Slack::Notifier.new ENV['SLACK_WEBHOOK'], username: 'feedbot'
-      admin_url = "#{ENV['PROTOCOL']}://#{ENV['HOST']}/admin/feedbacks/#{id}"
+      admin_url = "#{ENV['FEEDBOT_PROTOCOL']}://#{ENV['FEEDBOT_HOST']}/admin/feedbacks/#{id}"
 
       options = {
         attachments: [
