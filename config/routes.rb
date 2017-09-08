@@ -1,18 +1,5 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    resources :events
-    resources :sessions
-    resources :users
-
-    namespace :feedback do
-      resources :resources
-      resources :feedbacks do
-        post '/comments', action: :create_comment
-      end
-    end
-
-    root to: 'events#index'
-  end
+  ActiveAdmin.routes(self)
 
   namespace :feedback do
     resources :feedbacks

@@ -55,9 +55,6 @@ gem 'nokogiri', '1.7.0.1'
 # Autoload dotenv in Rails.
 gem 'dotenv-rails', groups: [:development, :test]
 
-# Administrate is heavily inspired by projects like Rails Admin and ActiveAdmin, but aims to provide a better user experience for site admins
-gem 'administrate', '~> 0.8.1'
-
 # Ruby/ProgressBar is a text progress bar library for Ruby.
 gem 'ruby-progressbar'
 
@@ -101,6 +98,13 @@ gem 'factory_girl_rails', '4.8.0'
 
 # A slim ruby wrapper for posting to slack webhooks
 gem 'slack-notifier', '2.3.1'
+
+# The administration framework for Ruby on Rails.
+gem 'activeadmin', '1.1.0'
+
+# Integrate jQuery xdan datetimepicker plugin to ActiveAdmin
+gem 'active_admin_datetimepicker', '0.5.0'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -1,8 +1,8 @@
 module Feedback
   class Feedback < ApplicationRecord
-    acts_as_commentable
+    # acts_as_commentable
 
-    belongs_to :resource
+    belongs_to :resource, class_name: Feedback::Resource
     belongs_to :owner, polymorphic: true
 
     attr_accessor :email, :source
