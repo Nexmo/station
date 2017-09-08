@@ -87,9 +87,6 @@ gem 'neatjson'
 # Provides common authentication needs such as signing in/out, activating by email and resetting password.
 gem 'sorcery', '0.11.0'
 
-# Polymorphic threaded comments Rails gem for Rails 4+
-gem 'acts_as_commentable_with_threading', '2.0.1'
-
 # Faker, a port of Data::Faker from Perl, is used to easily generate fake data: names, addresses, phone numbers, etc.
 gem 'faker', '1.8.4'
 
