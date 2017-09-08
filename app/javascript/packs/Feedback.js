@@ -3,20 +3,21 @@ export default () => {
     $("input:radio[name='feedback_feedback[sentiment]']").change(function () {
       var sentiment = $(this).val()
 
-      $('#extendedFields').toggle(sentiment === 'negative')
-      $('#positiveFeedback').toggle(sentiment === 'positive')
+      $('.feedback-extended-fields').toggle(sentiment === 'negative')
+      $('.feedback-positive-feedback').toggle(sentiment === 'positive')
       $(this).submit()
     })
 
     $(".new_feedback_feedback input[type=submit]").click(function () {
-      $("#basicFields, #extendedFields").hide()
-      $("#postFeedback").show()
+      $(".feedback-basic-fields, .feedback-extended-fields").hide()
+      $(".feedback-post-feedback").show()
     })
 
-    $('#positiveFeedback a').click(function (event) {
+    $('.feedback-positive-feedback a').click(function (event) {
       event.preventDefault()
-      $('#extendedFields').show()
-      $('#positiveFeedback').hide()
+      event.stopPropagation()
+      $('.feedback-extended-fields').show()
+      $('.feedback-positive-feedback').hide()
     })
   })
 }

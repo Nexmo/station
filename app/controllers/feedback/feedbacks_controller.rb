@@ -15,7 +15,9 @@ module Feedback
       @feedback.owner.save!
       set_cookies
 
-      if @feedback.changed? && @feedback.save
+      return head 200 unless @feedback.changed?
+
+       if @feedback.save
         respond_to do |format|
           format.js
         end
