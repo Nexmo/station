@@ -22,10 +22,9 @@ module Feedback
 
     def emoji
       case sentiment
-      when 'negative' then '👎'
-      when 'neutral' then '😐'
-      when 'positive' then '👍'
-      else '😕'
+      when 'negative' then ':-1:'
+      when 'positive' then ':+1:'
+      else ':neutral_face:'
       end
     end
 
@@ -37,18 +36,60 @@ module Feedback
       notify_slack
     end
 
+    def slack_color
+      case sentiment
+      when 'negative' then 'danger'
+      when 'positive' then 'good'
+      else '#ccc'
+      end
+    end
+
+    def state
+      created_at == updated_at ? 'New' : 'Updated'
+    end
+
     def notify_slack
       return unless ENV['SLACK_WEBHOOK']
 
-      message = []
-      state = (created_at == updated_at ? 'New' : 'Updated')
-      message << "#{state} #{sentiment} feedback #{emoji} for #{resource.uri}"
-      message << '💬 with comment' if comment.present?
-      message << "<a href='#{ENV['PROTOCOL']}://#{ENV['HOST']}/admin/feedbacks/#{id}'>Read more</a>"
-
       notifier = Slack::Notifier.new ENV['SLACK_WEBHOOK'], username: 'feedbot'
-      message = Slack::Notifier::Util::LinkFormatter.format(message.join(' • '))
-      notifier.ping message
+      admin_url = "#{ENV['PROTOCOL']}://#{ENV['HOST']}/admin/feedback/feedbacks/#{id}"
+
+      options = {
+        attachments: [
+          {
+            title: "#{emoji} #{state} #{sentiment.upcase_first} feedback",
+            title_link: admin_url,
+            text: "-",
+            color: slack_color,
+            fields: [
+              {
+                  title: ':link: URL',
+                  value: resource.uri,
+              },
+              {
+                  title: ':hammer_and_wrench: Nexmo Developer Admin Link',
+                  value: admin_url,
+              },
+            ],
+          },
+        ],
+      }
+
+      if owner.email
+        options[:attachments][0][:fields] << {
+          title: ':bust_in_silhouette: Author',
+          value: owner.email,
+        }
+      end
+
+      if comment.present?
+        options[:attachments][0][:fields] << {
+           title: ':speech_balloon: Comment',
+           value: comment,
+        }
+      end
+
+      notifier.post options
     end
   end
 end
