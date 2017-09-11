@@ -10,6 +10,7 @@ API | API Key & Secret | JSON Web Token (JWT) | OAuth
 -- | -- | -- | --
 SMS API | ✅ | ❎ | ✅
 Conversion API | ✅ | ❎| ❎
+Verify API | ✅ | ❎| ❎
 Number Insight | ✅ | ❎| ❎
 Developer API | ✅ | ❎| ❎
 Voice API | ❎ | ✅ | ❎
