@@ -1,4 +1,5 @@
 2:
+  dismissible: false
   path: '^\/(api\/)?conversation'
   content:
     <h2>Welcome to the Developer Preview for the Conversation API</h2>

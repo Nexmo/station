@@ -2,9 +2,11 @@
   <div class="notices">
     <% @notices.each do |id, config| %>
       <% if config['path'].nil? || request.path.match(Regexp.new(config['path'])) %>
-        <div class="notice" data-notice-id="<%= id %>">
+        <div class="notice" data-notice-dismissible="<%= config['dismissible'] || true %>" data-notice-id="<%= id %>">
           <div>
-            <a data-close><i class="icon icon-times"></i></a>
+            <% unless config['dismissible'] == false %>
+              <a data-close><i class="icon icon-times"></i></a>
+            <% end %>
             <%= config['content'].html_safe %>
           </div>
         </div>
