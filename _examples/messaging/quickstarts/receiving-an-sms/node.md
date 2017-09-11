@@ -9,13 +9,13 @@ Install Express by typing: `npm install express`
 The code below handles the incoming SMS messages.
 
 ```js
-import { Express } from express
+var Express = require('express')
 
 let app = Express()
 
 app.get('/incoming-sms', (req, res) => {
-  console.log(res.body)
-  res.sendResponse(200)
+  console.log(req.query)
+  res.sendStatus(200)
 })
 
 app.listen(3000)

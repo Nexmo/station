@@ -55,9 +55,6 @@ gem 'nokogiri', '1.7.0.1'
 # Autoload dotenv in Rails.
 gem 'dotenv-rails', groups: [:development, :test]
 
-# Administrate is heavily inspired by projects like Rails Admin and ActiveAdmin, but aims to provide a better user experience for site admins
-gem 'administrate', '~> 0.8.1'
-
 # Ruby/ProgressBar is a text progress bar library for Ruby.
 gem 'ruby-progressbar'
 
@@ -87,14 +84,33 @@ gem 'open_api_parser', github: 'nexmo/open_api_parser', branch: 'openapi-specifi
 # Generate JSON strings from Ruby objects with flexible formatting options.
 gem 'neatjson'
 
+# Provides common authentication needs such as signing in/out, activating by email and resetting password.
+gem 'sorcery', '0.11.0'
+
+# Faker, a port of Data::Faker from Perl, is used to easily generate fake data: names, addresses, phone numbers, etc.
+gem 'faker', '1.8.4'
+
+# factory_girl_rails provides integration between factory_girl and rails 3 or newer (currently just automatic factory definition loading)
+gem 'factory_girl_rails', '4.8.0'
+
+# A slim ruby wrapper for posting to slack webhooks
+gem 'slack-notifier', '2.3.1'
+
+# The administration framework for Ruby on Rails.
+gem 'activeadmin', '1.1.0'
+
+# Integrate jQuery xdan datetimepicker plugin to ActiveAdmin
+gem 'active_admin_datetimepicker', '0.5.0'
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   gem 'rawler', git: 'https://github.com/oscardelben/rawler.git', require: false
   gem 'rspec-rails', '~> 3.5'
   gem 'foreman'
-  gem "pry"
-  gem "awesome_print"
+  gem 'pry'
+  gem 'awesome_print'
 end
 
 group :development do
@@ -106,9 +122,9 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'guard-livereload', '~> 2.5', require: false
   gem 'guard-rspec'
-  gem "better_errors"
-  gem "binding_of_caller"
-  gem "pry"
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'pry'
 
   # Share git hooks in Ruby projects among all the collaborators automatically, without them having to do anything
   gem 'git-hookshot', git: 'https://github.com/brandonweiss/git-hookshot.git'

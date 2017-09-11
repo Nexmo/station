@@ -16,6 +16,8 @@ $icon-gear: "\f013";
 $icon-book: "\f02d";
 $icon-times-circle: "\f057";
 $icon-check-circle: "\f058";
+$icon-thumbs-o-up: "\f087";
+$icon-thumbs-o-down: "\f088";
 $icon-external-link: "\f08e";
 $icon-twitter: "\f099";
 $icon-github: "\f09b";
@@ -153,6 +155,16 @@ $icon-slack: "\f198";
 .icon-check-circle {
   &:before {
     content: $icon-check-circle;
+  }
+}
+.icon-thumbs-o-up {
+  &:before {
+    content: $icon-thumbs-o-up;
+  }
+}
+.icon-thumbs-o-down {
+  &:before {
+    content: $icon-thumbs-o-down;
   }
 }
 .icon-external-link {

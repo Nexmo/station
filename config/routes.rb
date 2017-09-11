@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    resources :events
-    resources :sessions
-    root to: 'events#index'
+  ActiveAdmin.routes(self)
+
+  namespace :feedback do
+    resources :feedbacks
   end
 
   get 'markdown/show'
@@ -41,8 +41,9 @@ Rails.application.routes.draw do
   get '/*product/(api|ncco)-reference', to: 'markdown#api'
   get '/:product/*document(/:code_language)', to: 'markdown#show', constraints: DocumentationConstraint.documentation
 
-
   get '/robots.txt', to: 'static#robots'
+
+  get '/signout', to: 'sessions#destroy'
 
   get '*unmatched_route', to: 'application#not_found'
 
