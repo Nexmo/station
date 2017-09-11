@@ -9,11 +9,11 @@ Nexmo API provides various means of Authentication depending on what product you
 API | API Key & Secret | JSON Web Token (JWT) | OAuth
 -- | -- | -- | --
 SMS API | ✅ | ❎ | ✅
-Conversion API | ✅ | ❎| ❎
+Voice API | ❎ | ✅ | ❎
 Verify API | ✅ | ❎| ❎
 Number Insight | ✅ | ❎| ❎
+Conversion API | ✅ | ❎| ❎
 Developer API | ✅ | ❎| ❎
-Voice API | ❎ | ✅ | ❎
 
 ## Contents
 
