@@ -120,6 +120,30 @@ Run the `webpack-dev-server` like so:
 $ ./bin/webpack-dev-server
 ```
 
+#### `/packs/application.js` can not be found or returns a status code of `404`
+
+First check that you are running the `webpack-dev-server`. It can be run like so:
+
+```
+$ ./bin/webpack-dev-server
+```
+
+If you are running `webpack-dev-server` then give it a minute or check the output of your terminal as the initial compilation can take up to a minute on some systems.
+
+If this still doesn't solve your issue check nothing else is using the same port (since it does not raise any exceptions when this is the case). This is commonly used by Applications like Sketch.
+
+You can check what processes or applications are using this port by running:
+
+```
+$ lsof -i tcp:8080
+```
+
+If you want to kill the process that is blocking this port run the following replacing `<PID>` with the PID of found in the last command:
+
+```
+$ kill <PID>
+```
+
 ## Contributing
 
 Contributions are welcome, please follow [GitHub Flow](https://guides.github.com/introduction/flow/index.html)
