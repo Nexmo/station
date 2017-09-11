@@ -144,6 +144,16 @@ If you want to kill the process that is blocking this port run the following rep
 $ kill <PID>
 ```
 
+#### I get an exception `PG::ConnectionBad - could not connect to server: Connection refused` when I try to run the app.
+
+This error indicates that PostgreSQL is not running. If you installed PostgreSQL using `brew` you can get information about how to start it by running:
+
+```
+$ brew info postgresql
+```
+
+Once PostgreSQL is running you'll need to create and migrate the database. See [Setup](#Setup) for instructions.
+
 ## Contributing
 
 Contributions are welcome, please follow [GitHub Flow](https://guides.github.com/introduction/flow/index.html)
