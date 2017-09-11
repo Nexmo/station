@@ -21,6 +21,10 @@ $ ./bin/yarn install
 $ foreman start
 ```
 
+> Note: This will start `rails` on port `5000` and `webpack-dev-server` on `8080`
+
+You should now be able to see the site on http://localhost:5000/
+
 ### Setting up with Docker
 
 If you don't want to install Ruby & PostgreSQL then you can use docker to sandbox Nexmo Developer into its own containers. After you [Install Docker](https://docs.docker.com/engine/installation/) run the following:
@@ -56,6 +60,7 @@ You can run both the Rails server and Webpack simultaneously using Foreman:
 
 ```
 $ foreman start
+$ open http://localhost:5000
 ```
 
 ### Features
