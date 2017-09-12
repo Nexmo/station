@@ -5,23 +5,16 @@ $quick-search-width: 800px;
 
   > a {
     display: block;
-    padding: 0;
-
-    .quicksearch & {
-      padding: 0 !important;
-      width: 100%;
-    }
   }
 
   > a > div {
     border-bottom: 1px solid darken($mint, 3%);
     padding: $spacing/2;
-    width: 100%;
 
     h3{
       color: $link;
       margin-top: 5px;
-      font-weight: bold;
+      font-weight: 700;
 
       small {
         color: $link-subtle;
@@ -36,9 +29,8 @@ $quick-search-width: 800px;
     .meta {
       background: lighten($stone-light, 25%);
       padding: 2px 5px;
-      width: auto;
       display: inline-block;
-      border-radius: 3px;
+      border-radius: $radius;
 
       .quicksearch & {
         font-size: 0.7em;
@@ -62,7 +54,7 @@ $quick-search-width: 800px;
 
         em {
           color: $pink;
-          font-weight: bold;
+          font-weight: 700;
         }
       }
 
