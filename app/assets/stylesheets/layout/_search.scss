@@ -1,5 +1,23 @@
 $quick-search-width: 800px;
 
+#searchbox {
+  width: 200px;
+  height: 30px;
+  border: $border;
+  box-shadow: inset 0 0 6px rgba($black, 0.05);
+  padding: 0 15px;
+  border-radius: 15px;
+  margin-top: 6px;
+  color: $stone;
+  outline: none;
+  font-size: 14px;
+  font-family: 'Averta', sans-serif;
+
+  &:focus {
+    border-color: $blue;
+  }
+}
+
 .search-result {
   overflow: hidden;
 
@@ -60,6 +78,12 @@ $quick-search-width: 800px;
 
       .quicksearch & {
         font-size: 0.8em;
+        // View width
+        // - margin around quicksearch (20px * 2)
+        // - padding within quicksearch (20px * 2)
+        // - padding for search-result (10px * 2)
+        max-width: calc(100vw - #{$spacing * 4} - #{10px * 2});
+        word-wrap: break-word;
       }
     }
   }
@@ -83,68 +107,46 @@ form {
   @extend .clearfix;
   background: white;
   position: absolute;
-  border: $radius;
-  padding: 20px;
+  border-radius: $radius;
   border: $border;
   box-shadow: $shadow;
   width: $quick-search-width;
-  margin-left: 200px - $quick-search-width;
-  margin-top: 40px;
+  right: 0;
+  margin-top: 2px;
   z-index: 5;
+  overflow: hidden;
 
+  @include media-query($max-width: $quick-search-width + ($spacing * 2)) {
+    width: calc(100vw - #{$spacing * 2});
+  }
 
-  @include tablet-only {
-    width: 100vw;
+  @include mobile {
+    position: relative;
   }
 
   .search-result > a {
-    padding: 0;
-  }
-
-  > .results-index {
-    float: left;
-    width: 50%;
-
-    &:first-child {
-      width: 48%;
-      padding-right: 2%;
-      margin-right: 2%;
-      border-right: 1px solid darken($mint, 3%);
-
-      @include mobile {
-        border-right: none;
-        border-bottom: 2px solid darken($mint, 3%);
-        margin: 0 0 10px; 
-        width: 100%;
-      }
-    }
-
-    > h3 {
-      font-size: 1.1em;
-      margin-bottom: $spacing;
+    #subnav & {
+      padding: 0;
+      display: block;
+      margin: 0;
     }
   }
 
-
-  @include mobile {
-    display: block;
-    width: 100%;
-    margin-left: 0;
-    margin-top: 5px;
-
-    a {
-      text-align: left;
-    }
+  .quicksearch__results {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -1px;
 
     > .results-index {
-      float: none;
-      width: auto;
-    }
+      flex: 1;
+      width: 50%;
+      padding: $spacing;
+      border-right: 1px solid $mint;
+      min-width: 280px;
 
-    .search-result {
-      display: none;
-      &:nth-of-type(1), &:nth-of-type(2) {
-        display: block;
+      > h3 {
+        font-size: 1.1em;
+        margin-bottom: $spacing;
       }
     }
   }
