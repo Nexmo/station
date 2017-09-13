@@ -69,7 +69,7 @@ Segmentation information takes up 8 bytes of the message body for each SMS part.
 
 * 7-bit encoding such as latin-1/9 and GSM8 - 152 characters.
 * 8-bit encoding for binary - 134 characters.
-* 16-bit encoding for unicode - 62 characters.
+* 16-bit encoding for unicode - 66 characters.
 
 You can send a message of up to 3200 characters in your request to the SMS API. Best practice is that the message in the text parameter is no longer than 6 SMS parts. For example, to send the first stanza of the balcony speech in Chinese, Nexmo would send a concatenated SMS with the following SMS parts:
 
