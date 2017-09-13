@@ -11,7 +11,7 @@ $quick-search-width: 800px;
   color: $stone;
   outline: none;
   font-size: 14px;
-  font-family: 'Averta', sans-serif;
+  font-family: $font-family;
 
   &:focus {
     border-color: $blue;
