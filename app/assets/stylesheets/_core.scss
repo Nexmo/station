@@ -25,6 +25,10 @@ body {
 
   &--blur {
     filter: blur(3px);
+
+    @include mobile {
+      filter: none;
+    }
   }
 }
 
@@ -122,6 +126,8 @@ hr {
 }
 
 .spinner {
+  width: 100%;
+  margin: $spacing*2 0;
   text-align: center;
   animation: spin 1.2s infinite ease-in-out;
   i {

@@ -221,7 +221,9 @@ class Search extends React.Component {
 
         { this.shouldShowResults() &&
           <div className="quicksearch">
-            { this.renderResults() }
+            <div className="quicksearch__results">
+              { this.renderResults() }
+            </div>
           </div>
         }
       </div>
