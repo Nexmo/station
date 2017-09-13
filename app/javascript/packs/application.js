@@ -21,6 +21,7 @@ import Search from './Search'
 import Modals from './Modals'
 import Notices from './Notices'
 import Feedback from './Feedback'
+import APIStatus from './APIStatus'
 
 import {
   preventSamePage as turbolinksPreventSamePage,
@@ -32,6 +33,7 @@ Navigation()
 Scroll()
 turbolinksPreventSamePage()
 turbolinksAnimate()
+APIStatus()
 
 let refresh = () => {
   Notices()
