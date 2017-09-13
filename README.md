@@ -21,6 +21,10 @@ $ ./bin/yarn install
 $ foreman start
 ```
 
+> Note: This will start `rails` on port `5000` and `webpack-dev-server` on `8080`
+
+You should now be able to see the site on http://localhost:5000/
+
 ### Setting up with Docker
 
 If you don't want to install Ruby & PostgreSQL then you can use docker to sandbox Nexmo Developer into its own containers. After you [Install Docker](https://docs.docker.com/engine/installation/) run the following:
@@ -56,6 +60,7 @@ You can run both the Rails server and Webpack simultaneously using Foreman:
 
 ```
 $ foreman start
+$ open http://localhost:5000
 ```
 
 ### Features
@@ -114,6 +119,40 @@ Run the `webpack-dev-server` like so:
 ```
 $ ./bin/webpack-dev-server
 ```
+
+#### `/packs/application.js` can not be found or returns a status code of `404`
+
+First check that you are running the `webpack-dev-server`. It can be run like so:
+
+```
+$ ./bin/webpack-dev-server
+```
+
+If you are running `webpack-dev-server` then give it a minute or check the output of your terminal as the initial compilation can take up to a minute on some systems.
+
+If this still doesn't solve your issue check nothing else is using the same port (since it does not raise any exceptions when this is the case). This is commonly used by Applications like Sketch.
+
+You can check what processes or applications are using this port by running:
+
+```
+$ lsof -i tcp:8080
+```
+
+If you want to kill the process that is blocking this port run the following replacing `<PID>` with the PID of found in the last command:
+
+```
+$ kill <PID>
+```
+
+#### I get an exception `PG::ConnectionBad - could not connect to server: Connection refused` when I try to run the app.
+
+This error indicates that PostgreSQL is not running. If you installed PostgreSQL using `brew` you can get information about how to start it by running:
+
+```
+$ brew info postgresql
+```
+
+Once PostgreSQL is running you'll need to create and migrate the database. See [Setup](#Setup) for instructions.
 
 ## Contributing
 
