@@ -22,6 +22,7 @@ ActiveAdmin.register ::Feedback::Feedback, as: 'Feedback' do
     column :owner
     column :ip
     column :comment
+    column :code_language
     actions
   end
 end

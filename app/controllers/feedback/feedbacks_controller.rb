@@ -37,7 +37,7 @@ module Feedback
     end
 
     def feedback_params
-      params.require(:feedback_feedback).permit(:sentiment, :comment, :source)
+      params.require(:feedback_feedback).permit(:sentiment, :comment, :source, :code_language)
     end
 
     def should_use_cookied_author?(author)

@@ -37,7 +37,7 @@
     })(window,document,'script','dataLayer','<%= ENV['GOOGLE_TAG_MANAGER_ID'] %>');</script>
   <% end %>
 
-  <% if @canonical_url %>
+  <% if @show_canonical_meta %>
     <link rel="canonical" href="<%= @canonical_url %>">
   <% end %>
 

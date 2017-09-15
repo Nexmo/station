@@ -6,10 +6,10 @@
   <div class="feedback-container">
     <%= form_for Feedback::Feedback.new, remote: true, format: :js do |f| %>
       <div class="row">
-        <div class="columns small-6">
+        <div class="columns small-8">
           <h2>Was this documentation helpful?</h2>
         </div>
-        <div class="columns small-6 right" id="feedback__improve">
+        <div class="columns small-4 right" id="feedback__improve">
           <% if @document_path %>
             <p>
               <i class="icon icon-github"></i> <%= link_to("Improve this page", "https://github.com/Nexmo/nexmo-developer/blob/master/#{@document_path}", target: "_blank") %>
@@ -20,7 +20,8 @@
 
       <div class="feedback-basic-fields">
         <%= f.hidden_field :id, value: nil %>
-        <%= f.hidden_field :source, value: "#{request.base_url}#{request.fullpath}" %>
+        <%= f.hidden_field :code_language, value: request.parameters['code_language'] %>
+        <%= f.hidden_field :source, value: "#{@canonical_url}" %>
         <%= f.radio_button(:sentiment, 'negative') %>
         <%= f.label(:sentiment_negative, '<i class="icon icon-thumbs-o-down"></i>'.html_safe, class: 'sentiment') %>
         <%= f.radio_button(:sentiment, 'positive') %>

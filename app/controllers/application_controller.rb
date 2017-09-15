@@ -57,10 +57,9 @@ class ApplicationController < ActionController::Base
   end
 
   def set_canonical_url
-    if params[:code_language]
-      @canonical_url = request.path.gsub("/#{params[:code_language]}", '')
-      @canonical_url.prepend(request.base_url)
-    end
+    @show_canonical_meta = params[:code_language].present?
+    @canonical_url = request.path.chomp("/#{params[:code_language]}")
+    @canonical_url.prepend(request.base_url)
   end
 
   def set_feedback_author
