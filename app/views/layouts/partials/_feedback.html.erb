@@ -21,6 +21,8 @@
       <div class="feedback-basic-fields">
         <%= f.hidden_field :id, value: nil %>
         <%= f.hidden_field :code_language, value: request.parameters['code_language'] %>
+        <%= f.check_box :code_language_selected_whilst_on_page, class: 'hide' %>
+        <%= f.check_box :code_language_set_by_url, checked: params[:code_language].present?, class: 'hide' %>
         <%= f.hidden_field :source, value: "#{@canonical_url}" %>
         <%= f.radio_button(:sentiment, 'negative') %>
         <%= f.label(:sentiment_negative, '<i class="icon icon-thumbs-o-down"></i>'.html_safe, class: 'sentiment') %>

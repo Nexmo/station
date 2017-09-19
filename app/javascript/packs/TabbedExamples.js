@@ -51,6 +51,7 @@ export default class TabbedExamples {
       if (this.shouldRestoreTabs()) {
         if (window.localStorage) {
           var language = window.localStorage.getItem('languagePreference')
+          $('#feedback_feedback_code_language').val(language)
           if (language) { this.setLanguage(language, this.context) }
         }
 
@@ -89,6 +90,7 @@ export default class TabbedExamples {
 
       if (linkable) {
         $('#feedback_feedback_code_language').val(language)
+        $('#feedback_feedback_code_language_selected_whilst_on_page').prop('checked', true)
 
         if (window.history.state.language || this.initialLanguage()) {
           window.history.pushState({ language }, 'language', language)

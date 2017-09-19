@@ -23,6 +23,9 @@ ActiveAdmin.register ::Feedback::Feedback, as: 'Feedback' do
     column :ip
     column :comment
     column :code_language
+    column :code_language_selected_whilst_on_page
+    column :code_language_set_by_url
+    column :created_at
     actions
   end
 end
