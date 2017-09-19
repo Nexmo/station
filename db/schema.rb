@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170908153555) do
+ActiveRecord::Schema.define(version: 20170919151243) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,6 +75,12 @@ ActiveRecord::Schema.define(version: 20170908153555) do
     t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "code_language"
+    t.boolean "code_language_selected_whilst_on_page"
+    t.boolean "code_language_set_by_url"
+    t.index ["code_language"], name: "index_feedback_feedbacks_on_code_language"
+    t.index ["code_language_selected_whilst_on_page"], name: "index_feedbacks_on_code_language_selected_whilst_on_page"
+    t.index ["code_language_set_by_url"], name: "index_feedbacks_on_code_language_set_by_url"
     t.index ["ip"], name: "index_feedback_feedbacks_on_ip"
     t.index ["owner_id", "owner_type"], name: "index_feedback_feedbacks_on_owner_id_and_owner_type"
     t.index ["resource_id"], name: "index_feedback_feedbacks_on_resource_id"
