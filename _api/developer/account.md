@@ -84,7 +84,7 @@ Key | Value
 
 ### Settings
 
-Retrieve our outbound pricing for a given country
+Modify settings for your account including callback URLs and your API secret.
 
 #### Request
 
