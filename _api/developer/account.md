@@ -48,14 +48,14 @@ Key | Value
 `value` | The accounts remaining balance in euros.
 `autoReload` | A boolean indicating if autoReload is enabled on your account.
 
-### Pricing
+### Pricing by country
 
 Retrieve our outbound pricing for a given country
 
 #### Request
 
 ```
-[GET] https://rest.nexmo.com/account/get-pricing/outbound
+[GET] https://rest.nexmo.com/account/get-pricing/outbound/:type
 ```
 
 ##### Parameters
@@ -64,6 +64,9 @@ The following shows the parameters you use in the request:
 
 Parameter | Description | Required
 -- | -- | --
+`type` | The type of service you wish to retrieve data about: either `sms`, `sms-transit` or `voice`. | No
+`api_key` | Your Nexmo API key. | Yes
+`api_secret` | Your Nexmo API secret. | Yes
 `country` | 	A 2 letter [country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). For example, `CA` | Yes
 
 #### Response
@@ -80,7 +83,22 @@ The response contains the following keys and values:
 
 Key | Value
 -- | --
-`value` | The accounts remaining balance in euros.
+`dialingPrefix` | The numerical dialing prefix code for the country in question (e.g. for the United Kingdom, `44`, for the United States `1`)
+`currency` | The currency that your account is being billed in (by default: Euros—`EUR`). Changeable via the Dashboard to US Dollars—`USD`.
+`countryDisplayName` | The display name for the country you looked up: e.g. `United Kingdom`, `Belgium`, `Japan`.
+`countryCode` | The code for the country you looked up: e.g. `GB`, `US`, `BR`, `RU`.
+`countryName` | The name for the country you looked up: e.g. `United Kingdom`.
+`networks` | An array containing networks.
+`networks` → `type` | The type of network: `mobile` or `landline`.
+`networks` → `price` | The cost to send a message or make a call to this network
+`networks` → `currency` | The currency used for prices for this network.
+`networks` → `ranges` | A list of number prefixes that belong to this network.
+`networks` → `mcc` | The [Mobile Country Code](https://en.wikipedia.org/wiki/Mobile_country_code) of the operator.
+`networks` → `mnc` | The Mobile Network Code of the operator.
+`networks` → `networkCode` | The Mobile Country Code and Mobile Network Code combined to give a unique reference for the operator.
+`networks` → `networkName` | The company/organisational name of the operator.
+
+The number prefix ranges refer to who owns the number range. In many countries it is possible to port your number from mobile operator to another: number prefix ranges refer to who owns the number range, but a mobile subscriber using a ported number may be using a network different from the owner of the network. You can use the [Number Insight API](/number-insight) to look up individual numbers to see if they have been ported.
 
 ### Settings
 
