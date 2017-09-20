@@ -74,7 +74,7 @@ Parameter | Description | Required
 The following shows example Responses in JSON or XML:
 
 ```tabbed_examples
-source: _examples/api/developer/account/pricing
+source: _examples/api/developer/account/pricing/per-country-pricing/
 ```
 
 ##### Keys and Values
