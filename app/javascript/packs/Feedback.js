@@ -1,11 +1,21 @@
 export default () => {
   $(document).ready(function() {
+    window.invisibleCaptchaCallback = function(token) {
+      window.userPassedInvisibleCaptcha = true
+      $('#g-recaptcha-response').val(token).submit()
+    }
+
     $("input:radio[name='feedback_feedback[sentiment]']").change(function () {
       var sentiment = $(this).val()
 
       $('.feedback-extended-fields').toggle(sentiment === 'negative')
       $('.feedback-positive-feedback').toggle(sentiment === 'positive')
-      $(this).submit()
+
+      if ($('.g-recaptcha').length == 0 || window.userPassedInvisibleCaptcha) {
+        $(this).submit()
+      } else {
+        grecaptcha.execute()
+      }
     })
 
     $(".new_feedback_feedback input[type=submit]").click(function () {
