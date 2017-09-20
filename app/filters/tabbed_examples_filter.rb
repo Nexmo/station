@@ -3,6 +3,10 @@ class TabbedExamplesFilter < Banzai::Filter
     input.gsub(/```tabbed_examples(.+?)```/m) do |_s|
       @config = YAML.safe_load($1)
 
+      unless (@config.has_key?("source") || @config.has_key?("tabs"))
+        raise "A source or tabs key must be present in this tabbed_example config: #{$1}" 
+      end
+
       @examples = @config['source'] ? load_examples_from_source : load_examples_from_tabs
       @examples = sort_examples
 
