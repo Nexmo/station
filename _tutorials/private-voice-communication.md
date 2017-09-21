@@ -40,6 +40,7 @@ You first use Nexmo CLI to create an application for Voice API:
 This command returns the UUID (Universally Unique Identifier) that identifies your application.
 
 The parameters are:
+
 * voice-proxy - the name you give to this application
 * `https://example.com/proxy-call` - when you receive an inbound call to your virtual number, Nexmo makes a GET request and retrieves the NCCO that controls the call flow from this webhook endpoint
 * `https://example.com/event` - as the call status changes, Nexmo sends status updates to this webhook endpoint
