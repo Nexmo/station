@@ -84,9 +84,6 @@ gem 'open_api_parser', github: 'nexmo/open_api_parser', branch: 'openapi-specifi
 # Generate JSON strings from Ruby objects with flexible formatting options.
 gem 'neatjson'
 
-# Provides common authentication needs such as signing in/out, activating by email and resetting password.
-gem 'sorcery', '0.11.0'
-
 # Faker, a port of Data::Faker from Perl, is used to easily generate fake data: names, addresses, phone numbers, etc.
 gem 'faker', '1.8.4'
 
