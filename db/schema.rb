@@ -78,11 +78,13 @@ ActiveRecord::Schema.define(version: 20170919151243) do
     t.string "code_language"
     t.boolean "code_language_selected_whilst_on_page"
     t.boolean "code_language_set_by_url"
+    t.boolean "resolved", default: false, null: false
     t.index ["code_language"], name: "index_feedback_feedbacks_on_code_language"
     t.index ["code_language_selected_whilst_on_page"], name: "index_feedbacks_on_code_language_selected_whilst_on_page"
     t.index ["code_language_set_by_url"], name: "index_feedbacks_on_code_language_set_by_url"
     t.index ["ip"], name: "index_feedback_feedbacks_on_ip"
     t.index ["owner_id", "owner_type"], name: "index_feedback_feedbacks_on_owner_id_and_owner_type"
+    t.index ["resolved"], name: "index_feedback_feedbacks_on_resolved"
     t.index ["resource_id"], name: "index_feedback_feedbacks_on_resource_id"
     t.index ["sentiment"], name: "index_feedback_feedbacks_on_sentiment"
   end
