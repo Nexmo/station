@@ -96,9 +96,8 @@ gem 'slack-notifier', '2.3.1'
 # The administration framework for Ruby on Rails.
 gem 'activeadmin', '1.1.0'
 
-# Integrate jQuery xdan datetimepicker plugin to ActiveAdmin
-gem 'active_admin_datetimepicker', '0.5.0'
-
+# Flexible authentication solution for Rails with Warden
+gem 'devise', '4.3.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
