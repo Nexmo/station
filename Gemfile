@@ -84,9 +84,6 @@ gem 'open_api_parser', github: 'nexmo/open_api_parser', branch: 'openapi-specifi
 # Generate JSON strings from Ruby objects with flexible formatting options.
 gem 'neatjson'
 
-# Provides common authentication needs such as signing in/out, activating by email and resetting password.
-gem 'sorcery', '0.11.0'
-
 # Faker, a port of Data::Faker from Perl, is used to easily generate fake data: names, addresses, phone numbers, etc.
 gem 'faker', '1.8.4'
 
@@ -99,9 +96,8 @@ gem 'slack-notifier', '2.3.1'
 # The administration framework for Ruby on Rails.
 gem 'activeadmin', '1.1.0'
 
-# Integrate jQuery xdan datetimepicker plugin to ActiveAdmin
-gem 'active_admin_datetimepicker', '0.5.0'
-
+# Flexible authentication solution for Rails with Warden
+gem 'devise', '4.3.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

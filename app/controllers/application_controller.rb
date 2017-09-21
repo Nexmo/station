@@ -28,6 +28,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def authenticate_admin!
+    return redirect_to new_user_session_path unless user_signed_in?
+    redirect_to root_path unless current_user.admin?
+  end
+
   private
 
   def requires_authentication?
