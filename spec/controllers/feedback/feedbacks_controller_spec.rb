@@ -97,7 +97,7 @@ RSpec.describe Feedback::FeedbacksController, type: :controller do
       before do
         @email = Faker::Internet.safe_email
         @user = FactoryGirl.create(:user, email: @email)
-        login_user(@user)
+        sign_in(@user)
       end
 
       it 'reuses the user' do
