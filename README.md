@@ -11,8 +11,8 @@ Nexmo Developer is a platform hosting the Nexmo documentation, API reference, SD
 ### Setup
 
 ```
-$ git clone git@github.com:Nexmo/nexmo-developer.git
-$ cd nexmo-developer
+$ git clone git@github.com:Nexmo/nexmo-developer-private.git
+$ cd nexmo-developer-private
 $ cp .env.example .env
 $ bundle install
 $ rake db:create
