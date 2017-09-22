@@ -33,15 +33,15 @@
  * Copyright (c) Nexmo Inc. 2015
  */
 
-var WildEmitter = require('wildemitter'),
-	User = require('./user').User,
-	Conversation = require('./conversation').Conversation;
+var WildEmitter = require('wildemitter');
+var User = require('./user').User;
+var Conversation = require('./conversation').Conversation;
 
 // Conversation Client Error
 var ConversationClientError = require('./conversationClientError');
 
 var NexmoApiError = ConversationClientError.NexmoApiError;
-var NexmoClientError = ConversationClientError.NexmoClientError;
+// var NexmoClientError = ConversationClientError.NexmoClientError;
 
 /**
  * Core application class for the SDK.
@@ -107,6 +107,21 @@ Application.prototype = new WildEmitter();
  *      });
  */
 /**
+ * Application listening for joins.
+ *
+ * @event Application#member:joined
+ * 
+ * @property {object} member_id - the id of the member that performed the action
+ * @property {object} data -  information about the conversation
+ * 
+ * @example &lt;caption>listen join events&lt;/caption>
+ *  application.on("member:joined",
+ *      function(sender_member_id, data) {
+ *              console.log("JOINED", "Joined conversation: " + data.cid);
+ *              });
+ *      });
+ */
+/**
  * @ignore
  * Application listening for audio call invitations.
  *
@@ -137,6 +152,18 @@ Application.prototype._handleEvent = function(event) {
 			}
 			routeEvent();
 			break;
+		case "member:joined":
+			//in case we don't know about the conversation, the event will be redirected to application level
+			//the requests on that level need the cid to be processed. but in member:joined event that brings inconsistency
+			var mutate_event;
+			if (!self.conversations[event.cid]) {
+				event.body.cid = event.cid;
+				event.body.type = event.type;
+				event.body.from = event.from;
+				mutate_event = event.body;
+			}
+			routeEvent();
+			break;
 		default:
 			routeEvent();
 			break;
@@ -147,7 +174,11 @@ Application.prototype._handleEvent = function(event) {
 		if (cid in self.conversations) {
 			self.conversations[cid]._handleEvent(event);
 		} else {
-			self.emit(event.type, event.from, event);
+			//get the conversation you don't know about (case: joined by another user)
+			self.getConversation(cid).then(function(conversation) {
+				self.conversations[cid] = conversation;
+				self.emit(event.type, event.from, mutate_event || event);
+			});
 		}
 	}
 };
@@ -189,8 +220,7 @@ Application.prototype.newConversation = function(params) {
 				// it's not expensive here as it's empty of events
 				self.getConversation(conv.id).then(function(conversation) {
 					resolve(conversation);
-				})
-
+				});
 			} else {
 				reject(new NexmoApiError(response));
 			}
@@ -199,6 +229,38 @@ Application.prototype.newConversation = function(params) {
 	return p;
 };
 
+/**
+ * Query the service to create a new conversation and join it
+ * The conversation name must be unique per application.
+ * @param {Object} [params] - leave empty to get a GUID as name
+ * @param {String} params.name - the name of the conversation. A UID will be assigned if this is skipped
+ * @param {String} params.display_name - the display_name of the conversation.
+ * @returns {Promise&lt;Conversation>} - the created Conversation
+ * @example &lt;caption>Create a conversation and join&lt;/caption>
+ * application.newConversationAndJoin().then(
+ *     function(conversation) {
+ * 
+ *         //join the created conversation
+ *         conversation.join().then(
+ *             //Get the user's memeber belonging in this conversation.
+ *             //You can also access it via conversation.me
+ *             function(member) {
+ *                 console.log("Joined as " + member.name);
+ *             });
+ * 
+ *     }).catch(function(error) {
+ *     console.log(error);
+ * });
+ */
+Application.prototype.newConversationAndJoin = function(params) {
+	var self = this;
+	return self.newConversation(params).then(function(conversation) {
+		return conversation.join().then(function() {
+			return conversation;
+		});
+	});
+
+};
 /**
  * Query the service to obtain a complete list of conversations of which the
  * logged-in user is a member with a state of `JOINED` or `INVITED`. 
@@ -285,6 +347,34 @@ Application.prototype.getConversation = function(id, force) {
 	return p;
 };
 
+/**
+ * Get Details of a user
+ * @param {String} [id] - the id of the user to fetch, if skipped, it returns your own user details
+ * @returns {Promise&lt;User>} 
+ */
+Application.prototype.getUser = function(user_id) {
+	user_id = user_id || this.me.id;
+	var self = this;
+	var p = new Promise(function(resolve, reject) {
+		var params = {
+			user_id: user_id
+		};
+		self.session.sendRequest({
+			type: 'user:get',
+			from: self.me.id,
+			body: params
+		}, function(response) {
+			if (response.type === 'user:get:success') {
+				resolve(new User(self, response.body));
+			} else {
+				reject(new NexmoApiError(response));
+			}
+		});
+	});
+	return p;
+};
+
+
 module.exports = {
 	Application: Application
 };</code></pre>
@@ -297,13 +387,13 @@ module.exports = {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="Member.html">Member</a></li><li><a href="Text.html">Text</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ConversationClientErrorTypes">ConversationClientErrorTypes</a></li><li><a href="global.html#me">me</a></li><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li><li><a href="global.html#NexmoClientErrorTypes">NexmoClientErrorTypes</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="Member.html">Member</a></li><li><a href="Text.html">Text</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ConversationClientErrorTypes">ConversationClientErrorTypes</a></li><li><a href="global.html#me">me</a></li><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li><li><a href="global.html#NexmoClientErrorTypes">NexmoClientErrorTypes</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Tue Jul 25 2017 21:32:58 GMT+0300 (EEST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Thu Sep 21 2017 17:44:00 GMT+0100 (BST)
 </footer>
 
 <script> prettyPrint(); </script>

@@ -37,7 +37,7 @@ var WildEmitter = require('wildemitter'),
 	socket_io = require('socket.io-client'),
 	// logger = require('loglevel'),
 	utils = require('./utils'),
-	RTC_Stats = require('./stats'),
+	// RTC_Stats = require('./stats'),
 	RTC_Cache = require('./cache');
 var Application = require('./application').Application,
 	User = require('./user').User;
@@ -51,7 +51,7 @@ var logger = require('loglevel-message-prefix')(require('loglevel'), {
 var ConversationClientError = require('./conversationClientError');
 
 var NexmoApiError = ConversationClientError.NexmoApiError;
-var NexmoClientError = ConversationClientError.NexmoClientError;
+// var NexmoClientError = ConversationClientError.NexmoClientError;
 
 /**
  * The parent ConversationClient class.
@@ -78,7 +78,8 @@ function ConversationClient(params) {
 		bugsnag_key: 'cd2dcd56892c3cd260b12caf6eecf022',
 		repository: '@@repository'
 	};
-	var item, connection;
+	var item,
+		connection;
 	this.requests = {};
 	this.application = null;
 
@@ -96,7 +97,7 @@ function ConversationClient(params) {
 	}
 	this.log = logger.noConflict();
 
-	this.stats = new RTC_Stats();
+	// this.stats = new RTC_Stats();
 	this.cache = new RTC_Cache(this);
 
 	//inject bug reporting tool
@@ -222,20 +223,19 @@ function ConversationClient(params) {
 	 */
 	connection.on('error', function(error) {
 		self.log.error("Socket.io reported a generic error", error);
-		if (typeof Bugsnag !== "undefined") Bugsnag.notifyException(Error(reason));
 	});
 
 	connection.io.on('packet', function(packet) {
-		if (packet.type != 2) return;
+		if (packet.type !== 2) return;
 		if (packet.data[0] === 'echo') return; //ignore echo events
 		var response = packet.data[1];
 		response.type = packet.data[0];
 		//for stats
-		if (response.timestamp) {
-			response.delay = new Date() - new Date(response.timestamp);
-		}
+		// if (response.timestamp) {
+		// 	response.delay = new Date() - new Date(response.timestamp);
+		// }
 		self.log.debug("&lt;--", response.type, JSON.stringify(response));
-		var own = false; //TODO Fix this to fix statistics for seperating properly own and other's messages
+		// var own = false; //TODO Fix this to fix statistics for seperating properly own and other's messages
 		// Set the type of the response
 		if (response.rid in self.requests) {
 			//check if we injected the cid (e.g. conversation:events, and cache it as well)
@@ -249,7 +249,7 @@ function ConversationClient(params) {
 			delete self.requests[response.rid];
 			delete response.delay;
 			callback(response);
-			own = true;
+			// own = true;
 		} else {
 			// This is an unsolicited event
 			//we are loosing here global application events.
@@ -259,34 +259,34 @@ function ConversationClient(params) {
 				self.application._handleEvent(response);
 		}
 		//keep requests count for stats
-		if (self.stats) {
-			if (!(response.type in self.stats.runtime.request_types)) {
-				if (own) {
-					self.stats.runtime.request_types[response.type] = {
-						out: 1,
-						in: 0,
-						delay: response.delay ? response.delay : 0
-					};
-				} else {
-					self.stats.runtime.request_types[response.type] = {
-						out: 0,
-						in: 1,
-						delay: response.delay ? response.delay : 0
-					};
-				}
-			} else {
-				if (own) {
-					self.stats.runtime.request_types[response.type].in++;
-					if (response.delay)
-						self.stats.runtime.request_types[response.type].delay = response.delay;
-				} else {
-					self.stats.runtime.request_types[response.type].out++;
-					if (response.delay)
-						self.stats.runtime.request_types[response.type].delay = response.delay;
-				}
-			}
-			self.stats.runtime.pending_requests = Object.keys(self.requests).length;
-		}
+		// if (self.stats) {
+		// 	if (!(response.type in self.stats.runtime.request_types)) {
+		// 		if (own) {
+		// 			self.stats.runtime.request_types[response.type] = {
+		// 				out: 1,
+		// 				in: 0,
+		// 				delay: response.delay ? response.delay : 0
+		// 			};
+		// 		} else {
+		// 			self.stats.runtime.request_types[response.type] = {
+		// 				out: 0,
+		// 				in: 1,
+		// 				delay: response.delay ? response.delay : 0
+		// 			};
+		// 		}
+		// 	} else {
+		// 		if (own) {
+		// 			self.stats.runtime.request_types[response.type].in++;
+		// 			if (response.delay)
+		// 				self.stats.runtime.request_types[response.type].delay = response.delay;
+		// 		} else {
+		// 			self.stats.runtime.request_types[response.type].out++;
+		// 			if (response.delay)
+		// 				self.stats.runtime.request_types[response.type].delay = response.delay;
+		// 		}
+		// 	}
+		// 	self.stats.runtime.pending_requests = Object.keys(self.requests).length;
+		// }
 
 
 	});
@@ -513,7 +513,9 @@ ConversationClient.prototype.sendRequest = function(request, callback) {
 	request.tid = utils.allocateUUID();
 	var type = request.type;
 	delete request.type;
-
+	if (!self.cache) {
+		return;
+	}
 	self.cache.process_cache(type, request, callback, self).then(function(processed_response) {
 		if (processed_response) {
 			callback(processed_response);
@@ -546,19 +548,19 @@ ConversationClient.prototype.login = function(token) {
 	// return a promise for the application
 	var p = new Promise(function(resolve, reject) {
 		//make sure the token gets removed from localstorage until we work the retry mechanism
-		if (typeof (Storage) !== "undefined") {
+		if (typeof(Storage) !== "undefined") {
 			localStorage.removeItem("NXMO_user_data");
 		}
 		self.sendRequest({
-			type: 'session:login',
-			body: {
-				token: token,
-				SDK_version: self.config.SDK_version,
-				//device_id: //can use https://github.com/Valve/fingerprintjs2,
-				OS_family: 'js',
-				OS_revision: (typeof navigator !== "undefined") ? navigator.userAgent : (typeof window !== "undefined") ? window.navigator.userAgent : "Generic JS navigator"
-			}
-		},
+				type: 'session:login',
+				body: {
+					token: token,
+					SDK_version: self.config.SDK_version,
+					//device_id: //can use https://github.com/Valve/fingerprintjs2,
+					OS_family: 'js',
+					OS_revision: (typeof navigator !== "undefined") ? navigator.userAgent : (typeof window !== "undefined") ? window.navigator.userAgent : "Generic JS navigator"
+				}
+			},
 
 			function(response) {
 				if (response.type === "session:success") {
@@ -581,15 +583,11 @@ ConversationClient.prototype.login = function(token) {
 							if (typeof Bugsnag !== "undefined") {
 
 								Bugsnag.user = {
-									id: application.me.id,
+									id: application.me.id
 								};
 							}
 						}, function(reason) {
-							// ToDo -- Untested
 							reject(new NexmoApiError(reason));
-							if (typeof Bugsnag !== "undefined") {
-								Bugsnag.notifyException(Error(reason));
-							}
 						});
 				} else {
 					reject(new NexmoApiError(response));
@@ -597,7 +595,8 @@ ConversationClient.prototype.login = function(token) {
 						self.cache.worker.terminate();
 					}
 				}
-			});
+			}
+		);
 
 	});
 	return p;
@@ -626,14 +625,14 @@ ConversationClient.prototype.logout = function() {
 						self.application.conversations[conversation_id].releaseGroup(conversation_id);
 					}
 				}
-				self.app = null;
-				self.cache = new RTC_Cache(self);
+				delete self.app;
+				delete self.cache;
 				self.callbacks = {};
 				//self.connection is safe to stay
 				//self.log is safe to stay
 				self.requests = {};
 				delete self.sessionReady;
-				self.stats = new RTC_Stats();
+				// self.stats = new RTC_Stats();
 
 				resolve(response);
 			} else {
@@ -672,13 +671,13 @@ module.exports = ConversationClient;</code></pre>
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="Member.html">Member</a></li><li><a href="Text.html">Text</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ConversationClientErrorTypes">ConversationClientErrorTypes</a></li><li><a href="global.html#me">me</a></li><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li><li><a href="global.html#NexmoClientErrorTypes">NexmoClientErrorTypes</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="Member.html">Member</a></li><li><a href="Text.html">Text</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ConversationClientErrorTypes">ConversationClientErrorTypes</a></li><li><a href="global.html#me">me</a></li><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li><li><a href="global.html#NexmoClientErrorTypes">NexmoClientErrorTypes</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Tue Jul 25 2017 21:32:58 GMT+0300 (EEST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Thu Sep 21 2017 17:44:00 GMT+0100 (BST)
 </footer>
 
 <script> prettyPrint(); </script>

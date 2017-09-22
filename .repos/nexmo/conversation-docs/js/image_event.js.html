@@ -143,33 +143,33 @@ ImageEvent.prototype.delivered = function() {
 };
 
 
-ImageEvent.prototype.edit = function(image) {
-    var self = this;
-    var p = new Promise(function(resolve, reject) {
-        var params = {
-            replaces_id: self.id,
-            image: image
-        };
-        self.conversation.application.session.sendRequest({
-            type: 'image',
-            from: self.conversation.me.id,
-            cid: self.conversation.id,
-            body: params
-        }, function(response) {
-            if (response.type === 'image:success') {
-                resolve();
-            } else {
-                reject(new NexmoApiError(response));
-            }
-        });
-    });
-};
+// ImageEvent.prototype.edit = function(image) {
+//     var self = this;
+//     var p = new Promise(function(resolve, reject) {
+//         var params = {
+//             replaces_id: self.id,
+//             image: image
+//         };
+//         self.conversation.application.session.sendRequest({
+//             type: 'image',
+//             from: self.conversation.me.id,
+//             cid: self.conversation.id,
+//             body: params
+//         }, function(response) {
+//             if (response.type === 'image:success') {
+//                 resolve();
+//             } else {
+//                 reject(new NexmoApiError(response));
+//             }
+//         });
+//     });
+// };
 
 ImageEvent.prototype._handleEvent = function(event) {
     var self = this;
     switch (event.type) {
         default: self.emit(event.type, event.body);
-            break;
+        break;
     }
 };
 /**
@@ -233,7 +233,6 @@ ImageEvent.prototype.del = function(event_id) {
 ImageEvent.prototype.fetchImage = function(type, representations) {
     type = type || "thumbnail";
     representations = representations || this.body.representations;
-    var self = this;
     var p = new Promise(function(resolve, reject) {
         if (!localStorage.getItem("NXMO_user_data")) {
             reject(new NexmoClientError("user:error:relogin"));
@@ -287,13 +286,13 @@ module.exports = {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="Member.html">Member</a></li><li><a href="Text.html">Text</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ConversationClientErrorTypes">ConversationClientErrorTypes</a></li><li><a href="global.html#me">me</a></li><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li><li><a href="global.html#NexmoClientErrorTypes">NexmoClientErrorTypes</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="Member.html">Member</a></li><li><a href="Text.html">Text</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ConversationClientErrorTypes">ConversationClientErrorTypes</a></li><li><a href="global.html#me">me</a></li><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li><li><a href="global.html#NexmoClientErrorTypes">NexmoClientErrorTypes</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Tue Jul 25 2017 21:32:58 GMT+0300 (EEST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Thu Sep 21 2017 17:44:00 GMT+0100 (BST)
 </footer>
 
 <script> prettyPrint(); </script>
