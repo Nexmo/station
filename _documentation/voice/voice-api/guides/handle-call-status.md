@@ -11,7 +11,7 @@ The event webhook is defined in the following:
 
 * Application configuration - [`POST /applications`](/api/application#create) - the default event webhook endpoint for all Calls and Conversations that use this application
 * A Call request - [`POST /calls`](/api/voice#payload) - the event webhook endpoint used for a particular Call
-* A [connect](/voice/guides/ncco-reference#connect) NCCO action - when you use the connect NCCO action to connect a voice call to an endpoint
+* A [connect](/voice/guides/ncco-reference#connect) NCCO action - when you use the `connect` NCCO action to connect a voice call to an endpoint
 
 A call can be initiated via a request to [`POST /calls`](/api/voice#payload). The response from this request contains initial information about the call.
 
