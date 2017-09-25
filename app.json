@@ -13,6 +13,10 @@
       }
     }
   },
+  "buildpacks": [
+    { "url": "heroku/nodejs" },
+    { "url": "heroku/ruby" }
+  ],
   "env": {
     "ALGOLIA_API_KEY": { "required": true },
     "ALGOLIA_APPLICATION_ID": { "required": true },
