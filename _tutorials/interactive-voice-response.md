@@ -213,7 +213,7 @@ protected function promptSearch()
 }
 ```
 
-You use the `eventUrl` option in your NCCO to send the input to a particular `Action`. This is essentially the same thing you do with the `action` property of a HTML `<form>`. This is where the `$config` array and the base URL are used.
+The `eventUrl` option in your NCCO is used to send the input to a particular `Action`. This is essentially the same thing you do with the `action` property of a HTML `<form>`. This is where the `$config` array and the base URL are used.
 
 A few other `input` specific properties are used. `timeOut` gives the user more time to enter the order number and `submitOnHash` lets them avoid waiting by ending their order ID with the pound sign.
 
