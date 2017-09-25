@@ -21,3 +21,14 @@ Title | Link
 -- | --
 Call API | <https://docs.nexmo.com/voice/voice-deprecated/call>
 VoiceXML Quickstarts | <https://docs.nexmo.com/voice/voice-deprecated/VoiceXML>
+
+## Deprecated Verify products
+
+> Note: These are deprecated SDKs, you should use the [Verify API](/verify) instead.
+
+Title | Link
+--|--
+Verify SDK for iOS | <https://docs.nexmo.com/verify/verify-sdk-for-iOS>
+Verify SDK for Android | <https://docs.nexmo.com/verify/verify-sdk-for-android>
+Verify SDK for JavaScript | <https://docs.nexmo.com/verify/verify-sdk-for-javascript>
+
