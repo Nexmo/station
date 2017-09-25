@@ -17,7 +17,7 @@ This tutorial is based on the [Private Voice Communication](https://www.nexmo.co
 You see how to build an Voice proxy for private communication system using [Nexmo CLI](https://github.com/nexmo/nexmo-cli) and [Nexmo Node.JS](https://github.com/Nexmo/nexmo-node)
 
 * [Create a Voice application](#create-a-voice-application) - create and configure an application using [Nexmo CLI](https://github.com/nexmo/nexmo-cli), then configure the webhook endpoints to provide NCCOs and handle changes in Call status
-* [Provision virtual numbers](#provision-virtual-voice-numbers) - rent and configure the voice enabled virtual numbers you use to mask real numbers
+* [Provision virtual numbers](#provision-virtual-voice-numbers) - rent and configure the voice enabled virtual numbers to mask real numbers
 * [Create a Call](#create-a-call) - create a Call between two users, validate their phone numbers and determine the country the phone number is registered in using Number Insight
 * [Handle inbound calls](#handle-inbound-calls) - configure your webhook endpoint to handle incoming voice calls, find the phone number it is associated with and return the NCCO to control the Call
 * [Proxy the Call](#proxy-the-call) - instruct Nexmo to make a private Call to a phone number
@@ -71,9 +71,9 @@ If you're developing behind a firewall or a NAT, use [ngrok](https://ngrok.com/)
 
 ## Provision virtual numbers
 
-You use virtual numbers to hide real phone numbers from your application users.
+Virtual numbers are used to hide real phone numbers from your application users.
 
-The workflow to provision and configure a virtual number is:
+The workflow diagram below shows the process for provisioning and configuring a virtual number.
 
 ```js_sequence_diagram
 Participant App

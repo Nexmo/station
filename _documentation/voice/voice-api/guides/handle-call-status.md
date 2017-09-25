@@ -24,7 +24,7 @@ A call can be initiated via a request to [`POST /calls`](/api/voice#payload). Th
 }
 ```
 
-Further status changes for the Call are sent to your `event_url` webhook endpoint. Each leg of a Call has a different `uuid`. You use the `uuid` in all [`/calls`](/api/voice#payload) requests that alter or retrieve information about a Call.
+Further status changes for the Call are sent to your `event_url` webhook endpoint. Each leg of a Call has a different `uuid`. The `uuid` is used in all [`/calls`](/api/voice#payload) requests that alter or retrieve information about a Call.
 
 If you [record](/voice/guides/record-calls-and-conversations) your Calls and Conversations, the download URL for the mp3 recording is sent to your event webhook endpoint when `status` is `complete`.
 
