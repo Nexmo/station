@@ -112,7 +112,7 @@ Requests to the Number Insight Basic API are free. See the [API reference](/api/
 
 ## Calculate the cost
 
-You use a phone number in international format to find out more about the products supplied by Nexmo for that phone number.
+Using a phone number in international format, you can use the [Number Insight](/api/number-insight) and [Pricing](/api/developer/pricing) APIs find out what you can do with the number.
 
 To make a request to the Developer API and retrieve the cost of making a voice call or sending an SMS:
 
