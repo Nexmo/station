@@ -1,14 +1,4 @@
 GIT
-  remote: https://github.com/adambutler/webpacker.git
-  revision: 00b55e249dc39a7d646f81a5c5fc028da4ac85a8
-  branch: fix/node_modules
-  specs:
-    webpacker (3.0.1)
-      activesupport (>= 4.2)
-      rack-proxy (>= 0.6.1)
-      railties (>= 4.2)
-
-GIT
   remote: https://github.com/brandonweiss/git-hookshot.git
   revision: 10f4b35497fd1391b94baa77e4c986d2415f3d29
   specs:
@@ -376,6 +366,10 @@ GEM
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
+    webpacker (3.0.1)
+      activesupport (>= 4.2)
+      rack-proxy (>= 0.6.1)
+      railties (>= 4.2)
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
@@ -429,7 +423,7 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
-  webpacker!
+  webpacker (~> 3.0)
 
 RUBY VERSION
    ruby 2.4.1p111

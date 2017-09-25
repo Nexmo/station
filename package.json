@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@rails/webpacker": "https://github.com/adambutler/webpacker.git#fix/node_modules",
+    "@rails/webpacker": "^3.0.1",
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.25.0",
     "babel-loader": "7.x",

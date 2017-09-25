@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@rails/webpacker@https://github.com/adambutler/webpacker.git#fix/node_modules":
+"@rails/webpacker@^3.0.1":
   version "3.0.1"
-  resolved "https://github.com/adambutler/webpacker.git#00b55e249dc39a7d646f81a5c5fc028da4ac85a8"
+  resolved "https://registry.yarnpkg.com/@rails/webpacker/-/webpacker-3.0.1.tgz#54da0c2a0d2b7c482cd4eb2eca73beb28150c45d"
   dependencies:
     babel-core "^6.26.0"
     babel-loader "^7.1.2"
