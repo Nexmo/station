@@ -1,16 +1,16 @@
 ---
 title: Fraud scoring and phone number verification
 products: number-insight
-description: While it would be easy to confirm a phone number with Nexmo Verify every time a user provides you with their number this is hardly always necessary. By combining Nexmo Verify with Nexmo Number Insight, and applying your own fraud scoring logic, it is extremely easy to build your own fraud detection system.
+description: While it would be easy to confirm a phone number with Nexmo Verify every time a user provides you with their number this is hardly always necessary. By combining Nexmo Verify with Nexmo Number Insight, and applying your own fraud scoring logic, it is easy to build your own fraud detection system.
 ---
 
 # Fraud scoring and phone number verification
 
-While it would be easy to confirm a phone number with Nexmo Verify every time a user provides you with their number this is hardly always necessary. By combining Nexmo Verify with Nexmo Number Insight, and applying your own fraud scoring logic, it is extremely easy to build your own fraud detection system.
+While it would be easy to confirm a phone number with Nexmo Verify every time a user provides you with their number this is not always necessary. By combining Nexmo Verify with Nexmo Number Insight, and applying your own fraud scoring logic, it is easy to build your own fraud detection system.
 
 ## In this tutorial
 
-You see how to build a number verification system using Nexmo APIs and libraries. For this tutorial the fraud rating logic extracts the user's current country from their IP and request their phone's current (roaming) country. The number is flagged as potentially fraudulent if the user's phone number location and IP location don't match.  
+By following this tutorial, you can see how to build a number verification system using Nexmo APIs and libraries. For this tutorial, the fraud rating logic extracts the user's current country from their IP and request their phone's current (roaming) country. The number is flagged as potentially fraudulent if the user's phone number location and IP location don't match.
 
 To do this:
 
