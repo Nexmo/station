@@ -104,7 +104,6 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rawler', git: 'https://github.com/oscardelben/rawler.git', require: false
   gem 'rspec-rails', '~> 3.5'
-  gem 'foreman'
   gem 'pry'
   gem 'awesome_print'
 end
