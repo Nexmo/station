@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170908153555) do
+ActiveRecord::Schema.define(version: 20170921121218) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,30 +21,12 @@ ActiveRecord::Schema.define(version: 20170908153555) do
     t.string "namespace"
     t.text "body"
     t.string "resource_type"
-    t.bigint "resource_id"
+    t.uuid "resource_id"
     t.string "author_type"
-    t.bigint "author_id"
+    t.uuid "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
     t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
-    t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
-  end
-
-  create_table "comments", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.integer "commentable_id"
-    t.string "commentable_type"
-    t.string "title"
-    t.text "body"
-    t.string "subject"
-    t.integer "user_id", null: false
-    t.integer "parent_id"
-    t.integer "lft"
-    t.integer "rgt"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type"
-    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "events", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
@@ -75,8 +57,16 @@ ActiveRecord::Schema.define(version: 20170908153555) do
     t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "code_language"
+    t.boolean "code_language_selected_whilst_on_page"
+    t.boolean "code_language_set_by_url"
+    t.boolean "resolved", default: false, null: false
+    t.index ["code_language"], name: "index_feedback_feedbacks_on_code_language"
+    t.index ["code_language_selected_whilst_on_page"], name: "index_feedbacks_on_code_language_selected_whilst_on_page"
+    t.index ["code_language_set_by_url"], name: "index_feedbacks_on_code_language_set_by_url"
     t.index ["ip"], name: "index_feedback_feedbacks_on_ip"
     t.index ["owner_id", "owner_type"], name: "index_feedback_feedbacks_on_owner_id_and_owner_type"
+    t.index ["resolved"], name: "index_feedback_feedbacks_on_resolved"
     t.index ["resource_id"], name: "index_feedback_feedbacks_on_resource_id"
     t.index ["sentiment"], name: "index_feedback_feedbacks_on_sentiment"
   end
@@ -99,17 +89,22 @@ ActiveRecord::Schema.define(version: 20170908153555) do
   end
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.string "email", null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
     t.boolean "admin", default: false, null: false
-    t.string "crypted_password"
-    t.string "salt"
-    t.string "remember_me_token"
-    t.datetime "remember_me_token_expires_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["admin"], name: "index_users_on_admin"
-    t.index ["email"], name: "index_users_on_email"
-    t.index ["remember_me_token"], name: "index_users_on_remember_me_token"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end

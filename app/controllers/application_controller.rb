@@ -28,6 +28,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def authenticate_admin!
+    return redirect_to new_user_session_path unless user_signed_in?
+    redirect_to root_path unless current_user.admin?
+  end
+
   private
 
   def requires_authentication?
@@ -57,10 +62,9 @@ class ApplicationController < ActionController::Base
   end
 
   def set_canonical_url
-    if params[:code_language]
-      @canonical_url = request.path.gsub("/#{params[:code_language]}", '')
-      @canonical_url.prepend(request.base_url)
-    end
+    @show_canonical_meta = params[:code_language].present?
+    @canonical_url = request.path.chomp("/#{params[:code_language]}")
+    @canonical_url.prepend(request.base_url)
   end
 
   def set_feedback_author

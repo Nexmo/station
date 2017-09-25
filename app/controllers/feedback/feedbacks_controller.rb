@@ -7,6 +7,8 @@ module Feedback
       @feedback = ::Feedback::Feedback.find_by_id(params['feedback_feedback']['id'])
       @feedback ||= ::Feedback::Feedback.new
 
+      validate_recapcha
+
       @feedback.assign_attributes(feedback_params)
       @feedback.ip = request.remote_ip
 
@@ -17,7 +19,7 @@ module Feedback
 
       return head 200 unless @feedback.changed?
 
-       if @feedback.save
+      if @feedback.save
         respond_to do |format|
           format.js
         end
@@ -28,6 +30,20 @@ module Feedback
 
     private
 
+    def validate_recapcha
+      return unless ENV['RECAPTCHA_ENABLED']
+      return if session[:user_passed_invisible_captcha]
+      return if @feedback.persisted?
+
+      Recaptcha.with_configuration({ site_key: ENV['RECAPTCHA_INVISIBLE_SITE_KEY'], secret_key: ENV['RECAPTCHA_INVISIBLE_SECRET_KEY'] }) do
+        if verify_recaptcha
+          session[:user_passed_invisible_captcha] = true
+        else
+          redirect_to request.referrer, notice: 'Are you a robot? It looks like you failed our reCAPTCHA. Try again.'
+        end
+      end
+    end
+
     def set_cookies
       return unless @feedback.owner.class == ::Feedback::Author
       cookies[:feedback_author_id] = {
@@ -37,7 +53,14 @@ module Feedback
     end
 
     def feedback_params
-      params.require(:feedback_feedback).permit(:sentiment, :comment, :source)
+      params.require(:feedback_feedback).permit(
+        :sentiment,
+        :comment,
+        :source,
+        :code_language,
+        :code_language_set_by_url,
+        :code_language_selected_whilst_on_page,
+      )
     end
 
     def should_use_cookied_author?(author)
