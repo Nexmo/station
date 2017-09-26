@@ -26,26 +26,31 @@ class SearchTerms
         description = frontmatter['description']
 
         body_html = MarkdownPipeline.new.call(document)
-        body = Nokogiri::HTML(body_html).text
 
-        document_path = Pathname.new(document_path)
-        relative_path = "#{config[:base_url_path]}/#{document_path.relative_path_from(config[:origin])}".gsub('.md', '')
+        Nokogiri::HTML(body_html).split_html.map do |section_html|
+          body = section_html.text
 
-        product = relative_path.split('/')[1]
+          document_path = Pathname.new(document_path)
+          relative_path = "#{config[:base_url_path]}/#{document_path.relative_path_from(config[:origin])}".gsub('.md', '')
 
-        if product == 'messaging'
-          product = "#{relative_path.split('/')[1]} > #{relative_path.split('/')[2]}"
+          product = relative_path.split('/')[1]
+
+          if product == 'messaging'
+            product = "#{relative_path.split('/')[1]} > #{relative_path.split('/')[2]}"
+          end
+
+          {
+            title: title,
+            heading: section_html.css('body').children[0].text.strip,
+            anchor: section_html.css('body').children[0].text.parameterize,
+            description: description,
+            document_class: document_class,
+            path: relative_path,
+            document_path: document_path,
+            body: body,
+            product: product,
+          }
         end
-
-        {
-          title: title,
-          description: description,
-          document_class: document_class,
-          path: relative_path,
-          document_path: document_path,
-          body: body,
-          product: product,
-        }
       end
     end
     ).flatten

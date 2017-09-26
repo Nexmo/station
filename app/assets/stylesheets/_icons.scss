@@ -1,3 +1,8 @@
+$icon-account: "\e904";
+$icon-voice: "\e905";
+$icon-verify: "\e906";
+$icon-sms: "\e907";
+$icon-number-insight: "\e908";
 $icon-swagger: "\e902";
 $icon-swagger-o: "\e903";
 $icon-community: "\e901";
@@ -11,8 +16,8 @@ $icon-gear: "\f013";
 $icon-book: "\f02d";
 $icon-times-circle: "\f057";
 $icon-check-circle: "\f058";
-$icon-eye: "\f06e";
-$icon-key: "\f084";
+$icon-thumbs-o-up: "\f087";
+$icon-thumbs-o-down: "\f088";
 $icon-external-link: "\f08e";
 $icon-twitter: "\f099";
 $icon-github: "\f09b";
@@ -20,17 +25,14 @@ $icon-chain: "\f0c1";
 $icon-link: "\f0c1";
 $icon-cloud: "\f0c2";
 $icon-linkedin: "\f0e1";
-$icon-comments-o: "\f0e6";
 $icon-angle-left: "\f104";
 $icon-angle-right: "\f105";
 $icon-spinner: "\f110";
 $icon-code: "\f121";
 $icon-code-fork: "\f126";
-$icon-microphone: "\f130";
 $icon-chevron-circle-right: "\f138";
 $icon-stack-overflow: "\f16c";
 $icon-slack: "\f198";
-$icon-id-badge: "\f2c1";
 
 @font-face {
   font-family: 'icomoon';
@@ -65,6 +67,31 @@ $icon-id-badge: "\f2c1";
   vertical-align: -15%;
 }
 
+.icon-account {
+  &:before {
+    content: $icon-account;
+  }
+}
+.icon-voice {
+  &:before {
+    content: $icon-voice;
+  }
+}
+.icon-verify {
+  &:before {
+    content: $icon-verify;
+  }
+}
+.icon-sms {
+  &:before {
+    content: $icon-sms;
+  }
+}
+.icon-number-insight {
+  &:before {
+    content: $icon-number-insight;
+  }
+}
 .icon-swagger {
   &:before {
     content: $icon-swagger;
@@ -130,14 +157,14 @@ $icon-id-badge: "\f2c1";
     content: $icon-check-circle;
   }
 }
-.icon-eye {
+.icon-thumbs-o-up {
   &:before {
-    content: $icon-eye;
+    content: $icon-thumbs-o-up;
   }
 }
-.icon-key {
+.icon-thumbs-o-down {
   &:before {
-    content: $icon-key;
+    content: $icon-thumbs-o-down;
   }
 }
 .icon-external-link {
@@ -175,11 +202,6 @@ $icon-id-badge: "\f2c1";
     content: $icon-linkedin;
   }
 }
-.icon-comments-o {
-  &:before {
-    content: $icon-comments-o;
-  }
-}
 .icon-angle-left {
   &:before {
     content: $icon-angle-left;
@@ -205,11 +227,6 @@ $icon-id-badge: "\f2c1";
     content: $icon-code-fork;
   }
 }
-.icon-microphone {
-  &:before {
-    content: $icon-microphone;
-  }
-}
 .icon-chevron-circle-right {
   &:before {
     content: $icon-chevron-circle-right;
@@ -223,10 +240,5 @@ $icon-id-badge: "\f2c1";
 .icon-slack {
   &:before {
     content: $icon-slack;
-  }
-}
-.icon-id-badge {
-  &:before {
-    content: $icon-id-badge;
   }
 }

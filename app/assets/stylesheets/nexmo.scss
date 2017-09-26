@@ -21,11 +21,17 @@ $stone-dark: #193c56;
 $gray-dark: #252A2D;
 $black: #1A1E20;
 
-$sms: #936FD2;
-$number-insight: #32BA86;
-$voice: #F88175;
+$sms: #40569F;
+$sms-light: #EFF3FE;
+$number-insight: #57AF7B;
+$number-insight-light: #F3FFF8;
+$voice: #E7883C;
+$voice-light: #FDF7F1;
 $chat: #CA579C;
-$verify: #6b85d2;
+$verify: #7C578D;
+$verify-light: #FCF8FF;
+$account: #D65E7C;
+$account-light: #FDF3F8;
 
 $primary: $pink;
 $link: $blue;
@@ -53,6 +59,8 @@ $border: 1px solid $border-color;
 
 $golden-ratio: 1.618;
 
+$font-family: 'Averta', sans-serif;
+
 @import "mixins";
 
 @import "core";
@@ -60,10 +68,12 @@ $golden-ratio: 1.618;
 @import "icons";
 @import "syntax";
 
+@import "objects/api-status";
 @import "objects/button";
 @import "objects/card";
 @import "objects/collapsible";
 @import "objects/content-block";
+@import "objects/feedback";
 @import "objects/focus";
 @import "objects/forms";
 @import "objects/github-cards";
@@ -82,6 +92,8 @@ $golden-ratio: 1.618;
 @import "layout/community";
 @import "layout/header";
 @import "layout/hero";
-@import "layout/feedback";
 @import "layout/footer";
+@import "layout/landing";
 @import "layout/search";
+
+@import "themes/ea";

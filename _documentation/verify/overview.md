@@ -18,10 +18,6 @@ By default, the PIN is first sent via text message (SMS). If there is no reply t
 
 TTS messages are read in the locale that matches the phone number. (For example, the TTS for a 61* phone number is sent using an Australian accent for the English language (`en-au`). You can explicitly control the language, accent and gender in TTS from the Verify Request.)
 
-Using the Verify API, the workflow to confirm that your user can be contacted at a specific phone number is:
-
-![Verify API Overview image](/assets/images/workflow_verify_api.svg)
-
 ## Concepts
 
 * **Authentication** - Nexmo Verify API is authenticated with your account API Key and Secret. For more information on see the [Authenticating](/api/verify) in the API documentation.

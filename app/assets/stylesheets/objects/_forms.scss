@@ -23,4 +23,8 @@ $border-form: 1px solid darken($mint, 15%);
 
 .g-recaptcha {
   margin: $spacing 0;
+
+  &--invisible {
+    margin: 0;
+  }
 }

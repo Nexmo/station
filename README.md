@@ -18,8 +18,10 @@ $ bundle install
 $ rake db:create
 $ rake db:migrate
 $ ./bin/yarn install
-$ foreman start
+$ rails s
 ```
+
+You should now be able to see the site on http://localhost:3000/
 
 ### Setting up with Docker
 
@@ -36,26 +38,10 @@ $ docker-compose run web rake db:setup
 $ open http://localhost:3000
 ```
 
-You will still need to run the webpack-dev-server on your local machine.
-
 To stop the server cleanly run:
 
 ```
 $ docker-compose down
-```
-
-### Compiling assets
-
-To compile assets in runtime simply start the webpack server with:
-
-```
-$ ./bin/webpack-dev-server
-```
-
-You can run both the Rails server and Webpack simultaneously using Foreman:
-
-```
-$ foreman start
 ```
 
 ### Features
@@ -107,13 +93,15 @@ This is because Docker wasn't shut down cleanly. To fix this run:
 $ docker-compose run web rm /myapp/tmp/pids/server.pid
 ```
 
-#### A webpack error occurs during setup
+#### I get an exception `PG::ConnectionBad - could not connect to server: Connection refused` when I try to run the app.
 
-Run the `webpack-dev-server` like so:
+This error indicates that PostgreSQL is not running. If you installed PostgreSQL using `brew` you can get information about how to start it by running:
 
 ```
-$ ./bin/webpack-dev-server
+$ brew info postgresql
 ```
+
+Once PostgreSQL is running you'll need to create and migrate the database. See [Setup](#Setup) for instructions.
 
 ## Contributing
 
@@ -121,6 +109,4 @@ Contributions are welcome, please follow [GitHub Flow](https://guides.github.com
 
 ## License
 
-See the `LICENSE.txt` file for full licenses. The code is licensed under the MIT License; documentation is licensed under both the MIT License and the Creative Commons Attribution 4.0 International license.
-
-Copyright &copy; 2017 Nexmo.
+The content of this project itself is licensed under the [Creative Commons Attribution 4.0 International license](https://creativecommons.org/licenses/by/4.0/), and the underlying source code used to format and display that content is licensed under the [MIT license](https://github.com/Nexmo/nexmo-developer/blob/master/LICENSE.txt).

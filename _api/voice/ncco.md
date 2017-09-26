@@ -132,18 +132,18 @@ Option | Description | Required
 `timeout` |  If the call is unanswered, set the number in seconds before Nexmo stops ringing `endpoint`. The default value is `60`.
 `limit` | Maximum length of the call in seconds. The default and maximum value is `7200` seconds (2 hours). | No
 `machineDetection` | Configure the behavior when Nexmo detects that a destination is an answerphone. Set to either: <ul markdown="1"><li>`continue` - Nexmo sends an HTTP request to `event_url` with the Call event `machine`</li><li>`hangup` - end the Call</li></ul>   |
-`eventUrl` | Set the webhook endpoint that Nexmo calls asynchronously on each of the possible [Call states](/api/voice#status). If `eventType` is set to `synchronous` the `eventUrl` can return an NCCO that overrides the current NCCO when a timeout occurs. | Yes
+`eventUrl` | Set the webhook endpoint that Nexmo calls asynchronously on each of the possible [Call states](/api/voice#status). If `eventType` is set to `synchronous` the `eventUrl` can return an NCCO that overrides the current NCCO when a timeout occurs. | No
 `eventMethod` | The HTTP method Nexmo uses to make the request to <i>eventUrl</i>. The default value is `POST`. | No
 
 ### Examples
 
 The following NCCO examples show how to configure different types of connection:
 
-* [Connect to a PSTN endpoint](#connect_pstn)
-* [Connect to a WebSocket endpoint](#connect_websocket)
-* [Connect with fallback NCCO](#connect_fallback)
-* [Connect to a SIP endpoint](#connect_sip)
-* [Recorded proxy call](#record_connect)
+* [Connect to a PSTN endpoint](#connect-to-a-pstn-endpoint)
+* [Connect to a WebSocket endpoint](#connect-to-a-websocket-endpoint)
+* [Connect with fallback NCCO](#connect-with-fallback-ncco)
+* [Connect to a SIP endpoint](#connect-to-a-sip-endpoint)
+* [Recorded proxy call](#recorded-proxy-call)
 
 #### Connect to a PSTN endpoint
 
@@ -295,7 +295,7 @@ You use the following options to control a *talk* action:
 </thead>
 <tbody>
 <tr><td>text</td><td>A string of up to 1500 characters containing the message to be synthesized in the Call or Conversation. Each comma in <i>text</i> adds a short pause to the synthesized speech.</td><td>Yes</td></tr>
-<tr><td>bargeIn</td><td>Set to <i>true</i> so this action is terminated when the user presses a button on the keypad. Use this feature to enable users to choose an option without having to listen to the whole message in your [Interactive Voice Response (IVR](/voice/guides/interactive-voice-response) ). If you set <i>bargeIn</i> to <i>true</i> the next action in the NCCO stack <b>must</b> be an <i>input</i> action. The default value is <i>false</i>.</td><td>No</td></tr>
+<tr><td>bargeIn</td><td>Set to <i>true</i> so this action is terminated when the user presses a button on the keypad. Use this feature to enable users to choose an option without having to listen to the whole message in your <a href="/voice/voice-api/guides/interactive-voice-response">Interactive Voice Response (IVR)</a>. If you set <i>bargeIn</i> to <i>true</i> the next action in the NCCO stack <b>must</b> be an <i>input</i> action. The default value is <i>false</i>.</td><td>No</td></tr>
 <tr><td>loop</td><td>The number of times <i>text</i> is repeated before the Call is closed. The default value is 1. Set to 0 to loop infinitely.</td><td>No</td></tr>
 <tr><td>voiceName</td><td>The name of the voice used to deliver <i>text</i>. You use the voiceName that has the correct language, gender and accent for the message you are sending. For example, the default voice <i>kimberly</i> is a female who speaks English with an American accent (en-US). Possible values are listed below.</td><td>No</td></tr>
 </tbody>

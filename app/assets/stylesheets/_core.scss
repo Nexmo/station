@@ -17,8 +17,18 @@ body {
 
 .wrapper {
   flex: 1;
+  transition: filter 400ms ease-in-out;
+
   &--tint {
     background: $ice;
+  }
+
+  &--blur {
+    filter: blur(3px);
+
+    @include mobile {
+      filter: none;
+    }
   }
 }
 
@@ -116,6 +126,8 @@ hr {
 }
 
 .spinner {
+  width: 100%;
+  margin: $spacing*2 0;
   text-align: center;
   animation: spin 1.2s infinite ease-in-out;
   i {
@@ -126,4 +138,12 @@ hr {
 
 .flex {
   display: flex;
+}
+
+.hide {
+  display: none;
+}
+
+.grecaptcha-badge {
+  display: none;
 }

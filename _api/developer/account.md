@@ -1,10 +1,10 @@
 ---
-title: API reference
+title: Developer - Account API Reference
 description: Reference guide for the Account API.
 api: Developer API
 ---
 
-# API Reference
+# Developer - Account API Reference
 
 ## Account
 
@@ -98,7 +98,6 @@ The following shows the parameters you use in the request:
 
 Parameter | Description | Required
 -- | -- | --
-`newSecret` | Your new API secret. Your API Secret must be an 8 - 25 character long Alphanumeric with at least one number, lower & upper case character. |  No
 `moCallBackUrl` | An URL encoded URI to the webhook endpoint endpoint that handles inbound messages. Your webhook endpoint must be active before you make this request, Nexmo makes a [GET] request to your endpoint and checks that it returns a `200 OK` response. Set to empty string to clear. | No
 `drCallBackUrl` | An URL encoded URI to the webhook endpoint endpoint that handles delivery receipts (DLR). Your webhook endpoint must be active before you make this request, Nexmo makes a [GET] request to your endpoint and checks that it returns a `200 OK` response. Set to empty string to clear. | No
 

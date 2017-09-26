@@ -1,15 +1,15 @@
 ---
-title: API reference
+title: Alerts - Subscribing API Reference
 description: Reference guide for the Campaign Subscription Management.
 api: Alerts API - Subscribing
 ---
 
-# API reference
+# Alerts - Subscribing API Reference
 
 This defines the API for Campaign Subscription Management:
 
-* [request](#request) - request the list of phone numbers opted out from your campaign, or remove a phone number from the list
-* [response](#response) - the list of opted out phone numbers or confirmation that the number has been removed.
+* [Request](#request) - request the list of phone numbers opted out from your campaign, or remove a phone number from the list
+* [Response](#response) - the list of opted out phone numbers or confirmation that the number has been removed.
 
 
 ## Request

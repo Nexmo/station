@@ -1,9 +1,9 @@
 ---
-title: API Reference
+title: SMS API Reference
 api: SMS
 ---
 
-# API Reference
+# SMS API Reference
 
 ## Send an SMS
 

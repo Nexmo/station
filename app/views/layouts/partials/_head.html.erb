@@ -29,13 +29,22 @@
     </script>
   <% end %>
 
-  <% if @canonical_url %>
+  <% if ENV['GOOGLE_TAG_MANAGER_ID'] %>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','<%= ENV['GOOGLE_TAG_MANAGER_ID'] %>');</script>
+  <% end %>
+
+  <% if @show_canonical_meta %>
     <link rel="canonical" href="<%= @canonical_url %>">
   <% end %>
 
   <%= stylesheet_link_tag "application" %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'application', defer: true %>
+  <%= javascript_include_tag 'https://www.google.com/recaptcha/api.js', async: true, defer: true %>
 
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -64,6 +73,10 @@
 
   <meta name="basic_auth_username" content="<%= ENV['USERNAME'] %>" />
   <meta name="basic_auth_password" content="<%= ENV['PASSWORD'] %>" />
+  <meta name="search_url" content="<%= ENV['SEARCH_URL'] %>" />
+  <meta name="environment" content="<%= Rails.env %>" />
+
+  <meta name="copyright" content="<%= Time.current.year %> Nexmo, The Vonage API Platform" />
 
   <%= csrf_meta_tags %>
 </head>

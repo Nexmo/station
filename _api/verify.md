@@ -1,10 +1,10 @@
 ---
-title: API reference
+title: Verify API Reference
 description: Reference guide for the Verify API.
 api: Verify
 ---
 
-# API reference
+# Verify API Reference
 
 You use Verify API to Verify that a phone number is valid, reachable, and accessible by your user. You can customise the message used during verification.
 
@@ -93,14 +93,14 @@ Status&nbsp;code | Text | Description
 5 | Internal Error | An error occurred processing this request in the Cloud Communications Platform.
 6 | The Nexmo platform was unable to process this message for the following reason: $reason | The request could not be routed.
 7 | The number you are trying to verify is blacklisted for verification |
-8 | The api_key you supplied is for an account that has been barred from submitting messages | 
+8 | The api_key you supplied is for an account that has been barred from submitting messages |
 9 | Partner quota exceeded | Your account does not have sufficient credit to process this request.
-10 | Concurrent verifications to the same number are not allowed | 
+10 | Concurrent verifications to the same number are not allowed |
 15 | The destination number is not in a supported network | The request has been rejected.
-16 | The code inserted does not match the expected value | 
+16 | The code inserted does not match the expected value |
 17 | The wrong code was provided too many times | You can run Verify Check on a `request_id` up to three times unless a new PIN code is generated. If you check a request more than 3 times, it is set to FAILED and you cannot check it again.
 18 | Too many request_ids provided | You added more than the maximum of 10 `request_id`s to your request.
-19 | No more events are left to execute for the request | 
+19 | No more events are left to execute for the request |
 101 | No request found | There are no matching Verify requests.
 
 
@@ -259,7 +259,7 @@ Key | Value
 -- | --
 `request_id` | The [request_id](#keys-and-values) you received in the Verify Request [Response](#rresponse) and used in the Verify Search [request](#srequest).
 `account_id` | The Account ID the request was for.
-`status` | The status of the Verify Request. Possible values are: <ul><li>`IN PROGRESS` - still in progress.</li><li>`SUCCESSFUL` - your user entered the PIN correctly.</li><li>`FAILED` - user entered the wrong pin more than 3 times.</li><li>`EXPIRED` - no PIN entered during the [pin_expiry](#keys-and-values) time.</li><li>`CANCELLED` - the request was cancelled using Verify Control</li><li>101 - the [request_id](#keys-and-values) you set in the Verify Search [request](#srequest) is invalid.</li><ul>
+`status` | The status of the Verify Request. Possible values are: <ul><li>`IN PROGRESS` - still in progress.</li><li>`SUCCESS` - your user entered the PIN correctly.</li><li>`FAILED` - user entered the wrong pin more than 3 times.</li><li>`EXPIRED` - no PIN entered during the [pin_expiry](#keys-and-values) time.</li><li>`CANCELLED` - the request was cancelled using Verify Control</li><li>101 - the [request_id](#keys-and-values) you set in the Verify Search [request](#srequest) is invalid.</li><ul>
 `number` | The phone number this *Verify Request* was made for.</td>
 `price` | The price charged for this *Verify Request*.
 `currency` | The currency code.</td>
@@ -269,7 +269,7 @@ Key | Value
 `first_event_date` | Time first attempt was made. This response parameter  is in the following format YYYY-MM-DD HH:MM:SS. For example, *2012-04-05 09:22:57*.</td>
 `last_event_date` | Time last attempt was made. This response parameter  is in the following format YYYY-MM-DD HH:MM:SS. For example, *2012-04-05 09:22:57*.</td>
 `checks` | The list of checks made for this verification and their outcomes. Possible values are:<ul><li>date_received - in YYYY-MM-DD HH:MM:SS format</li><li>code</li><li>status - possible values are: <ul><li>VALID</li><li>INVALID</li></ul></li><li>ip_address</li></ul>
-error_text | If *status* is not *SUCCESSFUL*, this message explains the issue.
+error_text | If *status* is not *SUCCESS*, this message explains the issue.
 
 ## Verify Control
 
@@ -359,4 +359,7 @@ Code    | Language | Available genders
 `ru-ru` | Russian, Russian | female
 `sv-se` | Swedish, Sweden | female
 `tr-tr` | Turkish, Turkish | female
-`zh-cn` | Chinese (Mandarin), Chinese | female / male
+`zh-cn` | Chinese (Mandarin), Simplified Chinese | female / male
+`zh-tw` | Chinese, Traditional | text only - see note below
+
+If you request Taiwanese (`zh-tw`), the text message will be sent in Traditional Chinese, but the voice call uses a female voice speaking English with a Chinese accent.
