@@ -8,7 +8,7 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.2'
-gem 'webpacker', '~> 2.0'
+gem 'webpacker', '~> 3.0'
 
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
@@ -104,7 +104,6 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rawler', git: 'https://github.com/oscardelben/rawler.git', require: false
   gem 'rspec-rails', '~> 3.5'
-  gem 'foreman'
   gem 'pry'
   gem 'awesome_print'
 end

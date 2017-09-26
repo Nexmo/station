@@ -18,12 +18,10 @@ $ bundle install
 $ rake db:create
 $ rake db:migrate
 $ ./bin/yarn install
-$ foreman start
+$ rails s
 ```
 
-> Note: This will start `rails` on port `5000` and `webpack-dev-server` on `8080`
-
-You should now be able to see the site on http://localhost:5000/
+You should now be able to see the site on http://localhost:3000/
 
 ### Setting up with Docker
 
@@ -40,27 +38,10 @@ $ docker-compose run web rake db:setup
 $ open http://localhost:3000
 ```
 
-You will still need to run the webpack-dev-server on your local machine.
-
 To stop the server cleanly run:
 
 ```
 $ docker-compose down
-```
-
-### Compiling assets
-
-To compile assets in runtime simply start the webpack server with:
-
-```
-$ ./bin/webpack-dev-server
-```
-
-You can run both the Rails server and Webpack simultaneously using Foreman:
-
-```
-$ foreman start
-$ open http://localhost:5000
 ```
 
 ### Features
@@ -110,38 +91,6 @@ This is because Docker wasn't shut down cleanly. To fix this run:
 
 ```
 $ docker-compose run web rm /myapp/tmp/pids/server.pid
-```
-
-#### A webpack error occurs during setup
-
-Run the `webpack-dev-server` like so:
-
-```
-$ ./bin/webpack-dev-server
-```
-
-#### `/packs/application.js` can not be found or returns a status code of `404`
-
-First check that you are running the `webpack-dev-server`. It can be run like so:
-
-```
-$ ./bin/webpack-dev-server
-```
-
-If you are running `webpack-dev-server` then give it a minute or check the output of your terminal as the initial compilation can take up to a minute on some systems.
-
-If this still doesn't solve your issue check nothing else is using the same port (since it does not raise any exceptions when this is the case). This is commonly used by Applications like Sketch.
-
-You can check what processes or applications are using this port by running:
-
-```
-$ lsof -i tcp:8080
-```
-
-If you want to kill the process that is blocking this port run the following replacing `<PID>` with the PID of found in the last command:
-
-```
-$ kill <PID>
 ```
 
 #### I get an exception `PG::ConnectionBad - could not connect to server: Connection refused` when I try to run the app.

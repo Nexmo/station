@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@rails/webpacker": "^3.0.1",
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.25.0",
     "babel-loader": "7.x",
@@ -7,6 +8,7 @@
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-polyfill": "^6.23.0",
+    "babel-preset-babili": "^0.1.4",
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
     "coffee-loader": "^0.7.3",
@@ -39,6 +41,11 @@
     "webpack-merge": "^4.1.0"
   },
   "devDependencies": {
-    "webpack-dev-server": "^2.6.1"
+    "webpack-dev-server": "^2.8.2"
+  },
+  "version": "1.1.0",
+  "engines": {
+    "node": ">=6.0.0",
+    "yarn": ">=0.25.2"
   }
 }
