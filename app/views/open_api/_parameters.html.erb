@@ -36,7 +36,7 @@
           <% if ['object', 'array'].include?(parameter['type']) && parameter['items'] %>
             <!-- Do not render a description when the parameter is an object or array and has items defined -->
           <% else %>
-            <%= (parameter['description'] ? "#{parameter['description']}" : '<i>None</i>').html_safe %>
+            <%= (parameter['description'] ? "#{parameter['description']}" : '<i>None</i>').render_markdown %>
           <% end %>
 
           <% if parameter['enum'] %>
