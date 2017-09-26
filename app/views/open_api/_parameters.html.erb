@@ -48,6 +48,21 @@
               </i>
             </small>
           <% end %>
+
+          <% if parameter['minimum'] || parameter['maximum'] %>
+            <br>
+            <small>
+              <i>
+                <% if parameter['minimum'] && parameter['maximum'] %>
+                  Must be between <%= "<code>#{parameter['minimum']}</code>".html_safe %> and <%= "<code>#{parameter['maximum']}</code>".html_safe %>
+                <% elsif parameter['minimum'] %>
+                  Must be at least <%= "<code>#{parameter['minimum']}</code>".html_safe %>
+                <% else %>
+                  Must be at most <%= "<code>#{parameter['maximum']}</code>".html_safe %>
+                <% end %>
+              </i>
+            </small>
+          <% end %>
         </div>
 
         <% unless defined?(model) && model %>
