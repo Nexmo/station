@@ -13,8 +13,8 @@ menu_weight: 2
 
     Key | Description
     -- | --
-    `application id` | You use this id to perform all actions on your application.
-    `private_key` | The JWTs you use to authenticate your requests to Nexmo API are based on this private key. You should keep this key in a file that is not accessible from the Internet.
+    `application id` | This ID is used to perform all actions on your application.
+    `private_key` | The JWTs used to authenticate your requests to Nexmo API are based on this private key. You should keep this key in a file that is not accessible from the Internet.
 
 3. If you do not have one, rent a virtual number.
 

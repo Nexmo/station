@@ -15,8 +15,8 @@ This tutorial is based on the [Simple IVR](https://www.nexmo.com/use-cases/inter
 In this tutorial you build an interactive phone menu with different paths based on the user's responses and identity:
 
 - [Create a voice application](#create-a-voice-application) - create and configure an application using [Nexmo CLI](https://github.com/nexmo/nexmo-cli), then configure the webhook endpoints to provide NCCOs and handle changes in Call status
-- [Buy a phone number](#buy-a-phone-number) - buy voice enabled numbers you use
-* [Link the phone numbers to the Nexmo Application](#link-numbers) - configure the voice enabled phone numbers you use to mask user numbers
+- [Buy a phone number](#buy-a-phone-number) - buy voice enabled numbers for use in the application
+* [Link the phone numbers to the Nexmo Application](#link-numbers) - configure the voice enabled phone numbers to mask user numbers
 - [Route an inbound call](#route-an-inbound-call) - configure your webhook endpoint to handle incoming voice calls, find the phone number it is associated with and handle the call
 - [Send text-to-speech greeting](#text-to-speech) - Greet the user with text-to-speech upon answer
 - [Request user input via IVR](#request-user-input) - Create a text-to-speech prompt followed by requesting user input via IVR
@@ -37,7 +37,7 @@ If you're developing behind a firewall or a NAT, use [ngrok](https://ngrok.com/)
 
 A Nexmo application contains the security and configuration information you need to connect to Nexmo endpoints and easily use our products. You make calls to a Nexmo product using the security information in the application. When you make a Call, Nexmo communicates with your webhook endpoints so you can manage your call.
 
-You use Nexmo CLI to create an application for Voice API:
+You can use Nexmo CLI to create an application for Voice API:
 
 ```bash
 nexmo app:create phone-menu https://example.com/answer https://example.com/event
@@ -54,7 +54,7 @@ The parameters are:
 
 ## Buy a phone number
 
-You use Nexmo numbers to handle inbound calls to the IVR.
+To handle inbound calls to the IVR, you need to buy a number from Nexmo.
 
 Use the [Nexmo CLI](https://github.com/nexmo/nexmo-cli) to buy the phone numbers:
 
@@ -133,7 +133,7 @@ public function __construct($config)
 
 ## Generate NCCOs
 
-A Nexmo Call Control Object (NCCO) is a JSON array that you use to control the flow of a Voice API call. Nexmo expects your webhook to return an NCCO to control the Call.
+A Nexmo Call Control Object (NCCO) is a JSON array that is used to control the flow of a Voice API call. Nexmo expects your webhook to return an NCCO to control the Call.
 
 To manage NCCOs this tutorial uses array manipulation and a few simple methods.
 
@@ -213,7 +213,7 @@ protected function promptSearch()
 }
 ```
 
-You use the `eventUrl` option in your NCCO to send the input to a particular `Action`. This is essentially the same thing you do with the `action` property of a HTML `<form>`. This is where the `$config` array and the base URL are used.
+The `eventUrl` option in your NCCO is used to send the input to a particular `Action`. This is essentially the same thing you do with the `action` property of a HTML `<form>`. This is where the `$config` array and the base URL are used.
 
 A few other `input` specific properties are used. `timeOut` gives the user more time to enter the order number and `submitOnHash` lets them avoid waiting by ending their order ID with the pound sign.
 

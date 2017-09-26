@@ -5,14 +5,14 @@ description: Record the audio from a Call or Conversation.
 
 #Record calls and conversations
 
-Recordings are contextual, they are attached to the UUID of each leg in a Call or a Conversation. You use different NCCOs to record:  
+Recordings are contextual, they are attached to the UUID of each leg in a Call or a Conversation. Different NCCOs are used to record in the two different contexts.
 
 * Calls - you set the [record](/voice/guides/ncco-reference#record) action at the start of your NCCO so everything is recorded. Recording starts when the *record* action is executed in the NCCO and finishes when the synchronous condition in the action is met. That is, *endOnSilence*, *timeOut* or *endOnKey*. If you do not set a synchronous condition, the Voice API immediately executes the next NCCO without recording.
 * Conversations - you set the *record* option in the [conversation](/voice/guides/ncco-reference#conversation) action. For standard conversations, recordings start when one or more attendee connects to the conversation and terminate when the last attendee disconnects. For moderated conversations, recordings start when the moderator joins. That is, when an NCCO is executed for the named conversation where ‘startOnEnter’ is set to *true*. When the recording is terminated, the URL you download the recording from is sent to the event URL.
 
 The workflow to create a recording is:
 
-1. You use the *record* NCCO action to record an active Call or Conversation:
+1. Use the *record* NCCO action to record an active Call or Conversation:
 
     ```tabbed_content
     source: '/_examples/voice/guides/record-calls-and-conversations/ncco'

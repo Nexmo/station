@@ -5,7 +5,7 @@ description: Voice API conversations.
 
 #Create conferences
 
-A Conversation is the collection of one or more inbound calls to the virtual number associated to your Voice app. A named Conversation is a conference. You use the *conversation* NCCO to create a standard or moderated conference for the callers. A standard conference starts when the first caller calls in and ends when the last caller hangs up. A moderated conference starts and ends when the moderator calls in and hangs up. Before a moderated conference starts, you can send an audio stream to the waiting participants. When a conference starts, all audio from all inbound calls is mixed into it. You can [record](/voice/guides/record-calls-and-conversations) standard and moderated conferences.
+A Conversation is the collection of one or more inbound calls to the virtual number associated to your Voice app. A named Conversation is a conference. The *conversation* NCCO is used to create a standard or moderated conference for the callers. A standard conference starts when the first caller calls in and ends when the last caller hangs up. A moderated conference starts and ends when the moderator calls in and hangs up. Before a moderated conference starts, you can send an audio stream to the waiting participants. When a conference starts, all audio from all inbound calls is mixed into it. You can [record](/voice/guides/record-calls-and-conversations) standard and moderated conferences.
 
 The workflow for a conference is:
 
