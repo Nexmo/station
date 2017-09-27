@@ -46,6 +46,8 @@ export default () => {
         return $('#footer').offset().top - $('.navigation').outerHeight(true) - 20
       }
     });
+
+    $('.slate-layout-code > .tabs').scrollToFixed()
   });
 
 }

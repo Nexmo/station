@@ -18,7 +18,7 @@ $slate-main-min-width: $slate-navigation-min * ($slate-main-flex / $slate-naviga
   flex-wrap: wrap;
   min-height: 100vh;
 
-  h1, h2, h3 {
+  h1, h2, h3, h4 {
     font-weight: 600;
   }
 
@@ -39,11 +39,6 @@ $slate-main-min-width: $slate-navigation-min * ($slate-main-flex / $slate-naviga
     font-size: 28px;
     line-height: 28px;
   }
-
-  h4 {
-    font-size: 22px;
-    line-height: 22px;
-  }
 }
 
 .slate-layout-navigation {
@@ -60,7 +55,7 @@ $slate-main-min-width: $slate-navigation-min * ($slate-main-flex / $slate-naviga
   }
 }
 
-.slate-layout-navigation, .slate-layout-code, .slate-layout-documentation {
+.slate-layout-navigation, .slate-layout-documentation {
   > div {
     margin: $spacing;
   }
@@ -119,5 +114,29 @@ $slate-main-min-width: $slate-navigation-min * ($slate-main-flex / $slate-naviga
 
   a {
     border: none;
+  }
+
+  p code {
+    background-color: $atom;
+    border-color: darken($atom, 2%);
+    color: $yellow;
+  }
+
+  &__inner {
+    padding: $spacing;
+    padding-top: $spacing * 2;
+
+    .tabs {
+      display: none;
+    }
+
+    .tabs-content {
+      background: none;
+      border: none;
+    }
+
+    .tabs-panel {
+      padding: 0;
+    }
   }
 }

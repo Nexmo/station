@@ -2,13 +2,17 @@ class OpenApiController < ApplicationController
   before_action :set_specification
 
   def show
-    if File.file? "_open_api/#{@specification_name}.json"
-      @specification_path = "_open_api/#{@specification_name}.json"
+    if File.file? "_open_api/definitions/#{@specification_name}.json"
+      @specification_path = "_open_api/definitions/#{@specification_name}.json"
       @specification_format = 'json'
     else
-      @specification_path = "_open_api/#{@specification_name}.yml"
+      @specification_path = "_open_api/definitions/#{@specification_name}.yml"
       @specification_format = 'yml'
     end
+
+    specification_initialization = File.read("_open_api/initialization/#{@specification_name}.md")
+    @specification_initialization_content = MarkdownPipeline.new.call(File.read("_open_api/initialization/#{@specification_name}.md"))
+    @specification_initialization_config = YAML.safe_load(specification_initialization)
 
     respond_to do |format|
       format.any(:json, :yaml) { send_file(@specification_path) }

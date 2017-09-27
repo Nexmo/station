@@ -1,7 +1,3 @@
-import nexmo
-
-client = nexmo.Client(key='API_KEY', secret='API_SECRET')
-
 client.send_message({
   'from': 'Nexmo',
   'to': 'TO_NUMBER',

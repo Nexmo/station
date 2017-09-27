@@ -108,7 +108,7 @@ module ApplicationHelper
   end
 
   def render_request(definition_name, path, method)
-    base_path = "_open_api_requests/#{definition_name + path}/#{method}/"
+    base_path = "_open_api/examples/#{definition_name + path}/#{method}/"
 
     markdown = <<~HEREDOC
       ```tabbed_examples

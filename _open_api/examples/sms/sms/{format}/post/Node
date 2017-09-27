@@ -1,10 +1,3 @@
-var Nexmo = require('nexmo');
-
-var nexmo = new Nexmo({
-  apiKey: 'API_KEY',
-  apiSecret: 'API_SECRET',
-});
-
 var from = 'Nexmo';
 var to = 'TO_NUMBER';
 var text = 'A text message sent using the Nexmo SMS API';

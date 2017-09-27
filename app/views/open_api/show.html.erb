@@ -45,7 +45,18 @@
 
         </div>
       </div>
-      <div class="slate-layout-code"></div>
+      <div class="slate-layout-code">
+
+        <ul class="tabs tabs--code" data-tabs>
+          <% @specification_initialization_config['tabs'].each do |tab| %>
+            <li class="tabs-title" language-linkable="false" data-language="<%= tab %>"><a href="#<%= tab %>"><%= CODE_LANGUAGES[tab]['label'] %></a></li>
+          <% end %>
+        </ul>
+
+        <div class="slate-layout-code__inner">
+          <%= @specification_initialization_content.html_safe %>
+        </div>
+      </div>
     </div>
 
 

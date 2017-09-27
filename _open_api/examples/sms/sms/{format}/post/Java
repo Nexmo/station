@@ -1,5 +1,3 @@
-NexmoClient client = new NexmoClient(
-        new TokenAuthMethod("$API_KEY", "$API_SECRET"));
 client.getSmsClient().submitMessage(new TextMessage(
         FROM_NUMBER,
         TO_NUMBER,
