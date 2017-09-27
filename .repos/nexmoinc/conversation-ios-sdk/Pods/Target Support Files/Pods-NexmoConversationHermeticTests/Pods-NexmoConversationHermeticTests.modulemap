@@ -1,6 +1,0 @@
-framework module Pods_NexmoConversationHermeticTests {
-  umbrella header "Pods-NexmoConversationHermeticTests-umbrella.h"
-
-  export *
-  module * { export * }
-}

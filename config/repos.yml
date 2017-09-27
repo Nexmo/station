@@ -45,6 +45,3 @@ nexmo-community/nexmo-python-quickstart:
 nexmo/conversation-docs:
   branch: master
   github: nexmo/conversation-docs
-nexmoinc/conversation-ios-sdk:
-  branch: master
-  github: nexmoinc/conversation-ios-sdk
