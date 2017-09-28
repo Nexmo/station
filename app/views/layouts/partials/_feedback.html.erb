@@ -10,7 +10,7 @@
       source: '<%= @canonical_url %>',
 
       recaptcha: {
-        enabled: <%= ENV['RECAPTCHA_ENABLED'] %>,
+        enabled: <%= ENV['RECAPTCHA_ENABLED'] %> || false,
         skip: <%= session[:user_passed_invisible_captcha] || false %>,
       },
 
