@@ -28,3 +28,7 @@ $border-form: 1px solid darken($mint, 15%);
     margin: 0;
   }
 }
+
+.form__error {
+  color: $negative;
+}

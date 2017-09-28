@@ -1,5 +1,7 @@
 module Feedback
   class FeedbacksController < ApplicationController
+    skip_before_action :verify_authenticity_token
+
     def new
     end
 
@@ -7,40 +9,38 @@ module Feedback
       @feedback = ::Feedback::Feedback.find_by_id(params['feedback_feedback']['id'])
       @feedback ||= ::Feedback::Feedback.new
 
-      validate_recapcha
+      if validate_recapcha
+        @feedback.assign_attributes(feedback_params)
+        @feedback.ip = request.remote_ip
 
-      @feedback.assign_attributes(feedback_params)
-      @feedback.ip = request.remote_ip
+        @feedback.owner = owner
+        set_email
+        @feedback.owner.save!
+        set_cookies
 
-      @feedback.owner = owner
-      set_email
-      @feedback.owner.save!
-      set_cookies
-
-      return head 200 unless @feedback.changed?
-
-      if @feedback.save
-        respond_to do |format|
-          format.js
+        if @feedback.save
+          return render json: @feedback
+        else
+          head 422
         end
       else
-        head 422
+        render json: { error: 'Are you a robot? It looks like you failed our reCAPTCHA. Try again.' }, status: 401
       end
     end
 
     private
 
     def validate_recapcha
-      return unless ENV['RECAPTCHA_ENABLED']
-      return if session[:user_passed_invisible_captcha]
-      return if @feedback.persisted?
+      return true unless ENV['RECAPTCHA_ENABLED']
+      return true if session[:user_passed_invisible_captcha]
+      return true if @feedback.persisted?
 
       Recaptcha.with_configuration({ site_key: ENV['RECAPTCHA_INVISIBLE_SITE_KEY'], secret_key: ENV['RECAPTCHA_INVISIBLE_SECRET_KEY'] }) do
         if verify_recaptcha
           session[:user_passed_invisible_captcha] = true
-        else
-          redirect_to request.referrer, notice: 'Are you a robot? It looks like you failed our reCAPTCHA. Try again.'
+          return true
         end
+        return false
       end
     end
 

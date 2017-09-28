@@ -1,125 +1,106 @@
-#primary-content {
-  .feedback-container {
-    background: mix($mint, $ice);
-    // background: $mint;
-    padding: $spacing;
-    border: $border;
-    border-radius: $radius;
-    box-shadow: $shadow-soft;
-    border: $border;
-    border-width: 2px;
+@keyframes spin {
+  0%   {-webkit-transform: rotate(0deg)}
+  100% {-webkit-transform: rotate(359deg)}
+}
 
-    #feedback__improve {
-      i {
-        font-size: 1.5em;
-        position: relative;
-        top: 4px;
-        margin-right: 3px;
-      }
-      // color: $blue;
-      // a { color: $blue; }
+.feedback {
+  background: mix($mint, $ice);
+  padding: $spacing;
+  border: $border;
+  border-radius: $radius;
+  box-shadow: $shadow-soft;
+  border: $border;
+  border-width: 2px;
+
+  #feedback__improve {
+    i {
+      font-size: 1.5em;
+      position: relative;
+      top: 4px;
+      margin-right: 3px;
+    }
+  }
+}
+
+.sentiment {
+  display: block;
+  float: left;
+  font-size: 24px * 1.1;
+  border: 2px solid $white;
+  margin-right: 10px;
+  border-radius: 100%;
+  cursor: pointer;
+  width: 46px * 1.1;
+  height: 46px * 1.1;
+  line-height: 48px * 1.1;
+  text-align: center;
+  background: $white;
+  color: $white;
+  box-shadow: $shadow;
+  border: $border;
+  border-width: 2px;
+  margin-bottom: $spacing;
+
+  &--loading, &--disabled {
+    cursor: wait;
+  }
+
+  &--loading {
+    position: relative;
+    color: $gray;
+    > div {
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      animation: spin 1.2s infinite ease-in-out;
     }
   }
 
-  .new_feedback_feedback {
-    h2 {
-      margin-top: 0;
-      margin-bottom: $spacing;
-      color: $blue;
-    }
+  &--disabled {
+    color: $gray;
+  }
 
-    .feedback-extended-fields label {
-      display: block;
-      font-size: 16px;
-      margin-bottom: 5px;
-      color: $blue;
-    }
+  &--negative {
+    color: $negative;
+    &:hover, &.sentiment--active { border-color: $negative; }
+    &.sentiment--active { background : $negative; }
+  }
 
-    input[type=radio] {
-      display: none;
+  &--positive {
+    color: $positive;
+    &:hover, &.sentiment--active { border-color: $positive; }
+    &.sentiment--active { background : $positive; }
+  }
 
-      &:checked + label {
-        &[for=feedback_feedback_sentiment_negative] {
-          border-color: $negative;
-          background: $negative;
-          color: $white;
-        }
+  &--active {
+    color: $white;
+  }
+}
 
-        &[for=feedback_feedback_sentiment_positive] {
-          border-color: $positive;
-          background: $positive;
-          color: $white;
-        }
-      }
-    }
+#FeedbackComponent {
+  h2 {
+    margin-top: 0;
+    margin-bottom: $spacing;
+    color: $blue;
+  }
 
-    .sentiment {
-      display: inline-block;
-      font-size: 24px * 1.1;
-      border: 2px solid $white;
-      margin-right: 5px;
-      border-radius: 100%;
-      cursor: pointer;
-      width: 46px * 1.1;
-      height: 46px * 1.1;
-      line-height: 48px * 1.1;
-      text-align: center;
-      background: $white;
-      color: $white;
+  label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: $blue;
+  }
 
+  input[type=email] {
+    max-width: 400px;
+  }
 
-      box-shadow: $shadow;
-      border: $border;
-      border-width: 2px;
+  textarea, input[type=text], input[type=email] {
+    margin-bottom: $spacing;
+    box-shadow: none;
+    width: 100%;
+  }
 
-
-      &[for=feedback_feedback_sentiment_negative] {
-        color: $negative;
-      }
-
-      &[for=feedback_feedback_sentiment_positive] {
-        color: $positive;
-      }
-
-      &:hover {
-        &[for=feedback_feedback_sentiment_negative] {
-          color: $negative;
-          border-color: $negative;
-        }
-
-        &[for=feedback_feedback_sentiment_positive] {
-          color: $positive;
-          border-color: $positive;
-        }
-      }
-    }
-
-    textarea, input[type=text], input[type=email] {
-      margin-bottom: $spacing;
-      box-shadow: none;
-      width: 100%;
-    }
-
-    input[type=email] {
-      max-width: 400px;
-    }
-
-    input[type=submit] {
-      cursor: pointer;
-      background: $blue;
-      color: $white;
-      display: inline-block;
-      -webkit-appearance: none;
-      border: none;
-      font-size: 14px;
-      padding: 8px;
-      border-radius: 4px;
-      box-sizing: border-box;
-      width: 100%;
-    }
-
-    .feedback-basic-fields, .feedback-positive-feedback {
-      display: inline-block;
-    }
+  input[type=submit] {
+    width: 100%;
   }
 }

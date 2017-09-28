@@ -29,4 +29,8 @@
     color: $blue;
     background: $white;
   }
+
+  &[disabled] {
+    background: $gray;
+  }
 }

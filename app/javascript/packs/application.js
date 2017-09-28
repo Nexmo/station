@@ -42,10 +42,13 @@ let refresh = () => {
   JsSequenceDiagrams()
   new TabbedExamples
   Modals()
-  Feedback()
 
   if (document.getElementById('SearchComponent')) {
     ReactDOM.render(<Search/>, document.getElementById('SearchComponent'))
+  }
+
+  if (document.getElementById('FeedbackComponent')) {
+    ReactDOM.render(<Feedback {...window.feedbackProps}/>, document.getElementById('FeedbackComponent'))
   }
 }
 
