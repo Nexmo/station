@@ -9,6 +9,7 @@ info:
 paths:
   '/sms/{format}':
     post:
+      x-group: sms
       summary: Send an SMS
       description: Send an outbound SMS from your Nexmo account
       parameters:
@@ -175,3 +176,10 @@ components:
           type: string
           description: The ID of the network of the recipient
           example: '12345'
+x-groups:
+  sms:
+    name: "SMS"
+    order: 1
+    description: The SMS object contains information about the request and details of the message information.
+    schema:
+      $ref: '#/components/schemas/SMS'
