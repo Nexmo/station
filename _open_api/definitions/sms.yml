@@ -33,10 +33,18 @@ paths:
             minLength: 8
             maxLength: 8
         - name: api_secret
-          description: Your API secret
-          required: true
+          description: Your API secret. Required unless `sig` is provided
+          required: false
           in: query
-          example: abcdef1234567890
+          example: abcdef0123456789
+          schema:
+            type: string
+            minLength: 16
+            maxLength: 16
+        - name: sig
+          description: The hash of the request parameters in alphabetical order, a timestamp and the signature secret. See [Signing Requests](/concepts/guides/signing-messages) for more details.
+          required: false
+          in: query
           schema:
             type: string
             minLength: 16
