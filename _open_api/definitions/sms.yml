@@ -148,12 +148,32 @@ paths:
 
 components:
   schemas:
+    Error:
+      type: object
+      properties:
+        message-count:
+          type: integer
+          description: The amount of messages in the request
+          example: 1
+        messages:
+          $ref: '#/components/schemas/ErrorMessage'
+    ErrorMessage:
+      type: object
+      properties:
+        status:
+          type: string
+          description: The error status of the message
+          example: '2'
+        error-text:
+          type: string
+          description: The description of the error
+          example: 'Missing to param'
     SMS:
       type: object
       properties:
         message-count:
           type: integer
-          description: The amount of messages that were sent
+          description: The amount of messages in the request
           example: 1
         messages:
           $ref: '#/components/schemas/Message'
