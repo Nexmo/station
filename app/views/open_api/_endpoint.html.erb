@@ -58,17 +58,17 @@
       <% end %>
 
       <% if endpoint.path_parameters.any? %>
-        <h4>Parameters</h4>
+        <h4>Path Parameters</h4>
         <%= render 'parameters', parameters: endpoint.path_parameters %>
       <% end %>
 
       <% if endpoint.query_parameters.any? %>
-        <h4>Query</h4>
+        <h4>Query Parameter</h4>
         <%= render 'parameters', parameters: endpoint.query_parameters %>
       <% end %>
 
       <% if endpoint.request_body_parameters.any? %>
-        <h4>Query</h4>
+        <h4>Request Body</h4>
         <%= render 'parameters', parameters: endpoint.request_body_parameters %>
       <% end %>
     </div>
