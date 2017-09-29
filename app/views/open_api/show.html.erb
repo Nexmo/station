@@ -25,6 +25,11 @@
                     <% end %>
                   <% end %>
                 <% end %>
+                <% if @specification_errors_content %>
+                  <li>
+                    <a href="#errors">Errors</a>
+                  </li>
+                <% end %>
               </ul>
             </li>
           </ul>
@@ -84,6 +89,24 @@
       <% group[:resources].each do |resource| %>
         <%= render 'endpoint', endpoint: OpenApi::EndpointResolver.new(@specification, path: resource[:path], method: resource[:method]) %>
       <% end %>
+    <% end %>
+
+    <% if @specification_errors_content %>
+      <div class="slate-layout-main" id="errors">
+        <div>
+          <div class="slate-layout-documentation">
+            <div>
+              <%= @specification_errors_content.html_safe %>
+            </div>
+          </div>
+          <div class="slate-layout-code">
+            <div class="slate-layout-code__inner">
+              <h4>Example response</h4>
+              <%= OpenApi::EndpointResolver.new_by_schema(@specification.raw['components']['schemas']['Error']).model_html %>
+            </div>
+          </div>
+        </div>
+      </div>
     <% end %>
   </div>
 </div>

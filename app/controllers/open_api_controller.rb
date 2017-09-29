@@ -14,6 +14,11 @@ class OpenApiController < ApplicationController
     @specification_initialization_content = MarkdownPipeline.new.call(File.read("_open_api/initialization/#{@specification_name}.md"))
     @specification_initialization_config = YAML.safe_load(specification_initialization)
 
+    if File.file? "_open_api/errors/#{@specification_name}.md"
+      specification_errors = File.read("_open_api/errors/#{@specification_name}.md")
+      @specification_errors_content = MarkdownPipeline.new.call(File.read("_open_api/errors/#{@specification_name}.md"))
+    end
+    
     respond_to do |format|
       format.any(:json, :yaml) { send_file(@specification_path) }
       format.html do
