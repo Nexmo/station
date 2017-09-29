@@ -7,10 +7,13 @@
             <li>
               <a href="#"><%= @specification.raw['info']['title'] %></a>
               <ul class="has-label">
+                <li>
+                  <a href="#overview">Overview</a>
+                </li>
                 <% @groups.each do |group| %>
                   <% if group['name'] %>
                     <li>
-                      <a href="<%= group['name'].parameterize %>">
+                      <a href="#<%= group['name'].parameterize %>">
                         <%= group['name'] %>
                       </a>
                       <ul class="has-label">
@@ -36,8 +39,9 @@
       </nav>
     </div>
   </div>
+
   <div class="slate-layout-main">
-    <div>
+    <div id="overview">
       <div class="slate-layout-documentation">
         <div>
           <h1><%= @specification.raw['info']['title'] %></h1>
@@ -70,7 +74,7 @@
         <div>
           <div class="slate-layout-documentation slate-layout-documentation--group">
             <div>
-              <h2><%= group['name'] %></h2>
+              <h2 id="<%= group['name'].parameterize %>"><%= group['name'] %></h2>
               <p><%= group['description'] %></p>
               <% if group['schema'] %>
                 <%= render 'parameters', parameters: OpenApi::EndpointResolver.normalize_properties(group['schema']['properties']), model: true %>
@@ -79,7 +83,9 @@
           </div>
           <div class="slate-layout-code">
             <% if group['schema'] %>
-              <%= OpenApi::EndpointResolver.new_by_schema(group['schema']).model_html %>
+              <div class="slate-layout-code__inner">
+                <%= OpenApi::EndpointResolver.new_by_schema(group['schema']).model_html %>
+              </div>
             <% end %>
           </div>
         </div>
