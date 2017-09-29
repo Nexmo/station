@@ -1,5 +1,6 @@
 class OpenApiController < ApplicationController
   before_action :set_specification
+  before_action :set_navigation
 
   def show
     if File.file? "_open_api/definitions/#{@specification_name}.json"
@@ -18,7 +19,7 @@ class OpenApiController < ApplicationController
       specification_errors = File.read("_open_api/errors/#{@specification_name}.md")
       @specification_errors_content = MarkdownPipeline.new.call(File.read("_open_api/errors/#{@specification_name}.md"))
     end
-    
+
     respond_to do |format|
       format.any(:json, :yaml) { send_file(@specification_path) }
       format.html do
@@ -31,6 +32,10 @@ class OpenApiController < ApplicationController
   end
 
   private
+
+  def set_navigation
+    @navigation = :api
+  end
 
   def set_specification
     @specification_name = params[:specification]
