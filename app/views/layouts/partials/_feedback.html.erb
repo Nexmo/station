@@ -12,6 +12,7 @@
       recaptcha: {
         enabled: <%= ENV['RECAPTCHA_ENABLED'] %> || false,
         skip: <%= session[:user_passed_invisible_captcha] || false %>,
+        sitekey: '<%= ENV['RECAPTCHA_INVISIBLE_SITE_KEY'] %>',
       },
 
       <% if current_user %>
@@ -35,13 +36,7 @@
 
   <% if ENV['RECAPTCHA_ENABLED'] %>
     <% unless session[:user_passed_invisible_captcha] %>
-      <div
-        class="g-recaptcha g-recaptcha--invisible"
-        data-sitekey="<%= ENV['RECAPTCHA_INVISIBLE_SITE_KEY'] %>"
-        data-callback="invisibleCaptchaCallback"
-        data-size="invisible"
-        data-badge="inline"
-      ></div>
+      <div id="recaptcha-container"></div>
     <% end %>
   <% end %>
 

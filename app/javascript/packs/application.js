@@ -33,7 +33,6 @@ Navigation()
 Scroll()
 turbolinksPreventSamePage()
 turbolinksAnimate()
-APIStatus()
 
 let refresh = () => {
   Notices()
@@ -42,6 +41,7 @@ let refresh = () => {
   JsSequenceDiagrams()
   new TabbedExamples
   Modals()
+  APIStatus()
 
   if (document.getElementById('SearchComponent')) {
     ReactDOM.render(<Search/>, document.getElementById('SearchComponent'))

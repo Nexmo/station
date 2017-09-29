@@ -80,7 +80,16 @@ class Feedback extends React.Component {
 
   createOrUpdate() {
     if (this.props.recaptcha.enabled && !this.props.recaptcha.skip && this.state.recaptcha_token == undefined) {
-      return grecaptcha.execute()
+      const element = $('<div></div>').appendTo('#recaptcha-container')[0]
+
+      const id = grecaptcha.render(element, {
+        sitekey: this.props.recaptcha.sitekey,
+        callback: this.invisibleCaptchaCallback.bind(this),
+        size: 'invisible',
+        badge: 'inline',
+      })
+
+      return grecaptcha.execute(id)
     }
 
     var request = new Request('/feedback/feedbacks', {
