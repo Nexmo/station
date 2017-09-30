@@ -15,6 +15,22 @@ $ball-size: 44px;
   }
 }
 
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -10px;
+
+  > div {
+    flex: 1;
+    min-width: 340px;
+    padding: 0 10px;
+
+    @include mobile() {
+      min-width: 280px;
+    }
+  }
+}
+
 .card {
   display: block;
   position: relative;
