@@ -100,12 +100,13 @@ gem 'activeadmin', '1.1.0'
 gem 'devise', '4.3.0'
 
 group :development, :test do
+  gem 'awesome_print'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'diffy'
+  gem 'pry'
   gem 'rawler', git: 'https://github.com/oscardelben/rawler.git', require: false
   gem 'rspec-rails', '~> 3.5'
-  gem 'pry'
-  gem 'awesome_print'
 end
 
 group :development do
