@@ -333,7 +333,7 @@ Key | Value
 
 ## Language codes
 
-The following languages are accepted on the Verify API. The language code is used to manually set the language of the SMS text messgae and both the language, accent and voice gender for the subsequent phone call.
+The following languages are accepted on the Verify API. The language code is used to manually set the language of the SMS text message and both the language, accent and voice gender for the subsequent phone call.
 
 Code    | Language | Available genders
 --------|----------|------------------
