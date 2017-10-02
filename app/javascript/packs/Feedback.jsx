@@ -1,3 +1,4 @@
+import 'whatwg-fetch'
 import React from 'react'
 
 class Feedback extends React.Component {

@@ -1,3 +1,5 @@
+import 'whatwg-fetch'
+
 export default () => {
   $('[data-github]').each((index, element) => {
     let repo = $(element).data('github');
