@@ -49,8 +49,10 @@ class Diff
     end
   end
 
-  def self.diff
-    output = []
+  def diff
+    return @output if @output
+
+    @output = []
 
     Dir.glob("#{Rails.root}/tmp/diff/base/**/*.html") do |base_document_path|
       compare_document_path = base_document_path.sub("#{Rails.root}/tmp/diff/base/", "#{Rails.root}/tmp/diff/compare/")
@@ -62,18 +64,20 @@ class Diff
       diff_response = Diffy::Diff.new(base_document, compare_document, context: 0).to_s(:color)
 
       unless diff_response.empty? || diff_response == "\n"
-        output << {
+        @output << {
           path: path,
           diff: diff_response,
         }
       end
     end
 
-    output.reject!(&:empty?)
+    @output.reject!(&:empty?)
+  end
 
-    if output.any?
-      puts "#{output.size} changes detected".colorize(:light_red)
-      output.reject.each do |result|
+  def report_cli
+    if @output.any?
+      puts "#{@output.size} changes detected".colorize(:light_red)
+      @output.reject.each do |result|
         puts <<~HEREDOC
           #{result[:path]}
 
@@ -87,5 +91,9 @@ class Diff
     else
       puts 'No changes detected'.colorize(:green)
     end
+  end
+
+  def report_pull_request
+
   end
 end

@@ -26,6 +26,8 @@ namespace :diff do
 
   desc 'Build files for comparison'
   task 'compare': :environment do
-    Diff.diff
+    diff = Diff.new
+    diff.diff
+    diff.report_cli
   end
 end
