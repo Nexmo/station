@@ -97,10 +97,14 @@ class Diff
     if @output.any?
       time = Time.new.to_i
       branch = "code-example-update-#{time}"
+      puts "Checking out new branch - #{branch}".colorize(:yellow)
       system "git checkout -b #{branch}"
+      puts 'Adding repo files'.colorize(:yellow)
       system 'git add .repos'
+      puts 'Commiting changes'.colorize(:yellow)
       system "git commit -m 'Automated: Updating code examples'"
-      system 'git push origin'
+      puts 'Pushing'.colorize(:yellow)
+      system "git push origin #{branch}"
 
       body =  "#{@output.size} changes detected\n".colorize(:light_red)
       @output.reject.each do |result|
@@ -111,10 +115,10 @@ class Diff
           #{result[:diff]}
           ```
 
-
         HEREDOC
       end
 
+      puts "Notifying Nexmo Developer of branch - #{branch}".colorize(:yellow)
       RestClient.post 'https://requestb.in/qvd407qv', {
         'branch' => branch,
         'body' => body,
