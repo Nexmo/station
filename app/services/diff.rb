@@ -119,7 +119,7 @@ class Diff
       end
 
       puts "Notifying Nexmo Developer of branch - #{branch}".colorize(:yellow)
-      RestClient.post 'https://requestb.in/qvd407qv', {
+      RestClient.post ENV['CREATE_PULL_REQUEST_ENDPOINT'], {
         'branch' => branch,
         'body' => body,
       }.to_json, {
