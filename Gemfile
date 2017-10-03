@@ -107,6 +107,7 @@ group :development, :test do
   gem 'pry'
   gem 'rawler', git: 'https://github.com/oscardelben/rawler.git', require: false
   gem 'rspec-rails', '~> 3.5'
+  gem 'octokit'
 end
 
 group :development do
