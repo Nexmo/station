@@ -17,4 +17,5 @@ before_script:
            "  LogLevel ERROR" >> ~/.ssh/config
   - bundle exec rake db:setup
 script:
-  - rake diff:execute
+  - bundle exec rake spec
+  - bundle exec rake test:rubocop
