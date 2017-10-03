@@ -20,30 +20,39 @@ class Diff
 
     document_paths.each do |_, config|
       config[:documents].map do |document_path|
-        document = File.read(document_path)
-        body_html = MarkdownPipeline.new.call(document)
-
         document_path = Pathname.new(document_path)
         relative_path = "#{config[:base_url_path]}/#{document_path.relative_path_from(config[:origin])}".gsub('.md', '')
-
         path = "#{Rails.root}/tmp/diff/#{mode}/#{relative_path}.html"
         directory = File.dirname(path)
         FileUtils.mkdir_p(directory) unless File.directory?(directory)
 
-        document = Nokogiri::HTML::DocumentFragment.parse(body_html)
+        begin
+          document = File.read(document_path)
+          body_html = MarkdownPipeline.new.call(document)
+          document = Nokogiri::HTML::DocumentFragment.parse(body_html)
 
-        ['id', 'data-tabs-content', 'data-id', 'data-open'].each do |attribute|
-          document.css("[#{attribute}]").each do |element|
-            element[attribute] = nil
+          ['id', 'data-tabs-content', 'data-id', 'data-open'].each do |attribute|
+            document.css("[#{attribute}]").each do |element|
+              element[attribute] = nil
+            end
           end
-        end
 
-        document.css('.tabs a').each do |element|
-          element['href'] = nil
-        end
+          document.css('.tabs a').each do |element|
+            element['href'] = nil
+          end
 
-        File.open(path, 'w') do |file|
-          file.write document.to_html
+          File.open(path, 'w') do |file|
+            file.write document.to_html
+          end
+        rescue Exception
+          puts "File failed to generate - #{relative_path}".colorize(:yellow)
+          File.open(path, 'w') do |file|
+            file.write <<~HEREDOC
+              ###############################################################################
+              File failed to generate. Likely due to a dependent file being moved or removed.
+              ###############################################################################
+            HEREDOC
+          end
         end
       end
     end
@@ -106,7 +115,7 @@ class Diff
       puts 'Pushing'.colorize(:yellow)
       system "git push git@github.com:Nexmo/nexmo-developer.git #{branch}"
 
-      body =  "#{@output.size} changes detected\n".colorize(:light_red)
+      body =  "#{@output.size} changes detected\n\n"
       @output.reject.each do |result|
         body << <<~HEREDOC
           ### `#{result[:path]}`
