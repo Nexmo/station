@@ -104,7 +104,7 @@ class Diff
       puts 'Commiting changes'.colorize(:yellow)
       system "git commit -m 'Automated: Updating code examples'"
       puts 'Pushing'.colorize(:yellow)
-      system "git push origin #{branch}"
+      system "git push git@github.com:Nexmo/nexmo-developer.git #{branch}"
 
       body =  "#{@output.size} changes detected\n".colorize(:light_red)
       @output.reject.each do |result|
