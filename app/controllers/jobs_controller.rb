@@ -18,7 +18,7 @@ class JobsController < ApplicationController
           'Authorization': "token #{ENV['TRAVIS_TOKEN']}",
           'Travis-API-Version': '3',
         })
-        
+
         render plain: 'Request forwarded to CI', status: :accepted
       else
         render plain: 'Request understood. Not master, not continuing', status: :ok
@@ -29,23 +29,31 @@ class JobsController < ApplicationController
   end
 
   def open_pull_request
-    repo = ENV['GITHUB_REPO']
-    branch_base = 'master'
-    branch_head = params[:branch]
-    title = '[AUTOMATED] Updated code examples'
-    body = params[:body]
+    if validate_ci_secret
+      repo = ENV['GITHUB_REPO']
+      branch_base = 'master'
+      branch_head = params[:branch]
+      title = '[AUTOMATED] Updated code examples'
+      body = params[:body]
 
-    client = Octokit::Client.new(access_token: ENV['GITHUB_PERSONAL_ACCESS_TOKEN'])
-    client.login
-    client.create_pull_request(repo, branch_base, branch_head, title, body)
+      client = Octokit::Client.new(access_token: ENV['GITHUB_PERSONAL_ACCESS_TOKEN'])
+      client.login
+      client.create_pull_request(repo, branch_base, branch_head, title, body)
 
-    head :ok
+      head :accepted
+    else
+      head :unauthorized
+    end
   end
 
   private
 
   def validate_github_signature
-    signature = "sha1=#{OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('sha1'), ENV['GITHUB_SIGNATURE'], request.raw_post)}"
+    signature = "sha1=#{OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('sha1'), ENV['CI_SECRET'], request.raw_post)}"
     Rack::Utils.secure_compare(signature, request.headers['X-Hub-Signature'])
+  end
+
+  def validate_ci_secret
+    params['secret'] = ENV['CI_SECRET']
   end
 end
