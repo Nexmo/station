@@ -3,23 +3,26 @@ class JobsController < ApplicationController
 
   def code_example_push
     if validate_github_signature
-      url = "https://api.travis-ci.org/repo/#{ENV['TRAVIS_REPO_ID']}/requests"
-
-      RestClient.post(url, {
-        "request": {
-          "branch": 'ci/diff',
-          "config": {
-            "script": 'rake diff:execute',
+      if params['ref'] == 'refs/heads/master'
+        url = "https://api.travis-ci.org/repo/#{ENV['TRAVIS_REPO_ID']}/requests"
+        RestClient.post(url, {
+          "request": {
+            "branch": 'ci/diff',
+            "config": {
+              "script": 'rake diff:execute',
+            },
           },
-        },
-      }.to_json, {
-        content_type: :json,
-        accept: :json,
-        'Authorization': "token #{ENV['TRAVIS_TOKEN']}",
-        'Travis-API-Version': '3',
-      })
-
-      head :ok
+        }.to_json, {
+          content_type: :json,
+          accept: :json,
+          'Authorization': "token #{ENV['TRAVIS_TOKEN']}",
+          'Travis-API-Version': '3',
+        })
+        
+        render plain: 'Request forwarded to CI', status: :accepted
+      else
+        render plain: 'Request understood. Not master, not continuing', status: :ok
+      end
     else
       head :unauthorized
     end
