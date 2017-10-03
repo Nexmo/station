@@ -122,6 +122,7 @@ class Diff
       RestClient.post ENV['CREATE_PULL_REQUEST_ENDPOINT'], {
         'branch' => branch,
         'body' => body,
+        'secret' => ENV['CI_SECRET'],
       }.to_json, {
         content_type: :json,
         accept: :json,
