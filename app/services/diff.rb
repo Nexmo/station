@@ -49,7 +49,7 @@ class Diff
     end
   end
 
-  def diff
+  def diff(mode)
     return @output if @output
 
     @output = []
@@ -61,7 +61,7 @@ class Diff
       compare_document = File.read(compare_document_path)
       path = base_document_path.sub("#{Rails.root}/tmp/diff/base", '').sub('.html', '')
 
-      diff_response = Diffy::Diff.new(base_document, compare_document, context: 0).to_s(:color)
+      diff_response = Diffy::Diff.new(base_document, compare_document, context: 0).to_s(mode)
 
       unless diff_response.empty? || diff_response == "\n"
         @output << {
@@ -94,6 +94,36 @@ class Diff
   end
 
   def report_pull_request
+    if @output.any?
+      time = Time.new.to_i
+      branch = "code-example-update-#{time}"
+      system "git checkout -b #{branch}"
+      system 'git add .repos'
+      system "git commit -m 'Automated: Updating code examples'"
+      system 'git push origin'
 
+      body =  "#{@output.size} changes detected\n".colorize(:light_red)
+      @output.reject.each do |result|
+        body << <<~HEREDOC
+          ### `#{result[:path]}`
+
+          ```diff
+          #{result[:diff]}
+          ```
+
+
+        HEREDOC
+      end
+
+      RestClient.post 'https://requestb.in/qvd407qv', {
+        'branch' => branch,
+        'body' => body,
+      }.to_json, {
+        content_type: :json,
+        accept: :json,
+      }
+    else
+      puts 'No changes detected'.colorize(:green)
+    end
   end
 end

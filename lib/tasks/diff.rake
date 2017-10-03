@@ -11,7 +11,7 @@ namespace :diff do
     Rake::Task['diff:build:compare'].invoke
     puts 'Comparing'.colorize(:yellow)
 
-    Rake::Task['diff:compare'].invoke
+    Rake::Task['diff:compare:pr'].invoke
   end
 
   desc 'Build files for comparison'
@@ -25,9 +25,16 @@ namespace :diff do
   end
 
   desc 'Build files for comparison'
-  task 'compare': :environment do
+  task 'compare:cli': :environment do
     diff = Diff.new
-    diff.diff
+    diff.diff(:color)
     diff.report_cli
+  end
+
+  desc 'Build files for comparison'
+  task 'compare:pr': :environment do
+    diff = Diff.new
+    diff.diff(:text)
+    diff.report_pull_request
   end
 end
