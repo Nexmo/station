@@ -24,7 +24,10 @@ ActiveAdmin.register Event do
   form do |f|
     inputs 'Details' do
       input :title
+      input :description
+      input :url
       input :starts_at, as: :datepicker
+      input :ends_at, as: :datepicker
     end
     actions
   end
