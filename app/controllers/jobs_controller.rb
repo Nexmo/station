@@ -7,7 +7,7 @@ class JobsController < ApplicationController
         url = "https://api.travis-ci.org/repo/#{ENV['TRAVIS_REPO_ID']}/requests"
         RestClient.post(url, {
           "request": {
-            "branch": 'ci/diff',
+            "branch": 'master',
             "config": {
               "script": 'rake diff:execute',
             },
