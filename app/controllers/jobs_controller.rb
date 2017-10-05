@@ -10,6 +10,9 @@ class JobsController < ApplicationController
             "branch": 'master',
             "config": {
               "script": 'rake diff:execute',
+              "env": {
+                "SSH_KEY_REQUIRED": true,
+              },
             },
           },
         }.to_json, {
