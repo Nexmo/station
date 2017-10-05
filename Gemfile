@@ -102,6 +102,8 @@ gem 'devise', '4.3.0'
 # Simple wrapper for the GitHub API
 gem 'octokit'
 
+gem 'nexmo_api_specification', '0.1.3'
+
 group :development, :test do
   gem 'awesome_print'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

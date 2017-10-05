@@ -6,9 +6,14 @@ class OpenApiController < ApplicationController
     if File.file? "_open_api/definitions/#{@specification_name}.json"
       @specification_path = "_open_api/definitions/#{@specification_name}.json"
       @specification_format = 'json'
-    else
+    elsif File.file? "_open_api/definitions/#{@specification_name}.yml"
       @specification_path = "_open_api/definitions/#{@specification_name}.yml"
       @specification_format = 'yml'
+    elsif NexmoApiSpecification::Definition.exists?(@specification_name)
+      @specification_path = NexmoApiSpecification::Definition.path(@specification_name)
+      @specification_format = 'yml'
+    else
+      raise 'Definition can not be found'
     end
 
     specification_initialization = File.read("_open_api/initialization/#{@specification_name}.md")
