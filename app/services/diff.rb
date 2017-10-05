@@ -118,7 +118,7 @@ class Diff
       body =  "#{@output.size} changes detected\n\n"
       @output.reject.each do |result|
         body << <<~HEREDOC
-          ### `#{result[:path]}`
+          - [ ] `#{result[:path]}`
 
           ```diff
           #{result[:diff]}
