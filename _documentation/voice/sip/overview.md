@@ -114,5 +114,8 @@ To configure for SIP forwarding:
 We have provided examples for a number of different SIP systems:
 
 * [Asterisk](/voice/sip/asterisk)
+* [Avaya SBCe](/voice/sip/avaya-sbce)
+* [Cisco CUCM/CUBE](/voice/sip/cucm-cube)
 * [FreePBX](/voice/sip/freepbx)
 * [FreeSWITCH](/voice/sip/freeswitch)
+* [MiTel MiVoice and MiTel Border Gateway](/voice/sip/mitel-mivoice)
