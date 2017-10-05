@@ -40,11 +40,9 @@ var NexmoApiError = ConversationClientError.NexmoApiError;
 var NexmoClientError = ConversationClientError.NexmoClientError;
 
 /**
- * @ignore
  * A single CallManager Object.
  * @class CallManager 
  */
-
 var CallManager = function() {
 	//share the scope of the parent
 	that = this;
@@ -135,7 +133,7 @@ CallManager.prototype.createCall = function(params) {
  *
  * @returns {Promise}
  * @example
- * Send ringing event
+ * Enable audio in this conversation
  * function enableAudio() {
  *   conversation.callManager.enableAudio()
  *      .then(function(response) {
@@ -150,21 +148,25 @@ CallManager.prototype.createCall = function(params) {
 CallManager.prototype.enableAudio = function(params) {
 	var p = new Promise(function(resolve, reject) {
 		function onError(error) {
-			// ToDo -- Untested
+			that.application.session.log.error(error);
 			reject(new NexmoApiError(error));
 		}
 		if (that.me === null) {
 			reject(new NexmoClientError("error:self"));
 		} else {
-			navigator.getUserMedia({
-					video: false,
-					audio: true
-				},
+			navigator.mediaDevices.getUserMedia({
+				video: false,
+				audio: true
+			}).then(
 				function(localStream) {
 					/* jshint -W117 */
 					var pc = new RTCPeerConnection({
-						"iceServers": [{
-							"url": "stun:stun.l.google.com:19302"
+						'iceServers': [{
+							'urls': 'stun:stun.l.google.com:19302'
+						}]
+					}, {
+						'optional': [{
+							'DtlsSrtpKeyAgreement': true
 						}]
 					});
 					that.pc = pc;
@@ -195,6 +197,18 @@ CallManager.prototype.enableAudio = function(params) {
 					};
 					that.localStream = localStream;
 					pc.ontrack = function(evt) {
+						window.AudioContext = window.AudioContext || window.webkitAudioContext;
+						if (window.AudioContext) {
+							var audioContext = new AudioContext();
+
+							// Create an AudioNode from the stream
+							var mediaStreamSource = audioContext.createMediaStreamSource(evt.streams[0]);
+
+							// Connect it to destination to hear yourself
+							// or any other node for processing!
+							mediaStreamSource.connect(audioContext.destination);
+
+						}
 						that.activeStream = evt.streams[0];
 						that.emit("rtc:stream", {
 							stream: evt.streams[0]
@@ -203,30 +217,52 @@ CallManager.prototype.enableAudio = function(params) {
 					pc.addStream(localStream);
 					pc.createOffer(
 						function(desc) {
-							pc.setLocalDescription(desc, function(data) {}, onError);
+							pc.setLocalDescription(desc, function() {}, onError);
 						},
 						onError);
-
-				},
-				function(error) {
-					reject(new NexmoClientError("error:getUserMedia:permissions"));
+					pc.oniceconnectionstatechange = function(status) {
+						switch (pc.iceConnectionState) {
+							//https://developer.mozilla.org/en-US/docs/Web/API/RTCPeerConnection/iceConnectionState
+							case "disconnected":
+							case "failed":
+								that.application.session.log.warn("One or more transports has terminated unexpectedly or in an error", status);
+								break;
+							default:
+								that.application.session.log.debug("The ice connection status changed", pc.iceConnectionState);
+								break;
+						}
+					}
+					pc.onicegatheringstatechange = function() {
+						switch (pc.iceGatheringState) {
+							case "new":
+								that.application.session.log.debug("ice gathering new");
+								break;
+							case "complete":
+								that.application.session.log.debug("ice gathering complete");
+								break;
+							case "gathering":
+								that.application.session.log.debug("ice gathering gathering");
+								break;
+						}
+					}
 				}
-			);
+			).catch(function(error) {
+				that.pc.close();
+				console.log(error);
+			});
 			// We want to be able to handle these events, for this member, before they get propagated out
 			that.on('rtc:answer', function(event, body) {
 				that.pc.setRemoteDescription(new RTCSessionDescription({
 						type: 'answer',
 						sdp: body.answer
 					}),
-					function(data) {},
+					function() {},
 					onError);
 			});
-
 		}
 	});
 	return p;
 };
-
 
 /**
  * Disable audio partcipation in the conversation for this application
@@ -267,7 +303,6 @@ CallManager.prototype.enableAudio = function(params) {
  * 
  * 
  **/
-
 CallManager.prototype.disableAudio = function(params) {
 	var p = new Promise(function(resolve, reject) {
 		if (!that.me.rtc_id) return;
@@ -286,6 +321,7 @@ CallManager.prototype.disableAudio = function(params) {
 				if (that.activeStream) {
 					that.activeStream.getTracks()[0].stop();
 				}
+				that.pc.close();
 			} else {
 				reject(new NexmoApiError(response));
 			}
@@ -477,13 +513,13 @@ module.exports = {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="Member.html">Member</a></li><li><a href="Text.html">Text</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ConversationClientErrorTypes">ConversationClientErrorTypes</a></li><li><a href="global.html#me">me</a></li><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li><li><a href="global.html#NexmoClientErrorTypes">NexmoClientErrorTypes</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="CallManager.html">CallManager</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="Member.html">Member</a></li><li><a href="Text.html">Text</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ConversationClientErrorTypes">ConversationClientErrorTypes</a></li><li><a href="global.html#me">me</a></li><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li><li><a href="global.html#NexmoClientErrorTypes">NexmoClientErrorTypes</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Thu Sep 21 2017 17:44:00 GMT+0100 (BST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Thu Oct 05 2017 15:28:56 GMT+0100 (BST)
 </footer>
 
 <script> prettyPrint(); </script>

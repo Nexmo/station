@@ -38,8 +38,8 @@ var WildEmitter = require('wildemitter'),
 	Event = require('./event').Event,
 	Text = require('./text').Text,
 	ImageEvent = require('./image_event').ImageEvent;
-// CallManager = require('./call_manager').CallManager,
-// adapter = require('webrtc-adapter');
+CallManager = require('./call_manager').CallManager;
+adapter = require('webrtc-adapter');
 
 // Conversation Client Error
 var ConversationClientError = require('./conversationClientError');
@@ -70,12 +70,12 @@ var Conversation = function(application, params) {
 
 	// call WildEmitter constructor
 	WildEmitter.call(this);
-	// CallManager.call(this);
+	CallManager.call(this);
 };
 
 Conversation.prototype = new WildEmitter();
 
-// Conversation.prototype.callManager = new CallManager();
+Conversation.prototype.callManager = new CallManager();
 
 //update the conversation javascript object
 Conversation.prototype.updateObjectInstance = function(application, params) {
@@ -192,7 +192,7 @@ Conversation.prototype.join = function(options) {
 /**
  * Delete a conversation
  *
- * @returns {Promise}
+ * @return {Promise}
  *
  * @example &lt;caption>delete the conversation&lt;/caption>
  *
@@ -277,8 +277,8 @@ Conversation.prototype.invite = function(params) {
 			cid: self.id,
 			body: {
 				user_id: params.id,
-				user_name: params.user_name
-				//media: params.media
+				user_name: params.user_name,
+				media: params.media
 			}
 		}, function(response) {
 			if (response.type === 'conversation:invite:success') {
@@ -814,13 +814,13 @@ module.exports = {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="Member.html">Member</a></li><li><a href="Text.html">Text</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ConversationClientErrorTypes">ConversationClientErrorTypes</a></li><li><a href="global.html#me">me</a></li><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li><li><a href="global.html#NexmoClientErrorTypes">NexmoClientErrorTypes</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="CallManager.html">CallManager</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="Member.html">Member</a></li><li><a href="Text.html">Text</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ConversationClientErrorTypes">ConversationClientErrorTypes</a></li><li><a href="global.html#me">me</a></li><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li><li><a href="global.html#NexmoClientErrorTypes">NexmoClientErrorTypes</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Thu Sep 21 2017 17:44:00 GMT+0100 (BST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Thu Oct 05 2017 15:28:56 GMT+0100 (BST)
 </footer>
 
 <script> prettyPrint(); </script>
