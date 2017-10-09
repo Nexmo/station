@@ -5,7 +5,7 @@ description: Use Nexmo SIP to forward inbound and send outbound Voice calls that
 
 # SIP Overview
 
-Nexmo allows you to [forward inbound](#forward-inbound) and [send outbound](#sip-outbound) Voice calls using the [Session Initiation Protocol](https://en.wikipedia.org/wiki/Session_Initiation_Protocol).
+Nexmo allows you to [forward inbound](#inbound-configuration) and [send outbound](#configuring-your-system-for-sip-forwarding) Voice calls using the [Session Initiation Protocol](https://en.wikipedia.org/wiki/Session_Initiation_Protocol).
 
 This document explains the relevant setup options.
 
@@ -85,8 +85,8 @@ Connections using TLS 1.0 or more recent are accepted. Older protocols are disab
 
 This section tells you how to:
 
-- [Configure your system for SIP forwarding](#configure-your-system-for-sip-forwarding)
-- [Configure example servers](#configure-example-servers)
+- [Configure your system for SIP forwarding](#configuring-your-system-for-sip-forwarding)
+- [Configure example servers](#example-configurations)
 
 ## Configuring your system for SIP forwarding
 
@@ -111,11 +111,11 @@ To configure for SIP forwarding:
 
 ## Example configurations
 
-We have provided examples for a number of different SIP systems:
+We have provided examples for a number of different SIP capable systems:
 
-* [Asterisk](/voice/sip/asterisk)
-* [Avaya SBCe](/voice/sip/avaya-sbce)
-* [Cisco CUCM/CUBE](/voice/sip/cucm-cube)
-* [FreePBX](/voice/sip/freepbx)
-* [FreeSWITCH](/voice/sip/freeswitch)
-* [MiTel MiVoice and MiTel Border Gateway](/voice/sip/mitel-mivoice)
+* [Asterisk](/voice/sip/configure/asterisk)
+* [Avaya SBCe](/voice/sip/configure/avaya-sbce)
+* [Cisco CUCM/CUBE](/voice/sip/configure/cucm-cube)
+* [FreePBX](/voice/sip/configure/freepbx)
+* [FreeSWITCH](/voice/sip/configure/freeswitch)
+* [MiTel MiVoice and MiTel Border Gateway](/voice/sip/configure/mitel-mivoice)
