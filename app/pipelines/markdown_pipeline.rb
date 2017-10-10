@@ -16,6 +16,7 @@ class MarkdownPipeline < Banzai::Pipeline
       ModalFilter,
       JsSequenceDiagramFilter,
       PartialFilter,
+      TechioFilter,
       IconFilter,
       LanguageFilter,
       MarkdownFilter,

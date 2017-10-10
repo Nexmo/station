@@ -32,14 +32,13 @@ In this document you can learn about:
 
 **Send an SMS**
 
-![SMS Workflow](/assets/images/workflow_call_api_outbound.svg)
-
 Before you begin, [Sign up for a Nexmo account](https://dashboard.nexmo.com/sign-up).
 
 Using your Nexmo `API_KEY` and `API_SECRET`, available from the [dashboard getting started page](https://dashboard.nexmo.com/getting-started-guide), you now send an SMS message:
 
-```tabbed_examples
-source: '/_examples/messaging/sending-an-sms/basic'
+```techio
+title: Send an SMS
+path: /59fdfc449125e185bc7f861a9296e14d4645/welcome/62289
 ```
 
 ## SMS API Features
