@@ -44,7 +44,7 @@ For example, the phone number 331908817135 is made up of:
 
 **Caller ID**
 
-Set the Caller Line Identity (CLI) in the *From* header using E.164. For example: `From: <sip:447937947990@sip.nexmo.com>`.
+Set the Caller Line Identity (CLI) in the *From* header using [E.164](https://en.wikipedia.org/wiki/E.164). For example: `From: <sip:447937947990@sip.nexmo.com>`.
 
 **Codecs**
 
