@@ -122,21 +122,15 @@ Parameter | Description | Required
 
 #### Response
 
-The following shows example Responses in JSON or XML:
-
 ```tabbed_examples
 tabs:
   JSON:
     source: _examples/api/developer/account/pricing/full-pricing/JSON
-    from_line: 1
-    to_line: 20
   XML:
     source: _examples/api/developer/account/pricing/full-pricing/XML
-    from_line: 1
-    to_line: 20
 ```
 
-The responses are quite lengthy. Full responses are viewable on GitHub. <!-- TODO: add link -->
+The example response given above only shows two countries for conciseness.
 
 
 ##### Keys and Values
