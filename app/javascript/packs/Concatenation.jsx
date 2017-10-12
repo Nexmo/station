@@ -20,38 +20,17 @@ class Concatenation extends React.Component {
   split() {
     const length = this.state.body.length
     const stringArray = this.splitStringByCodePoint()
-    let capacity = {}
 
-    if (this.encodeAs16Bit()) {
-      capacity = {
-        partOne: 70,
-        partTwo: 62,
-        partThree: 66,
-      }
-    } else {
-      capacity = {
-        partOne: 160,
-        partTwo: 146,
-        partThree: 153,
-      }
-    }
+    const capacity = this.encodeAs16Bit() ? 70 : 160
+    const capacityWithMeta = this.encodeAs16Bit() ? 66 : 153
 
-    var a = [stringArray.slice(0, capacity.partOne).join('')]
+    var a = [stringArray.slice(0, capacity).join('')]
 
-    if (stringArray.length > capacity.partOne) {
 
-      console.log(a);
-
-      console.log(stringArray.slice(capacity.partOne, (capacity.partOne + capacity.partTwo)).join(''));
-
-      a.push(stringArray.slice(capacity.partOne, (capacity.partOne + capacity.partTwo)).join(''))
-
-      console.log(a);
-    }
-
-    if (stringArray.length > (capacity.partOne + capacity.partTwo)) {
-      const remainder = stringArray.slice((capacity.partOne + capacity.partTwo))
-      const arrays = chunk(remainder, capacity.partThree).map((a) => a.join(''))
+    if (stringArray.length > capacity) {
+      a = [stringArray.slice(0, capacityWithMeta).join('')]
+      const remainder = stringArray.slice(capacityWithMeta)
+      const arrays = chunk(remainder, capacityWithMeta).map((a) => a.join(''))
       a = a.concat(arrays)
     }
 
@@ -65,15 +44,29 @@ class Concatenation extends React.Component {
     return (decodedString !== this.state.body)
   }
 
+  renderUdf(split) {
+    if (split.length > 1) {
+      return (
+        <span>
+          <span className="label">User Defined Header</span>
+          <span dangerouslySetInnerHTML={{ __html: '&nbsp;' }}></span>
+        </span>
+      )
+    }
+  }
+
   renderSplit(split) {
     return split.map((group, index) => {
       return (
-        <tr>
-          <td style={{ 'vertical-align': 'middle' }}><b>Part {index + 1}</b></td>
+        <tr key={index}>
+          <td style={{ verticalAlign: 'middle' }}><b>Part {index + 1}</b></td>
           <td style={{ width: '75%' }}>
             <code
-              style={{ 'white-space': 'normal' }}
-            >{group}</code>
+              style={{ whiteSpace: 'normal', wordBreak: 'break-all' }}
+            >
+              { this.renderUdf(split) }
+              {group}
+            </code>
           </td>
         </tr>
       )
