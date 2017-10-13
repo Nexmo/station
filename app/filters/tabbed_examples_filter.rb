@@ -41,6 +41,8 @@ class TabbedExamplesFilter < Banzai::Filter
 
       source = source.lines[from_line..to_line].join
 
+      source.unindent! if config['unindent']
+
       { language: title.dup.downcase, source: source }
     end
   end
