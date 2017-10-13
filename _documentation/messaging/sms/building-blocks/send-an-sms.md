@@ -31,7 +31,7 @@ tabs:
     from_line: 9
   java:
     source: '.repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/sms/SendMessage.java'
-    from_line: 36
+    from_line: 41
     to_line: 51
     unindent: true
   csharp:
