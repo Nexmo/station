@@ -96,18 +96,13 @@ If the `If-None-Match` header is set, the server will return the media if and on
 
 Using the `If-Modified-Since` or `If-None-Match` headers allows you to efficiently cache content you have downloaded from the Media API and only transfer the data from our servers if the data has been modified.
 
+We recommend that you should use the `If-None-Match` approach for caching files based on their content.
+
 The `Range` header is supported and allows you to specify which bytes of the file you wish to receive.
 
-If the `publicItem` property in the file's properties is set to `true`, downloading from this endpoint requires no authentication. If it is set to `false`, you will need to authenticate your request using either API keys (by setting `api_key` and `api_secret` as query parameters) or by sending your application's JSON Web Token in the `Authorization` header.
+If the `publicItem` property in the file's properties is set to `true`, downloading from this endpoint requires no authentication. If it is set to `false`, you will need to authenticate your request using your application's JSON Web Token in the `Authorization` header.
 
-
-### Parameters
-
-|Name|Description|Type|Required|
-|---|---|---|---|
-|`api_key`|API key of your account. Only required if the media item's `publicItem` property is false.|string|❎|
-|`api_secret`|API secret of your account. Only required if the media item's `publicItem` property is false.|string|❎|
-
+The number of times a file can be downloaded is determined by the `maxDownloadsAllowed` property of the file's metadata. If the total number of downloads exceeds that number, you will not be able to download the file unauthenticated. If our request is authenticated with a JSON Web Token, you will be allowed to download the file even if doing so exceeds the `maxDownloadsAllowed` limit.
 
 ### Responses
 
@@ -164,8 +159,8 @@ Authentication can be done using using a JSON Web Token for the application the 
 |`accountId`|The ID of your Nexmo account. This is the same as your API key.|
 |`storeId`|An internal identifier of how the file is stored.|
 |`storeMetaParams`|A JSON encoded string containing metadata about the file.|
-|`maxDownloadsAllowed`|Reserved for future use.|
-|`timesDownloaded`|Reserved for future use.|
+|`maxDownloadsAllowed`|The maximum number of times the file may be downloaded.|
+|`timesDownloaded`|The number of times the file has been downloaded.|
 |`etag`|An identifier for the content. This will change if the content of the file has been changed (i.e. if you upload a new version of the file). For more information see [Wikipedia: HTTP ETag](https://en.wikipedia.org/wiki/HTTP_ETag)|
 |`mediaSize`|The size of the file in bytes.|
 |`metadataPrimary`|A string (which may be JSON encoded) to store metadata associated with the file.|
@@ -216,13 +211,13 @@ The metadata you can update is listed below:
 |`title`|A string containing a title for the media file.|string|
 |`description`|A description of the media file.|string|
 |`mimeType`|The MIME type of the media file.|string|
+|`maxDownloadsALlowed`|The maximum number of times the file may be downloaded.|integer|
 
 <!--
 Problematic:
 
 |`maxDownloadsAllowed`|For possible future use.|integer|
 |`requiresPinCode`|For possible future use.|boolean|
-
 
 -->
 
