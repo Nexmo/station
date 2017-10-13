@@ -33,6 +33,11 @@ class TabbedExamplesFilter < Banzai::Filter
 
   def load_examples_from_tabs
     @config['tabs'].map do |title, config|
+      # Handle differences between case sensitivity in different environments
+      unless Dir.glob("#{Pathname.new(config['source']).parent}/*").include? config['source']
+        raise "Can't find the file #{config['source']}. Note: this is case sensitive."
+      end
+
       source = File.read(config['source'])
 
       total_lines = source.lines.count

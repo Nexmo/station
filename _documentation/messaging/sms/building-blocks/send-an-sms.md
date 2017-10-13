@@ -25,7 +25,7 @@ source: '_examples/messaging/sending-an-sms/basic'
 ```tabbed_examples
 tabs:
   curl:
-    source: '_examples/messaging/sending-an-sms/basic/curl'
+    source: '_examples/messaging/sending-an-sms/basic/cURL'
   node:
     source: '.repos/nexmo-community/nexmo-node-quickstart/sms/send.js'
     from_line: 9
