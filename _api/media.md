@@ -65,14 +65,7 @@ All parameters are optional.
 |`start_time`|Search criteria: finds media created after this date-time.|string (ISO 8601)|
 |`end_time`|Search criteria: finds media created before this point.|string (ISO 8601)|
 
-<!--
-
-Problematic:
-start_time - doesn't work
-end_time - doesn't work
-
--->
-
+If no `start_time` and `end_time` are set, the default response will show the last seven days of uploaded files.
 
 ### Responses
 
