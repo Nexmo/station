@@ -4,7 +4,7 @@ class TabbedExamplesFilter < Banzai::Filter
       @config = YAML.safe_load($1)
       validate_config
 
-      @examples = @config['source'] ? load_examples_from_source : load_examples_from_tabs
+      @examples = load_examples
       @examples = sort_examples
 
       build_html
@@ -13,9 +13,15 @@ class TabbedExamplesFilter < Banzai::Filter
 
   private
 
+  def load_examples
+    return load_examples_from_source if @config['source']
+    return load_examples_from_source if @config['tabs']
+    load_examples_from_config
+  end
+
   def validate_config
-    return if @config && (@config['source'] || @config['tabs'])
-    raise 'A source or tabs key must be present in this tabbed_example config'
+    return if @config && (@config['source'] || @config['tabs'] || @config['config'])
+    raise 'A source, tabs or config key must be present in this tabbed_example config'
   end
 
   def load_examples_from_source
@@ -33,23 +39,36 @@ class TabbedExamplesFilter < Banzai::Filter
 
   def load_examples_from_tabs
     @config['tabs'].map do |title, config|
-      # Handle differences between case sensitivity in different environments
-      unless Dir.glob("#{Pathname.new(config['source']).parent}/*").include? config['source']
-        raise "Can't find the file #{config['source']}. Note: this is case sensitive."
-      end
-
-      source = File.read(config['source'])
-
-      total_lines = source.lines.count
-      from_line = config['from_line'] || 0
-      to_line = config['to_line'] || total_lines
-
-      source = source.lines[from_line..to_line].join
-
-      source.unindent! if config['unindent']
-
-      { language: title.dup.downcase, source: source }
+      handle_tab(title, config)
     end
+  end
+
+  def load_examples_from_config
+    configs = YAML.load_file("#{Rails.root}/config/code_examples.yml")
+    config = @config['config'].split('.').inject(configs) { |h, k| h[k] }
+
+    config.map do |title, config|
+      handle_tab(title, config)
+    end
+  end
+
+  def handle_tab(title, config)
+    # Handle differences between case sensitivity in different environments
+    unless Dir.glob("#{Pathname.new(config['source']).parent}/*").include? config['source']
+      raise "Can't find the file #{config['source']}. Note: this is case sensitive."
+    end
+
+    source = File.read(config['source'])
+
+    total_lines = source.lines.count
+    from_line = config['from_line'] || 0
+    to_line = config['to_line'] || total_lines
+
+    source = source.lines[from_line..to_line].join
+
+    source.unindent! if config['unindent']
+
+    { language: title.dup.downcase, source: source }
   end
 
   def sort_examples
