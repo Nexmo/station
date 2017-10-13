@@ -48,43 +48,9 @@ Key | Value
 `value` | The accounts remaining balance in euros.
 `autoReload` | A boolean indicating if autoReload is enabled on your account.
 
-### Pricing
-
-Retrieve our outbound pricing for a given country
-
-#### Request
-
-```
-[GET] https://rest.nexmo.com/account/get-pricing/outbound
-```
-
-##### Parameters
-
-The following shows the parameters you use in the request:
-
-Parameter | Description | Required
--- | -- | --
-`country` | 	A 2 letter [country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). For example, `CA` | Yes
-
-#### Response
-
-The following shows example Responses in JSON or XML:
-
-```tabbed_examples
-source: _examples/api/developer/account/pricing
-```
-
-##### Keys and Values
-
-The response contains the following keys and values:
-
-Key | Value
--- | --
-`value` | The accounts remaining balance in euros.
-
 ### Settings
 
-Retrieve our outbound pricing for a given country
+Modify settings for your account including callback URLs and your API secret.
 
 #### Request
 
