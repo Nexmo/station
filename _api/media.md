@@ -76,8 +76,10 @@ Successful requests will return a JSON document that follows the conventions of 
 |200|Successful operation|
 |401|Authentication failure|
 |403|Authorisation denied|
-|404|No such item|
+|404|No such item.|
 |500|Internal server error|
+
+A `404` may be returned if no results meet your selection criteria.
 
 
 ## Download media file
