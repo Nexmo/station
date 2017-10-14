@@ -15,7 +15,7 @@ class TabbedExamplesFilter < Banzai::Filter
 
   def load_examples
     return load_examples_from_source if @config['source']
-    return load_examples_from_source if @config['tabs']
+    return load_examples_from_tabs if @config['tabs']
     load_examples_from_config
   end
 
