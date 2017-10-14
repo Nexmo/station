@@ -102,7 +102,7 @@ gem 'devise', '4.3.0'
 # Simple wrapper for the GitHub API
 gem 'octokit'
 
-gem 'nexmo_api_specification', '0.1.3'
+gem 'nexmo_api_specification', '0.1.4'
 
 group :development, :test do
   gem 'awesome_print'
