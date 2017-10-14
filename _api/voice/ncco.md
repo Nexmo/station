@@ -21,7 +21,7 @@ Action | Description | Synchronous
 [stream](#stream) | Send audio files to a Conversation. | Yes, unless *bargeIn=true*
 [input ](#input) | Collect digits from the person you are calling. | Yes
 
-All the actions can return the following [error codes ](#errors).
+All the actions can return the following [status codes](#status-codes).
 
 > **Note**: [Controlling a Call with Nexmo Call Control Objects](/voice/guides/ncco#controlling) explains how to provide your NCCOs to Nexmo after you initiate a Call or Conference.
 
