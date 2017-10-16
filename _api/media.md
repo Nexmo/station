@@ -65,7 +65,7 @@ All parameters are optional.
 |`start_time`|Search criteria: finds media created after this date-time.|string (ISO 8601)|
 |`end_time`|Search criteria: finds media created before this point.|string (ISO 8601)|
 
-If no `start_time` and `end_time` are set, the default response will show the last seven days of uploaded files.
+If no `start_time` and `end_time` are set, the default response will show the last seven days of uploaded files (and a response code of `404`).
 
 ### Responses
 
@@ -211,15 +211,7 @@ The metadata you can update is listed below:
 |`title`|A string containing a title for the media file.|string|
 |`description`|A description of the media file.|string|
 |`mimeType`|The MIME type of the media file.|string|
-|`maxDownloadsALlowed`|The maximum number of times the file may be downloaded.|integer|
-
-<!--
-Problematic:
-
-|`maxDownloadsAllowed`|For possible future use.|integer|
-|`requiresPinCode`|For possible future use.|boolean|
-
--->
+|`maxDownloadsAllowed`|The maximum number of times the file may be downloaded.|integer|
 
 ### Responses
 
@@ -231,75 +223,3 @@ Problematic:
 |404|No such item|No Content|
 |500|Internal server error|No Content|
 
-<!--
-## Definitions
-
-## MediaItem
-
-|Name|Schema|
-|---|---|
-|`accountId`  <br>*optional*|string|
-|`applicationId`  <br>*optional*|string|
-|`description`  <br>*optional*|string|
-|`endOfLife`  <br>*optional*|string (date-time)|
-|`etag`  <br>*optional*|string|
-|`id`  <br>*optional*|string|
-|`lastDownloaded`  <br>*optional*|string (date-time)|
-|`maxDownloadsAllowed`  <br>*optional*|integer (int32)|
-|`mediaSize`  <br>*optional*|integer (int64)|
-|`mimeType`  <br>*optional*|string|
-|`originalFileName`  <br>*optional*|string|
-|`path`  <br>*optional*|string|
-|`publicItem`  <br>*optional*|boolean|
-|`requiresPinCode`  <br>*optional*|string|
-|`sourceUrl`  <br>*optional*|string|
-|`storeId`  <br>*optional*|string|
-|`storeMetaParams`  <br>*optional*|string|
-|`timeCreated`  <br>*optional*|string (date-time)|
-|`timeLastUpdated`  <br>*optional*|string (date-time)|
-|`timesDownloaded`  <br>*optional*|integer (int32)|
-|`title`  <br>*optional*|string|
-
-
-### MediaParameters
-
-|Name|Schema|
-|---|---|
-|`description`  <br>*optional*|string|
-|`maxDownloadsAllowed`  <br>*optional*|integer (int32)|
-|`metadataPrimary`  <br>*optional*|string|
-|`metadataSecondary`  <br>*optional*|string|
-|`mimeType`  <br>*optional*|string|
-|`publicItem`  <br>*optional*|boolean|
-|`requiresPinCode`  <br>*optional*|string|
-|`title`  <br>*optional*|string|
-|`ttl`  <br>*optional*|integer (int32)|
-
-
-### OutputStream
-
-*Type* : object
-
-
-### PageLinks
-
-|Name|Schema|
-|---|---|
-|`first`  <br>*optional*|[HrefLink](#hreflink)|
-|`last`  <br>*optional*|[HrefLink](#hreflink)|
-|`next`  <br>*optional*|[HrefLink](#hreflink)|
-|`prev`  <br>*optional*|[HrefLink](#hreflink)|
-|`self`  <br>*optional*|[HrefLink](#hreflink)|
-
-
-### ResultPageHAL
-
-|Name|Schema|
-|---|---|
-|`_embedded`  <br>*optional*|< string, < object > array > map|
-|`_links`  <br>*optional*|[PageLinks](#pagelinks)|
-|`count`  <br>*optional*  <br>*read-only*|integer (int64)|
-|`page_index`  <br>*optional*  <br>*read-only*|integer (int64)|
-|`page_size`  <br>*optional*  <br>*read-only*|integer (int32)|
-
--->
