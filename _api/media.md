@@ -6,7 +6,7 @@ api: Media API
 
 # API Reference 
 
-The Media API allows you to manage media files associated with your account and its applications. Authorisation is done using a JSON Web Token (JWT) in the `Authorization` header.
+The Media API allows you to manage media files associated with your account and its applications. Authorisation is done using a [JSON Web Token](/concepts/guides/authentication#json-web-tokens-jwt) (JWT) in the `Authorization` header.
 
 ## Upload media
 
