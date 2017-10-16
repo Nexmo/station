@@ -165,15 +165,6 @@
                 <a href="../Structs/Session.html">Session</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/UploadedImage.html">UploadedImage</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/UploadedImage/ImageType.html">– ImageType</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/UploadedImage/Image.html">– Image</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Classes/ConversationPreviewModel.html">ConversationPreviewModel</a>
               </li>
             </ul>
@@ -208,9 +199,6 @@
                 <a href="../changelog.html">CHANGELOG</a>
               </li>
               <li class="nav-group-task">
-                <a href="../gettingstarted.html">GettingStarted</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../readme.html">README</a>
               </li>
             </ul>
@@ -218,6 +206,9 @@
           <li class="nav-group-name">
             <a href="../Other Classes.html">Other Classes</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/MediaController.html">MediaController</a>
+              </li>
               <li class="nav-group-task">
                 <a href="../Classes/Signal.html">Signal</a>
               </li>
@@ -234,6 +225,9 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Enums/Change.html">Change</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Result.html">Result</a>
               </li>
             </ul>
           </li>
@@ -253,6 +247,23 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols/NetworkErrorProtocol.html">NetworkErrorProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/RawDecodable.html">RawDecodable</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Other Structs.html">Other Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/IPS.html">IPS</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/IPS/ImageType.html">– ImageType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Request.html">Request</a>
               </li>
             </ul>
           </li>
@@ -378,7 +389,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Log level</p>
+                        <p>Log level for console logs, @Default to: .warning</p>
 
                       </div>
                       <div class="declaration">
@@ -405,7 +416,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Auto reconnect</p>
+                        <p>Auto reconnect when network disconnects, @Default to: true</p>
 
                       </div>
                       <div class="declaration">
@@ -413,6 +424,33 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">autoReconnect</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vV17NexmoConversation13Configuration12clearAllDataSb"></a>
+                    <a name="//apple_ref/swift/Property/clearAllData" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vV17NexmoConversation13Configuration12clearAllDataSb">clearAllData</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Remove all assets, files, cache and database, @Default to: false</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">clearAllData</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
@@ -433,9 +471,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FV17NexmoConversation13ConfigurationcFT4withOS0_8LogLevel13autoReconnectSb_S0_"></a>
-                    <a name="//apple_ref/swift/Method/init(with:autoReconnect:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV17NexmoConversation13ConfigurationcFT4withOS0_8LogLevel13autoReconnectSb_S0_">init(with:autoReconnect:)</a>
+                    <a name="/s:FV17NexmoConversation13ConfigurationcFT4withOS0_8LogLevel13autoReconnectSb12clearAllDataSb_S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(with:autoReconnect:clearAllData:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FV17NexmoConversation13ConfigurationcFT4withOS0_8LogLevel13autoReconnectSb12clearAllDataSb_S0_">init(with:autoReconnect:clearAllData:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -462,8 +500,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2017 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2017-09-14)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2017 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2017-10-16)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>
