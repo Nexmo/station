@@ -12,7 +12,7 @@ The Media API allows you to manage media files associated with your account and 
 
 [POST] `https://api.nexmo.com/v3/media`
 
-This endpoint is used to upload media files (usually audio) to the media service. Upon successful upload, you will get back an `application/json` document with status 201 giving you an identifier for the media file.
+This endpoint is used to upload media files (usually audio) to the media service. Upon successful upload, you will get back a response with status 201 giving you a URL pointing to the metadata for the media file.
 
 The media file will be associated with both your account _and_ the Application ID of the JWT you use. This enables you to separate media files out by application.
 
