@@ -6,7 +6,7 @@ api: Media API
 
 # API Reference 
 
-The Media API allows you to manage media files associated with your account and its applications. Authorisation is done using a [JSON Web Token](/concepts/guides/authentication#json-web-tokens-jwt) (JWT) in the `Authorization` header.
+The Media API allows you to manage media files associated with your account and its applications. Authorisation is done using a [JSON Web Token](/concepts/guides/authentication#json-web-tokens-jwt) (JWT) in the `Authorization` header or in a `jwt-token` URL parameter.
 
 ## Upload media
 
@@ -100,9 +100,15 @@ We recommend that you should use the `If-None-Match` approach for caching files 
 
 The `Range` header is supported and allows you to specify which bytes of the file you wish to receive.
 
-If the `publicItem` property in the file's properties is set to `true`, downloading from this endpoint requires no authentication. If it is set to `false`, you will need to authenticate your request using your application's JSON Web Token in the `Authorization` header.
+If the `publicItem` property in the file's properties is set to `true`, downloading from this endpoint requires no authentication. If it is set to `false`, you will need to authenticate your request using your application's JSON Web Token in the `Authorization` header or the `jwt-token` parameter.
 
 The number of times a file can be downloaded is determined by the `maxDownloadsAllowed` property of the file's metadata. If the total number of downloads exceeds that number, you will not be able to download the file unauthenticated. If our request is authenticated with a JSON Web Token, you will be allowed to download the file even if doing so exceeds the `maxDownloadsAllowed` limit.
+
+### Parameters
+
+|Name|Description|Required|
+|----|-----------|--------|
+|`jwt-token`|A JSON Web Token. Can be used as an alternative to sending an `Authorization` header.|No|
 
 ### Responses
 
