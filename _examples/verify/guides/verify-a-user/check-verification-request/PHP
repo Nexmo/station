@@ -1,1 +1,2 @@
+<?php
 $client->verify()->check($verification, '1234');

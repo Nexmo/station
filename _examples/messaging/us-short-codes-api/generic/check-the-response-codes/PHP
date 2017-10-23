@@ -1,3 +1,4 @@
+<?php
 // Decode the json object you retrieved when you ran the request.
 $decoded_response = json_decode($response, true);
 

@@ -1,3 +1,5 @@
+<?php
+
 $base_url = 'https://rest.nexmo.com';
 $action =   '/number/update';
 

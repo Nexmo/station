@@ -1,3 +1,5 @@
+<?php
+
 //Connection information
 $base_url = 'https://api.nexmo.com' ;
 $version = '';

@@ -1,3 +1,5 @@
+<?php
+
 $base_url = 'https://api.nexmo.com' ;
 $version = '/v1';
 $action = '/applications/?';

@@ -1,3 +1,4 @@
+<?php
 // work with get or post
 $request = array_merge($_GET, $_POST);
 
