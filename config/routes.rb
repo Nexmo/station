@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    resources :events
-    resources :sessions
-    root to: 'events#index'
+  ActiveAdmin.routes(self)
+
+  devise_for :users, ActiveAdmin::Devise.config
+
+  namespace :feedback do
+    resources :feedbacks
   end
 
   get 'markdown/show'
@@ -26,19 +28,27 @@ Rails.application.routes.draw do
   get '/community', to: 'static#community'
   get '/community/past-events', to: 'static#past_events'
 
+  get '/feeds/events', to: 'feeds#events'
+
   get '/changelog', to: 'changelog#index'
   get '/changelog/:version', to: 'changelog#show', constraints: { version: /\d\.\d\.\d/ }
 
   match '/search', to: 'search#results', via: [:get, :post]
-  match '/quicksearch', to: 'search#quicksearch', via: [:get, :post]
 
   get '/api', to: 'api#index'
+
+  get '/api/*specification(/:code_language)', to: 'open_api#show', as: 'open_api', constraints: { specification: /example/ }
   get '/api/*document(/:code_language)', to: 'api#show', constraints: DocumentationConstraint.code_language
 
-  get '/*product/api-reference', to: 'markdown#api'
+  get '/*product/(api|ncco)-reference', to: 'markdown#api'
   get '/:product/*document(/:code_language)', to: 'markdown#show', constraints: DocumentationConstraint.documentation
 
   get '/robots.txt', to: 'static#robots'
+
+  get '/signout', to: 'sessions#destroy'
+
+  post '/jobs/code_example_push', to: 'jobs#code_example_push'
+  post '/jobs/open_pull_request', to: 'jobs#open_pull_request'
 
   get '*unmatched_route', to: 'application#not_found'
 

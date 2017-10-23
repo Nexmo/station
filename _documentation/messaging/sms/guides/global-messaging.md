@@ -10,7 +10,7 @@ Countries have different technical standards and restrictions around the [SMS] s
 - [Concatenation](#concatenation) - check the length of the message in relation to the character set and send the minimum number of SMS.
 - [Custom senderIDs](#custom-senderid) - can you use your company brand for each message or must it be a virtual number, a short code or a random number?
 - [Delivery receipts](#delivery-receipts) - check if the country you are sending to will correctly validate that each message is delivered.
-- [Country specific features](#country-specific-features) - a comprehensive list of the sms features available internationally.
+- [Country Specific Features] - a comprehensive list of the sms features available internationally.
 
 
 ## Encoding
@@ -57,7 +57,7 @@ Before you start your messaging campaign:
 
     Use <http://www.url-encode-decode.com/> to see if your message can be URL encoded. If you need to use another format, set the *type* parameter in your [request](/api/sms#request).
 
-2. If you need to use unicode, check if unicode is supported in the country you are sending to [Country Specific Features](#country-specific-features).
+2. If you need to use unicode, check if unicode is supported in the country you are sending to [Country Specific Features].
 
 3. For messages where you have not set [type](/api/sms#parameters) to `text`, check that your user's handset supports the format. For example, a US handset may not display Arabic.
 
@@ -69,7 +69,7 @@ Segmentation information takes up 8 bytes of the message body for each SMS part.
 
 * 7-bit encoding such as latin-1/9 and GSM8 - 152 characters.
 * 8-bit encoding for binary - 134 characters.
-* 16-bit encoding for unicode - 62 characters.
+* 16-bit encoding for unicode - 66 characters.
 
 You can send a message of up to 3200 characters in your request to the SMS API. Best practice is that the message in the text parameter is no longer than 6 SMS parts. For example, to send the first stanza of the balcony speech in Chinese, Nexmo would send a concatenated SMS with the following SMS parts:
 
@@ -87,9 +87,9 @@ Before you start your messaging campaign:
 
     Use <http://www.url-encode-decode.com/> to see if your message can be URL encoded. If you need to use another format, set the *type* parameter in your [request](/api/sms#request).
 
-2. If you need to use unicode, check if unicode is supported in the country you are sending to [Country Specific Features](#country-specific-features).
+2. If you need to use unicode, check if unicode is supported in the country you are sending to [Country Specific Features].
 
-3. Check in the [Country Specific Features](#country-specific-features) if concatenated messages are supported in the country you are sending to. If they are not:
+3. Check in the [Country Specific Features] if concatenated messages are supported in the country you are sending to. If they are not:
 
     * Keep your message concise. Calculate the number of characters you can send in a message for your character set.
     * Configure your app for the time period workaround for inbound messages.
@@ -114,7 +114,7 @@ However, depending on the jurisdiction one or more of the following can happen:
 
 Before you start your messaging campaign:
 
-1. Check the SenderID columns in the [Country Specific Features](#country-specific-features).
+1. Check the SenderID columns in the [Country Specific Features].
 2. Batch send your messages to each country and set `from` to match the SenderID capabilities.
 
 ## Delivery receipts
@@ -132,47 +132,8 @@ In practice, some carriers either do not send the delivery receipt or send a fak
 
 Before you start your messaging campaign:
 
-1. Check the [Country Specific Features](#country-specific-features) for the countries you are sending to.
+1. Check the [Country Specific Features] table for the countries you are sending to.
 2. If the country you are sending to does not supply reliable DLRs, use [Conversion API](/messaging/conversion-api/overview) so Nexmo has more data points to ensure the best routing.
-
-## Country specific features
-
-The following table shows the features available in different countries. Click the column header to sort countries by feature:
-
-| Country | Reliable DLR | Alphanumeric | Short code | Your virtual number | Long code | Preregistered | Concatenated SMS | Unicode |
-| -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
-| Australia           | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ |
-| Brazil              | ✖ | ✖ | ✖ | ✖ | ✖ | ✖ | ✖ | ✖ |
-| Canada              | ✖ | ✖ | ✔ | ✔ | ✖ | ✖ | ✖ | ✖ |
-| Colombia            | ✖ | ✖ | ✖ | ✖ | ✖ | ✖ | ✔ | ✔ |
-| France              | ✔ | ✔ | ✖ | ✔ | ✖ | ✖ | ✖ | ✖ |
-| France (Free)       | ✔ | ✖ | ✖ | ✖ | ✖ | ✖ | ✖ | ✖ |
-| Germany             | ✔ | ✔ | ✖ | ✔ | ✔ | ✔ | ✔ | ✔ |
-| Iraq                | ✖ | ✔ | ✖ | ✖ | ✖ | ✔ | ✔ | ✔ |
-| Iraq (Zain)         | ✖ | ✖ | ✖ | ✖ | ✖ | ✖ | ✔ | ✔ |
-| India               | ✔ | ✖ | ✖ | ✖ | ✖ | ✔ | ✖ | ✔ |
-| Indonesia           | ✖ | ✖ | ✖ | ✖ | ✖ | ✖ | ✖ | ✖ |
-| Iran (MCI)          | ✔ | ✖ | ✖ | ✖ | ✖ | ✖ | ✔ | ✔ |
-| Iran (MTN)          | ✔ | ✖ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ |
-| Italy               | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ |
-| Japan               | ✖ | ✖ | ✖ | ✖ | ✖ | ✖ | ✖ | ✔ |
-| Kuwait              | ✖ | ✖ | ✖ | ✖ | ✖ | ✔ | ✔ | ✔ |
-| Mexico              | ✖ | ✖ | ✖ | ✖ | ✖ | ✖ | ✖ | ✖ |
-| Netherlands         | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ |
-| Philippines         | ✖ | ✖ | ✖ | ✔ | ✖ | ✔ | ✔ | ✖ |
-| Philippines (Globe) | ✖ | ✖ | ✖ | ✔ | ✖ | ✔ | ✔ | ✖ |
-| Russia              | ✔ | ✖ | ✖ | ✖ | ✖ | ✔ | ✔ | ✔ |
-| Saudi Arabia        | ✔ | ✖ | ✖ | ✖ | ✖ | ✔ | ✔ | ✔ |
-| South Africa        | ✖ | ✖ | ✖ | ✖ | ✖ | ✖ | ✔ | ✔ |
-| Spain               | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ |
-| Syria               | ✖ | ✖ | ✖ | ✖ | ✖ | ✔ | ✖ | ✖ |
-| Taiwan              | ✔ | ✖ | ✖ | ✖ | ✖ | ✖ | ✔ | ✔ |
-| Thailand            | ✔ | ✖ | ✖ | ✖ | ✖ | ✔ | ✔ | ✔ |
-| Turkey              | ✔ | ✖ | ✖ | ✖ | ✖ | ✔ | ✔ | ✔ |
-| UAE                 | ✔ | ✖ | ✖ | ✖ | ✖ | ✔ | ✔ | ✔ |
-| UK                  | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ | ✔ |
-| US                  | ✖ | ✖ | ✖ | ✔ | ✖ | ✖ | ✖ | ✖ |
-| Vietnam             | ✖ | ✖ | ✖ | ✖ | ✖ | ✔ | ✔ | ✔ |
 
 > Note: a long code is a phone number that is tied to a device. That is, a landline or SIM.
 
@@ -181,3 +142,4 @@ The following table shows the features available in different countries. Click t
 [ISO-8859-1]: https://en.wikipedia.org/wiki/ISO/IEC_8859-1
 [SMPP 3.4]: http://opensmpp.org/specs/smppv34_gsmumts_ig_v10.pdf
 [SMS spoofing]: https://en.wikipedia.org/wiki/SMS_spoofing
+[Country Specific Features]: https://help.nexmo.com/hc/en-us/articles/115011781468

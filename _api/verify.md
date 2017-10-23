@@ -1,10 +1,10 @@
 ---
-title: API reference
+title: Verify API Reference
 description: Reference guide for the Verify API.
 api: Verify
 ---
 
-# API reference
+# Verify API Reference
 
 You use Verify API to Verify that a phone number is valid, reachable, and accessible by your user. You can customise the message used during verification.
 
@@ -35,12 +35,12 @@ The following table shows the parameters you use in the request:
 Parameter | Description | Required
 -- | -- | --
 `format` | The response format. Either `json` or `xml` | Yes
-`number` | The mobile or landline phone number to verify. Unless you are setting `country` explicitly, this number must be in [E.164](http://www.e164.org/) format. For example, `447700900000`. | Yes
+`number` | The mobile or landline phone number to verify. Unless you are setting `country` explicitly, this number must be in [E.164](https://en.wikipedia.org/wiki/E.164) format. For example, `447700900000`. | Yes
 `country` | If do not set *number* in international format or you are not sure if *number* is correctly formatted, set `country` with the two-character country code. For example, *GB*, *US*. Verify works out the international phone number for you. | No
 `brand` | The name of the company or App you are using Verify for.  This 18 character alphanumeric string is used in the body of Verify message. For example: "Your *brand* PIN is ..". |  Yes
 `sender_id` | An 11 character alphanumeric string to specify the SenderID for SMS sent by Verify. Depending on the destination of the phone number you are applying, restrictions may apply. By default, `sender_id` is VERIFY.   |  No
 `code_length` |  The length of the PIN. Possible values are 6 or 4 characters. The default value is 4. |  No
-`lg` |  By default, the text-to-speech (TTS) message is generated in the locale that matches the *number*. For example, the TTS for a 33* number is sent in French. Use this parameter to explicitly control the [language, accent and gender](https://docs.nexmo.com/voice/voice-deprecated/supported-languages) used for the Verify request. The default language is `en-us`. |  No
+`lg` |  By default, the SMS or text-to-speech (TTS) message is generated in the locale that matches the *number*. For example, the text message or TTS message for a 33* number is sent in French. Use this parameter to explicitly control the [language, accent and gender](#language-codes) used for the Verify request. The default language is `en-us`. |  No
 `require_type` |  Restrict verification to a certain network type. Possible values are: <ul><li>All (Default)</li><li>Mobile</li><li>Landline</li></ul><br>**Note**: contact [support@nexmo.com](mailto:support@nexmo.com) to enable this feature. |  No
 `pin_expiry` |  The PIN validity time from generation. This is an integer value between 60 and 3600 seconds. The default is 300 seconds. When specified together, pin_expiry must be an integer multiple of `next_event_wait`. Otherwise, pin_expiry is set to equal next_event_wait. For example: <ul><li>`pin_expiry` = 360 seconds, so `next_event_wait` = 120 seconds - all three attempts have the same PIN.</li><li>`pin_expiry` = 240 seconds, so `next_event_wait` = 120 seconds - 1st and 2nd attempts have the same PIN, third attempt has a different PIN.</li><li>`pin_expiry` = 120 (or 200 or 400 seconds) - each attempt has a different PIN.</li></ul> |  No
 `next_event_wait` |  An integer value between 60 and 900 seconds inclusive that specifies the wait time between attempts to deliver the PIN. Verify calculates the default value based on the average time taken by users to complete verification. |  No
@@ -93,14 +93,14 @@ Status&nbsp;code | Text | Description
 5 | Internal Error | An error occurred processing this request in the Cloud Communications Platform.
 6 | The Nexmo platform was unable to process this message for the following reason: $reason | The request could not be routed.
 7 | The number you are trying to verify is blacklisted for verification |
-8 | The api_key you supplied is for an account that has been barred from submitting messages | 
+8 | The api_key you supplied is for an account that has been barred from submitting messages |
 9 | Partner quota exceeded | Your account does not have sufficient credit to process this request.
-10 | Concurrent verifications to the same number are not allowed | 
+10 | Concurrent verifications to the same number are not allowed |
 15 | The destination number is not in a supported network | The request has been rejected.
-16 | The code inserted does not match the expected value | 
+16 | The code inserted does not match the expected value |
 17 | The wrong code was provided too many times | You can run Verify Check on a `request_id` up to three times unless a new PIN code is generated. If you check a request more than 3 times, it is set to FAILED and you cannot check it again.
 18 | Too many request_ids provided | You added more than the maximum of 10 `request_id`s to your request.
-19 | No more events are left to execute for the request | 
+19 | No more events are left to execute for the request |
 101 | No request found | There are no matching Verify requests.
 
 
@@ -259,7 +259,7 @@ Key | Value
 -- | --
 `request_id` | The [request_id](#keys-and-values) you received in the Verify Request [Response](#rresponse) and used in the Verify Search [request](#srequest).
 `account_id` | The Account ID the request was for.
-`status` | The status of the Verify Request. Possible values are: <ul><li>`IN PROGRESS` - still in progress.</li><li>`SUCCESSFUL` - your user entered the PIN correctly.</li><li>`FAILED` - user entered the wrong pin more than 3 times.</li><li>`EXPIRED` - no PIN entered during the [pin_expiry](#keys-and-values) time.</li><li>`CANCELLED` - the request was cancelled using Verify Control</li><li>101 - the [request_id](#keys-and-values) you set in the Verify Search [request](#srequest) is invalid.</li><ul>
+`status` | The status of the Verify Request. Possible values are: <ul><li>`IN PROGRESS` - still in progress.</li><li>`SUCCESS` - your user entered the PIN correctly.</li><li>`FAILED` - user entered the wrong pin more than 3 times.</li><li>`EXPIRED` - no PIN entered during the [pin_expiry](#keys-and-values) time.</li><li>`CANCELLED` - the request was cancelled using Verify Control</li><li>101 - the [request_id](#keys-and-values) you set in the Verify Search [request](#srequest) is invalid.</li><ul>
 `number` | The phone number this *Verify Request* was made for.</td>
 `price` | The price charged for this *Verify Request*.
 `currency` | The currency code.</td>
@@ -269,7 +269,7 @@ Key | Value
 `first_event_date` | Time first attempt was made. This response parameter  is in the following format YYYY-MM-DD HH:MM:SS. For example, *2012-04-05 09:22:57*.</td>
 `last_event_date` | Time last attempt was made. This response parameter  is in the following format YYYY-MM-DD HH:MM:SS. For example, *2012-04-05 09:22:57*.</td>
 `checks` | The list of checks made for this verification and their outcomes. Possible values are:<ul><li>date_received - in YYYY-MM-DD HH:MM:SS format</li><li>code</li><li>status - possible values are: <ul><li>VALID</li><li>INVALID</li></ul></li><li>ip_address</li></ul>
-error_text | If *status* is not *SUCCESSFUL*, this message explains the issue.
+error_text | If *status* is not *SUCCESS*, this message explains the issue.
 
 ## Verify Control
 
@@ -329,3 +329,37 @@ Key | Value
 -- | --
 `status` | The Verify Control Response code that explains how your request proceeded. @[Possible Values](/_modals/api/verify/control/response/status.md).
 `command` | The [cmd](#cmd) you sent in the request.
+
+
+## Language codes
+
+The following languages are accepted on the Verify API. The language code is used to manually set the language of the SMS text message and both the language, accent and voice gender for the subsequent phone call.
+
+Code    | Language | Available genders
+--------|----------|------------------
+`de-de` | German, German | female / male
+`en-au` | English, Australian | female / male
+`en-gb` | English, UK | female / male
+`en-us` | English, US (default) | female / male
+`en-in` | English, Indian | female
+`es-es` | Spanish, Spanish | female / male
+`es-mx` | Spanish, Mexican | female
+`es-us` | Spanish, US | female / male
+`fr-ca` | French, Canadian | female
+`fr-fr` | French, French | female / male
+`is-is` | Icelandic, Icelandic | female / male
+`it-it` | Italian, Italian | female / male
+`ja-jp` | Japanese, Japanese | female / male
+`ko-kr` | Korean, Korean | female / male
+`nl-nl` | Dutch, Netherlands | female / male
+`pl-pl` | Polish, Polish | female / male
+`pt-pt` | Portuguese, Portuguese | male
+`pt-br` | Portuguese, Brazilian | female / male
+`ro-ro` | Romanian, Romanian | female
+`ru-ru` | Russian, Russian | female
+`sv-se` | Swedish, Sweden | female
+`tr-tr` | Turkish, Turkish | female
+`zh-cn` | Chinese (Mandarin), Simplified Chinese | female / male
+`zh-tw` | Chinese, Traditional | text only - see note below
+
+If you request Taiwanese (`zh-tw`), the text message will be sent in Traditional Chinese, but the voice call uses a female voice speaking English with a Chinese accent.

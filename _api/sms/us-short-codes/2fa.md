@@ -1,10 +1,10 @@
 ---
-title: API reference
+title: 2FA API Reference
 description: Reference guide for Two-factor Authentication API.
 api: 2FA
 ---
 
-# API reference
+# Two-factor Authentication API Reference
 
 This describes the US Short Code Two-factor Authentication API in the following steps:
 

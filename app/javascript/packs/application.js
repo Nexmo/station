@@ -7,6 +7,8 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
+import 'babel-polyfill'
+
 import { TweenLite, CSSPlugin } from 'gsap'
 import React from 'react'
 import ReactDOM from 'react-dom'
@@ -20,6 +22,8 @@ import Scroll from './Scroll'
 import Search from './Search'
 import Modals from './Modals'
 import Notices from './Notices'
+import Feedback from './Feedback'
+import APIStatus from './APIStatus'
 
 import {
   preventSamePage as turbolinksPreventSamePage,
@@ -39,9 +43,14 @@ let refresh = () => {
   JsSequenceDiagrams()
   new TabbedExamples
   Modals()
+  APIStatus()
 
   if (document.getElementById('SearchComponent')) {
     ReactDOM.render(<Search/>, document.getElementById('SearchComponent'))
+  }
+
+  if (document.getElementById('FeedbackComponent')) {
+    ReactDOM.render(<Feedback {...window.feedbackProps}/>, document.getElementById('FeedbackComponent'))
   }
 }
 

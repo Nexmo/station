@@ -5,7 +5,7 @@ description: The Nexmo Call Control Objects used to manage your Voice API calls.
 
 # Nexmo Call Control Objects
 
-A Nexmo Call Control Object (NCCO) is a JSON array of actions that you use to control the flow of a Voice API Call.
+A Nexmo Call Control Object (NCCO) is a JSON array of actions that is used to control the flow of a Voice API Call.
 
 This section describes:
 
@@ -72,7 +72,7 @@ Name | Description
 `from` | The endpoint you are calling from.
 `conversation_uuid` | The unique ID for this Conversation.
 
-You use these parameters to customize the NCCO you return to Nexmo. The following code examples show how to provide the NCCO that controls your call or conversation:
+You can use these parameters to customize the NCCO you return to Nexmo. The following code examples show how to provide the NCCO that controls your call or conversation:
 
 ```tabbed_examples
 source: '_examples/voice/ncco/creating-a-custom-call-or-conversation-for-each-user'

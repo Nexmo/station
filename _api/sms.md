@@ -1,9 +1,9 @@
 ---
-title: API Reference
+title: SMS API Reference
 api: SMS
 ---
 
-# API Reference
+# SMS API Reference
 
 ## Send an SMS
 
@@ -70,6 +70,7 @@ Parameter | Description | Required
 `title` | The title for a `wappush` SMS. For example: MyCompanyIsGreat. | For `wappush` type SMS.
 `url` | The URL your user taps to navigate to your website. | For `wappush` type SMS.
 `validity` | The availability period for a `wappush` type SMS in milliseconds. For example, validity=86400000. If you do not set this parameter, the default is 48 hours. | No.
+`client-ref` | If enabled, you can include a 40 character maximum length string for internal reporting/analytics. You will need to email support@nexmo.com to get this functionality enabled on your account. | No
 
 #### Authentication information
 
@@ -137,7 +138,7 @@ The response contains the following keys and values:
 
 ```tabbed_content
 source: '/_examples/api/sms/sending/keys-and-values/'
-````
+```
 
 #### Error codes
 

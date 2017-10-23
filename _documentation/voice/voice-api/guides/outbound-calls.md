@@ -44,7 +44,7 @@ To create a Call using the Voice API:
     source: '_examples/voice/guides/outbound-calls/handle-the-call-state-changes'
     ```
 
-5. Write a method to generate the JWT you use to access Nexmo API for your application:
+5. Write a method to generate the JWT used to access Nexmo API for your application:
 
     ```tabbed_examples
     source: '_examples/voice/guides/outbound-calls/jwt'

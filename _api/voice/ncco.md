@@ -21,7 +21,7 @@ Action | Description | Synchronous
 [stream](#stream) | Send audio files to a Conversation. | Yes, unless *bargeIn=true*
 [input ](#input) | Collect digits from the person you are calling. | Yes
 
-All the actions can return the following [error codes ](#errors).
+All the actions can return the following [status codes](#status-codes).
 
 > **Note**: [Controlling a Call with Nexmo Call Control Objects](/voice/guides/ncco#controlling) explains how to provide your NCCOs to Nexmo after you initiate a Call or Conference.
 
@@ -54,7 +54,7 @@ The record action is asynchronous. Recording starts when the record action is ex
 
 For information about the workflow to follow, see [Recordings](/voice/guides/record-calls-and-conversations).
 
-You use the following options to control a `record` action:
+You can use the following options to control a `record` action:
 
 Option | Description | Required
  -- | -- | --
@@ -97,13 +97,13 @@ You can use the `conversation` action to create standard or moderated Conversati
 
 > **Note**: you can invite up to 50 people to your Conversation.
 
-The following NCCO examples show how to configure different types of Conversation. You use the [*answer_url* webhook GET request parameters](/voice/guides/ncco#controlling) to ensure you deliver one NCCO to participants and another to the moderator.
+The following NCCO examples show how to configure different types of Conversation. You can use the [*answer_url* webhook GET request parameters](/voice/guides/ncco#controlling) to ensure you deliver one NCCO to participants and another to the moderator.
 
 ```tabbed_content
 source: '/_examples/voice/guides/ncco-reference/conversation'
 ```
 
-You use the following options to control a *conversation* action:
+You can use the following options to control a *conversation* action:
 
 Option | Description | Required
 -- | -- | --
@@ -122,28 +122,28 @@ You can use the `connect` action to connect a call to endpoints such as phone nu
 
 This action is synchronous, after a *connect* the next action in the NCCO stack is processed. A connect action ends when the endpoint you are calling is busy or unavailable. You ring endpoints sequentially by nesting connect actions.
 
-You use the following options to control a `connect` action:
+You can use the following options to control a `connect` action:
 
 Option | Description | Required
 -- | -- | --
 `endpoint` | Connect to a single endpoint. @[Possible Types](/_modals/voice/guides/ncco-reference/endpoint.md) | Yes
-`from` | A number in e.164 format that identifies the caller. | No
+`from` | A number in [E.164](https://en.wikipedia.org/wiki/E.164) format that identifies the caller.§§ This must be one of your Nexmo virtual numbers, another value will result in the caller ID being unknown. | No
 `eventType` | Set to `synchronous` to: <ul markdown="1"><li>make the `connect` action synchronous</li><li>enable `eventUrl` to return an NCCO that overrides the current NCCO when a call moves to specific states. See the [Connect with fallback NCCO example](#connect_fallback).</li></ul> | No
 `timeout` |  If the call is unanswered, set the number in seconds before Nexmo stops ringing `endpoint`. The default value is `60`.
 `limit` | Maximum length of the call in seconds. The default and maximum value is `7200` seconds (2 hours). | No
 `machineDetection` | Configure the behavior when Nexmo detects that a destination is an answerphone. Set to either: <ul markdown="1"><li>`continue` - Nexmo sends an HTTP request to `event_url` with the Call event `machine`</li><li>`hangup` - end the Call</li></ul>   |
-`eventUrl` | Set the webhook endpoint that Nexmo calls asynchronously on each of the possible [Call states](/api/voice#status). If `eventType` is set to `synchronous` the `eventUrl` can return an NCCO that overrides the current NCCO when a timeout occurs. | Yes
+`eventUrl` | Set the webhook endpoint that Nexmo calls asynchronously on each of the possible [Call states](/api/voice#status). If `eventType` is set to `synchronous` the `eventUrl` can return an NCCO that overrides the current NCCO when a timeout occurs. | No
 `eventMethod` | The HTTP method Nexmo uses to make the request to <i>eventUrl</i>. The default value is `POST`. | No
 
 ### Examples
 
 The following NCCO examples show how to configure different types of connection:
 
-* [Connect to a PSTN endpoint](#connect_pstn)
-* [Connect to a WebSocket endpoint](#connect_websocket)
-* [Connect with fallback NCCO](#connect_fallback)
-* [Connect to a SIP endpoint](#connect_sip)
-* [Recorded proxy call](#record_connect)
+* [Connect to a PSTN endpoint](#connect-to-a-pstn-endpoint)
+* [Connect to a WebSocket endpoint](#connect-to-a-websocket-endpoint)
+* [Connect with fallback NCCO](#connect-with-fallback-ncco)
+* [Connect to a SIP endpoint](#connect-to-a-sip-endpoint)
+* [Recorded proxy call](#recorded-proxy-call)
 
 #### Connect to a PSTN endpoint
 
@@ -283,7 +283,7 @@ The following NCCO examples shows how to send a synthesized speech message to a 
 source: '/_examples/voice/guides/ncco-reference/talk'
 ```
 
-You use the following options to control a *talk* action:
+You can use the following options to control a *talk* action:
 
 <table>
 <thead>
@@ -295,7 +295,7 @@ You use the following options to control a *talk* action:
 </thead>
 <tbody>
 <tr><td>text</td><td>A string of up to 1500 characters containing the message to be synthesized in the Call or Conversation. Each comma in <i>text</i> adds a short pause to the synthesized speech.</td><td>Yes</td></tr>
-<tr><td>bargeIn</td><td>Set to <i>true</i> so this action is terminated when the user presses a button on the keypad. Use this feature to enable users to choose an option without having to listen to the whole message in your [Interactive Voice Response (IVR](/voice/guides/interactive-voice-response) ). If you set <i>bargeIn</i> to <i>true</i> the next action in the NCCO stack <b>must</b> be an <i>input</i> action. The default value is <i>false</i>.</td><td>No</td></tr>
+<tr><td>bargeIn</td><td>Set to <i>true</i> so this action is terminated when the user presses a button on the keypad. Use this feature to enable users to choose an option without having to listen to the whole message in your <a href="/voice/voice-api/guides/interactive-voice-response">Interactive Voice Response (IVR)</a>. If you set <i>bargeIn</i> to <i>true</i> the next action in the NCCO stack <b>must</b> be an <i>input</i> action. The default value is <i>false</i>.</td><td>No</td></tr>
 <tr><td>loop</td><td>The number of times <i>text</i> is repeated before the Call is closed. The default value is 1. Set to 0 to loop infinitely.</td><td>No</td></tr>
 <tr><td>voiceName</td><td>The name of the voice used to deliver <i>text</i>. You use the voiceName that has the correct language, gender and accent for the message you are sending. For example, the default voice <i>kimberly</i> is a female who speaks English with an American accent (en-US). Possible values are listed below.</td><td>No</td></tr>
 </tbody>
@@ -370,13 +370,13 @@ The following NCCO example shows how to send an audio stream to a Conversation o
 source: '/_examples/voice/guides/ncco-reference/stream'
 ```
 
-You use the following options to control a *stream* action:
+You can use the following options to control a *stream* action:
 
 Option | Description | Required
 -- | -- | --
 `streamUrl` | An array containing a single URL to an mp3 or wav (16-bit) audio file to stream to the Call or Conversation. | Yes
 `level` |  Set the audio level of the stream in the range -1 >=level<=1 with a precision of 0.1. The default value is *0*. | No
-`bargeIn` | Set to *true* so this action is terminated when the user presses a button on the keypad. Use this feature to enable users to choose an option without having to listen to the whole message in your [Interactive Voice Response (IVR](/voice/guides/interactive-voice-response) ). If you set `bargeIn` to `true` the next action in the NCCO stack **must** be an `input` action. The default value is `false`. | No
+`bargeIn` | Set to *true* so this action is terminated when the user presses a button on the keypad. Use this feature to enable users to choose an option without having to listen to the whole message in your [Interactive Voice Response (IVR](/voice/guides/interactive-voice-response) ). If you set `bargeIn` to `true` on one more Stream actions then the next action in the NCCO stack **must** be an `input` action. The default value is `false`. | No
 `loop` | The number of times `audio` is repeated before the Call is closed. The default value is `1`. Set to `0` to loop infinitely. | No
 
 The audio stream referred to should be a file in MP3 or WAV format. If you have issues with the file playing, please encode it to the following technical specification:
@@ -400,7 +400,7 @@ WAV:
 
 ## `input`
 
-You use the `input` action to collect digits input by the person you are calling. This action is synchronous, Nexmo processes the input and forwards it in the [parameters](#input_return_parameters) sent to the `eventURL` webhook endpoint you configure in your request. Your webhook endpoint should return another NCCO that replaces the existing NCCO and controls the Call based on the user input. You use this functionality to create an Interactive Voice Response (IVR). For example, if your user presses *4*, you return a [connect](#connect) NCCO that forwards the call to your sales department.
+You can use the `input` action to collect digits input by the person you are calling. This action is synchronous, Nexmo processes the input and forwards it in the [parameters](#input_return_parameters) sent to the `eventURL` webhook endpoint you configure in your request. Your webhook endpoint should return another NCCO that replaces the existing NCCO and controls the Call based on the user input. You could use this functionality to create an Interactive Voice Response (IVR). For example, if your user presses *4*, you return a [connect](#connect) NCCO that forwards the call to your sales department.
 
 The following NCCO example shows how to configure an IVR endpoint:
 
@@ -433,7 +433,7 @@ The following NCCO example shows how to use `bargeIn` to allow a user to interru
 ]
 ```
 
-You use the following options to control an `input` action:
+The following options can be used to control an `input` action:
 
 Option | Description | Required
 -- | -- | --

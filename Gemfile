@@ -8,7 +8,7 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.2'
-gem 'webpacker', '~> 2.0'
+gem 'webpacker', github: 'rails/webpacker'
 
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
@@ -55,9 +55,6 @@ gem 'nokogiri', '1.7.0.1'
 # Autoload dotenv in Rails.
 gem 'dotenv-rails', groups: [:development, :test]
 
-# Administrate is heavily inspired by projects like Rails Admin and ActiveAdmin, but aims to provide a better user experience for site admins
-gem 'administrate', '~> 0.8.1'
-
 # Ruby/ProgressBar is a text progress bar library for Ruby.
 gem 'ruby-progressbar'
 
@@ -78,12 +75,41 @@ gem 'rest-client'
 # Helpers for the reCAPTCHA API
 gem 'recaptcha', require: "recaptcha/rails"
 
+# Implements the iCalendar specification (RFC-5545) in Ruby.
+gem 'icalendar'
+
+# A parser for Open API specifications
+gem 'open_api_parser', github: 'nexmo/open_api_parser', branch: 'openapi-specification-v3'
+
+# Generate JSON strings from Ruby objects with flexible formatting options.
+gem 'neatjson'
+
+# Faker, a port of Data::Faker from Perl, is used to easily generate fake data: names, addresses, phone numbers, etc.
+gem 'faker', '1.8.4'
+
+# factory_girl_rails provides integration between factory_girl and rails 3 or newer (currently just automatic factory definition loading)
+gem 'factory_girl_rails', '4.8.0'
+
+# A slim ruby wrapper for posting to slack webhooks
+gem 'slack-notifier', '2.3.1'
+
+# The administration framework for Ruby on Rails.
+gem 'activeadmin', '1.1.0'
+
+# Flexible authentication solution for Rails with Warden
+gem 'devise', '4.3.0'
+
+# Simple wrapper for the GitHub API
+gem 'octokit'
+
 group :development, :test do
+  gem 'awesome_print'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'diffy'
+  gem 'pry'
   gem 'rawler', git: 'https://github.com/oscardelben/rawler.git', require: false
   gem 'rspec-rails', '~> 3.5'
-  gem 'foreman'
 end
 
 group :development do
@@ -94,9 +120,10 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'guard-livereload', '~> 2.5', require: false
-  gem "better_errors"
-  gem "binding_of_caller"
-  gem "pry"
+  gem 'guard-rspec'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'pry'
 
   # Share git hooks in Ruby projects among all the collaborators automatically, without them having to do anything
   gem 'git-hookshot', git: 'https://github.com/brandonweiss/git-hookshot.git'

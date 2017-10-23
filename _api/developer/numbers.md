@@ -1,10 +1,10 @@
 ---
-title: API reference
+title: Developer - Numbers API Reference
 description: Reference guide for the Account API.
 api: Developer API
 ---
 
-# API reference
+# Developer - Numbers API Reference
 
 The Numbers API lets you manage your numbers and buy new virtual numbers for use with Nexmo's APIs.
 
@@ -184,6 +184,8 @@ Parameter | Description | Required
 `voiceCallbackType` | The voice webhook type. Possible values are `sip`, `tel`, `vxml` (VoiceXML) or `app` | No
 `voiceCallbackValue` | A URI for your `voiceCallbackType` or an Application ID
 `voiceStatusCallback` | Nexmo sends a request to this webhook endpoint when a call ends. | No
+
+Please note, that `voiceCallbackValue` has to be used together with `voiceCallbackType` parameter.
 
 #### Response
 

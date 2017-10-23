@@ -5,14 +5,13 @@ description: Use Nexmo SIP to forward inbound and send outbound Voice calls that
 
 # SIP Overview
 
-You use Nexmo SIP to [forward inbound](#forward-inbound) and [send outbound](#sip-outbound) Voice calls that use the [Session Initiation Protocol](https://en.wikipedia.org/wiki/Session_Initiation_Protocol).
+Nexmo allows you to [forward inbound](#inbound-configuration) and [send outbound](#configuring-your-system-for-sip-forwarding) Voice calls using the [Session Initiation Protocol](https://en.wikipedia.org/wiki/Session_Initiation_Protocol).
 
-The following table explains the different configuration options:
-
+This document explains the relevant setup options.
 
 **Endpoint**
 
-You send your [INVITE](https://en.wikipedia.org/wiki/List_of_SIP_request_methods) requests to the Nexmo SIP endpoint: `sip.nexmo.com`.
+You can send your [INVITE](https://en.wikipedia.org/wiki/List_of_SIP_request_methods) requests to the Nexmo SIP endpoint: `sip.nexmo.com`.
 
 **Authentication**
 
@@ -23,7 +22,7 @@ Every INVITE request is authenticated with Digest authentication:
 
 **Service records**
 
-If your system is not enabled for [Service records](https://en.wikipedia.org/wiki/SRV_record) (SRV record), load balance between the two closest endpoints and set the remaining ones as backup. The Nexmo SIP endpoints are:
+If your system is not enabled for [Service records](https://en.wikipedia.org/wiki/SRV_record) (SRV records), you should load balance between the two closest endpoints and set the remaining ones as backup. The Nexmo SIP endpoints are:
 
 - `sip-us1.nexmo.com` (Washington)
 - `sip-us2.nexmo.com` (Washington)
@@ -34,11 +33,18 @@ If your system is not enabled for [Service records](https://en.wikipedia.org/wik
 
 **Recipient**
 
-You configure the recipient number in [E.164](https://en.wikipedia.org/wiki/E.164). That is: `country code+area code+local code+extension`. For example, the phone number 331908817135 is made up of: CC = 33, AC = 1908, LC = 8, Ext = 17135.
+Recipient numbers must be in [E.164](https://en.wikipedia.org/wiki/E.164) format: `country code+area code+local code+extension`.
 
-**Caller Id**
+For example, the phone number 331908817135 is made up of:
 
-Set the Caller Line Identity (CLI) in the *From* header using E.164. For example: `From: <sip:447937947990@sip.nexmo.com>`.
+* country code (CC): 33
+* area code (AC): 1908
+* local code (LC): 8
+* extension: 17135
+
+**Caller ID**
+
+Set the Caller Line Identity (CLI) in the *From* header using [E.164](https://en.wikipedia.org/wiki/E.164). For example: `From: <sip:447937947990@sip.nexmo.com>`.
 
 **Codecs**
 
@@ -57,7 +63,7 @@ The list of IPs/subnets is subject to change. Rather than white-listing specific
 
 **DTMF**
 
-Nexmo supports out-of-band. For more information, see [RFC2833](https://www.ietf.org/rfc/rfc2833.txt).
+Nexmo supports out-of-band DTMF. For more information, see [RFC2833](https://www.ietf.org/rfc/rfc2833.txt).
 
 **Health checks**
 
@@ -71,14 +77,16 @@ You can use the following protocols:
 - TCP on port 5060
 - TLS on port 5061
 
-Transport Layer Security (TLS) is a cryptographic protocol designed to provide communications security to your SIP connection. You can use self-signed certificates on your user agent, Nexmo does not validate the certificate on the client side. <br>Connections using TLS 1.0 or more recent are accepted. Older protocols are disabled as they are considered insecure.
+[Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security) (TLS) is a cryptographic protocol designed to provide communications security to your SIP connection. You can use self-signed certificates on your user agent, Nexmo does not validate the certificate on the client side.
+
+Connections using TLS 1.0 or more recent are accepted. Older protocols are disabled as they are considered insecure.
 
 ## Inbound configuration
 
 This section tells you how to:
 
-- [Configure your system for SIP forwarding](#configure-your-system-for-sip-forwarding)
-- [Configure example servers](#configure-example-servers)
+- [Configure your system for SIP forwarding](#configuring-your-system-for-sip-forwarding)
+- [Configure example servers](#example-configurations)
 
 ## Configuring your system for SIP forwarding
 
@@ -103,256 +111,11 @@ To configure for SIP forwarding:
 
 ## Example configurations
 
-The following table gives example configurations for forwarding inbound calls:
+We have provided examples for a number of different SIP capable systems:
 
-### `http://www.asterisk.org`
-
-````
-[nexmo-sip]
-fromdomain=sip.nexmo.com
-type=peer
-context=nexmo
-insecure=port,invite
-nat=no
-;Add your codec list here.
-; Note: Use "ulaw" for US only, "alaw" for the rest of the world.
-allow=ulaw
-allow=alaw
-allow=G729
-dtmfmode=rfc2833
-
-[nexmo-sip-01](nexmo-sip)
-host=173.193.199.24
-
-[nexmo-sip-02](nexmo-sip)
-host=174.37.245.34
-
-[nexmo-sip-03](nexmo-sip)
-host=5.10.112.121
-
-[nexmo-sip-04](nexmo-sip)
-host=5.10.112.122
-
-[nexmo-sip-05](nexmo-sip)
-host=119.81.44.6
-
-[nexmo-sip-06](nexmo-sip)
-host=119.81.44.7
-````
-
-### `http://www.freepbx.org`
-
-````
-host=173.193.199.24
-type=friend
-insecure=port,invite
-;Add your codec list here.
-; Note: Use "ulaw" for US only, "alaw" for the rest of the world.
-allow=ulaw,alaw,g729
-dtmfmode=rfc2833
-
-host=174.37.245.34
-type=friend
-insecure=port,invite
-;Add your codec list here.
-; Note: Use "ulaw" for US only, "alaw" for the rest of the world.
-allow=ulaw,alaw,g729
-dtmfmode=rfc2833
-
-host=5.10.112.121
-type=friend
-insecure=port,invite
-;Add your codec list here.
-; Note: Use "ulaw" for US only, "alaw" for the rest of the world.
-allow=ulaw,alaw,g729
-dtmfmode=rfc2833
-
-host=5.10.112.122
-type=friend
-insecure=port,invite
-;Add your codec list here.
-; Note: Use "ulaw" for US only, "alaw" for the rest of the world.
-allow=ulaw,alaw,g729
-dtmfmode=rfc2833
-
-host=119.81.44.6
-type=friend
-insecure=port,invite
-;Add your codec list here.
-; Note: Use "ulaw" for US only, "alaw" for the rest of the world.
-allow=ulaw,alaw,g729
-dtmfmode=rfc2833
-
-host=119.81.44.7
-type=friend
-insecure=port,invite
-;Add your codec list here.
-; Note: Use "ulaw" for US only, "alaw" for the rest of the world.
-allow=ulaw,alaw,g729
-dtmfmode=rfc2833
-````
-
-### `http://www.freeswitch.org`
-
-To configure freeswitch you need to:
-
-Modify `autoload_configs/acl.conf.xml` and allow traffic from Nexmo's IPs:
-
-```xml
-<list name="nexmo" default="deny">
-  <node type="allow" cidr="173.193.199.24/32"/>
-  <node type="allow" cidr="174.37.245.34/32"/>
-  <node type="allow" cidr="5.10.112.121/32"/>
-  <node type="allow" cidr="5.10.112.122/32"/>
-  <node type="allow" cidr="119.81.44.6/32"/>
-  <node type="allow" cidr="119.81.44.7/32"/>
-</list>
-```
-
-Add the following to `sip_profiles/internal.xml`:
-
-Create a public dial plan for Nexmo in `dialplan/public/nexmo_sip.xml`:
-
-```xml
-    <include>
-      <extension name="nexmo_sip">
-        <condition field="destination_number" expression="^(\d+)$">
-          <action application="set" data="domain_name=$${domain}"/>
-          <action application="transfer" data="1000 XML default"/>
-        </condition>
-      </extension>
-    </include>
-```
-
-If you want to match a specific number from request URI, modify the expression:
-
-````
-(\d+)
-````
-
-> *Note*: this forwards incoming calls to registered extension 1000
-
-## Outbound configuration
-
-The following table gives example configurations for communicating with the Nexmo SIP endpoint for outbound calls:
-
-### `http://www.asterisk.org`
-
-````
-[general]
-    register => <key>:<secret>@sip.nexmo.com
-[nexmo]
-  username=<key>
-  host=sip.nexmo.com
-  defaultuser=<key>
-  fromuser=<long_virtual_number>
-  fromdomain=sip.nexmo.com
-  secret=<secret>
-  type=peer
-  context=nexmo
-  insecure=very
-  qualify=yes
-  nat=no
-  ;Add your codec list here.
-  ; Note: Use "ulaw" for US only, "alaw" for the rest of the world.
-  allow=ulaw
-  allow=alaw
-  allow=G729
-  dtmfmode=rfc2833
-````
-
-### `Asterisk 12+ with chan_pjsip`
-
-````
-; Basic UDP only endpoint.
-[transport-udp]
-  type=transport
-  protocol=udp
-  bind=0.0.0.0
-[nexmo]
-  type = endpoint
-  aors = nexmo
-  outbound_auth = nexmo-auth
-  context = inbound
-  transport=transport-udp
-  from_user = <long_virtual_number> ; This is optional. CLI can be set in the dialplan
-  allow=alaw
-  allow=ulaw
-  allow=g729
-[nexmo]
-  type = aor
-  contact = sip:sip.nexmo.com
-  qualify_frequency = 120
-[nexmo-auth]
-  type = auth
-  auth_type = userpass
-  username = <key>
-  password = <secret>
-[nexmo-reg]
-  type = registration
-  outbound_auth = nexmo-auth
-  server_uri = sip:sip.nexmo.com
-  client_uri = sip:<key>@sip.nexmo.com
-[nexmo-identify]
-  type = identify
-  endpoint = nexmo
-  match = 5.10.112.122
-  match = 5.10.112.121
-  match = 173.193.199.24
-  match = 174.37.245.34
-  match = 119.81.44.6
-  match = 119.81.44.7
-````
-
-### `http://www.freepbx.org`
-
-````
-host=sip.nexmo.com
-  type=friend
-  insecure=port,invite
-  qualify=yes
-  ;Add your codec list here.
-  ;Note: Use "ulaw" for US only, "alaw" for the rest of the world.
-  allow=ulaw,alaw,g729
-  dtmfmode=rfc2833
-
-  username=<key>
-  fromuser=<long_virtual_number>
-  secret=<secret>
-
-  Register String
-  <key>:<secret>@sip.nexmo.com
-````
-
-### `http://www.freeswitch.org`
-
-To configure freeswitch you need to:
-
-Create an external profile:
-
-```xml
-<include>
-   <gateway name="nexmo">
-     <param name="proxy" value="sip.nexmo.com"/>
-     <param name="register" value="true"/>
-     <param name="caller-id-in-from" value="false"/>
-     <param name="from-user" value="<long_virtual_number>"/>
-     <param name="username" value="<key>"/>
-     <param name="password" value="<secret>"/>
-   </gateway>
-  </include>
-```
-
-Make a dial plan:
-
-```xml
-<include>
-  <extension name="international.mycompany.com">
-    <condition field="destination_number" expression="^(00\d+)$">
-      <action application="set" data="effective_caller_id_number=${outbound_caller_id_number}"/>
-      <action application="set" data="effective_caller_id_name=${outbound_caller_id_name}"/>
-      <action application="bridge" data="{origination_caller_id_name=<CALLER_ID>}sofia/gateway/nexmo/$1"/>
-    </condition>
-  </extension>
-</include>
-```
+* [Asterisk](/voice/sip/configure/asterisk)
+* [Avaya SBCe](/voice/sip/configure/avaya-sbce)
+* [Cisco CUCM/CUBE](/voice/sip/configure/cucm-cube)
+* [FreePBX](/voice/sip/configure/freepbx)
+* [FreeSWITCH](/voice/sip/configure/freeswitch)
+* [MiTel MiVoice and MiTel Border Gateway](/voice/sip/configure/mitel-mivoice)

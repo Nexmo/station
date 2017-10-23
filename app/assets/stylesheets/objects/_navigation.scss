@@ -89,13 +89,10 @@
     border-top-width: 1px;
     border-top-style: dotted;
   }
-}
 
-.navigation--fixed {
-  top: 0;
-  padding-top: 20px;
-  max-height: 100vh;
-  overflow-y: auto;
+  &--spacious {
+    margin: 0 $spacing;
+  }
 }
 
 .navigation-item--tutorials a {
@@ -106,6 +103,10 @@
   @include highlighted-navigation($blue);
 }
 
+.navigation-item--ncco-reference a {
+  @include highlighted-navigation($gray-dark);
+}
+
 @media screen and (max-width: 640px) {
   .sidenav {
     > ul {
@@ -113,11 +114,6 @@
       width: auto !important;
       margin-bottom: 40px;
     }
-  }
-
-
-  .navigation--fixed {
-    max-height: none;
   }
 }
 

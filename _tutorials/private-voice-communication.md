@@ -17,7 +17,7 @@ This tutorial is based on the [Private Voice Communication](https://www.nexmo.co
 You see how to build an Voice proxy for private communication system using [Nexmo CLI](https://github.com/nexmo/nexmo-cli) and [Nexmo Node.JS](https://github.com/Nexmo/nexmo-node)
 
 * [Create a Voice application](#create-a-voice-application) - create and configure an application using [Nexmo CLI](https://github.com/nexmo/nexmo-cli), then configure the webhook endpoints to provide NCCOs and handle changes in Call status
-* [Provision virtual numbers](#provision-virtual-voice-numbers) - rent and configure the voice enabled virtual numbers you use to mask real numbers
+* [Provision virtual numbers](#provision-virtual-voice-numbers) - rent and configure the voice enabled virtual numbers to mask real numbers
 * [Create a Call](#create-a-call) - create a Call between two users, validate their phone numbers and determine the country the phone number is registered in using Number Insight
 * [Handle inbound calls](#handle-inbound-calls) - configure your webhook endpoint to handle incoming voice calls, find the phone number it is associated with and return the NCCO to control the Call
 * [Proxy the Call](#proxy-the-call) - instruct Nexmo to make a private Call to a phone number
@@ -40,20 +40,40 @@ You first use Nexmo CLI to create an application for Voice API:
 This command returns the UUID (Universally Unique Identifier) that identifies your application.
 
 The parameters are:
+
 * voice-proxy - the name you give to this application
 * `https://example.com/proxy-call` - when you receive an inbound call to your virtual number, Nexmo makes a GET request and retrieves the NCCO that controls the call flow from this webhook endpoint
 * `https://example.com/event` - as the call status changes, Nexmo sends status updates to this webhook endpoint
 
 Then start your Web server:
-(codsnippet: lib/server.js lang: javascript product: node-voice-proxy line_number: true  from_line: 1  to_line: 17)
+
+```js
+"use strict";
+
+var express = require('express');
+var bodyParser = require('body-parser');
+
+var app = express();
+app.set('port', (process.env.PORT || 5000));
+app.use(bodyParser.urlencoded({ extended: false }));
+
+var config = require(__dirname + '/../config');
+
+var VoiceProxy = require('./VoiceProxy');
+var voiceProxy = new VoiceProxy(config);
+
+app.listen(app.get('port'), function() {
+  console.log('Voice Proxy App listening on port', app.get('port'));
+});
+```
 
 If you're developing behind a firewall or a NAT, use [ngrok](https://ngrok.com/) to tunnel access to your Web server.
 
 ## Provision virtual numbers
 
-You use virtual numbers to hide real phone numbers from your application users.
+Virtual numbers are used to hide real phone numbers from your application users.
 
-The workflow to provision and configure a virtual number is:
+The workflow diagram below shows the process for provisioning and configuring a virtual number.
 
 ```js_sequence_diagram
 Participant App
@@ -172,7 +192,15 @@ Nexmo->App:Inbound Call(from, to)
 
 Extract `to` and `from` from the inbound webhook and pass them on to the voice proxy business logic.
 
-(codsnippet: lib/server.js lang: javascript product: node-voice-proxy line_number: true  from_line: 19 to_line: 25)
+```js
+app.get('/proxy-call', function(req, res) {
+  var from = req.query.from;
+  var to = req.query.to;
+
+  var ncco = voiceProxy.getProxyNCCO(from, to);
+  res.json(ncco);
+});
+```
 
 ## Reverse map real phone numbers to virtual numbers
 
@@ -230,7 +258,16 @@ to_line: 24
 > **Note**: take a look at the [NCCO reference](/voice/guides/ncco-reference) for more information.
 
 The NCCO is returned to Nexmo by the web server.
-(codsnippet: lib/server.js lang: javascript product: node-voice-proxy line_number: true  from_line: 19 to_line: 25)
+
+```js
+app.get('/proxy-call', function(req, res) {
+  var from = req.query.from;
+  var to = req.query.to;
+
+  var ncco = voiceProxy.getProxyNCCO(from, to);
+  res.json(ncco);
+});
+```
 
 ## Conclusion
 

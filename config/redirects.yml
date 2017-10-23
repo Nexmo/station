@@ -1,5 +1,6 @@
 /slack: /community/slack
 
+/messaging: /messaging/sms/overview
 /messaging/sms: /messaging/sms/overview
 /sms: /messaging/sms/overview
 /voice: /voice/overview
@@ -41,6 +42,7 @@
 /write-the-docs: /contribute/write-the-docs
 
 /voice/api-reference: /api/voice
+/voice/voice-api/ncco-reference: /api/voice/ncco
 /voice/voice-api/api-reference: /api/voice
 /messaging/sms/api-reference: /api/sms
 /verify/api-reference: /api/verify

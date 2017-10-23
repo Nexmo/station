@@ -1,10 +1,10 @@
 ---
-title: API reference
+title: Developer - Account API Reference
 description: Reference guide for the Account API.
 api: Developer API
 ---
 
-# API Reference
+# Developer - Account API Reference
 
 ## Account
 
@@ -48,43 +48,9 @@ Key | Value
 `value` | The accounts remaining balance in euros.
 `autoReload` | A boolean indicating if autoReload is enabled on your account.
 
-### Pricing
-
-Retrieve our outbound pricing for a given country
-
-#### Request
-
-```
-[GET] https://rest.nexmo.com/account/get-pricing/outbound
-```
-
-##### Parameters
-
-The following shows the parameters you use in the request:
-
-Parameter | Description | Required
--- | -- | --
-`country` | 	A 2 letter [country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). For example, `CA` | Yes
-
-#### Response
-
-The following shows example Responses in JSON or XML:
-
-```tabbed_examples
-source: _examples/api/developer/account/pricing
-```
-
-##### Keys and Values
-
-The response contains the following keys and values:
-
-Key | Value
--- | --
-`value` | The accounts remaining balance in euros.
-
 ### Settings
 
-Retrieve our outbound pricing for a given country
+Modify settings for your account including callback URLs and your API secret.
 
 #### Request
 
@@ -98,7 +64,6 @@ The following shows the parameters you use in the request:
 
 Parameter | Description | Required
 -- | -- | --
-`newSecret` | Your new API secret. Your API Secret must be an 8 - 25 character long Alphanumeric with at least one number, lower & upper case character. |  No
 `moCallBackUrl` | An URL encoded URI to the webhook endpoint endpoint that handles inbound messages. Your webhook endpoint must be active before you make this request, Nexmo makes a [GET] request to your endpoint and checks that it returns a `200 OK` response. Set to empty string to clear. | No
 `drCallBackUrl` | An URL encoded URI to the webhook endpoint endpoint that handles delivery receipts (DLR). Your webhook endpoint must be active before you make this request, Nexmo makes a [GET] request to your endpoint and checks that it returns a `200 OK` response. Set to empty string to clear. | No
 
