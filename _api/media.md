@@ -26,7 +26,7 @@ The following parameters can be passed in as form data in addition to the file.
 |---|---|---|---|
 |`filename`| string | An optional name for the file. | ❎
 |`info`| string (usually JSON object) | Any metadata you wish to associate with the file. | ❎
-|`url`| string (URL) | This can be provided as an alternative to the file data. We will download the file from this URL. This will be stored in `sourceUrl`. | ❎
+|`url`| string (URL) | This can be provided as an alternative to the file data. We will download the file from this URL. This will be stored in `source_url`. | ❎
 
 
 ### Response
@@ -100,9 +100,9 @@ We recommend that you should use the `If-None-Match` approach for caching files 
 
 The `Range` header is supported and allows you to specify which bytes of the file you wish to receive.
 
-If the `publicItem` property in the file's properties is set to `true`, downloading from this endpoint requires no authentication. If it is set to `false`, you will need to authenticate your request using your application's JSON Web Token in the `Authorization` header or the `jwt-token` parameter.
+If the `public_item` property in the file's properties is set to `true`, downloading from this endpoint requires no authentication. If it is set to `false`, you will need to authenticate your request using your application's JSON Web Token in the `Authorization` header or the `jwt-token` parameter.
 
-The number of times a file can be downloaded is determined by the `maxDownloadsAllowed` property of the file's metadata. If the total number of downloads exceeds that number, you will not be able to download the file unauthenticated. If our request is authenticated with a JSON Web Token, you will be allowed to download the file even if doing so exceeds the `maxDownloadsAllowed` limit.
+The number of times a file can be downloaded is determined by the `max_downloads_allowed` property of the file's metadata. If the total number of downloads exceeds that number, you will not be able to download the file unauthenticated. If our request is authenticated with a JSON Web Token, you will be allowed to download the file even if doing so exceeds the `max_downloads_allowed` limit.
 
 ### Parameters
 
@@ -160,21 +160,21 @@ Authentication can be done using using a JSON Web Token for the application the 
 |Key|Description|
 |---|-----------|
 |`id`|A UUID representing the object.|
-|`originalFileName`|The filename of the object as it was originally uploaded.|
-|`mimeType`|The IETF MIME type of the file.|
-|`accountId`|The ID of your Nexmo account. This is the same as your API key.|
-|`storeId`|An internal identifier of how the file is stored.|
-|`storeMetaParams`|A JSON encoded string containing metadata about the file.|
-|`maxDownloadsAllowed`|The maximum number of times the file may be downloaded.|
-|`timesDownloaded`|The number of times the file has been downloaded.|
+|`original_file_name`|The filename of the object as it was originally uploaded.|
+|`mime_type`|The IETF MIME type of the file.|
+|`account_id`|The ID of your Nexmo account. This is the same as your API key.|
+|`store_id`|An internal identifier of how the file is stored.|
+|`store_meta_params`|A JSON encoded string containing metadata about the file.|
+|`max_downloads_allowed`|The maximum number of times the file may be downloaded.|
+|`times_downloaded`|The number of times the file has been downloaded.|
 |`etag`|An identifier for the content. This will change if the content of the file has been changed (i.e. if you upload a new version of the file). For more information see [Wikipedia: HTTP ETag](https://en.wikipedia.org/wiki/HTTP_ETag)|
-|`mediaSize`|The size of the file in bytes.|
-|`metadataPrimary`|A string (which may be JSON encoded) to store metadata associated with the file.|
-|`metadataSecondary`|A string (which may be JSON encoded) to store metadata associated with the file.|
-|`timeCreated`|The time the file was created in milliseconds since epoch (1970-01-01).|
-|`timeLastUpdated`|The time the file was last modified in milliseconds since epoch (1970-01-01).|
-|`publicItem`|Whether the item is available for download without authentication.|
-|`sourceUrl`|If the file was copied from a URL, the URL will be here.|
+|`media_size`|The size of the file in bytes.|
+|`metadata_primary`|A string (which may be JSON encoded) to store metadata associated with the file.|
+|`metadata_secondary`|A string (which may be JSON encoded) to store metadata associated with the file.|
+|`time_created`|The time the file was created in milliseconds since epoch (1970-01-01).|
+|`time_last_updated`|The time the file was last modified in milliseconds since epoch (1970-01-01).|
+|`public_item`|Whether the item is available for download without authentication.|
+|`source_url`|If the file was copied from a URL, the URL will be here.|
 
 
 ### Example response
@@ -182,18 +182,18 @@ Authentication can be done using using a JSON Web Token for the application the 
 ````json
 {
   "id": "aaaaaaaa-0000-aaaa-0000-aaaaaaaaaaaa",
-  "originalFileName": "test.wav",
-  "mimeType": "audio/wav",
-  "accountId": "aaaaaa01",
-  "storeId": "s3-enc",
-  "storeMetaParams": "{\"filesize\":\"1024\"}",
-  "maxDownloadsAllowed": 0,
-  "timesDownloaded": 0,
+  "original_file_name": "test.wav",
+  "mime_type": "audio/wav",
+  "account_id": "aaaaaa01",
+  "store_id": "s3-enc",
+  "store_meta_params": "{\"filesize\":\"1024\"}",
+  "max_downloads_allowed": 0,
+  "times_downloaded": 0,
   "etag": "6f5902ac237024bdd0c176cb93063dc4",
-  "mediaSize": 1024,
-  "timeCreated": 1502818392405,
-  "timeLastUpdated": 1502818392405,
-  "publicItem": false
+  "media_size": 1024,
+  "time_created": 1502818392405,
+  "time_last_updated": 1502818392405,
+  "public_item": false
 }
 ````
 
@@ -211,13 +211,13 @@ The metadata you can update is listed below:
 
 |Name|Description|Type|Required|
 |----|-----------|----|--------|
-|`publicItem`|Whether the item is publicly available without authentication.|boolean|
-|`metadataPrimary`|A string (which can be JSON encoded) containing metadata about the media file.|string|
-|`metadataSecondary`|A string (which can be JSON encoded) containing further metadata about the media file.|string|
+|`public_item`|Whether the item is publicly available without authentication.|boolean|
+|`metadata_primary`|A string (which can be JSON encoded) containing metadata about the media file.|string|
+|`metadata_secondary`|A string (which can be JSON encoded) containing further metadata about the media file.|string|
 |`title`|A string containing a title for the media file.|string|
 |`description`|A description of the media file.|string|
-|`mimeType`|The MIME type of the media file.|string|
-|`maxDownloadsAllowed`|The maximum number of times the file may be downloaded.|integer|
+|`mime_type`|The MIME type of the media file.|string|
+|`max_downloads_allowed`|The maximum number of times the file may be downloaded.|integer|
 
 ### Responses
 
