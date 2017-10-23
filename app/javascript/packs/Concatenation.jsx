@@ -1,5 +1,32 @@
 import React from 'react'
 import chunk from 'lodash/chunk'
+import difference from 'lodash/difference'
+
+const safeCharacters = [
+  '@', '0', '¡', 'P', '¿',
+  'p', '£', '_', '!', '1',
+  'A', 'Q', 'a', 'q', '$',
+  '"', '2', 'B', 'R', 'b',
+  'r', '¥', '?', '#', '3',
+  'C', 'S', 'c', 's', 'è',
+  '?', '4', 'D', 'T', 'd',
+  't', 'é', '?', '%', '5',
+  'E', 'U', 'e', 'u', 'ù',
+  '6', 'F', 'V', 'f', 'v',
+  'ì', '?', "'", '7', 'G',
+  'W', 'g', 'w', 'ò', '(',
+  '8', 'H', 'X', 'h', 'x',
+  'Ç', ')', '9', 'I', 'Y',
+  'i', 'y', '*', ':', 'J',
+  'Z', 'j', 'z', 'Ø', '+',
+  ';', 'K', 'Ä', 'k', 'ä',
+  'Æ', ',', '<', 'L', 'l',
+  'ö', 'æ', '-', '=', 'M',
+  'Ñ', 'm', 'ñ', 'Å', 'ß',
+  '.', '>', 'N', 'Ü', 'n',
+  'ü', 'å', 'É', '/', 'O',
+  '§', 'o', 'à', ' '
+]
 
 class Concatenation extends React.Component {
   constructor(props) {
@@ -9,23 +36,19 @@ class Concatenation extends React.Component {
     }
   }
 
-  stringToBuffer(string, encoding) {
-    return new Buffer(string, encoding)
-  }
-
-  splitStringByCodePoint(string) {
+  splitStringByCodePoint() {
     return [...this.state.body]
   }
 
   split() {
-    const length = this.state.body.length
     const stringArray = this.splitStringByCodePoint()
 
-    const capacity = this.encodeAs16Bit() ? 70 : 160
-    const capacityWithMeta = this.encodeAs16Bit() ? 66 : 153
+    const shouldEncodeAs16Bit = this.shouldEncodeAs16Bit()
+
+    const capacity = shouldEncodeAs16Bit ? 70 : 160
+    const capacityWithMeta = shouldEncodeAs16Bit ? 66 : 153
 
     var a = [stringArray.slice(0, capacity).join('')]
-
 
     if (stringArray.length > capacity) {
       a = [stringArray.slice(0, capacityWithMeta).join('')]
@@ -37,11 +60,9 @@ class Concatenation extends React.Component {
     return a
   }
 
-  encodeAs16Bit() {
-    const encodedString = this.stringToBuffer(this.state.body, 'latin1')
-    const decodedString = new TextDecoder('utf8').decode(encodedString)
-
-    return (decodedString !== this.state.body)
+  shouldEncodeAs16Bit() {
+    var remainder = difference(this.splitStringByCodePoint(), safeCharacters)
+    return remainder.length !== 0
   }
 
   renderUdf(split) {
@@ -73,14 +94,6 @@ class Concatenation extends React.Component {
     })
   }
 
-  bytes() {
-    if (this.encodeAs16Bit()) {
-      return this.stringToBuffer(this.state.body, 'utf8').byteLength
-    } else {
-      return this.stringToBuffer(this.state.body, 'latin1').byteLength
-    }
-  }
-
   renderUtfIcon(bool) {
     if (bool) {
       return (
@@ -106,7 +119,7 @@ class Concatenation extends React.Component {
           className="input"
           onChange={ (event) => this.setState({ body: event.target.value })}
           value={ this.state.body }
-          style={{ width: '100%', height: '150px' }}
+          style={{ width: '100%', height: '150px', resize: 'vertical' }}
         ></textarea>
 
         <br/><br/>
@@ -117,11 +130,11 @@ class Concatenation extends React.Component {
           <tbody>
             <tr>
               <td><b>UTF-8 is Required?</b></td>
-              <td style={{ width: '75%' }}>{ this.renderUtfIcon(this.encodeAs16Bit()) }</td>
+              <td style={{ width: '75%' }}>{ this.renderUtfIcon(this.shouldEncodeAs16Bit()) }</td>
             </tr>
             <tr>
               <td><b>Length</b></td>
-              <td style={{ width: '75%' }}>{ this.splitStringByCodePoint(this.state.body).length } characters over {split.length} { split.length == 1 ? 'part' : 'parts' }</td>
+              <td style={{ width: '75%' }}>{ this.splitStringByCodePoint(this.state.body).length } characters over {split.length} { split.length === 1 ? 'part' : 'parts' }</td>
             </tr>
           </tbody>
         </table>
