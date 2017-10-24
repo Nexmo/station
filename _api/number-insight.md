@@ -49,7 +49,7 @@ The response to each *request* you make to Number Insight API returns the:
 Each response comes:
 
 * In a specific [Format](#format)
-* With <a href="#keys">Keys and values</a>
+* With <a href="#keys-and-values">Keys and values</a>
 
 ### Format
 
