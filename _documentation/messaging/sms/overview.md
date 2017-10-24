@@ -48,12 +48,9 @@ path: /35772040f9cbf86b388ec61c0a004a3e1158/welcome/124993
 
 ## Tutorials
 
-* [Passwordless authentication](/tutorials/passwordless-authentication)
-* [Two-factor authentication](/tutorials/two-factor-authentication)
-* [Private SMS communication](/tutorials/private-sms-communication)
-* [Mobile app invites](/tutorials/mobile-app-invites)
-* [Two-way SMS for customer engagement](/tutorials/two-way-sms-for-customer-engagement)
-* [SMS Customer Support](/tutorials/sms-customer-support)
+```tutorials
+product: 'messaging/sms'
+```
 
 ## Reference
 
