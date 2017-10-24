@@ -39,9 +39,7 @@ messaging:
       php:
         source: '.repos/nexmo-community/nexmo-php-quickstart/sms/receive-delivery-receipt.php'
         from_line: 6
-      # python:
-      #   source: '.repos/nexmo-community/nexmo-python-quickstart/sms/__init__.py'
-      # ruby:
-      #   source: '.repos/nexmo-community/nexmo-ruby-quickstart/sms/send.rb'
-      #   from_line: 9
-      #   to_line: 20
+      python:
+        source: '.repos/nexmo-community/nexmo-python-quickstart/sms/dlr-flask.py'
+      ruby:
+        source: '.repos/nexmo-community/nexmo-ruby-quickstart/sms/delivery_receipt.rb'
