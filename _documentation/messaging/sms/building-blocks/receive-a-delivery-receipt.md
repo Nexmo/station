@@ -46,7 +46,7 @@ in the field marked labelled "Webhook URL for Delivery Receipt" and press 'Save 
 
 ## Send a message
 
-We are now ready to send the message, you can do this with the [Nexmo CLI](/tools) as such:
+We are now ready to [send the message](/messaging/sms/building-blocks/send-an-sms), you can do this with the [Nexmo CLI](/tools) as such:
 
 ```
 $ nexmo sms 447700900000 "This is a message from Nexmo API"
