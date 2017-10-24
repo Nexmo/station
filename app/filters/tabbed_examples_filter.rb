@@ -61,8 +61,10 @@ class TabbedExamplesFilter < Banzai::Filter
     source = File.read(config['source'])
 
     total_lines = source.lines.count
-    from_line = config['from_line'] || 0
-    to_line = config['to_line'] || total_lines
+
+    # Minus one since lines are not zero-indexed
+    from_line = (config['from_line'] || 1) - 1
+    to_line = (config['to_line'] || total_lines) - 1
 
     source = source.lines[from_line..to_line].join
 
