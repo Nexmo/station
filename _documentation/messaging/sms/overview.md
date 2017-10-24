@@ -24,9 +24,9 @@ In this document you can learn about:
 
 ## Concepts
 
-* **Authentication** - Nexmo SMS API is authenticated with your account API Key and Secret. For more information on see [Authenticating](/api/sms#authentication-information).
+* **[Authentication](/api/sms#authentication-information)** - Nexmo SMS API is authenticated with your account API Key and Secret.
 
-* **Webhooks** - HTTP requests are made to your application web server so that you can act upon them. For example, The SMS API will send the delivery status of your message and receives inbound SMS.
+* **Webhooks** - HTTP requests are made to your application web server so that you can act upon them. For example, the SMS API will send the delivery status of your message and receives inbound SMS.
 
 ## Getting Started
 
