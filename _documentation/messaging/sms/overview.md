@@ -46,10 +46,6 @@ path: /64ad01e8cd132498ea5d285a161c4c584058/welcome/124979
 * [Sending an SMS](/messaging/sms/building-blocks/send-an-sms)
 * [Receiving an SMS](/messaging/sms/building-blocks/receiving-an-sms)
 
-## References
-
-* [SMS API Reference](/api/sms)
-
 ## Tutorials
 
 * [Passwordless authentication](/tutorials/passwordless-authentication)
@@ -58,3 +54,8 @@ path: /64ad01e8cd132498ea5d285a161c4c584058/welcome/124979
 * [Mobile app invites](/tutorials/mobile-app-invites)
 * [Two-way SMS for customer engagement](/tutorials/two-way-sms-for-customer-engagement)
 * [SMS Customer Support](/tutorials/sms-customer-support)
+
+## Reference
+
+* [SMS API Reference](/api/sms)
+
