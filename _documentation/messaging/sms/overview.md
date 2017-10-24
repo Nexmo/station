@@ -4,12 +4,12 @@ title: Overview
 
 # Overview
 
-With low latency and high deliverability, our SMS API is the most reliable way to reach users around the globe.
+Nexmo's SMS API allows you to send and receive text messages to users around the globe through simple RESTful APIs.
 
-* Programmatically send and receive high volume of SMS anywhere in the world
-* Build apps that scale with the web technologies that you are already using
-* Send SMS with low latency and high delivery rates
-* Receive SMS for free and tap into the world's largest inventory of SMS-enabled numbers in real time.
+* Programmatically send and receive high volume of SMS anywhere in the world.
+* Build apps that scale with the web technologies that you are already using.
+* Send SMS with low latency and high delivery rates.
+* Receive SMS for free using SMS-enabled local numbers in countries around the world.
 * Only pay for what you use, nothing more.
 
 ## Contents
