@@ -38,7 +38,7 @@ Using your Nexmo `API_KEY` and `API_SECRET`, available from the [dashboard getti
 
 ```techio
 title: Send an SMS
-path: /64ad01e8cd132498ea5d285a161c4c584058/welcome/124979
+path: /35772040f9cbf86b388ec61c0a004a3e1158/welcome/124993
 ```
 
 ## Building Blocks
