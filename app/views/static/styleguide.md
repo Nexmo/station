@@ -141,7 +141,7 @@ For tabbed code we use a custom plugin.
 tabs:
   Ruby:
     source: .repos/nexmo-community/nexmo-ruby-quickstart/sms/send.rb
-    from_line: 8
+    from_line: 9
 ```
 
 ## Tables

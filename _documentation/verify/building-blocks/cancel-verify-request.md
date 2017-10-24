@@ -13,7 +13,7 @@ tabs:
     source: _examples/verify/building-blocks/cancel-verification-request/cURL
   Node:
     source: .repos/nexmo-community/nexmo-node-quickstart/verify/cancel.js
-    from_line: 12
+    from_line: 13
   Python:
     source: _examples/verify/building-blocks/cancel-verification-request/Python
   PHP:
@@ -35,4 +35,3 @@ tabs:
 ## Reference
 
 * [Verify API Reference](/api/verify)
-

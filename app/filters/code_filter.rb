@@ -14,8 +14,9 @@ class CodeFilter < Banzai::Filter
 
       total_lines = code.lines.count
 
-      from_line = config['from_line'] || 0
-      to_line = config['to_line'] || total_lines
+      # Minus one since lines are not zero-indexed
+      from_line = (config['from_line'] || 0) - 1
+      to_line = (config['to_line'] || total_lines) - 1
 
       focused_lines = to_line - from_line
       top = from_line * CODE_LINE_HEIGHT - (CODE_PADDING / 2) - CODE_CONTEXT

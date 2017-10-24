@@ -12,7 +12,7 @@ The code below shows you how to setup an endpoint to connect incoming calls from
 tabs:
   Node:
     source: .repos/nexmo-community/nexmo-node-quickstart/voice/proxy-call.js
-    from_line: 6
+    from_line: 7
   PHP:
     source: .repos/nexmo-community/nexmo-php-quickstart/voice/connect-a-call.php
 ```

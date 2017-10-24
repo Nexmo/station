@@ -13,7 +13,7 @@ tabs:
     source: _examples/verify/building-blocks/send-verification-request/cURL
   Node:
     source: .repos/nexmo-community/nexmo-node-quickstart/verify/request.js
-    from_line: 8
+    from_line: 9
   Python:
     source: _examples/verify/building-blocks/send-verification-request/Python
   PHP:
