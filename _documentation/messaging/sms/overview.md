@@ -41,7 +41,7 @@ title: Send an SMS
 path: /64ad01e8cd132498ea5d285a161c4c584058/welcome/124979
 ```
 
-## SMS API Features
+## Building Blocks
 
 * [Sending an SMS](/messaging/sms/building-blocks/send-an-sms)
 * [Receiving an SMS](/messaging/sms/building-blocks/receiving-an-sms)
