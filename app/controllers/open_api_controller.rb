@@ -3,6 +3,9 @@ class OpenApiController < ApplicationController
   before_action :set_navigation
 
   def show
+
+
+
     if File.file? "_open_api/definitions/#{@specification_name}.json"
       @specification_path = "_open_api/definitions/#{@specification_name}.json"
       @specification_format = 'json'
@@ -16,9 +19,11 @@ class OpenApiController < ApplicationController
       raise 'Definition can not be found'
     end
 
-    specification_initialization = File.read("_open_api/initialization/#{@specification_name}.md")
-    @specification_initialization_content = MarkdownPipeline.new.call(File.read("_open_api/initialization/#{@specification_name}.md"))
-    @specification_initialization_config = YAML.safe_load(specification_initialization)
+    if File.file? "_open_api/initialization/#{@specification_name}.md"
+      specification_initialization = File.read("_open_api/initialization/#{@specification_name}.md")
+      @specification_initialization_content = MarkdownPipeline.new.call(File.read("_open_api/initialization/#{@specification_name}.md"))
+      @specification_initialization_config = YAML.safe_load(specification_initialization)
+    end
 
     if File.file? "_open_api/errors/#{@specification_name}.md"
       specification_errors = File.read("_open_api/errors/#{@specification_name}.md")
