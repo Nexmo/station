@@ -143,7 +143,7 @@ Deletes the media file. This API call must be authenticated using the JWT of the
 
 [GET] `https://api.nexmo.com/v3/media/{media_id}/info`
 
-Authentication can be done using using a JSON Web Token for the application the media is associated with.
+Authentication can be done using a JSON Web Token for the application the media is associated with.
 
 ### Responses
 
