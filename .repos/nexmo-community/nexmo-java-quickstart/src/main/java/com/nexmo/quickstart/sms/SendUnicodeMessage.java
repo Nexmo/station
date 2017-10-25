@@ -19,43 +19,38 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-
-package com.nexmo.quickstart.voice;
+package com.nexmo.quickstart.sms;
 
 import com.nexmo.client.NexmoClient;
 import com.nexmo.client.auth.AuthMethod;
-import com.nexmo.client.auth.JWTAuthMethod;
-import com.nexmo.client.voice.Call;
-import com.nexmo.client.voice.CallEvent;
-import com.nexmo.client.voice.ModifyCallAction;
-
-import java.nio.file.FileSystems;
+import com.nexmo.client.auth.TokenAuthMethod;
+import com.nexmo.client.sms.SmsSubmissionResult;
+import com.nexmo.client.sms.messages.TextMessage;
 
 import static com.nexmo.quickstart.Util.configureLogging;
 import static com.nexmo.quickstart.Util.envVar;
 
-public class ModifyCall {
+public class SendUnicodeMessage {
+
     public static void main(String[] args) throws Exception {
         configureLogging();
 
-        String APPLICATION_ID = envVar("APPLICATION_ID");
-        String PRIVATE_KEY = envVar("PRIVATE_KEY");
-        String FROM_NUMBER = envVar("FROM_NUMBER");
+        String API_KEY = envVar("API_KEY");
+        String API_SECRET = envVar("API_SECRET");
         String TO_NUMBER = envVar("TO_NUMBER");
+        String FROM_NUMBER = envVar("FROM_NUMBER");
 
-        AuthMethod auth = new JWTAuthMethod(
-                APPLICATION_ID,
-                FileSystems.getDefault().getPath(PRIVATE_KEY)
-        );
+        AuthMethod auth = new TokenAuthMethod(API_KEY, API_SECRET);
         NexmoClient client = new NexmoClient(auth);
-        CallEvent call = client.getVoiceClient().createCall(new Call(
-                TO_NUMBER,
+        System.out.println(FROM_NUMBER);
+
+        SmsSubmissionResult[] responses = client.getSmsClient().submitMessage(new TextMessage(
                 FROM_NUMBER,
-                "https://gist.githubusercontent.com/ChrisGuzman/d6add5b23a8cf913dcdc5a8eabc223ef/raw/a1eb52e0ce2d3cef98bab14d27f3adcdff2af881/long_talk.json"
-        ));
-
-        Thread.sleep(20000);
-
-        client.getVoiceClient().modifyCall(call.getUuid(), ModifyCallAction.HANGUP);
+                TO_NUMBER,
+                "Blue Öyster Cult \uD83E\uDD18",
+                true));
+        for (SmsSubmissionResult response : responses) {
+            System.out.println(response);
+        }
     }
 }
