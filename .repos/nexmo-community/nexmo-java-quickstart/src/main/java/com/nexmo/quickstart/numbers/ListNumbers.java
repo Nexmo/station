@@ -19,43 +19,30 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-
-package com.nexmo.quickstart.voice;
+package com.nexmo.quickstart.numbers;
 
 import com.nexmo.client.NexmoClient;
 import com.nexmo.client.auth.AuthMethod;
-import com.nexmo.client.auth.JWTAuthMethod;
-import com.nexmo.client.voice.Call;
-import com.nexmo.client.voice.CallEvent;
-import com.nexmo.client.voice.ModifyCallAction;
+import com.nexmo.client.auth.TokenAuthMethod;
+import com.nexmo.client.numbers.ListNumbersResponse;
+import com.nexmo.client.numbers.OwnedNumber;
 
-import java.nio.file.FileSystems;
+import static com.nexmo.quickstart.Util.*;
 
-import static com.nexmo.quickstart.Util.configureLogging;
-import static com.nexmo.quickstart.Util.envVar;
-
-public class ModifyCall {
+public class ListNumbers {
     public static void main(String[] args) throws Exception {
         configureLogging();
 
-        String APPLICATION_ID = envVar("APPLICATION_ID");
-        String PRIVATE_KEY = envVar("PRIVATE_KEY");
-        String FROM_NUMBER = envVar("FROM_NUMBER");
-        String TO_NUMBER = envVar("TO_NUMBER");
+        String API_KEY = envVar("API_KEY");
+        String API_SECRET = envVar("API_SECRET");
 
-        AuthMethod auth = new JWTAuthMethod(
-                APPLICATION_ID,
-                FileSystems.getDefault().getPath(PRIVATE_KEY)
-        );
+        AuthMethod auth = new TokenAuthMethod(API_KEY, API_SECRET);
         NexmoClient client = new NexmoClient(auth);
-        CallEvent call = client.getVoiceClient().createCall(new Call(
-                TO_NUMBER,
-                FROM_NUMBER,
-                "https://gist.githubusercontent.com/ChrisGuzman/d6add5b23a8cf913dcdc5a8eabc223ef/raw/a1eb52e0ce2d3cef98bab14d27f3adcdff2af881/long_talk.json"
-        ));
-
-        Thread.sleep(20000);
-
-        client.getVoiceClient().modifyCall(call.getUuid(), ModifyCallAction.HANGUP);
+        ListNumbersResponse response = client.getNumbersClient().listNumbers();
+        for (OwnedNumber ownedNumber : response.getNumbers()) {
+            System.out.println("Tel: " + ownedNumber.getMsisdn());
+            System.out.println("Country: " + ownedNumber.getCountry());
+            System.out.println("------------");
+        }
     }
 }
