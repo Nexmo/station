@@ -52,7 +52,7 @@ module ApplicationHelper
   end
 
   def path_to_url(path)
-    path.gsub(/.*_documentation/, '').gsub('.md', '')
+    path.gsub(/.*#{@namespace_root}/, '').gsub('.md', '')
   end
 
   def first_link_in_directory(context)
@@ -66,6 +66,20 @@ module ApplicationHelper
 
   def normalised_title(item)
     (item[:is_file?] ? document_meta(item[:path])['title'] : I18n.t("menu.#{item[:title]}"))
+  end
+
+  def sidenav(path)
+    context = directory_hash(path)[:children]
+
+    if params[:namespace].present?
+      context = [{
+        title: params[:namespace],
+        path: path.gsub('app/views', ''),
+        children: context,
+      }]
+    end
+
+    directory(context, true, false)
   end
 
   def directory(context = directory_hash("#{Rails.root}/_documentation")[:children], root = true, received_flatten = false)

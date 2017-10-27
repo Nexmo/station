@@ -2,18 +2,18 @@ class MarkdownController < ApplicationController
   before_action :set_navigation
   before_action :set_product
   before_action :set_document
+  before_action :set_namespace
 
   def show
-    # Read document
-    @document_path = "_documentation/#{@product}/#{@document}.md"
+    @document_path = "#{@namespace_path}/#{@document}.md"
     document = File.read("#{Rails.root}/#{@document_path}")
 
-    # Parse frontmatter
     @frontmatter = YAML.safe_load(document)
-
     @document_title = @frontmatter['title']
 
-    @content = MarkdownPipeline.new({ code_language: @code_language }).call(document)
+    @content = MarkdownPipeline.new({
+      code_language: @code_language,
+    }).call(document)
 
     if !Rails.env.development? && @frontmatter['wip']
       @show_feedback = false
@@ -44,5 +44,17 @@ class MarkdownController < ApplicationController
 
   def set_document
     @document = params[:document]
+  end
+
+  def set_namespace
+    if params[:namespace].present?
+      @namespace_path = "app/views/#{params[:namespace]}"
+      @namespace_root = 'app/views'
+      @sidenav_root = "app/views/#{params[:namespace]}"
+    else
+      @namespace_path = "_documentation/#{@product}"
+      @namespace_root = '_documentation'
+      @sidenav_root = "#{Rails.root}/_documentation"
+    end
   end
 end
