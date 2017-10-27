@@ -24,7 +24,7 @@ class MarkdownPipeline < Banzai::Pipeline
       MarkdownFilter,
 
       # As HTML
-      CredentialsFilter,
+      UserPersonalizationFilter,
       HeadingFilter,
       LabelFilter,
       BreakFilter,
