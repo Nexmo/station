@@ -20,6 +20,7 @@ class MarkdownPipeline < Banzai::Pipeline
       TutorialsFilter,
       IconFilter,
       LanguageFilter,
+      ColumnsFilter,
       MarkdownFilter,
 
       # As HTML
