@@ -38,8 +38,7 @@
 
 /events: /community
 
-/styleguide: /contribute/styleguide
-/write-the-docs: /contribute/write-the-docs
+
 
 /voice/api-reference: /api/voice
 /voice/voice-api/ncco-reference: /api/voice/ncco
@@ -73,3 +72,7 @@
 /voice/voice-api/guides/ncco-refernce: /api/voice/ncco
 
 /messaging/tutorials: /messaging/sms/tutorials
+
+/contribute: /contribute/overview
+/styleguide: /contribute/guides/styleguide
+/write-the-docs: /contribute/guides/write-the-docs

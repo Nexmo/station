@@ -166,10 +166,6 @@ When working with keys, phone numbers or accounts we should always be clear abou
 
 Key | Markdown Value | Rendered Value  <small>(if different)</small>
 -- | -- | --
-API Key | `$API_KEY` | `API_KEY`
-API Secret | `$API_SECRET` | `API_SECRET`
-From Number | `FROM_NUMBER` | -
-To Number | `TO_NUMBER` | -
 Timestamp | `2020-01-01 12:00:00` | -
 ISO8601 Timestamp | `2020-01-01T12:00:00.000Z` | -
 Epoch | `1577880000` | -
