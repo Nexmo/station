@@ -2,9 +2,7 @@ library:
   initialization:
     basic:
       node:
-        source: '.repos/nexmo-community/nexmo-node-quickstart/sms/send.js'
-        from_line: 7
-        to_line: 12
+        source: '.repos/nexmo-community/nexmo-node-quickstart/initialize/basic.js'
 messaging:
   sms:
     send:
