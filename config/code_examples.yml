@@ -1,11 +1,16 @@
+library:
+  initialization:
+    basic:
+      node:
+        source: '.repos/nexmo-community/nexmo-node-quickstart/sms/send.js'
+        from_line: 7
+        to_line: 12
 messaging:
   sms:
     send:
-      curl:
-        source: '_examples/messaging/sending-an-sms/basic/cURL'
       node:
         source: '.repos/nexmo-community/nexmo-node-quickstart/sms/send.js'
-        from_line: 10
+        from_line: 14
       java:
         source: '.repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/sms/SendMessage.java'
         from_line: 42
