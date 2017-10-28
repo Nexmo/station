@@ -19,6 +19,7 @@ class CodeFilter < Banzai::Filter
       to_line = (config['to_line'] || total_lines) - 1
 
       code = code.lines[from_line..to_line].join
+      code.unindent! if config['unindent']
 
       highlighted_source = highlight(code, lexer)
 
