@@ -41,7 +41,21 @@ class CodeFilter < Banzai::Filter
     formatter.format(lexer.lex(source))
   end
 
+  def language_to_lexer_name(language)
+    if language_configuration[language]
+      language_configuration[language]['lexer']
+    else
+      language
+    end
+  end
+
   def language_to_lexer(language)
+    language = language_to_lexer_name(language)
+    return Rouge::Lexers::PHP.new({ start_inline: true }) if language == 'php'
     Rouge::Lexer.find(language.downcase) || Rouge::Lexer.find('text')
+  end
+
+  def language_configuration
+    @language_configuration ||= YAML.load_file("#{Rails.root}/config/code_languages.yml")
   end
 end

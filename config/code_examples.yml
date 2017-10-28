@@ -3,6 +3,9 @@ library:
     basic:
       node:
         source: '.repos/nexmo-community/nexmo-node-quickstart/initialize/basic.js'
+      php:
+        source: '.repos/nexmo-community/nexmo-php-quickstart/initialize/basic.php'
+        from_line: 3
 messaging:
   sms:
     send:
@@ -21,8 +24,8 @@ messaging:
         unindent: true
       php:
         source: '.repos/nexmo-community/nexmo-php-quickstart/sms/send-sms.php'
-        from_line: 6
-        to_line: 14
+        from_line: 5
+        to_line: 16
       python:
         source: '.repos/nexmo-community/nexmo-python-quickstart/sms/__init__.py'
       ruby:
