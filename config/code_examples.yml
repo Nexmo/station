@@ -16,8 +16,8 @@ messaging:
         from_line: 14
       java:
         source: '.repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/sms/SendMessage.java'
-        from_line: 42
-        to_line: 52
+        from_line: 44
+        to_line: 50
         unindent: true
       csharp:
         source: '.repos/nexmo-community/nexmo-dotnet-quickstart/NexmoDotNetQuickStarts/Controllers/SMSController.cs'
