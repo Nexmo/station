@@ -8,7 +8,7 @@ language: node
 | ### Install the Nexmo library
 |
 | ```sh
-| $ npm install node
+| $ npm install nexmo
 | ```
 
 | ### Initialize the library
