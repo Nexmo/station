@@ -16,7 +16,7 @@ Exceptions can be made to break consistency where it makes sense, particularly i
 
 ### Structure
 
-The NDP is structured by context and by product. The four main sections of the NDP are:
+Nexmo Developer is structured by context and by product. The four main sections of Nexmo Developer are:
 
 #### Documentation
 
