@@ -58,8 +58,8 @@ If you are not using applications, you use the following parameters for calls to
 
 Parameter | Description
 -- | --
-`api_key` | Your Key. For example: `api_key=n3xm0rocks`
-`api_secret` | Your Secret. For example: `api_secret=12ab34cd`
+`api_key` | Your Key. For example: `api_key=NEXMO_API_KEY`
+`api_secret` | Your Secret. For example: `api_secret=NEXMO_API_SECRET`
 
 You find your Key and Secret in [Dashboard](https://dashboard.nexmo.com/private/dashboard).
 
@@ -67,8 +67,8 @@ If you are using signatures to verify your requests use:
 
 Parameter | Description
 -- | --
-`api_key` | Your Key. For example: api_key=n3xm0rocks
-`sig` | The hash of the request parameters in alphabetical order, a timestamp and the signature secret. For example: sig=TwoMenWentToMowWentTOMowAMeadowT
+`api_key` | Your Key. For example: api_key=NEXMO_API_KEY
+`sig` | The hash of the request parameters in alphabetical order, a timestamp and the signature secret. For example: sig=SIGNATURE
 
 ### Security
 

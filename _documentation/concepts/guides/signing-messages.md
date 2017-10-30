@@ -28,7 +28,7 @@ The signature has a leading `&`. All parameters in the hash input, apart from yo
 The following example shows a signed request to the SMS API:
 
 ```
-https://rest.nexmo.com/sms/xml?api_key=API_KEY&from=Nexmo&to=447700900000&type=text&text=Hello+from+Nexmo&status-report-req=false&timestamp=1461605396&sig=TwoMenWentToMowWentTOMowAMeadowT
+https://rest.nexmo.com/sms/xml?api_key=API_KEY&from=Nexmo&to=447700900000&type=text&text=Hello+from+Nexmo&status-report-req=false&timestamp=1461605396&sig=SIGNATURE
 ```
 
 The workflow for using signed messages is:
