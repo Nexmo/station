@@ -37,8 +37,8 @@ messaging:
         unindent: true
       php:
         source: '.repos/nexmo-community/nexmo-php-quickstart/sms/send-sms.php'
-        from_line: 5
-        to_line: 16
+        from_line: 8
+        to_line: 12
       python:
         source: '.repos/nexmo-community/nexmo-python-quickstart/sms/__init__.py'
       ruby:
