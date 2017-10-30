@@ -8,6 +8,8 @@ library:
         from_line: 3
       java:
         source: '.repos/nexmo-community/nexmo-java-quickstart/initialize/basic.java'
+      ruby:
+        source: '.repos/nexmo-community/nexmo-ruby-quickstart/initialize/basic.rb'
     application:
       php:
         source: '.repos/nexmo-community/nexmo-php-quickstart/initialize/application.php'
@@ -15,6 +17,8 @@ library:
     full:
       node:
         source: '.repos/nexmo-community/nexmo-node-quickstart/initialize/full.js'
+      ruby:
+        source: '.repos/nexmo-community/nexmo-ruby-quickstart/initialize/full.rb'
 messaging:
   sms:
     send:
@@ -39,8 +43,7 @@ messaging:
         source: '.repos/nexmo-community/nexmo-python-quickstart/sms/__init__.py'
       ruby:
         source: '.repos/nexmo-community/nexmo-ruby-quickstart/sms/send.rb'
-        from_line: 9
-        to_line: 20
+        from_line: 15
 voice:
   outbound:
     node:
@@ -50,3 +53,6 @@ voice:
       source: '.repos/nexmo-community/nexmo-php-quickstart/voice/text-to-speech-outbound.php'
       from_line: 12
       to_line: 22
+    ruby:
+      source: '.repos/nexmo-community/nexmo-ruby-quickstart/voice/outbound_tts_call.rb'
+      from_line: 21
