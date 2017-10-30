@@ -84,7 +84,7 @@ module ApplicationHelper
 
   def directory(context = directory_hash("#{Rails.root}/_documentation")[:children], root = true, received_flatten = false)
     s = []
-    s << (root ? '<ul class="navigation js-navigation">' : '<ul>') unless received_flatten
+    s << (root ? "<ul class='navigation js-navigation navigation--#{params[:namespace] || 'documentation'}'>" : '<ul>') unless received_flatten
     s << context.map do |child|
       flatten = FLATTEN_TREES.include? normalised_title(child)
       class_name = (COLLAPSIBLE.include? normalised_title(child)) ? 'js--collapsible' : ''
