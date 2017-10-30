@@ -15,7 +15,7 @@ Key | Description | User customisation (future)
 `NEXMO_API_KEY` | The users Nexmo API Key | ✅
 `NEXMO_API_SECRET` | The users Nexmo API Key | ✅
 `NEXMO_NUMBER` | The virtual number that the user holds with Nexmo | ❓
-`YOUR_NUMBER` | The number that the user owns or wants to communicate with | ❓
+`TO_NUMBER` for outbound §§ `YOUR_NUMBER` for inbound | The number that the user owns or wants to communicate with | ❓
 `NEXMO_APPLICATION_PRIVATE_KEY` | Represents a string of the actual private key | ❎
 `NEXMO_APPLICATION_PRIVATE_KEY_PATH` | Represents a string that relates to the private key directory | ❎
 
