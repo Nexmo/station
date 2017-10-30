@@ -8,7 +8,17 @@ class UserPersonalizationFilter < Banzai::Filter
     document.css('pre code').each do |code|
       html = code.to_s
 
-      html.gsub!('NEXMO_API_KEY', "'#{options[:current_user].api_key}'")
+      html.gsub! /(['|"])?NEXMO_API_(KEY|SECRET)['|"]?/ do
+        quote = $1 || "'"
+        value = (
+          case $2
+          when 'KEY' then options[:current_user].api_key
+          when 'SECRET' then options[:current_user].api_secret
+          end
+        )
+        "#{quote}#{value}#{quote}"
+      end
+
       html.gsub!('NEXMO_API_SECRET', "'#{options[:current_user].api_secret}'")
 
       code.replace(html)
