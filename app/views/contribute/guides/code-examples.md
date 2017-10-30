@@ -6,6 +6,16 @@ title: Code Examples
 
 Nexmo Developer hosts many code examples, we endeavour to make the as consistent as possible. You should follow this guide when contributing code examples to the building blocks repositories or directly to Nexmo Developer.
 
+## Use the library
+
+If an existing Nexmo-supported API library supports the functionality, you should use that library for code samples.
+
+### Principle of Least Astonishment
+
+Code samples should match the expectations and experience of a median-level competent developer in a language and try hard to not surprise or confuse them. Code samples for APIs are not a place to use flashy, experimental or cutting-edge techniques, but to try to maximise compatibility, and reduce ambiguity.
+
+Code samples **MUST NOT** use any technique widely considered to be insecure, badly designed or likely to cause harm or confusion to the user.
+
 ## Placeholders
 
 The following values should be used as placeholders in code examples. They can be specified assigned as constants out of the range of view of the rendered code to allow the code to be executed whist providing an obvious placeholders for the reader.
@@ -124,3 +134,15 @@ Java | - | -
 PHP | [PHPCS](https://github.com/squizlabs/PHP_CodeSniffer#installation) | [PSR-2](https://github.com/Nexmo/nexmo-php/blob/develop/phpcs.xml)
 Python | [YAPF](https://github.com/google/yapf) | Default
 Ruby| [Rubocop](https://github.com/bbatsov/rubocop) | Default
+
+### Languages
+
+#### JavaScript
+
+Documentation should be clear whether JavaScript code is intended to run on the server (using, say, node.js), the client, or both.
+
+#### Python
+
+Avoid code that is significantly different in Python 2 and 3. When this is unavoidable, abstract away the incompatible code to the smallest area possible and use [`__future__`](https://docs.python.org/2/library/__future__.html) to ensure backwards compatibility with Python 2.
+
+Inbound HTTP calls should use a WSGI-compatible web framework, preferably the [Flask](http://flask.pocoo.org/) micro-framework. Explanations of how to integrate Nexmo APIs with [Django](https://www.djangoproject.com/) are sensible too.
