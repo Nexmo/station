@@ -18,11 +18,14 @@ In this document you can learn about:
 
 * [Nexmo SMS API Concepts](#concepts)
 * [How to Get Started with the SMS API](#getting-started)
-* [SMS API Features](#sms-api-features)
-* [References](#references)
+* [Building Blocks](#building-blocks)
+* [Guides](#guides)
 * [Tutorials](#tutorials)
+* [Reference](#references)
 
-## Concepts
+## Prerequisites
+
+To use the Nexmo SMS API, you may need to familiarise yourself with:
 
 * **[Authentication](/concepts/guides/authentication)** - Nexmo SMS API is authenticated with your account API Key and Secret.
 
@@ -34,7 +37,7 @@ In this document you can learn about:
 
 Before you begin, [Sign up for a Nexmo account](https://dashboard.nexmo.com/sign-up).
 
-Using your Nexmo `API_KEY` and `API_SECRET`, available from the [dashboard getting started page](https://dashboard.nexmo.com/getting-started-guide), you now send an SMS message:
+Using your Nexmo `API_KEY` and `API_SECRET`, available from the [dashboard getting started page](https://dashboard.nexmo.com/getting-started-guide), you can now send an SMS message:
 
 ```techio
 title: Send an SMS
