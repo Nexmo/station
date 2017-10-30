@@ -24,7 +24,7 @@ class MarkdownPipeline < Banzai::Pipeline
       MarkdownFilter,
 
       # As HTML
-      UserPersonalizationFilter,
+      UserPersonalizationFilter.new(options),
       HeadingFilter,
       LabelFilter,
       BreakFilter,

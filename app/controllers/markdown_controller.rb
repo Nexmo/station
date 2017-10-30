@@ -13,6 +13,7 @@ class MarkdownController < ApplicationController
 
     @content = MarkdownPipeline.new({
       code_language: @code_language,
+      current_user: current_user,
     }).call(document)
 
     if !Rails.env.development? && @frontmatter['wip']
