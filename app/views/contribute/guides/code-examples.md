@@ -33,7 +33,6 @@ Key | Description | User customisation (future)
 
 In the future we will customise code examples to the logged in user for example by adding API key and secret to the examples. To do this we need to be careful about how we use placeholders.
 
-
 #### ✅ Good
 
 {column:1/2}
@@ -100,6 +99,19 @@ A test SMS sent [demonstrating <feature>] using  the Nexmo SMS API
 ```
 Acme Inc
 ```
+
+### Webhooks
+
+The following URL paths should be used in examples that use Webhooks.
+
+Path | Description
+-- | --
+`/webhook/answer` | The application `answer` event URL
+`/webhook/event` | The application `event` event URL
+
+Example code should always accept query string parameters for `GET` and `POST` requests.
+
+Example code should always accept JSON for `POST` requests.
 
 ### NCCO examples
 
