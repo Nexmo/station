@@ -56,3 +56,6 @@ voice:
     ruby:
       source: '.repos/nexmo-community/nexmo-ruby-quickstart/voice/outbound_tts_call.rb'
       from_line: 21
+  inbound-connect:
+    node:
+      source: '.repos/nexmo-community/nexmo-node-quickstart/voice/connect-an-inbound-call.js'
