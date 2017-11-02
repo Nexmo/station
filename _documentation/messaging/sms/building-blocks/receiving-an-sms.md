@@ -13,7 +13,7 @@ To receive SMS messages, you need to buy a number and setup a webhook endpoint.
 
 Log into the Nexmo dashboard and go to [Numbers > Buy numbers](https://dashboard.nexmo.com/buy-numbers). Here you can buy a number with SMS capabilities.
 
-> *Note:* You can also buy numbers with [Nexmo CLI](/tools/cli). Run `nexmo help` to see how.
+> *Note:* You can also buy numbers with [Nexmo CLI](/tools/cli). Run `nexmo help` or go [here](https://developer.nexmo.com/account/building-blocks/buy-a-number) to see how.
 
 ## Implementing a webhook endpoint
 
