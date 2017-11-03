@@ -7,18 +7,31 @@ library:
         source: '.repos/nexmo-community/nexmo-php-quickstart/initialize/basic.php'
         from_line: 3
       java:
-        source: '.repos/nexmo-community/nexmo-java-quickstart/initialize/basic.java'
+        source: '.repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/initialize/BasicAuth.java'
+        from_line: 18
+        to_line: 19
+        unindent: true
       ruby:
         source: '.repos/nexmo-community/nexmo-ruby-quickstart/initialize/basic.rb'
     application:
       php:
         source: '.repos/nexmo-community/nexmo-php-quickstart/initialize/application.php'
         from_line: 3
+      java:
+        source: '.repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/initialize/ApplicationAuth.java'
+        from_line: 17
+        to_line: 24
+        unindent: true
     full:
       node:
         source: '.repos/nexmo-community/nexmo-node-quickstart/initialize/full.js'
       ruby:
         source: '.repos/nexmo-community/nexmo-ruby-quickstart/initialize/full.rb'
+      java:
+        source: '.repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/initialize/FullAuth.java'
+        from_line: 24
+        to_line: 29
+        unindent: true
 messaging:
   sms:
     send:
@@ -56,6 +69,11 @@ voice:
     ruby:
       source: '.repos/nexmo-community/nexmo-ruby-quickstart/voice/outbound_tts_call.rb'
       from_line: 21
+    java:
+      source: '.repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/voice/OutboundTextToSpeech.java'
+      from_line: 25
+      to_line: 30
+      unindent: true
   inbound-connect:
     node:
       source: '.repos/nexmo-community/nexmo-node-quickstart/voice/connect-an-inbound-call.js'

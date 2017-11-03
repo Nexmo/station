@@ -16,11 +16,11 @@ language: java
 | ### Initialize the library
 |
 | ```code
-| config: library.initialization.basic.java
+| config: library.initialization.application.java
 | ```
 
 ## Code
 
 ```code
-config: messaging.sms.send.java
+config: voice.outbound.java
 ```
