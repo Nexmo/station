@@ -14,7 +14,7 @@ In this tutorial, you will learn how to send out voice messages and see who was 
 - [Provision a Virtual Number](#provision-a-virtual-number) - rent the number from which your message will come
 - [Creating a Nexmo Call Control Object](#creating-a-nexmo-call-control-object-ncco) - using Nexmo Call Control Objects, return information to the user, and prompt for input
 - [Creating a call](#creating-a-call) - initiate the calls to everyone who needs to be notified
-- [Using a Recording Instead of Text-To-speech](#using-a-recording-instead-of-text-to-speech) - Use a pre-recorded message for the call instead of a text-to-speech message 
+- [Using a Recording Instead of Text-To-speech](#using-a-recording-instead-of-text-to-speech) - Use a pre-recorded message for the call instead of a text-to-speech message
 - [Handling Answering Machines and Voicemail](#handling-answering-machines-and-voicemail) - Log if a call is answered by an answering machine or voicemail
 - [Confirming Receipt of the Message](#confirming-receipt-of-the-message) - Receive and log confirmation of receipt from the user
 - [Broadcasting to multiple people](#broadcasting-to-multiple-people) - Broadcast the alert to multiple people who all need to be aware
@@ -45,7 +45,7 @@ First, you'll need to collect a few details for the configuration. The project w
 
 ## Create a Voice Application
 
-To create a voice application on the Nexmo platform, you can use either the [Nexmo dashboard](use the Nexmo API) or the Nexmo API. We're going to use the API via the [Nexmo CLI](https://github.com/Nexmo/nexmo-cli) tool. Execute the following command to create a Nexmo Application with the Nexmo CLI:
+To create a voice application on the Nexmo platform, you can use either the [use the Nexmo API](https://dashboard.nexmo.com) or the Nexmo API. We're going to use the API via the [Nexmo CLI](https://github.com/Nexmo/nexmo-cli) tool. Execute the following command to create a Nexmo Application with the Nexmo CLI:
 
 ```bash
 nexmo app:create --keyfile private.key phone-alerts https://example.com/answer.php https://example.com/event.php
@@ -78,7 +78,7 @@ nexmo link:app 14155550100 5555f9df-05bb-4a99-9427-6e43c83849b8
 Now that you have an application and linked number, it's time to create your first call. Let's start with something simple to get this working - we're going to create an [NCCO](/api/voice/ncco) to deliver a text-to-speech message. Create `answer.php` with the following contents:
 
 ```php
-<?php 
+<?php
 
 // The incoming request could be a GET or a POST, depending on how your
 // account is configured
@@ -152,7 +152,7 @@ function record_steps($message) {
 
 At this point, we've written enough code to test our voice call system. Call the number you purchased earlier using your own phone, and you should hear a text to speech message played. However, we're creating a system to broadcast alerts out when they happen, which means we need to make outbound calls.
 
-## Creating a call 
+## Creating a call
 
 Creating an outbound call involves using the private key we saved earlier to generate an authentication token for the Nexmo API. To make things easier, we've wrapped up all of the code to do this in the [Nexmo PHP library](https://github.com/nexmo/nexmo-php).You'll need to [install the library](https://github.com/nexmo/nexmo-php#installation), then create a file named `broadcast.php` with the following contents:
 

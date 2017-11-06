@@ -20,7 +20,7 @@
 /verify/tutorial: /verify/tutorials/passwordless-authentication
 /verify/building-blocks: /verify/building-blocks/send-verify-request
 
-/voice/building-blocks: /voice/building-blocks/make-a-phone-call
+/voice/building-blocks: /voice/voice-api/building-blocks/make-an-outbound-call
 
 /number-insight: /number-insight/overview
 /number-insight/guides: /number-insight/guides/cnam
@@ -62,7 +62,6 @@
 /voice/guides/outbound-calls: /voice/voice-api/guides/outbound-calls
 /voice/guides/record-calls-and-conversations: /voice/voice-api/guides/record-calls-and-conversations
 /voice/guides/call-a-websocket: /voice/voice-api/guides/call-a-websocket
-/voice/building-blocks/make-a-phone-call: /voice/voice-api/building-blocks/make-a-phone-call
 /voice/building-blocks/connect-a-phone-call: /voice/voice-api/building-blocks/connect-a-phone-call
 /voice/building-blocks/receive-a-phone-call: /voice/voice-api/building-blocks/receive-a-phone-call
 /voice/tutorials: /voice/voice-api/tutorials
