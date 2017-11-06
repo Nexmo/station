@@ -3,9 +3,6 @@ class OpenApiController < ApplicationController
   before_action :set_navigation
 
   def show
-
-
-
     if File.file? "_open_api/definitions/#{@specification_name}.json"
       @specification_path = "_open_api/definitions/#{@specification_name}.json"
       @specification_format = 'json'

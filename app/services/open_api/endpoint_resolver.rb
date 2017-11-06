@@ -162,6 +162,10 @@ module OpenApi
       @status ||= statuses.first.to_s
     end
 
+    def code_example_path
+      endpoint.raw['x-code-example-path']
+    end
+
     def jwt?
       jwt ? true : false
     end
