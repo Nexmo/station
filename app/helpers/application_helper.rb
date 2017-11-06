@@ -52,7 +52,7 @@ module ApplicationHelper
   end
 
   def path_to_url(path)
-    path.gsub(/.*_documentation/, '').gsub('.md', '')
+    path.gsub(/.*#{@namespace_root}/, '').gsub('.md', '')
   end
 
   def first_link_in_directory(context)
@@ -68,9 +68,23 @@ module ApplicationHelper
     (item[:is_file?] ? document_meta(item[:path])['title'] : I18n.t("menu.#{item[:title]}"))
   end
 
+  def sidenav(path)
+    context = directory_hash(path)[:children]
+
+    if params[:namespace].present?
+      context = [{
+        title: params[:namespace],
+        path: path.gsub('app/views', ''),
+        children: context,
+      }]
+    end
+
+    directory(context, true, false)
+  end
+
   def directory(context = directory_hash("#{Rails.root}/_documentation")[:children], root = true, received_flatten = false)
     s = []
-    s << (root ? '<ul class="navigation js-navigation">' : '<ul>') unless received_flatten
+    s << (root ? "<ul class='navigation js-navigation navigation--#{params[:namespace] || 'documentation'}'>" : '<ul>') unless received_flatten
     s << context.map do |child|
       flatten = FLATTEN_TREES.include? normalised_title(child)
       class_name = (COLLAPSIBLE.include? normalised_title(child)) ? 'js--collapsible' : ''

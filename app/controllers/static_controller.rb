@@ -18,6 +18,10 @@ class StaticController < ApplicationController
 
     @content = MarkdownPipeline.new.call(document)
 
+    @namespace_path = "_documentation/#{@product}"
+    @namespace_root = '_documentation'
+    @sidenav_root = "#{Rails.root}/_documentation"
+
     render layout: 'documentation'
   end
 

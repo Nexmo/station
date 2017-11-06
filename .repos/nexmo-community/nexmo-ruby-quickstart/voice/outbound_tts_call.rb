@@ -6,7 +6,7 @@ NEXMO_API_KEY = ENV['NEXMO_API_KEY']
 NEXMO_API_SECRET = ENV['NEXMO_API_SECRET']
 NEXMO_APPLICATION_ID = ENV['NEXMO_APPLICATION_ID']
 NEXMO_APPLICATION_PRIVATE_KEY_PATH = ENV['NEXMO_APPLICATION_PRIVATE_KEY_PATH']
-NEXMO_FROM_NUMBER = ENV['NEXMO_FROM_NUMBER']
+NEXMO_NUMBER = ENV['NEXMO_NUMBER']
 TO_NUMBER = ENV['TO_NUMBER']
 
 require 'nexmo'
@@ -25,7 +25,7 @@ client.create_call(
   }],
   from: {
     type: 'phone',
-    number: NEXMO_FROM_NUMBER
+    number: NEXMO_NUMBER
   },
   answer_url: [
     'https://developer.nexmo.com/ncco/tts.json'

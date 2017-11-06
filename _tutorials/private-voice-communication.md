@@ -93,16 +93,16 @@ To provision a virtual number you search through the available numbers that meet
 
 ```code
 source: '_code/voice_proxy.js'
-from_line: 1
-to_line: 46
+from_line: 2
+to_line: 47
 ```
 
 Then rent the numbers you want and associate them with your application. When any even occurs relating to each number associated with an application, Nexmo sends a request to your webhook endpoint with information about the event. After configuration you store the phone number for later user.
 
 ```code
 source: '_code/voice_proxy.js'
-from_line: 48
-to_line: 78
+from_line: 49
+to_line: 79
 ```
 
 You now have the virtual numbers you need to mask communication between your users.
@@ -136,8 +136,8 @@ The following call:
 
 ```code
 source: '_code/voice_proxy.js'
-from_line: 89
-to_line: 102
+from_line: 90
+to_line: 103
 ```
 
 ### Validate the phone numbers
@@ -146,8 +146,8 @@ When your application users supply their phone numbers use Number Insight to ens
 
 ```code
 source: '_code/voice_proxy.js'
-from_line: 104
-to_line: 113
+from_line: 105
+to_line: 114
 ```
 
 ### Map phone numbers to real numbers
@@ -156,8 +156,8 @@ Once you are sure that the phone numbers are valid, map each real number to a [v
 
 ```code
 source: '_code/voice_proxy.js'
-from_line: 115
-to_line: 148
+from_line: 116
+to_line: 149
 ```
 
 ### Send a confirmation SMS
@@ -168,8 +168,8 @@ Send an SMS to notify each conversation participant of the virtual number they n
 
 ```code
 source: '_code/voice_proxy.js'
-from_line: 150
-to_line: 170
+from_line: 151
+to_line: 171
 ```
 
 The users cannot SMS each other. To enable this functionality you need to setup [Private SMS communication](/tutorials/private-sms-communication).
@@ -224,8 +224,8 @@ The call direction can be identified as:
 
 ```code
 source: '_code/voice_proxy.js'
-from_line: 172
-to_line: 205
+from_line: 173
+to_line: 206
 ```
 
 With the number looking performed all that's left to do is proxy the call.
@@ -251,8 +251,8 @@ In order to do this, build up an NCCO (Nexmo Call Control Object). This NCCO use
 
 ```code
 source: '_code/voice_proxy.js'
-from_line: 6
-to_line: 24
+from_line: 7
+to_line: 25
 ```
 
 > **Note**: take a look at the [NCCO reference](/voice/guides/ncco-reference) for more information.
