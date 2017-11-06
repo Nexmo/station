@@ -22,19 +22,13 @@ Key |	Description
 `TO_NUMBER` |	The number you would like to call to in E.164 format. For example `447700900000`.
 `NEXMO_APPLICATION_ID` |	The ID of the application that you created.
 
-Depending on which library you are using you may need to provide your API Key and API Secret:
+Depending on which library you are using you will need to replace any occurrences of the following:
 
 Key |	Description
 -- | --
 `NEXMO_API_KEY` | You can find this in your account overview
 `NEXMO_API_SECRET` | You can find this in your account overview
-
-Also you should change one of these two depending on the library you are using:
-
-Key |	Description
--- | --
-`NEXMO_APPLICATION_PRIVATE_KEY_PATH` | The path to your private key file
-`NEXMO_APPLICATION_PRIVATE_KEY` | A string of your private key
+`NEXMO_APPLICATION_PRIVATE_KEY_PATH` | The path to your private key file. e.g. `private.key`
 
 ```tabbed_content
 source: '_examples/voice/make-an-outbound-call'
