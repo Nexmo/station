@@ -13,6 +13,8 @@ library:
         unindent: true
       ruby:
         source: '.repos/nexmo-community/nexmo-ruby-quickstart/initialize/basic.rb'
+      python:
+        source: '.repos/nexmo-community/nexmo-python-quickstart/initialize/basic.py'
     application:
       php:
         source: '.repos/nexmo-community/nexmo-php-quickstart/initialize/application.php'
@@ -22,6 +24,8 @@ library:
         from_line: 17
         to_line: 24
         unindent: true
+      python:
+        source: '.repos/nexmo-community/nexmo-python-quickstart/initialize/application.py'
     full:
       node:
         source: '.repos/nexmo-community/nexmo-node-quickstart/initialize/full.js'
@@ -32,6 +36,8 @@ library:
         from_line: 24
         to_line: 29
         unindent: true
+      python:
+        source: '.repos/nexmo-community/nexmo-python-quickstart/initialize/full.py'
 messaging:
   sms:
     send:
@@ -57,6 +63,9 @@ messaging:
       ruby:
         source: '.repos/nexmo-community/nexmo-ruby-quickstart/sms/send.rb'
         from_line: 15
+      python:
+        source: '.repos/nexmo-community/nexmo-python-quickstart/sms/send-an-sms.py'
+        from_line: 16
 voice:
   outbound:
     node:
@@ -69,6 +78,9 @@ voice:
     ruby:
       source: '.repos/nexmo-community/nexmo-ruby-quickstart/voice/outbound_tts_call.rb'
       from_line: 21
+    python:
+      source: '.repos/nexmo-community/nexmo-python-quickstart/voice/make-an-outbound-call.py'
+      from_line: 20
     java:
       source: '.repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/voice/OutboundTextToSpeech.java'
       from_line: 25
