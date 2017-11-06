@@ -122,6 +122,7 @@ module ApplicationHelper
   end
 
   def render_request(definition_name, endpoint)
+    return unless endpoint.code_example_path
     markdown = <<~HEREDOC
       ```tabbed_examples
       config: #{endpoint.code_example_path}
