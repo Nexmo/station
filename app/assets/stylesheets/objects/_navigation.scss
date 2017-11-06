@@ -95,16 +95,18 @@
   }
 }
 
-.navigation-item--tutorials a {
-  @include highlighted-navigation($pink);
-}
+.navigation--documentation {
+  .navigation-item--tutorials a {
+    @include highlighted-navigation($pink);
+  }
 
-.navigation-item--api-reference a {
-  @include highlighted-navigation($blue);
-}
+  .navigation-item--api-reference a {
+    @include highlighted-navigation($blue);
+  }
 
-.navigation-item--ncco-reference a {
-  @include highlighted-navigation($gray-dark);
+  .navigation-item--ncco-reference a {
+    @include highlighted-navigation($gray-dark);
+  }
 }
 
 @media screen and (max-width: 640px) {

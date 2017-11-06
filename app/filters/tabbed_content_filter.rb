@@ -66,7 +66,7 @@ class TabbedContentFilter < Banzai::Filter
         </li>
       HEREDOC
 
-      markdownified_source = MarkdownPipeline.new.call(content[:source])
+      markdownified_source = MarkdownPipeline.new(options).call(content[:source])
 
       # Freeze to prevent Markdown formatting edge cases
       markdownified_source = "FREEZESTART#{Base64.urlsafe_encode64(markdownified_source)}FREEZEEND"

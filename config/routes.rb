@@ -15,10 +15,6 @@ Rails.application.routes.draw do
 
   get '/documentation', to: 'static#documentation'
 
-  get '/contribute', to: 'static#contribute'
-  get '/contribute/styleguide', to: 'static#styleguide'
-  get '/contribute/write-the-docs', to: 'static#write_the_docs'
-
   get '/legacy', to: 'static#legacy'
 
   get '/community/slack', to: 'slack#join'
@@ -41,6 +37,11 @@ Rails.application.routes.draw do
   get '/api/*document(/:code_language)', to: 'api#show', constraints: DocumentationConstraint.code_language
 
   get '/*product/(api|ncco)-reference', to: 'markdown#api'
+
+  scope "(:namespace)", namespace: /contribute/, defaults: { namespace: '' } do
+    get '/*document(/:code_language)', to: 'markdown#show', constraints: DocumentationConstraint.documentation
+  end
+
   get '/:product/*document(/:code_language)', to: 'markdown#show', constraints: DocumentationConstraint.documentation
 
   get '/robots.txt', to: 'static#robots'

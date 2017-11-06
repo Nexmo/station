@@ -21,10 +21,11 @@ class MarkdownPipeline < Banzai::Pipeline
       TutorialsFilter,
       IconFilter,
       LanguageFilter,
+      ColumnsFilter,
       MarkdownFilter,
 
       # As HTML
-      CredentialsFilter,
+      UserPersonalizationFilter.new(options),
       HeadingFilter,
       LabelFilter,
       BreakFilter,

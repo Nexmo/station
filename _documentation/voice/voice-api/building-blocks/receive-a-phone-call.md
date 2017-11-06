@@ -8,8 +8,7 @@ navigation_weight: 2
 ```tabbed_examples
 tabs:
   node:
-    source: .repos/nexmo-community/nexmo-node-quickstart/voice/receive-call-webhook.js
-    from_line: 14
+    source: .repos/nexmo-community/nexmo-node-quickstart/voice/receive-an-inbound-call.js
   PHP:
     source: .repos/nexmo-community/nexmo-php-quickstart/voice/text-to-speech-inbound.php
   Ruby:
