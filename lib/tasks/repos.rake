@@ -3,57 +3,47 @@ require 'colorize'
 namespace :repos do
   desc 'Pull repos to local'
   task pull: :environment do
-
     ARGV.each { |a| task a.to_sym do ; end }
 
-    repos = {}
+    repos = []
 
     if ARGV[1]
-      repos[ARGV[1]] = {
-        'branch' => ARGV[2] || 'master',
-      }
-
-      if ['git://', 'git@', 'https://'].any? { |protocol| ARGV[1].include?(protocol) }
-        repos[ARGV[1]]['repo_url'] = ARGV[1]
-
-        begin
-          repos[ARGV[1]]['directory'] = ARGV[1].match(/^(?:(?:git|https):\/\/|git@).+?(?:\/|:)(.+?).git/)[1]
-        rescue NoMethodError
-          raise "Could not understand URL #{ARGV[1]}"
-        end
+      repo = Repo.new(branch: ARGV[2])
+      if Repo.valid_url? ARGV[1]
+        repo.url = ARGV[1]
       else
-        repos[ARGV[1]]['github'] = ARGV[1]
+        repo.repo = ARGV[1]
       end
+      repos << repo
     else
-      repos = YAML.load_file("#{Rails.root}/config/repos.yml")
+      repos = YAML.load_file("#{Rails.root}/config/repos.yml").map do |namespace, config|
+        Repo.new({ namespace: namespace }.merge(config))
+      end
     end
 
     progressbar = ProgressBar.create(total: repos.count)
 
     warnings = []
 
-    repos.each do |repo, config|
-      if config['path']
-        if File.directory?("#{Rails.root}/#{config['path']}")
-          warnings << "A path has been used for #{repo}. This should be removed or commented out and rake repos:pull run again before committing"
+    repos.each do |repo|
+      if repo.path
+        if File.directory?("#{Rails.root}/#{repo.path}")
+          warnings << "A path has been used for #{repo.namespace}. This should be removed or commented out and rake repos:pull run again before committing"
         else
-          puts "Path #{config['path']} provided for #{repo} but does not exist. Can not continue.".colorize(:light_red)
+          puts "Path #{repo.path} provided for #{repo.namespace} but does not exist. Can not continue.".colorize(:light_red)
           exit 1
         end
       end
     end
 
-    repos.each do |repo, config|
-      directory = config['directory'] || repo
+    repos.each do |repo|
+      system "rm -rf #{repo.directory} 2>&1", out: File::NULL
 
-      system "rm -rf ./.repos/#{directory} 2>&1"
-
-      if config['path']
-        system "ln -s #{Rails.root}/#{config['path']} #{Rails.root}/.repos/#{directory}"
+      if repo.path
+        system "ln -s #{Rails.root}/#{repo.path} #{repo.directory}", out: File::NULL
       else
-        repo_url = config['github'] ? "git@github.com:#{config['github']}.git" : config['repo_url']
-        system "git clone --depth=1 #{repo_url} -b #{config['branch']} ./.repos/#{directory} 2>&1", out: File::NULL
-        system "rm -rf ./.repos/#{directory}/.git 2>&1", out: File::NULL
+        system "git clone --depth=1 #{repo.url} -b #{repo.branch} #{repo.directory} 2>&1", out: File::NULL
+        system "rm -rf #{repo.directory}/.git 2>&1", out: File::NULL
       end
 
       progressbar.increment
