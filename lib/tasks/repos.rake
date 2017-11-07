@@ -11,8 +11,19 @@ namespace :repos do
     if ARGV[1]
       repos[ARGV[1]] = {
         'branch' => ARGV[2] || 'master',
-        'github' => ARGV[1],
       }
+
+      if ['git://', 'git@', 'https://'].any? { |protocol| ARGV[1].include?(protocol) }
+        repos[ARGV[1]]['repo_url'] = ARGV[1]
+
+        begin
+          repos[ARGV[1]]['directory'] = ARGV[1].match(/^(?:(?:git|https):\/\/|git@).+?(?:\/|:)(.+?).git/)[1]
+        rescue NoMethodError
+          raise "Could not understand URL #{ARGV[1]}"
+        end
+      else
+        repos[ARGV[1]]['github'] = ARGV[1]
+      end
     else
       repos = YAML.load_file("#{Rails.root}/config/repos.yml")
     end
@@ -33,15 +44,16 @@ namespace :repos do
     end
 
     repos.each do |repo, config|
+      directory = config['directory'] || repo
 
-      system "rm -rf ./.repos/#{repo} 2>&1"
+      system "rm -rf ./.repos/#{directory} 2>&1"
 
       if config['path']
-        system "ln -s #{Rails.root}/#{config['path']} #{Rails.root}/.repos/#{repo}"
+        system "ln -s #{Rails.root}/#{config['path']} #{Rails.root}/.repos/#{directory}"
       else
-        repo_url = "git://github.com/#{config['github']}.git"
-        system "git clone --depth=1 #{repo_url} -b #{config['branch']} ./.repos/#{repo} 2>&1", out: File::NULL
-        system "rm -rf ./.repos/#{repo}/.git 2>&1", out: File::NULL
+        repo_url = config['github'] ? "git@github.com:#{config['github']}.git" : config['repo_url']
+        system "git clone --depth=1 #{repo_url} -b #{config['branch']} ./.repos/#{directory} 2>&1", out: File::NULL
+        system "rm -rf ./.repos/#{directory}/.git 2>&1", out: File::NULL
       end
 
       progressbar.increment
