@@ -18,10 +18,10 @@ The context of the conversations is maintained though each communication event t
 > * Cache support
 > * Typing indicators
 > * Message sent, delivered and read receipts
+> * Image support
 >
 > Upcoming features will include:
 >
-> * Image support
 > * Push notifications
 > * Voice support
 
@@ -99,7 +99,7 @@ source: _examples/conversations/overview/join-the-conversation/
 
 ## Conversation API Features
 
-* [IP Messaging](/conversation/guides/ip-messaging)
+* [IP Messaging](/conversation/developer-preview)
 * PSTN Voice [Coming soon]
 * WebRTC Audio [Coming soon]
 * WebRTC Video [Coming soon]

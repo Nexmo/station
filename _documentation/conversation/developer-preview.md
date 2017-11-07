@@ -24,10 +24,10 @@ Currently the Conversation API offers basic IP messaging with the following feat
 * Cache support
 * Typing indicators
 * Message sent, delivered and read receipts
+* Image support
 
 Upcoming features will include:
 
-* Image support
 * Push notifications
 * Voice support
 
@@ -45,14 +45,14 @@ If you want communicate with us during the developer preview you can:
 
 ## Try out the quickstart guides
 
-* [JavaScript Quickstart](https://github.com/Nexmo/conversation-js-quickstart/)
-* [Android Quickstart](https://github.com/Nexmo/conversation-android-quickstart)
-
-iOS coming soon.
+* [JavaScript Quickstarts](https://github.com/Nexmo/conversation-js-quickstart/)
+* [iOS Quickstarts](https://github.com/Nexmo/conversation-ios-quickstart)
+* [Android Quickstarts](https://github.com/Nexmo/conversation-android-quickstart)
 
 ## SDK API Reference docs
 
 * [JavaScript](/sdk/conversation/javascript/)
+* [iOS](/sdk/conversation/ios/)
 * [Android](/sdk/conversation/android/)
 
 ## Additional Resources
