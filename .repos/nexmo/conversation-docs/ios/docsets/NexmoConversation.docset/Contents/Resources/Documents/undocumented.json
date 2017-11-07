@@ -1,698 +1,726 @@
 {
   "warnings": [
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/APIObjects/Configuration.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/APIObjects/Configuration.swift",
       "line": 41,
       "symbol": "Configuration.LogLevel.none",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/APIObjects/Configuration.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/APIObjects/Configuration.swift",
       "line": 42,
       "symbol": "Configuration.LogLevel.info",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/APIObjects/Configuration.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/APIObjects/Configuration.swift",
       "line": 43,
       "symbol": "Configuration.LogLevel.warning",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/APIObjects/Configuration.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/APIObjects/Configuration.swift",
       "line": 44,
       "symbol": "Configuration.LogLevel.error",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/APIObjects/Configuration.swift",
-      "line": 65,
-      "symbol": "Configuration.init(with:autoReconnect:)",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/APIObjects/Configuration.swift",
+      "line": 68,
+      "symbol": "Configuration.init(with:autoReconnect:clearAllData:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/APIObjects/Conversation.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/APIObjects/Conversation.swift",
       "line": 28,
       "symbol": "Conversation.Change.reset",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/APIObjects/Conversation.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/APIObjects/Conversation.swift",
       "line": 29,
       "symbol": "Conversation.Change.inserts",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/APIObjects/Conversation.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/APIObjects/Conversation.swift",
       "line": 30,
       "symbol": "Conversation.Change.deletes",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/APIObjects/Conversation.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/APIObjects/Conversation.swift",
       "line": 31,
       "symbol": "Conversation.Change.updates",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/APIObjects/Conversation.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/APIObjects/Conversation.swift",
       "line": 32,
       "symbol": "Conversation.Change.move",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/APIObjects/Conversation.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/APIObjects/Conversation.swift",
       "line": 33,
       "symbol": "Conversation.Change.beginBatchEditing",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/APIObjects/Conversation.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/APIObjects/Conversation.swift",
       "line": 34,
       "symbol": "Conversation.Change.endBatchEditing",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/APIObjects/Conversation.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/APIObjects/Conversation.swift",
       "line": 42,
       "symbol": "Conversation.Errors.eventBodyIsEmpty",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/APIObjects/Conversation.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/APIObjects/Conversation.swift",
       "line": 43,
       "symbol": "Conversation.Errors.cannotProcessRequest",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/APIObjects/Conversation.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/APIObjects/Conversation.swift",
       "line": 44,
       "symbol": "Conversation.Errors.memberNotFound",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/APIObjects/ConversationClient+ObjectiveC.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/APIObjects/ConversationClient+ObjectiveC.swift",
       "line": 27,
       "symbol": "ConversationClient.StateObjc.disconnected",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/APIObjects/ConversationClient+ObjectiveC.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/APIObjects/ConversationClient+ObjectiveC.swift",
       "line": 28,
       "symbol": "ConversationClient.StateObjc.connecting",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/APIObjects/ConversationClient+ObjectiveC.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/APIObjects/ConversationClient+ObjectiveC.swift",
       "line": 29,
       "symbol": "ConversationClient.StateObjc.connected",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/APIObjects/ConversationClient+ObjectiveC.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/APIObjects/ConversationClient+ObjectiveC.swift",
       "line": 30,
       "symbol": "ConversationClient.StateObjc.outOfSync",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/APIObjects/ConversationClient+ObjectiveC.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/APIObjects/ConversationClient+ObjectiveC.swift",
       "line": 31,
       "symbol": "ConversationClient.StateObjc.synchronizing",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/APIObjects/ConversationClient+ObjectiveC.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/APIObjects/ConversationClient+ObjectiveC.swift",
       "line": 32,
       "symbol": "ConversationClient.StateObjc.synchronized",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/APIObjects/ConversationClient.swift",
-      "line": 93,
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/APIObjects/ConversationClient.swift",
+      "line": 47,
       "symbol": "ConversationClient.LoginResult.success",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/APIObjects/ConversationClient.swift",
-      "line": 94,
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/APIObjects/ConversationClient.swift",
+      "line": 48,
       "symbol": "ConversationClient.LoginResult.failed",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/APIObjects/ConversationClient.swift",
-      "line": 95,
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/APIObjects/ConversationClient.swift",
+      "line": 49,
       "symbol": "ConversationClient.LoginResult.invalidToken",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/APIObjects/ConversationClient.swift",
-      "line": 96,
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/APIObjects/ConversationClient.swift",
+      "line": 50,
       "symbol": "ConversationClient.LoginResult.sessionInvalid",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/APIObjects/ConversationClient.swift",
-      "line": 97,
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/APIObjects/ConversationClient.swift",
+      "line": 51,
       "symbol": "ConversationClient.LoginResult.expiredToken",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/APIObjects/ConversationClient.swift",
-      "line": 109,
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/APIObjects/ConversationClient.swift",
+      "line": 63,
       "symbol": "ConversationClient.State.disconnected",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/APIObjects/ConversationClient.swift",
-      "line": 110,
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/APIObjects/ConversationClient.swift",
+      "line": 64,
       "symbol": "ConversationClient.State.connecting",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/APIObjects/ConversationClient.swift",
-      "line": 111,
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/APIObjects/ConversationClient.swift",
+      "line": 65,
       "symbol": "ConversationClient.State.connected",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/APIObjects/ConversationClient.swift",
-      "line": 112,
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/APIObjects/ConversationClient.swift",
+      "line": 66,
       "symbol": "ConversationClient.State.outOfSync",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/APIObjects/ConversationClient.swift",
-      "line": 113,
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/APIObjects/ConversationClient.swift",
+      "line": 67,
       "symbol": "ConversationClient.State.synchronizing",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/APIObjects/ConversationClient.swift",
-      "line": 114,
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/APIObjects/ConversationClient.swift",
+      "line": 68,
       "symbol": "ConversationClient.State.synchronized",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/APIObjects/ConversationClient.swift",
-      "line": 119,
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/APIObjects/ConversationClient.swift",
+      "line": 73,
       "symbol": "ConversationClient.State.stringValue",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/APIObjects/ConversationClient.swift",
-      "line": 144,
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/APIObjects/ConversationClient.swift",
+      "line": 98,
       "symbol": "ConversationClient.configuration",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/APIObjects/EventBase.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/APIObjects/EventBase.swift",
       "line": 14,
       "symbol": "EventBase",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/APIObjects/EventBase.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/APIObjects/EventBase.swift",
       "line": 26,
       "symbol": "EventBase.EventType.text",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/APIObjects/EventBase.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/APIObjects/EventBase.swift",
       "line": 27,
       "symbol": "EventBase.EventType.image",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/APIObjects/EventBase.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/APIObjects/EventBase.swift",
       "line": 28,
       "symbol": "EventBase.EventType.membership",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/APIObjects/EventBase.swift",
-      "line": 64,
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/APIObjects/EventBase.swift",
+      "line": 94,
       "symbol": "EventBase.description",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/APIObjects/ReceiptRecord.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/APIObjects/ReceiptRecord.swift",
       "line": 26,
       "symbol": "ReceiptRecord.ReceiptState.sending",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/APIObjects/ReceiptRecord.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/APIObjects/ReceiptRecord.swift",
       "line": 27,
       "symbol": "ReceiptRecord.ReceiptState.delivered",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/APIObjects/ReceiptRecord.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/APIObjects/ReceiptRecord.swift",
       "line": 28,
       "symbol": "ReceiptRecord.ReceiptState.seen",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/APIObjects/User.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/APIObjects/User.swift",
       "line": 82,
       "symbol": "User.isEqual(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Core/Controller/AccountController.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Core/Controller/AccountController.swift",
       "line": 24,
       "symbol": "AccountController.State.loggedOut",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Core/Controller/AccountController.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Core/Controller/AccountController.swift",
       "line": 25,
       "symbol": "AccountController.State.loggedIn",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Core/Database/ConversationCollection.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Core/Controller/AppLifecycleController+Notification.swift",
+      "line": 23,
+      "symbol": "AppLifecycleController.Notification.conversation",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Core/Controller/AppLifecycleController+Notification.swift",
+      "line": 24,
+      "symbol": "AppLifecycleController.Notification.text",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Core/Controller/AppLifecycleController+Notification.swift",
+      "line": 25,
+      "symbol": "AppLifecycleController.Notification.image",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Core/Database/ConversationCollection.swift",
       "line": 26,
       "symbol": "ConversationCollection.Reason.new",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Core/Database/ConversationCollection.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Core/Database/ConversationCollection.swift",
       "line": 27,
       "symbol": "ConversationCollection.Reason.invitedBy",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Core/Database/ConversationCollection.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Core/Database/ConversationCollection.swift",
       "line": 28,
       "symbol": "ConversationCollection.Reason.modified",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Core/Database/LazyCollection.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Core/Database/LazyCollection.swift",
       "line": 18,
       "symbol": "LazyCollection",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Core/Manager/SyncManager.swift",
-      "line": 58,
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Core/Manager/SyncManager.swift",
+      "line": 23,
       "symbol": "SynchronizingState.conversations",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Core/Manager/SyncManager.swift",
-      "line": 59,
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Core/Manager/SyncManager.swift",
+      "line": 24,
       "symbol": "SynchronizingState.events",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Core/Manager/SyncManager.swift",
-      "line": 60,
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Core/Manager/SyncManager.swift",
+      "line": 25,
       "symbol": "SynchronizingState.members",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Core/Manager/SyncManager.swift",
-      "line": 61,
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Core/Manager/SyncManager.swift",
+      "line": 26,
       "symbol": "SynchronizingState.users",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Core/Manager/SyncManager.swift",
-      "line": 62,
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Core/Manager/SyncManager.swift",
+      "line": 27,
       "symbol": "SynchronizingState.receipts",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Core/Manager/SyncManager.swift",
-      "line": 63,
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Core/Manager/SyncManager.swift",
+      "line": 28,
       "symbol": "SynchronizingState.tasks",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Core/Models/DeviceNotificationCertificate.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Core/Models/DeviceNotificationCertificate.swift",
       "line": 27,
       "symbol": "PushNotificationCertificate.init(json:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Core/Models/JoinConversation.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Core/Models/Image.swift",
+      "line": 12,
+      "symbol": "IPS",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Core/Models/Image.swift",
+      "line": 23,
+      "symbol": "IPS.ImageType.original",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Core/Models/Image.swift",
+      "line": 24,
+      "symbol": "IPS.ImageType.medium",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Core/Models/Image.swift",
+      "line": 25,
+      "symbol": "IPS.ImageType.thumbnail",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Core/Models/JoinConversation.swift",
       "line": 39,
       "symbol": "ConversationController.JoinConversation.init(userId:memberId:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Core/Models/JoinConversation.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Core/Models/JoinConversation.swift",
       "line": 47,
       "symbol": "ConversationController.JoinConversation.toJSON()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Core/Models/UploadedImage.swift",
-      "line": 24,
-      "symbol": "UploadedImage.ImageType.medium",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Core/Models/UploadedImage.swift",
-      "line": 24,
-      "symbol": "UploadedImage.ImageType.original",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Core/Models/UploadedImage.swift",
-      "line": 24,
-      "symbol": "UploadedImage.ImageType.thumbnail",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Core/Models/UploadedImage.swift",
-      "line": 44,
-      "symbol": "UploadedImage.Image.link",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Core/Models/UploadedImage.swift",
-      "line": 109,
-      "symbol": "UploadedImage.init(json:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Core/REST/ConversationModel.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Core/REST/ConversationModel.swift",
       "line": 49,
       "symbol": "ConversationModel.init(json:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Core/REST/ConversationPreviewModel.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Core/REST/ConversationPreviewModel.swift",
       "line": 45,
       "symbol": "ConversationPreviewModel.init(json:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Core/REST/Event.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Core/REST/Event.swift",
       "line": 34,
       "symbol": "Event.EventType.memberInvited",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Core/REST/Event.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Core/REST/Event.swift",
       "line": 35,
       "symbol": "Event.EventType.memberJoined",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Core/REST/Event.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Core/REST/Event.swift",
       "line": 36,
       "symbol": "Event.EventType.memberLeft",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Core/REST/Event.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Core/REST/Event.swift",
       "line": 37,
       "symbol": "Event.EventType.textTypingOn",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Core/REST/Event.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Core/REST/Event.swift",
       "line": 38,
       "symbol": "Event.EventType.textTypingOff",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Core/REST/Event.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Core/REST/Event.swift",
       "line": 39,
       "symbol": "Event.EventType.eventDelete",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Core/REST/Event.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Core/REST/Event.swift",
       "line": 40,
       "symbol": "Event.EventType.text",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Core/REST/Event.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Core/REST/Event.swift",
       "line": 41,
       "symbol": "Event.EventType.textDelivered",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Core/REST/Event.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Core/REST/Event.swift",
       "line": 42,
       "symbol": "Event.EventType.textSeen",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Core/REST/Event.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Core/REST/Event.swift",
       "line": 43,
       "symbol": "Event.EventType.image",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Core/REST/Event.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Core/REST/Event.swift",
       "line": 44,
       "symbol": "Event.EventType.imageDelivered",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Core/REST/Event.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Core/REST/Event.swift",
       "line": 45,
       "symbol": "Event.EventType.imageSeen",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Core/REST/MemberModel.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Core/REST/MemberModel.swift",
       "line": 13,
       "symbol": "MemberModel",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Core/REST/MemberModel.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Core/REST/MemberModel.swift",
       "line": 24,
       "symbol": "MemberModel.State.joined",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Core/REST/MemberModel.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Core/REST/MemberModel.swift",
       "line": 25,
       "symbol": "MemberModel.State.invited",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Core/REST/MemberModel.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Core/REST/MemberModel.swift",
       "line": 26,
       "symbol": "MemberModel.State.left",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Core/REST/MemberModel.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Core/REST/MemberModel.swift",
       "line": 54,
       "symbol": "MemberModel.Action.invite",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Core/REST/MemberModel.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Core/REST/MemberModel.swift",
       "line": 55,
       "symbol": "MemberModel.Action.join",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Core/REST/MemberModel.swift",
-      "line": 77,
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Core/REST/MemberModel.swift",
+      "line": 66,
       "symbol": "MemberModel.Channel.app",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Core/REST/MemberModel.swift",
-      "line": 78,
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Core/REST/MemberModel.swift",
+      "line": 67,
       "symbol": "MemberModel.Channel.sip",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Core/REST/MemberModel.swift",
-      "line": 79,
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Core/REST/MemberModel.swift",
+      "line": 68,
       "symbol": "MemberModel.Channel.pstn",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Core/REST/MemberModel.swift",
-      "line": 80,
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Core/REST/MemberModel.swift",
+      "line": 69,
       "symbol": "MemberModel.Channel.sms",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Core/REST/MemberModel.swift",
-      "line": 81,
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Core/REST/MemberModel.swift",
+      "line": 70,
       "symbol": "MemberModel.Channel.ott",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Core/REST/MemberModel.swift",
-      "line": 133,
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Core/REST/MemberModel.swift",
+      "line": 105,
       "symbol": "MemberModel.init(json:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Core/Socket/Session.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Core/Socket/Session.swift",
       "line": 30,
       "symbol": "Session.init(json:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Helpers/Signal.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Helpers/Result.swift",
+      "line": 16,
+      "symbol": "Result.success",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Helpers/Result.swift",
+      "line": 17,
+      "symbol": "Result.failed",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Helpers/Signal.swift",
       "line": 17,
       "symbol": "SignalBase",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Helpers/Signal.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Helpers/Signal.swift",
       "line": 22,
       "symbol": "SignalBase.addHandler(_:selector:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Helpers/Signal.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Helpers/Signal.swift",
       "line": 62,
       "symbol": "Signal",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Library/RxSwift/Change.swift",
-      "line": 17,
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Library/RxSwift/Change.swift",
+      "line": 20,
       "symbol": "Change.inserted",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Library/RxSwift/Change.swift",
-      "line": 18,
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Library/RxSwift/Change.swift",
+      "line": 21,
       "symbol": "Change.updated",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Library/RxSwift/Change.swift",
-      "line": 19,
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Library/RxSwift/Change.swift",
+      "line": 22,
       "symbol": "Change.deleted",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Library/Signal/SignalReference.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Library/Signal/SignalReference.swift",
       "line": 16,
       "symbol": "SignalReference",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Library/Signal/SignalReference.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Library/Signal/SignalReference.swift",
       "line": 28,
       "symbol": "SignalReference.hash",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk/NexmoConversation/Library/Signal/SignalReference.swift",
+      "file": "/Users/paulcalver/Workspace/ios/nexmo/NexmoConversation/Library/Signal/SignalReference.swift",
       "line": 45,
       "symbol": "SignalReference.isEqual(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/shamsahmed/GIT/Nexmo/conversation-ios-sdk"
+  "source_directory": "/Users/paulcalver/Workspace/ios/nexmo"
 }

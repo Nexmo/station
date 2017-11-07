@@ -207,6 +207,12 @@
             <a href="../Other Classes.html">Other Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="../Classes/AppLifecycleController.html">AppLifecycleController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AppLifecycleController/Notification.html">– Notification</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/MediaController.html">MediaController</a>
               </li>
               <li class="nav-group-task">
@@ -221,7 +227,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Other Enums.html">Other Enums</a>
+            <a href="../Other Enums.html">Other Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Enums/Change.html">Change</a>
@@ -254,7 +260,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Other Structs.html">Other Structs</a>
+            <a href="../Other Structs.html">Other Structures</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Structs/IPS.html">IPS</a>
@@ -472,7 +478,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">ConversationClient</span><span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">configuration</span><span class="p">:</span> <span class="kt"><a href="../Structs/Configuration.html">Configuration</a></span> <span class="o">=</span> <span class="kt"><a href="../Structs/Configuration.html">Configuration</a></span><span class="o">.</span><span class="k">default</span></code></pre>
 
                         </div>
                       </div>
@@ -538,6 +544,33 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">conversation</span><span class="p">:</span> <span class="kt"><a href="../Classes/ConversationController.html">ConversationController</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC17NexmoConversation18ConversationClient12appLifecycleCS_22AppLifecycleController"></a>
+                    <a name="//apple_ref/swift/Property/appLifecycle" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC17NexmoConversation18ConversationClient12appLifecycleCS_22AppLifecycleController">appLifecycle</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Controller to listen to lifecycle actions from application</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">appLifecycle</span> <span class="o">=</span> <span class="kt"><a href="../Classes/AppLifecycleController.html">AppLifecycleController</a></span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
@@ -801,8 +834,8 @@
 
 <ul>
 <li>disconnected: SDK is disconnected from all services and / or triggered on user logout, disconnection or as an initial, default, state.</li>
-<li>connecting: SDK is requesting permission to reconnect.</li>
-<li>connected: SDK is connected to all services</li>
+<li>connecting: SDK is requesting permission to connect / reconnect.</li>
+<li>connected: SDK is connected to all services.</li>
 <li>outOfSync: SDK is not synchronized yet.</li>
 <li>synchronizing: SDK is synchronizing with current progress state.</li>
 <li>synchronized: SDK is synchronized with all services and ready now.</li>
@@ -952,8 +985,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2017 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2017-10-16)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2017 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2017-11-06)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>
