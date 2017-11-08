@@ -86,6 +86,13 @@ voice:
       from_line: 25
       to_line: 30
       unindent: true
+  inbound:
+    node:
+      source: '.repos/nexmo-community/nexmo-node-quickstart/voice/receive-an-inbound-call.js'
+    php:
+      source: '.repos/nexmo-community/nexmo-php-quickstart/voice/inbound-calls-slim/index.php'
+    ruby:
+      source: '.repos/nexmo-community/nexmo-ruby-quickstart/voice/inbound_tts_call.rb'
   inbound-connect:
     node:
       source: '.repos/nexmo-community/nexmo-node-quickstart/voice/connect-an-inbound-call.js'
