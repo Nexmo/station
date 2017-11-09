@@ -12,9 +12,9 @@ source: app/views/tools/concatenation.html
 
 Segmentation information takes up 8 bytes of the message body for each SMS part. The maximum number of characters in the message body for each SMS part in a concatenated SMS is:
 
-* 7-bit encoding such as latin-1/9 and GSM8 - 152 characters.
+* 7-bit encoding such as Latin-1/9 and GSM8 - 152 characters.
 * 8-bit encoding for binary - 134 characters.
-* 16-bit encoding for unicode - 66 characters.
+* 16-bit encoding for Unicode - 66 characters.
 
 You can send a message of up to 3200 characters in your request to the SMS API. Best practice is that the message in the text parameter is no longer than 6 SMS parts. For example, to send the first stanza of the balcony speech in Chinese, Nexmo would send a concatenated SMS with the following SMS parts:
 
@@ -32,7 +32,7 @@ Before you start your messaging campaign:
 
     Use <http://www.url-encode-decode.com/> to see if your message can be URL encoded. If you need to use another format, set the *type* parameter in your [request](/api/sms#request).
 
-2. If you need to use unicode, check if unicode is supported in the country you are sending to [Country Specific Features](#country-specific-features).
+2. If you need to use Unicode, check if Unicode is supported in the country you are sending to [Country Specific Features](#country-specific-features).
 
 3. Check in the [Country Specific Features](#country-specific-features) if concatenated messages are supported in the country you are sending to. If they are not:
 
