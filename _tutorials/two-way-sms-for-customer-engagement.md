@@ -176,7 +176,7 @@ post '/notify' do
 end
 ```
 
-To verify that this SMS was received by the customer, check the [delivery receipt](/messaging/sms/building-blocks/receive-a-delivery-receipt). This tutorial does not verify delivery receipts.
+To verify that this SMS was received by the customer, check the [delivery receipt](/messaging/sms/guides/delivery-receipts). This tutorial does not verify delivery receipts.
 
 ## Process the reply SMS
 

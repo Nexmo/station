@@ -28,8 +28,8 @@ Once Nexmo receives a delivery receipt, we will send it to you using [webhooks](
 
 To get a delivery receipt, you will need to implement a webhook endpoint the API can send the payload to.
 
-```tabbed_examples
-config: 'messaging.sms.dlr'
+```tabbed_content
+source: '_examples/messaging/sms/delivery-receipts/'
 ```
 
 ## Make your machine publicly available
