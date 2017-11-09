@@ -158,7 +158,7 @@ In the `build.gradle` file we'll add the Nexmo Conversation Android SDK.
 //app/build.gradle
 dependencies {
 ...
-  compile 'com.nexmo:conversation:0.13.0'
+  compile 'com.nexmo:conversation:0.14.0'
   compile 'com.android.support:appcompat-v7:25.3.1'
 ...
 }
@@ -193,7 +193,7 @@ Make sure you also add `android:name=".ConversationClientApplication"` to the `a
 <!--AndroidManifest.xml-->
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.chris_guzman.androidquickstart1">
+    package="com.nexmo.androidquickstart1">
 
     <application
         ...
@@ -449,7 +449,7 @@ public class ChatActivity extends AppCompatActivity {
 
   private ConversationClient conversationClient;
   private Conversation conversation;
-  private EventListener eventListener;
+  private SubscriptionList subscriptions = new SubscriptionList();
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -479,7 +479,6 @@ public class ChatActivity extends AppCompatActivity {
         Toast.makeText(ChatActivity.this, message, Toast.LENGTH_SHORT).show();
     }
 }
-
 ```
 
 ### 2.8 - Sending `text` Events
@@ -508,70 +507,39 @@ private void sendMessage() {
 
 ### 2.9 - Receiving `text` Events
 
-We want to know when text messages are being received so we need to add a `EventListener` to the conversation. We can do this like so:
+We want to know when text messages are being received so we need to add a `ResultListener<Event>` to the `messageEvent()` on the `conversation`. We can do this like so:
 
 ```java
 //ChatActivity.java
 private void addListener() {
-    eventListener = new EventListener() {
+    conversation.messageEvent().add(new ResultListener<Event>() {
         @Override
-        public void onSuccess(Object result) {
-            //intentionally left blank
-        }
-
-        @Override
-        public void onError(NexmoAPIError apiError) {
-            logAndShow("Error adding EventListener: " + apiError.getMessage());
-        }
-
-        @Override
-        public void onImageDownloaded(Image image) {
-            //intentionally left blank
-        }
-
-        @Override
-        public void onTextReceived(Text message) {
+        public void onSuccess(Event message) {
             showMessage(message);
         }
-
-        @Override
-        public void onTextDeleted(Text message, Member member) {
-            //intentionally left blank
-        }
-
-        @Override
-        public void onImageReceived(Image image) {
-            //intentionally left blank
-        }
-
-        @Override
-        public void onImageDeleted(Image message, Member member) {
-            //intentionally left blank
-        }
-    };
-    conversation.addEventListener(eventListener);
+    }).addTo(subscriptions);
 }
 
-private void showMessage(final Text message) {
+private void showMessage(final Event message) {
+    if (message.getType().equals(EventType.TEXT)) {
+        Text text = (Text) message;
         msgEditTxt.setText(null);
         final String prevText = chatTxt.getText().toString();
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                chatTxt.setText(prevText + "\n" + message.getText());
-            }
-        });
+        chatTxt.setText(prevText + "\n" + text.getText());
+    }
 }
 ```
 
-Calling `addEventListener` on a Conversation allows us to add callbacks when a message is received. The `addEventListener` method takes a `new EventListener()` as an argument.
-`EventListener` has a few callbacks, but we'll just focus about the `onTextReceived` and `onError` methods. When that is `onTextReceived` is fired we'll call our `showMessage()` method. If an error occurs, we'll log it out.
+Adding a new `ResultListener<Event>` to a `conversation.messageEvent()` allows us to add a callback when a message is received.
+There's only one callback `onSuccess` that gets fired whenever an `Event` is received. An `Event` can be some text or an image. When `onSuccess` is fired we'll call our `showMessage()` method.
 
-`showMessage()` removes the text from the `msgEditTxt` and appends the text from the `message` to our `chatTxt` along with any previous messages.
+You'll also notice this bit of code `.addTo(subscriptions)` We'll talk more about that in the next section.
+
+Before we handle the `message` we need to ensure that it's a `Text` message. As stated earlier, `Event`s can also be an image. We won't implement images in this guide, but it's good practice for the future. `showMessage()` removes the text from the `msgEditTxt` and appends the text from the `message` to our `chatTxt` along with any previous messages.
 
 ### 2.10 - Adding and removing listeners
 
-Finally, we need to add the `EventListener` to the `Conversation` in order to send and receive messages. We should also remove the `EventListener` when our Activity is winding down.
+Finally, we need to call `addListener()` in order to send and receive messages. We should also unsubscribe from all of the `ResultListener`s when our Activity is winding down.
 
 ```java
 //ChatActivity.java
@@ -582,15 +550,19 @@ protected void onResume() {
 }
 
 @Override
-protected void onDestroy() {
-    super.onDestroy();
-    conversation.removeEventListener(eventListener);
+protected void onPause() {
+    super.onPause();
+    subscriptions.unsubscribeAll();
 }
 ```
+
+When we created our `ChatActivity` we added a member variable to our activity with `SubscriptionList subscriptions = new SubscriptionList();` A `SubscriptionList` is a utility list that the library provides to make it easier to manage subscriptions within the app lifecycle. Basically, when we add a new `ResultListener` we should call `.addTo(subscriptions)` on that `ResultListener` so that we can call `subscriptions.unsubscribeAll();` when our activity winds down. We do this to minimize memory leaks.
 
 ## 3.0 - Trying it out
 
 After this you should be able to run the app and send messages to a conversation like so:
+
+![Hello world!](http://g.recordit.co/sky00C231e.gif)
 
 ## Where next?
 
