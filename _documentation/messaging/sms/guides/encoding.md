@@ -6,7 +6,7 @@ title: Encoding
 
 By default all text SMS sent by Nexmo are in UTF-8 with URL encoding. A message saying `Hello World`, `Bonjour monde` or `Hola mundo` is delivered seamlessly.
 
-However, sending `Привет мир`, `שלום עולם` or `مرحبا بالعالم` requires more thought. Languages such as Arabic, Chinese, Korean, Japanese, or Cyrillic alphabet languages need the 16-bit characters available in unicode. You can also send messages in binary, wappush, vcal and vcard formats.
+However, sending `Привет мир`, `שלום עולם` or `مرحبا بالعالم` requires more thought. Languages such as Arabic, Chinese, Korean, Japanese, or Cyrillic alphabet languages need the 16-bit characters available in Unicode. You can also send messages in binary, wappush, vcal and vcard formats.
 
 ## Maximum number of characters
 
@@ -31,7 +31,7 @@ The maximum number of characters you can fit into a single message depends on th
     Who
     ```
 
-* 16-bit encoding for unicode - 70 characters.
+* 16-bit encoding for Unicode - 70 characters.
 
     ```
     But, soft! what light through yonder window breaks?
@@ -46,6 +46,6 @@ Before you start your messaging campaign:
 
     Use <http://www.url-encode-decode.com/> to see if your message can be URL encoded. If you need to use another format, set the *type* parameter in your [request](/api/sms#request).
 
-2. If you need to use unicode, check if unicode is supported in the country you are sending to [Country Specific Features](#country-specific-features).
+2. If you need to use Unicode, check if Unicode is supported in the country you are sending to [Country Specific Features](#country-specific-features).
 
 3. For messages where you have not set [type](/api/sms#parameters) to `text`, check that your user's handset supports the format. For example, a US handset may not display Arabic.
