@@ -4,7 +4,7 @@ title: SMPP access
 
 # SMPP access
 
-By default, your Nexmo account is configured for REST. Compared to REST, SMPP is heavier in resource use. However, most of the SMS volume processed at Nexmo uses SMPP and if you would prefer to use SMPP, we are happy to assist you to switch your traffic over to us.
+By default, your Nexmo account is configured for REST. Compared to REST, SMPP uses more resources. However, most of the SMS volume processed at Nexmo uses SMPP and if you would prefer to use SMPP, we are happy to assist you to switch your traffic over to us.
 
 If you already use SMPP and want to use Nexmo, you can switch to us in minutes without changing your app. Just update your configuration to point to Nexmo's SMPP server.
 
@@ -27,11 +27,11 @@ To use our configuration:
 
 1. Email your monthly volume forecast to us at [smpp@nexmo.com](mailto:smpp@nexmo.com). We will configure our system for you and send back your SMPP credentials.
 
-2. Download the kannel.conf configuration from: <https://help.nexmo.com/hc/en-us/article_attachments/201429553/kannel.conf>.
+2. Download the `kannel.conf` configuration from: <https://help.nexmo.com/hc/en-us/article_attachments/201429553/kannel.conf>.
 
 3. In `kannel.conf`, replace `$nexmo_user` and `$nexmo_password` with your Nexmo SMPP credentials.
 
-4. For security reasons `kannel.conf` allows access from `localhost` only. To enable access from a different machine, edit the following parameters in `kannel.conf`. For example, for the IP addresses X.X.X.X;Y.Y.Y.Y:
+4. For security reasons `kannel.conf` allows access from `localhost` only. To enable access from a different machine, edit the following parameters in `kannel.conf`. For example, for the IP addresses `X.X.X.X` and `Y.Y.Y.Y`:
 
     ```
     admin-allow-ip = "127.0.0.1;X.X.X.X;Y.Y.Y.Y"
