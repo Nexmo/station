@@ -22,9 +22,9 @@ You rent each virtual number by the month. The renewal date is relative to the o
 
 You use Dashboard to:
 
-* [Rent virtual numbers](#rent-vn)
-* [Setup Two-factor authentication](#shortcode)
-* [Setup event based alerts](#event_based_alerts)
+* [Rent virtual numbers](#rent-virtual-numbers)
+* [Setup Two-factor authentication](#setting-up-two-factor-authentication)
+* [Setup event based alerts](#setting-up-event-based-alerts)
 
 ## Rent virtual numbers
 
