@@ -35,7 +35,10 @@ if (!fs.existsSync('./public/assets/screenshots')){
   await page.screenshot({ path: 'public/assets/screenshots/tmp.png' })
 
   const sha = sha1File('public/assets/screenshots/tmp.png')
-  fs.renameSync('public/assets/screenshots/tmp.png', `public/assets/screenshots/${sha}.png`)
+  const newPath = `public/assets/screenshots/${sha}.png`
+  fs.renameSync('public/assets/screenshots/tmp.png', newPath)
 
   await browser.close();
+
+  console.log(newPath);
 })();
