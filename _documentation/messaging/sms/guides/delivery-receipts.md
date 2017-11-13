@@ -59,17 +59,17 @@ $ nexmo sms 447700900000 "This is a message from Nexmo API"
 
 Shortly after your server should print the parameters:
 
-```
+```json
 {
-  "msisdn"=>"447700900000",
-  "to"=>"Nexmo CLI",
-  "network-code"=>"12345",
-  "messageId"=>"<REDACTED>",
-  "price"=>"0.03330000",
-  "status"=>"delivered",
-  "scts"=>"1703291538",
-  "err-code"=>"0",
-  "message-timestamp"=>"2020-01-01 14:00:00"
+  "msisdn": "447700900000",
+  "to": "Nexmo CLI",
+  "network-code": "12345",
+  "messageId": "<REDACTED>",
+  "price": "0.03330000",
+  "status": "delivered",
+  "scts": "1703291538",
+  "err-code": "0",
+  "message-timestamp": "2020-01-01 14:00:00"
 }
 ```
 
