@@ -405,7 +405,6 @@ DEPENDENCIES
   devise (= 4.3.0)
   diffy
   dotenv-rails
-  execjs
   factory_girl_rails (= 4.8.0)
   faker (= 1.8.4)
   foundation-rails (= 6.4.1.2)
