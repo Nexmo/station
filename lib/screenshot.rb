@@ -18,13 +18,13 @@ class Screenshot
       config = YAML.safe_load($1)
       next s if config['image'].present? && !replace
 
-      execute(config: config, replace: replace)
+      execute(config: config)
     end
 
     File.write(document.path, source)
   end
 
-  def self.execute(config:, replace:)
+  def self.execute(config:)
     output = `node #{config['script']}`.strip
     config['image'] = output if output.start_with? ('public/assets/screenshots/')
 
