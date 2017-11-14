@@ -249,9 +249,7 @@ You can also update all examples by running the following command:
 $ rake screenshots:all
 ```
 
-Here is the example of the final output:
-
-**Rendered**
+Here is the example of the final rendered output:
 
 ```screenshot
 script: app/screenshots/webhook-url-for-delivery-receipt.js

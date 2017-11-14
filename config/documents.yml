@@ -10,7 +10,3 @@ tutorials:
   documents: '_tutorials/**/*.md'
   origin: '_tutorials'
   base_url_path: '/tutorials'
-styleguide:
-  documents: 'app/views/contribute/guides/styleguide.md'
-  origin: 'app/views/contribute/guides'
-  base_url_path: '/contributing'
