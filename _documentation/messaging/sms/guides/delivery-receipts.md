@@ -42,7 +42,7 @@ See [this blog post](https://www.nexmo.com/blog/2017/07/04/local-development-nex
 
 Now that your webhook endpoint is running, you need to tell Nexmo to send delivery receipts to this address.
 
-The webhook URL is the forwarding address given to you by ngrok combined with `/delivery-receipt`.
+The webhook URL is the forwarding address given to you by ngrok combined with `/webhooks/delivery-receipt`.
 
 For instance: `https://demo.ngrok.io/webhooks/delivery-receipt`
 
@@ -59,7 +59,7 @@ image: public/assets/screenshots/da5f952d465355c19eb888fa1049844b31e090c2.png
 We are now ready to [send the message](/messaging/sms/building-blocks/send-an-sms), you can do this with the [Nexmo CLI](/tools) as such:
 
 ```
-$ nexmo sms 447700900000 "This is a message from Nexmo API"
+$ nexmo sms 447700900000 "A text message sent using the Nexmo SMS API"
 ```
 
 Shortly after your server should print the parameters:
