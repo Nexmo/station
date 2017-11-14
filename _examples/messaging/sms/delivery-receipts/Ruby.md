@@ -3,11 +3,15 @@ title: Ruby
 language: ruby
 ---
 
+## Implement a webhook
+
 ```code
-source: '.repos/nexmo-community/nexmo-ruby-quickstart/sms/delivery_receipt.rb'
+config: messaging.sms.delivery-receipts.ruby
 ```
 
-Then run the server with:
+## Run your server
+
+Save this file to your machine and run it using the `ruby` command:
 
 ```
 $ ruby app.rb

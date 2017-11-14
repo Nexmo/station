@@ -44,10 +44,15 @@ Now that your webhook endpoint is running, you need to tell Nexmo to send delive
 
 The webhook URL is the forwarding address given to you by ngrok combined with `/delivery-receipt`.
 
-For instance: `https://0bae3e3a.ngrok.io/delivery-receipt`
+For instance: `https://demo.ngrok.io/webhooks/delivery-receipt`
 
 Paste your webhook URL into the [settings section of Nexmo Dashboard](https://dashboard.nexmo.com/settings)
 in the field marked labelled "Webhook URL for Delivery Receipt" and press 'Save Changes'.
+
+```screenshot
+script: app/screenshots/webhook-url-for-delivery-receipt.js
+image: public/assets/screenshots/da5f952d465355c19eb888fa1049844b31e090c2.png
+```
 
 ## Send a message
 

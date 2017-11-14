@@ -11,7 +11,7 @@ class Screenshot
     end
   end
 
-  def self.update(document: document, replace: false)
+  def self.update(document:, replace: false)
     source = document.read
 
     source.gsub!(/```screenshot(.+?)```/m) do |s|

@@ -1,13 +1,17 @@
 ---
-title: Node.js
+title: Node
 language: node
 ---
 
+## Implement a webhook
+
 ```code
-source: '.repos/nexmo-community/nexmo-node-quickstart/sms/dlr-express.js'
+config: messaging.sms.delivery-receipts.node
 ```
 
-Then run the server with:
+## Run your server
+
+Save this file to your machine and run it using the `node` command:
 
 ```
 $ node app.js

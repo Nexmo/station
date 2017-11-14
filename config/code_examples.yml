@@ -66,6 +66,11 @@ messaging:
       python:
         source: '.repos/nexmo-community/nexmo-python-quickstart/sms/send-an-sms.py'
         from_line: 16
+    delivery-receipts:
+      node:
+        source: '.repos/nexmo-community/nexmo-node-quickstart/sms/dlr-express.js'
+      ruby:
+        source: '.repos/nexmo-community/nexmo-ruby-quickstart/sms/delivery_receipt.rb'
 voice:
   outbound:
     node:
