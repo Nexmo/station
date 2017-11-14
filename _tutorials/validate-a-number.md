@@ -25,7 +25,7 @@ You see how easy it is to sanitize and validate phone numbers using the Nexmo AP
 * [Sanitize](#sanitize) a local phone number and determine the international version
 * [Calculate the cost](#calculate-cost) of calling or messaging a phone number
 * [Determine the type](#determine-the-type) of phone number: mobile or landline
-* [Validate a mobile phone number](#validate-a-number) and find out if it is real, active or roaming
+* [Validate a mobile phone number](#validate-a-mobile-phone-number) and find out if it is real, active or roaming
 
 ## Prerequisites
 
