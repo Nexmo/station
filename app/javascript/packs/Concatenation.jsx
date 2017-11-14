@@ -32,7 +32,7 @@ class Concatenation extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      body: 'Maecenas sed diam eget risus varius blandit sit amet non magna. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Curabitur blandit tempus porttitor. Maecenas sed diam eget risus varius blandit sit amet non magna. Cras mattis consectetur purus sit amet fermentum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.'
+      body: 'It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way in short, the period was so far like the present period, that some of its noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only.'
     }
   }
 
@@ -129,7 +129,7 @@ class Concatenation extends React.Component {
         <table>
           <tbody>
             <tr>
-              <td><b>UTF-8 is Required?</b></td>
+              <td><b>Unicode is Required?</b></td>
               <td style={{ width: '75%' }}>{ this.renderUtfIcon(this.shouldEncodeAs16Bit()) }</td>
             </tr>
             <tr>
