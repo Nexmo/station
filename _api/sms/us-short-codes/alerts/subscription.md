@@ -31,11 +31,11 @@ You use the *opt-in* API to:
 
 This request contains:
 
-* A [Base URL](#base)
+* [Base URL](#base-url)
 * [Parameters](#parameters)
-* [Authentication information](#authentic)
+* [Authentication information](authentication-information)
 * [Security](#security)
-* [Encoding](#encode)
+* [Encoding](#encoding)
 
 ### Base URL
 
