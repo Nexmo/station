@@ -8,6 +8,7 @@ class MarkdownPipeline < Banzai::Pipeline
       PHPInlinerFilter,
       InlineEscapeFilter,
       BlockEscapeFilter,
+      ScreenshotFilter,
       AnchorFilter,
       TooltipFilter,
       CollapsibleFilter,

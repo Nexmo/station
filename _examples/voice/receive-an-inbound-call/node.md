@@ -6,7 +6,7 @@ language: node
 ## Implement a webhook
 
 ```code
-config: messaging.sms.delivery-receipts.node
+config: voice.inbound.node
 ```
 
 ## Run your server
