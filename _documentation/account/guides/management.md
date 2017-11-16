@@ -25,11 +25,11 @@ Dashboard is a web application that makes it easy to:
 
 You use Dashboard to:
 
-* [Create and configure a Nexmo account](#setting-up-your-nexmo-account)
-* [Retrieve your account information](#retrieve-account-info)
-* [Manage users](#manage_users)
-* [Manage your profile](#manage_profile)
-* [Reset your password](#reset_password)
+* [Create and configure a Nexmo account](#create-and-configure-a-nexmo-account)
+* [Retrieve your account information](#retrieve-your-account-information)
+* [Manage users](#manage-users)
+* [Manage your profile](#manage-your-profile)
+* [Reset your password](#reset-your-password)
 
 
 ## Create and configure a Nexmo account
