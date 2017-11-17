@@ -316,10 +316,8 @@ Name | Language | Gender
 `Amy` | `en-GB` | `female`
 `Brian` | `en-GB` | `male`
 `Emma` | `en-GB` | `female`
-`Gwyneth` | `en-GB` | `WLS female`
-`Geraint` | `en-GB` | `WLS male`
-`Gwyneth` | `cy-GB` | `WLS female`
-`Geraint` | `cy-GB` | `WLS male`
+`Geraint` | `en-GB-WLS` | `male`
+`Gwyneth` | `cy-GB-WLS` | `WLS female`
 `Raveena` | `en-IN` | `female`
 `Chipmunk` | `en-US` | `male`
 `Eric` | `en-US` | `male`
