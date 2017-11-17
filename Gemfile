@@ -102,6 +102,9 @@ gem 'devise', '4.3.0'
 # Simple wrapper for the GitHub API
 gem 'octokit'
 
+# Cross-language UserAgent classifier library, ruby implementation
+gem 'woothee'
+
 group :development, :test do
   gem 'awesome_print'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
