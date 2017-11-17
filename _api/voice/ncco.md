@@ -317,7 +317,7 @@ Name | Language | Gender
 `Brian` | `en-GB` | `male`
 `Emma` | `en-GB` | `female`
 `Geraint` | `en-GB-WLS` | `male`
-`Gwyneth` | `cy-GB-WLS` | `WLS female`
+`Gwyneth` | `cy-GB-WLS` | `female`
 `Raveena` | `en-IN` | `female`
 `Chipmunk` | `en-US` | `male`
 `Eric` | `en-US` | `male`
