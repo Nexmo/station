@@ -29,7 +29,7 @@ To use the Nexmo SMS API, you may need to familiarise yourself with:
 
 * **[Authentication](/concepts/guides/authentication)** - Nexmo SMS API is authenticated with your account API Key and Secret.
 
-* **[Webhooks](/concepts/guides/webhooks)** - HTTP requests are made to your application web server so that you can act upon them. For example, the SMS API will send the delivery status of your message and receives inbound SMS.
+* **[Webhooks](/concepts/guides/webhooks)** - HTTP requests are made to your application web server so that you can act upon them. For example, the SMS API will send the delivery receipts and inbound SMS.
 
 ## Getting Started
 
