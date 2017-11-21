@@ -54,8 +54,7 @@ path: /35772040f9cbf86b388ec61c0a004a3e1158/welcome/124993
 * [Delivery Receipts](/messaging/sms/guides/delivery-receipts): how delivery receipts are produced and how to integrate them into your application
 * [Custom Sender IDs](/messaging/sms/guides/custom-sender-ids): sending messages using an alphabetical identifier to match with your brand
 * [Country Specific Features](/messaging/sms/guides/country-specific-features): what features are available in different countries
-* [Concatenation](/messaging/sms/guides/concatenation): how multiple messages are concatenated to implement extended SMS
-* [Encoding](/messaging/sms/guides/encoding): sending messages using different character sets
+* [Concatenation and Encoding](/messaging/sms/guides/concatenation): how multiple messages are concatenated to implement extended SMS and details of encoding schemes for messages
 * [SMPP access](/messaging/sms/guides/SMPP-access): bulk sending messages via the SMPP protocol
 
 ## Tutorials
