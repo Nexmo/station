@@ -285,21 +285,13 @@ source: '/_examples/voice/guides/ncco-reference/talk'
 
 You can use the following options to control a *talk* action:
 
-<table>
-<thead>
-<tr>
-<th>Option</th>
-<th>Description</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr><td>text</td><td>A string of up to 1500 characters containing the message to be synthesized in the Call or Conversation. Each comma in <i>text</i> adds a short pause to the synthesized speech.</td><td>Yes</td></tr>
-<tr><td>bargeIn</td><td>Set to <i>true</i> so this action is terminated when the user presses a button on the keypad. Use this feature to enable users to choose an option without having to listen to the whole message in your <a href="/voice/voice-api/guides/interactive-voice-response">Interactive Voice Response (IVR)</a>. If you set <i>bargeIn</i> to <i>true</i> the next action in the NCCO stack <b>must</b> be an <i>input</i> action. The default value is <i>false</i>.</td><td>No</td></tr>
-<tr><td>loop</td><td>The number of times <i>text</i> is repeated before the Call is closed. The default value is 1. Set to 0 to loop infinitely.</td><td>No</td></tr>
-<tr><td>voiceName</td><td>The name of the voice used to deliver <i>text</i>. You use the voiceName that has the correct language, gender and accent for the message you are sending. For example, the default voice <i>kimberly</i> is a female who speaks English with an American accent (en-US). Possible values are listed below.</td><td>No</td></tr>
-</tbody>
-</table>
+| Option | Description | Required |
+| -- | -- | -- |
+| `text` | A string of up to 1500 characters containing the message to be synthesized in the Call or Conversation. Each comma in `text` adds a short pause to the synthesized speech. | Yes |
+| `bargeIn` | Set to `true` so this action is terminated when the user presses a button on the keypad. Use this feature to enable users to choose an option without having to listen to the whole message in your <a href="/voice/voice-api/guides/interactive-voice-response">Interactive Voice Response (IVR)</a>. If you set `bargeIn` to `true` the next action in the NCCO stack <b>must</b> be an `input` action. The default value is `false`. | No |
+| `loop` | The number of times `text` is repeated before the Call is closed. The default value is 1. Set to 0 to loop infinitely. | No |
+| `level` | The volume level that the speech is played. This can be any value between `-1` to `1` with `0` being the default.  | No |
+| `voiceName` | The name of the voice used to deliver `text`. You use the voiceName that has the correct language, gender and accent for the message you are sending. For example, the default voice `kimberly` is a female who speaks English with an American accent (en-US). Possible values are listed below. | No |
 
 ### Voice names
 
