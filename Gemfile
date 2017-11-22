@@ -105,6 +105,12 @@ gem 'octokit'
 # Cross-language UserAgent classifier library, ruby implementation
 gem 'woothee'
 
+# Create beautiful JavaScript charts with one line of Ruby
+gem 'chartkick', '2.2.5'
+
+# The simplest way to group temporal data
+gem 'groupdate', '3.2.0'
+
 group :development, :test do
   gem 'awesome_print'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

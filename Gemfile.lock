@@ -107,6 +107,7 @@ GEM
     bugsnag (5.3.3)
     builder (3.2.3)
     byebug (9.0.6)
+    chartkick (2.2.5)
     coderay (1.1.1)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -159,6 +160,8 @@ GEM
       sprockets-es6 (>= 0.9.0)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
+    groupdate (3.2.0)
+      activesupport (>= 3)
     guard (2.14.1)
       formatador (>= 0.2.4)
       listen (>= 2.7, < 4.0)
@@ -401,6 +404,7 @@ DEPENDENCIES
   binding_of_caller
   bugsnag
   byebug
+  chartkick (= 2.2.5)
   coffee-rails (~> 4.2)
   colorize
   devise (= 4.3.0)
@@ -410,6 +414,7 @@ DEPENDENCIES
   faker (= 1.8.4)
   foundation-rails (= 6.4.1.2)
   git-hookshot!
+  groupdate (= 3.2.0)
   guard-livereload (~> 2.5)
   guard-rspec
   icalendar
@@ -447,4 +452,4 @@ RUBY VERSION
    ruby 2.4.1p111
 
 BUNDLED WITH
-   1.15.3
+   1.16.0
