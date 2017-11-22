@@ -251,7 +251,7 @@ In order to do this, build up an NCCO (Nexmo Call Control Object). This NCCO use
 
 ```code
 source: '_code/voice_proxy.js'
-from_line: 7
+from_line: 6
 to_line: 25
 ```
 
