@@ -1,0 +1,49 @@
+<center>
+  <h1>Feedback Stats</h1>
+</center>
+<div class="row">
+  <div class="column small-12 medium-4">
+    <div class="center spacious content-block">
+      <h1><%= @positive_feedbacks.count %></h1>
+      Positive Feedbacks
+    </div>
+  </div>
+  <div class="column small-12 medium-4">
+    <div class="center spacious content-block">
+      <h1><%= @negative_feedbacks.count %></h1>
+      Negative Feedbacks
+    </div>
+  </div>
+  <div class="column small-12 medium-4">
+    <div class="center spacious content-block">
+      <h1><%= ((@positive_feedbacks.count.to_f / @total_feedbacks_count.to_f) * 100).round(1)  %>%</h1>
+      Percent Positive
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<%= column_chart(
+  [
+    { name: 'Positive', color: '#32BA86', data: Feedback::Feedback.unscoped.positive.group_by_week(:created_at).count },
+    { name: 'Negative', color: '#ea5353', data: Feedback::Feedback.unscoped.negative.group_by_week(:created_at).count },
+  ],
+  stacked: true
+) %>
+
+<hr>
+
+<div class="row">
+  <div class="column small-12 medium-6">
+    <div class="center spacious content-block">
+      <h2>Worst Performing Content</h2>
+      <%= render 'performance_table', resources: Feedback::Resource.worst_performing.first(5) %>
+    </div>
+  </div>
+  <div class="column small-12 medium-6">
+    <div class="center spacious content-block">
+      <h2>Best Performing Content</h2>
+      <%= render 'performance_table', resources: Feedback::Resource.best_performing.first(5) %>
+    </div>
+  </div>
