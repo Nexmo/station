@@ -28,10 +28,12 @@ class Screenshot
     output = `node #{config['script']}`.strip
     config['image'] = output if output.start_with? ('public/assets/screenshots/')
 
-    <<~HEREDOC
+    output = <<~HEREDOC
     ```screenshot
     #{config.to_yaml.gsub("---\n", '').strip}
     ```
     HEREDOC
+
+    output.strip
   end
 end
