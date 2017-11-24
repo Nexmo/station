@@ -29,7 +29,11 @@ Valid `strength` values include:
 * `strong` or `x-strong` (equivalent to a paragraph break)
 
 ```xml
-<speak>To be <break strength='weak' /> or not to be <break strength='weak' /> that is the question.</speak>
+<speak>
+To be <break strength='weak' />
+or not to be <break strength='weak' />
+that is the question.
+</speak>
 ```
 
 ### Paragraphs
@@ -38,8 +42,8 @@ The `p` tag allows you to specify paragraphs in your speech.
 
 ```xml
 <speak>
-<p>It is a truth universally acknowledged, that a single man in possession of a good fortune must be in want of a wife.</p>
-<p>However little known the feelings or views of such a man may be on his first entering a neighbourhood, this truth is so well fixed in the minds of the surrounding families, that he is considered the rightful property of some one or other of their daughters.</p>
+<p>Hello.</p>
+<p>How are you?</p>
 </speak>
 ```
 
@@ -48,7 +52,11 @@ The `p` tag allows you to specify paragraphs in your speech.
 The `phoneme` tag allows you to send an IPA representation of a word. To use this, you need to specify both an `alphabet` (either `ipa` or [`x-sampa`](https://en.wikipedia.org/wiki/X-SAMPA)) and the `ph` attribute containing the phonetic symbols.
 
 ```xml
-<speak><phoneme alphabet='ipa' ph='təˈmætoː'>Tomato</phoneme> or <phoneme alphabet='ipa' ph='təˈmeɪtoʊ'>tomato</phoneme>. Two nations separated by a common language.</speak>
+<speak>
+<phoneme alphabet='ipa' ph='təˈmætoː'>Tomato</phoneme> or
+<phoneme alphabet='ipa' ph='təˈmeɪtoʊ'>tomato</phoneme>.
+Two nations separated by a common language.
+</speak>
 ```
 
 ### Prosody
@@ -64,7 +72,11 @@ The `pitch` attribute changes the pitch of the voice. You can specify this using
 The example below shows how to change the volume, rate and pitch.
 
 ```xml
-<speak>I am <prosody volume='loud'>loud and proud</prosody>, <prosody rate='fast'>quick as a cricket</prosody> and can <prosody pitch='x-low'>change my pitch</prosody>.</speak>
+<speak>
+I am <prosody volume='loud'>loud and proud</prosody>,
+<prosody rate='fast'>quick as a cricket</prosody>
+and can <prosody pitch='x-low'>change my pitch</prosody>.
+</speak>
 ```
 
 ### Sentences
