@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   post '/jobs/code_example_push', to: 'jobs#code_example_push'
   post '/jobs/open_pull_request', to: 'jobs#open_pull_request'
 
+  get '/stats', to: 'dashboard#stats'
+
   get '/tutorials', to: 'tutorials#index'
   get '/tutorials/*document(/:code_language)', to: 'tutorials#show', constraints: DocumentationConstraint.code_language
   get '/*product/tutorials', to: 'tutorials#index', constraints: DocumentationConstraint.product_with_parent

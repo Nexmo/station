@@ -49,6 +49,13 @@
 
   <%= stylesheet_link_tag "application" %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  <% if @additional_scripts %>
+    <% @additional_scripts.each do |script| %>
+      <%= javascript_include_tag script %>
+    <% end %>
+  <% end %>
+
   <%= javascript_pack_tag 'application', defer: true %>
   <%= javascript_include_tag 'https://www.google.com/recaptcha/api.js', async: true, defer: true %>
 

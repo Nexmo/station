@@ -656,7 +656,7 @@ The following HTTP codes are supported:
 
 Code | Description
 -- | --
- | Success
+`200` | Success
 `201` | Resource created
 `204` | No content
 `401` | Unauthorized
