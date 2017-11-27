@@ -118,4 +118,8 @@ class StaticController < ApplicationController
   def robots
     render 'robots.txt'
   end
+
+  def team
+    render layout: 'page'
+  end
 end

@@ -1,0 +1,31 @@
+.avatar {
+  border-radius: 100%;
+  height: auto;
+  max-width: 100%;
+  margin-bottom: $spacing;
+}
+
+.avatar-grid {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+
+  > * {
+    flex: 1;
+    margin: 0 10px;
+
+    @include mobile {
+      width: 60px;
+      flex: none;
+    }
+  }
+
+  @include mobile {
+    text-align: center;
+    justify-content: center;
+  }
+
+  img {
+    max-width: 100%;
+  }
+}
