@@ -7,6 +7,7 @@ title: Custom Sender ID
 **How to set the number or name your message is sent from**
 
 The Sender ID is the number or text shown on a handset when it displays a message. You set a custom Sender ID to better represent your brand. The Sender ID can be either:
+
 * Numeric - up to a 15 digit telephone number in international format without a leading `+` or `00`
 * Alphanumeric - an 11 digit string made up of the following supported characters: `abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789`
 
