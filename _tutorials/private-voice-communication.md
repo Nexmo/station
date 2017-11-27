@@ -101,7 +101,7 @@ Then rent the numbers you want and associate them with your application. When an
 
 ```code
 source: '_code/voice_proxy.js'
-from_line: 49
+from_line: 48
 to_line: 79
 ```
 
@@ -136,7 +136,7 @@ The following call:
 
 ```code
 source: '_code/voice_proxy.js'
-from_line: 90
+from_line: 89
 to_line: 103
 ```
 
@@ -146,7 +146,7 @@ When your application users supply their phone numbers use Number Insight to ens
 
 ```code
 source: '_code/voice_proxy.js'
-from_line: 105
+from_line: 104
 to_line: 114
 ```
 
@@ -156,7 +156,7 @@ Once you are sure that the phone numbers are valid, map each real number to a [v
 
 ```code
 source: '_code/voice_proxy.js'
-from_line: 116
+from_line: 115
 to_line: 149
 ```
 
@@ -168,7 +168,7 @@ Send an SMS to notify each conversation participant of the virtual number they n
 
 ```code
 source: '_code/voice_proxy.js'
-from_line: 151
+from_line: 150
 to_line: 171
 ```
 
@@ -224,7 +224,7 @@ The call direction can be identified as:
 
 ```code
 source: '_code/voice_proxy.js'
-from_line: 173
+from_line: 172
 to_line: 206
 ```
 
@@ -251,7 +251,7 @@ In order to do this, build up an NCCO (Nexmo Call Control Object). This NCCO use
 
 ```code
 source: '_code/voice_proxy.js'
-from_line: 7
+from_line: 6
 to_line: 25
 ```
 
