@@ -90,6 +90,39 @@ You can wrap sentences in the `s` tag. This is equivalent to putting a full stop
 </speak>
 ```
 
+### Say As
+
+The `say-as` tag allows you to provide instructions for how particular words and numbers are spoken. Many of these features are automatically detected in speech by the TTS engine, but the `say-as` command allows you to mark them specifically.
+
+The `say-as` tag has a required attribute: `interpret-as`. That attribute must contain one of the following values:
+
+* `character`/`spell-out`: spells each letter out, like `I-A-T-A`
+* `cardinal`/`number`: pronounces the value as a number — e.g. "974" would be pronounced "nine hundred and seventy four"
+* `ordinal`: pronounces the number as an ordinal — e.g. "1" would be pronounced "first", "33" would be pronounced "thirty-third"
+* `digits`: reads the numbers out as digits – e.g. "747" would be pronounced "seven four seven"
+* `fraction`: reads the numbers out as a fraction — e.g. "1/3" would be pronounced "one third", "2 4/10" would be pronounced "two and four tenths"
+* `unit`: reads number out as a unit. The value must be a number followed by a unit of measure with no space between the two — e.g. "1meter"
+* `date`: pronounces date — see section below on date formatting
+* `time`: pronounces time durations in minutes and seconds — e.g. `1'30"`
+* `address`: reads the street address
+* `expletive`: replaces the content with a "bleep" to censor expletives — can be used to automatically substitute in place of filtered swear words
+* `telephone`: reads out a telephone number with appropriate breaks.
+
+An example:
+
+```xml
+<speak>
+On the <say-as interpret-as="ordinal">1</say-as> day of Christmas,
+come to <say-as interpret-as="address">123 Main Street</say-as>.
+<say-as interpret-as="spell-out">RSVP</say-as> for a mince pie.
+</speak>
+```
+
+#### Date formatting
+
+
+
+
 ## See also
 
 * [SSML Tags in Amazon Polly](https://docs.aws.amazon.com/polly/latest/dg/supported-ssml.html) — full details of supported SSML tags
