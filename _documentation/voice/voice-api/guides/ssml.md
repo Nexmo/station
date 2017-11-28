@@ -120,7 +120,37 @@ come to <say-as interpret-as="address">123 Main Street</say-as>.
 
 #### Date formatting
 
+Dates can be formatted in the following ways:
 
+* `mdy`: month-date-year (e.g. "3/10/2017")
+* `dmy`: day-month-year (e.g. "10/3/2017")
+* `ymd`: year-month-day (e.g. "2017/3/10")
+* `md`: month-day (e.g. "3/10")
+* `dm`: day-month (e.g. "10/3")
+* `ym`: year-month (e.g. "2017/3")
+* `my`: month-year (e.g. "3/2017")
+* `d`: day (e.g. "10")
+* `m`: month (e.g. "3")
+* `y`: year (e.g. "2017")
+* `yyyymmdd`: year-month-day, with optional `?` to replace unspecified components (e.g. "20170310" or "????0310")
+
+The example below will be converted to "Today is March 10th".
+
+```xml
+<speak>
+Today is <say-as interpret-as="date" format="dm">10/3</say-as>
+</speak>
+```
+
+### Substitution
+
+The `s` tag allows you to provide a substitute pronunciation. The contents of the `alias` attribute will be read instead.
+
+```xml
+<speak>
+Welcome to the <s alias="United States">US</s>.
+</speak>
+```
 
 
 ## See also
