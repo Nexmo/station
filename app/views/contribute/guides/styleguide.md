@@ -38,6 +38,12 @@ This is a [link](http://google.com) to Google.
 
 > **Note**: You can use a `>` to specify a blockquote. We use these for tips like this.
 
+**Labels**
+
+You can have [labels].
+
+They auto-magically color when you use verbs like [POST] or [DELETE]
+
 **Tooltips (custom plugin)**
 
 Find out ^[more](Tooltips are useful for when you have more information to convey, but don't want to break context.).

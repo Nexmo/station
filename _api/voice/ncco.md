@@ -392,7 +392,7 @@ WAV:
 
 ## `input`
 
-You can use the `input` action to collect digits input by the person you are calling. This action is synchronous, Nexmo processes the input and forwards it in the [parameters](#input_return_parameters) sent to the `eventURL` webhook endpoint you configure in your request. Your webhook endpoint should return another NCCO that replaces the existing NCCO and controls the Call based on the user input. You could use this functionality to create an Interactive Voice Response (IVR). For example, if your user presses *4*, you return a [connect](#connect) NCCO that forwards the call to your sales department.
+You can use the `input` action to collect digits input by the person you are calling. This action is synchronous, Nexmo processes the input and forwards it in the [parameters](#Input-Return-Parameters) sent to the `eventURL` webhook endpoint you configure in your request. Your webhook endpoint should return another NCCO that replaces the existing NCCO and controls the Call based on the user input. You could use this functionality to create an Interactive Voice Response (IVR). For example, if your user presses *4*, you return a [connect](#connect) NCCO that forwards the call to your sales department.
 
 The following NCCO example shows how to configure an IVR endpoint:
 
@@ -446,11 +446,12 @@ The following example shows the parameters sent to `eventUrl`:
 }
 ```
 
-Possible *input* webhook parameters send to the `eventUrl` are:
+#### Input Return Parameters
+Input parameters which are returned to the `eventUrl` are:
 
 Name | Description
 -- | --
-uuid | The unique ID of the Call leg for the user initiating the input.
+`uuid` | The unique ID of the Call leg for the user initiating the input.
 `conversation_uuid` | The unique ID for this conversation.
 `timed_out` | Returns `true` if this input timed out based on the value of [timeOut](#timeOut).
 `dtmf` | The numbers input by your callee, in order.
