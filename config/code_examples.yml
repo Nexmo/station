@@ -41,6 +41,8 @@ library:
 messaging:
   sms:
     send:
+      curl:
+        source: '_examples/curl/messaging/sms/send-an-sms.sh'
       node:
         source: '.repos/nexmo-community/nexmo-node-quickstart/sms/send.js'
         from_line: 14
