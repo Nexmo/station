@@ -151,8 +151,3 @@ The `s` tag allows you to provide a substitute pronunciation. The contents of th
 Welcome to the <s alias="United States">US</s>.
 </speak>
 ```
-
-
-## See also
-
-* [SSML Tags in Amazon Polly](https://docs.aws.amazon.com/polly/latest/dg/supported-ssml.html) — full details of supported SSML tags
