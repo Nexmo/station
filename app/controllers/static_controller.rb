@@ -120,6 +120,7 @@ class StaticController < ApplicationController
   end
 
   def team
+    @team = YAML.load_file("#{Rails.root}/config/team.yml")
     render layout: 'page'
   end
 end
