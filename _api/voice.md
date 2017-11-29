@@ -305,6 +305,7 @@ For every action parameter except `transfer`, no further keys are required in th
 ```tabbed_content
 source: '_examples/api/voice/calls/put-request'
 ```
+
 #### Response
 
 If your request is successful a `204 No Content` response will be returned.
