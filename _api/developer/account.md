@@ -91,9 +91,9 @@ Key | Value
 
 ### Top up
 
-You can top-up your account using Developer API when you have enabled Auto-Reload in Dashboard. The amount added to your account at each top up is based on your initial reload-enable payment. That is, if you topped up `€50.00` when you enabled auto-reload, `€50.00` is automatically credited to your account when your balance reaches `€20.00`.
+You can top-up your account using Developer API when you have enabled auto-reload in Dashboard. The amount added to your account at each top up is based on your initial reload-enabled payment. That is, if you topped up `€50.00` when you enabled auto-reload, `€50.00` is automatically credited to your account when your balance reaches `€20.00`.
 
-Your account balance is checked every 10 minutes. If you are sending a lot of messages, use this API to manage reloads when remaining-balance in the response goes below a specific amount.
+Your account balance is checked every 6 minutes. If you are sending a lot of messages, use this API to manage reloads when remaining-balance in the response goes below a specific amount.
 
 #### Request
 
