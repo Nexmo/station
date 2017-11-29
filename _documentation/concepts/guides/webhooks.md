@@ -26,8 +26,8 @@ Nexmo sends and retrieves the following information using webhooks:
 ```tabbed_content
 source: '_examples/concepts/guides/webhooks-setup/'
 ```
-
-## Working with the Nexmo webhooks
+⚓️Working with the Nexmo webhooks
+## Receiving webhooks
 
 To interact with Nexmo webhooks:
 
