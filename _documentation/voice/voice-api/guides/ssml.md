@@ -8,6 +8,16 @@ Nexmo's Voice API allows you to send text using a number of tags from the XML-ba
 
 In an [NCCO](/api/voice/ncco) `talk` action, you can send SSML tags as part of the text string. They must all be wrapped in a `speak` root tag. You may use either single quotes or escaped double quotes around attribute values on SSML tags.
 
+An example of how the SSML strings are stored inside an NCCO is provided below:
+
+```json
+[
+  {
+    "action": "talk",
+    "text": "<speak><lang xml:lang='es-ES'>Hola!</lang></speak>"
+  }
+]```
+
 ### Language
 
 The `lang` tag allows you to control the language used in the speech. The language tag should contain both the language tag and country code (e.g. `pt-BR` for Brazilian Portuguese, `en-GB` for British English), even for languages with no country variations where a country code might otherwise be redundant (e.g. `it-IT` for Italian).
