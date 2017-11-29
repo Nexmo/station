@@ -11,6 +11,12 @@ Numbers you have purchased that are connected to Nexmo applications will use the
 
 You can set these using the [Application API](/api/application), in the [Nexmo Dashboard](https://dashboard.nexmo.com) or using the [Nexmo CLI](https://github.com/nexmo/nexmo-cli) tool.
 
+### Number-level webhooks
+
+You can set a status webhook for each number you purchase. This will be used to send events to you regarding each number.
+
+These can be set up in the Numbers section of the [Dashboard](https://dashboard.nexmo.com), via the [Nexmo CLI](https://github.com/nexmo/nexmo-cli) or via the [Update a Number](/api/developer/numbers#update-a-number) API call (specifically, the `voiceStatusCallback` property).
+
 ### On creating an outbound call
 
 When [making a new outbound call](/voice/voice-api/building-blocks/make-an-outbound-call), you need to set the `answer_url` in the call to a URL containing an NCCO. Nexmo's servers will retrieve the NCCO from this endpoint and follow its instructions in handling the outbound call.

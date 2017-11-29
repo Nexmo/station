@@ -20,19 +20,8 @@ Nexmo sends and retrieves the following information using webhooks:
 * Number Insight Advanced Async API - receives complete information about a phone number
 * US Short Codes API - sends the delivery status of your message and receives inbound SMS
 
-## Setting the webhook endpoint for the Nexmo APIs
-
-You can set the your webhook endpoint either in Dashboard or through the API. The hierarchy for these calls is:
-
-1. Account - using the *Settings* in [Dashboard](https://dashboard.nexmo.com), set the webhook endpoint that handles [Inbound Messages](/api/sms#inbound) and [Delivery Receipts](/api/sms#delivery_receipt). These webhooks also handle [US Short Codes API](/messaging/us-short-codes/overview).
-2. Virtual Number - using the Number settings in [Dashboard](https://dashboard.nexmo.com) set the webhook endpoints associated with each virtual number you rent.
-3. App - use the [Application API](/concepts/guides/applications) to set or update the default webhook endpoints for all communication with this app.
-4. Request - using the request parameters, set the webhook endpoint for each request.
-5. NCCO - for Voice API, set the webhook endpoints used for each action in the NCCO stack.
-
-By default, requests made to your webhook endpoints use `GET`. You can change this to `POST` in the [Dashboard](https://dashboard.nexmo.com). For `GET` requests, values are sent in parameters appended to the URL. For `POST` requests these values are sent in the request body.
-
-The following table shows how to set the webhook endpoint for the Nexmo APIs:
+⚓️Setting the webhook endpoint for the Nexmo APIs
+## Setting webhook endpoints
 
 ```tabbed_content
 source: '_examples/concepts/guides/webhooks-setup/'
