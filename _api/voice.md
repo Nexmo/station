@@ -16,7 +16,7 @@ app/views/layouts/partials/api/_voice.html.erb
 
 You use the following requests to create, terminate, record and retrieve information about your calls:
 
-###  Create an outbound cal
+###  Create an outbound call
 
 [POST] `https://api.nexmo.com/v1/calls`
 
