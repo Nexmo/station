@@ -10,10 +10,10 @@ In an [NCCO](/api/voice/ncco) `talk` action, you can send SSML tags as part of t
 
 ### Language
 
-The `lang` tag allows you to control the language used in the speech.
+The `lang` tag allows you to control the language used in the speech. The language tag should contain both the language tag and country code (e.g. `pt-BR` for Brazilian Portuguese, `en-GB` for British English), even for languages with no country variations where a country code might otherwise be redundant (e.g. `it-IT` for Italian).
 
 ```xml
-<speak><lang xml:lang='it'>Buongiorno</lang></speak>
+<speak><lang xml:lang='it-IT'>Buongiorno</lang></speak>
 ```
 
 ### Breaks
