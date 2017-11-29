@@ -4,7 +4,7 @@ title: SSML
 
 # SSML
 
-Nexmo's Voice API allows you to send text using a number of tags from the XML-based [Speech Synthesis Markup Language](https://www.w3.org/TR/speech-synthesis11/) (SSML). This enables you to mix multiple languages, to control the speed, volume and pitch of synthesised text, and to control pronunciation of words and numbers,.
+The Nexmo Voice API allows you to send text to speech to a call using a number of tags from the XML-based [Speech Synthesis Markup Language](https://www.w3.org/TR/speech-synthesis11/) (SSML). This enables you to mix multiple languages, to control the speed, volume and pitch of synthesised text, and to control pronunciation of words and numbers.
 
 In an [NCCO](/api/voice/ncco) `talk` action, you can send SSML tags as part of the text string. They must all be wrapped in a `speak` root tag. You may use either single quotes or escaped double quotes around attribute values on SSML tags.
 
@@ -31,7 +31,7 @@ The `lang` tag allows you to control the language used in the speech. The langua
 The `break` tag allows you to add pauses to text. The duration of the pause can be specified either using a `strength` duration or as a `time` seconds or milliseconds.
 
 ```xml
-<speak>My name is <break time='1s' /> Slim Shady.</speak>
+<speak>My name is <break time='1s' />Slim Shady.</speak>
 ```
 Valid `strength` values include:
 * `none` or `x-weak` (which removes a pause which might otherwise exist after a full stop)
@@ -59,7 +59,7 @@ The `p` tag allows you to specify paragraphs in your speech.
 
 ### Phonemes
 
-The `phoneme` tag allows you to send an IPA representation of a word. To use this, you need to specify both an `alphabet` (either `ipa` or [`x-sampa`](https://en.wikipedia.org/wiki/X-SAMPA)) and the `ph` attribute containing the phonetic symbols.
+The `phoneme` tag allows you to send an International Phonetic Alphabet (IPA) representation of a word. To use this, you need to specify both an `alphabet` (either `ipa` or [`x-sampa`](https://en.wikipedia.org/wiki/X-SAMPA)) and the `ph` attribute containing the phonetic symbols.
 
 ```xml
 <speak>
