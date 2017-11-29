@@ -1,10 +1,10 @@
 ---
-title: Developer - Numbers API Reference
+title: API reference
 description: Reference guide for the Account API.
 api: Developer API
 ---
 
-# Developer - Numbers API Reference
+# API reference
 
 The Numbers API lets you manage your numbers and buy new virtual numbers for use with Nexmo's APIs.
 
