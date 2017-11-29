@@ -183,7 +183,7 @@ Parameter | Description | Required
 `moSmppSysType` | The associated system type for your SMPP client. For example `inbound`. | No
 `voiceCallbackType` | The voice webhook type. Possible values are `sip`, `tel`, `vxml` (VoiceXML) or `app` | No
 `voiceCallbackValue` | A URI for your `voiceCallbackType` or an Application ID
-`voiceStatusCallback` | Nexmo sends a request to this webhook endpoint when a call ends. | No
+`voiceStatusCallback` | A webhook URI for Nexmo to send a request to when a call ends. | No
 
 Please note, that `voiceCallbackValue` has to be used together with `voiceCallbackType` parameter.
 
