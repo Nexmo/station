@@ -27,6 +27,7 @@ import com.nexmo.client.auth.AuthMethod;
 import com.nexmo.client.auth.JWTAuthMethod;
 import com.nexmo.client.voice.Call;
 import com.nexmo.client.voice.CallEvent;
+import com.nexmo.client.voice.ModifyCallAction;
 
 import java.nio.file.FileSystems;
 
@@ -55,6 +56,6 @@ public class ModifyCall {
 
         Thread.sleep(20000);
 
-        client.getVoiceClient().modifyCall(call.getUuid(), "hangup");
+        client.getVoiceClient().modifyCall(call.getUuid(), ModifyCallAction.HANGUP);
     }
 }

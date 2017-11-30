@@ -5,8 +5,10 @@ class MarkdownPipeline < Banzai::Pipeline
     super(
       # As Markdown
       FrontmatterFilter,
+      PHPInlinerFilter,
       InlineEscapeFilter,
       BlockEscapeFilter,
+      ScreenshotFilter,
       AnchorFilter,
       TooltipFilter,
       CollapsibleFilter,
@@ -16,12 +18,14 @@ class MarkdownPipeline < Banzai::Pipeline
       ModalFilter,
       JsSequenceDiagramFilter,
       PartialFilter,
+      TutorialsFilter,
       IconFilter,
       LanguageFilter,
+      ColumnsFilter,
       MarkdownFilter,
 
       # As HTML
-      CredentialsFilter,
+      UserPersonalizationFilter.new(options),
       HeadingFilter,
       LabelFilter,
       BreakFilter,

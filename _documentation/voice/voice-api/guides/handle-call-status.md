@@ -11,7 +11,7 @@ The event webhook is defined in the following:
 
 * Application configuration - [`POST /applications`](/api/application#create) - the default event webhook endpoint for all Calls and Conversations that use this application
 * A Call request - [`POST /calls`](/api/voice#payload) - the event webhook endpoint used for a particular Call
-* A [connect](/voice/guides/ncco-reference#connect) NCCO action - when you use the connect NCCO action to connect a voice call to an endpoint
+* A [connect](/voice/guides/ncco-reference#connect) NCCO action - when you use the `connect` NCCO action to connect a voice call to an endpoint
 
 A call can be initiated via a request to [`POST /calls`](/api/voice#payload). The response from this request contains initial information about the call.
 
@@ -24,7 +24,7 @@ A call can be initiated via a request to [`POST /calls`](/api/voice#payload). Th
 }
 ```
 
-Further status changes for the Call are sent to your `event_url` webhook endpoint. Each leg of a Call has a different `uuid`. You use the `uuid` in all [`/calls`](/api/voice#payload) requests that alter or retrieve information about a Call.
+Further status changes for the Call are sent to your `event_url` webhook endpoint. Each leg of a Call has a different `uuid`. The `uuid` is used in all [`/calls`](/api/voice#payload) requests that alter or retrieve information about a Call.
 
 If you [record](/voice/guides/record-calls-and-conversations) your Calls and Conversations, the download URL for the mp3 recording is sent to your event webhook endpoint when `status` is `complete`.
 

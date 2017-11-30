@@ -1,9 +1,9 @@
 ---
-title: API Reference
+title: SMS API Reference
 api: SMS
 ---
 
-# API Reference
+# SMS API Reference
 
 ## Send an SMS
 
@@ -70,6 +70,7 @@ Parameter | Description | Required
 `title` | The title for a `wappush` SMS. For example: MyCompanyIsGreat. | For `wappush` type SMS.
 `url` | The URL your user taps to navigate to your website. | For `wappush` type SMS.
 `validity` | The availability period for a `wappush` type SMS in milliseconds. For example, validity=86400000. If you do not set this parameter, the default is 48 hours. | No.
+`client-ref` | If enabled, you can include a 40 character maximum length string for internal reporting/analytics. You will need to email support@nexmo.com to get this functionality enabled on your account. | No
 
 #### Authentication information
 
@@ -77,8 +78,8 @@ If you are not using applications, you use the following parameters for calls to
 
 Parameter | Description
 -- | --
-`api_key` | Your Key. For example: `api_key=n3xm0rocks`
-`api_secret` | Your Secret. For example: `api_secret=12ab34cd`
+`api_key` | Your Key. For example: `api_key=NEXMO_API_KEY`
+`api_secret` | Your Secret. For example: `api_secret=NEXMO_API_SECRET`
 
 > Note: You find your Key and Secret in Dashboard.
 
@@ -86,8 +87,8 @@ If you are using signatures to verify your requests use:
 
 Parameter | Description
 -- | --
-`api_key` | Your Key. For example: `api_key=n3xm0rocks`
-`sig` | The hash of the request parameters in alphabetical order, a timestamp and the signature secret. For example: `sig=TwoMenWentToMowWentTOMowAMeadowT`
+`api_key` | Your Key. For example: `api_key=NEXMO_API_KEY`
+`sig` | The hash of the request parameters in alphabetical order, a timestamp and the signature secret. For example: `sig=SIGNATURE`
 
 #### Security
 

@@ -1,10 +1,10 @@
 ---
-title: API reference
+title: Verify - Templates API Reference
 description: Reference guide customizing your verification message
 api: Verify
 ---
 
-# API reference
+# Verify - Templates API Reference
 
 You use custom templates to modify the default messages sent by the Verify API. You can even add messages in currently unsupported languages.
 

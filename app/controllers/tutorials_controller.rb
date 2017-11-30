@@ -4,31 +4,12 @@ class TutorialsController < ApplicationController
 
   def index
     @product = params['product']
-    document_paths = Dir.glob("#{Rails.root}/_tutorials/**/*.md")
 
-    @tutorials = document_paths.map do |document_path|
-      document = File.read(document_path)
-      frontmatter = YAML.safe_load(document)
-      title = frontmatter['title']
-      description = frontmatter['description']
-      products = frontmatter['products'].split(',').map(&:strip)
-
-      origin = Pathname.new("#{Rails.root}/_documentation")
-      document_path = Pathname.new(document_path)
-      relative_path = "/#{document_path.relative_path_from(origin)}".gsub('.md', '')
-
-      if params['product']
-        if products.include?(@product)
-          { title: title, description: description, path: relative_path, body: document, products: products }
-        else
-          nil
-        end
-      else
-        { title: title, description: description, path: relative_path, body: document, products: products }
-      end
+    if @product
+      @tutorials = Tutorial.by_product(params['product'])
+    else
+      @tutorials = Tutorial.all
     end
-
-    @tutorials.compact!
 
     @document_title = 'Tutorials'
 

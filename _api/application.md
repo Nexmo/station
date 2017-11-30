@@ -1,10 +1,10 @@
 ---
-title: API Reference
+title: Application API Reference
 api: Application
-description: Reference guide for Verify API
+description: Application API Reference
 ---
 
-# API Reference
+# Application API Reference
 
 A Nexmo application contains the security and configuration information you need to connect to Nexmo endpoints and easily use our products.
 

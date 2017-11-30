@@ -18,8 +18,10 @@ $ bundle install
 $ rake db:create
 $ rake db:migrate
 $ ./bin/yarn install
-$ foreman start
+$ rails s
 ```
+
+You should now be able to see the site on http://localhost:3000/
 
 ### Setting up with Docker
 
@@ -29,33 +31,14 @@ If you don't want to install Ruby & PostgreSQL then you can use docker to sandbo
 # Start the web server
 $ docker-compose up
 
-# Setup the Database (you only need to do this once)
-$ docker-compose run web rake db:setup
-
-# Open the browser
+# Open the browser (takes about ~30 seconds for the first load)
 $ open http://localhost:3000
 ```
-
-You will still need to run the webpack-dev-server on your local machine.
 
 To stop the server cleanly run:
 
 ```
 $ docker-compose down
-```
-
-### Compiling assets
-
-To compile assets in runtime simply start the webpack server with:
-
-```
-$ ./bin/webpack-dev-server
-```
-
-You can run both the Rails server and Webpack simultaneously using Foreman:
-
-```
-$ foreman start
 ```
 
 ### Features
@@ -81,12 +64,18 @@ The code can then be pulled into the `.repo` directory with the following comman
 
 ```
 $ rake repos:pull
+
+# Docker users run:
+# $ docker-compose exec web rake repos:pull
 ```
 
 To pull a single repo provide the GitHub repo name and optional branch:
 
 ```
 $ rake repos:pull nexmo-community/nexmo-ruby-quickstart master
+
+# Docker users run:
+# $ docker-compose exec web rake repos:pull nexmo-community/nexmo-ruby-quickstart master
 ```
 
 ### Pre-Commit hooks
@@ -99,21 +88,23 @@ This is optional. See the pre-commit website for installation instructions.
 
 ## Troubleshooting
 
-#### I'm getting an error `A server is already running.  Check /myapp/tmp/pids/server.pid.` when I run `docker-compose up`.
+#### I'm having issues with my Docker container
 
-This is because Docker wasn't shut down cleanly. To fix this run:
-
-```
-$ docker-compose run web rm /myapp/tmp/pids/server.pid
-```
-
-#### A webpack error occurs during setup
-
-Run the `webpack-dev-server` like so:
+The image may have changed, try rebuild it with the following command:
 
 ```
-$ ./bin/webpack-dev-server
+$ docker-compose up --build
 ```
+
+#### I get an exception `PG::ConnectionBad - could not connect to server: Connection refused` when I try to run the app.
+
+This error indicates that PostgreSQL is not running. If you installed PostgreSQL using `brew` you can get information about how to start it by running:
+
+```
+$ brew info postgresql
+```
+
+Once PostgreSQL is running you'll need to create and migrate the database. See [Setup](#Setup) for instructions.
 
 ## Contributing
 
@@ -121,6 +112,4 @@ Contributions are welcome, please follow [GitHub Flow](https://guides.github.com
 
 ## License
 
-See the `LICENSE.txt` file for full licenses. The code is licensed under the MIT License; documentation is licensed under both the MIT License and the Creative Commons Attribution 4.0 International license.
-
-Copyright &copy; 2017 Nexmo.
+The content of this project itself is licensed under the [Creative Commons Attribution 4.0 International license](https://creativecommons.org/licenses/by/4.0/), and the underlying source code used to format and display that content is licensed under the [MIT license](https://github.com/Nexmo/nexmo-developer/blob/master/LICENSE.txt).

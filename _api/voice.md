@@ -1,5 +1,5 @@
 ---
-title: API reference
+title: Voice API reference
 description: Voice API reference
 api: Voice API
 ---
@@ -10,7 +10,7 @@ If you add/move/rename sections (etc.), be sure to update the sidebar:
 app/views/layouts/partials/api/_voice.html.erb
 -->
 
-# API reference
+# Voice API reference
 
 ## Calls
 
@@ -49,15 +49,15 @@ The following table shows the parameters you use to create a call:
 
 Parameter | Description | Required
 -- | -- | --
-`to` | The single or mixed collection of endpoint types you connected to. @[Possible values](/_modals/voice/guides/ncco-reference/endpoint.md).
-`from` | The endpoint you are calling from. Possible value are the same as *to*. | Yes
-`answer_url` | The webhook endpoint where you provide the Nexmo Call Control Object that governs this call. As soon as your user answers a call, Platform requests this NCCO from `answer_url`. Use `answer_method` to manage the HTTP method. | yes
-`answer_method` | A [GET] request. | no
-`event_url` | Platform sends event information asynchronously to this endpoint when status changes. For more information about the values sent, see callback. | no
-`event_method` | 	The HTTP method used to send event information to `event_url`. The default value is [POST]. | no
-`machine_detection` | Configure the behavior when Nexmo detects that a destination is an answerphone. @[Possible values](/_modals/voice/api/calls/machine_detection.md). | no
-`length_timer` | Set the number of seconds that elapse before Nexmo hangs up after the call state changes to *in_progress*. The default value is 7200, two hours. This is also the maximum value. | No that elapse before Nexmo hangs up after the call state changes to *‘ringing’*. The default value is 60, the maximum value is 120. | No
-`ringing_timer` | Set the number of seconds that elapse before Nexmo hangs up after the call state changes to ‘ringing’. The default value is 60, the maximum value is 120. | no
+`to` | The single or mixed collection of endpoint types you connected to. @[Possible values](/_modals/voice/guides/ncco-reference/endpoint.md). | ✅
+`from` | The endpoint you are calling from. Possible value are the same as *to*. | ✅
+`answer_url` | The webhook endpoint where you provide the Nexmo Call Control Object that governs this call. As soon as your user answers a call, Platform requests this NCCO from `answer_url`. Use `answer_method` to manage the HTTP method. | ✅
+`answer_method` | The HTTP method used to send event information to `answer_url`. The default value is [GET]. | ❎
+`event_url` | Platform sends event information asynchronously to this endpoint when status changes. For more information about the values sent, see callback. | ❎ 
+`event_method` | 	The HTTP method used to send event information to `event_url`. The default value is [POST]. | ❎
+`machine_detection` | Configure the behavior when Nexmo detects that a destination is an answerphone. @[Possible values](/_modals/voice/api/calls/machine_detection.md). | ❎
+`length_timer` | Set the number of seconds that elapse before Nexmo hangs up after the call state changes to *in_progress*. The default value is 7200, two hours. This is also the maximum value. | ❎
+`ringing_timer` | Set the number of seconds that elapse before Nexmo hangs up after the call state changes to ‘ringing’. The default value is 60, the maximum value is 120. | ❎
 
 #### Response
 
@@ -135,13 +135,13 @@ The following table shows the parameters you use to filter the information you r
 
 Parameter | Description | Required
 -- | -- | --
-`status` | Filter on the status of this call. [Possible values](#status-values) | No
-`date_start` | Return the records that occurred after this point in time. Set this parameter in ISO_8601 format: `YYYY-MM-DDTHH:MM:SSZ`. For example, `2016-11-14T07:45:14Z`. | No
-`date_end` | Return the records that occurred before this point in time. Set this parameter in ISO_8601 format. | No
-`page_size` | Return this amount of records in the response. The default value is 10. | No
-`record_index` | Return `page_size` calls from this index in the response. That is, if your request returns `300` calls, set `record_index` to 5 in order to return calls `50` to `59`. The default value is `0`. That is, the first `page_size` calls. | No
-`order` | Either `asc` for ascending order (default) or `desc` for descending order. | No
-`conversation_uuid` | Return all the records associated with a specific conversation. | No
+`status` | Filter on the status of this call. [Possible values](#status-values) | ❎
+`date_start` | Return the records that occurred after this point in time. Set this parameter in ISO_8601 format: `YYYY-MM-DDTHH:MM:SSZ`. For example, `2016-11-14T07:45:14Z`. | ❎
+`date_end` | Return the records that occurred before this point in time. Set this parameter in ISO_8601 format. | ❎
+`page_size` | Return this amount of records in the response. The default value is 10. | ❎
+`record_index` | Return `page_size` calls from this index in the response. That is, if your request returns `300` calls, set `record_index` to 5 in order to return calls `50` to `59`. The default value is `0`. That is, the first `page_size` calls. | ❎
+`order` | Either `asc` for ascending order (default) or `desc` for descending order. | ❎
+`conversation_uuid` | Return all the records associated with a specific conversation. | ❎
 
 
 #### Response
@@ -286,8 +286,8 @@ The following table shows the parameters you use to modify a call:
 
 Parameter | Description | Required
 -- | -- | --
-`action` | Possible values are described below. | Yes
-`destination` | A JSON object pointing to a replacement NCCO, when `action` is `transfer`. | No
+`action` | Possible values are described below. | ✅
+`destination` | A JSON object pointing to a replacement NCCO, when `action` is `transfer`. | ❎
 
 Possible values for `action` are:
 
@@ -306,58 +306,11 @@ For every action parameter except `transfer`, no further keys are required in th
 source: '_examples/api/voice/calls/put-request'
 ```
 
-
 #### Response
 
-The JSON response contains current details of the call. An example is provided below.
+If your request is successful a `204 No Content` response will be returned.
 
-```json
-{
-  "_links": {
-    "self": {
-      "href": "/calls/63f61863-4a51-4f6b-86e1-46edebcf9356"
-    }
-  },
-  "uuid": "63f61863-4a51-4f6b-86e1-46edebcf9356",
-  "conversation_uuid": "63f61863-4a51-4f6b-86e1-46edebio0123",
-  "to": [{
-    "type": "phone",
-    "number": "447700900000"
-  }],
-  "from": {
-    "type": "phone",
-    "number": "447700900001"
-  },
-  "status": "completed",
-  "direction": "outbound",
-  "rate": "0.39",
-  "price": "23.40",
-  "duration": "60",
-  "start_time": "2015-02-04T22:45:00Z",
-  "end_time": "2015-02-04T23:45:00Z",
-  "network": "65512"
-}
-```
-The 200 response contains the following keys and values:
-
-Key | Value
--- | --
-`_links` | A series of links between resources in this API in the http://stateless.co/hal_specification.html. @[Possible links](/_modals/voice/api/calls/links.md).
-`uuid` | uuid	A unique identifier for this call.
-`conversation_uuid` | The unique identifier for the conversation this call leg is part of.
-`to` | The single or mixed collection of endpoint types you connected to. @[Possible values](/_modals/voice/guides/ncco-reference/endpoint.md).
-`from` | The endpoint you are calling from. Possible value are the same as *to*.
-`status` | Filter on the status of this call. [Possible values](#status-values)
-`direction` | Possible values are `outbound` or `inbound`.
-`rate` | The price per minute for this call.
-`price` | The total price charged for this call.
-`duration` | The time elapsed for the call to take place in seconds.
-`start_time` | The time the call started in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2020-01-01 12:00:00`.
-`end_time` | The time the call ended in the following format: `YYYY-MM-DD HH:MM:SS`. For example, `2020-01-01 12:00:00`.
-`network` | The [Mobile Country Code Mobile Network Code (MCCMNC)](https://en.wikipedia.org/wiki/Mobile_country_code) for the carrier network used to make this call.
-
-
-## Streams
+## Stream
 
 You use the following requests to start and stop streaming audio to an active call.
 
@@ -388,8 +341,8 @@ The following table shows the parameters you use to stream audio to a call:
 
 Parameter | Description | Required
 -- | -- | --
-`stream_url` | An array containing a single URL to an mp3 or wav (16-bit) audio file to stream to the call or conversation. | Yes
-`loop` | The number of times the audio file at *stream_url* is repeated before the stream ends. The default value is 1. Set to 0 to loop infinitely. | No
+`stream_url` | An array containing a single URL to an mp3 or wav (16-bit) audio file to stream to the call or conversation. | ✅
+`loop` | The number of times the audio file at *stream_url* is repeated before the stream ends. The default value is 1. Set to 0 to loop infinitely. | ❎
 
 #### Response
 
@@ -484,9 +437,9 @@ The following table shows the parameters you use to send synthesized audio to a 
 
 Parameter | Description | Required
 -- | -- | --
-`text` | A UTF-8 and URL encoded string of up to 1500 characters containing the message to be synthesized in the call or conversation. Each comma in text adds a short pause to the synthesized speech. | Yes
-`voice_name` | The name of the voice used to deliver text. You use the `voice_name` that has the correct language, gender and accent for the message you are sending. For example, the default voice Kimberly is a female who speaks English with an American accent (`en-US`). @[Possible values](/_modals/voice/guides/ncco-reference/voice-name.md). | No
-`loop` | The number of times the audio file at `stream_url` is repeated before the stream ends. The default value is `1`. Set to `0` to loop infinitely. | Yes
+`text` | A UTF-8 and URL encoded string of up to 1500 characters containing the message to be synthesized in the call or conversation. Each comma in text adds a short pause to the synthesized speech. | ✅
+`voice_name` | The name of the voice used to deliver text. You use the `voice_name` that has the correct language, gender and accent for the message you are sending. For example, the default voice Kimberly is a female who speaks English with an American accent (`en-US`). @[Possible values](/_modals/voice/guides/ncco-reference/voice-name.md). | ❎
+`loop` | The number of times the audio file at `stream_url` is repeated before the stream ends. The default value is `1`. Set to `0` to loop infinitely. | ❎
 
 #### Response
 
@@ -581,7 +534,7 @@ The following table shows the parameters you use to stream audio to a call:
 
 Parameter | Description | Required
 -- | -- | --
-`digits` | The array of digits to send to the call | Yes
+`digits` | The array of digits to send to the call | ✅
 
 #### Response
 
@@ -656,7 +609,7 @@ The following HTTP codes are supported:
 
 Code | Description
 -- | --
- | Success
+`200` | Success
 `201` | Resource created
 `204` | No content
 `401` | Unauthorized

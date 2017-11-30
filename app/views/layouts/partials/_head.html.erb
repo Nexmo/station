@@ -8,6 +8,12 @@
     <meta name="description" content="<%= @frontmatter['description'] %>">
   <% end %>
 
+  <% if ENV['BUGSNAG_API_KEY'] %>
+    <% if ['staging', 'production'].include? Rails.env %>
+      <script src="//d2wy8f7a9ursnm.cloudfront.net/bugsnag-3.min.js" data-apikey="<%= ENV['BUGSNAG_API_KEY'] %>"></script>
+    <% end %>
+  <% end %>
+
   <% if ENV['SEGMENT_WRITE_KEY'] %>
     <script type="text/javascript">
       !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="4.0.0";
@@ -29,13 +35,29 @@
     </script>
   <% end %>
 
-  <% if @canonical_url %>
+  <% if ENV['GOOGLE_TAG_MANAGER_ID'] %>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','<%= ENV['GOOGLE_TAG_MANAGER_ID'] %>');</script>
+  <% end %>
+
+  <% if @show_canonical_meta %>
     <link rel="canonical" href="<%= @canonical_url %>">
   <% end %>
 
   <%= stylesheet_link_tag "application" %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  <% if @additional_scripts %>
+    <% @additional_scripts.each do |script| %>
+      <%= javascript_include_tag script %>
+    <% end %>
+  <% end %>
+
   <%= javascript_pack_tag 'application', defer: true %>
+  <%= javascript_include_tag 'https://www.google.com/recaptcha/api.js', async: true, defer: true %>
 
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -64,6 +86,10 @@
 
   <meta name="basic_auth_username" content="<%= ENV['USERNAME'] %>" />
   <meta name="basic_auth_password" content="<%= ENV['PASSWORD'] %>" />
+  <meta name="search_url" content="<%= ENV['SEARCH_URL'] %>" />
+  <meta name="environment" content="<%= Rails.env %>" />
+
+  <meta name="copyright" content="<%= Time.current.year %> Nexmo, The Vonage API Platform" />
 
   <%= csrf_meta_tags %>
 </head>

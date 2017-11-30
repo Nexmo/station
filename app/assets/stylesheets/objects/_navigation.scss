@@ -89,21 +89,24 @@
     border-top-width: 1px;
     border-top-style: dotted;
   }
+
+  &--spacious {
+    margin: 0 $spacing;
+  }
 }
 
-.navigation--fixed {
-  top: 0;
-  padding-top: 20px;
-  max-height: 100vh;
-  overflow-y: auto;
-}
+.navigation--documentation {
+  .navigation-item--tutorials a {
+    @include highlighted-navigation($pink);
+  }
 
-.navigation-item--tutorials a {
-  @include highlighted-navigation($pink);
-}
+  .navigation-item--api-reference a {
+    @include highlighted-navigation($blue);
+  }
 
-.navigation-item--api-reference a {
-  @include highlighted-navigation($blue);
+  .navigation-item--ncco-reference a {
+    @include highlighted-navigation($gray-dark);
+  }
 }
 
 @media screen and (max-width: 640px) {
@@ -113,11 +116,6 @@
       width: auto !important;
       margin-bottom: 40px;
     }
-  }
-
-
-  .navigation--fixed {
-    max-height: none;
   }
 }
 

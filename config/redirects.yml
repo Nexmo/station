@@ -1,5 +1,6 @@
 /slack: /community/slack
 
+/messaging: /messaging/sms/overview
 /messaging/sms: /messaging/sms/overview
 /sms: /messaging/sms/overview
 /voice: /voice/overview
@@ -19,7 +20,7 @@
 /verify/tutorial: /verify/tutorials/passwordless-authentication
 /verify/building-blocks: /verify/building-blocks/send-verify-request
 
-/voice/building-blocks: /voice/building-blocks/make-a-phone-call
+/voice/building-blocks: /voice/voice-api/building-blocks/make-an-outbound-call
 
 /number-insight: /number-insight/overview
 /number-insight/guides: /number-insight/guides/cnam
@@ -37,10 +38,10 @@
 
 /events: /community
 
-/styleguide: /contribute/styleguide
-/write-the-docs: /contribute/write-the-docs
+
 
 /voice/api-reference: /api/voice
+/voice/voice-api/ncco-reference: /api/voice/ncco
 /voice/voice-api/api-reference: /api/voice
 /messaging/sms/api-reference: /api/sms
 /verify/api-reference: /api/verify
@@ -61,7 +62,6 @@
 /voice/guides/outbound-calls: /voice/voice-api/guides/outbound-calls
 /voice/guides/record-calls-and-conversations: /voice/voice-api/guides/record-calls-and-conversations
 /voice/guides/call-a-websocket: /voice/voice-api/guides/call-a-websocket
-/voice/building-blocks/make-a-phone-call: /voice/voice-api/building-blocks/make-a-phone-call
 /voice/building-blocks/connect-a-phone-call: /voice/voice-api/building-blocks/connect-a-phone-call
 /voice/building-blocks/receive-a-phone-call: /voice/voice-api/building-blocks/receive-a-phone-call
 /voice/tutorials: /voice/voice-api/tutorials
@@ -71,3 +71,7 @@
 /voice/voice-api/guides/ncco-refernce: /api/voice/ncco
 
 /messaging/tutorials: /messaging/sms/tutorials
+
+/contribute: /contribute/overview
+/styleguide: /contribute/guides/styleguide
+/write-the-docs: /contribute/guides/write-the-docs

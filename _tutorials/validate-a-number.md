@@ -25,7 +25,7 @@ You see how easy it is to sanitize and validate phone numbers using the Nexmo AP
 * [Sanitize](#sanitize) a local phone number and determine the international version
 * [Calculate the cost](#calculate-cost) of calling or messaging a phone number
 * [Determine the type](#determine-the-type) of phone number: mobile or landline
-* [Validate a mobile phone number](#validate-a-number) and find out if it is real, active or roaming
+* [Validate a mobile phone number](#validate-a-mobile-phone-number) and find out if it is real, active or roaming
 
 ## Prerequisites
 
@@ -112,7 +112,7 @@ Requests to the Number Insight Basic API are free. See the [API reference](/api/
 
 ## Calculate the cost
 
-You use a phone number in international format to find out more about the products supplied by Nexmo for that phone number.
+Using a phone number in international format, you can use the [Number Insight](/api/number-insight) and [Pricing](/api/developer/pricing) APIs find out what you can do with the number.
 
 To make a request to the Developer API and retrieve the cost of making a voice call or sending an SMS:
 

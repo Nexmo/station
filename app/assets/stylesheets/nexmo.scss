@@ -21,11 +21,17 @@ $stone-dark: #193c56;
 $gray-dark: #252A2D;
 $black: #1A1E20;
 
-$sms: #936FD2;
-$number-insight: #32BA86;
-$voice: #F88175;
+$sms: #40569F;
+$sms-light: #EFF3FE;
+$number-insight: #57AF7B;
+$number-insight-light: #F3FFF8;
+$voice: #E7883C;
+$voice-light: #FDF7F1;
 $chat: #CA579C;
-$verify: #6b85d2;
+$verify: #7C578D;
+$verify-light: #FCF8FF;
+$account: #D65E7C;
+$account-light: #FDF3F8;
 
 $primary: $pink;
 $link: $blue;
@@ -47,7 +53,13 @@ $shadow-soft: 0 2px 14px 0 rgba(0, 0, 0, 0.04);
 $shadow: 0 2px 14px 0 rgba(0,0,0,0.12);
 $shadow-hard: 0 1px 8px 0 rgba(0,0,0,0.30);
 
-$border: 1px solid darken($mint, 5%);
+$border-color: darken($mint, 5%);
+$border-color-ligher: $mint;
+$border: 1px solid $border-color;
+
+$golden-ratio: 1.618;
+
+$font-family: 'Averta', sans-serif;
 
 @import "mixins";
 
@@ -56,18 +68,25 @@ $border: 1px solid darken($mint, 5%);
 @import "icons";
 @import "syntax";
 
+@import "objects/api-status";
+@import "objects/avatar";
 @import "objects/button";
+@import "objects/box";
 @import "objects/card";
 @import "objects/collapsible";
 @import "objects/content-block";
+@import "objects/feedback";
 @import "objects/focus";
 @import "objects/forms";
 @import "objects/github-cards";
 @import "objects/js-sequence-diagram";
+@import "objects/labels";
 @import "objects/masonry";
 @import "objects/navigation";
 @import "objects/notices";
+@import "objects/slate-layout";
 @import "objects/tabs";
+@import "objects/table-list";
 @import "objects/truncate";
 @import "objects/loading-bar";
 @import "objects/video";
@@ -75,6 +94,8 @@ $border: 1px solid darken($mint, 5%);
 @import "layout/community";
 @import "layout/header";
 @import "layout/hero";
-@import "layout/feedback";
 @import "layout/footer";
+@import "layout/landing";
 @import "layout/search";
+
+@import "themes/ea";

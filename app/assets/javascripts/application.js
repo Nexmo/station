@@ -14,4 +14,4 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require smooth-scroll
-//= require webfont
+//= require jquery-scrolltofixed

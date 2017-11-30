@@ -24,12 +24,12 @@ If we receive any credit card information from any of our customers in an email 
 
 You can use Dashboard to
 
-* [Add a payment method](#add_payment_method)
-* [Auto reload your account balance](#auto_reload )
-* [Setup balance notifications](#notifications)
-* [Delete a payment method](#delete_payment)
-* [Change balance currency](#change_balance_currency)
-* [Generate invoices](#invoices)
+* [Add a payment method](#add-a-payment-method)
+* [Auto reload your account balance](#auto-reload-your-account-balance)
+* [Setup balance notifications](#setup-balance-notifications)
+* [Delete a payment method](#delete-a-payment-method)
+* [Change balance currency](#change-balance-currency)
+* [Generate invoices](#generate-invoices)
 
 ## Add a payment method
 
