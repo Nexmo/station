@@ -59,6 +59,11 @@ $ball-size: 44px;
       display: block;
       padding: 0;
     }
+
+    &.button {
+      color: $white;
+      text-align: center;
+    }
   }
 
   h2 {

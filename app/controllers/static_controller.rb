@@ -118,4 +118,9 @@ class StaticController < ApplicationController
   def robots
     render 'robots.txt'
   end
+
+  def team
+    @team = YAML.load_file("#{Rails.root}/config/team.yml")
+    render layout: 'page'
+  end
 end

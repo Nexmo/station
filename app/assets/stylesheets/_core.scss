@@ -140,6 +140,10 @@ hr {
   display: flex;
 }
 
+.flex--auto {
+  > * { flex: 1; }
+}
+
 .hide {
   display: none;
 }
