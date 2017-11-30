@@ -9,7 +9,7 @@ api: 2FA
 This describes the US Short Code Two-factor Authentication API in the following steps:
 
 * [Request](#request) - send a PIN to your user
-* [Response](#response) - check the [response codes](#response-code) and ensure that you sent the request to Nexmo correctly.
+* [Response](#response) - check the [response](#keys-and-values) and ensure that you sent the request to Nexmo correctly.
 * [Delivery receipt](#delivery-receipt) - see the status and cost of your request.
 
 ## Request
@@ -22,11 +22,11 @@ source: '_examples/api/us-short-codes/2fa/request/base-url'
 
 This request contains:
 
-* A [Base URL](#base)
+* [A Base URL](#base-url)
 * [Parameters](#parameters)
-* [Authentication information](#authentic)
+* [Authentication information](#authentication-information)
 * [Security](#security)
-* [Encoding](#encode)
+* [Encoding](#encoding)
 
 ### Base URL
 
@@ -90,7 +90,7 @@ You submit all requests with a [POST] or [GET] call using UTF-8 encoding and URL
 
 Each [request](#request) you make using the US Short Codes API returns a:
 
-* [Response](#keys) - the status and cost of your request to Nexmo in [JSON or XML](#base) format.
+* [Response](#keys-and-values) - the status and cost of your request to Nexmo in [JSON or XML](#base-url) format.
 * [Delivery receipt](#delivery-receipt) - the status and cost of the SMS sent by Nexmo to your user.
 
 > *Note*: you are only charged for correctly submitted outbound SMS. If [status](#response-code) is not *0*, you are not charged.
@@ -100,12 +100,12 @@ The response is send in the *api.txt* file when you make a request from the brow
 Each response comes:
 
 * In a specific [Format](#format)
-* With [Keys and values](#keys)
+* With [Keys and values](#keys-and-values)
 
 
 ### Format
 
-You set the response type using the [Base URL](#base). The following table shows example responses in JSON or XML:
+You set the response type using the [Base URL](#base-url). The following table shows example responses in JSON or XML:
 
 ```tabbed_examples
 source: '/_examples/api/us-short-codes/alerts/response-format'
@@ -140,7 +140,7 @@ Key |	Description |	Response type
 
 Each [request](#request) you make using the Short Codes API returns a:
 
-* [response](#keys) - the status and cost of your request to Nexmo in [JSON or XML](#base) format.
+* [response](#keys-and-values) - the status and cost of your request to Nexmo in [JSON or XML](#base-url) format.
 * Delivery receipt - if you have set a [webhook endpoint](/concepts/guides/webhooks), Nexmo forwards this delivery receipt to it. Carriers return a delivery receipt (DLR) to Nexmo to explain the delivery status of your message. If the message is not received, the delivery receipt explains why your message failed to arrive.
 
 The delivery receipt is sent using a [GET] HTTP request to your [webhook endpoint](/concepts/guides/webhooks). When you receive the DLR, you must send a `200 OK` response. If you do not send the `200 OK`, Nexmo resends the delivery receipt for the next 72 hours.
@@ -148,7 +148,7 @@ The delivery receipt is sent using a [GET] HTTP request to your [webhook endpoin
 A delivery receipt has a:
 
 * [Format](#format)
-* [Keys and Values](#kv)
+* [Keys and Values](#keys-and-values)
 
 ### Format
 
