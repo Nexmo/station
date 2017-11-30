@@ -16,7 +16,8 @@ An example of how the SSML strings are stored inside an NCCO is provided below:
     "action": "talk",
     "text": "<speak><lang xml:lang='es-ES'>Hola!</lang></speak>"
   }
-]```
+]
+```
 
 ### Language
 
