@@ -1,4 +1,4 @@
-<% if @notices.any? %>
+<% if @notices && @notices.any? %>
   <div class="notices">
     <% @notices.each do |id, contents| %>
       <div class="notice" data-notice-id="<%= id %>">
