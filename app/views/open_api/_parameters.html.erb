@@ -5,6 +5,9 @@
       <div class="table-list-column" flex="3">Description</div>
       <% unless defined?(model) && model %>
         <div class="table-list-column" flex="2">Example</div>
+      <% end %>
+
+      <% unless (defined?(model) && model) || (defined?(callback) && callback) %>
         <div class="table-list-column">Default</div>
       <% end %>
     </div>
@@ -79,7 +82,9 @@
           <div class="table-list-column" flex="2">
             <%= (parameter['example'] ? "<code>#{parameter['example']}</code>" : '<i>None</i>').html_safe %>
           </div>
+        <% end %>
 
+        <% unless (defined?(model) && model) || (defined?(callback) && callback) %>
           <div class="table-list-column">
             <%= (parameter['default'] ? "<code>#{parameter['default']}</code>" : '<i>None</i>').html_safe %>
           </div>

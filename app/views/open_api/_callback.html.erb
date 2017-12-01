@@ -7,7 +7,7 @@
         <p><%= callback.description.render_markdown %></p>
       <% end %>
 
-      <%= render 'parameters', parameters: callback.parameters %>
+      <%= render 'parameters', parameters: callback.parameters, callback: true %>
 
     </div>
   </div>
