@@ -83,3 +83,7 @@
     </div>
   </div>
 </div>
+
+<% endpoint.callbacks.each do |callback| %>
+  <%= render 'callback', callback: callback %>
+<% end %>

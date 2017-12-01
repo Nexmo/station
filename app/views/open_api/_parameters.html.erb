@@ -49,6 +49,16 @@
             </small>
           <% end %>
 
+          <% if parameter['x-possible-values'] %>
+            <br>
+            <small>
+              <i>
+                Will be one of:
+                <%= parameter['x-possible-values'].map { |s| "<code>#{s}</code>" }.to_sentence(last_word_connector: 'or', two_words_connector: 'or').html_safe %>
+              </i>
+            </small>
+          <% end %>
+
           <% if parameter['minimum'] || parameter['maximum'] %>
             <br>
             <small>
