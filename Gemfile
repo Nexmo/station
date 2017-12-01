@@ -111,6 +111,10 @@ gem 'chartkick', '2.2.5'
 # The simplest way to group temporal data
 gem 'groupdate', '3.2.0'
 
+# A configurable and documented Rails view helper for adding gravatars into your Rails application.
+gem 'gravatar_image_tag', '1.2.0'
+
+# Provides Open API Spec 3 definitions for Nexmo APIs
 gem 'nexmo_api_specification', '0.2.0'
 
 group :development, :test do

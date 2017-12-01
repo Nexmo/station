@@ -160,6 +160,7 @@ GEM
       sprockets-es6 (>= 0.9.0)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
+    gravatar_image_tag (1.2.0)
     groupdate (3.2.0)
       activesupport (>= 3)
     guard (2.14.1)
@@ -415,6 +416,7 @@ DEPENDENCIES
   faker (= 1.8.4)
   foundation-rails (= 6.4.1.2)
   git-hookshot!
+  gravatar_image_tag (= 1.2.0)
   groupdate (= 3.2.0)
   guard-livereload (~> 2.5)
   guard-rspec

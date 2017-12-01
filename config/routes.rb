@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get '/documentation', to: 'static#documentation'
 
   get '/legacy', to: 'static#legacy'
+  get '/team', to: 'static#team'
 
   get '/community/slack', to: 'slack#join'
   post '/community/slack', to: 'slack#invite'
