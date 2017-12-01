@@ -3,9 +3,9 @@ title: Receiving an SMS
 navigation_weight: 2
 ---
 
-# Handle inbound SMS
+# Receiving an SMS
 
-Handling inbound calls with Nexmo is easy. You just need to create a webhook endpoint and configure your number or account to point to the endpoint.
+Handling inbound SMS with Nexmo is easy. You just need to create a webhook endpoint and configure your number or account to point to the endpoint.
 
 ## Prerequisites
 

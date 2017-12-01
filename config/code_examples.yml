@@ -75,6 +75,8 @@ messaging:
         source: '.repos/nexmo-community/nexmo-ruby-quickstart/sms/delivery_receipt.rb'
       python:
         source: '.repos/nexmo-community/nexmo-python-quickstart/sms/dlr-flask.py'
+      php:
+        source: '.repos/nexmo-community/nexmo-php-quickstart/sms/receive-delivery-receipt-slim/index.php'
     inbound:
       node:
         source: '.repos/nexmo-community/nexmo-node-quickstart/sms/receive-express.js'
@@ -82,6 +84,8 @@ messaging:
         source: '.repos/nexmo-community/nexmo-ruby-quickstart/sms/receive.rb'
       python:
         source: '.repos/nexmo-community/nexmo-python-quickstart/sms/receive-flask.py'
+      php:
+        source: '.repos/nexmo-community/nexmo-php-quickstart/sms/receive-with-slim/index.php'
 voice:
   outbound:
     node:
