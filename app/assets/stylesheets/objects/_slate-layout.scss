@@ -64,8 +64,16 @@ $ratio-total: $golden-ratio + 1;
 .slate-layout-code {
   flex: 1;
 
-  pre {
-    width: calc(((100vw - #{$slate-navigation}) / #{$ratio-total}) - (#{$spacing * 2}));
+  @media (min-width: $secondary-break) {
+    pre {
+      width: calc((100vw / #{$ratio-total}) - (#{$spacing * 2}));
+    }
+  }
+
+  @media (min-width: $inital-break) {
+    pre {
+      width: calc(((100vw - #{$slate-navigation}) / #{$ratio-total}) - (#{$spacing * 2}));
+    }
   }
 }
 
