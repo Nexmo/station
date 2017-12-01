@@ -53,7 +53,7 @@ Parameter | Description | Required
 `from` | The endpoint you are calling from. Possible value are the same as *to*. | ✅
 `answer_url` | The webhook endpoint where you provide the Nexmo Call Control Object that governs this call. As soon as your user answers a call, Platform requests this NCCO from `answer_url`. Use `answer_method` to manage the HTTP method. | ✅
 `answer_method` | The HTTP method used to send event information to `answer_url`. The default value is [GET]. | ❎
-`event_url` | Platform sends event information asynchronously to this endpoint when status changes. For more information about the values sent, see callback. | ❎ 
+`event_url` | Platform sends event information asynchronously to this endpoint when status changes. For more information about the values sent, see callback. | ❎
 `event_method` | 	The HTTP method used to send event information to `event_url`. The default value is [POST]. | ❎
 `machine_detection` | Configure the behavior when Nexmo detects that a destination is an answerphone. @[Possible values](/_modals/voice/api/calls/machine_detection.md). | ❎
 `length_timer` | Set the number of seconds that elapse before Nexmo hangs up after the call state changes to *in_progress*. The default value is 7200, two hours. This is also the maximum value. | ❎
@@ -580,6 +580,10 @@ The Nexmo Voice API uses JWTs to authenticate calls from your application. You g
 A JWT consists of a header, a payload and a signature in the structure xxxxx.yyyyy.zzzzz. For more information, see  <https://jwt.io/introduction/> and the [JWT reference ](/concepts/guides/applications#reference).
 
 The following code examples show how to generate a JWT token:
+
+```tabbed_examples
+source: _examples/api/voice/jwt
+```
 
 When you use JWTs for authentication, you must still follow [Security](#security) and [Encoding](#encode).
 
