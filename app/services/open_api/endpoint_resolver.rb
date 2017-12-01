@@ -295,7 +295,7 @@ module OpenApi
 
     def callbacks
       return [] unless endpoint.raw['callbacks']
-      
+
       endpoint.raw['callbacks'].map do |name, config|
         OpenApi::Callback.new(name, config)
       end
