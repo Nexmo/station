@@ -107,7 +107,7 @@ To configure for SIP forwarding:
   * 119.81.44.6
   * 119.81.44.7
 
-> **Note**: Nexmo supports TLS on inbound connections. To enable this, enter a valid secure URI in the format sips:user@(IP|domain). For example, *sips:1234567890@mydomain.com*. By default, traffic is sent to port 5061. To use a different port, add it at the end of your URI: *sips:1234567890@mydomain.com:5062*.
+> **Note**: Nexmo supports TLS on inbound connections. To enable this, enter a valid URI in the format sip:user@(IP|domain);transport=tls. For example, *sip:1234567890@mydomain.com;transport=tls*. By default, traffic is sent to port 5061. To use a different port, add it at the end of your domain or IP address: *sip:1234567890@mydomain.com:5062;transport=tls*.
 
 ## Example configurations
 
