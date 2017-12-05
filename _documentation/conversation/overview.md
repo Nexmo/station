@@ -4,7 +4,7 @@ title: Overview
 
 # In-App Messaging Overview
 
-Nexmo In-App Messaging enables you to build conversation features where communication can take place across multiple mediums including Messaging, Voice, Video & SMS.
+Nexmo In-App Messaging enables you to build conversation features where communication can take place across multiple platforms.
 
 The context of the conversations is maintained though each communication event taking place within a conversation, no matter the medium.
 
@@ -19,11 +19,7 @@ The context of the conversations is maintained though each communication event t
 > * Typing indicators
 > * Message sent, delivered and read receipts
 > * Image support
->
-> Upcoming features will include:
->
 > * Push notifications
-> * Voice support
 
 ## Participating in the developer preview
 
@@ -118,9 +114,7 @@ source: _examples/conversations/overview/join-the-conversation/
 ## Conversation API Features
 
 * IP Messaging
-* PSTN Voice [Coming soon]
 * WebRTC Audio [Coming soon]
-* WebRTC Video [Coming soon]
 
 ## References
 
