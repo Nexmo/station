@@ -28,7 +28,7 @@
 
 <header>
     
-        <h2>ConversationClient</h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>ConversationClient<span class="signature">(params<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h2>
         
     
 </header>
@@ -40,7 +40,9 @@
 
     
 
-    <h4 class="name" id="ConversationClient"><span class="type-signature"></span>new ConversationClient<span class="signature">(params)</span><span class="type-signature"></span></h4>
+    
+    <h4 class="name" id="ConversationClient"><span class="type-signature"></span>new ConversationClient<span class="signature">(params<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    
 
     
 
@@ -71,6 +73,8 @@
         <th>Type</th>
 
         
+        <th>Attributes</th>
+        
 
         
 
@@ -96,10 +100,309 @@
             </td>
 
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
 
             
 
-            <td class="description last">Configuration for the SDK. {debug:true}</td>
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>debug</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+
+            <td class="description last">set mode to debug</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>url</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    nexmo_ws_url
+                
+                </td>
+            
+
+            <td class="description last">Nexmo Conversation Websocket url</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>path</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    /rtc
+                
+                </td>
+            
+
+            <td class="description last">Nexmo Conversation Websocket url path suffix</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>reconnection</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+
+            <td class="description last">socket.io reconnection attribute</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>forceNew</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+
+            <td class="description last">socket.io forceNew attribute</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>autoConnect</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+
+            <td class="description last">socket.io autoConnect attribute</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>ips_url</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    ips_url
+                
+                </td>
+            
+
+            <td class="description last">Nexmo IPS url for image upload</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>environment</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    'production'
+                
+                </td>
+            
+
+            <td class="description last">development / production environment</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>iceServers</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+                <td class="default">
+                
+                    {'stun:stun.l.google.com:19302'}
+                
+                </td>
+            
+
+            <td class="description last">iceServers for RTCPeerConnection</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
         </tr>
 
     
@@ -171,6 +474,8 @@
 
 
 
+
+
     
     </div>
 
@@ -180,7 +485,9 @@
 
     
 
-     
+    
+
+    
 
     
 
@@ -194,7 +501,9 @@
 
     
 
+    
     <h4 class="name" id="connect"><span class="type-signature"></span>connect<span class="signature">()</span><span class="type-signature"></span></h4>
+    
 
     
 
@@ -245,7 +554,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line632">line 632</a>
+        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line587">line 587</a>
     </li></ul></dd>
     
 
@@ -271,12 +580,16 @@
 
 
 
+
+
         
             
 
     
 
+    
     <h4 class="name" id="disconnect"><span class="type-signature"></span>disconnect<span class="signature">()</span><span class="type-signature"></span></h4>
+    
 
     
 
@@ -327,7 +640,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line625">line 625</a>
+        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line580">line 580</a>
     </li></ul></dd>
     
 
@@ -353,12 +666,16 @@
 
 
 
+
+
         
             
 
     
 
+    
     <h4 class="name" id="login"><span class="type-signature"></span>login<span class="signature">()</span><span class="type-signature"></span></h4>
+    
 
     
 
@@ -459,7 +776,7 @@ x
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line517">line 517</a>
+        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line458">line 458</a>
     </li></ul></dd>
     
 
@@ -485,12 +802,16 @@ x
 
 
 
+
+
         
             
 
     
 
+    
     <h4 class="name" id="logout"><span class="type-signature"></span>logout<span class="signature">()</span><span class="type-signature"></span></h4>
+    
 
     
 
@@ -541,7 +862,7 @@ x
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line582">line 582</a>
+        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line522">line 522</a>
     </li></ul></dd>
     
 
@@ -553,456 +874,6 @@ x
 </dl>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="notifications"><span class="type-signature"></span>notifications<span class="signature">(params)</span><span class="type-signature"></span></h4>
-
-    
-
-
-
-<div class="description">
-    Use notifications when the browser window is not visible to the user.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>params</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">
-                <h6>Properties</h6>
-                
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-        <th>Default</th>
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>state</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-
-            
-                <td class="default">
-                
-                </td>
-            
-
-            <td class="description last">on || off to enable or disable the notifications</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>dir</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-
-            
-                <td class="default">
-                
-                    auto
-                
-                </td>
-            
-
-            <td class="description last">auto|| ltr || rtl</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>lang</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-
-            
-                <td class="default">
-                
-                    EN
-                
-                </td>
-            
-
-            <td class="description last">lang used within the notification.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>tag</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-
-            
-                <td class="default">
-                
-                </td>
-            
-
-            <td class="description last">An element ID to get/set the content</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>icon</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-
-            
-                <td class="default">
-                
-                </td>
-            
-
-            <td class="description last">URL</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-            </td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line280">line 280</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="notify"><span class="type-signature"></span>notify<span class="signature">(title, text)</span><span class="type-signature"></span></h4>
-
-    
-
-
-
-<div class="description">
-    Set the notification context
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>title</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">the title of the notification</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>text</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">the text message to display in the notification</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line298">line 298</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
 
 
 
@@ -1032,7 +903,9 @@ x
 
     
 
+    
     <h4 class="name" id="event:connecting">connecting</h4>
+    
 
     
 
@@ -1083,7 +956,7 @@ x
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line136">line 136</a>
+        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line153">line 153</a>
     </li></ul></dd>
     
 
@@ -1093,6 +966,8 @@ x
 
     
 </dl>
+
+
 
 
 
@@ -1123,7 +998,9 @@ x
 
     
 
+    
     <h4 class="name" id="event:disconnect">disconnect</h4>
+    
 
     
 
@@ -1174,7 +1051,7 @@ x
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line148">line 148</a>
+        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line165">line 165</a>
     </li></ul></dd>
     
 
@@ -1184,6 +1061,8 @@ x
 
     
 </dl>
+
+
 
 
 
@@ -1214,7 +1093,9 @@ x
 
     
 
+    
     <h4 class="name" id="event:error">error</h4>
+    
 
     
 
@@ -1266,7 +1147,7 @@ Error event.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line187">line 187</a>
+        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line204">line 204</a>
     </li></ul></dd>
     
 
@@ -1276,6 +1157,8 @@ Error event.
 
     
 </dl>
+
+
 
 
 
@@ -1306,7 +1189,9 @@ Error event.
 
     
 
+    
     <h4 class="name" id="event:ready">ready</h4>
+    
 
     
 
@@ -1357,7 +1242,7 @@ Error event.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line121">line 121</a>
+        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line138">line 138</a>
     </li></ul></dd>
     
 
@@ -1367,6 +1252,8 @@ Error event.
 
     
 </dl>
+
+
 
 
 
@@ -1397,7 +1284,9 @@ Error event.
 
     
 
+    
     <h4 class="name" id="event:reconnect">reconnect</h4>
+    
 
     
 
@@ -1448,7 +1337,7 @@ Error event.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line160">line 160</a>
+        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line177">line 177</a>
     </li></ul></dd>
     
 
@@ -1458,6 +1347,8 @@ Error event.
 
     
 </dl>
+
+
 
 
 
@@ -1488,7 +1379,9 @@ Error event.
 
     
 
+    
     <h4 class="name" id="event:reconnecting">reconnecting</h4>
+    
 
     
 
@@ -1539,7 +1432,7 @@ Error event.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line175">line 175</a>
+        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line192">line 192</a>
     </li></ul></dd>
     
 
@@ -1549,6 +1442,8 @@ Error event.
 
     
 </dl>
+
+
 
 
 
@@ -1586,13 +1481,13 @@ Error event.
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="CallManager.html">CallManager</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="Member.html">Member</a></li><li><a href="Text.html">Text</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ConversationClientErrorTypes">ConversationClientErrorTypes</a></li><li><a href="global.html#me">me</a></li><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li><li><a href="global.html#NexmoClientErrorTypes">NexmoClientErrorTypes</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Member.html">Member</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ConversationClientErrorTypes">ConversationClientErrorTypes</a></li><li><a href="global.html#me">me</a></li><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li><li><a href="global.html#NexmoClientErrorTypes">NexmoClientErrorTypes</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Thu Oct 05 2017 15:28:56 GMT+0100 (BST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Dec 04 2017 18:00:41 GMT+0000 (GMT)
 </footer>
 
 <script> prettyPrint(); </script>

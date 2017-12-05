@@ -154,7 +154,7 @@ Application.prototype._handleEvent = function(event) {
 			break;
 		case "member:joined":
 			//in case we don't know about the conversation, the event will be redirected to application level
-			//the requests on that level need the cid to be processed. but in member:joined event that brings inconsistency
+			//the requests on that level needs the cid to be processed. but in member:joined event that brings inconsistency
 			var mutate_event;
 			if (!self.conversations[event.cid]) {
 				event.body.cid = event.cid;
@@ -177,7 +177,7 @@ Application.prototype._handleEvent = function(event) {
 			//get the conversation you don't know about (case: joined by another user)
 			self.getConversation(cid).then(function(conversation) {
 				self.conversations[cid] = conversation;
-				self.emit(event.type, event.from, mutate_event || event);
+				self.emit(event.type, conversation.members[event.from] || event.from, mutate_event || event);
 			});
 		}
 	}
@@ -277,14 +277,18 @@ Application.prototype.getConversations = function(params) {
 				// Iterate and create the conversations if not existent
 				// (note that cache WebWorker also populates conv list)
 				// These are just templates without the full member information
-
-				// TODO - need to get rid of references to deleted / left
 				// conversations:
 				response.body.map(function(c) {
 					var conv = new Conversation(self, c);
 					if (self.conversations[conv.id] === undefined) {
 						self.conversations[conv.id] = conv;
 					}
+					//TODO add sync process: 
+
+					// syncConversations = function(conversation_list) {
+					// 	var conversations_length = conversation_list.length;
+					// }
+					// self.getConversation(conv.id);
 				});
 				resolve(self.conversations);
 			} else {
@@ -299,21 +303,17 @@ Application.prototype.getConversations = function(params) {
  * Query the service to see if this conversation exists with the
  * logged in user as a member and retrieve the data object
  * Result added (or updated) in this.conversations
- * use force=true to skip cache
  * 
- * @param {String} id - the id of the conversation to fetch
- * @param {Boolean} [force=false] - set to true to skip cached data
- * 
+ * @param {String} id - the id of the conversation to fetch  
  * @returns {Promise&lt;Conversation>} - the requested conversation 
  */
-Application.prototype.getConversation = function(id, force) {
+Application.prototype.getConversation = function(id) {
 	var self = this;
 	var p = new Promise(function(resolve, reject) {
 		self.session.sendRequest({
 			type: 'conversation:get',
 			cid: id,
 			body: {},
-			force: force //temp flag to skip cache
 		}, function(response) {
 			if (response.type === 'conversation:get:success') {
 				var updateOrCreateConversation = function() {
@@ -335,7 +335,9 @@ Application.prototype.getConversation = function(id, force) {
 					conv.events = events;
 					resolve(conv);
 					//update cached conversation to maintain proper event objects
-					self.session.cache.update_conversation(conv);
+					//TODO move this in cache module
+					if (self.session.cache)
+						self.session.cache.update_conversation(conv);
 
 				});
 			} else {
@@ -386,13 +388,13 @@ module.exports = {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="CallManager.html">CallManager</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="Member.html">Member</a></li><li><a href="Text.html">Text</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ConversationClientErrorTypes">ConversationClientErrorTypes</a></li><li><a href="global.html#me">me</a></li><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li><li><a href="global.html#NexmoClientErrorTypes">NexmoClientErrorTypes</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Member.html">Member</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ConversationClientErrorTypes">ConversationClientErrorTypes</a></li><li><a href="global.html#me">me</a></li><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li><li><a href="global.html#NexmoClientErrorTypes">NexmoClientErrorTypes</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Thu Oct 05 2017 15:28:56 GMT+0100 (BST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Dec 04 2017 18:00:41 GMT+0000 (GMT)
 </footer>
 
 <script> prettyPrint(); </script>

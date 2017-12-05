@@ -35,10 +35,10 @@
 
 var WildEmitter = require('wildemitter');
 var socket_io = require('socket.io-client');
-// logger = require('loglevel'),
+
 var utils = require('./utils');
-// RTC_Stats = require('./stats'),
-var RTC_Cache = require('./cache');
+var RTC_Cache = require('./modules/rtc_cache');
+
 var Application = require('./application').Application,
 	User = require('./user').User;
 var logger = require('loglevel-message-prefix')(require('loglevel'), {
@@ -51,13 +51,22 @@ var logger = require('loglevel-message-prefix')(require('loglevel'), {
 var ConversationClientError = require('./conversationClientError');
 
 var NexmoApiError = ConversationClientError.NexmoApiError;
-// var NexmoClientError = ConversationClientError.NexmoClientError;
+var NexmoClientError = ConversationClientError.NexmoClientError;
 
 /**
  * The parent ConversationClient class.
  *
  * @class ConversationClient
- * @param {Object} params Configuration for the SDK. {debug:true}
+ * @param {Object} [params]
+ * @param {Boolean} params.debug=false set mode to debug
+ * @param {String} params.url=nexmo_ws_url Nexmo Conversation Websocket url
+ * @param {String} params.path=/rtc Nexmo Conversation Websocket url path suffix
+ * @param {Boolean} params.reconnection=true socket.io reconnection attribute
+ * @param {Boolean} params.forceNew=true socket.io forceNew attribute
+ * @param {Boolean} params.autoConnect=true socket.io autoConnect attribute
+ * @param {String} params.ips_url=ips_url Nexmo IPS url for image upload
+ * @param {String} params.environment='production' development / production environment
+ * @param {Object} params.iceServers={'stun:stun.l.google.com:19302'} iceServers for RTCPeerConnection
  *
  * @fires ConversationClient#ready
  */
@@ -66,20 +75,26 @@ function ConversationClient(params) {
 	var self = this;
 	var options = params || {};
 	var config = this.config = {
-		url: '@@ws_url',
-		path: '/rtc',
-		debug: false,
-		reconnection: true,
-		forceNew: true,
 		autoConnect: true,
-		ips_url: '@@ips_url',
-		environment: '@@environment',
-		SDK_version: '@@SDK_version',
 		bugsnag_key: 'cd2dcd56892c3cd260b12caf6eecf022',
-		repository: '@@repository'
+		cache: true,
+		debug: false,
+		enable_log_reporter: true,
+		environment: '@@environment',
+		forceNew: true,
+		ips_url: '@@ips_url',
+		path: '/rtc',
+		reconnection: true,
+		repository: '@@repository',
+		SDK_version: '@@SDK_version',
+		url: '@@ws_url',
+		iceServers: {
+			urls: 'stun:stun.l.google.com:19302'
+		}
 	};
 	var item,
 		connection;
+	this.sessionReady = false;
 	this.requests = {};
 	this.application = null;
 
@@ -88,64 +103,66 @@ function ConversationClient(params) {
 		this.config[item] = options[item];
 	}
 
-	//inject the reporting tool
+	//inject the logging tool
 	if (config.debug === true) {
-		// logger.setLevel("trace");
 		logger.setLevel("debug");
 	} else {
 		logger.setLevel("silent");
 	}
 	this.log = logger.noConflict();
 
-	// this.stats = new RTC_Stats();
-	this.cache = new RTC_Cache(this);
-
 	//inject bug reporting tool
-	function j(u, c) {
-		var h = document.getElementsByTagName('head')[0],
-			s = document.createElement('script');
-		s.async = true;
-		s.src = u;
-		s.onload = s.onreadystatechange = function() {
-			if (!s.readyState || /loaded|complete/.test(s.readyState)) {
-				s.onload = s.onreadystatechange = null;
-				s = undefined;
-				if (c) {
-					c();
+	if (config.enable_log_reporter) {
+		function j(u, c) {
+			var h = document.getElementsByTagName('head')[0],
+				s = document.createElement('script');
+			s.async = true;
+			s.src = u;
+			s.onload = s.onreadystatechange = function() {
+				if (!s.readyState || /loaded|complete/.test(s.readyState)) {
+					s.onload = s.onreadystatechange = null;
+					s = undefined;
+					if (c) {
+						c();
+					}
 				}
-			}
-		};
-		h.insertBefore(s, h.firstChild);
-	}
-	if (typeof document !== "undefined") {
-		j("//d2wy8f7a9ursnm.cloudfront.net/bugsnag-3.min.js", function() {
-			if (typeof Bugsnag !== "undefined") {
-				if (!Bugsnag.apiKey) {
-					Bugsnag.apiKey = self.config.bugsnag_key;
-					Bugsnag.releaseStage = self.config.environment;
-					Bugsnag.appVersion = self.config.SDK_version;
-					Bugsnag.repository = self.config.repository;
-					Bugsnag.disableAutoBreadcrumbs();
-				}
-			}
-		});
-	}
+			};
+			h.insertBefore(s, h.firstChild);
+		}
 
+
+		if (typeof document !== "undefined") {
+			j("//d2wy8f7a9ursnm.cloudfront.net/bugsnag-3.min.js", function() {
+				if (typeof Bugsnag !== "undefined") {
+					if (!Bugsnag.apiKey) {
+						Bugsnag.apiKey = self.config.bugsnag_key;
+						Bugsnag.releaseStage = self.config.environment;
+						Bugsnag.appVersion = self.config.SDK_version;
+						Bugsnag.repository = self.config.repository;
+						Bugsnag.disableAutoBreadcrumbs();
+					}
+				}
+			});
+		}
+	}
 	// call WildEmitter constructor
 	WildEmitter.call(this);
 
 	// Create the socket.io connection and allow multiple instances
-
 	connection = socket_io.connect(config.url, {
 		path: config.path,
 		forceNew: config.forceNew,
 		reconnection: config.reconnection,
 		autoConnect: config.autoConnect
-
 	});
 
-
 	this.connection = connection;
+
+	if (config.cache) {
+		this.cache = new RTC_Cache(this);
+		this.cache.init(this);
+	}
+
 	/**
 	 * Ready event.
 	 *
@@ -196,7 +213,7 @@ function ConversationClient(params) {
 	 */
 	connection.on('reconnect', function(retry_number) {
 		self.emit('reconnect', retry_number);
-		if (self.cache.user_data) {
+		if (self.cache &amp;&amp; self.cache.user_data) {
 			self.login(self.cache.user_data.token);
 		}
 	});
@@ -222,6 +239,7 @@ function ConversationClient(params) {
 	 *     });
 	 */
 	connection.on('error', function(error) {
+		self.emit('error', new NexmoClientError(error))
 		self.log.error("Socket.io reported a generic error", error);
 	});
 
@@ -229,103 +247,25 @@ function ConversationClient(params) {
 		if (packet.type !== 2) return;
 		if (packet.data[0] === 'echo') return; //ignore echo events
 		var response = packet.data[1];
-		response.type = packet.data[0];
-		//for stats
-		// if (response.timestamp) {
-		// 	response.delay = new Date() - new Date(response.timestamp);
-		// }
-		self.log.debug("&lt;--", response.type, JSON.stringify(response));
-		// var own = false; //TODO Fix this to fix statistics for seperating properly own and other's messages
 		// Set the type of the response
+		response.type = packet.data[0];
+		self.log.debug("&lt;--", response.type, JSON.stringify(response));
 		if (response.rid in self.requests) {
-			//check if we injected the cid (e.g. conversation:events, and cache it as well)
-			if (self.requests[response.rid].cid) {
-				response.cid = self.requests[response.rid].cid;
-			}
-			//use the cache object to determine if it's intended to be cachached and cache it
-			self.cache.add_response(response);
-
 			var callback = self.requests[response.rid].callback;
 			delete self.requests[response.rid];
 			delete response.delay;
 			callback(response);
-			// own = true;
 		} else {
 			// This is an unsolicited event
-			//we are loosing here global application events.
-			//TODO manage to pass on the member:invited when an invitation occures from user B to user C
-
+			//we are skipping here global application events.
 			if (self.application)
 				self.application._handleEvent(response);
 		}
-		//keep requests count for stats
-		// if (self.stats) {
-		// 	if (!(response.type in self.stats.runtime.request_types)) {
-		// 		if (own) {
-		// 			self.stats.runtime.request_types[response.type] = {
-		// 				out: 1,
-		// 				in: 0,
-		// 				delay: response.delay ? response.delay : 0
-		// 			};
-		// 		} else {
-		// 			self.stats.runtime.request_types[response.type] = {
-		// 				out: 0,
-		// 				in: 1,
-		// 				delay: response.delay ? response.delay : 0
-		// 			};
-		// 		}
-		// 	} else {
-		// 		if (own) {
-		// 			self.stats.runtime.request_types[response.type].in++;
-		// 			if (response.delay)
-		// 				self.stats.runtime.request_types[response.type].delay = response.delay;
-		// 		} else {
-		// 			self.stats.runtime.request_types[response.type].out++;
-		// 			if (response.delay)
-		// 				self.stats.runtime.request_types[response.type].delay = response.delay;
-		// 		}
-		// 	}
-		// 	self.stats.runtime.pending_requests = Object.keys(self.requests).length;
-		// }
-
-
 	});
 }
 
 ConversationClient.prototype = new WildEmitter();
 
-/**
- * Use notifications when the browser window is not visible to the user.
- *
- * @param {Object} params
- * @param {String} params.state - on || off to enable or disable the notifications
- * @param {String} params.dir=auto - auto|| ltr || rtl
- * @param {String} params.lang=EN - lang used within the notification.
- * @param {String} params.tag - An element ID to get/set the content
- * @param {String} params.icon - URL
- */
-
-ConversationClient.prototype.notifications = function(params) {
-	utils.setNotifications(params);
-};
-
-ConversationClient.prototype.isVisible = function() {
-	return !utils.pageHidden;
-};
-
-ConversationClient.prototype.getVisibilityChangeEvent = function() {
-	return utils.visibilityChangeEvent;
-};
-
-/**
- * Set the notification context
- *
- * @param {String} title the title of the notification
- * @param {String} text  the text message to display in the notification
- */
-ConversationClient.prototype.notify = function(title, text) {
-	utils.notify(title, text);
-};
 /**
  * Conversation listening for text events.
  *
@@ -465,7 +405,6 @@ ConversationClient.prototype.notify = function(title, text) {
  * });
  */
 /**
- * @ignore
  * Conversation listening for members' seen images.
  * @event Conversation#image:seen
  *
@@ -487,24 +426,20 @@ ConversationClient.prototype.notify = function(title, text) {
  * });
  */
 /**
- * Application listening for members media changes (audio, video,text)
- *
+ * Conversation listening for members media changes (audio, video,text)
+ * @ignore
  * Change in media presence state. They are in the conversation with text, audio or video.
- * 
- * @event Application#member:media
  *
- * @property {object} data 
+ * @event Conversation#member:media
+ *
+ * @property {object} from - the member object linked to this event
  * @property {object} media - information about media presence state
  * @property {boolean} media.audio  - is audio enabled
- * @property {boolean} media.video  - is video enabled
- * @property {boolean} media.text  - is text enabled
- * 
- * @todo how to get meber_id of the member who generate the event?
- * 
  * @example &lt;caption>get every member's media change events &lt;/caption>
  * conversation.on("member:media",
- *   function(data, media ) {
- *      console.log(media.audio);
+ *   function(from, media ) {
+ *      console.log(media.audio); //{"audio":true}
+ * 		console.log(conversation.members[from].media);
  * });
  */
 ConversationClient.prototype.sendRequest = function(request, callback) {
@@ -514,27 +449,33 @@ ConversationClient.prototype.sendRequest = function(request, callback) {
 	var type = request.type;
 	delete request.type;
 	if (!self.cache) {
-		return;
+		self.log.debug("-->", type, JSON.stringify(request));
+		self.connection.emit(type, request);
+		self.requests[request.tid] = {
+			type: type,
+			request: request,
+			callback: callback
+		};
+	} else {
+		self.cache.process_cache(type, request, callback, self).then(
+			function(processed_response) {
+				if (processed_response) {
+					return callback(processed_response);
+				} else {
+					self.log.debug("CACHE [-->]", type, JSON.stringify(request));
+					self.connection.emit(type, request);
+					self.requests[request.tid] = {
+						type: type,
+						request: request,
+						callback: callback
+					};
+					//make sure we keep the conversation each request belongs to
+					//to keep aligned the cache
+					if (request.cid)
+						self.requests[request.tid].cid = request.cid;
+				}
+			});
 	}
-	self.cache.process_cache(type, request, callback, self).then(function(processed_response) {
-		if (processed_response) {
-			callback(processed_response);
-		} else {
-			self.log.debug("-->", type, JSON.stringify(request));
-			self.connection.emit(type, request);
-			self.requests[request.tid] = {
-				type: type,
-				request: request,
-				callback: callback
-			};
-			//make sure we keep the conversation each request belongs to
-			//to keep aligned the cache
-			if (request.cid)
-				self.requests[request.tid].cid = request.cid;
-			//for stats
-			self.requests[request.tid].timestamp = new Date();
-		}
-	});
 };
 
 /**
@@ -561,7 +502,6 @@ ConversationClient.prototype.login = function(token) {
 					OS_revision: (typeof navigator !== "undefined") ? navigator.userAgent : (typeof window !== "undefined") ? window.navigator.userAgent : "Generic JS navigator"
 				}
 			},
-
 			function(response) {
 				if (response.type === "session:success") {
 					var application = new Application(self);
@@ -571,7 +511,7 @@ ConversationClient.prototype.login = function(token) {
 					});
 					self.application = application;
 					self.application.me = me;
-					self.cache.updateToken({
+					if (self.cache) self.cache.updateToken({
 						token: token,
 						username: response.body.name
 					});
@@ -591,13 +531,13 @@ ConversationClient.prototype.login = function(token) {
 						});
 				} else {
 					reject(new NexmoApiError(response));
+					//todo move this in cache module
 					if (self.cache &amp;&amp; self.cache.worker) {
 						self.cache.worker.terminate();
 					}
 				}
 			}
 		);
-
 	});
 	return p;
 };
@@ -611,36 +551,51 @@ ConversationClient.prototype.logout = function() {
 	var self = this;
 	// return a promise for the application
 	var p = new Promise(function(resolve, reject) {
-		self.sendRequest({
-			type: 'session:logout',
-			body: {}
-		}, function(response) {
-			if (response.type === "session:logged-out" || response.type === "session:terminated") {
-				self.disconnect();
-				self.cache.invalidate();
 
-				if (self.application) {
-					for (var conversation_id in self.application.conversations) {
-						//unregister all events
-						self.application.conversations[conversation_id].releaseGroup(conversation_id);
+		var logoutRequest = function() {
+			return self.sendRequest({
+				type: 'session:logout',
+				body: {}
+			}, function(response) {
+				if (response.type === "session:logged-out" || response.type === "session:terminated") {
+					//TODO make sure this is successful and add to the chain
+					//TODO move this in cache module
+					self.disconnect();
+					if (self.cache) self.cache.invalidate();
+
+					if (self.application) {
+						for (var conversation_id in self.application.conversations) {
+							//unregister all events
+							self.application.conversations[conversation_id].releaseGroup(conversation_id);
+						}
 					}
+					delete self.application;
+					delete self.cache;
+					self.callbacks = {};
+					//self.connection is safe to stay
+					//self.log is safe to stay
+					self.requests = {};
+					self.sessionReady = false;
+					resolve(response);
+				} else {
+					// Previous state reject(response.reason); -- Untested
+					reject(new NexmoApiError(response));
+					if (typeof Bugsnag !== "undefined") Bugsnag.notifyException(Error(response.reason));
 				}
-				delete self.app;
-				delete self.cache;
-				self.callbacks = {};
-				//self.connection is safe to stay
-				//self.log is safe to stay
-				self.requests = {};
-				delete self.sessionReady;
-				// self.stats = new RTC_Stats();
+			});
+		}
 
-				resolve(response);
-			} else {
-				// Previous state reject(response.reason); -- Untested
-				reject(new NexmoApiError(response));
-				if (typeof Bugsnag !== "undefined") Bugsnag.notifyException(Error(response.reason));
-			}
-		});
+		// prepare for logout
+		if (self.application &amp;&amp; self.application.activeStream &amp;&amp; self.application.activeStream.stream) {
+			self.application.activeStream.conversation.audio.disable()
+				// mimicking .finally
+				.then(function() {}).catch(function() {}).then(function() {
+					logoutRequest();
+				});
+		} else {
+			logoutRequest();
+
+		}
 	});
 	return p;
 };
@@ -651,19 +606,18 @@ ConversationClient.prototype.logout = function() {
  */
 
 ConversationClient.prototype.disconnect = function() {
-	this.connection.disconnect();
+	return this.connection.disconnect();
 };
 /**
  * Connect from the cloud.
  *
  */
 ConversationClient.prototype.connect = function() {
-	this.connection.connect();
+	return this.connection.connect();
 };
 
-ConversationClient.prototype.callManager = new CallManager();
-
-module.exports = ConversationClient;</code></pre>
+module.exports = ConversationClient;
+</code></pre>
         </article>
     </section>
 
@@ -673,13 +627,13 @@ module.exports = ConversationClient;</code></pre>
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="CallManager.html">CallManager</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="Member.html">Member</a></li><li><a href="Text.html">Text</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ConversationClientErrorTypes">ConversationClientErrorTypes</a></li><li><a href="global.html#me">me</a></li><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li><li><a href="global.html#NexmoClientErrorTypes">NexmoClientErrorTypes</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Member.html">Member</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ConversationClientErrorTypes">ConversationClientErrorTypes</a></li><li><a href="global.html#me">me</a></li><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li><li><a href="global.html#NexmoClientErrorTypes">NexmoClientErrorTypes</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Thu Oct 05 2017 15:28:56 GMT+0100 (BST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Dec 04 2017 18:00:41 GMT+0000 (GMT)
 </footer>
 
 <script> prettyPrint(); </script>

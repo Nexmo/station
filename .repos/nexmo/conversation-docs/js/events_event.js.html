@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: events/event.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: events/event.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/*
+ * Conversation SDK
+ *  Event object model
+ *
+ * Copyright (c) Nexmo Inc. 2017
+ */
+
+// Conversation Client Error
+var ConversationClientError = require('../conversationClientError');
+
+var NexmoApiError = ConversationClientError.NexmoApiError;
+var NexmoClientError = ConversationClientError.NexmoClientError;
+
+/**
+ * Conversation Event object.
+ * @class Event
+ */
+var Event = function(conversation, params) {
+    this.conversation = conversation;
+    // Map the params
+    for (var key in params) {
+        this[key] = params[key];
+    }
+};
+
+/**
+ * Delete the event
+ * @param {Number} [event_id=this.event_id] if the event id param is not present, "this" event will be default
+ * @returns {Promise}
+ */
+Event.prototype.deleteEvent = function(event_id) {
+    var self = this;
+    var p = new Promise(function(resolve, reject) {
+        self.conversation.application.session.sendRequest({
+            type: 'event:delete',
+            cid: self.conversation.id,
+            from: self.conversation.me.id,
+            body: {
+                event_id: event_id || self.id
+            }
+        }, function(response) {
+            if (response.type === 'event:delete:success') {
+                resolve();
+            } else {
+                reject(new NexmoApiError(response));
+            }
+        });
+    });
+    return p;
+};
+//TODO: move here seen and delivered, needs a hack for event types image/text
+/**
+ * Mark as Delivered the event
+ * @param {Number} [event_id=this.event_id] if the event id is not provided, the self event will be used
+ * @returns {Promise}
+ */
+Event.prototype.deliveredEvent = function(event_id) {
+    if (this.type !== "text" &amp;&amp; this.type !== "image") {
+        this.type = "event";
+    }
+    var self = this;
+    var p = new Promise(function(resolve, reject) {
+        if (self.conversation.me.id === self.from) {
+            reject(new NexmoClientError("error:delivered:own-message"));
+        } else if (self.state &amp;&amp; self.state.delivered_to &amp;&amp; self.state.delivered_to[self.conversation.me.id]) {
+            reject(new NexmoClientError("error:already-delivered"));
+        } else {
+            var params = {
+                event_id: event_id || self.id
+            };
+            self.conversation.application.session.sendRequest({
+                type: self.type + ':delivered',
+                from: self.conversation.me.id,
+                cid: self.conversation.id,
+                body: params
+            }, function(response) {
+                if (response.type === self.type + ':delivered:success') {
+                    resolve();
+                } else {
+                    reject(new NexmoApiError(response));
+                }
+            });
+            resolve();
+        }
+    });
+    return p;
+};
+
+/**
+ * Mark as Seen the event
+ * @param {Number} [event_id=this.event_id] if the event id is not provided, the self event will be used
+ * @returns {Promise}
+ */
+Event.prototype.seenEvent = function(event_id) {
+    if (this.type !== "text" &amp;&amp; this.type !== "image") {
+        this.type = "event";
+    }
+    var self = this;
+    var p = new Promise(function(resolve, reject) {
+        if (self.conversation.me.id === self.from) {
+            reject(new NexmoClientError("error:seen:own-message"));
+        } else if (self.state &amp;&amp; self.state.seen_by &amp;&amp; self.state.seen_by[self.conversation.me.id]) {
+            reject(new NexmoClientError("error:already-seen"));
+        } else {
+            var params = {
+                event_id: event_id || self.id
+            };
+            self.conversation.application.session.sendRequest({
+                type: self.type + ':seen',
+                from: self.conversation.me.id,
+                cid: self.conversation.id,
+                body: params
+            }, function(response) {
+                if (response.type === self.type + ':seen:success') {
+                    resolve();
+                } else {
+                    reject(new NexmoApiError(response));
+                }
+            });
+        }
+    });
+    return p;
+}
+
+//TODO:  receive here member related  events?
+// Event.prototype._handleEvent = function(event) {
+//     var self = this;
+//     switch (event.type) {
+//         default: self.emit(event.type, event.from, event.body);
+//         break;
+//     }
+// };
+
+module.exports = {
+    Event: Event
+};</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Member.html">Member</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ConversationClientErrorTypes">ConversationClientErrorTypes</a></li><li><a href="global.html#me">me</a></li><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li><li><a href="global.html#NexmoClientErrorTypes">NexmoClientErrorTypes</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Dec 04 2017 18:00:41 GMT+0000 (GMT)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

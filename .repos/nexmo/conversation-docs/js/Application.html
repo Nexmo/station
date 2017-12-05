@@ -28,7 +28,7 @@
 
 <header>
     
-        <h2>Application</h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>Application<span class="signature">(SDK, params)</span><span class="type-signature"></span></h2>
         
     
 </header>
@@ -40,7 +40,9 @@
 
     
 
+    
     <h4 class="name" id="Application"><span class="type-signature"></span>new Application<span class="signature">(SDK, params)</span><span class="type-signature"></span></h4>
+    
 
     
 
@@ -191,6 +193,8 @@ user's invitations
 
 
 
+
+
     <h5>Example</h5>
     
         <p class="code-caption">Accessing conversations' list</p>
@@ -214,7 +218,9 @@ user's invitations
 
     
 
-     
+    
+
+    
 
     
 
@@ -228,7 +234,9 @@ user's invitations
 
     
 
-    <h4 class="name" id="getConversation"><span class="type-signature"></span>getConversation<span class="signature">(id, force<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="Conversation.html">Conversation</a>>}</span></h4>
+    
+    <h4 class="name" id="getConversation"><span class="type-signature"></span>getConversation<span class="signature">(id)</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="Conversation.html">Conversation</a>>}</span></h4>
+    
 
     
 
@@ -238,7 +246,6 @@ user's invitations
     Query the service to see if this conversation exists with the
 logged in user as a member and retrieve the data object
 Result added (or updated) in this.conversations
-use force=true to skip cache
 </div>
 
 
@@ -262,11 +269,7 @@ use force=true to skip cache
         <th>Type</th>
 
         
-        <th>Attributes</th>
-        
 
-        
-        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -291,61 +294,10 @@ use force=true to skip cache
             </td>
 
             
-                <td class="attributes">
-                
 
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                </td>
             
 
             <td class="description last">the id of the conversation to fetch</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>force</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Boolean</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    false
-                
-                </td>
-            
-
-            <td class="description last">set to true to skip cached data</td>
         </tr>
 
     
@@ -386,7 +338,7 @@ use force=true to skip cache
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="application.js.html">application.js</a>, <a href="application.js.html#line281">line 281</a>
+        <a href="application.js.html">application.js</a>, <a href="application.js.html#line282">line 282</a>
     </li></ul></dd>
     
 
@@ -434,12 +386,16 @@ use force=true to skip cache
 
 
 
+
+
         
             
 
     
 
+    
     <h4 class="name" id="getConversations"><span class="type-signature"></span>getConversations<span class="signature">()</span><span class="type-signature"> &rarr; {Promise.&lt;Object.&lt;<a href="Conversation.html">Conversation</a>>>}</span></h4>
+    
 
     
 
@@ -539,12 +495,16 @@ logged-in user is a member with a state of `JOINED` or `INVITED`.
 
 
 
+
+
         
             
 
     
 
+    
     <h4 class="name" id="getUser"><span class="type-signature"></span>getUser<span class="signature">(id<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;User>}</span></h4>
+    
 
     
 
@@ -656,7 +616,7 @@ logged-in user is a member with a state of `JOINED` or `INVITED`.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="application.js.html">application.js</a>, <a href="application.js.html#line326">line 326</a>
+        <a href="application.js.html">application.js</a>, <a href="application.js.html#line328">line 328</a>
     </li></ul></dd>
     
 
@@ -700,12 +660,16 @@ logged-in user is a member with a state of `JOINED` or `INVITED`.
 
 
 
+
+
         
             
 
     
 
+    
     <h4 class="name" id="newConversation"><span class="type-signature"></span>newConversation<span class="signature">(params<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="Conversation.html">Conversation</a>>}</span></h4>
+    
 
     
 
@@ -937,6 +901,8 @@ The conversation name must be unique per application.
     
 
 
+
+
     <h5>Example</h5>
     
         <p class="code-caption">Create a conversation and join</p>
@@ -963,7 +929,9 @@ The conversation name must be unique per application.
 
     
 
+    
     <h4 class="name" id="newConversationAndJoin"><span class="type-signature"></span>newConversationAndJoin<span class="signature">(params<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="Conversation.html">Conversation</a>>}</span></h4>
+    
 
     
 
@@ -1195,6 +1163,8 @@ The conversation name must be unique per application.
     
 
 
+
+
     <h5>Example</h5>
     
         <p class="code-caption">Create a conversation and join</p>
@@ -1229,7 +1199,9 @@ The conversation name must be unique per application.
 
     
 
+    
     <h4 class="name" id="event:member:invited">member:invited</h4>
+    
 
     
 
@@ -1380,6 +1352,8 @@ The conversation name must be unique per application.
 
 
 
+
+
     <h5>Example</h5>
     
         <p class="code-caption">listen for your invites</p>
@@ -1415,7 +1389,9 @@ application.getConversation(invitation.cid || invitation.body.cname)
 
     
 
+    
     <h4 class="name" id="event:member:joined">member:joined</h4>
+    
 
     
 
@@ -1566,6 +1542,8 @@ application.getConversation(invitation.cid || invitation.body.cname)
 
 
 
+
+
     <h5>Example</h5>
     
         <p class="code-caption">listen join events</p>
@@ -1575,276 +1553,6 @@ application.getConversation(invitation.cid || invitation.body.cname)
              console.log("JOINED", "Joined conversation: " + data.cid);
              });
      });</code></pre>
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="event:member:media">member:media</h4>
-
-    
-
-
-
-<div class="description">
-    Application listening for members media changes (audio, video,text)
-
-Change in media presence state. They are in the conversation with text, audio or video.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <h5 class="subsection-title">Properties:</h5>
-
-    
-
-<table class="props">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>data</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>media</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">information about media presence state
-                <h6>Properties</h6>
-
-<table class="props">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>audio</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">is audio enabled</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>video</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">is video enabled</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>text</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">is text enabled</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-            </td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line461">line 461</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-    <dt class="tag-todo">To Do:</dt>
-    <dd class="tag-todo">
-        <ul>
-            <li>how to get meber_id of the member who generate the event?</li>
-        </ul>
-    </dd>
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <h5>Example</h5>
-    
-        <p class="code-caption">get every member's media change events </p>
-    
-    <pre class="prettyprint"><code>conversation.on("member:media",
-  function(data, media ) {
-     console.log(media.audio);
-});</code></pre>
 
 
 
@@ -1860,13 +1568,13 @@ Change in media presence state. They are in the conversation with text, audio or
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="CallManager.html">CallManager</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="Member.html">Member</a></li><li><a href="Text.html">Text</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ConversationClientErrorTypes">ConversationClientErrorTypes</a></li><li><a href="global.html#me">me</a></li><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li><li><a href="global.html#NexmoClientErrorTypes">NexmoClientErrorTypes</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Member.html">Member</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ConversationClientErrorTypes">ConversationClientErrorTypes</a></li><li><a href="global.html#me">me</a></li><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li><li><a href="global.html#NexmoClientErrorTypes">NexmoClientErrorTypes</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Thu Oct 05 2017 15:28:56 GMT+0100 (BST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Dec 04 2017 18:00:41 GMT+0000 (GMT)
 </footer>
 
 <script> prettyPrint(); </script>

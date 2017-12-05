@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: events/image_event.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: events/image_event.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/*
+ * Conversation SDK
+ *  Image Event object model
+ *
+ * Copyright (c) Nexmo Inc. 2017
+ */
+
+var Event = require('./event').Event;
+
+// Conversation Client Error
+var ConversationClientError = require('../conversationClientError');
+
+var NexmoApiError = ConversationClientError.NexmoApiError;
+var NexmoClientError = ConversationClientError.NexmoClientError;
+
+/**
+ * An image message
+ * 
+ * @class ImageEvent
+ */
+
+var ImageEvent = function(conversation, params) {
+    this.conversation = conversation;
+    this.state = {
+        seen_by: {},
+        delivered_to: {}
+    };
+    if (params &amp;&amp; params.body) {
+        if (params.body.timestamp)
+            this.timestamp = params.body.timestamp;
+    }
+    // Map the params
+    for (var key in params) {
+        this[key] = params[key];
+    }
+};
+
+ImageEvent.prototype = new Event(this.conversation, this);
+
+
+/**
+ * Set the message status to 'seen'
+ */
+ImageEvent.prototype.seen = function() {
+    this.type = "image";
+    return this.seenEvent();
+};
+
+
+/**
+ * Set the message status to 'delivered'
+ */
+ImageEvent.prototype.delivered = function() {
+    this.type = "image";
+    return this.deliveredEvent();
+};
+
+/**
+ * Delete the image event
+ * @returns {Promise}
+ */
+ImageEvent.prototype.del = function() {
+    // //          delete the image from media service
+    // //          ?cmd=remove
+    // //          &amp;id=....
+    // var representations = self.body.representations;
+    // var imageDataObject = (representations instanceof Object) ? representations : JSON.parse(representations);
+    // var url = imageDataObject[type].url + "?cmd=remove&amp;id=" + imageDataObject.id;
+    // var xhr = new XMLHttpRequest();
+    // var token = JSON.parse(localStorage.getItem("NXMO_user_data")).token;
+    // xhr.open("GET", url);
+    // xhr.setRequestHeader("Authorization", "Bearer " + token);
+    // xhr.responseType = 'arraybuffer';
+    // xhr.onload = function() { //Call a function when the state changes.
+    //     if (xhr.readyState === 4 &amp;&amp; xhr.status === 200) {
+    return this.deleteEvent();
+};
+/**
+ * Download an Image from Media service //3 representations
+ * @param {String} [type="thumbnail"] original, medium, thumbnail, 
+ * @param {String} [representations=this.body.representations]  the ImageEvent.body for the image to download
+ * @returns {String} "data:image/jpeg;base64..."
+ * @example &lt;caption>Downloading an image from the imageEvent&lt;/caption>
+ * imageEvent.fetchImage().then(function(imagedata) {
+ *                      imageEvent.body.thumbnail = imagedata;
+ *                      //console.log('&lt;img src="'+imagedata+'"/>');
+ *                      
+ *                      //to cancel the request:
+ *                      current_user.conversation.abortSendImage(imageRequest); 
+ *                       });
+ */
+ImageEvent.prototype.fetchImage = function(type, representations) {
+    type = type || "thumbnail";
+    representations = representations || this.body.representations;
+    var p = new Promise(function(resolve, reject) {
+        if (!localStorage.getItem("NXMO_user_data")) {
+            reject(new NexmoClientError("user:error:relogin"));
+        } else {
+            var imageDataObject = (representations instanceof Object) ? representations : JSON.parse(representations);
+            var url = imageDataObject[type].url;
+            var xhr = new XMLHttpRequest();
+            var token = JSON.parse(localStorage.getItem("NXMO_user_data")).token;
+            xhr.open("GET", url);
+            xhr.setRequestHeader("Authorization", "Bearer " + token);
+            xhr.responseType = 'arraybuffer';
+            xhr.onload = function() { //Call a function when the state changes.
+                if (xhr.readyState === 4 &amp;&amp; xhr.status === 200) {
+                    var responseArray = new Uint8Array(this.response);
+                    // Convert the int array to a binary string
+                    // We have to use apply() as we are converting an *array*
+                    // and String.fromCharCode() takes one or more single values, not
+                    // an array.
+                    //support large image files (Chunking)
+                    var res = "";
+                    var chunk = 8 * 1024;
+                    var i;
+                    for (i = 0; i &lt; responseArray.length / chunk; i++) {
+                        res += String.fromCharCode.apply(null, responseArray.subarray(i * chunk, (i + 1) * chunk));
+                    }
+                    res += String.fromCharCode.apply(null, responseArray.subarray(i * chunk));
+                    var b64 = btoa(res);
+                    var dataUrl = "data:image/jpeg;base64," + b64;
+                    resolve(dataUrl);
+                } else {
+                    // Previous state reject(xhr.status); -- Untested
+                    reject(new NexmoClientError("error:fetch-image"));
+                }
+            };
+            xhr.send();
+        }
+    });
+
+    return p;
+};
+
+module.exports = {
+    ImageEvent: ImageEvent
+};</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Member.html">Member</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ConversationClientErrorTypes">ConversationClientErrorTypes</a></li><li><a href="global.html#me">me</a></li><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li><li><a href="global.html#NexmoClientErrorTypes">NexmoClientErrorTypes</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Dec 04 2017 18:00:41 GMT+0000 (GMT)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
