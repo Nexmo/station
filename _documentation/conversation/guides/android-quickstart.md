@@ -50,85 +50,75 @@ Nexmo Applications contain configuration for the application that you are buildi
 
 ```bash
 Application created: aaaaaaaa-bbbb-cccc-dddd-0123456789ab
+No existing config found. Writing to new file.
+Credentials written to /path/to/your/local/folder/.nexmo-app
 Private Key saved to: private.key
 ```
 
-The first item is the Application ID and the second is a private key that is used generate JWTs that are used to authenticate your interactions with Nexmo. You should take a note of it. We'll refer to this as `YOUR_APP_ID` later. The second value is a private key location. The private key is used to generate JWTs that are used to authenticate your interactions with Nexmo.
+The first item is the Application ID and the second is a private key that is used generate JWTs that are used to authenticate your interactions with Nexmo. You should take a note of it. We'll refer to this as `YOUR_APP_ID` later.
 
 
-### 1.2 - Generate an Application JWT
-
-Generate a JWT using your Application ID (`YOUR_APP_ID`).
-
-```bash
-$ APP_JWT="$(nexmo jwt:generate ./private.key exp=$(($(date +%s)+86400)) application_id=YOUR_APP_ID)"
-```
-
-*Note: The above command saves the generated JWT to a `APP_JWT` variable. It also sets the expiry of the JWT (`exp`) to one day from now instead of the default expiry time of 30 minutes.*
-
-### 1.3 - Create a Conversation
+### 1.2 - Create a Conversation
 
 Create a conversation within the application:
 
 ```bash
-$ curl -X POST https://api.nexmo.com/beta/conversations\
- -H 'Authorization: Bearer '$APP_JWT -H 'Content-Type:application/json' -d '{"name":"nexmo-chat", "display_name": "Nexmo Chat"}'
+$ nexmo conversation:create display_name="Nexmo Chat"
 ```
 
-This will result in a JSON response that looks something like the following. Take a note of the `id` attribute as this is the unique identifier for the conversation that has been created. We'll refer to this as `CONVERSATION_ID` later.
+The output of the above command will be something like this:
 
-```json
-{"id":"CON-aaaaaaaa-bbbb-cccc-dddd-0123456789ab","href":"http://conversation.local/v1/conversations/CON-aaaaaaaa-bbbb-cccc-dddd-0123456789ab"}
+```sh
+Conversation created: CON-aaaaaaaa-bbbb-cccc-dddd-0123456789ab
 ```
 
-### 1.4 - Create a User
+That is the Conversation ID. Take a note of it as this is the unique identifier for the conversation that has been created. We'll refer to this as YOUR_CONVERSATION_ID later.
+
+### 1.3 - Create a User
 
 Create a user who will participate within the conversation.
 
 ```bash
-curl -X POST https://api.nexmo.com/beta/users\
-  -H 'Authorization: Bearer '$APP_JWT \
-  -H 'Content-Type:application/json' \
-  -d '{"name":"jamie"}'
+$ nexmo user:create name="jamie"
 ```
 
 The output will look as follows:
 
-```json
-{"id":"USR-aaaaaaaa-bbbb-cccc-dddd-0123456789ab","href":"http://conversation.local/v1/users/USR-aaaaaaaa-bbbb-cccc-dddd-0123456789ab"}
+```sh
+User created: USR-aaaaaaaa-bbbb-cccc-dddd-0123456789ab
 ```
 
 Take a note of the `id` attribute as this is the unique identifier for the user that has been created. We'll refer to this as `YOUR_USER_ID` later.
 
-### 1.5 - Add the User to the Conversation
+### 1.4 - Add the User to the Conversation
 
 Finally, let's add the user to the conversation that we created. Remember to replace `YOUR_CONVERSATION_ID` and `YOUR_USER_ID` values.
 
 ```bash
-$ curl -X POST https://api.nexmo.com/beta/conversations/YOUR_CONVERSATION_ID/members\
- -H 'Authorization: Bearer '$APP_JWT -H 'Content-Type:application/json' -d '{"action":"join", "user_id":"YOUR_USER_ID", "channel":{"type":"app"}}'
+$ nexmo member:add YOUR_CONVERSATION_ID action=join channel='{"type":"app"}' user_id=YOUR_USER_ID
 ```
 
-The response to this request will confirm that the user has `JOINED` the "Nexmo Chat" conversation.
+The output of this command will confirm that the user has been added to the "Nexmo Chat" conversation.
 
-```json
-{"id":"MEM-fe168bd2-de89-4056-ae9c-ca3d19f9184d","user_id":"USR-f4a27041-744d-46e0-a75d-186ad6cfcfae","state":"JOINED","timestamp":{"joined":"2017-06-17T22:23:41.072Z"},"channel":{"type":"app"},"href":"http://conversation.local/v1/conversations/CON-8cda4c2d-9a7d-42ff-b695-ec4124dfcc38/members/MEM-fe168bd2-de89-4056-ae9c-ca3d19f9184d"}
+```sh
+Member added: MEM-aaaaaaaa-bbbb-cccc-dddd-0123456789ab
 ```
 
 You can also check this by running the following request, replacing `YOUR_CONVERSATION_ID`:
 
 ```bash
-$ curl https://api.nexmo.com/beta/conversations/YOUR_CONVERSATION_ID/members\
- -H 'Authorization: Bearer '$APP_JWT
+$ nexmo member:list YOUR_CONVERSATION_ID -v
 ```
 
 Where you should see a response similar to the following:
 
-```json
-[{"user_id":"USR-f4a27041-744d-46e0-a75d-186ad6cfcfae","name":"MEM-fe168bd2-de89-4056-ae9c-ca3d19f9184d","user_name":"jamie","state":"JOINED"}]
+```sh
+name                                     | user_id                                  | user_name | state  
+---------------------------------------------------------------------------------------------------------
+MEM-aaaaaaaa-bbbb-cccc-dddd-0123456789ab | USR-aaaaaaaa-bbbb-cccc-dddd-0123456789ab | jamie     | JOINED
 ```
 
-### 1.6 - Generate a User JWT
+### 1.5 - Generate a User JWT
 
 Generate a JWT for the user and take a note of it. Remember to change the `YOUR_APP_ID` value in the command.
 
@@ -560,9 +550,7 @@ When we created our `ChatActivity` we added a member variable to our activity wi
 
 ## 3.0 - Trying it out
 
-After this you should be able to run the app and send messages to a conversation like so:
-
-![Hello world!](http://g.recordit.co/sky00C231e.gif)
+After this you should be able to run the app and send messages to a conversation.
 
 ## Where next?
 
