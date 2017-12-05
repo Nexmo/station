@@ -125,7 +125,7 @@ source: _examples/conversations/overview/join-the-conversation/
 ## References
 
 * [API Reference](/api/conversation)
-* [Nexmo CLI](https://github.com/nexmo/nexmo-cli)
+* [Nexmo CLI](https://github.com/nexmo/nexmo-cli/tree/beta)
 
 ## API References
 
