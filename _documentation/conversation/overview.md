@@ -2,15 +2,15 @@
 title: Overview
 ---
 
-# Conversation Overview
+# In-App Messaging Overview
 
-The Nexmo Conversation API enables you to build conversation features where communication can take place across multiple mediums including Messaging, Voice, Video & SMS.
+Nexmo In-App Messaging enables you to build conversation features where communication can take place across multiple mediums including Messaging, Voice, Video & SMS.
 
 The context of the conversations is maintained though each communication event taking place within a conversation, no matter the medium.
 
-> ### The Conversation API is in [developer preview](/conversation/developer-preview)
+> ### In-App Messaging is in developer preview
 >
-> Currently the Conversation API offers basic IP messaging with the following features:
+> Currently In-App Messaging offers basic IP messaging with the following features:
 >
 > * Conversation creation and management
 > * Sending and receiving text
@@ -24,6 +24,18 @@ The context of the conversations is maintained though each communication event t
 >
 > * Push notifications
 > * Voice support
+
+## Participating in the developer preview
+
+This Developer Preview will focus on the IP messaging capabilities. During this program there will be frequent releases with new features and bug fixes based on your feedback. During the preview it is possible (and probable) that there shall be breaking changes to the SDK and API but these will be explicitly communicated beforehand.
+
+> #### If you are interested in access to the Conversation Developer Preview§§
+> #### Email: [ea-support@nexmo.com](mailto:ea-support@nexmo.com).
+
+If you want communicate with us during the developer preview you can:
+
+* Join the [Nexmo community slack](https://developer.nexmo.com/community/slack/) and ask @chris, @laka, @eric.giannini or @leggetter for access to the private [#in-app-messaging](https://nexmo-community.slack.com/messages/G5V788WHJ/) channel
+* Email [ea-support@nexmo.com](mailto:ea-support@nexmo.com) directly
 
 ## Concepts
 
@@ -77,6 +89,12 @@ source: _examples/conversations/overview/create-a-user/
 source: _examples/conversations/overview/join-the-conversation/
 ```
 
+## Try out the quickstarts
+
+* [JavaScript Quickstarts](/conversation/guides/javascript-quickstart)
+* [iOS Quickstarts](/conversation/guides/ios-quickstart)
+* [Android Quickstarts](/conversation/guides/android-quickstart)
+
 ## Client Libraries
 
 <div class="row">
@@ -99,7 +117,7 @@ source: _examples/conversations/overview/join-the-conversation/
 
 ## Conversation API Features
 
-* [IP Messaging](/conversation/developer-preview)
+* IP Messaging
 * PSTN Voice [Coming soon]
 * WebRTC Audio [Coming soon]
 * WebRTC Video [Coming soon]
@@ -107,6 +125,7 @@ source: _examples/conversations/overview/join-the-conversation/
 ## References
 
 * [API Reference](/api/conversation)
+* [Nexmo CLI](https://github.com/nexmo/nexmo-cli)
 
 ## API References
 

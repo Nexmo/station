@@ -48,7 +48,7 @@
 /messaging/sms/api-reference: /api/sms
 /verify/api-reference: /api/verify
 /number-insight/api-reference: /api/number-insight
-/conversation/api-reference: /api/conversation
+
 
 /sip: /voice/sip
 /voice/guides/sip: /voice/sip
@@ -83,3 +83,10 @@
 /messaging/sms/guides/delivery-reciepts: /messaging/sms/guides/delivery-receipts
 
 /conversation/early-access: /conversation/developer-preview
+
+/conversation/early-access: /conversation/overview
+/conversation/developer-preview: /conversation/overview
+/conversation/api-reference: /api/conversation
+/conversation/client-sdks/android: /sdk/conversation/android
+/conversation/client-sdks/ios: /sdk/conversation/ios
+/conversation/client-sdks/javascript: /sdk/conversation/javascript

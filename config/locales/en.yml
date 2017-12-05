@@ -38,7 +38,7 @@ en:
     sip: SIP
     account: Account
     number-insight: Number Insight
-    conversation: Conversation
+    conversation: In-App Messaging
 
     us-short-codes: US Short Codes
     sms: SMS
@@ -58,7 +58,7 @@ en:
     contribute: Contribute
     structure: Structure
 
-    client-sdks: Client SDKs
+    client-sdks: SDK Documentation
     android: Android
     ios: iOS
     javascript: JavaScript
