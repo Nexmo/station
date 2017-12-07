@@ -106,8 +106,14 @@ class Concatenation extends React.Component {
     }
   }
 
+  pluralize(singular, count) {
+    if (count === 1) { return singular }
+    return `${singular}s`
+  }
+
   render() {
     const split = this.split()
+    const characterCount = this.splitStringByCodePoint(this.state.body).length
 
     return (
       <div className="box">
@@ -134,7 +140,7 @@ class Concatenation extends React.Component {
             </tr>
             <tr>
               <td><b>Length</b></td>
-              <td style={{ width: '75%' }}>{ this.splitStringByCodePoint(this.state.body).length } characters over {split.length} { split.length === 1 ? 'part' : 'parts' }</td>
+              <td style={{ width: '75%' }}>{ characterCount } { this.pluralize('character', characterCount) } sent in {split.length} message { this.pluralize('part', split.length) }</td>
             </tr>
           </tbody>
         </table>
