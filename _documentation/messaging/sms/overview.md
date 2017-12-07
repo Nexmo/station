@@ -21,9 +21,9 @@ In this document you can learn about:
 * [Building Blocks](#building-blocks)
 * [Guides](#guides)
 * [Tutorials](#tutorials)
-* [Reference](#references)
+* [Reference](#reference)
 
-## Prerequisites
+## Concepts
 
 To use the Nexmo SMS API, you may need to familiarise yourself with:
 
