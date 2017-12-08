@@ -261,3 +261,15 @@ Here is the example of the final rendered output:
 script: app/screenshots/webhook-url-for-delivery-receipt.js
 image: public/assets/screenshots/da5f952d465355c19eb888fa1049844b31e090c2.png
 ```
+
+## Audio (custom plugin)
+
+The HTML `<audio>` element can be utilised in Markdown with the following syntax:
+
+````
+🔈[https://developer.nexmo.com.s3.amazonaws.com/assets/ssml/06-phonemes.mp3]
+````
+
+This produces the following output:
+
+🔈[https://developer.nexmo.com.s3.amazonaws.com/assets/ssml/06-phonemes.mp3]

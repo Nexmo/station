@@ -19,6 +19,10 @@ An example of how the SSML strings are stored inside an NCCO is provided below:
 ]
 ```
 
+#### Example
+
+🔈[https://developer.nexmo.com.s3.amazonaws.com/assets/ssml/01-hola.mp3]
+
 ### Language
 
 The `lang` tag allows you to control the language used in the speech. The language tag should contain both the language tag and country code (e.g. `pt-BR` for Brazilian Portuguese, `en-GB` for British English), even for languages with no country variations where a country code might otherwise be redundant (e.g. `it-IT` for Italian).
@@ -27,6 +31,10 @@ The `lang` tag allows you to control the language used in the speech. The langua
 <speak><lang xml:lang='it-IT'>Buongiorno</lang></speak>
 ```
 
+#### Example
+
+🔈[https://developer.nexmo.com.s3.amazonaws.com/assets/ssml/02-langage.mp3]
+
 ### Breaks
 
 The `break` tag allows you to add pauses to text. The duration of the pause can be specified either using a `strength` duration or as a `time` seconds or milliseconds.
@@ -34,7 +42,13 @@ The `break` tag allows you to add pauses to text. The duration of the pause can 
 ```xml
 <speak>My name is <break time='1s' />Slim Shady.</speak>
 ```
+
+#### Example
+
+🔈[https://developer.nexmo.com.s3.amazonaws.com/assets/ssml/03-breaks-1.mp3]
+
 Valid `strength` values include:
+
 * `none` or `x-weak` (which removes a pause which might otherwise exist after a full stop)
 * `weak` or `medium` (equivalent to a comma)
 * `strong` or `x-strong` (equivalent to a paragraph break)
@@ -47,6 +61,8 @@ that is the question.
 </speak>
 ```
 
+🔈[https://developer.nexmo.com.s3.amazonaws.com/assets/ssml/04-breaks-2.mp3]
+
 ### Paragraphs
 
 The `p` tag allows you to specify paragraphs in your speech.
@@ -57,6 +73,10 @@ The `p` tag allows you to specify paragraphs in your speech.
 <p>How are you?</p>
 </speak>
 ```
+
+#### Example
+
+🔈[https://developer.nexmo.com.s3.amazonaws.com/assets/ssml/05-paragraphs.mp3]
 
 ### Phonemes
 
@@ -69,6 +89,10 @@ The `phoneme` tag allows you to send an International Phonetic Alphabet (IPA) re
 Two nations separated by a common language.
 </speak>
 ```
+
+#### Example
+
+🔈[https://developer.nexmo.com.s3.amazonaws.com/assets/ssml/06-phonemes.mp3]
 
 ### Prosody
 
@@ -90,6 +114,10 @@ and can <prosody pitch='x-low'>change my pitch</prosody>.
 </speak>
 ```
 
+#### Example
+
+🔈[https://developer.nexmo.com.s3.amazonaws.com/assets/ssml/07-prosody.mp3]
+
 ### Sentences
 
 You can wrap sentences in the `s` tag. This is equivalent to putting a full stop at the end of the sentence.
@@ -100,6 +128,10 @@ You can wrap sentences in the `s` tag. This is equivalent to putting a full stop
 <s>But our princess is in another castle</s>
 </speak>
 ```
+
+#### Example
+
+🔈[https://developer.nexmo.com.s3.amazonaws.com/assets/ssml/08-sentences.mp3]
 
 ### Say As
 
@@ -129,6 +161,8 @@ come to <say-as interpret-as="address">123 Main Street</say-as>.
 </speak>
 ```
 
+🔈[https://developer.nexmo.com.s3.amazonaws.com/assets/ssml/09-interpret-as.mp3]
+
 #### Date formatting
 
 Dates can be formatted in the following ways:
@@ -153,6 +187,10 @@ Today is <say-as interpret-as="date" format="dm">10/3</say-as>
 </speak>
 ```
 
+#### Example
+
+🔈[https://developer.nexmo.com.s3.amazonaws.com/assets/ssml/09-interpret-as-date.mp3]
+
 ### Substitution
 
 The `sub` tag allows you to provide a substitute pronunciation. The contents of the `alias` attribute will be read instead.
@@ -162,3 +200,7 @@ The `sub` tag allows you to provide a substitute pronunciation. The contents of 
 Welcome to the <sub alias="United States">US</sub>.
 </speak>
 ```
+
+#### Example
+
+🔈[https://developer.nexmo.com.s3.amazonaws.com/assets/ssml/10-alias.mp3]
