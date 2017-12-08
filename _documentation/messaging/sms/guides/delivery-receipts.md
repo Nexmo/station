@@ -8,6 +8,20 @@ When Nexmo sends an SMS to a carrier, the carrier should return a delivery recei
 
 ## How delivery receipts work
 
+```js_sequence_diagram
+participant Your Application
+participant Nexmo
+participant Carrier
+participant Handset
+
+Your Application->Nexmo: Send an SMS
+Nexmo->Carrier: SMS
+Carrier->Handset: SMS
+Handset->Carrier: Delivery Receipt
+Carrier->Nexmo: Delivery Receipt
+Nexmo->Your Application: Delivery Receipt Webhook
+```
+
 Delivery receipts are either:
 
 * **Carrier** - returned when the SMS is received by the telecommunications service providers.
