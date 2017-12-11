@@ -21,7 +21,7 @@ An example of how the SSML strings are stored inside an NCCO is provided below:
 
 #### Example
 
-🔈[https://developer.nexmo.com.s3.amazonaws.com/assets/ssml/01-hola.mp3]
+🔈[https://nexmo-developer-production.s3.amazonaws.com/assets/ssml/01-hola.mp3]
 
 ### Language
 
@@ -33,7 +33,7 @@ The `lang` tag allows you to control the language used in the speech. The langua
 
 #### Example
 
-🔈[https://developer.nexmo.com.s3.amazonaws.com/assets/ssml/02-langage.mp3]
+🔈[https://nexmo-developer-production.s3.amazonaws.com/assets/ssml/02-langage.mp3]
 
 ### Breaks
 
@@ -45,7 +45,7 @@ The `break` tag allows you to add pauses to text. The duration of the pause can 
 
 #### Example
 
-🔈[https://developer.nexmo.com.s3.amazonaws.com/assets/ssml/03-breaks-1.mp3]
+🔈[https://nexmo-developer-production.s3.amazonaws.com/assets/ssml/03-breaks-1.mp3]
 
 Valid `strength` values include:
 
@@ -61,7 +61,7 @@ that is the question.
 </speak>
 ```
 
-🔈[https://developer.nexmo.com.s3.amazonaws.com/assets/ssml/04-breaks-2.mp3]
+🔈[https://nexmo-developer-production.s3.amazonaws.com/assets/ssml/04-breaks-2.mp3]
 
 ### Paragraphs
 
@@ -76,7 +76,7 @@ The `p` tag allows you to specify paragraphs in your speech.
 
 #### Example
 
-🔈[https://developer.nexmo.com.s3.amazonaws.com/assets/ssml/05-paragraphs.mp3]
+🔈[https://nexmo-developer-production.s3.amazonaws.com/assets/ssml/05-paragraphs.mp3]
 
 ### Phonemes
 
@@ -92,7 +92,7 @@ Two nations separated by a common language.
 
 #### Example
 
-🔈[https://developer.nexmo.com.s3.amazonaws.com/assets/ssml/06-phonemes.mp3]
+🔈[https://nexmo-developer-production.s3.amazonaws.com/assets/ssml/06-phonemes.mp3]
 
 ### Prosody
 
@@ -116,7 +116,7 @@ and can <prosody pitch='x-low'>change my pitch</prosody>.
 
 #### Example
 
-🔈[https://developer.nexmo.com.s3.amazonaws.com/assets/ssml/07-prosody.mp3]
+🔈[https://nexmo-developer-production.s3.amazonaws.com/assets/ssml/07-prosody.mp3]
 
 ### Sentences
 
@@ -131,7 +131,7 @@ You can wrap sentences in the `s` tag. This is equivalent to putting a full stop
 
 #### Example
 
-🔈[https://developer.nexmo.com.s3.amazonaws.com/assets/ssml/08-sentences.mp3]
+🔈[https://nexmo-developer-production.s3.amazonaws.com/assets/ssml/08-sentences.mp3]
 
 ### Say As
 
@@ -161,7 +161,7 @@ come to <say-as interpret-as="address">123 Main Street</say-as>.
 </speak>
 ```
 
-🔈[https://developer.nexmo.com.s3.amazonaws.com/assets/ssml/09-interpret-as.mp3]
+🔈[https://nexmo-developer-production.s3.amazonaws.com/assets/ssml/09-interpret-as.mp3]
 
 #### Date formatting
 
@@ -189,7 +189,7 @@ Today is <say-as interpret-as="date" format="dm">10/3</say-as>
 
 #### Example
 
-🔈[https://developer.nexmo.com.s3.amazonaws.com/assets/ssml/09-interpret-as-date.mp3]
+🔈[https://nexmo-developer-production.s3.amazonaws.com/assets/ssml/09-interpret-as-date.mp3]
 
 ### Substitution
 
@@ -203,4 +203,4 @@ Welcome to the <sub alias="United States">US</sub>.
 
 #### Example
 
-🔈[https://developer.nexmo.com.s3.amazonaws.com/assets/ssml/10-alias.mp3]
+🔈[https://nexmo-developer-production.s3.amazonaws.com/assets/ssml/10-alias.mp3]
