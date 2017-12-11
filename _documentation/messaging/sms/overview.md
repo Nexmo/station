@@ -33,11 +33,17 @@ To use the Nexmo SMS API, you may need to familiarise yourself with:
 
 ## Getting Started
 
-**Send an SMS**
+### Send an SMS
 
 Before you begin, [Sign up for a Nexmo account](https://dashboard.nexmo.com/sign-up).
 
 Using your Nexmo `API_KEY` and `API_SECRET`, available from the [dashboard getting started page](https://dashboard.nexmo.com/getting-started-guide), you can now send an SMS message:
+
+```tabbed_content
+source: '_examples/messaging/sms/send-an-sms'
+```
+
+### [icon="node"] Try it
 
 ```techio
 title: Send an SMS

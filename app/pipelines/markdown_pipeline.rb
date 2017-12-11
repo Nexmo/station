@@ -20,7 +20,6 @@ class MarkdownPipeline < Banzai::Pipeline
       PartialFilter,
       TechioFilter,
       TutorialsFilter,
-      IconFilter,
       LanguageFilter,
       ColumnsFilter,
       MarkdownFilter,
@@ -31,6 +30,7 @@ class MarkdownPipeline < Banzai::Pipeline
       LabelFilter,
       BreakFilter,
       UnfreezeFilter,
+      IconFilter,
       ExternalLinkFilter
     )
   end
