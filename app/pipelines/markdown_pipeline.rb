@@ -10,6 +10,7 @@ class MarkdownPipeline < Banzai::Pipeline
       BlockEscapeFilter,
       ScreenshotFilter,
       AnchorFilter,
+      AudioFilter,
       TooltipFilter,
       CollapsibleFilter,
       TabbedExamplesFilter.new(options),
