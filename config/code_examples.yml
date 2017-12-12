@@ -77,6 +77,11 @@ messaging:
         source: '.repos/nexmo-community/nexmo-python-quickstart/sms/dlr-flask.py'
       php:
         source: '.repos/nexmo-community/nexmo-php-quickstart/sms/receive-delivery-receipt-slim/index.php'
+      java:
+        source: '.repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/sms/ReceiveDLR.java'
+        from_line: 12
+        to_line: 35
+        unindent: true
     inbound:
       node:
         source: '.repos/nexmo-community/nexmo-node-quickstart/sms/receive-express.js'
@@ -86,6 +91,11 @@ messaging:
         source: '.repos/nexmo-community/nexmo-python-quickstart/sms/receive-flask.py'
       php:
         source: '.repos/nexmo-community/nexmo-php-quickstart/sms/receive-with-slim/index.php'
+      java:
+        source: '.repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/sms/ReceiveSMS.java'
+        from_line: 15
+        to_line: 42
+        unindent: true
 voice:
   outbound:
     node:

@@ -9,19 +9,29 @@ public class ReceiveDLR {
     public static void main(String[] args) throws Exception {
         configureLogging();
 
-        port(8080);
+        port(3000);
 
-        get("/receipt", (req, res) -> {
+        get("/webhooks/delivery-receipt", (req, res) -> {
             for (String param : req.queryParams()) {
                 System.out.printf("%s: %s\n", param, req.queryParams(param));
             }
-            return "OK";
+            res.status(204);
+            return "";
         });
 
-        post("/receipt", (req, res) -> {
-            // The body will be JSON - use the JSON parser of your choice to extract values:
-            System.out.println(req.body());
-            return "OK";
+        post("/webhooks/delivery-receipt", (req, res) -> {
+            // The body will be form-encoded or a JSON object:
+            if (req.contentType().startsWith("application/x-www-form-urlencoded")) {
+                for (String param : req.queryParams()) {
+                    System.out.printf("%s: %s\n", param, req.queryParams(param));
+                }
+            } else {
+                IncomingDlrPayload jsonPayload = IncomingDlrPayload.fromJson(req.bodyAsBytes());
+                System.out.println(jsonPayload);
+            }
+
+            res.status(204);
+            return "";
         });
     }
 }
