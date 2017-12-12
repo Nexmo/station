@@ -31,7 +31,7 @@ If your SMS uses Unicode the amount of characters you can send per part depends 
 source: app/views/tools/concatenation.html
 ```
 
-Nexmo accepts SMS of up to 3200 characters but not all carriers do. It's best practice  that the message does not exceed 6 SMS parts. For example, to send the first stanza of the balcony speech in Chinese, Nexmo would send a concatenated SMS with the following SMS parts:
+Nexmo accepts SMS of up to 3200 characters but not all carriers do. It's best practice  that the message does not exceed 6 SMS parts.
 
 > Note: You are charged for each SMS sent as part of a concatenated SMS.
 
