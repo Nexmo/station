@@ -8,7 +8,7 @@ When you send SMS with Nexmo you should be aware of how many parts your message 
 
 ## Overview
 
-If you send a message that contains more than the maximum number of characters for your encoding, Nexmo sends a concatenated SMS. A concatenated SMS contains multiple SMS parts that are connected by segmentation information in the User Data Header (UDH).
+If you send a message that contains more than the maximum number of characters for your chosen encoding, Nexmo sends a concatenated SMS. A concatenated SMS contains multiple SMS parts that are connected by segmentation information in the User Data Header (UDH).
 
 Segmentation information tells the handset the number of messages that make up the concatenated SMS, and the position of each SMS part in the concatenated SMS. The parts of a concatenated SMS arrive at the user's handset out of sequence. When the handset has received all the SMS parts, it presents your message as a single text to your user.
 
