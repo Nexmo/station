@@ -76,3 +76,6 @@
 /contribute: /contribute/overview
 /styleguide: /contribute/guides/styleguide
 /write-the-docs: /contribute/guides/write-the-docs
+
+/messaging/sms/guides/global-messaging: /messaging/sms/guides/country-specific-features
+/messaging/sms/guides/delivery-reciepts: /messaging/sms/guides/delivery-receipts
