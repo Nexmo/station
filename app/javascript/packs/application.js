@@ -23,6 +23,7 @@ import Search from './Search'
 import Modals from './Modals'
 import Notices from './Notices'
 import Feedback from './Feedback'
+import Concatenation from './Concatenation'
 import APIStatus from './APIStatus'
 
 import {
@@ -51,6 +52,10 @@ let refresh = () => {
 
   if (document.getElementById('FeedbackComponent')) {
     ReactDOM.render(<Feedback {...window.feedbackProps}/>, document.getElementById('FeedbackComponent'))
+  }
+
+  if (document.getElementById('ConcatenationComponent')) {
+    ReactDOM.render(<Concatenation/>, document.getElementById('ConcatenationComponent'))
   }
 }
 

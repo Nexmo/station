@@ -13,6 +13,7 @@
 /messaging/sns: /messaging/sns/overview
 
 /messaging/sms/building-blocks: /messaging/sms/building-blocks/send-an-sms
+/messaging/sms/building-blocks/receive-a-delivery-receipt: /messaging/sms/guides/delivery-reciepts
 /sms/building-blocks: /messaging/sms/building-blocks/send-an-sms
 /messaging/sms/guides: /messaging/sms/overview#sms-api-features
 /sms/guides: /messaging/sms/guides/us-short-codes/overview
@@ -75,3 +76,6 @@
 /contribute: /contribute/overview
 /styleguide: /contribute/guides/styleguide
 /write-the-docs: /contribute/guides/write-the-docs
+
+/messaging/sms/guides/global-messaging: /messaging/sms/guides/country-specific-features
+/messaging/sms/guides/delivery-reciepts: /messaging/sms/guides/delivery-receipts

@@ -1,13 +1,30 @@
 class OpenApiController < ApplicationController
   before_action :set_specification
+  before_action :set_navigation
 
   def show
-    if File.file? "_open_api/#{@specification_name}.json"
-      @specification_path = "_open_api/#{@specification_name}.json"
+    if File.file? "_open_api/definitions/#{@specification_name}.json"
+      @specification_path = "_open_api/definitions/#{@specification_name}.json"
       @specification_format = 'json'
-    else
-      @specification_path = "_open_api/#{@specification_name}.yml"
+    elsif File.file? "_open_api/definitions/#{@specification_name}.yml"
+      @specification_path = "_open_api/definitions/#{@specification_name}.yml"
       @specification_format = 'yml'
+    elsif NexmoApiSpecification::Definition.exists?(@specification_name)
+      @specification_path = NexmoApiSpecification::Definition.path(@specification_name)
+      @specification_format = 'yml'
+    else
+      raise 'Definition can not be found'
+    end
+
+    if File.file? "_open_api/initialization/#{@specification_name}.md"
+      specification_initialization = File.read("_open_api/initialization/#{@specification_name}.md")
+      @specification_initialization_content = MarkdownPipeline.new.call(File.read("_open_api/initialization/#{@specification_name}.md"))
+      @specification_initialization_config = YAML.safe_load(specification_initialization)
+    end
+
+    if File.file? "_open_api/errors/#{@specification_name}.md"
+      specification_errors = File.read("_open_api/errors/#{@specification_name}.md")
+      @specification_errors_content = MarkdownPipeline.new.call(File.read("_open_api/errors/#{@specification_name}.md"))
     end
 
     respond_to do |format|
@@ -22,6 +39,10 @@ class OpenApiController < ApplicationController
   end
 
   private
+
+  def set_navigation
+    @navigation = :api
+  end
 
   def set_specification
     @specification_name = params[:specification]

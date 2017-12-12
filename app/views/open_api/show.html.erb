@@ -7,10 +7,13 @@
             <li>
               <a href="#"><%= @specification.raw['info']['title'] %></a>
               <ul class="has-label">
+                <li>
+                  <a href="#overview">Overview</a>
+                </li>
                 <% @groups.each do |group| %>
                   <% if group['name'] %>
                     <li>
-                      <a href="<%= group['name'].parameterize %>">
+                      <a href="#<%= group['name'].parameterize %>">
                         <%= group['name'] %>
                       </a>
                       <ul class="has-label">
@@ -25,14 +28,20 @@
                     <% end %>
                   <% end %>
                 <% end %>
+                <% if @specification_errors_content %>
+                  <li>
+                    <a href="#errors">Errors</a>
+                  </li>
+                <% end %>
               </ul>
             </li>
           </ul>
       </nav>
     </div>
   </div>
+
   <div class="slate-layout-main">
-    <div>
+    <div id="overview">
       <div class="slate-layout-documentation">
         <div>
           <h1><%= @specification.raw['info']['title'] %></h1>
@@ -45,7 +54,19 @@
 
         </div>
       </div>
-      <div class="slate-layout-code"></div>
+      <div class="slate-layout-code">
+        <% if @specification_initialization_config && @specification_initialization_content %>
+          <ul class="tabs tabs--code" data-tabs>
+            <% @specification_initialization_config['tabs'].each do |tab| %>
+              <li class="tabs-title" language-linkable="false" data-language="<%= tab %>"><a href="#<%= tab %>"><%= CODE_LANGUAGES[tab]['label'] %></a></li>
+            <% end %>
+          </ul>
+
+          <div class="slate-layout-code__inner">
+            <%= @specification_initialization_content.html_safe %>
+          </div>
+        <% end %>
+      </div>
     </div>
 
 
@@ -54,7 +75,7 @@
         <div>
           <div class="slate-layout-documentation slate-layout-documentation--group">
             <div>
-              <h2><%= group['name'] %></h2>
+              <h2 id="<%= group['name'].parameterize %>"><%= group['name'] %></h2>
               <p><%= group['description'] %></p>
               <% if group['schema'] %>
                 <%= render 'parameters', parameters: OpenApi::EndpointResolver.normalize_properties(group['schema']['properties']), model: true %>
@@ -63,7 +84,9 @@
           </div>
           <div class="slate-layout-code">
             <% if group['schema'] %>
-              <%= OpenApi::EndpointResolver.new_by_schema(group['schema']).model_html %>
+              <div class="slate-layout-code__inner">
+                <%= OpenApi::EndpointResolver.new_by_schema(group['schema']).model_html %>
+              </div>
             <% end %>
           </div>
         </div>
@@ -73,6 +96,24 @@
       <% group[:resources].each do |resource| %>
         <%= render 'endpoint', endpoint: OpenApi::EndpointResolver.new(@specification, path: resource[:path], method: resource[:method]) %>
       <% end %>
+    <% end %>
+
+    <% if @specification_errors_content %>
+      <div class="slate-layout-main" id="errors">
+        <div>
+          <div class="slate-layout-documentation">
+            <div>
+              <%= @specification_errors_content.html_safe %>
+            </div>
+          </div>
+          <div class="slate-layout-code">
+            <div class="slate-layout-code__inner">
+              <h4>Example response</h4>
+              <%= OpenApi::EndpointResolver.new_by_schema(@specification.raw['components']['schemas']['Error']).model_html %>
+            </div>
+          </div>
+        </div>
+      </div>
     <% end %>
   </div>
 </div>

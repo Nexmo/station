@@ -58,26 +58,32 @@
       <% end %>
 
       <% if endpoint.path_parameters.any? %>
-        <h4>Parameters</h4>
+        <h4>Path Parameters</h4>
         <%= render 'parameters', parameters: endpoint.path_parameters %>
       <% end %>
 
       <% if endpoint.query_parameters.any? %>
-        <h4>Query</h4>
+        <h4>Query Parameter</h4>
         <%= render 'parameters', parameters: endpoint.query_parameters %>
       <% end %>
 
       <% if endpoint.request_body_parameters.any? %>
-        <h4>Query</h4>
+        <h4>Request Body</h4>
         <%= render 'parameters', parameters: endpoint.request_body_parameters %>
       <% end %>
     </div>
   </div>
 
   <div class="slate-layout-code">
-    <div>
-      <%= render_request(@specification_name, endpoint.path, endpoint.method) %>
+    <div class="slate-layout-code__inner">
+      <br>
+      <h4>Example request</h4>
+      <%= render_request(@specification_name, endpoint) %>
       <%= endpoint.html %>
     </div>
   </div>
 </div>
+
+<% endpoint.callbacks.each do |callback| %>
+  <%= render 'callback', callback: callback %>
+<% end %>

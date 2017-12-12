@@ -19,8 +19,8 @@ class MarkdownPipeline < Banzai::Pipeline
       ModalFilter,
       JsSequenceDiagramFilter,
       PartialFilter,
+      TechioFilter,
       TutorialsFilter,
-      IconFilter,
       LanguageFilter,
       ColumnsFilter,
       MarkdownFilter,
@@ -31,6 +31,7 @@ class MarkdownPipeline < Banzai::Pipeline
       LabelFilter,
       BreakFilter,
       UnfreezeFilter,
+      IconFilter,
       ExternalLinkFilter
     )
   end

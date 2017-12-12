@@ -11,6 +11,13 @@
   border-color: $blue;
   .navigation & { color: mix($blue, $background, 80%); }
 
+  h3 & {
+    font-size: 18px;
+    font-weight: 600;
+    position: relative;
+    top: -3px;
+  }
+
   h4 & {
     font-size: 18px;
     font-weight: 600;
@@ -68,5 +75,9 @@
 
   &--status--4xx {
     background: $red;
+  }
+
+  &--callback {
+    background: $green;
   }
 }

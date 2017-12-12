@@ -162,6 +162,10 @@ module OpenApi
       @status ||= statuses.first.to_s
     end
 
+    def code_example_path
+      endpoint.raw['x-code-example-path']
+    end
+
     def jwt?
       jwt ? true : false
     end
@@ -248,12 +252,28 @@ module OpenApi
 
     def request_body_parameters
       return [] unless endpoint.raw['requestBody']
-      self.class.normalize_properties(endpoint.raw['requestBody']['content'].values[0]['schema']['properties'])
+      parameters = self.class.normalize_properties(endpoint.raw['requestBody']['content'].values[0]['schema']['properties'])
+      required_parameters = endpoint.raw['requestBody']['content'].values[0]['schema']['required']
+
+      # Add a required key directly onto the parameter itself.
+      parameters.each do |parameter|
+        parameter['required'] = true if required_parameters.include? parameter['name']
+      end
+
+      parameters
     end
 
     def path_parameters
       @path_parameters ||= parameters.select do |parameter|
         parameter['in'] == 'path'
+      end
+
+      # For some reason for 'type: path' paramaters keys like enum are required to be in the schema.
+      # This nomalizes things by entending the parameter with the schema keys giving preference to
+      # the parameter keys incase of collision.
+      @path_parameters.map do |parameter|
+        next parameter unless parameter['schema']
+        parameter['schema'].merge(parameter)
       end
     end
 
@@ -271,6 +291,14 @@ module OpenApi
       instance = allocate
       instance.send(:new_by_schema, *args)
       instance
+    end
+
+    def callbacks
+      return [] unless endpoint.raw['callbacks']
+
+      endpoint.raw['callbacks'].map do |name, config|
+        OpenApi::Callback.new(name, config)
+      end
     end
 
     private

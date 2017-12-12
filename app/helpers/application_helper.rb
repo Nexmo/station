@@ -121,12 +121,11 @@ module ApplicationHelper
     YAML.load_file(path)
   end
 
-  def render_request(definition_name, path, method)
-    base_path = "_open_api_requests/#{definition_name + path}/#{method}/"
-
+  def render_request(definition_name, endpoint)
+    return unless endpoint.code_example_path
     markdown = <<~HEREDOC
       ```tabbed_examples
-      source: #{base_path}
+      config: #{endpoint.code_example_path}
       ```
     HEREDOC
 
