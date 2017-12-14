@@ -8,6 +8,13 @@ $table-list-spacing: $spacing * 0.6;
   padding: 0;
   box-shadow: $shadow-soft;
 
+  table {
+    font-size: 0.85em;
+    th, td {
+      padding: 5px 10px;
+    }
+  }
+
   > li {
     border: $border;
     border-top: none;
