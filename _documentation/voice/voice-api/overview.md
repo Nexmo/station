@@ -36,7 +36,12 @@ In this document you can learn about:
 
 In the [Nexmo Dashboard](https://dashboard.nexmo.com), you can try out the Voice API interactively in the Voice Playground. Once you are [signed up for a Nexmo account](https://dashboard.nexmo.com/signup), you can go to [Voice Playground](https://dashboard.nexmo.com/voice/playground) in the Dashboard (Voice ‣ Voice Playgrounds).
 
-When you use the Voice Playgrounds, you will be guided through the process of buying a phone number and assigning it to the Playground, then you can interactively test NCCOs in the browser and see the results. Voice Playgrounds also has a number of examples already implemented including IVR (with DTMF tones), streaming audio into a call, conference calling and connecting two users together.
+When you use the Voice Playgrounds, you will be guided through the process of buying a phone number and assigning it to the Playground, then you can interactively test NCCOs in the browser and see the results. Playgrounds also has a number of common use cases as examples you can try. These are listed below with links to guides and tutorials on how to implement them yourself.
+
+* Connecting two users ([guide](/voice/voice-api/guides/connect-two-users), [tutorial](/tutorials/private-voice-communication))
+* Interactive Voice Response (IVR) using DTMF tones ([guide](/voice/voice-api/guides/interactive-voice-response), [tutorial](/tutorials/interactive-voice-response))
+* Conference Call ([guide](/voice/voice-api/guides/create-conferences))
+* Send audio to call ([NCCO reference](/api/voice/ncco#stream), [API reference](/api/voice#stream))
 
 More details are available in this blog post: [Meet Voice Playground, Your Testing Sandbox for Nexmo Voice Apps](https://www.nexmo.com/blog/2017/12/12/voice-playground-testing-sandbox-nexmo-voice-apps/)
 
