@@ -50,9 +50,7 @@ Before you begin:
 
 > *Note*: If you do not wish to install Node in order to use the [Nexmo CLI](/tools) you can also create applications using the [Application API](/concepts/guides/applications)*
 
-Install and Setup the Nexmo CLI (Command Line Interface)
-
-Install the Nexmo CLI:
+Once you have installed NodeJS, you can install and setup the Nexmo CLI (Command Line Interface) as follows:
 
 ```bash
 $ npm install -g nexmo-cli
