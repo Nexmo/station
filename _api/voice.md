@@ -593,7 +593,7 @@ The table below lists the possible values for the status of a call as returned b
 
 Value | Description
 -- | --
-`started` | Platform has stared the call.
+`started` | Platform has started the call.
 `ringing` | The user's handset is ringing.
 `answered` | The user has answered your call.
 `machine` | Platform detected an answering machine.
