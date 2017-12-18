@@ -25,6 +25,8 @@ All the actions can return the following [status codes](#status-codes).
 
 > **Note**: [Controlling a Call with Nexmo Call Control Objects](/voice/guides/ncco#controlling) explains how to provide your NCCOs to Nexmo after you initiate a Call or Conference.
 
+While developing and testing NCCOs, you can use the Voice Playground to try out NCCOs interactively. You can [read more about it in the Voice API Overview](/voice/voice-api/overview#voice-playground) or [go directly to the Voice Playground in the Dashboard](https://dashboard.nexmo.com/voice/playground).
+
 ## Record
 
 Use the `record` action to record a Call or part of a Call:
