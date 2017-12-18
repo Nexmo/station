@@ -83,7 +83,6 @@ The response contains the following keys and values:
 
 Key | Value
 -- | --
-`api-secret` | The current or updated API Secret
 `mo-callback-url` | The current or updated inbound message URI
 `dr-callback-url` | The current or updated delivery receipt URI
 `max-outbound-request` | The maximum amount of outbound messages per second.
