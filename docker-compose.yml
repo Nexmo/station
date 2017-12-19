@@ -17,6 +17,8 @@ services:
     environment:
       - POSTGRES_HOST=db
       - POSTGRES_USERNAME=postgres
+      - RAILS_ENV=development
+      - RACK_ENV=development
   clean:
     image: nexmodeveloper_app
     build: .
