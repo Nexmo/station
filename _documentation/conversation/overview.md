@@ -26,7 +26,7 @@ The context of the conversations is maintained though each communication event t
 This Developer Preview will focus on the IP messaging capabilities. During this program there will be frequent releases with new features and bug fixes based on your feedback. During the preview it is possible (and probable) that there shall be breaking changes to the SDK and API but these will be explicitly communicated beforehand.
 
 > #### If you are interested in access to the Conversation Developer Preview§§
-> #### Email: [ea-support@nexmo.com](mailto:ea-support@nexmo.com).
+> #### [Request Access](https://info.nexmo.com/EA-In-App-Sign-Up.html).
 
 If you want communicate with us during the developer preview you can:
 
