@@ -115,7 +115,7 @@ gem 'groupdate', '3.2.0'
 gem 'gravatar_image_tag', '1.2.0'
 
 # Provides Open API Spec 3 definitions for Nexmo APIs
-gem 'nexmo_api_specification', '0.4.0'
+gem 'nexmo_api_specification', '0.5.3'
 
 group :development, :test do
   gem 'awesome_print'
