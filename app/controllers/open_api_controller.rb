@@ -31,7 +31,7 @@ class OpenApiController < ApplicationController
       format.any(:json, :yaml) { send_file(@definition_path) }
       format.html do
         @definition = OasParser::Definition.resolve(@definition_path)
-        # set_groups
+        set_groups
         render layout: 'page-full'
       end
     end
@@ -48,26 +48,11 @@ class OpenApiController < ApplicationController
   end
 
   def set_groups
-    @groups = {}
+    @groups = @definition.endpoints.group_by { |endpoint| endpoint.raw['x-group'] }
 
-    @definition.raw['paths'].each do |path, methods|
-      methods.each do |method, endpoint|
-        group = endpoint['x-group']
-
-        if @groups[group].nil?
-          @groups[group] = @definition.raw['x-groups'] ? @definition.raw['x-groups'][endpoint['x-group']] : {}
-          @groups[group][:resources] = []
-        end
-
-        @groups[group][:resources] << {
-          path: path,
-          method: method,
-        }
-      end
-    end
-
-    @groups = @groups.values.sort_by do |group|
-      group['order'] || 999
+    @groups = @groups.sort_by do |name, _|
+      next 999 if name.nil?
+      @definition.raw['x-groups'][name]['order'] || 999
     end
   end
 end

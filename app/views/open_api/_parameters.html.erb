@@ -27,8 +27,8 @@
               <%= parameter.type %>
               <% if parameter.array? %>
                 <br>
-                <% if parameter['items'] && parameter['items']['type'] %>
-                  of <%= (parameter['items']['type']) %>'s
+                <% if parameter.items && parameter.items['type'] %>
+                  of <%= (parameter.items['type']) %>'s
                 <% end %>
               <% end %>
             </i>
@@ -89,14 +89,8 @@
         <% end %>
       </div>
 
-      <% if parameter.collection?  %>
-        <% if parameter['items'] %>
-          <%= render 'parameters', parameters: OpenApi::EndpointResolver.normalize_properties(parameter['items']['properties']), model: model %>
-        <% end %>
-
-        <% if parameter['properties'] %>
-          <%= render 'parameters', parameters: OpenApi::EndpointResolver.normalize_properties(parameter['properties']), model: model %>
-        <% end %>
+      <% if parameter.collection? %>
+        <%= render 'parameters', parameters: parameter.properties, model: model %>
       <% end %>
     </li>
   <% end %>

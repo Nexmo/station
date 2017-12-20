@@ -36,8 +36,37 @@
       </div>
     </div>
 
-    <% @definition.paths.each do |path| %>
-      <% path.endpoints.each do |endpoint| %>
+    <% @groups.each do |name, endpoints| %>
+      <% if name %>
+        <% group = @definition.raw['x-groups'][name] %>
+        <div>
+          <div class="slate-layout-documentation slate-layout-documentation--group">
+            <div>
+              <%= content_tag :h2, group['name'], id: group['name'].parameterize %>
+              <%= content_tag :p, group['description'] %>
+              <% if group['schema'] %>
+                <%
+                  properties = group['schema']['properties'].map do |name, definition|
+                    OasParser::Property.new(self, group['schema'], name, definition)
+                  end
+                %>
+
+                <%= render 'parameters', parameters: properties, model: true %>
+              <% end %>
+            </div>
+          </div>
+          <div class="slate-layout-code">
+            <% if group['schema'] %>
+              <div class="slate-layout-code__inner">
+                <%= ResponseParserDecorator.new(group['schema']).html %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+
+      <% end %>
+
+      <% endpoints.each do |endpoint| %>
         <%= render 'endpoint', endpoint: endpoint %>
       <% end %>
     <% end %>

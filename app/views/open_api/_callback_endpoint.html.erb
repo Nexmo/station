@@ -25,6 +25,13 @@
     <div class="slate-layout-code__inner">
       <br>
       <%= render 'code_examples', endpoint: endpoint %>
+
+      <h4>Request model</h4>
+
+      <% endpoint.request_body.formats.each do |format| %>
+        <p><%= format %></p>
+        <%= ResponseParserDecorator.new(endpoint.request_body.schema(format)).html %>
+      <% end %>
     </div>
   </div>
 </div>

@@ -5,10 +5,18 @@
       <li>
         <a href="#overview">Overview</a>
       </li>
-      <li>
-        <ul class="has-label">
-          <% definition.paths.each do |path| %>
-            <% path.endpoints.each do |endpoint| %>
+
+      <% @groups.each do |name, endpoints| %>
+        <% if name %>
+          <% group = @definition.raw['x-groups'][name] %>
+          <li>
+            <%= link_to group['name'], "##{group['name'].parameterize}" %>
+            <ul>
+        <% end %>
+
+        <li>
+          <ul class="has-label">
+            <% endpoints.each do |endpoint| %>
               <li>
                 <%= link_to "##{endpoint.operationId}" do %>
                   <span class="label label--code label--<%= endpoint.method %>"><%= endpoint.method.upcase %></span>
@@ -34,9 +42,15 @@
                 <% end %>
               </li>
             <% end %>
-          <% end %>
-        </ul>
-      </li>
+          </ul>
+        </li>
+
+        <% if name %>
+            </li>
+          </ul>
+        <% end %>
+      <% end %>
+
       <% if @specification_errors_content %>
         <li>
           <a href="#errors">Errors</a>
