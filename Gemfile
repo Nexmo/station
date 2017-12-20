@@ -79,7 +79,7 @@ gem 'recaptcha', require: "recaptcha/rails"
 gem 'icalendar'
 
 # A parser for Open API specifications
-gem 'open_api_parser', github: 'nexmo/open_api_parser', branch: 'openapi-specification-v3'
+gem 'oas_parser', path: '../oas_parser', require: 'oas_parser'
 
 # Generate JSON strings from Ruby objects with flexible formatting options.
 gem 'neatjson'
@@ -136,8 +136,6 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'guard-livereload', '~> 2.5', require: false
   gem 'guard-rspec'
-  gem 'better_errors'
-  gem 'binding_of_caller'
   gem 'pry'
 
   # Share git hooks in Ruby projects among all the collaborators automatically, without them having to do anything

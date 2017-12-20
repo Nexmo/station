@@ -1,22 +1,5 @@
-<div>
-  <div class="slate-layout-documentation">
-    <div>
-      <h3><span class="label label--callback"><i class="icon icon-chevron-circle-right"></i> Callback</span> <%= callback.summary %></h3>
-
-      <% if callback.description %>
-        <p><%= callback.description.render_markdown %></p>
-      <% end %>
-
-      <%= render 'parameters', parameters: callback.parameters, callback: true %>
-
-    </div>
-  </div>
-
-  <div class="slate-layout-code">
-    <div class="slate-layout-code__inner">
-      <br>
-      <h4>Example request</h4>
-      <%= OpenApi::EndpointResolver.new_by_schema(callback.schema).model_html %>
-    </div>
-  </div>
-</div>
+<% callback.paths.each do |path| %>
+  <% path.endpoints.each do |endpoint| %>
+    <%= render 'callback_endpoint', endpoint: endpoint %>
+  <% end %>
+<% end %>

@@ -2,40 +2,7 @@
   <div class="slate-layout-navigation">
     <div>
       <nav class="sidenav sidenav--spacious" data-turbolinks-permanent="">
-
-          <ul class="navigation js-scrollspy has-label">
-            <li>
-              <a href="#"><%= @specification.raw['info']['title'] %></a>
-              <ul class="has-label">
-                <li>
-                  <a href="#overview">Overview</a>
-                </li>
-                <% @groups.each do |group| %>
-                  <% if group['name'] %>
-                    <li>
-                      <a href="#<%= group['name'].parameterize %>">
-                        <%= group['name'] %>
-                      </a>
-                      <ul class="has-label">
-                        <% group[:resources].each do |resource| %>
-                          <%= render 'menu-item', endpoint: OpenApi::EndpointResolver.new(@specification, path: resource[:path], method: resource[:method]) %>
-                        <% end %>
-                      </ul>
-                    </li>
-                  <% else %>
-                    <% group[:resources].each do |resource| %>
-                      <%= render 'menu-item', endpoint: OpenApi::EndpointResolver.new(@specification, path: resource[:path], method: resource[:method]) %>
-                    <% end %>
-                  <% end %>
-                <% end %>
-                <% if @specification_errors_content %>
-                  <li>
-                    <a href="#errors">Errors</a>
-                  </li>
-                <% end %>
-              </ul>
-            </li>
-          </ul>
+        <%= render 'navigation', definition: @definition %>
       </nav>
     </div>
   </div>
@@ -44,72 +11,49 @@
     <div id="overview">
       <div class="slate-layout-documentation">
         <div>
-          <h1><%= @specification.raw['info']['title'] %></h1>
-          <p><%= @specification.raw['info']['description'] %></p>
+          <h1><%= @definition.info['title'] %></h1>
+          <p><%= @definition.info['description'] %></p>
 
-          <%= link_to open_api_path({ format: @specification_format, params: request.query_parameters }), class: 'button button--secondary' do %>
+          <%= link_to open_api_path({ format: @definition_format, params: request.query_parameters }), class: 'button button--secondary' do %>
             <i class="icon icon-swagger"></i>
-            Download OpenAPI 3 Specification
+            Download OpenAPI 3 Definition
           <% end %>
 
         </div>
       </div>
       <div class="slate-layout-code">
-        <% if @specification_initialization_config && @specification_initialization_content %>
+        <% if @definition_initialization_config && @definition_initialization_content %>
           <ul class="tabs tabs--code" data-tabs>
-            <% @specification_initialization_config['tabs'].each do |tab| %>
+            <% @definition_initialization_config['tabs'].each do |tab| %>
               <li class="tabs-title" language-linkable="false" data-language="<%= tab %>"><a href="#<%= tab %>"><%= CODE_LANGUAGES[tab]['label'] %></a></li>
             <% end %>
           </ul>
 
           <div class="slate-layout-code__inner">
-            <%= @specification_initialization_content.html_safe %>
+            <%= @definition_initialization_content.html_safe %>
           </div>
         <% end %>
       </div>
     </div>
 
-
-    <% @groups.each do |group| %>
-      <% if group['name'] %>
-        <div>
-          <div class="slate-layout-documentation slate-layout-documentation--group">
-            <div>
-              <h2 id="<%= group['name'].parameterize %>"><%= group['name'] %></h2>
-              <p><%= group['description'] %></p>
-              <% if group['schema'] %>
-                <%= render 'parameters', parameters: OpenApi::EndpointResolver.normalize_properties(group['schema']['properties']), model: true %>
-              <% end %>
-            </div>
-          </div>
-          <div class="slate-layout-code">
-            <% if group['schema'] %>
-              <div class="slate-layout-code__inner">
-                <%= OpenApi::EndpointResolver.new_by_schema(group['schema']).model_html %>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      <% end %>
-
-
-      <% group[:resources].each do |resource| %>
-        <%= render 'endpoint', endpoint: OpenApi::EndpointResolver.new(@specification, path: resource[:path], method: resource[:method]) %>
+    <% @definition.paths.each do |path| %>
+      <% path.endpoints.each do |endpoint| %>
+        <%= render 'endpoint', endpoint: endpoint %>
       <% end %>
     <% end %>
 
-    <% if @specification_errors_content %>
+    <% if @definition_errors_content %>
       <div class="slate-layout-main" id="errors">
         <div>
           <div class="slate-layout-documentation">
             <div>
-              <%= @specification_errors_content.html_safe %>
+              <%= @definition_errors_content.html_safe %>
             </div>
           </div>
           <div class="slate-layout-code">
             <div class="slate-layout-code__inner">
               <h4>Example response</h4>
-              <%= OpenApi::EndpointResolver.new_by_schema(@specification.raw['components']['schemas']['Error']).model_html %>
+              <%= ResponseParserDecorator.new(@definition.raw['components']['schemas']['Error']).html %>
             </div>
           </div>
         </div>

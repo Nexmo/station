@@ -1,0 +1,47 @@
+<ul class="navigation js-scrollspy has-label">
+  <li>
+    <a href="#"><%= @definition.info['title'] %></a>
+    <ul class="has-label">
+      <li>
+        <a href="#overview">Overview</a>
+      </li>
+      <li>
+        <ul class="has-label">
+          <% definition.paths.each do |path| %>
+            <% path.endpoints.each do |endpoint| %>
+              <li>
+                <%= link_to "##{endpoint.operationId}" do %>
+                  <span class="label label--code label--<%= endpoint.method %>"><%= endpoint.method.upcase %></span>
+                  <%= endpoint.summary %>
+                <% end %>
+                <% if endpoint.callbacks.any? %>
+                  <ul>
+                    <% endpoint.callbacks.each do |callback| %>
+                      <% callback.paths.each do |path| %>
+                        <% path.endpoints.each do |endpoint| %>
+                          <li>
+                            <%= link_to "##{endpoint.operationId}" do %>
+                            <span class="label label--code label--callback">
+                              <i class="icon icon-chevron-circle-right"></i>
+                            </span>
+                            <%= endpoint.summary %>
+                            <% end %>
+                          </li>
+                        <% end %>
+                      <% end %>
+                    <% end %>
+                  </ul>
+                <% end %>
+              </li>
+            <% end %>
+          <% end %>
+        </ul>
+      </li>
+      <% if @specification_errors_content %>
+        <li>
+          <a href="#errors">Errors</a>
+        </li>
+      <% end %>
+    </ul>
+  </li>
+</ul>

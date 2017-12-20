@@ -1,0 +1,12 @@
+<h4>Example request</h4>
+<% if endpoint.raw['x-code-example-path'] %>
+  <%=
+    markdown = <<~HEREDOC
+    ```tabbed_examples
+    config: #{endpoint.raw['x-code-example-path']}
+    ```
+    HEREDOC
+
+    markdown.render_markdown
+  %>
+<% end %>

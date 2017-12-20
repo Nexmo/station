@@ -1,0 +1,34 @@
+<div>
+  <div class="slate-layout-documentation">
+    <div>
+      <h3 id="<%= endpoint.operationId %>">
+        <span class="label label--callback">
+          <i class="icon icon-chevron-circle-right"></i> Callback
+        </span>
+        &nbsp;<%= endpoint.summary %>
+      </h3>
+      <p><%= endpoint.description.render_markdown %></p>
+
+      <div class="api-path">
+        <span class="api-path-method api-path-method--<%= endpoint.method %>"><%= endpoint.method.upcase %></span>
+        <code>
+          <span class="api-path-host">https://example.com</span>
+          <%= endpoint.raw['x-example-path'].gsub(/\{(.+?)\}/, '<span class="api-path-parameter">:\1</span>').html_safe %>
+        </code>
+      </div>
+
+      <%= render 'parameter_groups', endpoint: endpoint %>
+    </div>
+  </div>
+
+  <div class="slate-layout-code">
+    <div class="slate-layout-code__inner">
+      <br>
+      <%= render 'code_examples', endpoint: endpoint %>
+    </div>
+  </div>
+</div>
+
+<% endpoint.callbacks.each do |callback| %>
+  <%= render 'callback', callback: callback %>
+<% end %>

@@ -1,0 +1,18 @@
+<% if endpoint.path_parameters.any? %>
+  <h4>Path Parameters</h4>
+  <%= render 'parameters', parameters: endpoint.path_parameters %>
+<% end %>
+
+<% if endpoint.query_parameters.any? %>
+  <h4>Query Parameter</h4>
+  <%= render 'parameters', parameters: endpoint.query_parameters %>
+<% end %>
+
+<% if endpoint.request_body %>
+  <% endpoint.request_body.formats.each do |format| %>
+    <% if endpoint.request_body.properties_for_format(format).any? %>
+      <h4>Request Body - <%= format %></h4>
+      <%= render 'parameters', parameters: endpoint.request_body.properties_for_format(format) %>
+    <% end %>
+  <% end %>
+<% end %>
