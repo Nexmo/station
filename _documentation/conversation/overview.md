@@ -50,6 +50,22 @@ To start with you'll need a [Nexmo Account](/account/guides/management#create-an
 
 | ### Prerequisites
 |
+| #### Install the Nexmo CLI
+|
+| * Ensure you have [Node.JS](https://nodejs.org/) installed
+| * Create a free Nexmo account - [signup](https://dashboard.nexmo.com)
+| * Install the Nexmo CLI:
+|
+|    ```bash
+|    $ npm install -g nexmo-cli@beta
+|    ```
+|
+|    Setup the CLI to use your Nexmo API Key and API Secret. You can get these from the [setting page](https://dashboard.nexmo.com/settings) in the Nexmo Dashboard.
+|
+|    ```bash
+|    $ nexmo setup api_key api_secret
+|    ```
+|
 | #### Create an Application
 |
 | Create an application named `My first Conversation Application` and store the returned private key as `private.key` within your current working directory.
