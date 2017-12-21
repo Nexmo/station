@@ -443,8 +443,8 @@ The following example shows the parameters sent to `eventUrl`:
 
 ```json
 {
-  "uuid": "56f61045-5b78-2f5h-56h8-46zdgre9264",
-  "conversation_uuid": "63f61863-4a51-4f6b-86e1-46edebcf9929",
+  "uuid": "aaaaaaaa-bbbb-cccc-dddd-0123456789ab",
+  "conversation_uuid": "bbbbbbbb-cccc-dddd-eeee-0123456789ab",
   "timed_out": true,
   "dtmf": "3109"
 }
