@@ -78,7 +78,8 @@ The following example shows the return parameters sent to `eventUrl`:
   "size": 12345,
   "recording_uuid": "aaaaaaaa-bbbb-cccc-dddd-0123456789ab",
   "end_time": "2020-01-01T12:01:00Z",
-  "conversation_uuid": "bbbbbbbb-cccc-dddd-eeee-0123456789ab"
+  "conversation_uuid": "bbbbbbbb-cccc-dddd-eeee-0123456789ab",
+  "timestamp": "2020-01-01T14:00:00.000Z"
 }
 ```
 
@@ -446,7 +447,8 @@ The following example shows the parameters sent to `eventUrl`:
   "uuid": "aaaaaaaa-bbbb-cccc-dddd-0123456789ab",
   "conversation_uuid": "bbbbbbbb-cccc-dddd-eeee-0123456789ab",
   "timed_out": true,
-  "dtmf": "3109"
+  "dtmf": "1234",
+  "timestamp": "2020-01-01T14:00:00.000Z"
 }
 ```
 

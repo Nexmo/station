@@ -16,6 +16,7 @@ menu_weight: 3
   "conversation_uuid": "bbbbbbbb-cccc-dddd-eeee-0123456789ab",
   "status": "completed",
   "direction": "out",
-  "network": "12345"
+  "network": "12345",
+  "timestamp": "2020-01-01T14:00:00.00Z"
 }
 ```

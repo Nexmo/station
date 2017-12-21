@@ -13,6 +13,7 @@ menu_weight: 2
   "conversation_uuid": "bbbbbbbb-cccc-dddd-eeee-0123456789ab",
   "status": "answered",
   "direction": "outbound",
-  "network": null
+  "network": null,
+  "timestamp": "2020-01-01T14:00:00.00Z"
 }
 ```
