@@ -136,6 +136,7 @@ source: _examples/conversations/overview/join-the-conversation/
 
 * [API Reference](/api/conversation)
 * [Nexmo CLI](https://github.com/nexmo/nexmo-cli/tree/beta)
+* [Server-side Gateway](https://github.com/Nexmo/messaging-gateway) with [Android](https://github.com/Nexmo/messaging-demo-android) and [JavaScript](https://github.com/Nexmo/messaging-demo-js) client demos
 
 ## API References
 
