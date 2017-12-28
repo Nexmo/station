@@ -28,6 +28,11 @@ You should now be able to see the site on http://localhost:3000/
 If you don't want to install Ruby & PostgreSQL then you can use docker to sandbox Nexmo Developer into its own containers. After you [Install Docker](https://docs.docker.com/engine/installation/) run the following:
 
 ```
+$ git clone git@github.com:Nexmo/nexmo-developer.git
+$ cd nexmo-developer
+$ cp .env.example .env
+$ ./bin/yarn install
+
 # Start the web server
 $ docker-compose up
 
