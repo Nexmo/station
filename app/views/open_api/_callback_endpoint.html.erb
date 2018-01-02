@@ -7,13 +7,15 @@
         </span>
         &nbsp;<%= endpoint.summary %>
       </h3>
-      <p><%= endpoint.description.render_markdown %></p>
+      <% if endpoint.description %>
+        <p><%= endpoint.description.render_markdown %></p>
+      <% end %>
 
       <div class="api-path">
         <span class="api-path-method api-path-method--<%= endpoint.method %>"><%= endpoint.method.upcase %></span>
         <code>
           <span class="api-path-host">https://example.com</span>
-          <%= endpoint.raw['x-example-path'].gsub(/\{(.+?)\}/, '<span class="api-path-parameter">:\1</span>').html_safe %>
+          <%= (endpoint.raw['x-example-path'] || '/webhooks/event').gsub(/\{(.+?)\}/, '<span class="api-path-parameter">:\1</span>').html_safe %>
         </code>
       </div>
 
