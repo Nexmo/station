@@ -21,10 +21,6 @@
               <div class="table-list-column" flex="3">Description</div>
               <div class="table-list-column" flex="2">Example</div>
 
-              <% if endpoint.jwt_scopes.any? %>
-                <div class="table-list-column">Scopes Required</div>
-              <% end %>
-
               <div class="table-list-column">Default</div>
             </div>
           </li>
@@ -42,12 +38,6 @@
                 <small><%= link_to "Read more about JWTs", "/concepts/guides/authentication#json-web-tokens-jwt" %></small>
               </div>
               <div class="table-list-column" flex="2"><code>Bearer &lt;JWT&gt;</code></div>
-
-              <% if endpoint.jwt_scopes.any? %>
-                <div class="table-list-column">
-                  <code><%= endpoint.jwt_scopes %></code>
-                </div>
-              <% end %>
 
               <div class="table-list-column">
                 <i>None</i>
