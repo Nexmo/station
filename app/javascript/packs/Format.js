@@ -1,7 +1,10 @@
 export default class Format {
   constructor() {
-    this.formatChanged($('.js-format-selector')[0].value)
-    $('.js-format-selector').change((event) => this.formatChanged(event.target.value))
+    const formatSelector = $('.js-format-selector')[0]
+    if (formatSelector) {
+      this.formatChanged(formatSelector.value)
+      $(formatSelector).change((event) => this.formatChanged(event.target.value))
+    }
   }
 
   formatChanged(format) {
