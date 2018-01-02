@@ -79,7 +79,12 @@ gem 'recaptcha', require: "recaptcha/rails"
 gem 'icalendar'
 
 # A parser for Open API specifications
-gem 'oas_parser', path: '../oas_parser', require: 'oas_parser'
+#
+# If using development copy uncomment:
+# gem 'oas_parser', path: '../oas_parser', require: 'oas_parser'
+#
+# Otherwise use a published gem:
+gem 'oas_parser', '0.1.0'
 
 # Generate JSON strings from Ruby objects with flexible formatting options.
 gem 'neatjson'
