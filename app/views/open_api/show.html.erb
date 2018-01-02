@@ -24,10 +24,20 @@
       <div class="slate-layout-code">
         <% if @definition_initialization_config && @definition_initialization_content %>
           <ul class="tabs tabs--code" data-tabs>
-            <% @definition_initialization_config['tabs'].each do |tab| %>
-              <li class="tabs-title" language-linkable="false" data-language="<%= tab %>"><a href="#<%= tab %>"><%= CODE_LANGUAGES[tab]['label'] %></a></li>
+            <% if @definition_initialization_config['tabs'] %>
+              <% @definition_initialization_config['tabs'].each do |tab| %>
+                <li class="tabs-title" language-linkable="false" data-language="<%= tab %>"><a href="#<%= tab %>"><%= CODE_LANGUAGES[tab]['label'] %></a></li>
+              <% end %>
             <% end %>
           </ul>
+
+          <% if @definition_initialization_config['formats'] %>
+            <select class="js-format-selector">
+              <% @definition_initialization_config['formats'].each do |value, name| %>
+                <option value="<%= value %>"><%= name %></option>
+              <% end %>
+            </select>
+          <% end %>
 
           <div class="slate-layout-code__inner">
             <%= @definition_initialization_content.html_safe %>

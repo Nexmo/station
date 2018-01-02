@@ -75,10 +75,45 @@
           </a>
         </h4>
         <div id="<%= id %>" style="display: <%= response.success? ? 'block' : 'none' %>;">
-          <% response.formats.each do |format| %>
-            <p><%= format %></p>
-            <%= ResponseParserDecorator.new(response.schema(format)).html %>
+          <div class="tabs-content" data-tabs-content="<%= id %>">
+            <% response.formats.each_with_index do |format, index| %>
+
+                <div class="js-format" data-format="<%= format %>">
+                  <% if response.exhibits_one_of_multiple_schemas?(format) %>
+                    <%
+                      schema_tab_ids = []
+                      id = SecureRandom.hex
+                      response.split_schemas(format).each { schema_tab_ids << SecureRandom.hex }
+                    %>
+
+                    <ul class="tabs tabs--format" data-tabs id="<%= id %>">
+                      <% response.split_schemas(format).each_with_index do |schema, index| %>
+                        <li class="tabs-title <%= index.zero? ? 'is-active' : '' %>">
+                          <a href="#<%= schema_tab_ids[index] %>" <% if index.zero? %>aria-selected="true"<% end %>><%= schema['description'] || "Response #{index + 1}" %></a>
+                        </li>
+                      <% end %>
+                    </ul>
+                    <div class="tabs-content" data-tabs-content="<%= id %>">
+                      <% response.split_schemas(format).each_with_index do |schema, index| %>
+                        <div class="tabs-panel <%= index.zero? ? 'is-active' : '' %>" id="<%= schema_tab_ids[index] %>">
+                          <%= ResponseParserDecorator.new(schema).html(format) %>
+                        </div>
+                      <% end %>
+                    </div>
+                  <% else %>
+                    <p><%= format %></p>
+                    <%= ResponseParserDecorator.new(response.schema(format)).html(format) %>
+                  <% end %>
+                </div>
+
+
+            <% end %>
+          </div>
+
+          <% if response.code == '204' || response.formats.empty? %>
+            <pre class="highlight"><code>No content</code></pre>
           <% end %>
+
         </div>
       <% end %>
     </div>
