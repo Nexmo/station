@@ -5,7 +5,7 @@ COLLAPSIBLE = ['Messaging', 'SMS', 'Conversion API', 'SNS', 'US Short Codes', 'V
 
 module ApplicationHelper
   def search_enabled?
-    return false unless ENV['SEARCH_URL']
+    return false unless defined? ALGOLIA_CONFIG
     true
   end
 
