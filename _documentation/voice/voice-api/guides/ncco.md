@@ -71,6 +71,7 @@ Name | Description
 `to` | The endpoint being called.
 `from` | The endpoint you are calling from.
 `conversation_uuid` | The unique ID for this Conversation.
+`uuid` | The unique ID for this Call.
 
 You can use these parameters to customize the NCCO you return to Nexmo. The following code examples show how to provide the NCCO that controls your call or conversation:
 
