@@ -10,7 +10,7 @@ rescue Errno::ENOENT => e
   # No config is found, therefor search will simply be disabled.
 end
 
-if defined? ALGOLIA_CONFIG
+if defined?(ALGOLIA_CONFIG) && ENV['ALGOLIA_SEARCH_KEY']
   filters = ALGOLIA_CONFIG.flat_map do |_, config|
     next unless config && config['filters']
 
