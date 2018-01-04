@@ -1,14 +1,18 @@
+<%
+  model = false if local_assigns[:model].nil?
+  callback = false if local_assigns[:callback].nil?
+%>
+
 <ul class="table-list">
   <li class="table-list-header">
     <div class="table-list-columns">
       <div class="table-list-column" flex="2">Key</div>
       <div class="table-list-column" flex="3">Description</div>
-      <% unless defined?(model) && model %>
+      <% unless model %>
         <div class="table-list-column" flex="2">Example</div>
-      <% end %>
-
-      <% unless (defined?(model) && model) || (defined?(callback) && callback) %>
-        <div class="table-list-column">Default</div>
+        <% unless callback %>
+          <div class="table-list-column">Default</div>
+        <% end %>
       <% end %>
     </div>
   </li>
@@ -76,13 +80,13 @@
           <% end %>
         </div>
 
-        <% unless defined?(model) && model %>
+        <% unless model %>
           <div class="table-list-column" flex="2">
             <%= (parameter.example ? "<code>#{parameter.example}</code>" : '<i>None</i>').html_safe %>
           </div>
         <% end %>
 
-        <% unless (defined?(model) && model) || (defined?(callback) && callback) %>
+        <% unless model || callback %>
           <div class="table-list-column">
             <%= (parameter.default ? "<code>#{parameter.default}</code>" : '<i>None</i>').html_safe %>
           </div>
@@ -90,7 +94,7 @@
       </div>
 
       <% if parameter.collection? %>
-        <%= render 'parameters', parameters: parameter.properties %>
+        <%= render 'parameters', parameters: parameter.properties, model: model %>
       <% end %>
     </li>
   <% end %>
