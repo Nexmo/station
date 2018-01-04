@@ -49,7 +49,6 @@ class Search extends React.Component {
   }
 
   performSearch(analytics = false) {
-    console.log('Searching', this.state.query)
     const parameters = $('meta[name=algolia_index]').map((index, element) => {
       return {
         indexName: $(element).attr('content'),
