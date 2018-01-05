@@ -91,7 +91,6 @@
                       <% end %>
                     </div>
                   <% else %>
-                    <p><%= format %></p>
                     <%= ResponseParserDecorator.new(response.schema(format)).html(format) %>
                   <% end %>
                 </div>
