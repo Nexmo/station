@@ -34,6 +34,7 @@
  */
 
 var WildEmitter = require('wildemitter');
+var User = require('./user').User;
 var Event = require('./events/event').Event;
 var TextEvent = require('./events/text_event').TextEvent;
 var ImageEvent = require('./events/image_event').ImageEvent;
@@ -50,51 +51,68 @@ var NexmoClientError = ConversationClientError.NexmoClientError;
  * @param {Conversation} conversation
  * @param {Object} params 
  */
-var Member = function(conversation, params, is_ourselves) {
-    is_ourselves = is_ourselves || false;
+var Member = function(conversation, params) {
     this.conversation = conversation;
-    // Map the params
-    for (var key in params) {
-        this[key] = params[key];
-    }
-    this.updateMissingParams = function(params) {
-        var self = this;
+
+    //TODO: to move this to a constructor
+    this._normalise = function(params) {
         if (params) {
-            if (params.from) self.id = params.from;
-            if (params.user &amp;&amp; params.user.id) self.user_id = params.user.id;
-            if (params.user &amp;&amp; params.user.user_id) self.user_id = params.user.user_id;
-            if (params.user &amp;&amp; params.user.name) self.name = params.user.name;
-            if (params.state) self.state = params.state;
-            if (params.invited_by) self.invited_by = params.invited_by;
-            if (params.timestamp) self.timestamp = params.timestamp;
-            if (params.channel) self.channel = params.channel || {};
+            for (var key in params) {
+                switch (key) {
+                    case "member_id":
+                        this.id = params.member_id;
+                        break;
+                    case "timestamp":
+                        this.timestamp = params.timestamp;
+                        break;
+                    case "state":
+                        this.state = params.state;
+                        break;
+                    default:
+                        this[key] = params[key];
+                }
+            }
+
+            if (params.from) {
+                if (params.from) this.id = params.from;
+            }
+            this.user = this.user || {};
+            if (params.user_id) {
+                this.user.id = params.user_id;
+            }
+            if (params.name) {
+                this.user.name = params.name;
+            }
+            if (params.user) {
+                this.user = {
+                    name: params.user.name,
+                    id: params.user.user_id || params.user.id
+                };
+            }
+            if (params.invited_by) this.invited_by = params.invited_by;
+            this.channel = params.channel || {
+                type: "app"
+            };
+            //join conversation returns our member with only id, 
+            // compare it for now and use the username we have in the application object
+            if (this.conversation.application.me &amp;&amp; params.user_id === this.conversation.application.me.id) {
+                this.user.name = this.conversation.application.me.name;
+            }
+
+            //make sure we don't keep a member.user_id, username in any flow
+            delete this.user_id;
+            delete this.name;
+            delete this.user.user_id;
         }
-    };
-    // this._events = []; // A cache of events sent by this user
+    }
     // call WildEmitter constructor
     WildEmitter.call(this);
-
-    //use this flag to specify member specific prototypes
-    // if (is_ourselves) {
-
-    // }
+    this._normalise(params);
 };
-//remove this when responses become consistent
-
 
 Member.prototype = new WildEmitter();
-
-/*
- * Retrieve a list of events sent by this member in this conversation
- *
- * @returns {Array&lt;Events>} - not implemented yet
- */
-// Member.prototype.events = function(params) {
-//     var events = [];
-//     return events;
-// };
-
-
+//reset the original Type
+Member.prototype.constructor = Member;
 
 /*
  * Play the given stream only to this member within the conversation
@@ -123,12 +141,12 @@ Member.prototype.playStream = function(params) {
     return p;
 };
 
-/*
+/** 
  * Speak the given text only to this member within the conversation
  * 
  * @param {String} [params] 
  * 
- * @returns {Promise&lt;Event>} - not tested yet
+ * @returns {Promise&lt;Event>}
  */
 Member.prototype.sayText = function(params) {
     var self = this;
@@ -305,33 +323,26 @@ Member.prototype.record = function(params) {
 };
 
 Member.prototype._handleEvent = function(event) {
-    this.updateMissingParams(event.body);
     switch (event.type) {
         case 'member:invited':
+            this._normalise(event.body);
             this.state = 'INVITED';
-            this.emit(event.type, event.from, event);
+            this.timestamp.invited = event.body.timestamp.invited;
             break;
         case 'member:joined':
+            this._normalise(event.body);
             this.state = 'JOINED';
-            this.emit(event.type, event.from, event);
+            this.timestamp.joined = event.body.timestamp.joined;
             break;
         case 'member:left':
+            this._normalise(event.body);
             this.state = 'LEFT';
-            this.emit(event.type, event.from, event);
+            this.timestamp.left = event.body.timestamp.left;
             break;
         case 'member:media':
             this.media = event.body;
             break;
-        case 'text':
-            var text_event = new TextEvent(this.conversation, event);
-            this.emit(event.type, event.from, text_event); // This needs to generate a text event so we can send a "seen"
-            break;
-        case 'image':
-            var image_event = new ImageEvent(this.conversation, event);
-            this.emit(event.type, event.from, image_event); // This needs to generate an image event so we can send a "seen"
-            break;
         default:
-            this.emit(event.type, event.from, event.body);
             break;
     }
 };
@@ -348,13 +359,13 @@ module.exports = {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Member.html">Member</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ConversationClientErrorTypes">ConversationClientErrorTypes</a></li><li><a href="global.html#me">me</a></li><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li><li><a href="global.html#NexmoClientErrorTypes">NexmoClientErrorTypes</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ConversationClientErrorTypes">ConversationClientErrorTypes</a></li><li><a href="global.html#me">me</a></li><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li><li><a href="global.html#NexmoClientErrorTypes">NexmoClientErrorTypes</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Dec 04 2017 18:00:41 GMT+0000 (GMT)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Jan 08 2018 16:23:20 GMT+0000 (GMT)
 </footer>
 
 <script> prettyPrint(); </script>

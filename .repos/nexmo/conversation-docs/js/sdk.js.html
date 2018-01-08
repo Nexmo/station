@@ -30,21 +30,31 @@
  * Conversation SDK
  *  Main wrapper
  *
- * Copyright (c) Nexmo Inc. 2016
+ * Copyright (c) Nexmo Inc. 2017
  */
 
 var WildEmitter = require('wildemitter');
 var socket_io = require('socket.io-client');
+var logger = require('loglevel');
+var prefix = require('loglevel-plugin-prefix');
 
 var utils = require('./utils');
-var RTC_Cache = require('./modules/rtc_cache');
 
+var RTC_Cache = require('./modules/rtc_cache');
 var Application = require('./application').Application,
 	User = require('./user').User;
-var logger = require('loglevel-message-prefix')(require('loglevel'), {
-	prefixes: ['level'],
-	// staticPrefixes: ['Nexmo-SDK'],
-	separator: '|'
+
+prefix.apply(logger, {
+	template: '[%t] %l (NXM-%n):',
+	timestampFormatter: function(date) {
+		return date.toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, '$1');
+	},
+	levelFormatter: function(level) {
+		return level.toUpperCase();
+	},
+	nameFormatter: function(name) {
+		return name || 'SDK';
+	}
 });
 
 // Conversation Client Error
@@ -59,7 +69,7 @@ var NexmoClientError = ConversationClientError.NexmoClientError;
  * @class ConversationClient
  * @param {Object} [params]
  * @param {Boolean} params.debug=false set mode to debug
- * @param {String} params.url=nexmo_ws_url Nexmo Conversation Websocket url
+ * @param {String} params.url=nexmo_ws_url Nexmo Conversation Websocket url 
  * @param {String} params.path=/rtc Nexmo Conversation Websocket url path suffix
  * @param {Boolean} params.reconnection=true socket.io reconnection attribute
  * @param {Boolean} params.forceNew=true socket.io forceNew attribute
@@ -103,7 +113,6 @@ function ConversationClient(params) {
 		this.config[item] = options[item];
 	}
 
-	//inject the logging tool
 	if (config.debug === true) {
 		logger.setLevel("debug");
 	} else {
@@ -247,7 +256,7 @@ function ConversationClient(params) {
 		if (packet.type !== 2) return;
 		if (packet.data[0] === 'echo') return; //ignore echo events
 		var response = packet.data[1];
-		// Set the type of the response
+		// Set the type of the response		
 		response.type = packet.data[0];
 		self.log.debug("&lt;--", response.type, JSON.stringify(response));
 		if (response.rid in self.requests) {
@@ -286,7 +295,7 @@ ConversationClient.prototype = new WildEmitter();
  * });
  */
 /**
- * @ignore
+ *
  *  Conversation listening for image events.
  *
  * @event Conversation#image
@@ -310,12 +319,13 @@ ConversationClient.prototype = new WildEmitter();
  *
  * @event Conversation#event:delete
  *
- * @property {object} empty - empty object
- * @property {object} data - deleted event: data.event_id
- * @example &lt;caption>get the id of the deleted event&lt;/caption>
+ * @property {Member} member - the member who deleted an event
+ * @property {Event} event - deleted event: event.id
+ * @example &lt;caption>get details about the deleted event&lt;/caption>
  * conversation.on("event:delete",
- *   function(empty, data) {
- *      console.log(data.event_id);
+ *   function(member, event) {
+ *      console.log(event.id);
+ *      console.log(event.body.timestamp.deleted);
  * });
  */
 /**
@@ -323,12 +333,13 @@ ConversationClient.prototype = new WildEmitter();
  *
  * @event Conversation#member:joined
  *
- * @property {object} data -
- * @property {object} info - info about the member that joined the conversation
+ * @property {Member} member - the member that joined
+ * @property {Event} event - the join event
  * @example &lt;caption>get the name of the new member&lt;/caption>
  * conversation.on("member:joined",
- *   function(data, info) {
- *      console.log(info.user.name+ " joined the conversation");
+ *   function(member, event) {
+ * 		console.log(event.id)
+ *      console.log(member.user.name+ " joined the conversation");
  * });
  */
 /**
@@ -336,12 +347,12 @@ ConversationClient.prototype = new WildEmitter();
  *
  * @event Conversation#member:invited
  *
- * @property {object} data -
- * @property {object} receiver - data regarding the receiver of the invitation
+ * @property {Member} member - the member that is invited
+ * @property {Event} event - data regarding the receiver of the invitation
  * @example &lt;caption>get the name of the invited member&lt;/caption>
  * conversation.on("member:invited",
- *   function(data, receiver ) {
- *      console.log(receiver.user.user_name + " invited to the conversation");
+ *   function(member, event ) {
+ *      console.log(member.user.name + " invited to the conversation");
  * });
  */
 /**
@@ -349,12 +360,12 @@ ConversationClient.prototype = new WildEmitter();
  *
  * @event Conversation#member:left
  *
- * @property {object} data -
- * @property {object} member - information about the member that left
+ * @property {Member} member - the member that has left
+ * @property {Event} event - data regarding the receiver of the invitation
  * @example &lt;caption>get the username of the member that left&lt;/caption>
  * conversation.on("member:left",
- *   function(data , info ) {
- *      console.log(info.user.name + " left");
+ *   function(member , event ) {
+ *      console.log(member.user.name + " left");
  * });
  */
 /**
@@ -362,7 +373,8 @@ ConversationClient.prototype = new WildEmitter();
  *
  * @event Conversation#text:typing:on
  *
- * @property {object} data - info about the member that is typing
+ * @property {Member} member - the member that started typing
+ * @property {Event} event - the start typing event
  * @example &lt;caption>get the username of the member that is typing&lt;/caption>
  * conversation.on("text:typing:on",
  *   function(data) {
@@ -373,8 +385,9 @@ ConversationClient.prototype = new WildEmitter();
  * Conversation listening for members stoped typing.
  *
  * @event Conversation#text:typing:off
- *
- * @property {object} data - info about the member that stopped typing
+ * 
+ * @property {Member} member - the member that stopped typing
+ * @property {Event} event - the stop typing event
  * @example &lt;caption>get the username of the member that stopped typing&lt;/caption>
  * conversation.on("text:typing:off",
  *   function(data) {
@@ -386,7 +399,7 @@ ConversationClient.prototype = new WildEmitter();
  *
  * @event Conversation#text:seen
  *
- * @property {object} data -
+ * @property {Member} member - the member that saw the text
  * @property {Text} text - the text that was seen
  * @example &lt;caption>listen for seen text events&lt;/caption>
  * conversation.on("text:seen",
@@ -408,7 +421,7 @@ ConversationClient.prototype = new WildEmitter();
  * Conversation listening for members' seen images.
  * @event Conversation#image:seen
  *
- * @property {object} data -
+ * @property {Member} member - the member that saw the image
  * @property {ImageEvent} image - the image that was seen
  * @example &lt;caption>listen for seen image events&lt;/caption>
  * conversation.on("image:seen",
@@ -427,19 +440,19 @@ ConversationClient.prototype = new WildEmitter();
  */
 /**
  * Conversation listening for members media changes (audio, video,text)
- * @ignore
- * Change in media presence state. They are in the conversation with text, audio or video.
  *
+ * Change in media presence state. They are in the conversation with text, audio or video.
+ * 
  * @event Conversation#member:media
  *
- * @property {object} from - the member object linked to this event
- * @property {object} media - information about media presence state
- * @property {boolean} media.audio  - is audio enabled
+ * @property {Member} member - the member object linked to this event 
+ * @property {Event} event - information about media presence state
+ * @property {boolean} event.body.audio  - is audio enabled
  * @example &lt;caption>get every member's media change events &lt;/caption>
  * conversation.on("member:media",
  *   function(from, media ) {
- *      console.log(media.audio); //{"audio":true}
- * 		console.log(conversation.members[from].media);
+ *      console.log(from.media.audio); //true
+ * 		console.log(event.body.media); //{"audio":true}
  * });
  */
 ConversationClient.prototype.sendRequest = function(request, callback) {
@@ -448,34 +461,13 @@ ConversationClient.prototype.sendRequest = function(request, callback) {
 	request.tid = utils.allocateUUID();
 	var type = request.type;
 	delete request.type;
-	if (!self.cache) {
-		self.log.debug("-->", type, JSON.stringify(request));
-		self.connection.emit(type, request);
-		self.requests[request.tid] = {
-			type: type,
-			request: request,
-			callback: callback
-		};
-	} else {
-		self.cache.process_cache(type, request, callback, self).then(
-			function(processed_response) {
-				if (processed_response) {
-					return callback(processed_response);
-				} else {
-					self.log.debug("CACHE [-->]", type, JSON.stringify(request));
-					self.connection.emit(type, request);
-					self.requests[request.tid] = {
-						type: type,
-						request: request,
-						callback: callback
-					};
-					//make sure we keep the conversation each request belongs to
-					//to keep aligned the cache
-					if (request.cid)
-						self.requests[request.tid].cid = request.cid;
-				}
-			});
-	}
+	self.log.debug("-->", type, JSON.stringify(request));
+	self.connection.emit(type, request);
+	self.requests[request.tid] = {
+		type: type,
+		request: request,
+		callback: callback
+	};
 };
 
 /**
@@ -587,7 +579,7 @@ ConversationClient.prototype.logout = function() {
 
 		// prepare for logout
 		if (self.application &amp;&amp; self.application.activeStream &amp;&amp; self.application.activeStream.stream) {
-			self.application.activeStream.conversation.audio.disable()
+			self.application.activeStream.conversation.media.disable()
 				// mimicking .finally
 				.then(function() {}).catch(function() {}).then(function() {
 					logoutRequest();
@@ -616,8 +608,7 @@ ConversationClient.prototype.connect = function() {
 	return this.connection.connect();
 };
 
-module.exports = ConversationClient;
-</code></pre>
+module.exports = ConversationClient;</code></pre>
         </article>
     </section>
 
@@ -627,13 +618,13 @@ module.exports = ConversationClient;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Member.html">Member</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ConversationClientErrorTypes">ConversationClientErrorTypes</a></li><li><a href="global.html#me">me</a></li><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li><li><a href="global.html#NexmoClientErrorTypes">NexmoClientErrorTypes</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ConversationClientErrorTypes">ConversationClientErrorTypes</a></li><li><a href="global.html#me">me</a></li><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li><li><a href="global.html#NexmoClientErrorTypes">NexmoClientErrorTypes</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Dec 04 2017 18:00:41 GMT+0000 (GMT)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Jan 08 2018 16:23:20 GMT+0000 (GMT)
 </footer>
 
 <script> prettyPrint(); </script>

@@ -168,7 +168,7 @@ user's invitations
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="application.js.html">application.js</a>, <a href="application.js.html#line36">line 36</a>
+        <a href="application.js.html">application.js</a>, <a href="application.js.html#line39">line 39</a>
     </li></ul></dd>
     
 
@@ -338,7 +338,7 @@ Result added (or updated) in this.conversations
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="application.js.html">application.js</a>, <a href="application.js.html#line282">line 282</a>
+        <a href="application.js.html">application.js</a>, <a href="application.js.html#line286">line 286</a>
     </li></ul></dd>
     
 
@@ -447,7 +447,7 @@ logged-in user is a member with a state of `JOINED` or `INVITED`.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="application.js.html">application.js</a>, <a href="application.js.html#line241">line 241</a>
+        <a href="application.js.html">application.js</a>, <a href="application.js.html#line193">line 193</a>
     </li></ul></dd>
     
 
@@ -616,7 +616,7 @@ logged-in user is a member with a state of `JOINED` or `INVITED`.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="application.js.html">application.js</a>, <a href="application.js.html#line328">line 328</a>
+        <a href="application.js.html">application.js</a>, <a href="application.js.html#line331">line 331</a>
     </li></ul></dd>
     
 
@@ -854,7 +854,7 @@ The conversation name must be unique per application.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="application.js.html">application.js</a>, <a href="application.js.html#line181">line 181</a>
+        <a href="application.js.html">application.js</a>, <a href="application.js.html#line133">line 133</a>
     </li></ul></dd>
     
 
@@ -912,10 +912,10 @@ The conversation name must be unique per application.
 
         //join the created conversation
         conversation.join().then(
-            //Get the user's memeber belonging in this conversation.
+            //Get the user's member belonging in this conversation.
             //You can also access it via conversation.me
             function(member) {
-                console.log("Joined as " + member.name);
+                console.log("Joined as " + member.user.name);
             });
 
     }).catch(function(error) {
@@ -1116,7 +1116,7 @@ The conversation name must be unique per application.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="application.js.html">application.js</a>, <a href="application.js.html#line226">line 226</a>
+        <a href="application.js.html">application.js</a>, <a href="application.js.html#line178">line 178</a>
     </li></ul></dd>
     
 
@@ -1174,10 +1174,10 @@ The conversation name must be unique per application.
 
         //join the created conversation
         conversation.join().then(
-            //Get the user's memeber belonging in this conversation.
+            //Get the user's member belonging in this conversation.
             //You can also access it via conversation.me
             function(member) {
-                console.log("Joined as " + member.name);
+                console.log("Joined as " + member.user.name);
             });
 
     }).catch(function(error) {
@@ -1249,13 +1249,13 @@ The conversation name must be unique per application.
 
         <tr>
             
-                <td class="name"><code>data</code></td>
+                <td class="name"><code>member</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">object</span>
+<span class="param-type"><a href="Member.html">Member</a></span>
 
 
             
@@ -1265,20 +1265,20 @@ The conversation name must be unique per application.
 
             
 
-            <td class="description last">-</td>
+            <td class="description last">The invited member</td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>invitation</code></td>
+                <td class="name"><code>event</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">object</span>
+<span class="param-type"><a href="Event.html">Event</a></span>
 
 
             
@@ -1288,7 +1288,7 @@ The conversation name must be unique per application.
 
             
 
-            <td class="description last">The invitation</td>
+            <td class="description last">The invitation event</td>
         </tr>
 
     
@@ -1327,7 +1327,7 @@ The conversation name must be unique per application.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="application.js.html">application.js</a>, <a href="application.js.html#line48">line 48</a>
+        <a href="application.js.html">application.js</a>, <a href="application.js.html#line58">line 58</a>
     </li></ul></dd>
     
 
@@ -1359,28 +1359,17 @@ The conversation name must be unique per application.
         <p class="code-caption">listen for your invites</p>
     
     <pre class="prettyprint"><code>application.on("member:invited",
-  function(data, invitation) {
-     console.log(data, invitation);    
+  function(member, event) {
+     console.log("Invited to the conversation: " + event.conversation.display_name || event.conversation.name);  
 
 //identify the sender.
-console.log("received from: " + invitation.body.invited_by);
-
-//get the conversation id and name to use to accept/decline the invitation.
-console.log(invitation.cid);
-console.log(invitation.body.cname);
+console.log("Invited by: " + member.invited_by);
 
 //accept an invitation.
- application.getConversation(invitation.cid || invitation.body.cname)
-     .then(function(conversation_to_join) {
-         conversation_to_join.join();
-      });
-});
+ application.conversations[event.conversation.id].join();
 
-//decline the invitation. //to be simplified
-application.getConversation(invitation.cid || invitation.body.cname)
-     .then(function(conversation_to_dismiss){
-        conversation_to_dismiss.members[invitation.body.user.member_id].kick(); 
-     });</code></pre>
+//decline the invitation.
+ application.conversations[event.conversation.id].leave(); </code></pre>
 
 
 
@@ -1439,13 +1428,13 @@ application.getConversation(invitation.cid || invitation.body.cname)
 
         <tr>
             
-                <td class="name"><code>member_id</code></td>
+                <td class="name"><code>member</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">object</span>
+<span class="param-type"><a href="Member.html">Member</a></span>
 
 
             
@@ -1455,20 +1444,20 @@ application.getConversation(invitation.cid || invitation.body.cname)
 
             
 
-            <td class="description last">the id of the member that performed the action</td>
+            <td class="description last">the member that joined the conversation</td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>data</code></td>
+                <td class="name"><code>event</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">object</span>
+<span class="param-type"><a href="Event.html">Event</a></span>
 
 
             
@@ -1478,7 +1467,7 @@ application.getConversation(invitation.cid || invitation.body.cname)
 
             
 
-            <td class="description last">information about the conversation</td>
+            <td class="description last">the join event</td>
         </tr>
 
     
@@ -1517,7 +1506,7 @@ application.getConversation(invitation.cid || invitation.body.cname)
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="application.js.html">application.js</a>, <a href="application.js.html#line81">line 81</a>
+        <a href="application.js.html">application.js</a>, <a href="application.js.html#line80">line 80</a>
     </li></ul></dd>
     
 
@@ -1546,13 +1535,186 @@ application.getConversation(invitation.cid || invitation.body.cname)
 
     <h5>Example</h5>
     
-        <p class="code-caption">listen join events</p>
+        <p class="code-caption">listen join events in Application level</p>
     
     <pre class="prettyprint"><code> application.on("member:joined",
-     function(sender_member_id, data) {
-             console.log("JOINED", "Joined conversation: " + data.cid);
+     function(member, event) {
+             console.log("JOINED", "Joined conversation: " + event.conversation.display_name || event.conversation.name);
              });
      });</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="event:sync:progress">sync:progress</h4>
+    
+
+    
+
+
+
+<div class="description">
+    Application listening sync status.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>status.sync_progress</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Percentage of fetched conversations</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>status.idb_progress</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Percentage of conversations stored in indexedDB</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="application.js.html">application.js</a>, <a href="application.js.html#line221">line 221</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+        <p class="code-caption">listening for changes in the synchronisation progress</p>
+    
+    <pre class="prettyprint"><code> application.on("sync:progress",
+     function(status) {
+			console.log(data.sync_progress);
+         console.log(data.idb_progress);
+      });
+ });</code></pre>
 
 
 
@@ -1568,13 +1730,13 @@ application.getConversation(invitation.cid || invitation.body.cname)
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Member.html">Member</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ConversationClientErrorTypes">ConversationClientErrorTypes</a></li><li><a href="global.html#me">me</a></li><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li><li><a href="global.html#NexmoClientErrorTypes">NexmoClientErrorTypes</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ConversationClientErrorTypes">ConversationClientErrorTypes</a></li><li><a href="global.html#me">me</a></li><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li><li><a href="global.html#NexmoClientErrorTypes">NexmoClientErrorTypes</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Dec 04 2017 18:00:41 GMT+0000 (GMT)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Jan 08 2018 16:23:20 GMT+0000 (GMT)
 </footer>
 
 <script> prettyPrint(); </script>
