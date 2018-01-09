@@ -29,6 +29,9 @@
 
             <i>
               <%= parameter.type %>
+              <% if parameter.format %>
+                (<%= parameter.format %>)
+              <% end %>
               <% if parameter.array? %>
                 <br>
                 <% if parameter.items && parameter.items['type'] %>

@@ -30,7 +30,7 @@
                           <li>
                             <%= link_to "##{endpoint.operationId}" do %>
                             <span class="label label--code label--callback">
-                              <i class="icon icon-chevron-circle-right"></i>
+                              <i class="icon icon-callback"></i>
                             </span>
                             <%= endpoint.summary %>
                             <% end %>
@@ -44,6 +44,25 @@
             <% end %>
           </ul>
         </li>
+
+        <% if @definition.raw['x-webhooks'] %>
+          <% @definition.raw['x-webhooks'].each do |name, definition| %>
+            <% callback = OasParser::Callback.new(self, name, definition) %>
+
+            <% callback.paths.each do |path| %>
+              <% path.endpoints.each do |endpoint| %>
+                <li>
+                  <%= link_to "##{name}" do %>
+                    <span class="label label--code label--webhook">
+                      <i class="icon icon-webhook"></i>
+                    </span>
+                    <%= endpoint.summary %>
+                  </li>
+                <% end %>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
 
         <% if name %>
             </li>

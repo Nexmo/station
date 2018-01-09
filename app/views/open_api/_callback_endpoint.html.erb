@@ -1,9 +1,13 @@
+<%
+  webhook = false if local_assigns[:webhook].nil?
+%>
+
 <div>
   <div class="slate-layout-documentation">
     <div>
       <h3 id="<%= endpoint.operationId %>">
-        <span class="label label--callback">
-          <i class="icon icon-chevron-circle-right"></i> Callback
+        <span class="label label--<%= webhook ? 'webhook' : 'callback' %>">
+          <i class="icon icon-<%= webhook ? 'webhook' : 'callback' %>"></i> <%= webhook ? 'Webhook' : 'Callback' %>
         </span>
         &nbsp;<%= endpoint.summary %>
       </h3>

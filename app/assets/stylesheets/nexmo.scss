@@ -46,6 +46,9 @@ $text: $stone;
 $text-subtle: desaturate(lighten($text, 15%), 20%);
 $code-background: $atom;
 
+$callback: $orange;
+$webhook: $orange;
+
 $spacing: 20px;
 $radius: 3px;
 $radius-top: $radius $radius 0 0;
