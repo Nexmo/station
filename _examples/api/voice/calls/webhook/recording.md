@@ -10,6 +10,7 @@ menu_weight: 5
   "size": 12345,
   "recording_uuid": "aaaaaaaa-bbbb-cccc-dddd-0123456789ab",
   "end_time": "2020-01-01T12:01:00Z",
-  "conversation_uuid": "bbbbbbbb-cccc-dddd-eeee-0123456789ab"
+  "conversation_uuid": "bbbbbbbb-cccc-dddd-eeee-0123456789ab",
+  "timestamp": "2020-01-01T14:00:00.000Z"
 }
 ```
