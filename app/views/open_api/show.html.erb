@@ -25,8 +25,8 @@
         <% if @definition_initialization_config && @definition_initialization_content %>
           <ul class="tabs tabs--code" data-tabs>
             <% if @definition_initialization_config['tabs'] %>
-              <% @definition_initialization_config['tabs'].each do |tab| %>
-                <li class="tabs-title" language-linkable="false" data-language="<%= tab %>"><a href="#<%= tab %>"><%= CODE_LANGUAGES[tab]['label'] %></a></li>
+              <% @definition_initialization_config['tabs'].each_with_index do |tab, index| %>
+                <li class="tabs-title <%= index.zero? ? 'is-active' : '' %>" language-linkable="false" data-language="<%= tab %>"><a href="#<%= tab %>"><%= CODE_LANGUAGES[tab]['label'] %></a></li>
               <% end %>
             <% end %>
           </ul>
