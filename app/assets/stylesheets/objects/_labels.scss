@@ -9,7 +9,18 @@
 
   background: $blue;
   border-color: $blue;
-  .navigation & { color: mix($blue, $background, 80%); }
+
+  &--webhook .icon {
+    .navigation & {
+      color: $webhook;
+    }
+  }
+
+  &--callback .icon {
+    .navigation & {
+      color: $callback;
+    }
+  }
 
   h3 & {
     font-size: 18px;
@@ -78,6 +89,10 @@
   }
 
   &--callback {
-    background: $green;
+    background: $callback;
+  }
+
+  &--webhook {
+    background: $webhook;
   }
 }

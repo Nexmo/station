@@ -121,16 +121,4 @@ module ApplicationHelper
   def document_meta(path)
     YAML.load_file(path)
   end
-
-  def render_request(definition_name, endpoint)
-    return unless endpoint.code_example_path
-    markdown = <<~HEREDOC
-      ```tabbed_examples
-      config: #{endpoint.code_example_path}
-      ```
-    HEREDOC
-
-    tabbed_examples = TabbedExamplesFilter.new.call(markdown)
-    UnfreezeFilter.new.call(tabbed_examples).html_safe
-  end
 end

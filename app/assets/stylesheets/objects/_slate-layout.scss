@@ -153,6 +153,11 @@ $ratio-total: $golden-ratio + 1;
 
     .tabs {
       display: none;
+      border: none;
+
+      &--schema {
+        display: block;
+      }
     }
 
     .tabs-content {
@@ -164,4 +169,10 @@ $ratio-total: $golden-ratio + 1;
       padding: 0;
     }
   }
+}
+
+.js-format-selector {
+  float: right;
+  right: 20px;
+  top: 20px;
 }

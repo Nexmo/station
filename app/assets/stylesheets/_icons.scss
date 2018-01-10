@@ -4,6 +4,7 @@ $icon-php: "\e90b";
 $icon-ruby: "\e90c";
 $icon-python: "\e90d";
 $icon-node: "\e90e";
+$icon-webhook: "\e90f";
 $icon-account: "\e904";
 $icon-voice: "\e905";
 $icon-verify: "\e906";
@@ -40,6 +41,8 @@ $icon-code-fork: "\f126";
 $icon-chevron-circle-right: "\f138";
 $icon-stack-overflow: "\f16c";
 $icon-slack: "\f198";
+$icon-loop: "\ea2d";
+$icon-callback: "\ea2d";
 
 @font-face {
   font-family: 'icomoon';
@@ -102,6 +105,11 @@ $icon-slack: "\f198";
 .icon-node {
   &:before {
     content: $icon-node;
+  }
+}
+.icon-webhook {
+  &:before {
+    content: $icon-webhook;
   }
 }
 .icon-account {
@@ -282,5 +290,15 @@ $icon-slack: "\f198";
 .icon-slack {
   &:before {
     content: $icon-slack;
+  }
+}
+.icon-loop {
+  &:before {
+    content: $icon-loop;
+  }
+}
+.icon-callback {
+  &:before {
+    content: $icon-callback;
   }
 }

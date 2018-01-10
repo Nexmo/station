@@ -32,3 +32,21 @@ $border-form: 1px solid darken($mint, 15%);
 .form__error {
   color: $negative;
 }
+
+select {
+  height: 40px;
+  background-color: $pink;
+  background-image: image-url('select-dropdown.png');
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: right center;
+  border: none;
+  color: $white;
+  font-family: 'Averta';
+  font-size: 14px;
+  border-radius: $radius;
+  -webkit-appearance: none;
+  padding: 0 10px;
+  padding-right: 33px;
+  position: relative;
+}
