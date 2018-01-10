@@ -1,35 +1,23 @@
-import 'whatwg-fetch'
 import React from 'react'
 import debounce from 'lodash/debounce'
+import algoliasearch from 'algoliasearch'
 
 class Search extends React.Component {
   constructor(props) {
     super(props)
+    this.client = algoliasearch(
+      $('meta[name=algolia_application_id]').attr('content'),
+      $('meta[name=algolia_search_key]').attr('content')
+    )
+
     this.state = {
       results: [],
       query: '',
       loading: false,
-      analyticsTriggered: false,
+      analyticsTriggered: false
     }
 
-     this.triggerAnalyticalSearch =  this.triggerAnalyticalSearch.bind(this)
-
-     this.fetchOptions = {}
-     const basicAuthUsername = $('meta[name=basic_auth_username]').attr('content')
-     const basicAuthPassword = $('meta[name=basic_auth_password]').attr('content')
-
-     this.searchUrl = $('meta[name=search_url]').attr('content')
-     this.environment = $('meta[name=environment]').attr('content')
-
-     if (basicAuthUsername && basicAuthPassword) {
-       const base64Credentials = btoa(`${basicAuthUsername}:${basicAuthPassword}`)
-
-       this.fetchOptions = {
-         headers: {
-           'Authorization': `Basic ${base64Credentials}`,
-         }
-       }
-     }
+    this.triggerAnalyticalSearch = this.triggerAnalyticalSearch.bind(this)
   }
 
   handleChange(event) {
@@ -51,25 +39,38 @@ class Search extends React.Component {
     this.setState({
       query: event.target.value,
       loading: this.state.query === '',
-      analyticsTriggered: false,
-    })
+      analyticsTriggered: false
+    }, this.performSearch)
 
     // Setup event listeners for Analytics
     this.resetAnalyticsListeners()
     this.analyticsStrongIndicationOfReadingTimer = setTimeout(this.triggerAnalyticalSearch, 2000)
     window.addEventListener('mousemove', this.triggerAnalyticalSearch)
+  }
 
-    fetch(`${this.searchUrl}?query=${event.target.value}&hitsPerPage=4&environment=${this.environment}&analytics=false`, this.fetchOptions)
-    .then((response) => {
-      return response.json()
-    })
-    .then((payload) => {
-      this.setState({ results: payload['results'], loading: false })
-    })
+  performSearch(analytics = false) {
+    const parameters = $('meta[name=algolia_index]').map((index, element) => {
+      return {
+        indexName: $(element).attr('content'),
+        query: this.state.query,
+        params: {
+          analytics: analytics,
+          hitsPerPage: analytics ? 1 : 4
+        }
+      }
+    }).get()
+
+    const searchPromise = this.client.search(parameters)
+
+    if (!analytics) {
+      searchPromise.then((response) => {
+        this.setState({ results: response['results'], loading: false })
+      })
+    }
   }
 
   triggerAnalyticalSearch() {
-    fetch(`${this.searchUrl}?query=${this.state.query}&hitsPerPage=1&environment=${this.environment}&analytics=true`, this.fetchOptions)
+    this.performSearch(true)
     this.setState({ analyticsTriggered: true })
     this.resetAnalyticsListeners()
   }
