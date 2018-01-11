@@ -148,10 +148,25 @@ In the `build.gradle` file we'll add the Nexmo Conversation Android SDK.
 //app/build.gradle
 dependencies {
 ...
-  compile 'com.nexmo:conversation:0.14.0'
+  compile 'com.nexmo:conversation:0.18.0'
   compile 'com.android.support:appcompat-v7:25.3.1'
 ...
 }
+```
+
+You'll also need to add a new repository to your top-level build file to help build the SDK.
+
+```groovy
+//build.gradle
+...
+allprojects {
+    repositories {
+        ...
+        maven { url 'https://artifactory.ess-dev.com/artifactory/gradle-dev' }
+        ...
+    }
+}
+...
 ```
 
 Then sync your project.
@@ -310,7 +325,7 @@ private void login() {
     loginTxt.setText("Logging in...");
 
     String userToken = authenticate();
-    conversationClient.login(userToken, new LoginListener() {
+    conversationClient.login(userToken, new RequestHandler<User>() {
         @Override
         public void onSuccess(User user) {
             showLoginSuccess(user);
@@ -319,23 +334,6 @@ private void login() {
         @Override
         public void onError(NexmoAPIError apiError) {
             logAndShow("Login Error: " + apiError.getMessage());
-        }
-
-        @Override
-        public void onUserAlreadyLoggedIn(User user) {
-            showLoginSuccess(user);
-        }
-
-        @Override
-        public void onTokenInvalid() {
-            logAndShow("Token Invalid.");
-            loginTxt.setText("Token Invalid");
-        }
-
-        @Override
-        public void onTokenExpired() {
-            logAndShow("Token Expired. Generate new token.");
-            loginTxt.setText("Token Expired. Generate new token.");
         }
     });
 }
@@ -347,9 +345,9 @@ private void showLoginSuccess(final User user) {
 
 ```
 
-To log in a user, you simply need to call `login` on the `conversationClient` passing in the user JWT and a `LoginListener` as arguments.
+To log in a user, you simply need to call `login` on the `conversationClient` passing in the user JWT and a `RequestHandler<User>` as arguments.
 
-The `LoginListener` gives you multiple callbacks, once a user is logged in, or the ConversationClient knows that that user is already logged in. It also gives you three error callbacks: `onTokenInvalid` `onTokenExpired` and a general `onError` callback.
+The `RequestHandler<User>` gives you two callbacks, `onSuccess` when a user has succeeded logging in and `onError` when there was an error.
 
 After the user logs in, they'll press the "Chat" button which will take them to the ChatActivity and let them begin chatting in the conversation we've already created.
 
