@@ -193,6 +193,31 @@ components:
           type: string
           description: "The `number` in your request in international format."
           example: "447700900000"
+        lookup_outcome:
+          type: object
+          description: "An object indicating whether all information about a phone number has been returned."
+          properties:
+            code:
+              description: |
+                Shows if all information about a phone number has been returned. Possible values:
+                Code | Text
+                -- | --
+                0 | Success
+                1 | Partial success - some fields populated
+                2 | Failed
+              enum:
+                - 0
+                - 1
+                - 2
+              example: '0'
+              xml:
+                attribute: true
+            lookup_outcome_message:
+              type: string
+              description: 'Shows if all information about a phone number has been returned.'
+              example: 'Success'
+              xml:
+                x-text: true # see https://github.com/OAI/OpenAPI-Specification/issues/630
         local_number:
           type: object
           description: "An object containing the `number` in your request in the format used by the country the number belongs to."
@@ -355,31 +380,6 @@ components:
                 - consumer
                 - unknown
               example: 'consumer'
-            lookup_outcome:
-              type: object
-              description: "An object indicating whether all information about a phone number has been returned."
-              properties:
-                code:
-                  description: |
-                    Shows if all information about a phone number has been returned. Possible values:
-                    Code | Text
-                    -- | --
-                    0 | Success
-                    1 | Partial success - some fields populated
-                    2 | Failed
-                  enum:
-                    - 0
-                    - 1
-                    - 2
-                  example: '0'
-                  xml:
-                    attribute: true
-                lookup_outcome_message:
-                  type: string
-                  description: 'Shows if all information about a phone number has been returned.'
-                  example: 'Success'
-                  xml:
-                    x-text: true # see https://github.com/OAI/OpenAPI-Specification/issues/630
             valid_number:
               type: string
               description: 'Does `number` exist. This is applicable to mobile numbers only.'
