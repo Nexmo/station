@@ -49,7 +49,7 @@ Rails.application.routes.draw do
 
   get '/api', to: 'api#index'
 
-  get '/api/*definition(/:code_language)', to: 'open_api#show', as: 'open_api', constraints: { definition: /sms/ }
+  get '/api/*definition(/:code_language)', to: 'open_api#show', as: 'open_api', constraints: { definition: /sms|number\-insight/ }
   get '/api/*document(/:code_language)', to: 'api#show', constraints: DocumentationConstraint.code_language
 
   get '/*product/(api|ncco)-reference', to: 'markdown#api'
