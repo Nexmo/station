@@ -6,7 +6,12 @@ class ResponseParserDecorator < OasParser::ResponseParser
     })
   end
 
-  def html(format = 'application/json')
+  def formatted_xml(xml_options)
+    root = xml_options ? xml_options['name'] : false
+    parse.to_xml(dasherize: false, root: root)
+  end
+
+  def html(format = 'application/json', xml_options: nil)
     formatter = Rouge::Formatters::HTML.new
 
     case format
@@ -15,7 +20,7 @@ class ResponseParserDecorator < OasParser::ResponseParser
       highlighted_response = formatter.format(lexer.lex(formatted_json))
     when 'text/xml'
       lexer = Rouge::Lexer.find('xml')
-      highlighted_response = formatter.format(lexer.lex(Crack::JSON.parse(parse.to_json).to_xml))
+      highlighted_response = formatter.format(lexer.lex(formatted_xml(xml_options)))
     end
 
     output = <<~HEREDOC

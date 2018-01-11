@@ -85,7 +85,7 @@
                     <div class="tabs-content" data-tabs-content="<%= id %>">
                       <% response.split_schemas(format).each_with_index do |schema, index| %>
                         <div class="tabs-panel <%= index.zero? ? 'is-active' : '' %>" id="<%= schema_tab_ids[index] %>">
-                          <%= ResponseParserDecorator.new(schema).html(format) %>
+                          <%= ResponseParserDecorator.new(schema).html(format, xml_options: schema['xml']) %>
                         </div>
                       <% end %>
                     </div>
