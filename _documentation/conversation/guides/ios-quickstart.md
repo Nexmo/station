@@ -46,7 +46,7 @@ _Note: The steps within this section can all be done dynamically via server-side
 Create an application within the Nexmo platform.
 
 ```bash
-$ nexmo app:create "Conversation Android App" http://example.com/answer http://example.com/event --type=rtc --keyfile=private.key
+$ nexmo app:create "Conversation iOS App" http://example.com/answer http://example.com/event --type=rtc --keyfile=private.key
 ```
 
 Nexmo Applications contain configuration for the application that you are building. The output of the above command will be something like this:
