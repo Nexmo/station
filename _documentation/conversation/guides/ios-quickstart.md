@@ -37,102 +37,91 @@ This guide will introduce you to the following concepts.
 
 ## 1 - Setup
 
-The Nexmo iOS Conversation SDK utilizes JSON web tokens (i.e., JWTs) to for contextual, omnichannel, artificially intelligent in-app endpoints. While artificial intelligence is still in the process of being developed, IP Message, for instance, is only one of the many channels that literally plug into an app integrated with the Nexmo iOS Conversation SDK. While the sky is the limit, let's start from ground zero to create a Nexmo application.
+The Nexmo iOS Conversation SDK utilizes JSON web tokens (i.e., JWTs) to for contextual, omnichannel, artificially intelligent in-app endpoints. While artificial intelligence is still in the process of being developed, IP Message, for instance, is only one of the many channels that literally plug into an app integrated with the Nexmo iOS Conversation SDK. While the sky is the limit, let's start from ground zero to create a Nexmo application. 
 
+_Note: The steps within this section can all be done dynamically via server-side logic. But in order to get the client-side functionality we're going to manually run through setup._
 
-
-### 1.1 - Create a Nexmo Application
+### 1.1 - Create a Nexmo application
 
 Create an application within the Nexmo platform.
 
 ```bash
-$ nexmo app:create "Conversation iOS App" http://example.com/answer http://example.com/event --type=rtc --keyfile=private.key
+$ nexmo app:create "Conversation Android App" http://example.com/answer http://example.com/event --type=rtc --keyfile=private.key
 ```
 
 Nexmo Applications contain configuration for the application that you are building. The output of the above command will be something like this:
 
 ```bash
-Application created: 2c59f277-5a88-4fab-88c4-919ee28xxxxx
+Application created: aaaaaaaa-bbbb-cccc-dddd-0123456789ab
+No existing config found. Writing to new file.
+Credentials written to /path/to/your/local/folder/.nexmo-app
 Private Key saved to: private.key
 ```
 
-The first item is the Application ID and the second is a private key that is used generate JWTs that are used to authenticate your interactions with Nexmo. You should take a note of it. We'll refer to this as `YOUR_APP_ID` later. The second value is a private key location. The private key is used to generate JWTs that are used to authenticate your interactions with Nexmo.
+The first item is the Application ID and the second is a private key that is used generate JWTs that are used to authenticate your interactions with Nexmo. You should take a note of it. We'll refer to this as `YOUR_APP_ID` later.
 
 
-### 1.2 - Generate an Application JWT
-
-Generate a JWT using your Application ID (`YOUR_APP_ID`).
-
-```bash
-$ APP_JWT="$(nexmo jwt:generate ./private.key application_id=YOUR_APP_ID exp=$(($(date +%s)+86400)))"
-```
-
-> Note: The above command saves the generated JWT to a `APP_JWT` variable. It also sets the expiry of the JWT (`exp`) to one day from now.*
-
-
-### 1.3 - Create a Conversation
+### 1.2 - Create a Conversation
 
 Create a conversation within the application:
 
 ```bash
-$ curl -X POST https://api.nexmo.com/beta/conversations\
- -H 'Authorization: Bearer '$APP_JWT -H 'Content-Type:application/json' -d '{"name":"nexmo-chat", "display_name": "Nexmo Chat"}'
+$ nexmo conversation:create display_name="Nexmo Chat"
 ```
 
-This will result in a JSON response that looks something like the following. Take a note of the `id` attribute as this is the unique identifier for the conversation that has been created. We'll refer to this as `CONVERSATION_ID` later.
+The output of the above command will be something like this:
 
-```json
-{"id":"CON-8cda4c2d-9a7d-42ff-b695-ec4124dfcc38","href":"http://conversation.local/v1/conversations/CON-8cda4c2d-9a7d-42ff-b695-ec4124dfcc38"}
+```sh
+Conversation created: CON-aaaaaaaa-bbbb-cccc-dddd-0123456789ab
 ```
 
-### 1.4 - Create a User
+That is the Conversation ID. Take a note of it as this is the unique identifier for the conversation that has been created. We'll refer to this as YOUR_CONVERSATION_ID later.
+
+### 1.3 - Create a User
 
 Create a user who will participate within the conversation.
 
 ```bash
-curl -X POST https://api.nexmo.com/beta/users\
-  -H 'Authorization: Bearer '$APP_JWT \
-  -H 'Content-Type:application/json' \
-  -d '{"name":"jamie"}'
+$ nexmo user:create name="jamie"
 ```
 
 The output will look as follows:
 
-```json
-{"id":"USR-9a88ad39-31e0-4881-b3ba-3b253e457603","href":"http://conversation.local/v1/users/USR-9a88ad39-31e0-4881-b3ba-3b253e457603"}
+```sh
+User created: USR-aaaaaaaa-bbbb-cccc-dddd-0123456789ab
 ```
 
-Take a note of the `id` attribute as this is the unique identifier for the user that has been created. We'll refer to this as `USER_ID` later.
+Take a note of the `id` attribute as this is the unique identifier for the user that has been created. We'll refer to this as `YOUR_USER_ID` later.
 
-### 1.5 - Add the User to the Conversation
+### 1.4 - Add the User to the Conversation
 
-Finally, let's add the user to the conversation that we created. Remember to replace `CONVERSATION_ID` and `USER_ID` values.
+Finally, let's add the user to the conversation that we created. Remember to replace `YOUR_CONVERSATION_ID` and `YOUR_USER_ID` values.
 
 ```bash
-$ curl -X POST https://api.nexmo.com/beta/conversations/CONVERSATION_ID/members\
- -H 'Authorization: Bearer '$APP_JWT -H 'Content-Type:application/json' -d '{"action":"join", "user_id":"USER_ID", "channel":{"type":"app"}}'
+$ nexmo member:add YOUR_CONVERSATION_ID action=join channel='{"type":"app"}' user_id=YOUR_USER_ID
 ```
 
-The response to this request will confirm that the user has `JOINED` the "Nexmo Chat" conversation.
+The output of this command will confirm that the user has been added to the "Nexmo Chat" conversation.
 
-```json
-{"id":"MEM-fe168bd2-de89-4056-ae9c-ca3d19f9184d","user_id":"USR-f4a27041-744d-46e0-a75d-186ad6cfcfae","state":"JOINED","timestamp":{"joined":"2017-06-17T22:23:41.072Z"},"channel":{"type":"app"},"href":"http://conversation.local/v1/conversations/CON-8cda4c2d-9a7d-42ff-b695-ec4124dfcc38/members/MEM-fe168bd2-de89-4056-ae9c-ca3d19f9184d"}
+```sh
+Member added: MEM-aaaaaaaa-bbbb-cccc-dddd-0123456789ab
 ```
 
-You can also check this by running the following request, replacing `CONVERSATION_ID`:
+You can also check this by running the following request, replacing `YOUR_CONVERSATION_ID`:
 
 ```bash
-$ curl https://api.nexmo.com/beta/conversations/CONVERSATION_ID/members\
- -H 'Authorization: Bearer '$APP_JWT
+$ nexmo member:list YOUR_CONVERSATION_ID -v
 ```
 
 Where you should see a response similar to the following:
 
-```json
-[{"user_id":"USR-f4a27041-744d-46e0-a75d-186ad6cfcfae","name":"MEM-fe168bd2-de89-4056-ae9c-ca3d19f9184d","user_name":"jamie","state":"JOINED"}]
+```sh
+name                                     | user_id                                  | user_name | state  
+---------------------------------------------------------------------------------------------------------
+MEM-aaaaaaaa-bbbb-cccc-dddd-0123456789ab | USR-aaaaaaaa-bbbb-cccc-dddd-0123456789ab | jamie     | JOINED
 ```
 
-### 1.6 - Generate a User JWT
+### 1.5 - Generate a User JWT
 
 Generate a JWT for the user and take a note of it. Remember to change the `YOUR_APP_ID` value in the command.
 
@@ -140,7 +129,7 @@ Generate a JWT for the user and take a note of it. Remember to change the `YOUR_
 $ USER_JWT="$(nexmo jwt:generate ./private.key sub=jamie exp=$(($(date +%s)+86400)) acl='{"paths": {"/v1/sessions/**": {}, "/v1/users/**": {}, "/v1/conversations/**": {}}}' application_id=YOUR_APP_ID)"
 ```
 
-> Note: The above command saves the generated JWT to a `USER_JWT` variable. It also sets the expiry of the JWT to one day from now.*
+*Note: The above command saves the generated JWT to a `USER_JWT` variable. It also sets the expiry of the JWT to one day from now.*
 
 You can see the JWT for the user by running the following:
 
@@ -148,7 +137,7 @@ You can see the JWT for the user by running the following:
 $ echo $USER_JWT
 ```
 
-### 1.7 The Nexmo Conversation API Dashboard
+### 1.6 The Nexmo Conversation API Dashboard
 
 If you would like to double check any of the JWT credentials, navigate to [your-applications](https://dashboard.nexmo.com/voice/your-applications) where you can see a table with three entries respectively entitled "Name", "Id", or "Security settings". Under the menu options for "Edit" next to "Delete", you can take a peak at the details of the applications such as "Application name", "Application Id", etc...
 
