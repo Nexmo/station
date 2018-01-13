@@ -270,59 +270,112 @@ components:
       type: object
       description: 'Standard'
       xml:
-        name: lookup
+        name: format
       allOf:
         - $ref: '#/components/schemas/niResponseXmlBasic'
         - properties:
-            request_price:
-              type: number
-              description: 'The amount in EUR charged to your account.'
-              example: "0.04000000"
-            refund_price:
-              type: number
-              description: 'If there is an internal lookup error, the `refund_price` will reflect the lookup price. If `cnam` is requested for a non-US number the `refund_price` will reflect the `cnam` price. If both of these conditions occur, `refund_price` is the sum of the lookup price and `cnam` price.'
-              example: '0.01'
-            remaining_balance:
-              type: number
-              description: 'Your account balance in EUR after this request. Not returned with Number Insight Advanced Async API.'
-              example: '1.23456789'
-            current_carrier:
-              description: 'Information about the network `number` is currently connected to.'
-              $ref: '#/components/schemas/niCarrier'
-            original_carrier:
-              description: 'Information about the network `number` was initially connected to.'
-              $ref: '#/components/schemas/niCarrier'
-            ported:
+            request_id:
               type: string
-              description: 'If the user has changed carrier for `number`. The assumed status means that the information supplier has replied to the request but has not said explicitly that the number is ported.'
-              enum:
-                - unknown
-                - ported
-                - not_ported
-                - assumed_not_ported
-                - assumed_ported
-              example:
-                - 'not_ported'
-            caller_name:
+              description: 'The unique identifier for your request. This is a alphanumeric string up to 40 characters.'
+              example: 'aaaaaaaa-bbbb-cccc-dddd-0123456789ab'
+              maxLength: 40
+            international_format_number:
               type: string
-              description: 'Full name of the person who owns the phone number. `unknown` if this information is not available. This parameter is only present if `cnam` had a value of `true` within the request.'
-              example: 'John Smith'
-            first_name:
-              type: string
-              description: 'First name of the person who owns the phone number if the owner is an individual. This parameter is only present if `cnam` had a value of `true` within the request.'
-              example: 'John'
-            last_name:
-              type: string
-              description: 'Last name of the person who owns the phone number if the owner is an individual. This parameter is only present if `cnam` had a value of `true` within the request.'
-              example: 'Smith'
-            caller_type:
-              type: string
-              description: 'The value will be `business` if the owner of a phone number is a business. If the owner is an individual the value will be `consumer`. The value will be `unknown` if this information is not available. This parameter is only present if `cnam` had a value of `true` within the request.'
-              enum:
-                - business
-                - consumer
-                - unknown
-              example: 'consumer'
+              description: "The `number` in your request in international format."
+              example: "447700900000"
+              local_number:
+                type: object
+                description: "An object containing the `number` in your request in the format used by the country the number belongs to."
+                properties:
+                  country_code:
+                    type: string
+                    description: 'Two character country code for `number`. This is in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format.'
+                    example: "GB"
+                    pattern: '[A-Z]{2}'
+                    xml:
+                      attribute: true
+                  country_code_iso3:
+                    type: string
+                    description: 'Three character country code for `number`. This is in [ISO 3166-1 alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) format.'
+                    example: "GBR"
+                    pattern: '[A-Z]{3}'
+                    xml:
+                      attribute: true
+                  country_name:
+                    type: string
+                    description: 'The full name of the country that `number` is registered in.'
+                    example: "United Kingdom"
+                    xml:
+                      attribute: true
+                  country_prefix:
+                    type: string
+                    description: 'The numeric prefix for the country that `number` is registered in.'
+                    example: '44'
+                    xml:
+                      attribute: true
+                  number:
+                    type: string
+                    description: "The `number` in your request in the format used by the country the number belongs to."
+                    xml:
+                      x-text: true # see https://github.com/OAI/OpenAPI-Specification/issues/630
+            error:
+              type: object
+              properties:
+                code:
+                  allOf:
+                    - $ref: '#/components/schemas/niStatus'
+                    - xml:
+                        attribute: true
+                status_text:
+                  type: string
+                  description: 'The status description of your request.'
+                  xml:
+                    x-text: true # see https://github.com/OAI/OpenAPI-Specification/issues/630
+            # refund_price:
+            #   type: number
+            #   description: 'If there is an internal lookup error, the `refund_price` will reflect the lookup price. If `cnam` is requested for a non-US number the `refund_price` will reflect the `cnam` price. If both of these conditions occur, `refund_price` is the sum of the lookup price and `cnam` price.'
+            #   example: '0.01'
+            # remaining_balance:
+            #   type: number
+            #   description: 'Your account balance in EUR after this request. Not returned with Number Insight Advanced Async API.'
+            #   example: '1.23456789'
+            # current_carrier:
+            #   description: 'Information about the network `number` is currently connected to.'
+            #   $ref: '#/components/schemas/niCarrier'
+            # original_carrier:
+            #   description: 'Information about the network `number` was initially connected to.'
+            #   $ref: '#/components/schemas/niCarrier'
+            # ported:
+            #   type: string
+            #   description: 'If the user has changed carrier for `number`. The assumed status means that the information supplier has replied to the request but has not said explicitly that the number is ported.'
+            #   enum:
+            #     - unknown
+            #     - ported
+            #     - not_ported
+            #     - assumed_not_ported
+            #     - assumed_ported
+            #   example:
+            #     - 'not_ported'
+            # caller_name:
+            #   type: string
+            #   description: 'Full name of the person who owns the phone number. `unknown` if this information is not available. This parameter is only present if `cnam` had a value of `true` within the request.'
+            #   example: 'John Smith'
+            # first_name:
+            #   type: string
+            #   description: 'First name of the person who owns the phone number if the owner is an individual. This parameter is only present if `cnam` had a value of `true` within the request.'
+            #   example: 'John'
+            # last_name:
+            #   type: string
+            #   description: 'Last name of the person who owns the phone number if the owner is an individual. This parameter is only present if `cnam` had a value of `true` within the request.'
+            #   example: 'Smith'
+            # caller_type:
+            #   type: string
+            #   description: 'The value will be `business` if the owner of a phone number is a business. If the owner is an individual the value will be `consumer`. The value will be `unknown` if this information is not available. This parameter is only present if `cnam` had a value of `true` within the request.'
+            #   enum:
+            #     - business
+            #     - consumer
+            #     - unknown
+            #   example: 'consumer'
     niResponseXmlAdvanced:
       type: object
       description: 'Advanced'
