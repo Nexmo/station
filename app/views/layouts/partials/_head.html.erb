@@ -89,6 +89,16 @@
   <meta name="search_url" content="<%= ENV['SEARCH_URL'] %>" />
   <meta name="environment" content="<%= Rails.env %>" />
 
+  <meta name="algolia_application_id" content="<%= ENV['ALGOLIA_APPLICATION_ID'] %>" />
+
+  <% if search_enabled? %>
+    <meta name="algolia_search_key" content="<%= ALGOLIA_SECURED_SEARCH_KEY %>" />
+
+    <% ALGOLIA_CONFIG.keys.each do |index| %>
+      <meta name="algolia_index" content="<%= index %>" />
+    <% end %>
+  <% end %>
+
   <meta name="copyright" content="<%= Time.current.year %> Nexmo, The Vonage API Platform" />
 
   <%= csrf_meta_tags %>

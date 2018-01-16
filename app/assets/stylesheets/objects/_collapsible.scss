@@ -1,5 +1,6 @@
 .collapsible {
   user-select: none;
+  cursor: pointer;
 
   #primary-content & {
     margin: $spacing 0;

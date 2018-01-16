@@ -48,6 +48,8 @@ export default () => {
     });
 
     $('.slate-layout-code > .tabs').scrollToFixed()
+    const formatMargin = $('.slate-layout-code > .tabs').children().length > 0 ? 60 : 20
+    $('.slate-layout-code > .js-format-selector').scrollToFixed({ marginTop: formatMargin })
   });
 
 }

@@ -16,6 +16,7 @@ import Collapsible from './Collapsible'
 import Scrollspy from './Scrollspy'
 import GithubCards from './GithubCards'
 import TabbedExamples from './TabbedExamples'
+import Format from './Format'
 import JsSequenceDiagrams from './JsSequenceDiagrams'
 import Navigation from './Navigation'
 import Scroll from './Scroll'
@@ -43,6 +44,7 @@ let refresh = () => {
   Scrollspy()
   JsSequenceDiagrams()
   new TabbedExamples
+  new Format
   Modals()
   APIStatus()
 

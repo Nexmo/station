@@ -1,14 +1,18 @@
+<%
+  model = false if local_assigns[:model].nil?
+  callback = false if local_assigns[:callback].nil?
+%>
+
 <ul class="table-list">
   <li class="table-list-header">
     <div class="table-list-columns">
       <div class="table-list-column" flex="2">Key</div>
       <div class="table-list-column" flex="3">Description</div>
-      <% unless defined?(model) && model %>
+      <% unless model %>
         <div class="table-list-column" flex="2">Example</div>
-      <% end %>
-
-      <% unless (defined?(model) && model) || (defined?(callback) && callback) %>
-        <div class="table-list-column">Default</div>
+        <% unless callback %>
+          <div class="table-list-column">Default</div>
+        <% end %>
       <% end %>
     </div>
   </li>
@@ -16,19 +20,22 @@
     <li>
       <div class="table-list-columns">
         <div class="table-list-column" flex="2">
-          <b><%= parameter['name'] %></b><br>
+          <b><%= parameter.name %></b><br>
 
           <small>
-            <% if parameter['required'] %>
+            <% if parameter.required %>
               <span class="flag flag--strong">Required</span> |
             <% end %>
 
             <i>
-              <%= (parameter['type'] || parameter['schema']['type']) %>
-              <% if parameter['type'] == 'array' %>
+              <%= parameter.type %>
+              <% if parameter.format %>
+                (<%= parameter.format %>)
+              <% end %>
+              <% if parameter.array? %>
                 <br>
-                <% if parameter['items'] && parameter['items']['type'] %>
-                  of <%= (parameter['items']['type']) %>'s
+                <% if parameter.items && parameter.items['type'] %>
+                  of <%= (parameter.items['type']) %>'s
                 <% end %>
               <% end %>
             </i>
@@ -36,69 +43,61 @@
         </div>
 
         <div class="table-list-column" flex="3">
-          <% if ['object', 'array'].include?(parameter['type']) && (parameter['items'] || parameter['properties']) %>
-            <!-- Do not render a description when the parameter is an object or array and has items defined -->
-          <% else %>
-            <%= (parameter['description'] ? "#{parameter['description']}" : '<i>None</i>').render_markdown %>
+          <% unless parameter.collection? %>
+            <%= (parameter.description ? "#{parameter.description}" : '<i>None</i>').render_markdown %>
           <% end %>
 
-          <% if parameter['enum'] %>
+          <% if parameter.enum %>
             <br>
             <small>
               <i>
                 Must be one of:
-                <%= parameter['enum'].map { |s| "<code>#{s}</code>" }.to_sentence(last_word_connector: 'or', two_words_connector: 'or').html_safe %>
+                <%= parameter.enum.map { |s| "<code>#{s}</code>" }.to_sentence(last_word_connector: 'or', two_words_connector: 'or').html_safe %>
               </i>
             </small>
           <% end %>
 
-          <% if parameter['x-possible-values'] %>
+          <% if parameter.raw['x-possible-values'] %>
             <br>
             <small>
               <i>
                 Will be one of:
-                <%= parameter['x-possible-values'].map { |s| "<code>#{s}</code>" }.to_sentence(last_word_connector: 'or', two_words_connector: 'or').html_safe %>
+                <%= parameter.raw['x-possible-values'].map { |s| "<code>#{s}</code>" }.to_sentence(last_word_connector: 'or', two_words_connector: 'or').html_safe %>
               </i>
             </small>
           <% end %>
 
-          <% if parameter['minimum'] || parameter['maximum'] %>
+          <% if parameter.minimum || parameter.maximum %>
             <br>
             <small>
               <i>
-                <% if parameter['minimum'] && parameter['maximum'] %>
-                  Must be between <%= "<code>#{parameter['minimum']}</code>".html_safe %> and <%= "<code>#{parameter['maximum']}</code>".html_safe %>
-                <% elsif parameter['minimum'] %>
-                  Must be at least <%= "<code>#{parameter['minimum']}</code>".html_safe %>
+                <% if parameter.minimum && parameter.maximum %>
+                  Must be between <%= "<code>#{parameter.minimum}</code>".html_safe %> and <%= "<code>#{parameter.maximum}</code>".html_safe %>
+                <% elsif parameter.minimum %>
+                  Must be at least <%= "<code>#{parameter.minimum}</code>".html_safe %>
                 <% else %>
-                  Must be at most <%= "<code>#{parameter['maximum']}</code>".html_safe %>
+                  Must be at most <%= "<code>#{parameter.maximum}</code>".html_safe %>
                 <% end %>
               </i>
             </small>
           <% end %>
         </div>
 
-        <% unless defined?(model) && model %>
+        <% unless model %>
           <div class="table-list-column" flex="2">
-            <%= (parameter['example'] ? "<code>#{parameter['example']}</code>" : '<i>None</i>').html_safe %>
+            <%= (parameter.example ? "<code>#{parameter.example}</code>" : '<i>None</i>').html_safe %>
           </div>
         <% end %>
 
-        <% unless (defined?(model) && model) || (defined?(callback) && callback) %>
+        <% unless model || callback %>
           <div class="table-list-column">
-            <%= (parameter['default'] ? "<code>#{parameter['default']}</code>" : '<i>None</i>').html_safe %>
+            <%= (parameter.default ? "<code>#{parameter.default}</code>" : '<i>None</i>').html_safe %>
           </div>
         <% end %>
       </div>
 
-      <% if ['array', 'object'].include? parameter['type']  %>
-        <% if parameter['items'] %>
-          <%= render 'parameters', parameters: OpenApi::EndpointResolver.normalize_properties(parameter['items']['properties']), model: model %>
-        <% end %>
-
-        <% if parameter['properties'] %>
-          <%= render 'parameters', parameters: OpenApi::EndpointResolver.normalize_properties(parameter['properties']), model: model %>
-        <% end %>
+      <% if parameter.collection? %>
+        <%= render 'parameters', parameters: parameter.properties, model: model %>
       <% end %>
     </li>
   <% end %>

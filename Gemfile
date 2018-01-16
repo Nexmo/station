@@ -79,7 +79,12 @@ gem 'recaptcha', require: "recaptcha/rails"
 gem 'icalendar'
 
 # A parser for Open API specifications
-gem 'open_api_parser', github: 'nexmo/open_api_parser', branch: 'openapi-specification-v3'
+#
+# If using development copy uncomment:
+# gem 'oas_parser', path: '../oas_parser', require: 'oas_parser'
+#
+# Otherwise use a published gem:
+gem 'oas_parser', '~> 0.2.0'
 
 # Generate JSON strings from Ruby objects with flexible formatting options.
 gem 'neatjson'
@@ -115,7 +120,10 @@ gem 'groupdate', '3.2.0'
 gem 'gravatar_image_tag', '1.2.0'
 
 # Provides Open API Spec 3 definitions for Nexmo APIs
-gem 'nexmo_api_specification', '0.5.3'
+gem 'nexmo_api_specification', '0.6.1'
+
+# Really simple JSON and XML parsing, ripped from Merb and Rails.
+gem 'crack', '0.4.3'
 
 group :development, :test do
   gem 'awesome_print'
@@ -136,8 +144,6 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'guard-livereload', '~> 2.5', require: false
   gem 'guard-rspec'
-  gem 'better_errors'
-  gem 'binding_of_caller'
   gem 'pry'
 
   # Share git hooks in Ruby projects among all the collaborators automatically, without them having to do anything
