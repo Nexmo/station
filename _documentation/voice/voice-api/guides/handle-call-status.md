@@ -19,11 +19,11 @@ A call can be initiated via a request to [`POST /calls`](/api/voice#payload). Th
 {
   "from": "447700900000",
   "to":  "447700900001",
-  "uuid": "ade7b1d3-6cb7-4350-8750-dfdee725f256",
-  "conversation_uuid": "CON-17f767a5-c1d7-4e9e-a132-6b3f3289efff"
+  "uuid": "aaaaaaaa-bbbb-cccc-dddd-0123456789ab",
+  "conversation_uuid": "CON-bbbbbbbb-cccc-dddd-eeee-0123456789ab",
   "status": "started",
   "direction": "outbound",
-  "timestamp": "2018-01-01T12:34:56.789Z"
+  "timestamp": "2020-01-01T14:00:00.000Z"
 }
 ```
 
