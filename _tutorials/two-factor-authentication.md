@@ -30,7 +30,7 @@ To work through this tutorial you need:
 
 ## Create a basic Web app
 
-Create a simple Web app for user authentication:
+Create a minimal web app for user authentication:
 
 ```
 $ rails new ruby-2fa
