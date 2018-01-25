@@ -7,6 +7,10 @@ Rails.application.routes.draw do
     resources :feedbacks
   end
 
+  namespace :admin_api, defaults: {format: 'json'} do
+    resources :feedback, only: [:index]
+  end
+
   get '/robots.txt', to: 'static#robots'
 
   get 'markdown/show'
