@@ -12,7 +12,7 @@
       <div class="slate-layout-documentation">
         <div>
           <h1><%= @definition.info['title'] %></h1>
-          <p><%= @definition.info['description'] %></p>
+          <p><%= @definition.info['description'].render_markdown %></p>
 
           <%= link_to open_api_path({ format: @definition_format, params: request.query_parameters }), class: 'button button--secondary' do %>
             <i class="icon icon-swagger"></i>
