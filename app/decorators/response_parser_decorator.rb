@@ -7,7 +7,19 @@ class ResponseParserDecorator < OasParser::ResponseParser
   end
 
   def formatted_xml(xml_options = {})
-    xml(xml_options)
+    xml_options.merge!({ root: xml_options['name'] }) if xml_options
+    xml_string = xml(xml_options)
+    xml_string.gsub!(/^(\s+?)(<(?:\w|\=|\"|\_|\s)+?\>)(.+?)(<\/.+?>)/).each do |s|
+      indentation = $1
+      indentation_plus_one = "#{$1}  "
+      opening_tag = $2
+      content = $3
+      closing_tag = $4
+
+      "#{indentation}#{opening_tag}\n#{indentation_plus_one}#{content}\n#{indentation}#{closing_tag}"
+    end
+
+    xml_string
   end
 
   def html(format = 'application/json', xml_options: nil)
