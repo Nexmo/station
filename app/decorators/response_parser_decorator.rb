@@ -6,9 +6,8 @@ class ResponseParserDecorator < OasParser::ResponseParser
     })
   end
 
-  def formatted_xml(xml_options)
-    root = xml_options ? xml_options['name'] : false
-    parse.to_xml(dasherize: false, root: root)
+  def formatted_xml(xml_options = {})
+    xml(xml_options)
   end
 
   def html(format = 'application/json', xml_options: nil)
