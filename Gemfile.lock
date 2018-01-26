@@ -410,7 +410,7 @@ DEPENDENCIES
   guard-livereload (~> 2.5)
   guard-rspec
   icalendar
-  jbuilder (~> 2.5)
+  jbuilder (~> 2.7.0)
   jquery-rails
   listen (~> 3.0.5)
   neatjson
