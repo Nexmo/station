@@ -16,6 +16,8 @@ class ResponseParserDecorator < OasParser::ResponseParser
       content = $3
       closing_tag = $4
 
+      next(s) if indentation.size + opening_tag.size + content.size < 60
+
       "#{indentation}#{opening_tag}\n#{indentation_plus_one}#{content}\n#{indentation}#{closing_tag}"
     end
 
