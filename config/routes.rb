@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   get 'markdown/show'
 
+  match '/markdown', to: 'markdown#preview', via: [:get, :post]
+
   get '/signout', to: 'sessions#destroy'
 
   post '/jobs/code_example_push', to: 'jobs#code_example_push'
