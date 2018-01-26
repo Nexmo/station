@@ -91,7 +91,7 @@
 
         <% unless model || callback %>
           <div class="table-list-column">
-            <%= (parameter.default ? "<code>#{parameter.default}</code>" : '<i>None</i>').html_safe %>
+            <%= (parameter.default.nil? ? '<i>None</i>' : "<code>#{parameter.default}</code>").html_safe %>
           </div>
         <% end %>
       </div>
