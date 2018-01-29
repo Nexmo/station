@@ -86,7 +86,7 @@ paths:
           '{$request.query.callback}':
             post:
               operationId: asyncCallback
-              summary: The callback
+              summary: Asynchronous response
               description: Contains the response to your
               requestBody:
                 content:
