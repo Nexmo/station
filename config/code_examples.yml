@@ -126,3 +126,10 @@ voice:
   inbound-connect:
     node:
       source: '.repos/nexmo-community/nexmo-node-quickstart/voice/connect-an-inbound-call.js'
+number_insight:
+  standard:
+    curl:
+      source: '_examples/curl/number_insight/standard.sh'
+  async:
+    curl:
+      source: '_examples/curl/number_insight/async.sh'

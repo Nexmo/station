@@ -36,6 +36,7 @@ paths:
     get:
       operationId: getNumberInsight
       summary: Synchronously get information about a phone number
+      x-code-example-path: number_insight.standard
       tags:
         - Request
       parameters:
@@ -59,6 +60,7 @@ paths:
     get:
       operationId: getNumberInsightAsync
       summary: Asynchronously get information about a phone number
+      x-code-example-path: number_insight.async
       tags:
         - Request
       parameters:
