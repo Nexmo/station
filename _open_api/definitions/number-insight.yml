@@ -3,7 +3,7 @@ openapi: 3.0.0
 servers:
   - url: 'https://api.nexmo.com/ni'
 info:
-  title: Nexmo Number Insight API
+  title: Number Insight API
   version: 1.0.0
   description: >-
     Nexmo's Number Insight API provides details about the validity, reachability and roaming status of a phone number, as well as giving you details on how to format the number properly in your application. There are three levels of Number Insight API available: Basic, Standard and Advanced. The advanced API is available asynchronously as well as synchronously.
@@ -37,6 +37,7 @@ paths:
       operationId: getNumberInsight
       summary: Synchronously get information about a phone number
       x-code-example-path: number_insight.standard
+      x-group: number-insight
       tags:
         - Request
       parameters:
@@ -61,6 +62,7 @@ paths:
       operationId: getNumberInsightAsync
       summary: Asynchronously get information about a phone number
       x-code-example-path: number_insight.async
+      x-group: number-insight
       tags:
         - Request
       parameters:
@@ -127,6 +129,7 @@ components:
       in: query
       description: 'A single phone number that you need insight about in national or international format.'
       example: '447700900000'
+      required: true
       schema:
         type: string
         pattern: '^[0-9-+\(\)\s]*$'
@@ -981,3 +984,10 @@ components:
       name: api_secret
       in: query
       description: 'You can find your API secret in your [account overview](https://dashboard.nexmo.com/account-overview)'
+x-groups:
+  number-insight:
+    name: Number Insight
+    description: The Number Insight object contains information about the request and details of the phone number information has been requested about.
+    order: 1
+    schema:
+      $ref: '#/components/schemas/niResponseJsonAdvanced'
