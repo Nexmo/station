@@ -46,7 +46,7 @@
     padding: 4px 5px 1px 5px;
 
     .navigation & {
-      font-size: 12px;
+      font-size: 10px;
       padding: 2px 2px 0 2px;
       position: absolute;
       right: 100%;
@@ -74,6 +74,11 @@
   &--warning, &--put {
     background: $warning;
     .navigation & { color: mix($warning, $background, 80%); }
+  }
+
+  &--get {
+    background: $blue;
+    .navigation & { color: mix($blue, $background, 80%); }
   }
 
   &--status--2xx {
