@@ -35,7 +35,7 @@ paths:
       - $ref: '#/components/parameters/format'
     get:
       operationId: getNumberInsight
-      summary: Get information about a phone number
+      summary: Synchronously get information about a phone number
       tags:
         - Request
       parameters:
@@ -58,7 +58,7 @@ paths:
       - $ref: '#/components/parameters/format'
     get:
       operationId: getNumberInsightAsync
-      summary: Ask for information about a phone number
+      summary: Asynchronously get information about a phone number
       tags:
         - Request
       parameters:
@@ -73,17 +73,17 @@ paths:
           content:
             'application/json':
               schema:
-                $ref: '#/components/schemas/niResponseJson'
+                $ref: '#/components/schemas/niResponseAsync'
             'text/xml':
               schema:
-                $ref: '#/components/schemas/niResponseXml'
+                $ref: '#/components/schemas/niResponseAsync'
       callbacks:
         onData:
           '{$request.query.callback}':
             post:
               operationId: asyncCallback
               summary: The callback
-              description: Async response payload
+              description: Contains the response to your
               requestBody:
                 content:
                   application/json:
@@ -161,6 +161,36 @@ components:
         type: string
         format: uriref
   schemas:
+    niResponseAsync:
+      type: object
+      xml:
+        name: lookup
+      properties:
+        request_id:
+          type: string
+          description: 'The unique identifier for your request. This is a alphanumeric string up to 40 characters.'
+          example: 'aaaaaaaa-bbbb-cccc-dddd-0123456789ab'
+          maxLength: 40
+          xml:
+            name: requestId
+        number:
+          type: string
+          description: "The `number` in your request"
+          example: '447700900000'
+        remaining_balance:
+          type: string
+          description: 'Your account balance in EUR after this request. Not returned with Number Insight Advanced Async API.'
+          example: '1.23456789'
+          xml:
+            name: remainingBalance
+        request_price:
+          type: number
+          description: 'If there is an internal lookup error, the `refund_price` will reflect the lookup price. If `cnam` is requested for a non-US number the `refund_price` will reflect the `cnam` price. If both of these conditions occur, `refund_price` is the sum of the lookup price and `cnam` price.'
+          example: '0.01500000'
+          xml:
+            name: requestPrice
+        status:
+          $ref: '#/components/schemas/niStatus'
     niResponseXml:
       type: object
       description: 'The root object of the XML response varies based on the detail level requested.'
@@ -176,7 +206,7 @@ components:
       properties:
         request_id:
           type: string
-          description: 'BANG 2 The unique identifier for your request. This is a alphanumeric string up to 40 characters.'
+          description: 'The unique identifier for your request. This is a alphanumeric string up to 40 characters.'
           example: 'aaaaaaaa-bbbb-cccc-dddd-0123456789ab'
           maxLength: 40
           xml:
