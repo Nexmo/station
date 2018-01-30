@@ -191,17 +191,6 @@ components:
         href:
           example: "http://conversation.local/v1/conversations/CON-aaaaaaaa-bbbb-cccc-dddd-0123456789ab"
           type: string
-    Embedded:
-      properties:
-        legs:
-          type: object
-          allOf:
-            - $ref: '#/components/schemas/Leg'
-    Leg:
-      properties:
-        _links:
-          type: array
-          example: []
     Channel:
       properties:
         type:
@@ -260,10 +249,10 @@ components:
           type: string
           description: >-
             The display name of the conversation
-        timestamp:
-          type: object
-          items:
-            $ref: '#/components/schemas/CreatedTimestamp'
+        # timestamp:
+        #   type: object
+        #   items:
+        #     $ref: '#/components/schemas/CreatedTimestamp'
         sequence_number:
           example: 0
           type: integer
@@ -273,22 +262,18 @@ components:
         properties:
           example: {}
           type: string
-        members:
-          example: []
-          type: array
+        # members:
+        #   example: []
+        #   type: array
         api_key:
           example: "abcd1234"
           type: string
           description: The API Key of the owner of the conversation
-        _links:
-          example:
-          type: object
-          allOf:
-            - $ref: '#/components/schemas/Link'
-        _embedded:
-          type: object
-          allOf:
-            - $ref: '#/components/schemas/Embedded'
+        # _links:
+        #   example:
+        #   type: object
+        #   allOf:
+        #     - $ref: '#/components/schemas/Link'
     Conversation:
       type: object
       required:
