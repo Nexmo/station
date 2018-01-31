@@ -62,7 +62,7 @@
         <h4 class="js-collapsible collapsible <%= response.success? ? 'collapsible--active' : '' %>" data-collapsible-id="<%= id %>">
           <span class="label label--status--<%= response.code[0] %>xx"><%= response.code %></span> HTTP response
         </h4>
-        
+
         <div id="<%= id %>" style="display: <%= response.success? ? 'block' : 'none' %>;">
           <div class="tabs-content" data-tabs-content="<%= id %>">
             <% response.formats.each_with_index do |format, index| %>
@@ -85,12 +85,13 @@
                     <div class="tabs-content" data-tabs-content="<%= id %>">
                       <% response.split_schemas(format).each_with_index do |schema, index| %>
                         <div class="tabs-panel <%= index.zero? ? 'is-active' : '' %>" id="<%= schema_tab_ids[index] %>">
-                          <%= ResponseParserDecorator.new(schema).html(format) %>
+                          <%= ResponseParserDecorator.new(schema).html(format, xml_options: schema['xml']) %>
                         </div>
                       <% end %>
                     </div>
                   <% else %>
-                    <%= ResponseParserDecorator.new(response.schema(format)).html(format) %>
+                    <% schema = response.schema(format) %>
+                    <%= ResponseParserDecorator.new(schema).html(format, xml_options: schema['xml']) %>
                   <% end %>
                 </div>
 

@@ -1,8 +1,10 @@
 class MarkdownController < ApplicationController
-  before_action :set_navigation
+  before_action :set_navigation, except: [:preview]
   before_action :set_product
   before_action :set_document
   before_action :set_namespace
+
+  skip_before_action :verify_authenticity_token, only: [:preview]
 
   def show
     @document_path = "#{@namespace_path}/#{@document}.md"
@@ -31,6 +33,14 @@ class MarkdownController < ApplicationController
     else
       render 'static/404', status: :not_found, formats: [:html]
     end
+  end
+
+  def preview
+    return render 'preview', layout: 'page-full' if request.method == 'GET'
+
+    content = MarkdownPipeline.new.call(params['markdown'])
+
+    render json: { html: content }
   end
 
   private

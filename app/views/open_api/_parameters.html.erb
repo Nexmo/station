@@ -5,7 +5,7 @@
 
 <ul class="table-list">
   <li class="table-list-header">
-    <div class="table-list-columns">
+    <div class="table-list-columns <%= callback ? 'table-list-columns--callback' : '' %> <%= model ? 'table-list-columns--model' : '' %>">
       <div class="table-list-column" flex="2">Key</div>
       <div class="table-list-column" flex="3">Description</div>
       <% unless model %>
@@ -18,7 +18,7 @@
   </li>
   <% parameters.each do |parameter| %>
     <li>
-      <div class="table-list-columns">
+      <div class="table-list-columns <%= callback ? 'table-list-columns--callback' : '' %> <%= model ? 'table-list-columns--model' : '' %>">
         <div class="table-list-column" flex="2">
           <b><%= parameter.name %></b><br>
 
@@ -51,7 +51,7 @@
             <br>
             <small>
               <i>
-                Must be one of:
+                <%= (callback || model) ? "One of:" : "Must be one of:" %>
                 <%= parameter.enum.map { |s| "<code>#{s}</code>" }.to_sentence(last_word_connector: 'or', two_words_connector: 'or').html_safe %>
               </i>
             </small>
@@ -91,7 +91,7 @@
 
         <% unless model || callback %>
           <div class="table-list-column">
-            <%= (parameter.default ? "<code>#{parameter.default}</code>" : '<i>None</i>').html_safe %>
+            <%= (parameter.default.nil? ? '<i>None</i>' : "<code>#{parameter.default}</code>").html_safe %>
           </div>
         <% end %>
       </div>

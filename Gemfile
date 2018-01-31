@@ -28,7 +28,7 @@ gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.5'
+gem 'jbuilder', '~> 2.7.0'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
@@ -84,7 +84,7 @@ gem 'icalendar'
 # gem 'oas_parser', path: '../oas_parser', require: 'oas_parser'
 #
 # Otherwise use a published gem:
-gem 'oas_parser', '~> 0.2.0'
+gem 'oas_parser', '~> 0.6.0'
 
 # Generate JSON strings from Ruby objects with flexible formatting options.
 gem 'neatjson'

@@ -52,7 +52,7 @@ cd customer-support
 rake db:create db:migrate
 ```
 
-The page will be at the root of our application and simply provide a link to your SMS app with some prefilled text.
+The page will be at the root of our application and will provide a link to your SMS app with some prefilled text.
 
 **Adding a first page**
 
