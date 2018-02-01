@@ -733,8 +733,7 @@ components:
             - not_ported
             - assumed_not_ported
             - assumed_ported
-          example:
-            - 'not_ported'
+          example: 'not_ported'
         roaming:
           description: 'Information about the roaming status for `number`. This is applicable to mobile numbers only.'
           $ref: '#/components/schemas/niRoaming'
