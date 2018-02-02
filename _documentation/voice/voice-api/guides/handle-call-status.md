@@ -49,10 +49,10 @@ Key | Value
 `direction` | Possible values are outbound or inbound.
 `recording_url` | The URL to download a Call or Conversation recording from.
 `rate` | The price per minute for this call.
-`start_time` | The time the call started in the following format: YYYY-MM-DD HH:MM:SS. For example, 2020-01-01 12:00:00.
+`start_time` | The time the call started the [IS0 8601 format](https://en.wikipedia.org/wiki/ISO_8601).
 `network` | The Mobile Country Code Mobile Network Code (MCCMNC) for the carrier network used to make this call.
 `status` | The status of the call. @[Possible values](/_modals/voice/guides/handle-call-status/status.md).
 `price` | The total price charged for this Call.
 `duration` | The time elapsed for the Call to take place in seconds.
-`end_time` | The time the Call ended in the following format: YYYY-MM-DD HH:MM:SS. For example, 2020-01-01 12:00:00.
-`timestamp` | The time the callback was created in the following format: YYYY-MM-DD HH:MM:SS. For example, 2020-01-01 12:00:00.
+`end_time` | The time the Call ended in the [IS0 8601 format](https://en.wikipedia.org/wiki/ISO_8601).
+`timestamp` | The time the callback was created in the [IS0 8601 format](https://en.wikipedia.org/wiki/ISO_8601).
