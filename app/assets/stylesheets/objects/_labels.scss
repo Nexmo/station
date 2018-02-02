@@ -76,6 +76,11 @@
     .navigation & { color: mix($warning, $background, 80%); }
   }
 
+  &--get {
+    background: $blue;
+    .navigation & { color: mix($blue, $background, 80%); }
+  }
+
   &--status--2xx {
     background: $positive;
   }
