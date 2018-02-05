@@ -8,6 +8,13 @@ $table-list-spacing: $spacing * 0.6;
   padding: 0;
   box-shadow: $shadow-soft;
 
+  table {
+    font-size: 0.85em;
+    th, td {
+      padding: 5px 10px;
+    }
+  }
+
   > li {
     border: $border;
     border-top: none;
@@ -69,6 +76,19 @@ $table-list-spacing: $spacing * 0.6;
     &[flex='#{$i}'] {
       flex: #{$i};
       max-width: $i * 150px;
+    }
+  }
+}
+
+.table-list-columns {
+  &--model, &--callback {
+    .table-list-column {
+      // Where only two columns are present do not impose a max width.
+      @for $i from 3 through 10 {
+        &[flex='#{$i}'] {
+          max-width: none;
+        }
+      }
     }
   }
 }

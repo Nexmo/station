@@ -1,3 +1,10 @@
+$icon-java: "\e909";
+$icon-dotnet: "\e90a";
+$icon-php: "\e90b";
+$icon-ruby: "\e90c";
+$icon-python: "\e90d";
+$icon-node: "\e90e";
+$icon-webhook: "\e90f";
 $icon-account: "\e904";
 $icon-voice: "\e905";
 $icon-verify: "\e906";
@@ -14,6 +21,7 @@ $icon-times: "\f00d";
 $icon-cog: "\f013";
 $icon-gear: "\f013";
 $icon-book: "\f02d";
+$icon-pencil: "\f040";
 $icon-times-circle: "\f057";
 $icon-check-circle: "\f058";
 $icon-thumbs-o-up: "\f087";
@@ -33,6 +41,8 @@ $icon-code-fork: "\f126";
 $icon-chevron-circle-right: "\f138";
 $icon-stack-overflow: "\f16c";
 $icon-slack: "\f198";
+$icon-loop: "\ea2d";
+$icon-callback: "\ea2d";
 
 @font-face {
   font-family: 'icomoon';
@@ -67,6 +77,41 @@ $icon-slack: "\f198";
   vertical-align: -15%;
 }
 
+.icon-java {
+  &:before {
+    content: $icon-java;
+  }
+}
+.icon-dotnet {
+  &:before {
+    content: $icon-dotnet;
+  }
+}
+.icon-php {
+  &:before {
+    content: $icon-php;
+  }
+}
+.icon-ruby {
+  &:before {
+    content: $icon-ruby;
+  }
+}
+.icon-python {
+  &:before {
+    content: $icon-python;
+  }
+}
+.icon-node {
+  &:before {
+    content: $icon-node;
+  }
+}
+.icon-webhook {
+  &:before {
+    content: $icon-webhook;
+  }
+}
 .icon-account {
   &:before {
     content: $icon-account;
@@ -145,6 +190,11 @@ $icon-slack: "\f198";
 .icon-book {
   &:before {
     content: $icon-book;
+  }
+}
+.icon-pencil {
+  &:before {
+    content: $icon-pencil;
   }
 }
 .icon-times-circle {
@@ -240,5 +290,15 @@ $icon-slack: "\f198";
 .icon-slack {
   &:before {
     content: $icon-slack;
+  }
+}
+.icon-loop {
+  &:before {
+    content: $icon-loop;
+  }
+}
+.icon-callback {
+  &:before {
+    content: $icon-callback;
   }
 }

@@ -64,13 +64,14 @@ The actions you can use in an NCCO are:
 
 ##Creating a custom call or conversation for each user
 
-When you make an outbound call or accept an inbound call, Nexmo makes a GET request to your webhook endpoint at *answer_url* and retrieves your NCCO. This GET request contains the following parameters in the query string:
+When you make an outbound call or accept an inbound call, Nexmo makes a request to your webhook endpoint at *answer_url* and retrieves your NCCO. This  request contains the following parameters:
 
 Name | Description
 -- | --
 `to` | The endpoint being called.
 `from` | The endpoint you are calling from.
 `conversation_uuid` | The unique ID for this Conversation.
+`uuid` | The unique ID for this Call.
 
 You can use these parameters to customize the NCCO you return to Nexmo. The following code examples show how to provide the NCCO that controls your call or conversation:
 

@@ -1,14 +1,11 @@
 class SearchController < ApplicationController
   include ApplicationHelper
 
-  rescue_from RestClient::InternalServerError, with: :search_error
-  rescue_from RestClient::NotFound, with: :search_error
-
   before_action :validate_query_is_present
   before_action :check_search_is_enabled
 
   def results
-    @results = JSON.parse(get_results, object_class: OpenStruct).results
+    @results = JSON.parse(get_results.to_json, object_class: OpenStruct).results
     @results_total = @results.sum(&:nbHits)
   end
 
@@ -20,9 +17,16 @@ class SearchController < ApplicationController
 
   def get_results
     return unless params['query']
-    RestClient.get ENV['SEARCH_URL'], {
-      params: { query: params['query'] },
-    }
+
+    parameters = ALGOLIA_CONFIG.keys.map do |index|
+      {
+        index_name: index,
+        query: params['query'],
+        hitsPerPage: 20
+      }
+    end
+
+    Algolia.multiple_queries(parameters)
   end
 
   def search_error

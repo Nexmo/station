@@ -32,6 +32,22 @@ In this document you can learn about:
 
 ## Getting Started
 
+### Voice Playground
+
+In the [Nexmo Dashboard](https://dashboard.nexmo.com), you can try out the Voice API interactively in the Voice Playground. Once you are [signed up for a Nexmo account](https://dashboard.nexmo.com/signup), you can go to [Voice Playground](https://dashboard.nexmo.com/voice/playground) in the Dashboard (Voice ‣ Voice Playgrounds).
+
+When you use the Voice Playgrounds, you will be guided through the process of buying a phone number and assigning it to the Playground, then you can interactively test NCCOs in the browser and see the results. Playgrounds also has a number of common use cases as examples you can try. These are listed below with links to guides and tutorials on how to implement them yourself.
+
+* Connecting two users ([guide](/voice/voice-api/guides/connect-two-users), [tutorial](/tutorials/private-voice-communication))
+* Interactive Voice Response (IVR) using DTMF tones ([guide](/voice/voice-api/guides/interactive-voice-response), [tutorial](/tutorials/interactive-voice-response))
+* Conference Call ([guide](/voice/voice-api/guides/create-conferences))
+* Send audio to call ([NCCO reference](/api/voice/ncco#stream), [API reference](/api/voice#stream))
+
+More details are available in this blog post: [Meet Voice Playground, Your Testing Sandbox for Nexmo Voice Apps](https://www.nexmo.com/blog/2017/12/12/voice-playground-testing-sandbox-nexmo-voice-apps/)
+
+
+### Using the Nexmo CLI tool
+
 Before you begin:
 
 * Sign up for a [Nexmo account](https://dashboard.nexmo.com/signup)
@@ -39,9 +55,7 @@ Before you begin:
 
 > *Note*: If you do not wish to install Node in order to use the [Nexmo CLI](/tools) you can also create applications using the [Application API](/concepts/guides/applications)*
 
-Install and Setup the Nexmo CLI (Command Line Interface)
-
-Install the Nexmo CLI:
+Once you have installed NodeJS, you can install and setup the Nexmo CLI (Command Line Interface) as follows:
 
 ```bash
 $ npm install -g nexmo-cli

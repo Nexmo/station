@@ -14,7 +14,7 @@ Making outbound calls from Nexmo is easy. In this building block we'll use the V
 
 ## Example
 
-Simply sign up for an account and replace the following variables in the example below:
+To make a test outbound voice call, sign up for an account and replace the following variables in the example below:
 
 Key |	Description
 -- | --

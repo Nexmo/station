@@ -9,7 +9,25 @@
 
   background: $blue;
   border-color: $blue;
-  .navigation & { color: mix($blue, $background, 80%); }
+
+  &--webhook .icon {
+    .navigation & {
+      color: $webhook;
+    }
+  }
+
+  &--callback .icon {
+    .navigation & {
+      color: $callback;
+    }
+  }
+
+  h3 & {
+    font-size: 18px;
+    font-weight: 600;
+    position: relative;
+    top: -3px;
+  }
 
   h4 & {
     font-size: 18px;
@@ -58,6 +76,11 @@
     .navigation & { color: mix($warning, $background, 80%); }
   }
 
+  &--get {
+    background: $blue;
+    .navigation & { color: mix($blue, $background, 80%); }
+  }
+
   &--status--2xx {
     background: $positive;
   }
@@ -68,5 +91,13 @@
 
   &--status--4xx {
     background: $red;
+  }
+
+  &--callback {
+    background: $callback;
+  }
+
+  &--webhook {
+    background: $webhook;
   }
 }

@@ -28,7 +28,7 @@ gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.5'
+gem 'jbuilder', '~> 2.7.0'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
@@ -50,7 +50,7 @@ gem 'banzai', '~> 0.1.2'
 gem 'foundation-rails', '6.4.1.2'
 
 # Nokogiri (鋸) is an HTML, XML, SAX, and Reader parser. Among Nokogiri's many features is the ability to search documents via XPath or CSS3 selectors.
-gem 'nokogiri', '1.7.0.1'
+gem 'nokogiri', '1.8.1'
 
 # Autoload dotenv in Rails.
 gem 'dotenv-rails', groups: [:development, :test]
@@ -79,7 +79,12 @@ gem 'recaptcha', require: "recaptcha/rails"
 gem 'icalendar'
 
 # A parser for Open API specifications
-gem 'open_api_parser', github: 'nexmo/open_api_parser', branch: 'openapi-specification-v3'
+#
+# If using development copy uncomment:
+# gem 'oas_parser', path: '../oas_parser', require: 'oas_parser'
+#
+# Otherwise use a published gem:
+gem 'oas_parser', '~> 0.6.0'
 
 # Generate JSON strings from Ruby objects with flexible formatting options.
 gem 'neatjson'
@@ -102,6 +107,24 @@ gem 'devise', '4.3.0'
 # Simple wrapper for the GitHub API
 gem 'octokit'
 
+# Cross-language UserAgent classifier library, ruby implementation
+gem 'woothee'
+
+# Create beautiful JavaScript charts with one line of Ruby
+gem 'chartkick', '2.2.5'
+
+# The simplest way to group temporal data
+gem 'groupdate', '3.2.0'
+
+# A configurable and documented Rails view helper for adding gravatars into your Rails application.
+gem 'gravatar_image_tag', '1.2.0'
+
+# Provides Open API Spec 3 definitions for Nexmo APIs
+gem 'nexmo_api_specification', '0.6.1'
+
+# Really simple JSON and XML parsing, ripped from Merb and Rails.
+gem 'crack', '0.4.3'
+
 group :development, :test do
   gem 'awesome_print'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -121,8 +144,6 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'guard-livereload', '~> 2.5', require: false
   gem 'guard-rspec'
-  gem 'better_errors'
-  gem 'binding_of_caller'
   gem 'pry'
 
   # Share git hooks in Ruby projects among all the collaborators automatically, without them having to do anything

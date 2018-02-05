@@ -33,18 +33,11 @@ If your system is not enabled for [Service records](https://en.wikipedia.org/wik
 
 **Recipient**
 
-Recipient numbers must be in [E.164](https://en.wikipedia.org/wiki/E.164) format: `country code+area code+local code+extension`.
-
-For example, the phone number 331908817135 is made up of:
-
-* country code (CC): 33
-* area code (AC): 1908
-* local code (LC): 8
-* extension: 17135
+Recipient numbers must be in [E.164](https://en.wikipedia.org/wiki/E.164) format: 
 
 **Caller ID**
 
-Set the Caller Line Identity (CLI) in the *From* header using [E.164](https://en.wikipedia.org/wiki/E.164). For example: `From: <sip:447937947990@sip.nexmo.com>`.
+Set the Caller Line Identity (CLI) in the *From* header using [E.164](https://en.wikipedia.org/wiki/E.164). For example: `From: <sip:447700900000@sip.nexmo.com>`.
 
 **Codecs**
 
@@ -67,7 +60,7 @@ Nexmo supports out-of-band DTMF. For more information, see [RFC2833](https://www
 
 **Health checks**
 
-Use the OOD [OPTIONS](https://en.wikipedia.org/wiki/List_of_SIP_request_methods) method to run a health check on our SIP trunks.
+Use the [OPTIONS](https://en.wikipedia.org/wiki/List_of_SIP_request_methods) method to run a health check on our SIP trunks.
 
 **Protocols**
 
@@ -95,8 +88,8 @@ To configure for SIP forwarding:
 1. Sign into [Dashboard](https://dashboard.nexmo.com/sign-in).
 2. In Dashboard, click *Products* > *Numbers*.
 3. Scroll to the number to forward from, then select *Forward to SIP*.
-4. Type a valid SIP URI and click *Update*. For example 1234567890@mydomain.com.
-  This field supports comma-separated entries for failover capabilities. For example: `1234567890@mydomain.com, 1234567890@my2domain.com, 1234567890@my3domain.com`. If you set more than one endpoint in *Forward to SIP* the call is initially forwarded to the first endpoint in the list. If this fails, the call is forwarded to the second endpoint in the list, and so on.
+4. Type a valid SIP URI and click *Update*. For example 1234@example.com.
+  This field supports comma-separated entries for failover capabilities. For example: `1234@example.com, 1234@example.net, 1234@example.org`. If you set more than one endpoint in *Forward to SIP* the call is initially forwarded to the first endpoint in the list. If this fails, the call is forwarded to the second endpoint in the list, and so on.
   Calls failover for the whole 5xx class of HTTP errors. The timeout is 486.
 5. Ensure that the traffic generated from the following IP addresses can pass your firewall:
 
@@ -107,7 +100,7 @@ To configure for SIP forwarding:
   * 119.81.44.6
   * 119.81.44.7
 
-> **Note**: Nexmo supports TLS on inbound connections. To enable this, enter a valid secure URI in the format sips:user@(IP|domain). For example, *sips:1234567890@mydomain.com*. By default, traffic is sent to port 5061. To use a different port, add it at the end of your URI: *sips:1234567890@mydomain.com:5062*.
+> **Note**: Nexmo supports TLS on inbound connections. To enable this, enter a valid URI in the format sip:user@(IP|domain);transport=tls. For example, *sip:1234@example.com;transport=tls*. By default, traffic is sent to port 5061. To use a different port, add it at the end of your domain or IP address: *sip:1234@example.com:5062;transport=tls*.
 
 ## Example configurations
 

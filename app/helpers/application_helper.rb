@@ -5,7 +5,8 @@ COLLAPSIBLE = ['Messaging', 'SMS', 'Conversion API', 'SNS', 'US Short Codes', 'V
 
 module ApplicationHelper
   def search_enabled?
-    return false unless ENV['SEARCH_URL']
+    return false unless defined? ALGOLIA_CONFIG
+    return false unless ENV['ALGOLIA_SEARCH_KEY']
     true
   end
 
@@ -119,18 +120,5 @@ module ApplicationHelper
 
   def document_meta(path)
     YAML.load_file(path)
-  end
-
-  def render_request(definition_name, path, method)
-    base_path = "_open_api_requests/#{definition_name + path}/#{method}/"
-
-    markdown = <<~HEREDOC
-      ```tabbed_examples
-      source: #{base_path}
-      ```
-    HEREDOC
-
-    tabbed_examples = TabbedExamplesFilter.new.call(markdown)
-    UnfreezeFilter.new.call(tabbed_examples).html_safe
   end
 end

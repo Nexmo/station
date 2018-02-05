@@ -39,7 +39,6 @@ $ball-size: 44px;
   border-radius: $radius;
   box-shadow: $shadow;
   margin-bottom: $spacing;
-  overflow: hidden;
   font-size: 16px;
 
   .spacious {
@@ -58,6 +57,11 @@ $ball-size: 44px;
     &.poster {
       display: block;
       padding: 0;
+    }
+
+    &.button {
+      color: $white;
+      text-align: center;
     }
   }
 

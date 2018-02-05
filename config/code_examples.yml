@@ -41,6 +41,8 @@ library:
 messaging:
   sms:
     send:
+      curl:
+        source: '_examples/curl/messaging/sms/send-an-sms.sh'
       node:
         source: '.repos/nexmo-community/nexmo-node-quickstart/sms/send.js'
         from_line: 14
@@ -66,6 +68,34 @@ messaging:
       python:
         source: '.repos/nexmo-community/nexmo-python-quickstart/sms/send-an-sms.py'
         from_line: 16
+    delivery-receipts:
+      node:
+        source: '.repos/nexmo-community/nexmo-node-quickstart/sms/dlr-express.js'
+      ruby:
+        source: '.repos/nexmo-community/nexmo-ruby-quickstart/sms/delivery_receipt.rb'
+      python:
+        source: '.repos/nexmo-community/nexmo-python-quickstart/sms/dlr-flask.py'
+      php:
+        source: '.repos/nexmo-community/nexmo-php-quickstart/sms/receive-delivery-receipt-slim/index.php'
+      java:
+        source: '.repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/sms/ReceiveDLR.java'
+        from_line: 12
+        to_line: 35
+        unindent: true
+    inbound:
+      node:
+        source: '.repos/nexmo-community/nexmo-node-quickstart/sms/receive-express.js'
+      ruby:
+        source: '.repos/nexmo-community/nexmo-ruby-quickstart/sms/receive.rb'
+      python:
+        source: '.repos/nexmo-community/nexmo-python-quickstart/sms/receive-flask.py'
+      php:
+        source: '.repos/nexmo-community/nexmo-php-quickstart/sms/receive-with-slim/index.php'
+      java:
+        source: '.repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/sms/ReceiveSMS.java'
+        from_line: 15
+        to_line: 42
+        unindent: true
 voice:
   outbound:
     node:

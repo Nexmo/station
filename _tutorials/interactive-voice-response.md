@@ -16,11 +16,11 @@ In this tutorial you build an interactive phone menu with different paths based 
 
 - [Create a voice application](#create-a-voice-application) - create and configure an application using [Nexmo CLI](https://github.com/nexmo/nexmo-cli), then configure the webhook endpoints to provide NCCOs and handle changes in Call status
 - [Buy a phone number](#buy-a-phone-number) - buy voice enabled numbers for use in the application
-* [Link the phone numbers to the Nexmo Application](#link-numbers) - configure the voice enabled phone numbers to mask user numbers
+* [Link the phone numbers to the Nexmo Application](#link-phone-numbers-to-the-nexmo-application) - configure the voice enabled phone numbers to mask user numbers
 - [Route an inbound call](#route-an-inbound-call) - configure your webhook endpoint to handle incoming voice calls, find the phone number it is associated with and handle the call
-- [Send text-to-speech greeting](#text-to-speech) - Greet the user with text-to-speech upon answer
-- [Request user input via IVR](#request-user-input) - Create a text-to-speech prompt followed by requesting user input via IVR
-- [Receive user input webhook](#receive-user-input) - Handle the user order number input and play back status via text-to-speech
+- [Send text-to-speech greeting](#send-text-to-speech-greeting) - Greet the user with text-to-speech upon answer
+- [Request user input via IVR](#request-user-input-via-ivr) - Create a text-to-speech prompt followed by requesting user input via IVR
+- [Receive user input webhook](#receive-user-input-webhook) - Handle the user order number input and play back status via text-to-speech
 
 ## Prerequisites
 

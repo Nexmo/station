@@ -1,27 +1,44 @@
 package com.nexmo.quickstart.sms;
 
+import java.util.logging.Logger;
+
 import static com.nexmo.quickstart.Util.configureLogging;
 import static spark.Spark.*;
 
 public class ReceiveSMS {
 
     public static void main(String[] args) throws Exception {
+        Logger logger = Logger.getLogger("com.nexmo.quickstart.ReceiveSMS");
+
         configureLogging();
 
-        port(8080);
+        port(3000);
 
-        get("/incoming-sms", (req, res) -> {
+        get("/webhooks/inbound-sms", (req, res) -> {
+            logger.info("GET request received!");
             for (String param : req.queryParams()) {
                 System.out.printf("%s: %s\n", param, req.queryParams(param));
             }
-            return "OK";
+
+            res.status(204);
+            return "";
         });
 
-        post("/incoming-sms", (req, res) -> {
-            // The body will be a String containing JSON
-            // use the JSON parser of your choice to extract values:
-            System.out.println(req.body());
-            return "OK";
+        post("/webhooks/inbound-sms", (req, res) -> {
+            logger.info("POST request received, with type: " + req.contentType());
+
+            // The body will be form-encoded or a JSON object:
+            if (req.contentType().startsWith("application/x-www-form-urlencoded")) {
+                for (String param : req.queryParams()) {
+                    System.out.printf("%s: %s\n", param, req.queryParams(param));
+                }
+            } else {
+                IncomingSmsPayload jsonPayload = IncomingSmsPayload.fromJson(req.bodyAsBytes());
+                System.out.println(jsonPayload);
+            }
+
+            res.status(204);
+            return "";
         });
     }
 }

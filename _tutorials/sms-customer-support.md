@@ -30,7 +30,7 @@ In order for this tutorial to work you will need:
 * The source code for this tutorial from <https://github.com/Nexmo/ruby-sms-customer-support/>
 
 
-## A Basic Web application {#a-basic-web-application}
+## A Basic Web application
 
 For this tutorial start off with a simple web application with one page. The user will be able to click on a link to open their SMS app and request support. Your app will collect the inbound SMS and open a new ticket. Finally, the app will reply with a new SMS to the user confirming their ticket number.
 
@@ -52,7 +52,7 @@ cd customer-support
 rake db:create db:migrate
 ```
 
-The page will be at the root of our application and simply provide a link to your SMS app with some prefilled text.
+The page will be at the root of our application and will provide a link to your SMS app with some prefilled text.
 
 **Adding a first page**
 

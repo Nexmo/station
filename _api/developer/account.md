@@ -64,8 +64,8 @@ The following shows the parameters you use in the request:
 
 Parameter | Description | Required
 -- | -- | --
-`moCallBackUrl` | An URL encoded URI to the webhook endpoint endpoint that handles inbound messages. Your webhook endpoint must be active before you make this request, Nexmo makes a [GET] request to your endpoint and checks that it returns a `200 OK` response. Set to empty string to clear. | No
-`drCallBackUrl` | An URL encoded URI to the webhook endpoint endpoint that handles delivery receipts (DLR). Your webhook endpoint must be active before you make this request, Nexmo makes a [GET] request to your endpoint and checks that it returns a `200 OK` response. Set to empty string to clear. | No
+`moCallBackUrl` | An URL encoded URI to the webhook endpoint that handles inbound messages. Your webhook endpoint must be active before you make this request, Nexmo makes a [GET] request to your endpoint and checks that it returns a `200 OK` response. Set to empty string to clear. | No
+`drCallBackUrl` | An URL encoded URI to the webhook endpoint that handles delivery receipts (DLR). Your webhook endpoint must be active before you make this request, Nexmo makes a [GET] request to your endpoint and checks that it returns a `200 OK` response. Set to empty string to clear. | No
 
 #### Response
 
@@ -83,7 +83,6 @@ The response contains the following keys and values:
 
 Key | Value
 -- | --
-`api-secret` | The current or updated API Secret
 `mo-callback-url` | The current or updated inbound message URI
 `dr-callback-url` | The current or updated delivery receipt URI
 `max-outbound-request` | The maximum amount of outbound messages per second.
@@ -91,9 +90,9 @@ Key | Value
 
 ### Top up
 
-You can top-up your account using Developer API when you have enabled Auto-Reload in Dashboard. The amount added to your account at each top up is based on your initial reload-enable payment. That is, if you topped up `€50.00` when you enabled auto-reload, `€50.00` is automatically credited to your account when your balance reaches `€20.00`.
+You can top-up your account using Developer API when you have enabled auto-reload in Dashboard. The amount added to your account at each top up is based on your initial reload-enabled payment. That is, if you topped up `€50.00` when you enabled auto-reload, `€50.00` is automatically credited to your account when your balance reaches `€20.00`.
 
-Your account balance is checked every 10 minutes. If you are sending a lot of messages, use this API to manage reloads when remaining-balance in the response goes below a specific amount.
+Your account balance is checked every 6 minutes. If you are sending a lot of messages, use this API to manage reloads when remaining-balance in the response goes below a specific amount.
 
 #### Request
 
