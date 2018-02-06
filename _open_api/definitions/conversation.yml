@@ -15,6 +15,7 @@ paths:
         - bearerAuth: []
       x-group: conversation
       summary: Create a conversation
+      operationId: create-a-conversation
       parameters:
         - name: name
           in: query
@@ -42,6 +43,7 @@ paths:
     get:
       x-group: conversation
       summary: Retrieve a conversation
+      operationId: retrieve-a-conversation
       parameters:
         - name: id
           in: path
@@ -62,6 +64,7 @@ paths:
     get:
       x-group: member
       summary: Retrieve members of a conversation
+      operationId: retrieve-members-of-a-conversation
       parameters:
         - name: id
           in: path
@@ -81,6 +84,7 @@ paths:
     post:
       x-group: member
       summary: Add a user to a conversation
+      operationId: add-a-user-to-a-conversation
       parameters:
         - name: id
           in: path
@@ -100,6 +104,7 @@ paths:
     get:
       x-group: user
       summary: Retrieve all users
+      operationId: retrieve-all-users
       responses:
         '200':
           description: users response
@@ -112,6 +117,7 @@ paths:
     post:
       x-group: user
       summary: Create a user
+      operationId: create-a-user
       parameters:
         - name: name
           in: query
@@ -131,6 +137,7 @@ paths:
     get:
       x-group: user
       summary: Retrive a user
+      operationId: retrive-a-user
       parameters:
         - name: id
           in: path
