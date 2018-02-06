@@ -990,4 +990,7 @@ x-groups:
     description: The Number Insight object contains information about the request and details of the phone number information has been requested about.
     order: 1
     schema:
-      $ref: '#/components/schemas/niResponseJsonAdvanced'
+      application/json:
+        $ref: '#/components/schemas/niResponseJsonAdvanced'
+      text/xml:
+        $ref: '#/components/schemas/niResponseXmlAdvanced'
