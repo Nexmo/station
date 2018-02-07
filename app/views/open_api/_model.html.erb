@@ -30,7 +30,7 @@
       <% group['schema'].each do |format, schema| %>
         <div class="js-format" data-format="<%= format %>">
           <div class="slate-layout-code__inner">
-            <h2>Example Model <span class="label"><%= format %></span></h2>
+            <h4>Example Model</h4>
             <%= ResponseParserDecorator.new(schema).html(format, xml_options: schema['xml']) %>
           </div>
         </div>
