@@ -66,7 +66,7 @@
                 <a href="../Classes/Conversation.html">Conversation</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/Conversation/Change.html">– Change</a>
+                <a href="../Classes/Conversation/Media.html">– Media</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/Conversation/Errors.html">– Errors</a>
@@ -82,6 +82,15 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/User.html">User</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Audio.html">Audio</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Audio/State.html">– State</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Audio/Errors.html">– Errors</a>
               </li>
             </ul>
           </li>
@@ -99,6 +108,27 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/ConversationController/JoinConversation.html">– JoinConversation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AppLifecycleController.html">AppLifecycleController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AppLifecycleController/Notification.html">– Notification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MediaController.html">MediaController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PushNotificationController.html">PushNotificationController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PushNotificationController/State.html">– State</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RTCController.html">RTCController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RTCController/Media.html">– Media</a>
               </li>
             </ul>
           </li>
@@ -118,7 +148,10 @@
                 <a href="../Classes/ImageEvent.html">ImageEvent</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Event.html#/s:C17NexmoConversation15MembershipEvent">MembershipEvent</a>
+                <a href="../Classes/MediaEvent.html">MediaEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Event.html#/c:@M@NexmoConversation@objc(cs)NXMMembershipEvent">MembershipEvent</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/MemberLeftEvent.html">MemberLeftEvent</a>
@@ -167,6 +200,12 @@
               <li class="nav-group-task">
                 <a href="../Classes/ConversationPreviewModel.html">ConversationPreviewModel</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Structs/IPS.html">IPS</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/IPS/ImageType.html">– ImageType</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -190,6 +229,9 @@
               <li class="nav-group-task">
                 <a href="../Classes/EventCollection.html">EventCollection</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EventCollection/Change.html">– Change</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -199,6 +241,9 @@
                 <a href="../changelog.html">CHANGELOG</a>
               </li>
               <li class="nav-group-task">
+                <a href="../designrationale.html">DesignRationale</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../readme.html">README</a>
               </li>
             </ul>
@@ -206,15 +251,6 @@
           <li class="nav-group-name">
             <a href="../Other Classes.html">Other Classes</a>
             <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Classes/AppLifecycleController.html">AppLifecycleController</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/AppLifecycleController/Notification.html">– Notification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/MediaController.html">MediaController</a>
-              </li>
               <li class="nav-group-task">
                 <a href="../Classes/Signal.html">Signal</a>
               </li>
@@ -243,6 +279,9 @@
               <li class="nav-group-task">
                 <a href="../Extensions/ObservableType.html">ObservableType</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/PrimitiveSequence.html">PrimitiveSequence</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -263,12 +302,6 @@
             <a href="../Other Structs.html">Other Structures</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Structs/IPS.html">IPS</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/IPS/ImageType.html">– ImageType</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Structs/Request.html">Request</a>
               </li>
             </ul>
@@ -281,7 +314,7 @@
             <h1>Conversation</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">Conversation</span><span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">Conversation</span><span class="p">:</span> <span class="kt">NSObject</span></code></pre>
 
                 </div>
               </div>
@@ -301,9 +334,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:OC17NexmoConversation12Conversation6Change"></a>
-                    <a name="//apple_ref/swift/Enum/Change" class="dashAnchor"></a>
-                    <a class="token" href="#/s:OC17NexmoConversation12Conversation6Change">Change</a>
+                    <a name="/s:17NexmoConversation0B0C5MediaO"></a>
+                    <a name="//apple_ref/swift/Enum/Media" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17NexmoConversation0B0C5MediaO">Media</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -311,25 +344,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Changes to event observer</p>
+                        <p>Invitation media type</p>
 
 <ul>
-<li>reset: reset all events</li>
-<li>inserts: inserted events at indexpath</li>
-<li>deletes: deleted events at indexpath</li>
-<li>updates: updated events at indexpath</li>
-<li>move: moved events from and to</li>
-<li>beginBatchEditing: begin batch editing</li>
-<li>endBatchEditing: end batch editing</li>
+<li>audio: audio invite, Default: @muted, @earmuffed set to false</li>
 </ul>
 
-                        <a href="../Classes/Conversation/Change.html" class="slightly-smaller">See more</a>
+                        <a href="../Classes/Conversation/Media.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Change</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Media</span></code></pre>
 
                         </div>
                       </div>
@@ -339,9 +366,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:OC17NexmoConversation12Conversation6Errors"></a>
+                    <a name="/s:17NexmoConversation0B0C6ErrorsO"></a>
                     <a name="//apple_ref/swift/Enum/Errors" class="dashAnchor"></a>
-                    <a class="token" href="#/s:OC17NexmoConversation12Conversation6Errors">Errors</a>
+                    <a class="token" href="#/s:17NexmoConversation0B0C6ErrorsO">Errors</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -362,7 +389,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Errors</span><span class="p">:</span> <span class="kt">Error</span><span class="p">,</span> <span class="kt">Equatable</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Errors</span><span class="p">:</span> <span class="kt">Error</span><span class="p">,</span> <span class="kt">Equatable</span></code></pre>
 
                         </div>
                       </div>
@@ -383,9 +410,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC17NexmoConversation12Conversation4uuidSS"></a>
+                    <a name="/s:17NexmoConversation0B0C4uuidSSv"></a>
                     <a name="//apple_ref/swift/Property/uuid" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC17NexmoConversation12Conversation4uuidSS">uuid</a>
+                    <a class="token" href="#/s:17NexmoConversation0B0C4uuidSSv">uuid</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -400,7 +427,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">uuid</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">uuid</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -410,9 +437,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC17NexmoConversation12Conversation4nameSS"></a>
+                    <a name="/s:17NexmoConversation0B0C4nameSSv"></a>
                     <a name="//apple_ref/swift/Property/name" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC17NexmoConversation12Conversation4nameSS">name</a>
+                    <a class="token" href="#/s:17NexmoConversation0B0C4nameSSv">name</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -427,7 +454,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -437,9 +464,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC17NexmoConversation12Conversation5usersGSaCS_4User_"></a>
+                    <a name="/s:17NexmoConversation0B0C5usersSayAA4UserCGv"></a>
                     <a name="//apple_ref/swift/Property/users" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC17NexmoConversation12Conversation5usersGSaCS_4User_">users</a>
+                    <a class="token" href="#/s:17NexmoConversation0B0C5usersSayAA4UserCGv">users</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -448,7 +475,7 @@
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>An array of all of the users in the conversation.</p>
-<pre class="highlight plaintext"><code>var users:[Users] = conversation.allUsers
+<pre class="highlight swift"><code><span class="k">var</span> <span class="nv">users</span><span class="p">:[</span><span class="kt">Users</span><span class="p">]</span> <span class="o">=</span> <span class="n">conversation</span><span class="o">.</span><span class="n">allUsers</span>
 </code></pre>
 
                       </div>
@@ -456,7 +483,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">users</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/User.html">User</a></span><span class="p">]</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">users</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/User.html">User</a></span><span class="p">]</span></code></pre>
 
                         </div>
                       </div>
@@ -466,9 +493,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC17NexmoConversation12Conversation12lastSequenceSi"></a>
+                    <a name="/s:17NexmoConversation0B0C12lastSequenceSiv"></a>
                     <a name="//apple_ref/swift/Property/lastSequence" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC17NexmoConversation12Conversation12lastSequenceSi">lastSequence</a>
+                    <a class="token" href="#/s:17NexmoConversation0B0C12lastSequenceSiv">lastSequence</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -483,7 +510,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">lastSequence</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">lastSequence</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
 
                         </div>
                       </div>
@@ -493,9 +520,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC17NexmoConversation12Conversation7membersCS_16MemberCollection"></a>
+                    <a name="/s:17NexmoConversation0B0C7membersAA16MemberCollectionCv"></a>
                     <a name="//apple_ref/swift/Property/members" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC17NexmoConversation12Conversation7membersCS_16MemberCollection">members</a>
+                    <a class="token" href="#/s:17NexmoConversation0B0C7membersAA16MemberCollectionCv">members</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -504,7 +531,7 @@
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>A collection of all of the members in the conversation.</p>
-<pre class="highlight plaintext"><code>var members: NexmoConversation.LazyCollection&lt;Member&gt;  = conversation.allMembers
+<pre class="highlight swift"><code><span class="k">var</span> <span class="nv">members</span><span class="p">:</span> <span class="kt">NexmoConversation</span><span class="o">.</span><span class="kt">LazyCollection</span><span class="o">&lt;</span><span class="kt">Member</span><span class="o">&gt;</span>  <span class="o">=</span> <span class="n">conversation</span><span class="o">.</span><span class="n">allMembers</span>
 </code></pre>
 
                       </div>
@@ -512,7 +539,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">members</span><span class="p">:</span> <span class="kt"><a href="../Classes/MemberCollection.html">MemberCollection</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">members</span><span class="p">:</span> <span class="kt"><a href="../Classes/MemberCollection.html">MemberCollection</a></span></code></pre>
 
                         </div>
                       </div>
@@ -522,9 +549,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC17NexmoConversation12Conversation9allEventsCS_15EventCollection"></a>
-                    <a name="//apple_ref/swift/Property/allEvents" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC17NexmoConversation12Conversation9allEventsCS_15EventCollection">allEvents</a>
+                    <a name="/s:17NexmoConversation0B0C6eventsAA15EventCollectionCv"></a>
+                    <a name="//apple_ref/swift/Property/events" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17NexmoConversation0B0C6eventsAA15EventCollectionCv">events</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -539,7 +566,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">private(set)</span> <span class="k">var</span> <span class="nv">allEvents</span><span class="p">:</span> <span class="kt"><a href="../Classes/EventCollection.html">EventCollection</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">events</span><span class="p">:</span> <span class="kt"><a href="../Classes/EventCollection.html">EventCollection</a></span></code></pre>
 
                         </div>
                       </div>
@@ -549,9 +576,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC17NexmoConversation12Conversation5stateOVS_11MemberModel5State"></a>
+                    <a name="/s:17NexmoConversation0B0C5stateAA11MemberModelV5StateOv"></a>
                     <a name="//apple_ref/swift/Property/state" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC17NexmoConversation12Conversation5stateOVS_11MemberModel5State">state</a>
+                    <a class="token" href="#/s:17NexmoConversation0B0C5stateAA11MemberModelV5StateOv">state</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -560,7 +587,7 @@
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>The state of the user in this conversation.  Can be any of the states in Member.State</p>
-<pre class="highlight plaintext"><code>var state: Member.State = conversation.state
+<pre class="highlight swift"><code><span class="k">var</span> <span class="nv">state</span><span class="p">:</span> <span class="kt">Member</span><span class="o">.</span><span class="kt">State</span> <span class="o">=</span> <span class="n">conversation</span><span class="o">.</span><span class="n">state</span>
 </code></pre>
 
                       </div>
@@ -568,7 +595,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">state</span><span class="p">:</span> <span class="kt"><a href="../Structs/MemberModel.html">MemberModel</a></span><span class="o">.</span><span class="kt">State</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">state</span><span class="p">:</span> <span class="kt"><a href="../Structs/MemberModel.html">MemberModel</a></span><span class="o">.</span><span class="kt">State</span></code></pre>
 
                         </div>
                       </div>
@@ -578,9 +605,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC17NexmoConversation12Conversation12creationDateV10Foundation4Date"></a>
+                    <a name="/s:17NexmoConversation0B0C12creationDate10Foundation0D0Vv"></a>
                     <a name="//apple_ref/swift/Property/creationDate" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC17NexmoConversation12Conversation12creationDateV10Foundation4Date">creationDate</a>
+                    <a class="token" href="#/s:17NexmoConversation0B0C12creationDate10Foundation0D0Vv">creationDate</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -595,7 +622,34 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">creationDate</span><span class="p">:</span> <span class="kt">Date</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">creationDate</span><span class="p">:</span> <span class="kt">Date</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17NexmoConversation0B0C5audioAA5AudioCv"></a>
+                    <a name="//apple_ref/swift/Property/audio" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17NexmoConversation0B0C5audioAA5AudioCv">audio</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Audio</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">private(set)</span> <span class="kd">lazy</span> <span class="k">var</span> <span class="nv">audio</span><span class="p">:</span> <span class="kt"><a href="../Classes/Audio.html">Audio</a></span> <span class="o">=</span> <span class="p">{</span> <span class="k">return</span> <span class="kt"><a href="../Classes/Audio.html">Audio</a></span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="k">self</span><span class="p">)</span> <span class="p">}()</span></code></pre>
 
                         </div>
                       </div>
@@ -616,99 +670,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC17NexmoConversation12Conversation11nameChangedGCS_6SignalT3oldGSqSS_3newGSqSS___"></a>
-                    <a name="//apple_ref/swift/Property/nameChanged" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC17NexmoConversation12Conversation11nameChangedGCS_6SignalT3oldGSqSS_3newGSqSS___">nameChanged</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Signal for when conversation name changes.</p>
-
-<p>Can add handlers to respond to changes in conversation name.</p>
-
-<p>Using selectors:</p>
-<pre class="highlight plaintext"><code>nameChanged.addHandler(self, selector: #selector(MyClass.handleNameChange))
-</code></pre>
-
-<p>Using swift handlers:</p>
-<pre class="highlight plaintext"><code>nameChanged.addHandler(self, handler: MyClass.handleNameChange)
-</code></pre>
-
-<p>Handler should have Conversation and 2 Strings (old and new names) as parameters:</p>
-<pre class="highlight plaintext"><code>func handleNameChange(conversation: Conversation, oldName: String, newName:String) {
-
-// Do something here
-
-}
-</code></pre>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">nameChanged</span> <span class="o">=</span> <span class="kt"><a href="../Classes/Signal.html">Signal</a></span><span class="o">&lt;</span><span class="p">(</span><span class="nv">old</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">new</span><span class="p">:</span> <span class="kt">String</span><span class="p">?)</span><span class="o">&gt;</span><span class="p">()</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vC17NexmoConversation12Conversation16newEventReceivedGCS_6SignalCS_9EventBase_"></a>
-                    <a name="//apple_ref/swift/Property/newEventReceived" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC17NexmoConversation12Conversation16newEventReceivedGCS_6SignalCS_9EventBase_">newEventReceived</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Signal for when new event is received.</p>
-
-<p>Can add handlers to respond to new events in this conversation</p>
-
-<p>Using selectors:</p>
-<pre class="highlight plaintext"><code>newEventReceived.addHandler(self, selector: #selector(MyClass.handleNewEvent))
-</code></pre>
-
-<p>Using swift handlers:</p>
-<pre class="highlight plaintext"><code>newEventReceived.addHandler(self, handler: MyClass.handleNewEvent)
-</code></pre>
-
-<p>Handler should have Conversation and EventBase as parameters:</p>
-<pre class="highlight plaintext"><code>func handleNewEvent(conversation: Conversation, newEvent: EventBase) {
-
-// Do something here
-
-}
-</code></pre>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">newEventReceived</span> <span class="o">=</span> <span class="kt"><a href="../Classes/Signal.html">Signal</a></span><span class="o">&lt;</span><span class="kt"><a href="../Classes/EventBase.html">EventBase</a></span><span class="o">&gt;</span><span class="p">()</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vC17NexmoConversation12Conversation9newMemberGCS_6SignalCS_6Member_"></a>
+                    <a name="/s:17NexmoConversation0B0C9newMemberAA6SignalCyAA0D0CGv"></a>
                     <a name="//apple_ref/swift/Property/newMember" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC17NexmoConversation12Conversation9newMemberGCS_6SignalCS_6Member_">newMember</a>
+                    <a class="token" href="#/s:17NexmoConversation0B0C9newMemberAA6SignalCyAA0D0CGv">newMember</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -721,19 +685,19 @@
 <p>Can add handlers to respond to new members in this conversation</p>
 
 <p>Using selectors:</p>
-<pre class="highlight plaintext"><code>newMember.addHandler(self, selector: #selector(MyClass.handleNewMember))
+<pre class="highlight swift"><code><span class="n">newMember</span><span class="o">.</span><span class="nf">addHandler</span><span class="p">(</span><span class="k">self</span><span class="p">,</span> <span class="nv">selector</span><span class="p">:</span> <span class="kd">#selector(</span><span class="nf">MyClass.handleNewMember</span><span class="kd">)</span><span class="p">)</span>
 </code></pre>
 
 <p>Using swift handlers:</p>
-<pre class="highlight plaintext"><code>newMember.addHandler(self, handler: MyClass.handleNewMember)
+<pre class="highlight swift"><code><span class="n">newMember</span><span class="o">.</span><span class="nf">addHandler</span><span class="p">(</span><span class="k">self</span><span class="p">,</span> <span class="nv">handler</span><span class="p">:</span> <span class="kt">MyClass</span><span class="o">.</span><span class="n">handleNewMember</span><span class="p">)</span>
 </code></pre>
 
 <p>Handler should have Conversation and Member as parameters:</p>
-<pre class="highlight plaintext"><code>func handleNewMember(conversation: Conversation, newMember: Member) {
+<pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">handleNewMember</span><span class="p">(</span><span class="nv">conversation</span><span class="p">:</span> <span class="kt">Conversation</span><span class="p">,</span> <span class="nv">newMember</span><span class="p">:</span> <span class="kt">Member</span><span class="p">)</span> <span class="p">{</span>
 
-// Do something here
+<span class="c1">// Do something here</span>
 
-}
+<span class="p">}</span>
 </code></pre>
 
                       </div>
@@ -741,7 +705,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">newMember</span> <span class="o">=</span> <span class="kt"><a href="../Classes/Signal.html">Signal</a></span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Member.html">Member</a></span><span class="o">&gt;</span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">newMember</span> <span class="o">=</span> <span class="kt"><a href="../Classes/Signal.html">Signal</a></span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Member.html">Member</a></span><span class="o">&gt;</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
@@ -751,9 +715,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC17NexmoConversation12Conversation10memberLeftGCS_6SignalCS_6Member_"></a>
+                    <a name="/s:17NexmoConversation0B0C10memberLeftAA6SignalCyAA6MemberCGv"></a>
                     <a name="//apple_ref/swift/Property/memberLeft" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC17NexmoConversation12Conversation10memberLeftGCS_6SignalCS_6Member_">memberLeft</a>
+                    <a class="token" href="#/s:17NexmoConversation0B0C10memberLeftAA6SignalCyAA6MemberCGv">memberLeft</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -766,19 +730,19 @@
 <p>Can add handlers to respond to a member leaving this conversation</p>
 
 <p>Using selectors:</p>
-<pre class="highlight plaintext"><code>memberLeft.addHandler(self, selector: #selector(MyClass.handleMemberLeft))
+<pre class="highlight swift"><code><span class="n">memberLeft</span><span class="o">.</span><span class="nf">addHandler</span><span class="p">(</span><span class="k">self</span><span class="p">,</span> <span class="nv">selector</span><span class="p">:</span> <span class="kd">#selector(</span><span class="nf">MyClass.handleMemberLeft</span><span class="kd">)</span><span class="p">)</span>
 </code></pre>
 
 <p>Using swift handlers:</p>
-<pre class="highlight plaintext"><code>memberLeft.addHandler(self, handler: MyClass.handleMemberLeft)
+<pre class="highlight swift"><code><span class="n">memberLeft</span><span class="o">.</span><span class="nf">addHandler</span><span class="p">(</span><span class="k">self</span><span class="p">,</span> <span class="nv">handler</span><span class="p">:</span> <span class="kt">MyClass</span><span class="o">.</span><span class="n">handleMemberLeft</span><span class="p">)</span>
 </code></pre>
 
 <p>Handler should have Conversation and Member as parameters:</p>
-<pre class="highlight plaintext"><code>func handleMemberLeft(conversation: Conversation, member: Member) {
+<pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">handleMemberLeft</span><span class="p">(</span><span class="nv">conversation</span><span class="p">:</span> <span class="kt">Conversation</span><span class="p">,</span> <span class="nv">member</span><span class="p">:</span> <span class="kt">Member</span><span class="p">)</span> <span class="p">{</span>
 
-// Do something here
+<span class="c1">// Do something here</span>
 
-}
+<span class="p">}</span>
 </code></pre>
 
                       </div>
@@ -786,7 +750,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">memberLeft</span> <span class="o">=</span> <span class="kt"><a href="../Classes/Signal.html">Signal</a></span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Member.html">Member</a></span><span class="o">&gt;</span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">memberLeft</span> <span class="o">=</span> <span class="kt"><a href="../Classes/Signal.html">Signal</a></span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Member.html">Member</a></span><span class="o">&gt;</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
@@ -796,9 +760,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC17NexmoConversation12Conversation12memberJoinedGCS_6SignalCS_6Member_"></a>
+                    <a name="/s:17NexmoConversation0B0C12memberJoinedAA6SignalCyAA6MemberCGv"></a>
                     <a name="//apple_ref/swift/Property/memberJoined" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC17NexmoConversation12Conversation12memberJoinedGCS_6SignalCS_6Member_">memberJoined</a>
+                    <a class="token" href="#/s:17NexmoConversation0B0C12memberJoinedAA6SignalCyAA6MemberCGv">memberJoined</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -811,19 +775,19 @@
 <p>Can add handlers to respond to a member joining this conversation</p>
 
 <p>Using selectors:</p>
-<pre class="highlight plaintext"><code>memberJoined.addHandler(self, selector: #selector(MyClass.handleMemberJoined))
+<pre class="highlight swift"><code><span class="n">memberJoined</span><span class="o">.</span><span class="nf">addHandler</span><span class="p">(</span><span class="k">self</span><span class="p">,</span> <span class="nv">selector</span><span class="p">:</span> <span class="kd">#selector(</span><span class="nf">MyClass.handleMemberJoined</span><span class="kd">)</span><span class="p">)</span>
 </code></pre>
 
 <p>Using swift handlers:</p>
-<pre class="highlight plaintext"><code>memberJoined.addHandler(self, handler: MyClass.handleMemberJoined)
+<pre class="highlight swift"><code><span class="n">memberJoined</span><span class="o">.</span><span class="nf">addHandler</span><span class="p">(</span><span class="k">self</span><span class="p">,</span> <span class="nv">handler</span><span class="p">:</span> <span class="kt">MyClass</span><span class="o">.</span><span class="n">handleMemberJoined</span><span class="p">)</span>
 </code></pre>
 
 <p>Handler should have Conversation and Member as parameters:</p>
-<pre class="highlight plaintext"><code>func handleMemberJoined(conversation: Conversation, member: Member) {
+<pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">handleMemberJoined</span><span class="p">(</span><span class="nv">conversation</span><span class="p">:</span> <span class="kt">Conversation</span><span class="p">,</span> <span class="nv">member</span><span class="p">:</span> <span class="kt">Member</span><span class="p">)</span> <span class="p">{</span>
 
-// Do something here
+<span class="c1">// Do something here</span>
 
-}
+<span class="p">}</span>
 </code></pre>
 
                       </div>
@@ -831,7 +795,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">memberJoined</span> <span class="o">=</span> <span class="kt"><a href="../Classes/Signal.html">Signal</a></span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Member.html">Member</a></span><span class="o">&gt;</span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">memberJoined</span> <span class="o">=</span> <span class="kt"><a href="../Classes/Signal.html">Signal</a></span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Member.html">Member</a></span><span class="o">&gt;</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
@@ -841,9 +805,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC17NexmoConversation12Conversation13memberInvitedGCS_6SignalCS_6Member_"></a>
+                    <a name="/s:17NexmoConversation0B0C13memberInvitedAA6SignalCyAA6MemberCGv"></a>
                     <a name="//apple_ref/swift/Property/memberInvited" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC17NexmoConversation12Conversation13memberInvitedGCS_6SignalCS_6Member_">memberInvited</a>
+                    <a class="token" href="#/s:17NexmoConversation0B0C13memberInvitedAA6SignalCyAA6MemberCGv">memberInvited</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -856,19 +820,19 @@
 <p>Can add handlers to respond to a member being invited to this conversation</p>
 
 <p>Using selectors:</p>
-<pre class="highlight plaintext"><code>memberInvited.addHandler(self, selector: #selector(MyClass.handleMemberInvited))
+<pre class="highlight swift"><code><span class="n">memberInvited</span><span class="o">.</span><span class="nf">addHandler</span><span class="p">(</span><span class="k">self</span><span class="p">,</span> <span class="nv">selector</span><span class="p">:</span> <span class="kd">#selector(</span><span class="nf">MyClass.handleMemberInvited</span><span class="kd">)</span><span class="p">)</span>
 </code></pre>
 
 <p>Using swift handlers:</p>
-<pre class="highlight plaintext"><code>memberInvited.addHandler(self, handler: MyClass.handleMemberInvited)
+<pre class="highlight swift"><code><span class="n">memberInvited</span><span class="o">.</span><span class="nf">addHandler</span><span class="p">(</span><span class="k">self</span><span class="p">,</span> <span class="nv">handler</span><span class="p">:</span> <span class="kt">MyClass</span><span class="o">.</span><span class="n">handleMemberInvited</span><span class="p">)</span>
 </code></pre>
 
 <p>Handler should have Conversation and Member as parameters:</p>
-<pre class="highlight plaintext"><code>func handleMemberInvited(conversation: Conversation, member: Member) {
+<pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">handleMemberInvited</span><span class="p">(</span><span class="nv">conversation</span><span class="p">:</span> <span class="kt">Conversation</span><span class="p">,</span> <span class="nv">member</span><span class="p">:</span> <span class="kt">Member</span><span class="p">)</span> <span class="p">{</span>
 
-// Do something here
+<span class="c1">// Do something here</span>
 
-}
+<span class="p">}</span>
 </code></pre>
 
                       </div>
@@ -876,7 +840,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">memberInvited</span> <span class="o">=</span> <span class="kt"><a href="../Classes/Signal.html">Signal</a></span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Member.html">Member</a></span><span class="o">&gt;</span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">memberInvited</span> <span class="o">=</span> <span class="kt"><a href="../Classes/Signal.html">Signal</a></span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Member.html">Member</a></span><span class="o">&gt;</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
@@ -886,9 +850,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC17NexmoConversation12Conversation14membersChangedGCS_6SignalT__"></a>
+                    <a name="/s:17NexmoConversation0B0C14membersChangedAA6SignalCyytGv"></a>
                     <a name="//apple_ref/swift/Property/membersChanged" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC17NexmoConversation12Conversation14membersChangedGCS_6SignalT__">membersChanged</a>
+                    <a class="token" href="#/s:17NexmoConversation0B0C14membersChangedAA6SignalCyytGv">membersChanged</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -901,19 +865,19 @@
 <p>Can add handlers to respond to a change in the members in this conversation</p>
 
 <p>Using selectors:</p>
-<pre class="highlight plaintext"><code>membersChanged.addHandler(self, selector: #selector(MyClass.handleMembersChanged))
+<pre class="highlight swift"><code><span class="n">membersChanged</span><span class="o">.</span><span class="nf">addHandler</span><span class="p">(</span><span class="k">self</span><span class="p">,</span> <span class="nv">selector</span><span class="p">:</span> <span class="kd">#selector(</span><span class="nf">MyClass.handleMembersChanged</span><span class="kd">)</span><span class="p">)</span>
 </code></pre>
 
 <p>Using swift handlers:</p>
-<pre class="highlight plaintext"><code>membersChanged.addHandler(self, handler: MyClass.handleMembersChanged)
+<pre class="highlight swift"><code><span class="n">membersChanged</span><span class="o">.</span><span class="nf">addHandler</span><span class="p">(</span><span class="k">self</span><span class="p">,</span> <span class="nv">handler</span><span class="p">:</span> <span class="kt">MyClass</span><span class="o">.</span><span class="n">handleMembersChanged</span><span class="p">)</span>
 </code></pre>
 
 <p>Handler should have Conversation as a parameter:</p>
-<pre class="highlight plaintext"><code>func handleMembersChanged(conversation: Conversation) {
+<pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">handleMembersChanged</span><span class="p">(</span><span class="nv">conversation</span><span class="p">:</span> <span class="kt">Conversation</span><span class="p">)</span> <span class="p">{</span>
 
-// Do something here
+<span class="c1">// Do something here</span>
 
-}
+<span class="p">}</span>
 </code></pre>
 
                       </div>
@@ -921,145 +885,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">membersChanged</span> <span class="o">=</span> <span class="kt"><a href="../Classes/Signal.html">Signal</a></span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span><span class="p">()</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vC17NexmoConversation12Conversation11messageSentGCS_6SignalCS_9TextEvent_"></a>
-                    <a name="//apple_ref/swift/Property/messageSent" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC17NexmoConversation12Conversation11messageSentGCS_6SignalCS_9TextEvent_">messageSent</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Signal for when a text event is sent</p>
-
-<p>Can add handlers to respond to sending a text </p>
-
-<p>Using selectors:</p>
-<pre class="highlight plaintext"><code>messageSent.addHandler(self, selector: #selector(MyClass.handleMessageSent))
-</code></pre>
-
-<p>Using swift handlers:</p>
-<pre class="highlight plaintext"><code>messageSent.addHandler(self, handler: MyClass.handleMessageSent)
-</code></pre>
-
-<p>Handler should have Conversation and TextEvent as parameters:</p>
-<pre class="highlight plaintext"><code>func handleMessageSent(conversation: Conversation, textEvent: TextEvent) {
-
-// Do something here
-
-}
-</code></pre>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">messageSent</span> <span class="o">=</span> <span class="kt"><a href="../Classes/Signal.html">Signal</a></span><span class="o">&lt;</span><span class="kt"><a href="../Classes/TextEvent.html">TextEvent</a></span><span class="o">&gt;</span><span class="p">()</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vC17NexmoConversation12Conversation6eventsGCS_6SignalT6eventsGSaCS_9EventBase_6changeOS0_6Change__"></a>
-                    <a name="//apple_ref/swift/Property/events" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC17NexmoConversation12Conversation6eventsGCS_6SignalT6eventsGSaCS_9EventBase_6changeOS0_6Change__">events</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Notification of deleted event
-Returns event and type of changes that where made</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">events</span> <span class="o">=</span> <span class="kt"><a href="../Classes/Signal.html">Signal</a></span><span class="o">&lt;</span><span class="p">(</span><span class="nv">events</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/EventBase.html">EventBase</a></span><span class="p">],</span> <span class="nv">change</span><span class="p">:</span> <span class="kt"><a href="../Classes/Conversation/Change.html">Change</a></span><span class="p">)</span><span class="o">&gt;</span><span class="p">()</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/NSObject"></a>
-                <a name="//apple_ref/swift/Section/NSObject" class="dashAnchor"></a>
-                <a href="#/NSObject">
-                  <h3 class="section-name">NSObject</h3>
-                </a>
-              </div>
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vC17NexmoConversation12Conversation9hashValueSi"></a>
-                    <a name="//apple_ref/swift/Property/hashValue" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC17NexmoConversation12Conversation9hashValueSi">hashValue</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Hashable</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">override</span> <span class="k">var</span> <span class="nv">hashValue</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vC17NexmoConversation12Conversation11descriptionSS"></a>
-                    <a name="//apple_ref/swift/Property/description" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC17NexmoConversation12Conversation11descriptionSS">description</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Description</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">override</span> <span class="k">var</span> <span class="nv">description</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">membersChanged</span> <span class="o">=</span> <span class="kt"><a href="../Classes/Signal.html">Signal</a></span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
@@ -1080,9 +906,9 @@ Returns event and type of changes that where made</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC17NexmoConversation12Conversation4sendFzSST_"></a>
+                    <a name="/c:@M@NexmoConversation@objc(cs)NXMConversation(im)sendText:error:"></a>
                     <a name="//apple_ref/swift/Method/send(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC17NexmoConversation12Conversation4sendFzSST_">send(_:)</a>
+                    <a class="token" href="#/c:@M@NexmoConversation@objc(cs)NXMConversation(im)sendText:error:">send(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1102,7 +928,7 @@ Returns event and type of changes that where made</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">send</span><span class="p">(</span><span class="n">_</span> <span class="nv">text</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">send</span><span class="p">(</span><span class="n">_</span> <span class="nv">text</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -1131,9 +957,9 @@ Returns event and type of changes that where made</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC17NexmoConversation12Conversation4sendFzV10Foundation4DataT_"></a>
+                    <a name="/c:@M@NexmoConversation@objc(cs)NXMConversation(im)sendImage:error:"></a>
                     <a name="//apple_ref/swift/Method/send(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC17NexmoConversation12Conversation4sendFzV10Foundation4DataT_">send(_:)</a>
+                    <a class="token" href="#/c:@M@NexmoConversation@objc(cs)NXMConversation(im)sendImage:error:">send(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1153,7 +979,7 @@ Returns event and type of changes that where made</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">send</span><span class="p">(</span><span class="n">_</span> <span class="nv">image</span><span class="p">:</span> <span class="kt">Data</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">send</span><span class="p">(</span><span class="n">_</span> <span class="nv">image</span><span class="p">:</span> <span class="kt">Data</span><span class="p">)</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -1182,9 +1008,9 @@ Returns event and type of changes that where made</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC17NexmoConversation12Conversation4sendFzCS_9TextEventT_"></a>
+                    <a name="/s:17NexmoConversation0B0C4sendyAA9TextEventCKF"></a>
                     <a name="//apple_ref/swift/Method/send(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC17NexmoConversation12Conversation4sendFzCS_9TextEventT_">send(_:)</a>
+                    <a class="token" href="#/s:17NexmoConversation0B0C4sendyAA9TextEventCKF">send(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1204,7 +1030,7 @@ Returns event and type of changes that where made</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">send</span><span class="p">(</span><span class="n">_</span> <span class="nv">event</span><span class="p">:</span> <span class="kt"><a href="../Classes/TextEvent.html">TextEvent</a></span><span class="p">)</span> <span class="k">throws</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">send</span><span class="p">(</span><span class="n">_</span> <span class="nv">event</span><span class="p">:</span> <span class="kt"><a href="../Classes/TextEvent.html">TextEvent</a></span><span class="p">)</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -1233,9 +1059,9 @@ Returns event and type of changes that where made</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC17NexmoConversation12Conversation6deleteFCS_9TextEventSb"></a>
+                    <a name="/s:17NexmoConversation0B0C6deleteSbAA9TextEventCF"></a>
                     <a name="//apple_ref/swift/Method/delete(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC17NexmoConversation12Conversation6deleteFCS_9TextEventSb">delete(_:)</a>
+                    <a class="token" href="#/s:17NexmoConversation0B0C6deleteSbAA9TextEventCF">delete(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1250,7 +1076,7 @@ Returns event and type of changes that where made</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">delete</span><span class="p">(</span><span class="n">_</span> <span class="nv">event</span><span class="p">:</span> <span class="kt"><a href="../Classes/TextEvent.html">TextEvent</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">delete</span><span class="p">(</span><span class="n">_</span> <span class="nv">event</span><span class="p">:</span> <span class="kt"><a href="../Classes/TextEvent.html">TextEvent</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
@@ -1294,9 +1120,9 @@ Returns event and type of changes that where made</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC17NexmoConversation12Conversation17membershipForUserFT4userCS_4User_GSaCS_6Member_"></a>
+                    <a name="/s:17NexmoConversation0B0C17membershipForUserSayAA6MemberCGAA0E0C4user_tF"></a>
                     <a name="//apple_ref/swift/Method/membershipForUser(user:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC17NexmoConversation12Conversation17membershipForUserFT4userCS_4User_GSaCS_6Member_">membershipForUser(user:)</a>
+                    <a class="token" href="#/s:17NexmoConversation0B0C17membershipForUserSayAA6MemberCGAA0E0C4user_tF">membershipForUser(user:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1313,7 +1139,7 @@ Returns event and type of changes that where made</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">membershipForUser</span><span class="p">(</span><span class="nv">user</span><span class="p">:</span> <span class="kt"><a href="../Classes/User.html">User</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt"><a href="../Classes/Member.html">Member</a></span><span class="p">]</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">membershipForUser</span><span class="p">(</span><span class="nv">user</span><span class="p">:</span> <span class="kt"><a href="../Classes/User.html">User</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt"><a href="../Classes/Member.html">Member</a></span><span class="p">]</span></code></pre>
 
                         </div>
                       </div>
@@ -1346,9 +1172,9 @@ Returns event and type of changes that where made</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC17NexmoConversation12Conversation4joinERR"></a>
+                    <a name="/s:17NexmoConversation0B0C4joinXeXeF"></a>
                     <a name="//apple_ref/swift/Method/join()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC17NexmoConversation12Conversation4joinERR">join()</a>
+                    <a class="token" href="#/s:17NexmoConversation0B0C4joinXeXeF">join()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1363,7 +1189,7 @@ Returns event and type of changes that where made</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">join</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Single</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">join</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Single</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1377,9 +1203,9 @@ Returns event and type of changes that where made</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC17NexmoConversation12Conversation5leaveERR"></a>
+                    <a name="/s:17NexmoConversation0B0C5leaveXeXeF"></a>
                     <a name="//apple_ref/swift/Method/leave()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC17NexmoConversation12Conversation5leaveERR">leave()</a>
+                    <a class="token" href="#/s:17NexmoConversation0B0C5leaveXeXeF">leave()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1394,7 +1220,7 @@ Returns event and type of changes that where made</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">leave</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Single</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">leave</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Single</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -1408,9 +1234,9 @@ Returns event and type of changes that where made</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC17NexmoConversation12Conversation6inviteERR"></a>
-                    <a name="//apple_ref/swift/Method/invite(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC17NexmoConversation12Conversation6inviteERR">invite(_:)</a>
+                    <a name="/s:17NexmoConversation0B0C6inviteXeXeF"></a>
+                    <a name="//apple_ref/swift/Method/invite(_:userId:with:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17NexmoConversation0B0C6inviteXeXeF">invite(_:userId:with:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1418,20 +1244,63 @@ Returns event and type of changes that where made</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Invite someone to this conversation</p>
-
-<ul>
-<li>return: Completion of inviting a member to the conversation</li>
-</ul>
+                        <p>Invite user to this conversation</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">invite</span><span class="p">(</span><span class="n">_</span> <span class="nv">username</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Single</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">invite</span><span class="p">(</span><span class="n">_</span> <span class="nv">username</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">userId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span><span class="o">=</span><span class="kc">nil</span><span class="p">,</span> <span class="n">with</span> <span class="nv">media</span><span class="p">:</span> <span class="kt"><a href="../Classes/Conversation/Media.html">Media</a></span><span class="p">?</span><span class="o">=</span><span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Single</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>username</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>username</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>userId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>userId optional</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>media</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>media type i.e audio</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Completion of inviting a member to the conversation</p>
                       </div>
                     </section>
                   </div>
@@ -1450,9 +1319,9 @@ Returns event and type of changes that where made</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC17NexmoConversation12Conversation11startTypingFT_Sb"></a>
+                    <a name="/s:17NexmoConversation0B0C11startTypingSbyF"></a>
                     <a name="//apple_ref/swift/Method/startTyping()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC17NexmoConversation12Conversation11startTypingFT_Sb">startTyping()</a>
+                    <a class="token" href="#/s:17NexmoConversation0B0C11startTypingSbyF">startTyping()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1467,7 +1336,7 @@ Returns event and type of changes that where made</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">startTyping</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">startTyping</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
@@ -1481,9 +1350,9 @@ Returns event and type of changes that where made</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC17NexmoConversation12Conversation10stopTypingFT_Sb"></a>
+                    <a name="/s:17NexmoConversation0B0C10stopTypingSbyF"></a>
                     <a name="//apple_ref/swift/Method/stopTyping()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC17NexmoConversation12Conversation10stopTypingFT_Sb">stopTyping()</a>
+                    <a class="token" href="#/s:17NexmoConversation0B0C10stopTypingSbyF">stopTyping()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1498,7 +1367,7 @@ Returns event and type of changes that where made</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">stopTyping</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">stopTyping</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
@@ -1512,13 +1381,85 @@ Returns event and type of changes that where made</p>
               </ul>
             </div>
             <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Refresh"></a>
+                <a name="//apple_ref/swift/Section/Refresh" class="dashAnchor"></a>
+                <a href="#/Refresh">
+                  <h3 class="section-name">Refresh</h3>
+                </a>
+              </div>
               <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC17NexmoConversation12Conversation11membersObjcGSaCS_6Member_"></a>
+                    <a name="/s:17NexmoConversation0B0C14markIncompleteyyF"></a>
+                    <a name="//apple_ref/swift/Method/markIncomplete()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17NexmoConversation0B0C14markIncompleteyyF">markIncomplete()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Mark as dirty</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">markIncomplete</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17NexmoConversation0B0C16markRequiresSyncyyF"></a>
+                    <a name="//apple_ref/swift/Method/markRequiresSync()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17NexmoConversation0B0C16markRequiresSyncyyF">markRequiresSync()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Mark as dirty</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">markRequiresSync</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Properties%20-%20(Objective-C%20compatibility%20support)"></a>
+                <a name="//apple_ref/swift/Section/Properties - (Objective-C compatibility support)" class="dashAnchor"></a>
+                <a href="#/Properties%20-%20(Objective-C%20compatibility%20support)">
+                  <h3 class="section-name">Properties - (Objective-C compatibility support)</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17NexmoConversation0B0C11membersObjcSayAA6MemberCGv"></a>
                     <a name="//apple_ref/swift/Property/membersObjc" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC17NexmoConversation12Conversation11membersObjcGSaCS_6Member_">membersObjc</a>
+                    <a class="token" href="#/s:17NexmoConversation0B0C11membersObjcSayAA6MemberCGv">membersObjc</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1533,7 +1474,7 @@ Returns event and type of changes that where made</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">membersObjc</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/Member.html">Member</a></span><span class="p">]</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">membersObjc</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/Member.html">Member</a></span><span class="p">]</span></code></pre>
 
                         </div>
                       </div>
@@ -1554,9 +1495,9 @@ Returns event and type of changes that where made</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC17NexmoConversation12Conversation5leaveFT9onSuccessFT_T_9onFailureFPs5Error_T__T_"></a>
+                    <a name="/c:@CM@NexmoConversation@objc(cs)NXMConversation(im)leaveOnSuccess:onFailure:"></a>
                     <a name="//apple_ref/swift/Method/leave(onSuccess:onFailure:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC17NexmoConversation12Conversation5leaveFT9onSuccessFT_T_9onFailureFPs5Error_T__T_">leave(onSuccess:onFailure:)</a>
+                    <a class="token" href="#/c:@CM@NexmoConversation@objc(cs)NXMConversation(im)leaveOnSuccess:onFailure:">leave(onSuccess:onFailure:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1571,7 +1512,7 @@ Returns event and type of changes that where made</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">leave</span><span class="p">(</span><span class="nv">onSuccess</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">onFailure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">leave</span><span class="p">(</span><span class="nv">onSuccess</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">onFailure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -1623,9 +1564,9 @@ Returns event and type of changes that where made</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC17NexmoConversation12Conversation4joinFT9onSuccessFT_T_9onFailureFPs5Error_T__T_"></a>
+                    <a name="/c:@CM@NexmoConversation@objc(cs)NXMConversation(im)joinOnSuccess:onFailure:"></a>
                     <a name="//apple_ref/swift/Method/join(onSuccess:onFailure:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC17NexmoConversation12Conversation4joinFT9onSuccessFT_T_9onFailureFPs5Error_T__T_">join(onSuccess:onFailure:)</a>
+                    <a class="token" href="#/c:@CM@NexmoConversation@objc(cs)NXMConversation(im)joinOnSuccess:onFailure:">join(onSuccess:onFailure:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1640,7 +1581,7 @@ Returns event and type of changes that where made</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">join</span><span class="p">(</span><span class="nv">onSuccess</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">onFailure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">join</span><span class="p">(</span><span class="nv">onSuccess</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">onFailure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -1692,9 +1633,9 @@ Returns event and type of changes that where made</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC17NexmoConversation12Conversation6inviteFT8usernameSS9onSuccessFT_T_9onFailureFPs5Error_T__T_"></a>
-                    <a name="//apple_ref/swift/Method/invite(username:onSuccess:onFailure:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC17NexmoConversation12Conversation6inviteFT8usernameSS9onSuccessFT_T_9onFailureFPs5Error_T__T_">invite(username:onSuccess:onFailure:)</a>
+                    <a name="/c:@CM@NexmoConversation@objc(cs)NXMConversation(im)inviteWithUsername:userId:withAudio:onSuccess:onFailure:"></a>
+                    <a name="//apple_ref/swift/Method/invite(username:userId:withAudio:onSuccess:onFailure:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@NexmoConversation@objc(cs)NXMConversation(im)inviteWithUsername:userId:withAudio:onSuccess:onFailure:">invite(username:userId:withAudio:onSuccess:onFailure:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1709,7 +1650,7 @@ Returns event and type of changes that where made</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">invite</span><span class="p">(</span><span class="nv">username</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">onSuccess</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">onFailure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">invite</span><span class="p">(</span><span class="nv">username</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">userId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="n">withAudio</span> <span class="nv">audio</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">onSuccess</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">onFailure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -1752,8 +1693,8 @@ Returns event and type of changes that where made</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2017 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2017-11-06)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2018 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2018-02-02)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

@@ -66,7 +66,7 @@
                 <a href="../Classes/Conversation.html">Conversation</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/Conversation/Change.html">– Change</a>
+                <a href="../Classes/Conversation/Media.html">– Media</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/Conversation/Errors.html">– Errors</a>
@@ -82,6 +82,15 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/User.html">User</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Audio.html">Audio</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Audio/State.html">– State</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Audio/Errors.html">– Errors</a>
               </li>
             </ul>
           </li>
@@ -99,6 +108,27 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/ConversationController/JoinConversation.html">– JoinConversation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AppLifecycleController.html">AppLifecycleController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AppLifecycleController/Notification.html">– Notification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MediaController.html">MediaController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PushNotificationController.html">PushNotificationController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PushNotificationController/State.html">– State</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RTCController.html">RTCController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RTCController/Media.html">– Media</a>
               </li>
             </ul>
           </li>
@@ -118,7 +148,10 @@
                 <a href="../Classes/ImageEvent.html">ImageEvent</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Event.html#/s:C17NexmoConversation15MembershipEvent">MembershipEvent</a>
+                <a href="../Classes/MediaEvent.html">MediaEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Event.html#/c:@M@NexmoConversation@objc(cs)NXMMembershipEvent">MembershipEvent</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/MemberLeftEvent.html">MemberLeftEvent</a>
@@ -167,6 +200,12 @@
               <li class="nav-group-task">
                 <a href="../Classes/ConversationPreviewModel.html">ConversationPreviewModel</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Structs/IPS.html">IPS</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/IPS/ImageType.html">– ImageType</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -190,6 +229,9 @@
               <li class="nav-group-task">
                 <a href="../Classes/EventCollection.html">EventCollection</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EventCollection/Change.html">– Change</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -199,6 +241,9 @@
                 <a href="../changelog.html">CHANGELOG</a>
               </li>
               <li class="nav-group-task">
+                <a href="../designrationale.html">DesignRationale</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../readme.html">README</a>
               </li>
             </ul>
@@ -206,15 +251,6 @@
           <li class="nav-group-name">
             <a href="../Other Classes.html">Other Classes</a>
             <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Classes/AppLifecycleController.html">AppLifecycleController</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/AppLifecycleController/Notification.html">– Notification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/MediaController.html">MediaController</a>
-              </li>
               <li class="nav-group-task">
                 <a href="../Classes/Signal.html">Signal</a>
               </li>
@@ -243,6 +279,9 @@
               <li class="nav-group-task">
                 <a href="../Extensions/ObservableType.html">ObservableType</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/PrimitiveSequence.html">PrimitiveSequence</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -263,12 +302,6 @@
             <a href="../Other Structs.html">Other Structures</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Structs/IPS.html">IPS</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/IPS/ImageType.html">– ImageType</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Structs/Request.html">Request</a>
               </li>
             </ul>
@@ -281,7 +314,7 @@
             <h1>MemberCollection</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">MemberCollection</span><span class="p">:</span> <span class="kt">NexmoConversation</span><span class="o">.</span><span class="kt"><a href="../Classes/LazyCollection.html">LazyCollection</a></span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Member.html">Member</a></span><span class="o">&gt;</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">MemberCollection</span><span class="p">:</span> <span class="kt">NexmoConversation</span><span class="o">.</span><span class="kt"><a href="../Classes/LazyCollection.html">LazyCollection</a></span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Member.html">Member</a></span><span class="o">&gt;</span></code></pre>
 
                 </div>
               </div>
@@ -290,13 +323,20 @@
           </section>
           <section class="section task-group-section">
             <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Properties"></a>
+                <a name="//apple_ref/swift/Section/Properties" class="dashAnchor"></a>
+                <a href="#/Properties">
+                  <h3 class="section-name">Properties</h3>
+                </a>
+              </div>
               <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC17NexmoConversation16MemberCollection8allUsersGSaCS_4User_"></a>
+                    <a name="/s:17NexmoConversation16MemberCollectionC8allUsersSayAA4UserCGv"></a>
                     <a name="//apple_ref/swift/Property/allUsers" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC17NexmoConversation16MemberCollection8allUsersGSaCS_4User_">allUsers</a>
+                    <a class="token" href="#/s:17NexmoConversation16MemberCollectionC8allUsersSayAA4UserCGv">allUsers</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -311,7 +351,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">allUsers</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/User.html">User</a></span><span class="p">]</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">allUsers</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/User.html">User</a></span><span class="p">]</span></code></pre>
 
                         </div>
                       </div>
@@ -332,9 +372,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC17NexmoConversation16MemberCollection17membershipForUserFT4userCS_4User_GSaCS_6Member_"></a>
+                    <a name="/s:17NexmoConversation16MemberCollectionC17membershipForUserSayAA0C0CGAA0G0C4user_tF"></a>
                     <a name="//apple_ref/swift/Method/membershipForUser(user:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC17NexmoConversation16MemberCollection17membershipForUserFT4userCS_4User_GSaCS_6Member_">membershipForUser(user:)</a>
+                    <a class="token" href="#/s:17NexmoConversation16MemberCollectionC17membershipForUserSayAA0C0CGAA0G0C4user_tF">membershipForUser(user:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -349,7 +389,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">membershipForUser</span><span class="p">(</span><span class="nv">user</span><span class="p">:</span> <span class="kt"><a href="../Classes/User.html">User</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt"><a href="../Classes/Member.html">Member</a></span><span class="p">]</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">membershipForUser</span><span class="p">(</span><span class="nv">user</span><span class="p">:</span> <span class="kt"><a href="../Classes/User.html">User</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt"><a href="../Classes/Member.html">Member</a></span><span class="p">]</span></code></pre>
 
                         </div>
                       </div>
@@ -370,9 +410,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:iC17NexmoConversation16MemberCollection9subscriptFSSGSqCS_6Member_"></a>
+                    <a name="/s:17NexmoConversation16MemberCollectionC9subscriptAA0C0CSgSSci"></a>
                     <a name="//apple_ref/swift/Method/subscript(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:iC17NexmoConversation16MemberCollection9subscriptFSSGSqCS_6Member_">subscript(_:)</a>
+                    <a class="token" href="#/s:17NexmoConversation16MemberCollectionC9subscriptAA0C0CSgSSci">subscript(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -387,7 +427,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">override</span> <span class="nf">subscript</span><span class="p">(</span><span class="nv">uuid</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/Member.html">Member</a></span><span class="p">?</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">override</span> <span class="nf">subscript</span><span class="p">(</span><span class="nv">uuid</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/Member.html">Member</a></span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -416,9 +456,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:iC17NexmoConversation16MemberCollection9subscriptFSiCS_6Member"></a>
+                    <a name="/s:17NexmoConversation16MemberCollectionC9subscriptAA0C0CSici"></a>
                     <a name="//apple_ref/swift/Method/subscript(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:iC17NexmoConversation16MemberCollection9subscriptFSiCS_6Member">subscript(_:)</a>
+                    <a class="token" href="#/s:17NexmoConversation16MemberCollectionC9subscriptAA0C0CSici">subscript(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -433,7 +473,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">override</span> <span class="nf">subscript</span><span class="p">(</span><span class="nv">i</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/Member.html">Member</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">override</span> <span class="nf">subscript</span><span class="p">(</span><span class="nv">i</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/Member.html">Member</a></span></code></pre>
 
                         </div>
                       </div>
@@ -464,8 +504,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2017 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2017-11-06)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2018 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2018-02-02)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

@@ -66,7 +66,7 @@
                 <a href="../Classes/Conversation.html">Conversation</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/Conversation/Change.html">– Change</a>
+                <a href="../Classes/Conversation/Media.html">– Media</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/Conversation/Errors.html">– Errors</a>
@@ -82,6 +82,15 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/User.html">User</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Audio.html">Audio</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Audio/State.html">– State</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Audio/Errors.html">– Errors</a>
               </li>
             </ul>
           </li>
@@ -99,6 +108,27 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/ConversationController/JoinConversation.html">– JoinConversation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AppLifecycleController.html">AppLifecycleController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AppLifecycleController/Notification.html">– Notification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MediaController.html">MediaController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PushNotificationController.html">PushNotificationController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PushNotificationController/State.html">– State</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RTCController.html">RTCController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RTCController/Media.html">– Media</a>
               </li>
             </ul>
           </li>
@@ -118,7 +148,10 @@
                 <a href="../Classes/ImageEvent.html">ImageEvent</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Event.html#/s:C17NexmoConversation15MembershipEvent">MembershipEvent</a>
+                <a href="../Classes/MediaEvent.html">MediaEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Event.html#/c:@M@NexmoConversation@objc(cs)NXMMembershipEvent">MembershipEvent</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/MemberLeftEvent.html">MemberLeftEvent</a>
@@ -167,6 +200,12 @@
               <li class="nav-group-task">
                 <a href="../Classes/ConversationPreviewModel.html">ConversationPreviewModel</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Structs/IPS.html">IPS</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/IPS/ImageType.html">– ImageType</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -190,6 +229,9 @@
               <li class="nav-group-task">
                 <a href="../Classes/EventCollection.html">EventCollection</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EventCollection/Change.html">– Change</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -199,6 +241,9 @@
                 <a href="../changelog.html">CHANGELOG</a>
               </li>
               <li class="nav-group-task">
+                <a href="../designrationale.html">DesignRationale</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../readme.html">README</a>
               </li>
             </ul>
@@ -206,15 +251,6 @@
           <li class="nav-group-name">
             <a href="../Other Classes.html">Other Classes</a>
             <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Classes/AppLifecycleController.html">AppLifecycleController</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/AppLifecycleController/Notification.html">– Notification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/MediaController.html">MediaController</a>
-              </li>
               <li class="nav-group-task">
                 <a href="../Classes/Signal.html">Signal</a>
               </li>
@@ -243,6 +279,9 @@
               <li class="nav-group-task">
                 <a href="../Extensions/ObservableType.html">ObservableType</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/PrimitiveSequence.html">PrimitiveSequence</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -263,12 +302,6 @@
             <a href="../Other Structs.html">Other Structures</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Structs/IPS.html">IPS</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/IPS/ImageType.html">– ImageType</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Structs/Request.html">Request</a>
               </li>
             </ul>
@@ -281,11 +314,11 @@
             <h1>MemberModel</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">MemberModel</span><span class="p">:</span> <span class="kt">Decodable</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">MemberModel</span><span class="p">:</span> <span class="kt">Decodable</span></code></pre>
 
                 </div>
               </div>
-            <p>Undocumented</p>
+            <p>Member model</p>
 
           </section>
           <section class="section task-group-section">
@@ -301,9 +334,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:OV17NexmoConversation11MemberModel5State"></a>
+                    <a name="/s:17NexmoConversation11MemberModelV5StateO"></a>
                     <a name="//apple_ref/swift/Enum/State" class="dashAnchor"></a>
-                    <a class="token" href="#/s:OV17NexmoConversation11MemberModel5State">State</a>
+                    <a class="token" href="#/s:17NexmoConversation11MemberModelV5StateO">State</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -325,7 +358,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">State</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">EnumCollection</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">State</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">EnumCollection</span></code></pre>
 
                         </div>
                       </div>
@@ -335,9 +368,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:OV17NexmoConversation11MemberModel6Action"></a>
+                    <a name="/s:17NexmoConversation11MemberModelV6ActionO"></a>
                     <a name="//apple_ref/swift/Enum/Action" class="dashAnchor"></a>
-                    <a class="token" href="#/s:OV17NexmoConversation11MemberModel6Action">Action</a>
+                    <a class="token" href="#/s:17NexmoConversation11MemberModelV6ActionO">Action</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -358,7 +391,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Action</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">Equatable</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Action</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">Equatable</span></code></pre>
 
                         </div>
                       </div>
@@ -368,9 +401,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:OV17NexmoConversation11MemberModel7Channel"></a>
+                    <a name="/s:17NexmoConversation11MemberModelV7ChannelO"></a>
                     <a name="//apple_ref/swift/Enum/Channel" class="dashAnchor"></a>
-                    <a class="token" href="#/s:OV17NexmoConversation11MemberModel7Channel">Channel</a>
+                    <a class="token" href="#/s:17NexmoConversation11MemberModelV7ChannelO">Channel</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -394,7 +427,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Channel</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">Equatable</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Channel</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">Equatable</span><span class="p">,</span> <span class="kt">Decodable</span></code></pre>
 
                         </div>
                       </div>
@@ -415,9 +448,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vV17NexmoConversation11MemberModel2idSS"></a>
+                    <a name="/s:17NexmoConversation11MemberModelV2idSSv"></a>
                     <a name="//apple_ref/swift/Property/id" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vV17NexmoConversation11MemberModel2idSS">id</a>
+                    <a class="token" href="#/s:17NexmoConversation11MemberModelV2idSSv">id</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -425,14 +458,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>member id</p>
+                        <p>Member iD</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">internal(set)</span> <span class="k">var</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">internal(set)</span> <span class="k">var</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -442,9 +475,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vV17NexmoConversation11MemberModel4nameSS"></a>
+                    <a name="/s:17NexmoConversation11MemberModelV4nameSSv"></a>
                     <a name="//apple_ref/swift/Property/name" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vV17NexmoConversation11MemberModel4nameSS">name</a>
+                    <a class="token" href="#/s:17NexmoConversation11MemberModelV4nameSSv">name</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -452,14 +485,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>name</p>
+                        <p>Name</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">internal(set)</span> <span class="k">var</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">internal(set)</span> <span class="k">var</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -469,9 +502,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vV17NexmoConversation11MemberModel5stateOS0_5State"></a>
+                    <a name="/s:17NexmoConversation11MemberModelV5stateAC5StateOv"></a>
                     <a name="//apple_ref/swift/Property/state" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vV17NexmoConversation11MemberModel5stateOS0_5State">state</a>
+                    <a class="token" href="#/s:17NexmoConversation11MemberModelV5stateAC5StateOv">state</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -479,14 +512,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>state</p>
+                        <p>State</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">internal(set)</span> <span class="k">var</span> <span class="nv">state</span><span class="p">:</span> <span class="kt"><a href="../Structs/MemberModel/State.html">State</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">internal(set)</span> <span class="k">var</span> <span class="nv">state</span><span class="p">:</span> <span class="kt"><a href="../Structs/MemberModel/State.html">State</a></span></code></pre>
 
                         </div>
                       </div>
@@ -496,9 +529,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vV17NexmoConversation11MemberModel6userIdSS"></a>
+                    <a name="/s:17NexmoConversation11MemberModelV6userIdSSv"></a>
                     <a name="//apple_ref/swift/Property/userId" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vV17NexmoConversation11MemberModel6userIdSS">userId</a>
+                    <a class="token" href="#/s:17NexmoConversation11MemberModelV6userIdSSv">userId</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -506,14 +539,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>user id</p>
+                        <p>User id</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">internal(set)</span> <span class="k">var</span> <span class="nv">userId</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">internal(set)</span> <span class="k">var</span> <span class="nv">userId</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -523,9 +556,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vV17NexmoConversation11MemberModel9invitedByGSqSS_"></a>
+                    <a name="/s:17NexmoConversation11MemberModelV9invitedBySSSgv"></a>
                     <a name="//apple_ref/swift/Property/invitedBy" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vV17NexmoConversation11MemberModel9invitedByGSqSS_">invitedBy</a>
+                    <a class="token" href="#/s:17NexmoConversation11MemberModelV9invitedBySSSgv">invitedBy</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -540,7 +573,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">invitedBy</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">invitedBy</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -550,9 +583,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vV17NexmoConversation11MemberModel9timestampGVs10DictionaryOS0_5StateGSqV10Foundation4Date__"></a>
+                    <a name="/s:17NexmoConversation11MemberModelV9timestamps10DictionaryVyAC5StateO10Foundation4DateVSgGv"></a>
                     <a name="//apple_ref/swift/Property/timestamp" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vV17NexmoConversation11MemberModel9timestampGVs10DictionaryOS0_5StateGSqV10Foundation4Date__">timestamp</a>
+                    <a class="token" href="#/s:17NexmoConversation11MemberModelV9timestamps10DictionaryVyAC5StateO10Foundation4DateVSgGv">timestamp</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -560,52 +593,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>timestamp of when user joined</p>
+                        <p>Timestamp of when user joined</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">internal(set)</span> <span class="k">var</span> <span class="nv">timestamp</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Structs/MemberModel/State.html">State</a></span><span class="p">:</span> <span class="kt">Date</span><span class="p">?]</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/Initializers"></a>
-                <a name="//apple_ref/swift/Section/Initializers" class="dashAnchor"></a>
-                <a href="#/Initializers">
-                  <h3 class="section-name">Initializers</h3>
-                </a>
-              </div>
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FV17NexmoConversation11MemberModelcERR"></a>
-                    <a name="//apple_ref/swift/Method/init(json:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV17NexmoConversation11MemberModelcERR">init(json:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">?(</span><span class="nv">json</span><span class="p">:</span> <span class="kt">JSON</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">internal(set)</span> <span class="k">var</span> <span class="nv">timestamp</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Structs/MemberModel/State.html">State</a></span><span class="p">:</span> <span class="kt">Date</span><span class="p">?]</span></code></pre>
 
                         </div>
                       </div>
@@ -626,9 +621,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FV17NexmoConversation11MemberModel4dateFT2ofOS0_5State_GSqV10Foundation4Date_"></a>
+                    <a name="/s:17NexmoConversation11MemberModelV4date10Foundation4DateVSgAC5StateO2of_tF"></a>
                     <a name="//apple_ref/swift/Method/date(of:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV17NexmoConversation11MemberModel4dateFT2ofOS0_5State_GSqV10Foundation4Date_">date(of:)</a>
+                    <a class="token" href="#/s:17NexmoConversation11MemberModelV4date10Foundation4DateVSgAC5StateO2of_tF">date(of:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -643,7 +638,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">date</span><span class="p">(</span><span class="n">of</span> <span class="nv">state</span><span class="p">:</span> <span class="kt">MemberModel</span><span class="o">.</span><span class="kt"><a href="../Structs/MemberModel/State.html">State</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Date</span><span class="p">?</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">date</span><span class="p">(</span><span class="n">of</span> <span class="nv">state</span><span class="p">:</span> <span class="kt">MemberModel</span><span class="o">.</span><span class="kt"><a href="../Structs/MemberModel/State.html">State</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Date</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -678,8 +673,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2017 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2017-11-06)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2018 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2018-02-02)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

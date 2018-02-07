@@ -66,7 +66,7 @@
                 <a href="../Classes/Conversation.html">Conversation</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/Conversation/Change.html">– Change</a>
+                <a href="../Classes/Conversation/Media.html">– Media</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/Conversation/Errors.html">– Errors</a>
@@ -82,6 +82,15 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/User.html">User</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Audio.html">Audio</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Audio/State.html">– State</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Audio/Errors.html">– Errors</a>
               </li>
             </ul>
           </li>
@@ -99,6 +108,27 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/ConversationController/JoinConversation.html">– JoinConversation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AppLifecycleController.html">AppLifecycleController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AppLifecycleController/Notification.html">– Notification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MediaController.html">MediaController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PushNotificationController.html">PushNotificationController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PushNotificationController/State.html">– State</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RTCController.html">RTCController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RTCController/Media.html">– Media</a>
               </li>
             </ul>
           </li>
@@ -118,7 +148,10 @@
                 <a href="../Classes/ImageEvent.html">ImageEvent</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Event.html#/s:C17NexmoConversation15MembershipEvent">MembershipEvent</a>
+                <a href="../Classes/MediaEvent.html">MediaEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Event.html#/c:@M@NexmoConversation@objc(cs)NXMMembershipEvent">MembershipEvent</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/MemberLeftEvent.html">MemberLeftEvent</a>
@@ -167,6 +200,12 @@
               <li class="nav-group-task">
                 <a href="../Classes/ConversationPreviewModel.html">ConversationPreviewModel</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Structs/IPS.html">IPS</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/IPS/ImageType.html">– ImageType</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -190,6 +229,9 @@
               <li class="nav-group-task">
                 <a href="../Classes/EventCollection.html">EventCollection</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EventCollection/Change.html">– Change</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -199,6 +241,9 @@
                 <a href="../changelog.html">CHANGELOG</a>
               </li>
               <li class="nav-group-task">
+                <a href="../designrationale.html">DesignRationale</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../readme.html">README</a>
               </li>
             </ul>
@@ -206,15 +251,6 @@
           <li class="nav-group-name">
             <a href="../Other Classes.html">Other Classes</a>
             <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Classes/AppLifecycleController.html">AppLifecycleController</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/AppLifecycleController/Notification.html">– Notification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/MediaController.html">MediaController</a>
-              </li>
               <li class="nav-group-task">
                 <a href="../Classes/Signal.html">Signal</a>
               </li>
@@ -243,6 +279,9 @@
               <li class="nav-group-task">
                 <a href="../Extensions/ObservableType.html">ObservableType</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/PrimitiveSequence.html">PrimitiveSequence</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -263,12 +302,6 @@
             <a href="../Other Structs.html">Other Structures</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Structs/IPS.html">IPS</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/IPS/ImageType.html">– ImageType</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Structs/Request.html">Request</a>
               </li>
             </ul>
@@ -281,7 +314,7 @@
             <h1>ConversationClient</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">ConversationClient</span><span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">ConversationClient</span><span class="p">:</span> <span class="kt">NSObject</span></code></pre>
 
                 </div>
               </div>
@@ -301,9 +334,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:C17NexmoConversation18ConversationClient13LoginResponse"></a>
+                    <a name="/s:17NexmoConversation0B6ClientC13LoginResponsea"></a>
                     <a name="//apple_ref/swift/Alias/LoginResponse" class="dashAnchor"></a>
-                    <a class="token" href="#/s:C17NexmoConversation18ConversationClient13LoginResponse">LoginResponse</a>
+                    <a class="token" href="#/s:17NexmoConversation0B6ClientC13LoginResponsea">LoginResponse</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -318,7 +351,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">LoginResponse</span> <span class="o">=</span> <span class="p">(</span><span class="kt"><a href="../Classes/ConversationClient/LoginResult.html">LoginResult</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">LoginResponse</span> <span class="o">=</span> <span class="p">(</span><span class="kt"><a href="../Classes/ConversationClient/LoginResult.html">LoginResult</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
 
                         </div>
                       </div>
@@ -339,9 +372,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:OC17NexmoConversation18ConversationClient11LoginResult"></a>
+                    <a name="/s:17NexmoConversation0B6ClientC11LoginResultO"></a>
                     <a name="//apple_ref/swift/Enum/LoginResult" class="dashAnchor"></a>
-                    <a class="token" href="#/s:OC17NexmoConversation18ConversationClient11LoginResult">LoginResult</a>
+                    <a class="token" href="#/s:17NexmoConversation0B6ClientC11LoginResultO">LoginResult</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -365,7 +398,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">LoginResult</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kt">Error</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">LoginResult</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kt">Error</span></code></pre>
 
                         </div>
                       </div>
@@ -375,9 +408,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:OC17NexmoConversation18ConversationClient5State"></a>
+                    <a name="/s:17NexmoConversation0B6ClientC5StateO"></a>
                     <a name="//apple_ref/swift/Enum/State" class="dashAnchor"></a>
-                    <a class="token" href="#/s:OC17NexmoConversation18ConversationClient5State">State</a>
+                    <a class="token" href="#/s:17NexmoConversation0B6ClientC5StateO">State</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -402,7 +435,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">State</span><span class="p">:</span> <span class="kt">Equatable</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">State</span><span class="p">:</span> <span class="kt">Equatable</span></code></pre>
 
                         </div>
                       </div>
@@ -423,9 +456,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZvC17NexmoConversation18ConversationClient8instanceS0_"></a>
+                    <a name="/c:@M@NexmoConversation@objc(cs)NXMConversationClient(cpy)instance"></a>
                     <a name="//apple_ref/swift/Variable/instance" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZvC17NexmoConversation18ConversationClient8instanceS0_">instance</a>
+                    <a class="token" href="#/c:@M@NexmoConversation@objc(cs)NXMConversationClient(cpy)instance">instance</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -440,7 +473,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">instance</span><span class="p">:</span> <span class="kt">ConversationClient</span> <span class="o">=</span> <span class="kt">ConversationClient</span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">instance</span><span class="p">:</span> <span class="kt">ConversationClient</span> <span class="o">=</span> <span class="kt">ConversationClient</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
@@ -461,9 +494,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZvC17NexmoConversation18ConversationClient13configurationVS_13Configuration"></a>
+                    <a name="/s:17NexmoConversation0B6ClientC13configurationAA13ConfigurationVvZ"></a>
                     <a name="//apple_ref/swift/Variable/configuration" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZvC17NexmoConversation18ConversationClient13configurationVS_13Configuration">configuration</a>
+                    <a class="token" href="#/s:17NexmoConversation0B6ClientC13configurationAA13ConfigurationVvZ">configuration</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -471,14 +504,15 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Client configuration
+@warning: can only be set before calling ConversationClient.instance or ConversationClient()</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">configuration</span><span class="p">:</span> <span class="kt"><a href="../Structs/Configuration.html">Configuration</a></span> <span class="o">=</span> <span class="kt"><a href="../Structs/Configuration.html">Configuration</a></span><span class="o">.</span><span class="k">default</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">configuration</span><span class="p">:</span> <span class="kt"><a href="../Structs/Configuration.html">Configuration</a></span> <span class="o">=</span> <span class="kt"><a href="../Structs/Configuration.html">Configuration</a></span><span class="o">.</span><span class="k">default</span></code></pre>
 
                         </div>
                       </div>
@@ -499,9 +533,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC17NexmoConversation18ConversationClient7accountCS_17AccountController"></a>
+                    <a name="/c:@M@NexmoConversation@objc(cs)NXMConversationClient(py)account"></a>
                     <a name="//apple_ref/swift/Property/account" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC17NexmoConversation18ConversationClient7accountCS_17AccountController">account</a>
+                    <a class="token" href="#/c:@M@NexmoConversation@objc(cs)NXMConversationClient(py)account">account</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -516,7 +550,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">account</span><span class="p">:</span> <span class="kt"><a href="../Classes/AccountController.html">AccountController</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">account</span><span class="p">:</span> <span class="kt"><a href="../Classes/AccountController.html">AccountController</a></span></code></pre>
 
                         </div>
                       </div>
@@ -526,9 +560,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC17NexmoConversation18ConversationClient12conversationCS_22ConversationController"></a>
+                    <a name="/c:@M@NexmoConversation@objc(cs)NXMConversationClient(py)conversation"></a>
                     <a name="//apple_ref/swift/Property/conversation" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC17NexmoConversation18ConversationClient12conversationCS_22ConversationController">conversation</a>
+                    <a class="token" href="#/c:@M@NexmoConversation@objc(cs)NXMConversationClient(py)conversation">conversation</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -543,7 +577,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">conversation</span><span class="p">:</span> <span class="kt"><a href="../Classes/ConversationController.html">ConversationController</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">conversation</span><span class="p">:</span> <span class="kt"><a href="../Classes/ConversationController.html">ConversationController</a></span></code></pre>
 
                         </div>
                       </div>
@@ -553,9 +587,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC17NexmoConversation18ConversationClient12appLifecycleCS_22AppLifecycleController"></a>
+                    <a name="/c:@M@NexmoConversation@objc(cs)NXMConversationClient(py)appLifecycle"></a>
                     <a name="//apple_ref/swift/Property/appLifecycle" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC17NexmoConversation18ConversationClient12appLifecycleCS_22AppLifecycleController">appLifecycle</a>
+                    <a class="token" href="#/c:@M@NexmoConversation@objc(cs)NXMConversationClient(py)appLifecycle">appLifecycle</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -570,7 +604,34 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">appLifecycle</span> <span class="o">=</span> <span class="kt"><a href="../Classes/AppLifecycleController.html">AppLifecycleController</a></span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">appLifecycle</span><span class="p">:</span> <span class="kt"><a href="../Classes/AppLifecycleController.html">AppLifecycleController</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@NexmoConversation@objc(cs)NXMConversationClient(py)media"></a>
+                    <a name="//apple_ref/swift/Property/media" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@NexmoConversation@objc(cs)NXMConversationClient(py)media">media</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Media Controller</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">media</span><span class="p">:</span> <span class="kt"><a href="../Classes/RTCController.html">RTCController</a></span></code></pre>
 
                         </div>
                       </div>
@@ -591,9 +652,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC17NexmoConversation18ConversationClient5stateERR"></a>
+                    <a name="/s:17NexmoConversation0B6ClientC5stateXev"></a>
                     <a name="//apple_ref/swift/Property/state" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC17NexmoConversation18ConversationClient5stateERR">state</a>
+                    <a class="token" href="#/s:17NexmoConversation0B6ClientC5stateXev">state</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -608,7 +669,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">state</span><span class="p">:</span> <span class="kt">Variable</span><span class="o">&lt;</span><span class="kt"><a href="../Classes/ConversationClient/State.html">State</a></span><span class="o">&gt;</span> <span class="o">=</span> <span class="kt">Variable</span><span class="o">&lt;</span><span class="kt"><a href="../Classes/ConversationClient/State.html">State</a></span><span class="o">&gt;</span><span class="p">(</span><span class="o">.</span><span class="n">disconnected</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">state</span><span class="p">:</span> <span class="kt">Variable</span><span class="o">&lt;</span><span class="kt"><a href="../Classes/ConversationClient/State.html">State</a></span><span class="o">&gt;</span> <span class="o">=</span> <span class="kt">Variable</span><span class="o">&lt;</span><span class="kt"><a href="../Classes/ConversationClient/State.html">State</a></span><span class="o">&gt;</span><span class="p">(</span><span class="o">.</span><span class="n">disconnected</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -618,9 +679,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC17NexmoConversation18ConversationClient14unhandledErrorERR"></a>
+                    <a name="/s:17NexmoConversation0B6ClientC14unhandledErrorXev"></a>
                     <a name="//apple_ref/swift/Property/unhandledError" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC17NexmoConversation18ConversationClient14unhandledErrorERR">unhandledError</a>
+                    <a class="token" href="#/s:17NexmoConversation0B6ClientC14unhandledErrorXev">unhandledError</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -635,7 +696,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">unhandledError</span><span class="p">:</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt"><a href="../Protocols/NetworkErrorProtocol.html">NetworkErrorProtocol</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">unhandledError</span><span class="p">:</span> <span class="kt">Observable</span><span class="o">&lt;</span><span class="kt"><a href="../Protocols/NetworkErrorProtocol.html">NetworkErrorProtocol</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -656,9 +717,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC17NexmoConversation18ConversationClient10disposeBagERR"></a>
+                    <a name="/s:17NexmoConversation0B6ClientC10disposeBagXev"></a>
                     <a name="//apple_ref/swift/Property/disposeBag" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC17NexmoConversation18ConversationClient10disposeBagERR">disposeBag</a>
+                    <a class="token" href="#/s:17NexmoConversation0B6ClientC10disposeBagXev">disposeBag</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -673,7 +734,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">disposeBag</span> <span class="o">=</span> <span class="kt">DisposeBag</span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">disposeBag</span> <span class="o">=</span> <span class="kt">DisposeBag</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
@@ -694,9 +755,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC17NexmoConversation18ConversationClient10disconnectFT_T_"></a>
+                    <a name="/c:@M@NexmoConversation@objc(cs)NXMConversationClient(im)disconnect"></a>
                     <a name="//apple_ref/swift/Method/disconnect()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC17NexmoConversation18ConversationClient10disconnectFT_T_">disconnect()</a>
+                    <a class="token" href="#/c:@M@NexmoConversation@objc(cs)NXMConversationClient(im)disconnect">disconnect()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -711,7 +772,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">disconnect</span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">disconnect</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
@@ -732,9 +793,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC17NexmoConversation18ConversationClient5loginERR"></a>
+                    <a name="/s:17NexmoConversation0B6ClientC5loginXeXeF"></a>
                     <a name="//apple_ref/swift/Method/login(with:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC17NexmoConversation18ConversationClient5loginERR">login(with:)</a>
+                    <a class="token" href="#/s:17NexmoConversation0B6ClientC5loginXeXeF">login(with:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -749,7 +810,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">login</span><span class="p">(</span><span class="n">with</span> <span class="nv">token</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span><span class="o">=</span><span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Single</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">login</span><span class="p">(</span><span class="n">with</span> <span class="nv">token</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span><span class="o">=</span><span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Single</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
@@ -782,9 +843,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC17NexmoConversation18ConversationClient6logoutFT_Sb"></a>
+                    <a name="/c:@CM@NexmoConversation@objc(cs)NXMConversationClient(im)logout"></a>
                     <a name="//apple_ref/swift/Method/logout()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC17NexmoConversation18ConversationClient6logoutFT_Sb">logout()</a>
+                    <a class="token" href="#/c:@CM@NexmoConversation@objc(cs)NXMConversationClient(im)logout">logout()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -799,7 +860,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">logout</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">logout</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
@@ -820,9 +881,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:OC17NexmoConversation18ConversationClient9StateObjc"></a>
+                    <a name="/s:17NexmoConversation0B6ClientC9StateObjcO"></a>
                     <a name="//apple_ref/swift/Enum/StateObjc" class="dashAnchor"></a>
-                    <a class="token" href="#/s:OC17NexmoConversation18ConversationClient9StateObjc">StateObjc</a>
+                    <a class="token" href="#/s:17NexmoConversation0B6ClientC9StateObjcO">StateObjc</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -847,7 +908,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">StateObjc</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">StateObjc</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
 
                         </div>
                       </div>
@@ -868,9 +929,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC17NexmoConversation18ConversationClient9stateObjcFFOS0_9StateObjcT_T_"></a>
+                    <a name="/c:@CM@NexmoConversation@objc(cs)NXMConversationClient(im)stateObjc:"></a>
                     <a name="//apple_ref/swift/Method/stateObjc(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC17NexmoConversation18ConversationClient9stateObjcFFOS0_9StateObjcT_T_">stateObjc(_:)</a>
+                    <a class="token" href="#/c:@CM@NexmoConversation@objc(cs)NXMConversationClient(im)stateObjc:">stateObjc(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -885,7 +946,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">stateObjc</span><span class="p">(</span><span class="n">_</span> <span class="nv">closure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Classes/ConversationClient/StateObjc.html">StateObjc</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">stateObjc</span><span class="p">(</span><span class="n">_</span> <span class="nv">closure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Classes/ConversationClient/StateObjc.html">StateObjc</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -925,9 +986,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC17NexmoConversation18ConversationClient5loginFT4withGSqSS_FOS0_11LoginResultT__T_"></a>
+                    <a name="/c:@CM@NexmoConversation@objc(cs)NXMConversationClient(im)loginWith::"></a>
                     <a name="//apple_ref/swift/Method/login(with:_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC17NexmoConversation18ConversationClient5loginFT4withGSqSS_FOS0_11LoginResultT__T_">login(with:_:)</a>
+                    <a class="token" href="#/c:@CM@NexmoConversation@objc(cs)NXMConversationClient(im)loginWith::">login(with:_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -942,7 +1003,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">login</span><span class="p">(</span><span class="n">with</span> <span class="nv">token</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span><span class="o">=</span><span class="kc">nil</span><span class="p">,</span> <span class="n">_</span> <span class="nv">callback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/ConversationClient.html#/s:C17NexmoConversation18ConversationClient13LoginResponse">LoginResponse</a></span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">login</span><span class="p">(</span><span class="n">with</span> <span class="nv">token</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span><span class="o">=</span><span class="kc">nil</span><span class="p">,</span> <span class="n">_</span> <span class="nv">callback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/ConversationClient.html#/s:17NexmoConversation0B6ClientC13LoginResponsea">LoginResponse</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -985,8 +1046,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2017 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2017-11-06)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2018 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2018-02-02)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

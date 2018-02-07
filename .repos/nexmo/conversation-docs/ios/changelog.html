@@ -65,7 +65,7 @@
                 <a href="Classes/Conversation.html">Conversation</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/Conversation/Change.html">– Change</a>
+                <a href="Classes/Conversation/Media.html">– Media</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/Conversation/Errors.html">– Errors</a>
@@ -81,6 +81,15 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/User.html">User</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/Audio.html">Audio</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/Audio/State.html">– State</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/Audio/Errors.html">– Errors</a>
               </li>
             </ul>
           </li>
@@ -98,6 +107,27 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/ConversationController/JoinConversation.html">– JoinConversation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AppLifecycleController.html">AppLifecycleController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AppLifecycleController/Notification.html">– Notification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/MediaController.html">MediaController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/PushNotificationController.html">PushNotificationController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/PushNotificationController/State.html">– State</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/RTCController.html">RTCController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/RTCController/Media.html">– Media</a>
               </li>
             </ul>
           </li>
@@ -117,7 +147,10 @@
                 <a href="Classes/ImageEvent.html">ImageEvent</a>
               </li>
               <li class="nav-group-task">
-                <a href="Event.html#/s:C17NexmoConversation15MembershipEvent">MembershipEvent</a>
+                <a href="Classes/MediaEvent.html">MediaEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Event.html#/c:@M@NexmoConversation@objc(cs)NXMMembershipEvent">MembershipEvent</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/MemberLeftEvent.html">MemberLeftEvent</a>
@@ -166,6 +199,12 @@
               <li class="nav-group-task">
                 <a href="Classes/ConversationPreviewModel.html">ConversationPreviewModel</a>
               </li>
+              <li class="nav-group-task">
+                <a href="Structs/IPS.html">IPS</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/IPS/ImageType.html">– ImageType</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -189,6 +228,9 @@
               <li class="nav-group-task">
                 <a href="Classes/EventCollection.html">EventCollection</a>
               </li>
+              <li class="nav-group-task">
+                <a href="Classes/EventCollection/Change.html">– Change</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -198,6 +240,9 @@
                 <a href="changelog.html">CHANGELOG</a>
               </li>
               <li class="nav-group-task">
+                <a href="designrationale.html">DesignRationale</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="readme.html">README</a>
               </li>
             </ul>
@@ -205,15 +250,6 @@
           <li class="nav-group-name">
             <a href="Other Classes.html">Other Classes</a>
             <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="Classes/AppLifecycleController.html">AppLifecycleController</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/AppLifecycleController/Notification.html">– Notification</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/MediaController.html">MediaController</a>
-              </li>
               <li class="nav-group-task">
                 <a href="Classes/Signal.html">Signal</a>
               </li>
@@ -242,6 +278,9 @@
               <li class="nav-group-task">
                 <a href="Extensions/ObservableType.html">ObservableType</a>
               </li>
+              <li class="nav-group-task">
+                <a href="Extensions/PrimitiveSequence.html">PrimitiveSequence</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -262,12 +301,6 @@
             <a href="Other Structs.html">Other Structures</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Structs/IPS.html">IPS</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Structs/IPS/ImageType.html">– ImageType</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Structs/Request.html">Request</a>
               </li>
             </ul>
@@ -278,7 +311,89 @@
         <section>
           <section class="section">
             
-            <h1 id='0-16-0-06-11-2017' class='heading'>0.16.0 / 06-11-2017</h1>
+            <h1 id='0-19-1-2-2-2018' class='heading'>0.19.1 / 2-2-2018</h1>
+
+<p>Fix cocoapods build</p>
+<h1 id='0-19-0-1-2-2018' class='heading'>0.19.0 / 1-2-2018</h1>
+<h1 id='breaking-changes' class='heading'>Breaking changes</h1>
+
+<p><code>AudioEvent</code> has now be renamed to <code><a href="Classes/MediaEvent.html">MediaEvent</a></code> to reflect other media type that will soon be available </p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">event</span> <span class="o">=</span> <span class="n">event</span> <span class="k">as?</span> <span class="kt">MediaEvent</span>
+</code></pre>
+
+<p><code>invitations</code> in <code><a href="Classes/RTCController.html">RTCController</a></code> has been renamed to <code>media</code> getter</p>
+
+<p>Old:</p>
+<pre class="highlight swift"><code><span class="n">client</span><span class="o">.</span><span class="n">rtc</span><span class="o">.</span><span class="n">invitations</span>
+</code></pre>
+
+<p>New:</p>
+<pre class="highlight swift"><code><span class="n">client</span><span class="o">.</span><span class="n">media</span><span class="o">.</span><span class="n">invitations</span>
+</code></pre>
+
+<p><code>MessageSent</code> in <code><a href="Classes/Conversation.html">Conversation</a></code> class has now moved to <code><a href="Classes/EventCollection.html">EventCollection</a></code> inside the <code><a href="Classes/Conversation.html">Conversation</a></code> class
+Old:</p>
+<pre class="highlight swift"><code><span class="n">conversation</span><span class="o">.</span><span class="n">messageSent</span><span class="o">.</span><span class="n">addHandler</span> <span class="p">{</span> <span class="n">event</span> <span class="k">in</span>
+    <span class="c1">// sent event here...            </span>
+<span class="p">}</span>
+</code></pre>
+
+<p>New:</p>
+<pre class="highlight swift"><code><span class="n">conversation</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">eventSent</span><span class="o">.</span><span class="n">addHandler</span> <span class="p">{</span> <span class="n">event</span> <span class="k">in</span>
+    <span class="c1">// sent event here...            </span>
+<span class="p">}</span>
+</code></pre>
+<h1 id='changes' class='heading'>Changes</h1>
+
+<p>Documentation has been updated to reflect most recent API change. This should now be much more simple to understand</p>
+
+<p>Removed GLOSS dependency for Swift 4 JSON</p>
+<h1 id='0-18-1-26-12-2017' class='heading'>0.18.1 / 26-12-2017</h1>
+<h1 id='bugs' class='heading'>Bugs</h1>
+
+<ul>
+<li>Fixed RTC build issue</li>
+</ul>
+<h1 id='0-18-0-26-12-2017' class='heading'>0.18.0 / 26-12-2017</h1>
+<h1 id='feature' class='heading'>Feature</h1>
+
+<ul>
+<li>Support Swift 4 and Xcode 9+</li>
+</ul>
+<h1 id='0-18-2-1-1-2018' class='heading'>0.18.2 / 1-1-2018</h1>
+<h1 id='bugs' class='heading'>Bugs</h1>
+
+<ul>
+<li>Fixed build issue</li>
+</ul>
+<h1 id='0-18-1-26-12-2017' class='heading'>0.18.1 / 26-12-2017</h1>
+<h1 id='bugs' class='heading'>Bugs</h1>
+
+<ul>
+<li>Fixed RTC build issue</li>
+</ul>
+<h1 id='0-18-0-26-12-2017' class='heading'>0.18.0 / 26-12-2017</h1>
+<h1 id='feature' class='heading'>Feature</h1>
+
+<ul>
+<li>Support Swift 4 and Xcode 9+</li>
+</ul>
+<h1 id='0-17-0-20-12-2017' class='heading'>0.17.0 / 20-12-2017</h1>
+<h1 id='bugs' class='heading'>Bugs</h1>
+
+<ul>
+<li>Handle empty JSON object returned from DELETE event request</li>
+<li>iOS pass APNS device token and environment (debug / release) to back end on login</li>
+</ul>
+<h1 id='feature' class='heading'>Feature</h1>
+
+<ul>
+<li>Expose push notification status</li>
+<li>Enable / disable audio in a conversation that I am a member of</li>
+<li>Event when another user has enabled / disabled audio in conversation</li>
+<li>Enable / disable loudspeaker</li>
+</ul>
+<h1 id='0-16-0-06-11-2017' class='heading'>0.16.0 / 06-11-2017</h1>
 <h1 id='bugs' class='heading'>Bugs</h1>
 
 <ul>
@@ -382,7 +497,7 @@
 <li>Create conversation returns a facade object rather then the REST model</li>
 <li>Removed Objective-C prefix NXM and NX for Swift
 # Feature</li>
-<li>Custom log level. use <code><a href="Structs/Configuration.html#/s:ZvV17NexmoConversation13Configuration7defaultS0_">Configuration.default</a></code></li>
+<li>Custom log level. use <code><a href="Structs/Configuration.html#/s:17NexmoConversation13ConfigurationV7defaultACvZ">Configuration.default</a></code></li>
 <li>Internal error reporting. use <code>Client.internalNetworkError</code>
 # Bugs</li>
 <li>Fix issue where display name was not set</li>
@@ -516,8 +631,8 @@ client.login(with: TOKEN)
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2017 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2017-11-06)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2018 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2018-02-02)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>
