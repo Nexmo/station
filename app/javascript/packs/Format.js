@@ -4,9 +4,9 @@ export default class Format {
     if (this.formatSelector) {
       this.formatChanged(this.formatSelector.value, false)
       $(this.formatSelector).change((event) => this.formatChanged(event.target.value))
-    }
 
-    this.restoreFormat()
+      this.restoreFormat()
+    }
   }
 
   formatChanged(format, persist = true) {

@@ -22,9 +22,24 @@
         <div class="table-list-column" flex="2">
           <b><%= parameter.name %></b><br>
 
+
           <small>
             <% if parameter.required %>
               <span class="flag flag--strong">Required</span> |
+            <% end %>
+
+            <% if @definition_initialization_config['formats'] %>
+              <% if @definition_initialization_config['formats'].include? 'text/xml' %>
+                <span class="js-format" data-format="text/xml">
+                  <% if parameter.is_xml_attribute? %>
+                    <span class="flag">Attribute</span> |
+                  <% end %>
+
+                  <% if parameter.is_xml_text? %>
+                    <span class="flag">Value</span> |
+                  <% end %>
+                </span>
+              <% end %>
             <% end %>
 
             <i>
