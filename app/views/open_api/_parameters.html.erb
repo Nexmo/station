@@ -1,6 +1,7 @@
 <%
   model = false if local_assigns[:model].nil?
   callback = false if local_assigns[:callback].nil?
+  format = nil if local_assigns[:format].nil?
 %>
 
 <ul class="table-list">
@@ -20,8 +21,7 @@
     <li>
       <div class="table-list-columns <%= callback ? 'table-list-columns--callback' : '' %> <%= model ? 'table-list-columns--model' : '' %>">
         <div class="table-list-column" flex="2">
-          <b><%= parameter.name %></b><br>
-
+          <b><%= parameter.name(format) %></b><br>
 
           <small>
             <% if parameter.required %>
@@ -116,7 +116,7 @@
       </div>
 
       <% if parameter.collection? %>
-        <%= render 'parameters', parameters: parameter.properties, model: model %>
+        <%= render 'parameters', parameters: parameter.properties, model: model, format: format %>
       <% end %>
     </li>
   <% end %>
