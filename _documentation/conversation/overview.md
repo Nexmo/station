@@ -25,9 +25,6 @@ The context of the conversations is maintained though each communication event t
 
 This Developer Preview will focus on the IP messaging capabilities. During this program there will be frequent releases with new features and bug fixes based on your feedback. During the preview it is possible (and probable) that there shall be breaking changes to the SDK and API but these will be explicitly communicated beforehand.
 
-> #### If you are interested in access to the Conversation Developer Preview§§
-> #### [Request Access](https://info.nexmo.com/EA-In-App-Sign-Up.html).
-
 If you want communicate with us during the developer preview you can:
 
 * Join the [Nexmo community slack](https://developer.nexmo.com/community/slack/) and ask @chris, @laka, @eric.giannini or @leggetter for access to the private [#in-app-messaging](https://nexmo-community.slack.com/messages/G5V788WHJ/) channel
