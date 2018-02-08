@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/Nexmo/oas_parser.git
-  revision: 3c19ae45c6a3c473fc0fd974edea591d3b521fa1
+  revision: 56b14da0fd3dd236d65c592005009b4545f53ca6
   branch: xml-name
   specs:
     oas_parser (0.8.1)
