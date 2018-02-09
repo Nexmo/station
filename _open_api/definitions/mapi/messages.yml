@@ -11,24 +11,24 @@ paths:
     post:
       security:
         - bearerAuth: []
-      description: Send a Message
-      operationId: sendMessage
+      summary: Send a Message
+      operationId: NewMessage
       requestBody:
-        description: Send a Message
+        description: Send a Message.
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/sendMessage'
+              $ref: '#/components/schemas/NewMessage'
       responses:
         '202':
-          description: Accepted
+          description: Accepted.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Response'
         '400':
-          description: Bad Request
+          description: Bad Request.
           content:
             application/json:
               schema:
@@ -49,7 +49,7 @@ paths:
                       $ref: '#/components/schemas/MessageStatus'
               responses:
                   '200':
-                    description: Your server returns this code if it accepts the callback
+                    description: Your server returns this code if it accepts the callback.
         inbound-message:
           '{$request.body#/callback}':
             post:
@@ -62,10 +62,10 @@ paths:
                 content:
                   application/json:
                     schema:
-                      $ref: '#/components/schemas/inboundMessage'
+                      $ref: '#/components/schemas/InboundMessage'
               responses:
                   '200':
-                    description: Your server returns this code if it accepts the callback
+                    description: Your server returns this code if it accepts the callback.
 
 
 components:
@@ -78,113 +78,18 @@ components:
 
   schemas:
 
-    sendMessage:
+    NewMessage:
       required:
         - to
         - from
         - message
       properties:
         to:
-          required:
-            - type
-          properties:
-            type:
-              type: string
-              enum:
-                - sms
-                - viber_service_msg
-                - messenger
-            id:
-              description: 'If `type` is `viber_service_msg` or `messenger` use `id`.'
-              type: string
-              minLength: 1
-              maxLength: 50
-              example: '1341127079312546'
-            number:
-              description: 'Phone numbers must match the E.164 format.'
-              type: string
-              minLength: 1
-              maxLength: 50
-              example: '447899663987'
-            name:
-              description: 'Specify name to increase the match rate when using the Facebook Customer Matching service.'
-              required:
-                - first_name
-                - last_name
-              properties:
-                first_name:
-                  type: string
-                  minLength: 1
-                  maxLength: 50
-                  example: 'Hugh'
-                last_name:
-                  type: string
-                  minLength: 1
-                  maxLength: 50
-                  example: 'Hopkins'
+          $ref: '#/components/schemas/ToProperty'
         from:
-          required:
-            - type
-          properties:
-            type:
-              type: string
-              enum:
-                - sms
-                - viber_service_msg
-                - messenger
-            id:
-              description: 'If type is `viber_service_msg` or `messenger` use `id`.'
-              type: string
-              minLength: 1
-              maxLength: 50
-              example: '1753206581582102'
-            number:
-              description: 'Phone numbers must match the E.164 format.'
-              type: string
-              minLength: 1
-              maxLength: 50
-              example: '12034858953'
+          $ref: '#/components/schemas/FromProperty'
         message:
-          required:
-            - content
-          properties:
-            content:
-              required:
-                - type
-              properties:
-                type:
-                  description: '`messenger` supports all types. `sms` and `viber_service_msg` only support `text`.'
-                  type: string
-                  enum:
-                    - text
-                    - image
-                    - audio
-                    - video
-                    - file
-                  example: 'text'
-                text:
-                  description: 'Faecbook messenger = 640 characters, viber_service = 1000 characters'
-                  type: string
-                  minLength: 1
-                  maxLength: 1000
-                  example: 'Pretty majestical, aye?'
-                url:
-                  type: string
-                  minLength: 1
-                  maxLength: 1000
-                  example: 'http://hughhopkins.co.uk/assets/img/youtube-sailing-hughhopkins.jpg'
-            viber_ttl:
-              description: 'Only valid for Viber Service Messages. Set the time-to-live of message to be delivered in seconds. i.e. if the message is not delivered in 600 seconds then delete the message. Please note that this cancels the notification on Android and an iOS the viber_expiry_text is shown. Minimum value is 30 and maximum value is 86,400 seconds (1 day).'
-              type: integer
-              example: 600
-              minimum: 30
-              maximum: 86400
-            viber_expiry_text:
-              description: 'Only valid for Viber Service Messages. Set an alternative text that will be displayed on iOS devices if the original message was cancelled. If the original Viber Service Message was cancelled on Android no Viber message will show. You will also not be charged for this message. Minimum 1 character, maximum 1,000 characters.'
-              type: string
-              minLength: 1
-              maxLength: 1000
-              example: "This expiry text will be shown on iOS devices"
+          $ref: '#/components/schemas/MessageProperty'
 
     Response:
       required:
@@ -192,8 +97,8 @@ components:
       properties:
         message_uuid:
           type: string
-          example: '171b3991-49b0-4dfa-badd-2bc6e68b57b4'
-
+          description: The UUID of the message.
+          example: 'aaaaaaaa-bbbb-cccc-dddd-0123456789ab'
     Error:
       description: 'The error format is standardized to the 4xx/5xx range with a code and a human readable explanation.'
       required:
@@ -212,6 +117,7 @@ components:
           type: string
           example:
         invalid_parameters:
+          type: object
           properties:
             name:
               type: string
@@ -231,59 +137,18 @@ components:
       properties:
         message_uuid:
           type: string
-          example: '171b3991-49b0-4dfa-badd-2bc6e68b57b4'
+          description: The UUID of the message.
+          example: 'aaaaaaaa-bbbb-cccc-dddd-0123456789ab'
         to:
-          required:
-            - type
-          properties:
-            type:
-              type: string
-              enum:
-                - sms
-                - viber_service_msg
-                - messenger
-            id:
-              type: string
-              example: '1341127079312546'
-            number:
-              minLength: 11
-              maxLength: 12
-              pattern: '\d{11,12}'
-              type: string
-              example: '447899663987'
-            name:
-              required:
-                - first_name
-                - last_name
-              properties:
-                first_name:
-                  type: string
-                  example: 'Hugh'
-                last_name:
-                  type: string
-                  example: 'Hopkins'
+          $ref: '#/components/schemas/ToProperty'
         from:
-          required:
-            - type
-          properties:
-            type:
-              type: string
-              enum:
-                - sms
-                - viber_service_msg
-                - messenger
-            id:
-              type: string
-              example: '1753206581582102'
-            number:
-              type: string
-              example: '12034858953'
+          $ref: '#/components/schemas/FromProperty'
         timestamp:
-          type: string
-          format: date-time
-          example: '2018-01-12T15:01:55.315Z'
+          $ref: '#/components/schemas/TimestampProperty'
         status:
           type: string
+          example: delivered
+          description: The status of the message.
           enum:
             - submitted
             - delivered
@@ -291,24 +156,31 @@ components:
             - rejected
             - undeliverable
         error:
+          type: object
           properties:
             code:
               type: integer
               example: 1300
+              description: The error code. See [Errors](#errors) for a table of descriptions.
             reason:
               type: string
               example: 'Not part of the provider network'
+              description: Text describing the error. See [Errors](#errors) for a more details.
         usage:
+          type: object
           properties:
             currency:
               type: string
+              example: EUR
+              description: The charge currency in ISO 4217 format.
               enum:
                 - EUR
             price:
               type: string
-              example: '0.03'
+              example: '0.0333'
+              description: The charge amount as a stringified number.
 
-    inboundMessage:
+    InboundMessage:
       type: object
       required:
         - message_uuid
@@ -318,39 +190,53 @@ components:
       properties:
         message_uuid:
           type: string
-          example: 'd4cdd898-cfab-4535-add3-daf11f10eea5'
+          example: 'aaaaaaaa-bbbb-cccc-dddd-0123456789ab'
+          description: The UUID of the message.
         to:
+          type: object
           required:
             - type
           properties:
             type:
               type: string
+              description: The type of message being received.
+              example: messenger
               enum:
                 - messenger
             id:
               type: string
-              example: '1753206581582102'
+              description: The ID of the recipient.
+              example: '0123456678901234'
         from:
+          type: object
           required:
             - type
           properties:
             type:
               type: string
+              description: The type of message being sent.
+              example: messenger
               enum:
                 - messenger
             id:
               type: string
-              example: '1341127079312546'
+              description: The ID of the sender.
+              example: '0123456789012345'
         timestamp:
           type: string
-          format: date-time
-          example: '2018-01-16T14:39:44.504Z'
+          format: ISO 8601
+          description: The datetime of when the event occurred.
+          example: '2020-01-01T14:00:00.000Z'
         message:
+          type: object
           properties:
             content:
+              type: object
               properties:
                 type:
                   type: string
+                  description: The type of message being received.
+                  example: 'text'
                   enum:
                     - text
                     - image
@@ -362,17 +248,207 @@ components:
                 text:
                   type: string
                   example: "hello"
-                url:
-                  type: string
-                  example: 'https://scontent-frt3-1.xx.fbcdn.net/v/t34.0-0/p480x480/26940911_10155055863586176_1979392628_n.jpg?_nc_ad=z-m&_nc_cid=0&oh=0ec5afa7c8614f3dc1f1fa85096b6837&oe=5A604FD0'
+                image:
+                  type: object
+                  properties:
+                    url:
+                      type: string
+                      description: The URL of the image attachment.
+                      minLength: 1
+                      maxLength: 2000
+                      example: 'https://example.com/image.jpg'
+                audio:
+                  type: object
+                  properties:
+                    url:
+                      type: string
+                      description: The URL of the audio attachment.
+                      minLength: 1
+                      maxLength: 2000
+                      example: 'https://example.com/audio.mp3'
+                video:
+                  type: object
+                  properties:
+                    url:
+                      type: string
+                      description: The URL of the video attachment.
+                      minLength: 1
+                      maxLength: 2000
+                      example: 'https://example.com/video.mp4'
+                file:
+                  type: object
+                  properties:
+                    url:
+                      type: string
+                      description: The URL of the file attachment.
+                      minLength: 1
+                      maxLength: 2000
+                      example: 'https://example.com/file.zip'
+                location:
+                  type: object
+                  properties:
+                    lat:
+                      type: string
+                      description: The latitude of the location attachment.
+                      example: '51.523242'
+                    long:
+                      type: string
+                      description: The longitude of the location attachment.
+                      example: '-0.085282'
                 event:
                   type: string
+                  description: The type of event that has occurred.
+                  example: unsubscribe
                   enum:
                     - subscribe
                     - unsubscribe
-                lat:
-                  type: string
-                  example: '51.523242'
-                long:
-                  type: string
-                  example: '-0.085282'
+
+    ToProperty:
+      type: object
+      required:
+        - type
+      properties:
+        type:
+          type: string
+          description: The type of message that you want to send.
+          example: 'sms'
+          enum:
+            - sms
+            - viber_service_msg
+            - messenger
+        id:
+          description: |
+            The ID of the message recipient.
+
+            **Messenger**: This value should be the `from.id` value you received in the inbound messenger event.
+
+            **SMS**: or **Viber**: This value is not required.
+          type: string
+          minLength: 1
+          maxLength: 50
+          example: '0123456789012345'
+        number:
+          description: 'Phone numbers must match the E.164 format.'
+          type: string
+          minLength: 1
+          maxLength: 50
+          example: '447700900000'
+          description: |
+            The phone number of the message recipient.
+
+            **SMS**: or **Viber**: The phone number of the receipient.
+
+            **Messenger**: This value is not required.
+        # @TODO Clarify requirements
+        # name:
+        #   description: 'Specify name to increase the match rate when using the Facebook Customer Matching service.'
+        #   type: object
+        #   required:
+        #     - first_name
+        #     - last_name
+        #   properties:
+        #     first_name:
+        #       type: string
+        #       description: The recipients first name.
+        #       minLength: 1
+        #       maxLength: 50
+        #       example: 'John'
+        #     last_name:
+        #       type: string
+        #       description: The recipients surname.
+        #       minLength: 1
+        #       maxLength: 50
+        #       example: 'Smith'
+    FromProperty:
+      type: object
+      required:
+        - type
+      properties:
+        type:
+          type: string
+          description: The type of message that you want to send.
+          example: sms
+          enum:
+            - sms
+            - viber_service_msg
+            - messenger
+        id:
+          description: |
+            Your ID for the platform that you are sending from.
+
+            **Messenger**: This value should be the `to.id` value you received in the inbound messenger event.
+
+            **Viber**: This is your service message ID given to you by [Viber for Business](https://www.viber.com/viber-for-business/).
+
+            **SMS**: This value is not required.
+          type: string
+          minLength: 1
+          maxLength: 50
+          example: '0123456789012345'
+        number:
+          description: 'Phone numbers must match the E.164 format.'
+          type: string
+          minLength: 1
+          maxLength: 50
+          example: '447700900000'
+          description: |
+            The phone number of the message recipient.
+
+            **SMS**: The phone number of the receipient.
+
+            **Messenger**: or **Viber**: This value is not required.
+    MessageProperty:
+      type: object
+      required:
+        - content
+      properties:
+        type:
+          description: |
+            The type of message that you are sending.
+
+            **Messenger**: supports all types.
+
+            **SMS** or **Viber**  only support `text`.
+          type: string
+          enum:
+            - text
+            - image
+            - audio
+            - video
+            - file
+          example: 'text'
+        text:
+          description: |
+            The text of the message.
+
+            **Messenger**: Is limited to 640 characters
+
+            **SMS** or **Viber**: Is 1000 characters
+          type: string
+          minLength: 1
+          maxLength: 1000
+          example: 'Pretty majestical, aye?'
+        url:
+          type: string
+          description: The URL for the attachment. Required for `image`, `audio`, `video` or `file`.
+          minLength: 1
+          maxLength: 1000
+          example: 'http://example.com/image.jpg'
+        # @TODO: Doesn't seem to work.
+        # viber_ttl:
+        #   description: 'Only valid for Viber Service Messages. Set the time-to-live of message to be delivered in seconds. i.e. if the message is not delivered in 600 seconds then delete the message. Please note that this cancels the notification on Android and an iOS the viber_expiry_text is shown. Minimum value is 30 and maximum value is 86,400 seconds (1 day).'
+        #   type: integer
+        #   example: 600
+        #   minimum: 30
+        #   maximum: 86400
+        # viber_expiry_text:
+        #   description: 'Only valid for Viber Service Messages. Set an alternative text that will be displayed on iOS devices if the original message was cancelled. If the original Viber Service Message was cancelled on Android no Viber message will show. You will also not be charged for this message. Minimum 1 character, maximum 1,000 characters.'
+        #   type: string
+        #   minLength: 1
+        #   maxLength: 1000
+        #   example: "This expiry text will be shown on iOS devices"
+    TimestampProperty:
+      type: string
+      format: ISO 8601
+      description: The datetime of when the event occurred.
+      example: '2020-01-01T14:00:00.000Z'
