@@ -2,6 +2,8 @@ OPEN_API_PRODUCTS = %w(
   sms
   media
   number-insight
+  mapi/messages
+  mapi/workflows
 )
 
 class OpenApiConstraint

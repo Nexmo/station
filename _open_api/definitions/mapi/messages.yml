@@ -1,0 +1,378 @@
+openapi: "3.0.0"
+info:
+  version: 0.3.0
+  title: Messages API
+  description: The Messaging API is a new API that consolidates all messaging channels. It encapsulates a user (developer) from having to use multiple APIs to interact with our various channels such as SMS, MMS, Viber, Facebook Messenger, etc. The API normalises information across all channels to abstracted to, from and content.
+servers:
+  - url: https://api.nexmo.com/beta
+
+paths:
+  /messages:
+    post:
+      security:
+        - bearerAuth: []
+      description: Send a Message
+      operationId: sendMessage
+      requestBody:
+        description: Send a Message
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/sendMessage'
+      responses:
+        '202':
+          description: Accepted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      callbacks:
+        message-status:
+          '{$request.body#/callback}':
+            post:
+              summary: Message Status
+              operationId: message-status
+              x-example-path: '/webhooks/message-status'
+              description: 'Webhooks to inform about events happening to the message at communication level (has it been delivered, rejected by the provider...).'
+              requestBody:
+                required: true
+                content:
+                  application/json:
+                    schema:
+                      $ref: '#/components/schemas/MessageStatus'
+              responses:
+                  '200':
+                    description: Your server returns this code if it accepts the callback
+        inbound-message:
+          '{$request.body#/callback}':
+            post:
+              summary: Inbound Message
+              operationId: inbound-message
+              x-example-path: '/webhooks/inbound-message'
+              description: An inbound message from a customer to you.
+              requestBody:
+                required: true
+                content:
+                  application/json:
+                    schema:
+                      $ref: '#/components/schemas/inboundMessage'
+              responses:
+                  '200':
+                    description: Your server returns this code if it accepts the callback
+
+
+components:
+
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+
+    sendMessage:
+      required:
+        - to
+        - from
+        - message
+      properties:
+        to:
+          required:
+            - type
+          properties:
+            type:
+              type: string
+              enum:
+                - sms
+                - viber_service_msg
+                - messenger
+            id:
+              description: 'If `type` is `viber_service_msg` or `messenger` use `id`.'
+              type: string
+              minLength: 1
+              maxLength: 50
+              example: '1341127079312546'
+            number:
+              description: 'Phone numbers must match the E.164 format.'
+              type: string
+              minLength: 1
+              maxLength: 50
+              example: '447899663987'
+            name:
+              description: 'Specify name to increase the match rate when using the Facebook Customer Matching service.'
+              required:
+                - first_name
+                - last_name
+              properties:
+                first_name:
+                  type: string
+                  minLength: 1
+                  maxLength: 50
+                  example: 'Hugh'
+                last_name:
+                  type: string
+                  minLength: 1
+                  maxLength: 50
+                  example: 'Hopkins'
+        from:
+          required:
+            - type
+          properties:
+            type:
+              type: string
+              enum:
+                - sms
+                - viber_service_msg
+                - messenger
+            id:
+              description: 'If type is `viber_service_msg` or `messenger` use `id`.'
+              type: string
+              minLength: 1
+              maxLength: 50
+              example: '1753206581582102'
+            number:
+              description: 'Phone numbers must match the E.164 format.'
+              type: string
+              minLength: 1
+              maxLength: 50
+              example: '12034858953'
+        message:
+          required:
+            - content
+          properties:
+            content:
+              required:
+                - type
+              properties:
+                type:
+                  description: '`messenger` supports all types. `sms` and `viber_service_msg` only support `text`.'
+                  type: string
+                  enum:
+                    - text
+                    - image
+                    - audio
+                    - video
+                    - file
+                  example: 'text'
+                text:
+                  description: 'Faecbook messenger = 640 characters, viber_service = 1000 characters'
+                  type: string
+                  minLength: 1
+                  maxLength: 1000
+                  example: 'Pretty majestical, aye?'
+                url:
+                  type: string
+                  minLength: 1
+                  maxLength: 1000
+                  example: 'http://hughhopkins.co.uk/assets/img/youtube-sailing-hughhopkins.jpg'
+            viber_ttl:
+              description: 'Only valid for Viber Service Messages. Set the time-to-live of message to be delivered in seconds. i.e. if the message is not delivered in 600 seconds then delete the message. Please note that this cancels the notification on Android and an iOS the viber_expiry_text is shown. Minimum value is 30 and maximum value is 86,400 seconds (1 day).'
+              type: integer
+              example: 600
+              minimum: 30
+              maximum: 86400
+            viber_expiry_text:
+              description: 'Only valid for Viber Service Messages. Set an alternative text that will be displayed on iOS devices if the original message was cancelled. If the original Viber Service Message was cancelled on Android no Viber message will show. You will also not be charged for this message. Minimum 1 character, maximum 1,000 characters.'
+              type: string
+              minLength: 1
+              maxLength: 1000
+              example: "This expiry text will be shown on iOS devices"
+
+    Response:
+      required:
+        - message_uuid
+      properties:
+        message_uuid:
+          type: string
+          example: '171b3991-49b0-4dfa-badd-2bc6e68b57b4'
+
+    Error:
+      description: 'The error format is standardized to the 4xx/5xx range with a code and a human readable explanation.'
+      required:
+        - type
+        - title
+        - detail
+        - instance
+      properties:
+        type:
+          type: string
+          example: 'https://www.nexmo.com/messages/Errors#InvalidParams'
+        detail:
+          type: string
+          example: 'Your request parameters did not validate.'
+        instance:
+          type: string
+          example:
+        invalid_parameters:
+          properties:
+            name:
+              type: string
+              example: 'Invalid `from` parameter'
+            reason:
+              type: string
+              example: 'Invalid `from` parameter'
+
+    MessageStatus:
+      type: object
+      required:
+        - message_uuid
+        - to
+        - from
+        - timestamp
+        - status
+      properties:
+        message_uuid:
+          type: string
+          example: '171b3991-49b0-4dfa-badd-2bc6e68b57b4'
+        to:
+          required:
+            - type
+          properties:
+            type:
+              type: string
+              enum:
+                - sms
+                - viber_service_msg
+                - messenger
+            id:
+              type: string
+              example: '1341127079312546'
+            number:
+              minLength: 11
+              maxLength: 12
+              pattern: '\d{11,12}'
+              type: string
+              example: '447899663987'
+            name:
+              required:
+                - first_name
+                - last_name
+              properties:
+                first_name:
+                  type: string
+                  example: 'Hugh'
+                last_name:
+                  type: string
+                  example: 'Hopkins'
+        from:
+          required:
+            - type
+          properties:
+            type:
+              type: string
+              enum:
+                - sms
+                - viber_service_msg
+                - messenger
+            id:
+              type: string
+              example: '1753206581582102'
+            number:
+              type: string
+              example: '12034858953'
+        timestamp:
+          type: string
+          format: date-time
+          example: '2018-01-12T15:01:55.315Z'
+        status:
+          type: string
+          enum:
+            - submitted
+            - delivered
+            - read
+            - rejected
+            - undeliverable
+        error:
+          properties:
+            code:
+              type: integer
+              example: 1300
+            reason:
+              type: string
+              example: 'Not part of the provider network'
+        usage:
+          properties:
+            currency:
+              type: string
+              enum:
+                - EUR
+            price:
+              type: string
+              example: '0.03'
+
+    inboundMessage:
+      type: object
+      required:
+        - message_uuid
+        - to
+        - from
+        - timestamp
+      properties:
+        message_uuid:
+          type: string
+          example: 'd4cdd898-cfab-4535-add3-daf11f10eea5'
+        to:
+          required:
+            - type
+          properties:
+            type:
+              type: string
+              enum:
+                - messenger
+            id:
+              type: string
+              example: '1753206581582102'
+        from:
+          required:
+            - type
+          properties:
+            type:
+              type: string
+              enum:
+                - messenger
+            id:
+              type: string
+              example: '1341127079312546'
+        timestamp:
+          type: string
+          format: date-time
+          example: '2018-01-16T14:39:44.504Z'
+        message:
+          properties:
+            content:
+              properties:
+                type:
+                  type: string
+                  enum:
+                    - text
+                    - image
+                    - audio
+                    - video
+                    - file
+                    - event
+                    - location
+                text:
+                  type: string
+                  example: "hello"
+                url:
+                  type: string
+                  example: 'https://scontent-frt3-1.xx.fbcdn.net/v/t34.0-0/p480x480/26940911_10155055863586176_1979392628_n.jpg?_nc_ad=z-m&_nc_cid=0&oh=0ec5afa7c8614f3dc1f1fa85096b6837&oe=5A604FD0'
+                event:
+                  type: string
+                  enum:
+                    - subscribe
+                    - unsubscribe
+                lat:
+                  type: string
+                  example: '51.523242'
+                long:
+                  type: string
+                  example: '-0.085282'
