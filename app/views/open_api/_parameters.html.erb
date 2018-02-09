@@ -99,9 +99,11 @@
         </div>
 
         <% unless model %>
-          <div class="table-list-column" flex="2">
-            <%= (parameter.example ? "<code>#{parameter.example}</code>" : '<i>None</i>').html_safe %>
-          </div>
+          <% unless parameter.collection? %>
+            <div class="table-list-column" flex="2">
+              <%= (parameter.example ? "<code>#{parameter.example}</code>" : '<i>None</i>').html_safe %>
+            </div>
+          <% end %>
         <% end %>
 
         <% unless model || callback %>
@@ -116,7 +118,7 @@
       </div>
 
       <% if parameter.collection? %>
-        <%= render 'parameters', parameters: parameter.properties, model: model %>
+        <%= render 'parameters', parameters: parameter.properties, model: model, callback: callback %>
       <% end %>
     </li>
   <% end %>
