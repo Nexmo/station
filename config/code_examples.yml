@@ -133,10 +133,10 @@ number_insight:
   async:
     curl:
       source: '_examples/curl/number_insight/async.sh'
-mapi:
+olympus:
   messages:
     send:
       curl:
-        source: '_examples/curl/mapi/messages/send.sh'
+        source: '_examples/curl/olympus/messages/send.sh'
       httpie:
-        source: '_examples/httpie/mapi/messages/send.sh'
+        source: '_examples/httpie/olympus/messages/send.sh'
