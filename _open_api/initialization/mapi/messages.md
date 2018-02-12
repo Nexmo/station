@@ -1,6 +1,7 @@
 ---
 tabs:
   - curl
+  - httpie
 ---
 
 ```tabbed_content
@@ -8,5 +9,5 @@ source: _open_api/initialization/install
 ```
 
 ```tabbed_content
-source: _open_api/initialization/initialize
+source: _open_api/initialization/initialize_jwt
 ```
