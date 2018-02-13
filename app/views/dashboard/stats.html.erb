@@ -32,6 +32,41 @@
   stacked: true
 ) %>
 
+<%
+  all = Feedback::Feedback.unscoped.group_by_month(:created_at).count
+  positive = Feedback::Feedback.unscoped.positive.group_by_month(:created_at).count
+  negative = Feedback::Feedback.unscoped.negative.group_by_month(:created_at).count
+
+  all.each do |date, count|
+    if count === 0
+      # Remove entries that had no feedbacks
+      [all, positive, negative].each { |h| h.delete(date) } unless count == 0
+    else
+      # Otherwise ensure that both positive and negative have values
+      positive[date] = 0 unless positive[date]
+      negative[date] = 0 unless negative[date]
+    end
+
+    # Convert values to percentages
+    positive[date] = ((positive[date].to_f / count.to_f) * 100).round(1)
+    negative[date] = ((negative[date].to_f / count.to_f) * 100).round(1)
+  end
+%>
+
+<br>
+
+<center>
+  <h2>Feedback split percent by month</h2>
+</center>
+
+<%= column_chart(
+  [
+    { name: 'Positive', color: '#32BA86', data: positive },
+    { name: 'Negative', color: '#ea5353', data: negative },
+  ],
+  stacked: true
+) %>
+
 <hr>
 
 <div class="row">
