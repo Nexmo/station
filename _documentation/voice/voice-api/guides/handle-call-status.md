@@ -17,10 +17,13 @@ A call can be initiated via a request to [`POST /calls`](/api/voice#payload). Th
 
 ```json
 {
-  "uuid": "ade7b1d3-6cb7-4350-8750-dfdee725f256",
+  "from": "447700900000",
+  "to":  "447700900001",
+  "uuid": "aaaaaaaa-bbbb-cccc-dddd-0123456789ab",
+  "conversation_uuid": "CON-bbbbbbbb-cccc-dddd-eeee-0123456789ab",
   "status": "started",
   "direction": "outbound",
-  "conversation_uuid": "17f767a5-c1d7-4e9e-a132-6b3f3289efff"
+  "timestamp": "2020-01-01T14:00:00.000Z"
 }
 ```
 
@@ -46,9 +49,10 @@ Key | Value
 `direction` | Possible values are outbound or inbound.
 `recording_url` | The URL to download a Call or Conversation recording from.
 `rate` | The price per minute for this call.
-`start_time` | The time the call started in the following format: YYYY-MM-DD HH:MM:SS. For example, 2020-01-01 12:00:00.
+`start_time` | The time the call started the [IS0 8601 format](https://en.wikipedia.org/wiki/ISO_8601).
 `network` | The Mobile Country Code Mobile Network Code (MCCMNC) for the carrier network used to make this call.
 `status` | The status of the call. @[Possible values](/_modals/voice/guides/handle-call-status/status.md).
 `price` | The total price charged for this Call.
 `duration` | The time elapsed for the Call to take place in seconds.
-`end_time` | The time the Call ended in the following format: YYYY-MM-DD HH:MM:SS. For example, 2020-01-01 12:00:00.
+`end_time` | The time the Call ended in the [IS0 8601 format](https://en.wikipedia.org/wiki/ISO_8601).
+`timestamp` | The time the callback was created in the [IS0 8601 format](https://en.wikipedia.org/wiki/ISO_8601).
