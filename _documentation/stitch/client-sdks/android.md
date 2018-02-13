@@ -1,5 +1,6 @@
 ---
 title: Android
+redirect: true
 ---
 
 <center>

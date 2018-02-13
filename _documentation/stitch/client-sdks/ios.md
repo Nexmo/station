@@ -1,5 +1,6 @@
 ---
 title: iOS
+redirect: true
 ---
 
 <center>

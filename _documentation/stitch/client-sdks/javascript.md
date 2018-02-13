@@ -1,5 +1,6 @@
 ---
 title: JavaScript
+redirect: true
 ---
 
 <center>

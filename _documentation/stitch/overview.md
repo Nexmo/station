@@ -95,17 +95,17 @@ source: _examples/conversations/overview/join-the-conversation/
 
 <div class="row">
   <div class="columns small-12 medium-4">
-    <a href="/conversation/client-sdks/javascript" class="card spacious card--image card--javascript">
+    <a href="/stitch/client-sdks/javascript" class="card spacious card--image card--javascript">
       <h2>JavaScript</h2>
     </a>
   </div>
   <div class="columns small-12 medium-4">
-    <a href="/conversation/client-sdks/android" class="card spacious card--image card--android">
+    <a href="/stitch/client-sdks/android" class="card spacious card--image card--android">
       <h2>Android</h2>
     </a>
   </div>
   <div class="columns small-12 medium-4">
-    <a href="/conversation/client-sdks/ios" class="card spacious card--image card--ios">
+    <a href="/stitch/client-sdks/ios" class="card spacious card--image card--ios">
       <h2>iOS</h2>
     </a>
   </div>

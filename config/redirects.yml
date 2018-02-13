@@ -87,9 +87,13 @@
 /conversation/early-access: /stitch
 /conversation/developer-preview: /stitch
 /conversation/api-reference: /api/stitch
-/conversation/client-sdks/android: /sdk/conversation/android
-/conversation/client-sdks/ios: /sdk/conversation/ios
-/conversation/client-sdks/javascript: /sdk/conversation/javascript
+/conversation/client-sdks/android: /sdk/conversation/android/
+/conversation/client-sdks/ios: /sdk/conversation/ios/
+/conversation/client-sdks/javascript: /sdk/conversation/javascript/
+
+/stitch/client-sdks/android: /sdk/conversation/android/
+/stitch/client-sdks/ios: /sdk/conversation/ios/
+/stitch/client-sdks/javascript: /sdk/conversation/javascript/
 
 /stitch: /stitch/overview
 /stitch/api-reference: /api/stitch
