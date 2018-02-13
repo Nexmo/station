@@ -2,14 +2,17 @@ openapi: "3.0.0"
 info:
   version: 1.0.0
   title: Media API
+  description: The Media API can be used to upload, download and delete media items such as audio file for use with other Nexmo APIs.
+  x-beta: true
 servers:
   - url: https://api.nexmo.com/v3
 paths:
   /media:
     post:
       summary: Upload media
+      operationId: upload-media
       description: |
-        This endpoint is used to upload media files (usually audio) to the media service. Upon successful upload, you will get back a response with status 201 giving you a URL pointing to the metadata for the media file.
+        This endpoint is used to upload media files (usually audio) to the media service. Upon successful upload, you will get back a response with status `201 Created` giving you a `Location` header pointing to the metadata for the media file.
 
         The media file will be associated with both your account and the Application ID of the JWT you use. This enables you to separate media files out by application.
       x-group: media
@@ -27,15 +30,18 @@ paths:
                   type: string
                   format: url
                   description: A URL to a file to upload
+                  example: https://example.com/audio.wav
                 filename:
                   type: string
                   format: binary
                   description: You can give a string here for replace the file name
+                  example: my-file.wav
       responses:
         '201':
           description: Successfuly created
     get:
       summary: List and search media items
+      operationId: list-and-search-media-items
       description: Retrieve information about multiple media items with the ability to search and paginate.
       x-group: media
       parameters:
@@ -56,7 +62,7 @@ paths:
           in: query
           schema:
             type: integer
-            example: 0
+            example: 1
             default: 0
         - name: page_size
           description: How many items at most per page
@@ -64,7 +70,8 @@ paths:
           in: query
           schema:
             type: integer
-            example: 20
+            example: 50
+            default: 20
         - name: start_time
           description: Retrieve results created on or before this timestap.
           required: false
@@ -86,9 +93,10 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Media"
-  /media/:id:
+  /media/:id/info:
     get:
       summary: Retrieve a media item
+      operationId: retrieve-a-media-item
       description: Retrieve information about a single media item
       x-group: media
       responses:
@@ -100,6 +108,7 @@ paths:
                 $ref: "#/components/schemas/Media"
     put:
       summary: Update a media item
+      operationId: update-a-media-item
       description: Update a previously created media item by ID.
       x-group: media
       requestBody:
@@ -141,6 +150,7 @@ paths:
           description: Successfuly updated
     delete:
       summary: Delete a media item
+      operationId: delete-a-media-item
       description: Delete a previously created media item by ID.
       x-group: media
       responses:

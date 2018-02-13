@@ -11,7 +11,12 @@
     <div id="overview">
       <div class="slate-layout-documentation">
         <div>
-          <h1><%= @definition.info['title'] %></h1>
+          <h1>
+            <%= @definition.info['title'] %>
+            <% if @definition.info['x-beta'] %>
+              <span class="label label-beta">BETA</span>
+            <% end %>
+          </h1>
 
           <% if @definition.info['description'] %>
             <p><%= @definition.info['description'].render_markdown %></p>
