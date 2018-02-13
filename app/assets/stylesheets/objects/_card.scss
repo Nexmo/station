@@ -90,6 +90,10 @@ $ball-size: 44px;
   h3 {
     color: $blue;
     margin-bottom: 5px;
+
+    .label {
+      font-size: 12px;
+    }
   }
 
   img {
