@@ -2,24 +2,11 @@
 title: Overview
 ---
 
-# In-App Messaging Overview
+# Stitch Overview
 
-Nexmo In-App Messaging enables you to build conversation features where communication can take place across multiple platforms.
+Cras justo odio, dapibus ac facilisis in, egestas eget quam. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Maecenas faucibus mollis interdum. Aenean lacinia bibendum nulla sed consectetur.
 
-The context of the conversations is maintained though each communication event taking place within a conversation, no matter the medium.
-
-> ### In-App Messaging is in developer preview
->
-> Currently In-App Messaging offers basic IP messaging with the following features:
->
-> * Conversation creation and management
-> * Sending and receiving text
-> * Member invite management
-> * Cache support
-> * Typing indicators
-> * Message sent, delivered and read receipts
-> * Image support
-> * Push notifications
+[TODO] Insert content
 
 ## Participating in the developer preview
 

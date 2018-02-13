@@ -2,7 +2,7 @@ OPEN_API_PRODUCTS = %w(
   sms
   media
   number-insight
-  conversation
+  stitch
 )
 
 class OpenApiConstraint

@@ -11,7 +11,7 @@
 /messaging/us-short-codes: /messaging/us-short-codes/overview
 /messaging/conversion-api: /messaging/conversion-api/overview
 /messaging/sns: /messaging/sns/overview
-/conversation: /conversation/developer-preview
+/conversation: /stitch
 
 /messaging/sms/building-blocks: /messaging/sms/building-blocks/send-an-sms
 /messaging/sms/building-blocks/receive-a-delivery-receipt: /messaging/sms/guides/delivery-reciepts
@@ -82,11 +82,14 @@
 /messaging/sms/guides/global-messaging: /messaging/sms/guides/country-specific-features
 /messaging/sms/guides/delivery-reciepts: /messaging/sms/guides/delivery-receipts
 
-/conversation/early-access: /conversation/developer-preview
+/conversation/early-access: /stitch
 
-/conversation/early-access: /conversation/overview
-/conversation/developer-preview: /conversation/overview
-/conversation/api-reference: /api/conversation
+/conversation/early-access: /stitch
+/conversation/developer-preview: /stitch
+/conversation/api-reference: /api/stitch
 /conversation/client-sdks/android: /sdk/conversation/android
 /conversation/client-sdks/ios: /sdk/conversation/ios
 /conversation/client-sdks/javascript: /sdk/conversation/javascript
+
+/stitch: /stitch/overview
+/stitch/api-reference: /api/stitch
