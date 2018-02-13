@@ -39,7 +39,7 @@
             <% end %>
           </ul>
 
-          <% if @definition_initialization_config['formats'] %>
+          <% if @definition_initialization_config && @definition_initialization_config['formats'] %>
             <select class="js-format-selector">
               <% @definition_initialization_config['formats'].each do |value, name| %>
                 <option value="<%= value %>"><%= name %></option>

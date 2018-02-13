@@ -28,7 +28,7 @@
               <span class="flag flag--strong">Required</span> |
             <% end %>
 
-            <% if @definition_initialization_config['formats'] %>
+            <% if @definition_initialization_config && @definition_initialization_config['formats'] %>
               <% if @definition_initialization_config['formats'].include? 'text/xml' %>
                 <span class="js-format" data-format="text/xml">
                   <% if parameter.is_xml_attribute? %>

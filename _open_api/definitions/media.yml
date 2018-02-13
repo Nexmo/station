@@ -92,7 +92,58 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Media"
+                type: object
+                properties:
+                  page_size:
+                    type: integer
+                    description: An explanation about the purpose of this instance.
+                    default: 0
+                    example: 20
+                  page_index:
+                    type: integer
+                    description: An explanation about the purpose of this instance.
+                    default: 0
+                    example: 0
+                  _links:
+                    type: object
+                    properties:
+                      self:
+                        type: object
+                        properties:
+                          href:
+                            type: string
+                            description: An explanation about the purpose of this instance.
+                            default: ''
+                            example: "/v3/media?page_size=20&account_id=abcd1234&order=descending"
+                      first:
+                        type: object
+                        properties:
+                          href:
+                            type: string
+                            description: An explanation about the purpose of this instance.
+                            default: ''
+                            example: "/v3/media?page_size=20&account_id=abcd1234&order=descending"
+                      last:
+                        type: object
+                        properties:
+                          href:
+                            type: string
+                            description: An explanation about the purpose of this instance.
+                            default: ''
+                            example: "/v3/media?page_size=20&account_id=abcd1234&order=descending"
+                  count:
+                    type: integer
+                    description: An explanation about the purpose of this instance.
+                    default: 0
+                    example: 1
+                  _embedded:
+                    type: object
+                    properties:
+                      media:
+                        type: array
+                        items:
+                          $ref: "#/components/schemas/Media"
+
   /media/:id/info:
     get:
       summary: Retrieve a media item
@@ -117,7 +168,7 @@ paths:
             schema:
               type: object
               properties:
-                public_item:
+                public:
                   description: Whether the item is publicly available without authentication.
                   type: boolean
                   example: true
@@ -176,7 +227,6 @@ components:
        account_id:
         type: string
         description: "The ID of your Nexmo account. This is the same as your API key."
-        example: fe77d979
         example: abcd1234
        store_id:
         type: string
@@ -206,7 +256,7 @@ components:
         type: string
         description: "A timestamp for the time that the file was last modified"
         example: "2020-01-01T14:00:00.000Z"
-       public_item:
+       public:
         type: boolean
         description: "Whether the item is available for download without authentication."
         example: false
@@ -222,4 +272,5 @@ x-groups:
     order: 1
     description: The Media object contains information about the request and details of the media object.
     schema:
-      $ref: '#/components/schemas/Media'
+      application/json:
+        $ref: '#/components/schemas/Media'
