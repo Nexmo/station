@@ -38,7 +38,8 @@ en:
     sip: SIP
     account: Account
     number-insight: Number Insight
-    conversation: In-App Messaging
+    stitch: Stitch
+    in-app-messaging: In App Messaging
 
     us-short-codes: US Short Codes
     sms: SMS
