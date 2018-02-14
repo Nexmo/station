@@ -11,8 +11,16 @@
     <div id="overview">
       <div class="slate-layout-documentation">
         <div>
-          <h1><%= @definition.info['title'] %></h1>
-          <p><%= @definition.info['description'].render_markdown %></p>
+          <h1>
+            <%= @definition.info['title'] %>
+            <% if @definition.info['x-beta'] %>
+              <span class="label label-beta">BETA</span>
+            <% end %>
+          </h1>
+
+          <% if @definition.info['description'] %>
+            <p><%= @definition.info['description'].render_markdown %></p>
+          <% end %>
 
           <%= link_to open_api_path({ format: @definition_format, params: request.query_parameters }), class: 'button button--secondary' do %>
             <i class="icon icon-swagger"></i>
@@ -31,7 +39,7 @@
             <% end %>
           </ul>
 
-          <% if @definition_initialization_config['formats'] %>
+          <% if @definition_initialization_config && @definition_initialization_config['formats'] %>
             <select class="js-format-selector">
               <% @definition_initialization_config['formats'].each do |value, name| %>
                 <option value="<%= value %>"><%= name %></option>

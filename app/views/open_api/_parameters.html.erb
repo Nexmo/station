@@ -28,7 +28,7 @@
               <span class="flag flag--strong">Required</span> |
             <% end %>
 
-            <% if @definition_initialization_config['formats'] %>
+            <% if @definition_initialization_config && @definition_initialization_config['formats'] %>
               <% if @definition_initialization_config['formats'].include? 'text/xml' %>
                 <span class="js-format" data-format="text/xml">
                   <% if parameter.is_xml_attribute? %>
@@ -106,7 +106,11 @@
 
         <% unless model || callback %>
           <div class="table-list-column">
-            <%= (parameter.default.nil? ? '<i>None</i>' : "<code>#{parameter.default}</code>").html_safe %>
+            <% if parameter.raw['x-default-is-meta'] %>
+              <i><%= (parameter.default.nil? ? 'None' : parameter.default) %></i>
+            <% else %>
+              <%= (parameter.default.nil? ? '<i>None</i>' : "<code>#{parameter.default}</code>").html_safe %>
+            <% end %>
           </div>
         <% end %>
       </div>

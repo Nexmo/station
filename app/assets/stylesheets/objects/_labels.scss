@@ -22,6 +22,13 @@
     }
   }
 
+  h1 & {
+    font-size: 18px;
+    font-weight: 600;
+    position: relative;
+    top: -6px;
+  }
+
   h3 & {
     font-size: 18px;
     font-weight: 600;
@@ -46,7 +53,7 @@
     padding: 4px 5px 1px 5px;
 
     .navigation & {
-      font-size: 12px;
+      font-size: 10px;
       padding: 2px 2px 0 2px;
       position: absolute;
       right: 100%;
@@ -99,5 +106,11 @@
 
   &--webhook {
     background: $webhook;
+  }
+
+  &--inverted {
+    background: $white;
+    color: $blue;
+    border: 1px solid $blue;
   }
 }
