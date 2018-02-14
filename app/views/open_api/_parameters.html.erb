@@ -106,7 +106,11 @@
 
         <% unless model || callback %>
           <div class="table-list-column">
-            <%= (parameter.default.nil? ? '<i>None</i>' : "<code>#{parameter.default}</code>").html_safe %>
+            <% if parameter.raw['x-default-is-meta'] %>
+              <i><%= (parameter.default.nil? ? 'None' : parameter.default) %></i>
+            <% else %>
+              <%= (parameter.default.nil? ? '<i>None</i>' : "<code>#{parameter.default}</code>").html_safe %>
+            <% end %>
           </div>
         <% end %>
       </div>

@@ -15,6 +15,8 @@ paths:
         This endpoint is used to upload media files (usually audio) to the media service. Upon successful upload, you will get back a response with status `201 Created` giving you a `Location` header pointing to the metadata for the media file.
 
         The media file will be associated with both your account and the Application ID of the JWT you use. This enables you to separate media files out by application.
+
+        The binary of the file can be downloaded at `/v3/media/:id`.
       x-group: media
       requestBody:
         content:
@@ -25,11 +27,17 @@ paths:
                 filedata:
                   type: string
                   format: binary
-                  description: The binary of the file
+                  description: |
+                    A URL to a file to upload.
+
+                    **Note**: Can not be used in conjunction with `url`.
                 url:
                   type: string
                   format: url
-                  description: A URL to a file to upload
+                  description: |
+                    A URL to a file to upload.
+
+                    **Note**: Can not be used in conjunction with `filedata`.
                   example: https://example.com/audio.wav
                 filename:
                   type: string
@@ -73,19 +81,21 @@ paths:
             example: 50
             default: 20
         - name: start_time
-          description: Retrieve results created on or before this timestap.
+          description: Retrieve results created on or after this timestap.
           required: false
           in: query
           schema:
             type: string
-            example: 2020-01-01T14:00:00.000Z
+            example: '2020-01-01T14:00:00.000Z'
+          default: '1 week ago'
+          x-default-is-meta: true
         - name: end_time
           description: Retrieve results created on or before this timestap.
           required: false
           in: query
           schema:
             type: string
-            example: 2020-01-01T14:00:00.000Z
+            example: '2020-01-01T14:00:00.000Z'
       responses:
         '200':
           description: Successfully retrived
@@ -164,7 +174,7 @@ paths:
       x-group: media
       requestBody:
         content:
-          application/json:
+          multipart/form-data:
             schema:
               type: object
               properties:
@@ -193,9 +203,9 @@ paths:
                   type: string
                   example: 'audio/vnd.wave'
                 max_downloads_allowed:
-                  description: The maximum number of times the file may be downloaded.
+                  description: The maximum number of times the file may be downloaded. Unlimited when not provided.
                   type: integer
-                  example: audio/vnd.wave
+                  example: 100
       responses:
         '204':
           description: Successfuly updated
