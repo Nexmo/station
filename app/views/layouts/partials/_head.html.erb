@@ -56,6 +56,10 @@
     <% end %>
   <% end %>
 
+  <% if ENV['ENVIRONMENT_SCRIPTS'] %>
+    <%= ENV['ENVIRONMENT_SCRIPTS'].html_safe %>
+  <% end %>
+
   <%= javascript_pack_tag 'application', defer: true %>
   <%= javascript_include_tag 'https://www.google.com/recaptcha/api.js', async: true, defer: true %>
 
