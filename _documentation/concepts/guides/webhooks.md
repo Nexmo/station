@@ -32,7 +32,7 @@ source: '_examples/concepts/guides/webhooks-setup/'
 To interact with Nexmo webhooks:
 
 1. Create a Nexmo account.
-2. Write scripts to handle the information sent or requested by Nexmo. Your scripts must always respond with `HTTP 200` to inbound messages from Nexmo.
+2. Write scripts to handle the information sent or requested by Nexmo. Your server must respond with ^[success status code](Any status code between 200 OK and 205 Reset Content) to inbound messages from Nexmo.
 3. Put your scripts on your HTTP server.
 4. Send a *request* with the [webhook endpoint](#setting) set.
 
