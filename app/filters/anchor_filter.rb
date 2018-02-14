@@ -1,6 +1,6 @@
 class AnchorFilter < Banzai::Filter
   def call(input)
-    input.gsub(/^⚓\ (.+?)\n/) do
+    input.gsub(/^[u{⚓️}](.+?)\n/) do
       <<~HEREDOC
         <a name="#{$1.parameterize}"></a>
       HEREDOC
