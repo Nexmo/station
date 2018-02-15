@@ -1,9 +1,4 @@
----
-title: iOS Quickstart
-Description: Nexmo Conversation iOS SDK
----
-
-# Getting Started with the Nexmo iOS Conversation SDK
+## Getting Started with the Nexmo iOS Conversation SDK
 
 In this getting started guide we'll demonstrate how to build a simple conversation app with IP messaging using the Nexmo Conversation iOS SDK.
 
@@ -12,7 +7,7 @@ In this getting started guide we'll demonstrate how to build a simple conversati
 This guide will introduce you to the following concepts.
 
 * **Nexmo Applications** - contain configuration for the application that you are building
-* **JWTs** ([JSON Web Tokens](https://jwt.io/)) - the Conversation API uses JWTs for authentication. JWTs contain all the information the Nexmo platform needs to authenticate requests. JWTs also contain information such as the associated Applications, Users and permissions. It helps you as well as Nexmo facilitate the retention & analysis of metadata for future AI implementations.
+* **JWTs** ([JSON Web Tokens](https://jwt.io/)) - the Conversation API uses JWTs for authentication. JWTs contain all the information the Nexmo platform needs to authenticate requests. JWTs also contain information such as the associated Applications, Users and permissions. It helps you as well as Nexmo facilitate the retention & analysis of metadata for future AI implementations. 
 * **Users** - users who are associated with the Nexmo Application. It's expected that Users will have a one-to-one mapping with your own authentication system.
 * **Conversations** - A thread of conversation between two or more Users.
 * **Members** - Users that are part of a conversation.
@@ -137,9 +132,9 @@ You can see the JWT for the user by running the following:
 $ echo $USER_JWT
 ```
 
-### 1.6 The Nexmo Conversation API Dashboard
+### 1.6 The Nexmo Conversation API Dashboard 
 
-If you would like to double check any of the JWT credentials, navigate to [your-applications](https://dashboard.nexmo.com/voice/your-applications) where you can see a table with three entries respectively entitled "Name", "Id", or "Security settings". Under the menu options for "Edit" next to "Delete", you can take a peak at the details of the applications such as "Application name", "Application Id", etc...
+If you would like to double check any of the JWT credentials, navigate to [your-applications](https://dashboard.nexmo.com/voice/your-applications) where you can see a table with three entries respectively entitled "Name", "Id", or "Security settings". Under the menu options for "Edit" next to "Delete", you can take a peak at the details of the applications such as "Application name", "Application Id", etc... 
 
 ## 2 - Create the iOS App
 
@@ -147,11 +142,11 @@ With the basic setup in place we can now focus on the client-side application
 
 ### 2.1 Start a new project
 
-Open Xcode and start a new project. We'll name it "QuickStartOne".
+Open Xcode and start a new project. We'll name it "QuickStartOne". 
 
 ### 2.2 Adding the Nexmo iOS Conversation SDK to Cocoapods
 
-Navigate to the project's root directory in the Terminal. Run: `pod init`. Open the file entitled `PodFile`. Configure its specifications accordingly:
+Navigate to the project's root directory in the Terminal. Run: `pod init`. Open the file entitled `PodFile`. Configure its specifications accordingly: 
 
 ```bash
 # Uncomment the next line to define a global platform for your project
@@ -169,18 +164,18 @@ end
 ```
 ### 2.2 Adding ViewControllers & .storyboard files
 
-Let's add a few view controllers. Start by adding a custom subclass of `UIViewController` from a CocoaTouch file named `LoginViewController`, which we will use for creating the login functionality, and another custom subclass of `UIViewController` from a CocoaTouch file named `ChatViewController`, which we will use for creating the chat functionality. Add two new scenes to `Main.storyboard`, assigning each to one of the added custom subclasses of `UIViewController` respectively.
+Let's add a few view controllers. Start by adding a custom subclass of `UIViewController` from a CocoaTouch file named `LoginViewController`, which we will use for creating the login functionality, and another custom subclass of `UIViewController` from a CocoaTouch file named `ChatViewController`, which we will use for creating the chat functionality. Add two new scenes to `Main.storyboard`, assigning each to one of the added custom subclasses of `UIViewController` respectively. 
 
 
 ### 2.4 Creating the login layout
-Let's layout the login functionality. Set constraints on the top & leading attributes of an instance of UIButton with a constant HxW at 71x94 to the top of the Bottom Layout Guide + 20 and the leading attribute of `view` + 16. This is our login button. Reverse leading to trailing for another instance of UIButton with the same constraints. This our chat button. Set the text on these instances accordingly. Add a status label centered horizontally & vertically. Finally, embedd this scene into a navigation controller. Control drag from the chat button to scene assigned to the chat controller, naming the segue `chatView`.
+Let's layout the login functionality. Set constraints on the top & leading attributes of an instance of UIButton with a constant HxW at 71x94 to the top of the Bottom Layout Guide + 20 and the leading attribute of `view` + 16. This is our login button. Reverse leading to trailing for another instance of UIButton with the same constraints. This our chat button. Set the text on these instances accordingly. Add a status label centered horizontally & vertically. Finally, embedd this scene into a navigation controller. Control drag from the chat button to scene assigned to the chat controller, naming the segue `chatView`. 
 
 
 ### 2.5 - Create the Login Functionality
 
-Below `UIKit` let's import the `NexmoConversation`. Next we setup a custom instance of the `ConversationClient` and saving it as a member variable in the view controller.
+Below `UIKit` let's import the `NexmoConversation`. Next we setup a custom instance of the `ConversationClient` and saving it as a member variable in the view controller. 
 
-```swift
+```Swift
     /// Nexmo Conversation client
     let client: ConversationClient = {
         return ConversationClient.instance
@@ -189,93 +184,93 @@ Below `UIKit` let's import the `NexmoConversation`. Next we setup a custom insta
 
 We also need to wire up the buttons in `LoginViewController.swift` Don't forget to replace `USER_JWT` with the JWT generated from the Nexmo CLI in [step 1.6](#16---generate-a-user-jwt).
 
-```swift
-// status label
-@IBOutlet weak var statusLbl: UILabel!
+```Swift
+    // status label
+    @IBOutlet weak var statusLbl: UILabel!
+    
+    // login button
+    @IBAction func loginBtn(_ sender: Any) {
+        
+        print("DEMO - login button pressed.")
+        
+        let token = Authenticate.userJWT
+        
+        print("DEMO - login called on client.")
+        
+        client.login(with: token).subscribe(onSuccess: {
+            
+            print("DEMO - login susbscribing with token.")
+            self.statusLbl.isEnabled = true
+            self.statusLbl.text = "Logged in"
+            
+            if let user = self.client.account.user {
+                print("DEMO - login successful and here is our \(user)")
+            } // insert activity indicator to track subscription
+            
+        }, onError: { [weak self] error in
+            self?.statusLbl.isHidden = false
+            
+            print(error.localizedDescription)
+            
+            // remove to a function
+            let reason: String = {
+                switch error {
+                case LoginResult.failed: return "failed"
+                case LoginResult.invalidToken: return "invalid token"
+                case LoginResult.sessionInvalid: return "session invalid"
+                case LoginResult.expiredToken: return "expired token"
+                case LoginResult.success: return "success"
+                default: return "unknown"
+                }
+            }()
+            
+            print("DEMO - login unsuccessful with \(reason)")
+            
+        }).addDisposableTo(client.disposeBag) // Rx does not maintain a memory reference; to make sure that reference is still in place; keep a reference of this object while I do an operation.
+    }
 
-// login button
-@IBAction func loginBtn(_ sender: Any) {
-
-    print("DEMO - login button pressed.")
-
-    let token = Authenticate.userJWT
-
-    print("DEMO - login called on client.")
-
-    client.login(with: token).subscribe(onSuccess: {
-
-        print("DEMO - login susbscribing with token.")
-        self.statusLbl.isEnabled = true
-        self.statusLbl.text = "Logged in"
-
-        if let user = self.client.account.user {
-            print("DEMO - login successful and here is our \(user)")
-        } // insert activity indicator to track subscription
-
-    }, onError: { [weak self] error in
-        self?.statusLbl.isHidden = false
-
-        print(error.localizedDescription)
-
-        // remove to a function
-        let reason: String = {
-            switch error {
-            case LoginResult.failed: return "failed"
-            case LoginResult.invalidToken: return "invalid token"
-            case LoginResult.sessionInvalid: return "session invalid"
-            case LoginResult.expiredToken: return "expired token"
-            case LoginResult.success: return "success"
-            default: return "unknown"
+    // chat button
+    @IBAction func chatBtn(_ sender: Any) {
+        
+        let aConversation: String = "aConversation"
+        _ = client.conversation.new(aConversation, withJoin: true).subscribe(onError: { error in
+            
+            print(error)
+            
+            guard self.client.account.user != nil else {
+                
+                let alert = UIAlertController(title: "LOGIN", message: "The `.user` property on self.client.account is nil", preferredStyle: .alert)
+                
+                let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                
+                alert.addAction(alertAction)
+                
+                self.present(alert, animated: true, completion: nil)
+                
+                return print("DEMO - chat self.client.account.user is nil");
+                
             }
-        }()
-
-        print("DEMO - login unsuccessful with \(reason)")
-
-    }).addDisposableTo(client.disposeBag) // Rx does not maintain a memory reference; to make sure that reference is still in place; keep a reference of this object while I do an operation.
-}
-
-// chat button
-@IBAction func chatBtn(_ sender: Any) {
-
-    let aConversation: String = "aConversation"
-    _ = client.conversation.new(aConversation, withJoin: true).subscribe(onError: { error in
-
-        print(error)
-
-        guard self.client.account.user != nil else {
-
-            let alert = UIAlertController(title: "LOGIN", message: "The `.user` property on self.client.account is nil", preferredStyle: .alert)
-
-            let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-
-            alert.addAction(alertAction)
-
-            self.present(alert, animated: true, completion: nil)
-
-            return print("DEMO - chat self.client.account.user is nil");
-
-        }
-
-        print("DEMO - chat creation unsuccessful with \(error.localizedDescription)")
-
-    })
-
-    performSegue(withIdentifier: "chatView", sender: nil)
-}
+            
+            print("DEMO - chat creation unsuccessful with \(error.localizedDescription)")
+            
+        })
+        
+        performSegue(withIdentifier: "chatView", sender: nil)
+    }
 ```
 
 ### 2.6 Stubbed Out Login
 
 Next, let's stub out the login workflow.
 
-Create an authenticate struct with a member set as `userJWT`. For now, stub it out to always return the vaue for `USER_JWT`.
+Create an authenticate struct with a member set as `userJWT`. For now, stub it out to always return the vaue for `USER_JWT`. 
 
-```swift
-// a stub for holding the value for private.key
+```Swift
+// a stub for holding the value for private.key 
 struct Authenticate {
 
     static let userJWT = ""
-
+    
 }
 ```
 
@@ -285,46 +280,47 @@ After the user logs in, they'll press the "Chat" button which will take them to 
 
 As we mentioned above, creating a conversation results from a call to the the new() method. In the absence of a server we’ll ‘simulate’ the creation of a conversation within the app when the user clicks the chatBtn.
 
-When we construct the segue for `ChatViewController`, we pass the first conversation so that the new controller. Remember that the `CONVERSATION_ID` comes from the id generated in [step 1.3](#1-3-create-a-conversation).
+When we construct the segue for `ChatViewController`, we pass the first conversation so that the new controller. Remember that the `CONVERSATION_ID` comes from the id generated in [step 1.3](#13---create-a-conversation).
 
-```swift
-// prepare(for segue:)
-override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+```Swift
+    // prepare(for segue:)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        // setting up a segue
+        let chatVC = segue.destination as? ChatController
+        
+        // passing a reference to the conversation
+        chatVC?.conversation = client.conversation.conversations.first
 
-    // setting up a segue
-    let chatVC = segue.destination as? ChatController
 
-    // passing a reference to the conversation
-    chatVC?.conversation = client.conversation.conversations.first
-
-
-}
+    }
 ```
 
 ### 2.6 Create the Chat layout
 
-We'll make a `ChatActivity` with this as the layout. Add an instance of UITextView, UITextField, & UIButton.Set the constraints on UITextView with setting its constraints: .trailing = trailingMargin, .leading = Text Field.leading, .top = Top Layout Guide.bottom, .bottom + 15 = Text Field.top. Set the leading attribute on the Text Field to = leadingMargin and its .bottom attribute + 20 to Bottom Layout Guide's top attribute. Set the Button's .trailing to trailingMargin + 12 and its .bottom attribute + 20 to the Bottom Layout Guide's .top attribute.
+We'll make a `ChatActivity` with this as the layout. Add an instance of UITextView, UITextField, & UIButton.Set the constraints on UITextView with setting its constraints: .trailing = trailingMargin, .leading = Text Field.leading, .top = Top Layout Guide.bottom, .bottom + 15 = Text Field.top. Set the leading attribute on the Text Field to = leadingMargin and its .bottom attribute + 20 to Bottom Layout Guide's top attribute. Set the Button's .trailing to trailingMargin + 12 and its .bottom attribute + 20 to the Bottom Layout Guide's .top attribute. 
 
 
 ### 2.7 Create the ChatActivity
 
 Like last time we'll wire up the views in `ChatViewController.swift` We also need to grab the reference to `conversation` from the incoming view controller.
 
-```swift
+```Swift
+
 import UIKit
 import NexmoConversation
 
 class ChatController: UIViewController {
-
+    
     // conversation for passing client
     var conversation: Conversation?
-
+    
     // textView for displaying chat
     @IBOutlet weak var textView: UITextView!
-
+    
     // textField for capturing text
     @IBOutlet weak var textField: UITextField!
-
+    
 }
 
 ```
@@ -333,39 +329,40 @@ class ChatController: UIViewController {
 
 To send a message we simply need to call `send()` on our instance of `conversation`. `send()` takes one argument, a `String message`.
 
-```swift
-// sendBtn for sending text
-@IBAction func sendBtn(_ sender: Any) {
-
-    do {
-        // send method
-        try conversation?.send(textField.text!)
-
-    } catch let error {
-        print(error)
+```Swift
+    // sendBtn for sending text
+    @IBAction func sendBtn(_ sender: Any) {
+        
+        do {
+            // send method
+            try conversation?.send(textField.text!)
+            
+        } catch let error {
+            print(error)
+        }
+        
     }
-
-}
 ```
 
 ### 2.9 - Receiving `text` Events
 
 In `viewDidLoad()` we want to add a handler for handling new events like the TextEvents we create when we press the send button. We can do this like so:
 
-```swift
-// a handler for updating the textView with TextEvents
+```Swift
+        // a handler for updating the textView with TextEvents
+        conversation?.events.newEventReceived.addHandler { event in
+            guard let event = event as? TextEvent, event.isCurrentlyBeingSent == false else { return }
+            guard let text = event.text else { return }
 
-conversation?.events.newEventReceived.addHandler { event in
-    guard let event = event as? TextEvent, event.isCurrentlyBeingSent == false else { return }
-    guard let text = event.text else { return }
-
-    self.textView.insertText("\n \n \(text) \n \n")
-}
+            self.textView.insertText("\n \n \(text) \n \n")
+        }
 ```
 
 ## 3.0 - Trying it out
 
 After this you should be able to run the app and send messages.
 
-##### Footnotes
+![Hello world!](http://recordit.co/1Gqo2J5rfn)
+
+##### Footnotes 
 <a name="myfootnote1">1</a>: Since MacOS is a UNIX based OS, the best practice for installation is to avoid `sudo`. Node.js requires `sudo` but [Homebrew](https://brew.sh/), the missing package manager for macOS, does not. Additionally, the `$PATH` (i.e., to the Node executable) is automatically defined.  

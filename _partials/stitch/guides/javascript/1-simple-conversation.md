@@ -1,8 +1,3 @@
----
-title: JavaScript Quickstart
-Description: Nexmo Conversation JavaScript SDK
----
-
 # Getting Started with the Nexmo Conversation JS SDK
 
 In this getting started guide we'll demonstrate how to build a simple conversation app with IP messaging using the Nexmo Conversation JavaScript SDK.
@@ -363,4 +358,5 @@ Run `index.html` in two side-by-side browser windows to see the conversation tak
 
 ## Where next?
 
-Try out [Quickstart 2](https://github.com/Nexmo/conversation-js-quickstart/blob/master/docs/2-inviting-members.md)
+* Try out [Quickstart 2](https://github.com/Nexmo/conversation-js-quickstart/blob/master/docs/2-inviting-members.md)
+* Have a look at the [Nexmo Conversation JS SDK API Reference](https://ea.developer.nexmo.com/sdk/conversation/javascript/)

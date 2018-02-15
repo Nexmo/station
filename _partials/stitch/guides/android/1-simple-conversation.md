@@ -1,9 +1,4 @@
----
-title: Android Quickstart
-Description: Nexmo Conversation Android SDK
----
-
-# Getting Started with the Nexmo Conversation Android SDK
+## Getting Started with the Nexmo Conversation Android SDK
 
 In this getting started guide we'll demonstrate how to build a simple conversation app with IP messaging using the Nexmo Conversation Android SDK.
 
@@ -148,25 +143,10 @@ In the `build.gradle` file we'll add the Nexmo Conversation Android SDK.
 //app/build.gradle
 dependencies {
 ...
-  compile 'com.nexmo:conversation:0.19.0'
-  compile 'com.android.support:appcompat-v7:25.4.0'
+  compile 'com.nexmo:conversation:0.18.0'
+  compile 'com.android.support:appcompat-v7:25.3.1'
 ...
 }
-```
-
-You'll also need to add a new repository to your top-level build file to help build the SDK.
-
-```groovy
-//build.gradle
-...
-allprojects {
-    repositories {
-        ...
-        maven { url 'https://artifactory.ess-dev.com/artifactory/gradle-dev' }
-        ...
-    }
-}
-...
 ```
 
 Then sync your project.
@@ -548,7 +528,9 @@ When we created our `ChatActivity` we added a member variable to our activity wi
 
 ## 3.0 - Trying it out
 
-After this you should be able to run the app and send messages to a conversation.
+After this you should be able to run the app and send messages to a conversation like so:
+
+![Hello world!](http://g.recordit.co/sky00C231e.gif)
 
 ## Where next?
 
