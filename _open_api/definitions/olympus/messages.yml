@@ -3,6 +3,7 @@ info:
   version: 0.3.0
   title: Messages API
   description: The Messaging API is a new API that consolidates all messaging channels. It encapsulates a user (developer) from having to use multiple APIs to interact with our various channels such as SMS, MMS, Viber, Facebook Messenger, etc. The API normalises information across all channels to abstracted to, from and content.
+  x-label: Developer Preview
 servers:
   - url: https://api.nexmo.com/beta
 
