@@ -329,15 +329,12 @@ components:
           maxLength: 50
           example: '0123456789012345'
         number:
-          description: 'Phone numbers must match the E.164 format.'
           type: string
           minLength: 1
           maxLength: 50
           example: '447700900000'
           description: |
-            The phone number of the message recipient.
-
-            **SMS**: or **Viber**: The phone number of the receipient.
+            **SMS**: or **Viber**: The phone number of the message recipient in the [E.164](https://en.wikipedia.org/wiki/E.164) format.
 
             **Messenger**: This value is not required.
         # @TODO Clarify requirements
@@ -387,15 +384,12 @@ components:
           maxLength: 50
           example: '0123456789012345'
         number:
-          description: 'Phone numbers must match the E.164 format.'
           type: string
           minLength: 1
           maxLength: 50
           example: '447700900000'
           description: |
-            The phone number of the message recipient.
-
-            **SMS**: The phone number of the receipient.
+            **SMS**: The phone number of the message recipient in the [E.164](https://en.wikipedia.org/wiki/E.164) format.
 
             **Messenger**: or **Viber**: This value is not required.
     MessageProperty:
@@ -442,12 +436,6 @@ components:
         #   example: 600
         #   minimum: 30
         #   maximum: 86400
-        # viber_expiry_text:
-        #   description: 'Only valid for Viber Service Messages. Set an alternative text that will be displayed on iOS devices if the original message was cancelled. If the original Viber Service Message was cancelled on Android no Viber message will show. You will also not be charged for this message. Minimum 1 character, maximum 1,000 characters.'
-        #   type: string
-        #   minLength: 1
-        #   maxLength: 1000
-        #   example: "This expiry text will be shown on iOS devices"
     TimestampProperty:
       type: string
       format: ISO 8601
