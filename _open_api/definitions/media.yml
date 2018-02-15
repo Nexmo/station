@@ -3,7 +3,7 @@ info:
   version: 1.0.0
   title: Media API
   description: The Media API can be used to upload, download and delete media items such as audio files for use with other Nexmo APIs.
-  x-beta: true
+  x-label: 'BETA'
 servers:
   - url: https://api.nexmo.com/v3
 paths:

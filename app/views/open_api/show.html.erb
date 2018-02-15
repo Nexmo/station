@@ -13,8 +13,10 @@
         <div>
           <h1>
             <%= @definition.info['title'] %>
-            <% if @definition.info['x-beta'] %>
-              <span class="label label-beta">BETA</span>
+            <% if @definition.info['x-label'] %>
+              <span class="label label--<%= @definition.info['x-label'].parameterize %>">
+                <%= @definition.info['x-label'] %>
+              </span>
             <% end %>
           </h1>
 
