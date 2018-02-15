@@ -398,45 +398,48 @@ components:
       required:
         - content
       properties:
-        type:
-          description: |
-            The type of message that you are sending.
+        content:
+          type: object
+          properties:
+            type:
+              description: |
+                The type of message that you are sending.
 
-            **Messenger**: supports all types.
+                **Messenger**: supports all types.
 
-            **SMS** or **Viber**  only support `text`.
-          type: string
-          enum:
-            - text
-            - image
-            - audio
-            - video
-            - file
-          example: 'text'
-        text:
-          description: |
-            The text of the message.
+                **SMS** or **Viber**  only support `text`.
+              type: string
+              enum:
+                - text
+                - image
+                - audio
+                - video
+                - file
+              example: 'text'
+            text:
+              description: |
+                The text of the message.
 
-            **Messenger**: Is limited to 640 characters
+                **Messenger**: Is limited to 640 characters
 
-            **SMS** or **Viber**: Is 1000 characters
-          type: string
-          minLength: 1
-          maxLength: 1000
-          example: 'Pretty majestical, aye?'
-        url:
-          type: string
-          description: The URL for the attachment. Required for `image`, `audio`, `video` or `file`.
-          minLength: 1
-          maxLength: 1000
-          example: 'http://example.com/image.jpg'
-        # @TODO: Doesn't seem to work.
-        # viber_ttl:
-        #   description: 'Only valid for Viber Service Messages. Set the time-to-live of message to be delivered in seconds. i.e. if the message is not delivered in 600 seconds then delete the message. Please note that this cancels the notification on Android and an iOS the viber_expiry_text is shown. Minimum value is 30 and maximum value is 86,400 seconds (1 day).'
-        #   type: integer
-        #   example: 600
-        #   minimum: 30
-        #   maximum: 86400
+                **SMS** or **Viber**: Is 1000 characters
+              type: string
+              minLength: 1
+              maxLength: 1000
+              example: 'Pretty majestical, aye?'
+            url:
+              type: string
+              description: The URL for the attachment. Required for `image`, `audio`, `video` or `file`.
+              minLength: 1
+              maxLength: 1000
+              example: 'http://example.com/image.jpg'
+            # @TODO: Doesn't seem to work.
+            viber_ttl:
+              description: 'Only valid for Viber Service Messages. Set the time-to-live of message to be delivered in seconds. i.e. if the message is not delivered in 600 seconds then delete the message. Please note that this cancels the notification on Android and an iOS the viber_expiry_text is shown. Minimum value is 30 and maximum value is 86,400 seconds (1 day).'
+              type: integer
+              example: 600
+              minimum: 30
+              maximum: 86400
     TimestampProperty:
       type: string
       format: ISO 8601
