@@ -4,9 +4,8 @@ export default class Format {
     if (this.platformSelector) {
       this.platformChanged(this.platformSelector.value, false)
       $(this.platformSelector).change((event) => this.platformChanged(event.target.value))
+      this.restoreFormat()
     }
-
-    this.restoreFormat()
   }
 
   platformChanged(platform, persist = true) {
@@ -26,12 +25,23 @@ export default class Format {
   }
 
   restoreFormat() {
-    if (window.localStorage) {
+    const platform = this.getParameter('platform')
+
+    if (platform) {
+      $(this.platformSelector).val(platform)
+      this.platformChanged(platform, false)
+    } else if (window.localStorage) {
       const platform = window.localStorage.getItem('platform')
       if (platform) {
         $(this.platformSelector).val(platform)
         this.platformChanged(platform, false)
       }
+    }
+  }
+
+  getParameter(parameter) {
+    if (window.URLSearchParams) {
+      return new URLSearchParams(window.location.search).get(parameter)
     }
   }
 }
