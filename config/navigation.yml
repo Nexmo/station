@@ -35,6 +35,9 @@ navigation_weight:
   Messages API: 1
   Workflows API: 2
 
+  Numbers: 2
+  Secret Management: 3
+
 navigation_overrides:
   redact:
     label: 'Developer Preview'
