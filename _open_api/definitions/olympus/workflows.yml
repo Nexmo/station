@@ -94,12 +94,14 @@ components:
 
     sendMessage:
       type: object
+      description: 'Send Message'
       required:
         - to
         - from
         - message
       properties:
         to:
+          type: object
           required:
             - type
           properties:
@@ -122,6 +124,7 @@ components:
               required:
                 - first_name
                 - last_name
+              type: object
               properties:
                 first_name:
                   type: string
@@ -132,6 +135,7 @@ components:
         from:
           required:
             - type
+          type: object
           properties:
             type:
               type: string
@@ -148,10 +152,12 @@ components:
         message:
           required:
             - content
+          type: object
           properties:
             content:
               required:
                 - type
+              type: object
               properties:
                 type:
                   type: string
@@ -191,44 +197,48 @@ components:
 
     sendWithFailoverMessage:
       type: object
+      description: Send With Failover Message
       required:
-          - to
-          - from
-          - message
+        - to
+        - from
+        - message
       properties:
-          to:
-            required:
-              - type
-            properties:
-              type:
-                type: string
-                enum:
-                  - sms
-                  - viber_service_msg
-                  - messenger
-              id:
-                type: string
-                example: '1341127079312546'
-              number:
-                type: string
-                minLength: 11
-                maxLength: 12
-                pattern: '\d{11,12}'
-                example: '447899663987'
-              name:
-                required:
-                  - first_name
-                  - last_name
-                properties:
-                  first_name:
-                    type: string
-                    example: 'Hugh'
-                  last_name:
-                    type: string
-                    example: 'Hopkins'
+        to:
+          type: object
+          required:
+            - type
+          properties:
+            type:
+              type: string
+              enum:
+                - sms
+                - viber_service_msg
+                - messenger
+            id:
+              type: string
+              example: '1341127079312546'
+            number:
+              type: string
+              minLength: 11
+              maxLength: 12
+              pattern: '\d{11,12}'
+              example: '447899663987'
+            name:
+              required:
+                - first_name
+                - last_name
+              type: object
+              properties:
+                first_name:
+                  type: string
+                  example: 'Hugh'
+                last_name:
+                  type: string
+                  example: 'Hopkins'
           from:
             required:
               - type
+            type: object
             properties:
               type:
                 type: string
@@ -245,10 +255,12 @@ components:
           message:
             required:
               - content
+            type: object
             properties:
               content:
                 required:
                   - type
+                type: object
                 properties:
                   type:
                     type: string
@@ -289,6 +301,7 @@ components:
             required:
               - expiry_time
               - condition_status
+            type: object
             properties:
               expiry_time:
                 type: integer
@@ -305,6 +318,7 @@ components:
     Response:
       required:
         - workflow_uuid
+      type: object
       properties:
         worflow_uuid:
           type: string
@@ -317,6 +331,7 @@ components:
         - title
         - detail
         - instance
+      type: object
       properties:
         type:
           type: string
@@ -328,6 +343,7 @@ components:
           type: string
           example:
         invalid_parameters:
+          type: object
           properties:
             name:
               type: string
@@ -346,6 +362,7 @@ components:
         to:
           required:
             - type
+          type: object
           properties:
             type:
               type: string
@@ -366,6 +383,7 @@ components:
               required:
                 - first_name
                 - last_name
+              type: object
               properties:
                 first_name:
                   type: string
@@ -376,6 +394,7 @@ components:
         from:
           required:
             - type
+          type: object
           properties:
             type:
               type: string
@@ -401,6 +420,7 @@ components:
             - read
             - rejected
         error:
+          type: object
           properties:
             code:
               type: integer
@@ -409,6 +429,7 @@ components:
               type: string
               example: 'Not part of the provider network'
         usage:
+          type: object
           properties:
             currency:
               type: string
@@ -418,8 +439,10 @@ components:
               type: string
               example: '0.03'
         _links:
+          type: object
           properties:
             workflow:
+              type: object
               properties:
                 workflow_uuid:
                   type: string
@@ -454,6 +477,7 @@ components:
           format: date-time
           example: '2018-01-16T12:46:54.437Z'
         usage:
+          type: object
           properties:
             price:
               type: string
@@ -485,6 +509,7 @@ components:
                       - sms
                     example: viber_service_msg
                   usage:
+                    type: object
                     properties:
                       price:
                         type: string

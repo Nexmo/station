@@ -81,10 +81,10 @@ gem 'icalendar'
 # A parser for Open API specifications
 #
 # If using development copy uncomment:
-# gem 'oas_parser', path: '../oas_parser', require: 'oas_parser'
+gem 'oas_parser', path: '../oas_parser', require: 'oas_parser'
 #
 # Otherwise use a published gem:
-gem 'oas_parser', '~> 0.8.1'
+# gem 'oas_parser', '~> 0.8.1'
 
 # Generate JSON strings from Ruby objects with flexible formatting options.
 gem 'neatjson'
