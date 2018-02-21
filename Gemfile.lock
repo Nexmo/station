@@ -1,4 +1,18 @@
 GIT
+  remote: https://github.com/Nexmo/oas_parser.git
+  revision: 0d6f9583c5ce685c1e85caebee4f7fa72fe4b5a5
+  branch: oneof-properties
+  specs:
+    oas_parser (0.9.0)
+      activesupport (~> 5.1.2)
+      addressable (~> 2.3)
+      builder (~> 3.2.3)
+      deep_merge (~> 1.2.1)
+      guard-rspec (~> 4.7.3)
+      json_schema (~> 0.15.0)
+      nokogiri (~> 1.8.1)
+
+GIT
   remote: https://github.com/brandonweiss/git-hookshot.git
   revision: 10f4b35497fd1391b94baa77e4c986d2415f3d29
   specs:
@@ -19,18 +33,6 @@ GIT
       activesupport (>= 4.2)
       rack-proxy (>= 0.6.1)
       railties (>= 4.2)
-
-PATH
-  remote: ../oas_parser
-  specs:
-    oas_parser (0.9.0)
-      activesupport (~> 5.1.2)
-      addressable (~> 2.3)
-      builder (~> 3.2.3)
-      deep_merge (~> 1.2.1)
-      guard-rspec (~> 4.7.3)
-      json_schema (~> 0.15.0)
-      nokogiri (~> 1.8.1)
 
 GEM
   remote: https://rubygems.org/
