@@ -249,7 +249,8 @@ components:
                     - location
                 text:
                   type: string
-                  example: "hello"
+                  description: The body of the message.
+                  example: 'Hello World!'
                 image:
                   type: object
                   properties:
