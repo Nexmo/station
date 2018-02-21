@@ -633,3 +633,5 @@ The error format is standardized to the `4xx`/`5xx` range with a code and a huma
   }
 }
 ```
+
+The `invalid_parameters` property is optional and will not be returned for `401 Unauthorized` errors.
