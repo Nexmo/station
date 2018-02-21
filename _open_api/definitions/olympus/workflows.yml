@@ -10,7 +10,7 @@ paths:
     post:
       security:
         - bearerAuth: []
-      description: Create a workflow
+      summary: Create a workflow
       operationId: createWorkflow
       requestBody:
         description: Create a workflow request
