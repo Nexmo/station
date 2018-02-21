@@ -32,8 +32,6 @@ This guide will introduce you to the following concepts.
 
 ## 1 - Setup
 
-The Nexmo iOS Conversation SDK utilizes JSON web tokens (i.e., JWTs) to for contextual, omnichannel, artificially intelligent in-app endpoints. While artificial intelligence is still in the process of being developed, IP Message, for instance, is only one of the many channels that literally plug into an app integrated with the Nexmo iOS Conversation SDK. While the sky is the limit, let's start from ground zero to create a Nexmo application. 
-
 _Note: The steps within this section can all be done dynamically via server-side logic. But in order to get the client-side functionality we're going to manually run through setup._
 
 ### 1.1 - Create a Nexmo application
