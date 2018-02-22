@@ -1,8 +1,8 @@
 ---
-title: Send an SMS
+title: Send an SMS with Messages API
 ---
 
-# Send an SMS with the Messages API
+# Send an SMS with Messages API
 
 [TODO] Just a placeholder, add some more supporting content.
 

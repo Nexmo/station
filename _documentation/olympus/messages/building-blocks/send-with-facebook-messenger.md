@@ -1,8 +1,8 @@
 ---
-title: Send an SMS
+title: Send with Facebook Messenger
 ---
 
-# Send an SMS with the Messages API
+# Send with Facebook Messenger
 
 [TODO] Just a placeholder, add some more supporting content.
 
