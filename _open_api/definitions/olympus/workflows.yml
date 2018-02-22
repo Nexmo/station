@@ -1,4 +1,4 @@
-deopenapi: "3.0.0"
+openapi: "3.0.0"
 info:
   version: 0.3.0
   title: Workflows API
@@ -52,7 +52,7 @@ paths:
         final-report:
           '{$request.body#/callback}':
             post:
-              summary: Final Report
+              summary: The final workflow callback is sent when The condition_status was met within the expiry_time. If we take the example API call above. If we received a delivered status at 300 seconds (within the expiry_time) the workflow would be marked as completed. We would not send an SMS. We would then send the final callback. The final message in the failover is delivered. If the message Errors on the last step we will send the final callback. Please note GET is not currently supported. You will notice we have an href to a resource in some of the callbacks. These will fail to load but we wanted to maintain the same structure so that we can seamlessly integrate GET later.
               operationId: final-report
               x-example-path: '/webhooks/final-report'
               description: staus of the final webhook
@@ -318,6 +318,7 @@ components:
             - delivered
             - read
             - rejected
+            - undeliverable
         error:
           type: object
           properties:
@@ -356,10 +357,6 @@ components:
                   example: '/workflows/aaaaaaaa-bbbb-cccc-dddd-0123456789ab'
 
     finalReport:
-      description: 'The final workflow callback is sent when: The condition_status was met within the expiry_time. If we take the example API call above. If we received a delivered status at 300 seconds (within the expiry_time) the workflow would be marked as completed. We would not send an SMS. We would then send the final callback.
-        The final message in the failover is delivered.
-        If the message Errors on the last step we will send the final callback.
-        Please note: GET is not currently supported. You will notice we have an href to a resource in some of the callbacks. These will fail to load but we wanted to maintain the same structure so that we can seamlessly integrate GET later.'
       type: object
       properties:
         workflow_uuid:
@@ -380,6 +377,7 @@ components:
           $ref: '#/components/schemas/TimestampProperty'
         usage:
           type: object
+          description:  'This is the total cost of your Workflow request. Please note if a preceding message in the workflow request is delivered after the final message in the workflow is delivered it may not reflect the true total cost of the workflow.'
           properties:
             price:
               type: string
