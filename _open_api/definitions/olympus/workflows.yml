@@ -13,7 +13,7 @@ paths:
       summary: Create a workflow
       operationId: createWorkflow
       requestBody:
-        description: Create a workflow request
+        description: Please note that last message does not have failover attribute inside it. All other messages must contain a failover attribute. 
         required: true
         content:
           application/json:
@@ -90,8 +90,8 @@ components:
           type: array
           items:
             oneOf:
-              - $ref: '#/components/schemas/sendMessage'
               - $ref: '#/components/schemas/sendWithFailoverMessage'
+              - $ref: '#/components/schemas/sendMessage'
 
     ToProperty:
       type: object
@@ -126,26 +126,7 @@ components:
             **SMS**: or **Viber**: The phone number of the message recipient in the [E.164](https://en.wikipedia.org/wiki/E.164) format.
 
             **Messenger**: This value is not required.
-        # @TODO Clarify requirements
-        # name:
-        #   description: 'Specify name to increase the match rate when using the Facebook Customer Matching service.'
-        #   type: object
-        #   required:
-        #     - first_name
-        #     - last_name
-        #   properties:
-        #     first_name:
-        #       type: string
-        #       description: The recipients first name.
-        #       minLength: 1
-        #       maxLength: 50
-        #       example: 'John'
-        #     last_name:
-        #       type: string
-        #       description: The recipients surname.
-        #       minLength: 1
-        #       maxLength: 50
-        #       example: 'Smith'
+
     FromProperty:
       type: object
       required:
@@ -186,12 +167,6 @@ components:
       required:
         - content
       properties:
-        viber_ttl:
-          description: 'Only valid for Viber Service Messages. Set the time-to-live of message to be delivered in seconds. i.e. if the message is not delivered in 600 seconds then delete the message. Please note that this cancels the notification on Android and an iOS the viber_expiry_text is shown. Minimum value is 30 and maximum value is 86,400 seconds (1 day).'
-          type: integer
-          example: 600
-          minimum: 30
-          maximum: 86400
         content:
           type: object
           properties:
@@ -227,6 +202,12 @@ components:
               minLength: 1
               maxLength: 1000
               example: 'http://example.com/image.jpg'
+        viber_ttl:
+          description: 'Only valid for Viber Service Messages. Set the time-to-live of message to be delivered in seconds. i.e. if the message is not delivered in 600 seconds then delete the message. Please note that this cancels the notification on Android and an iOS the viber_expiry_text is shown. Minimum value is 30 and maximum value is 86,400 seconds (1 day).'
+          type: integer
+          example: 600
+          minimum: 30
+          maximum: 86400
     TimestampProperty:
       type: string
       format: ISO 8601
