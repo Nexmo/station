@@ -292,7 +292,7 @@ You can use the following options to control a *talk* action:
 
 | Option | Description | Required |
 | -- | -- | -- |
-| `text` | A string of up to 1,500 characters (excluding SSML tags) containing the message to be synthesized in the Call or Conversation. Each comma in `text` adds a short pause to the synthesized speech. To use [SSML](/voice/voice-api/guides/ssml) tags, you must enclose the text in a `speak` element. | Yes |
+| `text` | A string of up to 1,500 characters (excluding SSML tags) containing the message to be synthesized in the Call or Conversation. Each single comma in `text` adds a short pause to the synthesized speech. To use [SSML](/voice/voice-api/guides/ssml) tags, you must enclose the text in a `speak` element. | Yes |
 | `bargeIn` | Set to `true` so this action is terminated when the user presses a button on the keypad. Use this feature to enable users to choose an option without having to listen to the whole message in your <a href="/voice/voice-api/guides/interactive-voice-response">Interactive Voice Response (IVR)</a>. If you set `bargeIn` to `true` the next action in the NCCO stack <b>must</b> be an `input` action. The default value is `false`. | No |
 | `loop` | The number of times `text` is repeated before the Call is closed. The default value is 1. Set to 0 to loop infinitely. | No |
 | `level` | The volume level that the speech is played. This can be any value between `-1` to `1` with `0` being the default.  | No |
