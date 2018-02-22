@@ -4,8 +4,27 @@ title: Send a Viber Service Message
 
 # Send a Viber Service Message
 
-[TODO] Just a placeholder, add some more supporting content.
+Sending an Viber Service Message with the Messages API is straightforward. Sign up for an account and replace the following variables in the example below:
+
+Key | Description
+-- | --
+`NEXMO_APPLICATION_ID` |	The ID of the application that you created.
+`VIBER_SERVICE_MESSAGE_ID` | Your Viber Service Message ID. [Find out more](#).
+`TO_NUMBER` | The phone number you are sending the message to in [E.164](https://en.wikipedia.org/wiki/E.164) format. For example `447700900000`.
+
+## Prerequisites
+
+- *[Create an application](/concepts/guides/applications#getting-started-with-applications)*
+
+## Generate a JWT
+
+```curl
+$ JWT="$(nexmo jwt:generate /path/to/private.key \application_id=NEXMO_APPLICATION_ID)"
+$ echo $JWT
+```
+
+## Example
 
 ```tabbed_examples
-config: 'olympus.messages.send'
+config: 'olympus.messages.send-viber'
 ```

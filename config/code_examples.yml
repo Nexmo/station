@@ -135,8 +135,24 @@ number_insight:
       source: '_examples/curl/number_insight/async.sh'
 olympus:
   messages:
-    send:
+    send-sms:
       curl:
-        source: '_examples/curl/olympus/messages/send.sh'
+        source: '_examples/curl/olympus/messages/send-sms.sh'
       httpie:
-        source: '_examples/httpie/olympus/messages/send.sh'
+        source: '_examples/httpie/olympus/messages/send-sms.sh'
+    send-viber:
+      curl:
+        source: '_examples/curl/olympus/messages/send-viber.sh'
+      httpie:
+        source: '_examples/httpie/olympus/messages/send-viber.sh'
+    send-facebook-messenger:
+      curl:
+        source: '_examples/curl/olympus/messages/send-facebook-messenger.sh'
+      httpie:
+        source: '_examples/httpie/olympus/messages/send-facebook-messenger.sh'
+  workflows:
+    send-failover-sms-viber:
+      curl:
+        source: '_examples/curl/olympus/workflows/send-failover-sms-viber.sh'
+      httpie:
+        source: '_examples/httpie/olympus/workflows/send-failover-sms-viber.sh'

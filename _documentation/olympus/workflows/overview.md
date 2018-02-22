@@ -36,7 +36,7 @@ To use Olympus, you may need to familiarise yourself with:
 [TODO] Insert pre-requisites here.
 
 ```tabbed_examples
-config: 'olympus.messages.send'
+config: 'olympus.workflows.send-failover-sms-viber'
 ```
 
 ## Building Blocks

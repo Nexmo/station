@@ -1,7 +1,7 @@
 ---
-title: Viber service messages
+title: Viber Service Messages
 ---
 
-# Workflows
+# Viber Service Messages
 
-This is just an empty guide for demonstration.
+Content coming soon.

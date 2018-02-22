@@ -4,9 +4,9 @@ title: Overview
 
 # Overview
 
-[TODO] One sentence explanation of the product
+The Messaging API is a single API that enables easy integration with various communication channels such as: SMS, Facebook Messenger and Viber.
 
-* This should be
+* Send an receive SMS, Facebook and Viber Messages
 * a bulleted list of
 * all of the capabilities of
 * the product
@@ -36,7 +36,7 @@ To use Olympus, you may need to familiarise yourself with:
 [TODO] Insert pre-requisites here.
 
 ```tabbed_examples
-config: 'olympus.messages.send'
+config: 'olympus.messages.send-sms'
 ```
 
 ## Building Blocks

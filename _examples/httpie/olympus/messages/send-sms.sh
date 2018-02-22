@@ -1,7 +1,7 @@
 http POST 'https://api.nexmo.com/beta/messages' \
   'Authorization':'Bearer '$JWT\
-  to:='{ "type": "sms", "number": "TO_NUMBER" }' \
   from:='{ "type": "sms", "number": "FROM_NUMBER" }' \
+  to:='{ "type": "sms", "number": "TO_NUMBER" }' \
   message:='{
     "content": {
       "type": "text",
