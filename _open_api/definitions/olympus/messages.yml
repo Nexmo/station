@@ -245,7 +245,6 @@ components:
                     - audio
                     - video
                     - file
-                    - event
                     - location
                 text:
                   type: string
@@ -293,18 +292,15 @@ components:
                     lat:
                       type: string
                       description: The latitude of the location attachment.
-                      example: '51.523242'
+                      example: '51.5228349'
                     long:
                       type: string
                       description: The longitude of the location attachment.
-                      example: '-0.085282'
-                event:
-                  type: string
-                  description: The type of event that has occurred.
-                  example: unsubscribe
-                  enum:
-                    - subscribe
-                    - unsubscribe
+                      example: '-0.0854414'
+                    url:
+                      type: string
+                      description: The location on a map.
+                      example: 'https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.bing.com%2Fmaps%2Fdefault.aspx%3Fv%3D2%26pc%3DFACEBK%26mid%3D8100%26where1%3D15%2BBonhill%2BSt%252C%2BEC2A%2B4%2BLondon%252C%2BUnited%2BKingdom%26FORM%3DFBKPL1%26mkt%3Den-US&h=ATNzNY8ARRXSMLvvHLbgVpbn_CEd0EZKWz6wlaQ_YFR1d4OJlvt9bxCo1wc8HJFOggZ3PEddy-hXm6x3l4Kfs3n-voldOigKekRnKSIPIZ6XuKEA4_cmWCEcwwXJ-svTX_sGZumQ44vbbcsP&s=1'
 
     ToProperty:
       type: object
@@ -422,6 +418,7 @@ components:
                 - audio
                 - video
                 - file
+                - custom
               example: 'text'
             text:
               description: |
@@ -440,6 +437,12 @@ components:
               minLength: 1
               maxLength: 1000
               example: 'http://example.com/image.jpg'
+            custom:
+              type: object
+              description: This is a highly experimental feature. To enable the user to send any type of Messenger message we have included a custom object. To use this feature include the original Messenger API payload from the message object onwards.
+              properties:
+                custom:
+                  type: object
     TimestampProperty:
       type: string
       format: ISO 8601
