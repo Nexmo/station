@@ -1,8 +1,8 @@
 ---
-title: Send an SMS with Olympus
+title: Send an SMS with the Messages API
 ---
 
-# Send an SMS with Olympus
+# Send an SMS with the Messages API
 
 [TODO] Just a placeholder, add some more supporting content.
 
