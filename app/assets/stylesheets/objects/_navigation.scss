@@ -108,6 +108,10 @@
     @include highlighted-navigation(darken($green, 15%));
   }
 
+  .navigation-item--sdk-documentation > a {
+    @include highlighted-navigation($pink);
+  }
+
   .navigation-item--ncco-reference a {
     @include highlighted-navigation($gray-dark);
     .navigation-item--ncco-reference a {
