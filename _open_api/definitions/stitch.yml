@@ -2,360 +2,1438 @@ openapi: 3.0.0
 servers:
   - url: 'https://api.nexmo.com/beta'
 info:
-  version: 1.0.0
-  title: Stitch API
+  version: 1.6.0
+  title: Nexmo Conversation Service API
   description: >-
-    The Nexmo Stitch API enables you to build conversation features where communication can take place across multiple mediums including IP Messaging, PSTN Voice, SMS and WebRTC Audio and Video. The context of the conversations is maintained though each communication event taking place within a conversation, no matter the medium.
-security:
-  - bearerAuth: []
+      The Nexmo Stitch API enables you to build conversation features where communication can take place across multiple mediums including IP Messaging, PSTN Voice, SMS and WebRTC Audio and Video. The context of the conversations is maintained though each communication event taking place within a conversation, no matter the medium.
+  contact:
+    name: Nexmo Support
+    url: 'https://developer.nexmo.com/'
+    email: ea-support@nexmo.com
 paths:
   /conversations:
     post:
-      security:
-        - bearerAuth: []
-      x-group: conversation
-      summary: Create a conversation
-      operationId: create-a-conversation
-      parameters:
-        - name: name
-          in: query
-          description: Conversation name, must be unique but will auto-generated if you do not provide it.
-          required: false
-          schema:
-            type: string
-        - name: display_name
-          in: query
-          description: A personal name of your choosing.
-          required: false
-          schema:
-            type: string
+      x-swagger-router-controller: createConversation
+      operationId: createConversation
+      description: Create a new conversation
       responses:
-        '200':
-          description: conversations response
-          content:
-            application/json:
-              schema:
-                type: object
-                $ref: '#/components/schemas/Conversation'
-        '401':
-          $ref: '#/components/responses/UnauthorizedError'
-  /conversations/{id}:
+        '201':
+          $ref: '#/components/responses/ConversationUpdated'
+        '400':
+          $ref: '#/components/responses/ClientError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateConversation'
     get:
-      x-group: conversation
-      summary: Retrieve a conversation
-      operationId: retrieve-a-conversation
-      parameters:
-        - name: id
-          in: path
-          description: ID of the conversation
-          required: true
-          schema:
-            type: string
+      x-swagger-router-controller: listConversations
+      operationId: listConversations
+      description: List conversations
       responses:
         '200':
-          description: conversations response
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/ConversationFull'
-  /conversations/{id}/members:
+          $ref: '#/components/responses/ConversationsListed'
+        '400':
+          $ref: '#/components/responses/ValidationError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListConversations'
+  '/conversations/{conv_id}':
+    parameters:
+      - name: conv_id
+        in: path
+        required: true
+        description: Conversation ID
+        schema:
+          type: string
+    put:
+      x-swagger-router-controller: conversations
+      operationId: replaceConversation
+      description: Replace an existing conversation
+      responses:
+        '200':
+          $ref: '#/components/responses/ConversationUpdated'
+        '400':
+          $ref: '#/components/responses/ClientError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReplaceConversation'
     get:
-      x-group: member
-      summary: Retrieve members of a conversation
-      operationId: retrieve-members-of-a-conversation
-      parameters:
-        - name: id
-          in: path
-          description: ID of the conversation
-          required: true
-          schema:
-            type: string
+      x-swagger-router-controller: retrieveConversation
+      operationId: retrieveConversation
+      description: Retrieve a single conversation
       responses:
         '200':
-          description: members response
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Member'
+          $ref: '#/components/responses/ConversationRetrieved'
+        '400':
+          $ref: '#/components/responses/ClientError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    delete:
+      x-swagger-router-controller: deleteConversation
+      operationId: deleteConversation
+      description: Delete a single conversation
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/ClientError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+  '/conversations/{conv_id}/events':
+    parameters:
+      - name: conv_id
+        in: path
+        required: true
+        description: Conversation ID
+        schema:
+          type: string
     post:
-      x-group: member
-      summary: Add a user to a conversation
-      operationId: add-a-user-to-a-conversation
-      parameters:
-        - name: id
-          in: path
-          description: tags to filter by
-          required: true
-          schema:
-            type: string
+      x-swagger-router-controller: createEvent
+      operationId: createEvent
+      description: Create a new event
+      responses:
+        '201':
+          $ref: '#/components/responses/EventCreated'
+        '400':
+          $ref: '#/components/responses/ClientError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateEvent'
+    get:
+      x-swagger-router-controller: getEvents
+      operationId: getEvents
+      description: Get events
       responses:
         '200':
-          description: members response
-          content:
-            application/json:
-              schema:
-                type: object
-                $ref: '#/components/schemas/MemberFull'
+          $ref: '#/components/responses/EventsRetrieved'
+        '400':
+          $ref: '#/components/responses/ClientError'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetEventsObject'
+  '/conversations/{conv_id}/events/{event_id}':
+    parameters:
+      - name: conv_id
+        in: path
+        required: true
+        description: Conversation ID
+        schema:
+          type: string
+      - name: event_id
+        in: path
+        required: true
+        description: Event ID
+        schema:
+          type: string
+    get:
+      x-swagger-router-controller: getEvent
+      operationId: getEvent
+      description: Get an event
+      responses:
+        '200':
+          $ref: '#/components/responses/EventRetrieved'
+        '400':
+          $ref: '#/components/responses/ClientError'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    delete:
+      x-swagger-router-controller: deleteEvent
+      operationId: deleteEvent
+      description: Delete an event
+      responses:
+        '200':
+          $ref: '#/components/responses/EventDeleted'
+        '400':
+          $ref: '#/components/responses/ClientError'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/deleteEventRequestPayload'
+
+
+  '/conversations/{conv_id}/members':
+    parameters:
+      - name: conv_id
+        in: path
+        required: true
+        description: Conversation ID
+        schema:
+          type: string
+    get:
+      x-swagger-router-controller: members
+      operationId: getMembers
+      description: Get all members in conversation
+      responses:
+        '200':
+          $ref: '#/components/responses/MembersRetrieved'
+        '400':
+          $ref: '#/components/responses/ClientError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    post:
+      x-swagger-router-controller: members
+      operationId: createMember
+      description: Create a new member in conversation
+      responses:
+        '201':
+          $ref: '#/components/responses/MemberCreated'
+        '400':
+          $ref: '#/components/responses/ClientError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateMember'
+  '/conversations/{conv_id}/members/{member_id}':
+    parameters:
+      - name: conv_id
+        in: path
+        required: true
+        description: Conversation ID
+        schema:
+          type: string
+      - name: member_id
+        in: path
+        required: true
+        description: Member ID
+        schema:
+          type: string
+    get:
+      x-swagger-router-controller: members
+      operationId: getMember
+      description: Get a member in conversation
+      responses:
+        '200':
+          $ref: '#/components/responses/MemberRetrieved'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    put:
+      x-swagger-router-controller: members
+      operationId: updateMember
+      description: Update a member in conversation
+      responses:
+        '200':
+          $ref: '#/components/responses/MemberUpdated'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateMember'
+    delete:
+      x-swagger-router-controller: members
+      operationId: deleteMember
+      description: Delete a member in conversation
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  '/conversations/{conv_id}/rtc':
+    parameters:
+      - name: conv_id
+        in: path
+        required: true
+        description: Conversation ID
+        schema:
+          type: string
+    post:
+      x-swagger-router-controller: rtc
+      operationId: createCall
+      description: Create a new call in conversation
+      responses:
+        '201':
+          $ref: '#/components/responses/CallCreated'
+        '400':
+          $ref: '#/components/responses/ClientError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCall'
+
+  /sessions:
+    post:
+      x-swagger-router-controller: sessions
+      operationId: createSession
+      description: Create New Session
+      responses:
+        '201':
+          $ref: '#/components/responses/SessionCreated'
+        '400':
+          $ref: '#/components/responses/ClientError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                capi_id:
+                  type: string
+                callback:
+                  type: string
+  '/sessions/{session_id}':
+    parameters:
+      - name: session_id
+        in: path
+        required: true
+        description: Session ID
+        schema:
+          type: string
+    delete:
+      x-swagger-router-controller: sessions
+      operationId: deleteSession
+      description: Delete a specific session
+      responses:
+        '200':
+          $ref: '#/components/responses/SessionDeleted'
+        '400':
+          $ref: '#/components/responses/ClientError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
   /users:
-    get:
-      x-group: user
-      summary: Retrieve all users
-      operationId: retrieve-all-users
-      responses:
-        '200':
-          description: users response
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/UserFull'
     post:
-      x-group: user
-      summary: Create a user
-      operationId: create-a-user
-      parameters:
-        - name: name
-          in: query
-          description: The users name
-          example: Dillon
-          required: false
-          schema:
-            type: string
+      x-swagger-router-controller: users
+      operationId: createUser
+      description: Create a new user and returns the ID
       responses:
-        '200':
-          description: users response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/User'
-  /users/{id}:
+        '201':
+          $ref: '#/components/responses/Created'
+        '400':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+      requestBody:
+        $ref: '#/components/requestBodies/UserDetails'
     get:
-      x-group: user
-      summary: Retrive a user
-      operationId: retrive-a-user
-      parameters:
-        - name: id
-          in: path
-          description: The users ID
-          required: true
-          schema:
-            type: string
+      x-swagger-router-controller: users
+      operationId: getUsers
+      description: Get all users
       responses:
         '200':
-          description: user response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UserShow'
+          $ref: '#/components/responses/FoundUsers'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  '/users/{user_id}':
+    parameters:
+      - name: user_id
+        in: path
+        required: true
+        description: User ID
+        schema:
+          type: string
+    get:
+      x-swagger-router-controller: users
+      operationId: getUser
+      description: Get a specific user
+      responses:
+        '200':
+          $ref: '#/components/responses/FoundUser'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    put:
+      x-swagger-router-controller: users
+      operationId: updateUser
+      description: Update a particular user
+      responses:
+        '200':
+          $ref: '#/components/responses/Updated'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+      requestBody:
+        $ref: '#/components/requestBodies/UserDetails'
+    delete:
+      x-swagger-router-controller: users
+      operationId: deleteUser
+      description: Delete a particular user
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+  '/users/{user_id}/conversations':
+    parameters:
+      - name: user_id
+        in: path
+        required: true
+        description: User ID
+        schema:
+          type: string
+    get:
+      x-swagger-router-controller: users
+      operationId: getuserConversations
+      description: Get all conversations this user is a member of
+      responses:
+        '200':
+          $ref: '#/components/responses/FoundList'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
 components:
-  securitySchemes:
-    bearerAuth:
-      type: http
-      scheme: bearer
-      bearerFormat: JWT
   responses:
-    UnauthorizedError:
-      description: Access token is missing or invalid
+    ConversationUpdated:
+      description: Create / Update Conversation Successfully
+      content:
+        text/plain; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ConversationUpdated'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ConversationUpdated'
+    ConversationRetrieved:
+      description: Retrieved Conversation Successfully
+      content:
+        text/plain; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/Conversation'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Conversation'
+    ConversationsListed:
+      description: List Conversations Successfully
+      content:
+        text/plain; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ConversationsListed'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ConversationsListed'
+    DeviceCreated:
+      description: Create Device Successfully
+      content:
+        text/plain; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/DeviceCreated'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/DeviceCreated'
+    EventCreated:
+      description: Create Event Successfully
+      content:
+        text/plain; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/EventCreated'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/EventCreated'
+    EventRetrieved:
+      description: Retrieved Event Successfully
+      content:
+        text/plain; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/EventRetrieved'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/EventRetrieved'
+    EventsRetrieved:
+      description: Retrieved Events Successfully
+      content:
+        text/plain; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/EventsRetrieved'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/EventsRetrieved'
+    EventDeleted:
+      description: Delete Event Successfully
+      content:
+        text/plain; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/EventDeleted'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/EventDeleted'
+    Success:
+      description: Success
+      content:
+        text/plain; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/Success'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Success'
+    EmptyJSON:
+      description: Empty JSON
+      content:
+        text/plain; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/EmptyJSON'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/EmptyJSON'
+    ClientError:
+      description: Not Found
+      content:
+        text/plain; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ClientError'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ClientError'
+    ValidationError:
+      description: Validation Error
+      content:
+        text/plain; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/ValidationError'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ValidationError'
+    NotFound:
+      description: Not Found
+      content:
+        text/plain; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/NotFoundError'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/NotFoundError'
+    InternalServerError:
+      description: Internal Server Error
+      content:
+        text/plain; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/InternalServerError'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/InternalServerError'
+    Created:
+      description: Created Successfully
+      content:
+        text/plain; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/Created'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Created'
+    Updated:
+      description: Updated Successfully
+      content:
+        text/plain; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/Updated'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Updated'
+    FoundList:
+      description: Retrieved Listing Successfully
+      content:
+        text/plain; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/FoundList'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/FoundList'
+    MemberCreated:
+      description: Create Member Successfully
+      content:
+        text/plain; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/MemberCreated'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/MemberCreated'
+    MemberUpdated:
+      description: Update Member Successfully
+      content:
+        text/plain; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/MemberRetrieved'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/MemberRetrieved'
+    MemberRetrieved:
+      description: Member Retrieved Successfully
+      content:
+        text/plain; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/MemberRetrieved'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/MemberRetrieved'
+    MembersRetrieved:
+      description: Members Retrieved Successfully
+      content:
+        text/plain; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/MembersRetrieved'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/MembersRetrieved'
+    CallCreated:
+      description: Create Call Successfully
+      content:
+        text/plain; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/CallCreated'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CallCreated'
+    OfferCreated:
+      description: Create Offer Successfully
+      content:
+        text/plain; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/OfferCreated'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/OfferCreated'
+    CallAnswered:
+      description: Call Answered Successfully
+      content:
+        text/plain; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/CallAnswered'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CallAnswered'
+    CallTerminated:
+      description: Call Terminated Successfully
+      content:
+        text/plain; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/CallTerminated'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CallTerminated'
+    SessionCreated:
+      description: Create Session Successfully
+      content:
+        text/plain; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/SessionCreated'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SessionCreated'
+    SessionDeleted:
+      description: Delete Session Successfully
+      content:
+        text/plain; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/SessionDeleted'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SessionDeleted'
+    SessionsPurged:
+      description: Purge Session Successfully
+      content:
+        text/plain; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/SessionsPurged'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SessionsPurged'
+    FoundUser:
+      description: Retrieved User Successfully
+      content:
+        text/plain; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/User'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/User'
+    FoundUsers:
+      description: Retrieved Users Successfully
+      content:
+        text/plain; charset=utf-8:
+          schema:
+            $ref: '#/components/schemas/FoundUsers'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/FoundUsers'
+  requestBodies:
+    UserDetails:
       content:
         application/json:
           schema:
-            type: object
-            required:
-              - code
-              - description
-            properties:
-              code:
-                type: 'string'
-                example: 'system:error:invalid-token'
-              description:
-                type: string
-                example: 'the token was rejected'
+            $ref: '#/components/schemas/UserDetails'
   schemas:
-    CreatedTimestamp:
+    CreateConversation:
+      discriminator:
+        propertyName: CreateConversation
+      type: object
+      description: Create Conversation Request Payload Object
       properties:
-        created:
-          example: "2020-01-01T12:00:00.000Z"
+        name:
           type: string
-          description: The time the conversation was created
-    JoinedTimestamp:
-      properties:
-        joined:
-          example: "2020-01-01T12:00:00.000Z"
+          description: >-
+            Unique name (within the same application) for the conversation. If
+            not provided, one will be automatically generated.
+        display_name:
           type: string
-    Link:
-      properties:
-        self:
+        image_url:
+          type: string
+        numbers:
           type: object
-          allOf:
-            - $ref: '#/components/schemas/Self'
-    Self:
+          properties:
+            pstn:
+              type: string
+            sms:
+              type: string
+            sip:
+              type: string
+        properties:
+          type: object
+          properties:
+            ttl:
+              type: string
+      required:
+        - display_name
+        - image_url
+    ConversationUpdated:
+      discriminator:
+        propertyName: ConversationUpdated
+      type: object
+      description: Create / Update Conversation Response Payload Object
       properties:
-        href:
-          example: "http://conversation.local/v1/conversations/CON-aaaaaaaa-bbbb-cccc-dddd-0123456789ab"
+        id:
           type: string
-    Channel:
+          description: Conversation ID
+        href:
+          type: string
+          description: URL to the conversation
+      required:
+        - id
+        - href
+    ReplaceConversation:
+      discriminator:
+        propertyName: ReplaceConversation
+      type: object
+      description: Replace Conversation Request Payload Object
+      properties:
+        name:
+          type: string
+          description: >-
+            Unique name (within the same application) for the conversation. If
+            not provided, one will be automatically generated.
+        display_name:
+          type: string
+        image_url:
+          type: string
+        numbers:
+          type: object
+          properties:
+            pstn:
+              type: string
+            sms:
+              type: string
+            sip:
+              type: string
+        properties:
+          type: object
+          properties:
+            ttl:
+              type: string
+    Conversation:
+      discriminator:
+        propertyName: Conversation
+      type: object
+      description: Conversation Object
+      properties:
+        uuid:
+          type: string
+          description: Conversation ID
+        name:
+          type: string
+          description: Conversation Name
+        display_name:
+          type: string
+          description: Display Name
+        image_url:
+          type: string
+          description: Display Name
+        timestamp:
+          type: string
+          description: Display Name
+        sequence_number:
+          type: string
+          description: Display Name
+        numbers:
+          type: object
+          properties:
+            pstn:
+              type: string
+            sms:
+              type: string
+            sip:
+              type: string
+        properties:
+          type: object
+          properties:
+            ttl:
+              type: string
+        members:
+          type: array
+          items:
+            $ref: '#/components/schemas/Member'
+        api_key:
+          type: string
+        _links:
+          type: object
+          properties:
+            self:
+              type: object
+              properties:
+                href:
+                  type: string
+        _embedded:
+          type: object
+          properties:
+            legs:
+              type: object
+              properties:
+                _links:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/ConversationLeg'
+      required:
+        - uuid
+    ListConversations:
+      discriminator:
+        propertyName: ListConversations
+      description: List Conversations Request Payload Object
+      type: object
+      properties:
+        name:
+          type: string
+        date_start:
+          type: string
+          format: dateTime
+        date_end:
+          type: string
+          format: dateTime
+        page_size:
+          type: number
+          minimum: 1
+          maximum: 100
+        record_index:
+          type: number
+          minimum: 0
+        order:
+          type: string
+          enum:
+            - asc
+            - desc
+            - ASC
+            - DESC
+    ConversationsListed:
+      discriminator:
+        propertyName: ConversationsListed
+      type: object
+      description: List Conversations Response Payload Object
+      properties:
+        count:
+          type: number
+        page_size:
+          type: number
+        record_index:
+          type: number
+        _links:
+          type: object
+          properties:
+            self:
+              type: object
+              properties:
+                href:
+                  type: string
+              required:
+                - href
+          required:
+            - self
+        _embedded:
+          type: object
+          properties:
+            conversations:
+              type: array
+              items:
+                type: object
+                properties:
+                  uuid:
+                    type: string
+                  name:
+                    type: string
+                  href:
+                    type: string
+                required:
+                  - uuid
+                  - name
+                  - href
+          required:
+            - conversations
+      required:
+        - count
+        - page_size
+        - record_index
+        - _links
+        - _embedded
+    CreateDeviceObject:
+      discriminator:
+        propertyName: CreateDeviceObject
+      type: object
+      description: Create New Device Request Payload Object
+      properties:
+        device_token:
+          type: string
+        device_type:
+          type: string
+        device_push_environment:
+          type: string
+      required:
+        - device_token
+        - device_type
+    DeviceCreated:
+      discriminator:
+        propertyName: DeviceCreated
+      type: object
+      description: Create New Device Response Payload Object
+      properties:
+        id:
+          type: string
+          description: Device ID
+        href:
+          type: string
+    CreateEvent:
+      discriminator:
+        propertyName: CreateEvent
+      type: object
+      description: Create New Event Request Payload Object
       properties:
         type:
           type: string
-          example: app
-    MemberFull:
+        to:
+          type: string
+        from:
+          type: string
+        body:
+          type: object
+      required:
+        - type
+        - to
+        - from
+    EventCreated:
+      discriminator:
+        propertyName: EventCreated
+      type: object
+      description: Create New Event Response Payload Object
       properties:
         id:
-          example: "MEM-aaaaaaaa-bbbb-cccc-dddd-0123456789ab"
           type: string
-        user_id:
-          example: "USR-aaaaaaaa-bbbb-cccc-dddd-0123456789ab"
+          description: Event ID
+        timestamp:
           type: string
+        href:
+          type: string
+    EventRetrieved:
+      discriminator:
+        propertyName: EventRetrieved
+      type: object
+      description: Retrieve Event Response Payload Object
+      properties:
+        id:
+          type: string
+          description: Event ID
+        type:
+          type: string
+        application_id:
+          type: string
+        conversation_id:
+          type: string
+        from:
+          type: string
+        to:
+          type: string
+        body:
+          type: object
+        timestamp:
+          type: string
+      required:
+        - id
+        - type
+        - application_id
+        - conversation_id
+        - body
+        - timestamp
+    GetEventsObject:
+      discriminator:
+        propertyName: GetEventsObject
+      type: object
+      description: Get Events Request Payload Object
+      properties:
+        start_id:
+          type: string
+        end_id:
+          type: string
+    EventsRetrieved:
+      discriminator:
+        propertyName: EventsRetrieved
+      type: array
+      description: Retrieve Events Response Payload Object
+      items:
+        $ref: '#/components/schemas/EventsRetrievedItem'
+    EventsRetrievedItem:
+      discriminator:
+        propertyName: EventsRetrievedItem
+      type: object
+      description: Retrieve Events Response Payload Object Item
+      properties:
+        id:
+          type: string
+          description: Event ID
+        type:
+          type: string
+        from:
+          type: string
+        to:
+          type: string
+        body:
+          type: object
         state:
-          example: "JOINED"
           type: string
         timestamp:
-          type: object
-          allOf:
-            - $ref: '#/components/schemas/JoinedTimestamp'
-        channel:
-          type: object
-          allOf:
-            - $ref: '#/components/schemas/Channel'
-        href:
-          example: 'http://conversation.local/v1/conversations/CON-aaaaaaaa-bbbb-cccc-dddd-0123456789ab/MEM-aaaaaaaa-bbbb-cccc-dddd-0123456789ab'
           type: string
-    Member:
+        href:
+          type: string
+      required:
+        - id
+        - type
+        - body
+        - timestamp
+        - href
+    deleteEventRequestPayload:
+      discriminator:
+        propertyName: deleteEventRequestPayload
+      type: object
+      description: Delete Event Request Payload Object
       properties:
+        from:
+          type: string
+    EventDeleted:
+      discriminator:
+        propertyName: EventDeleted
+      type: object
+      description: Delete Event Response Payload Object
+    Success:
+      description: Success
+      discriminator:
+        propertyName: Success
+    EmptyJSON:
+      type: object
+      description: Empty JSON payload
+      discriminator:
+        propertyName: empty
+    GenericError:
+      type: object
+      description: Generic Error
+      discriminator:
+        propertyName: error
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        details:
+          type: string
+        description:
+          type: string
+      required:
+        - code
+    ClientError:
+      discriminator:
+        propertyName: notFound
+      allOf:
+        - $ref: '#/components/schemas/GenericError'
+    NotFoundError:
+      discriminator:
+        propertyName: notFound
+      allOf:
+        - $ref: '#/components/schemas/GenericError'
+    ValidationError:
+      type: object
+      description: Validation Error
+      discriminator:
+        propertyName: validationError
+      properties:
+        code:
+          type: string
+        description:
+          type: string
+        validation:
+          type: object
+          description: >-
+            Validation Errors. See https://validatejs.org/ for the format of the
+            errors.
+      required:
+        - code
+    InternalServerError:
+      discriminator:
+        propertyName: internalServer
+      allOf:
+        - $ref: '#/components/schemas/GenericError'
+    Created:
+      discriminator:
+        propertyName: created
+      allOf:
+        - $ref: '#/components/schemas/Success'
+        - $ref: '#/components/schemas/GenericResource'
+        - description: Created Successfully
+    Updated:
+      discriminator:
+        propertyName: updated
+      allOf:
+        - $ref: '#/components/schemas/Created'
+        - description: Updated Successfully
+    FoundList:
+      discriminator:
+        propertyName: foundList
+      allOf:
+        - $ref: '#/components/schemas/Success'
+        - type: array
+          items:
+            $ref: '#/components/schemas/GenericResource'
+    GenericResource:
+      discriminator:
+        propertyName: resource
+      type: object
+      description: Generic Resource
+      properties:
+        id:
+          type: string
+        href:
+          type: string
+      required:
+        - id
+        - href
+    ConversationLeg:
+      discriminator:
+        propertyName: ConversationLeg
+      type: object
+      description: Conversation Leg Object
+      properties:
+        leg_id:
+          type: string
+        member_id:
+          type: string
+      required:
+        - leg_id
+        - member_id
+    Member:
+      discriminator:
+        propertyName: Member
+      type: object
+      description: Member Object
+      properties:
+        member_id:
+          type: string
         user_id:
-          example: "USR-aaaaaaaa-bbbb-cccc-dddd-0123456789ab"
           type: string
         name:
-          example: "MEM-aaaaaaaa-bbbb-cccc-dddd-0123456789ab"
-          type: string
-        user_name:
-          example: "Dillon"
           type: string
         state:
-          example: "JOINED"
           type: string
-    ConversationFull:
-      properties:
-        uuid:
-          example: "CON-aaaaaaaa-bbbb-cccc-dddd-0123456789ab"
+        timestamp:
           type: string
-          description: >-
-            Unique identifier for the conversation
-        name:
-          example: "nexmo-chat"
+        invited_by:
           type: string
-          description: >-
-            The name of the conversation
-        display_name:
-          example: "Nexmo Chat"
-          type: string
-          description: >-
-            The display name of the conversation
-        # timestamp:
-        #   type: object
-        #   items:
-        #     $ref: '#/components/schemas/CreatedTimestamp'
-        sequence_number:
-          example: 0
-          type: integer
-        numbers:
-          example: {}
-          type: string
-        properties:
-          example: {}
-          type: string
-        # members:
-        #   example: []
-        #   type: array
-        api_key:
-          example: "abcd1234"
-          type: string
-          description: The API Key of the owner of the conversation
-        # _links:
-        #   example:
-        #   type: object
-        #   allOf:
-        #     - $ref: '#/components/schemas/Link'
-    Conversation:
-      type: object
       required:
-        - id
-        - href
-      properties:
-        id:
-          type: string
-          example: 'CON-aaaaaaaa-bbbb-cccc-dddd-0123456789ab'
-        href:
-          type: string
-          example: 'http://conversation.local/v1/conversations/CON-aaaaaaaa-bbbb-cccc-dddd-0123456789ab'
-    UserShow:
-      type: object
-      required:
+        - member_id
+        - user_id
         - name
-        - id
-        - href
+        - state
+        - timestamp
+        - invited_by
+    CreateMember:
+      discriminator:
+        propertyName: CreateMember
+      type: object
+      description: Create Member Request Payload Object
+      properties:
+        user_id:
+          type: string
+        user_name:
+          type: string
+        member_id:
+          type: string
+        channel:
+          type: string
+        media:
+          type: string
+        action:
+          type: string
+          enum:
+            - invite
+            - join
+      required:
+        - user_id
+        - user_name
+        - member_id
+        - channel
+        - media
+    MemberCreated:
+      discriminator:
+        propertyName: MemberCreated
+      type: object
+      description: Member Created Object
       properties:
         id:
           type: string
-          example: 'USR-aaaaaaaa-bbbb-cccc-dddd-0123456789ab'
+          description: Member ID
+        user_id:
+          type: string
+        state:
+          type: string
+        timestamp:
+          type: string
+        channel:
+          type: string
         href:
           type: string
-          example: 'http://conversation.local/v1/users/USR-aaaaaaaa-bbbb-cccc-dddd-0123456789ab'
+          format: url
+      required:
+        - id
+        - user_id
+        - state
+        - timestamp
+        - channel
+        - href
+    UpdateMember:
+      discriminator:
+        propertyName: UpdateMember
+      type: object
+      description: Update Member Request Payload Object
+      properties:
+        channel:
+          type: string
+        action:
+          type: string
+          enum:
+            - join
+    MemberRetrieved:
+      discriminator:
+        propertyName: MemberRetrieved
+      type: object
+      description: Member Retrieved Object
+      properties:
+        id:
+          type: string
+          description: Member ID
+        href:
+          type: string
+          format: url
+      required:
+        - id
+        - href
+    MembersListItem:
+      discriminator:
+        propertyName: MembersListItem
+      type: object
+      description: Members List Object
+      properties:
+        user_id:
+          type: string
+        user_name:
+          type: string
         name:
           type: string
-          example: 'Dillon'
-        channels:
+        state:
+          type: string
+      required:
+        - user_id
+        - name
+        - user_name
+        - state
+    MembersRetrieved:
+      discriminator:
+        propertyName: MembersRetrieved
+      description: Members List
+      type: array
+      items:
+        $ref: '#/components/schemas/MembersListItem'
+    CreateCall:
+      discriminator:
+        propertyName: CreateCall
+      type: object
+      description: Create Call Request Payload Object
+      properties:
+        body:
           type: object
-          example: {}
-    User:
+        originating_session:
+          type: string
+        from:
+          type: string
+    CallCreated:
+      discriminator:
+        propertyName: CallCreated
       type: object
-      required:
-        - name
-        - id
-        - href
+      description: Create Call Response Payload Object
+      properties:
+        rtc_id:
+          type: string
+        href:
+          type: string
+          format: url
+    CreateOffer:
+      discriminator:
+        propertyName: CreateOffer
+      type: object
+      description: Create Offer Request Payload Object
+      properties:
+        body:
+          type: object
+    OfferCreated:
+      discriminator:
+        propertyName: OfferCreated
+      type: object
+      description: Create Offer Response Payload Object
       properties:
         id:
           type: string
-          example: 'USR-aaaaaaaa-bbbb-cccc-dddd-0123456789ab'
         href:
           type: string
-          example: 'http://conversation.local/v1/users/USR-aaaaaaaa-bbbb-cccc-dddd-0123456789ab'
-    UserFull:
+          format: url
+    AnswerCall:
+      discriminator:
+        propertyName: AnswerCall
       type: object
-      required:
-        - name
-        - id
-        - href
+      description: Answer Call Request Payload Object
+      properties:
+        body:
+          type: object
+    CallAnswered:
+      discriminator:
+        propertyName: CallAnswered
+      type: object
+      description: Answer Call Response Payload Object
+      properties:
+        id:
+          type: string
+        href:
+          type: string
+          format: url
+    TerminateCall:
+      discriminator:
+        propertyName: TerminatCall
+      type: object
+      description: Terminate Call Request Payload Object
+      properties:
+        body:
+          type: object
+          properties:
+            from:
+              type: string
+    CallTerminated:
+      discriminator:
+        propertyName: CallTerminated
+      type: object
+      description: Terminate Call Response Payload Object
+      properties:
+        id:
+          type: string
+        href:
+          type: string
+          format: url
+    SessionCreated:
+      discriminator:
+        propertyName: SessionCreated
+      type: object
+      description: Create Session Response Payload Object
+      properties:
+        id:
+          type: string
+        user_id:
+          type: string
+        name:
+          type: string
+        href:
+          type: string
+          format: url
+    SessionDeleted:
+      discriminator:
+        propertyName: SessionDeleted
+      type: object
+      description: Delete Session Response Payload Object
+    SessionsPurged:
+      discriminator:
+        propertyName: SessionsPurged
+      type: object
+      description: Purge Session Response Payload Object
+      properties:
+        count:
+          type: integer
+          description: Number of sessions purged
+    FoundUsers:
+      discriminator:
+        propertyName: foundUsers
+      allOf:
+        - $ref: '#/components/schemas/FoundList'
+        - type: array
+          items:
+            $ref: '#/components/schemas/UserOverview'
+    UserOverview:
+      discriminator:
+        propertyName: userOverview
+      allOf:
+        - $ref: '#/components/schemas/GenericResource'
+        - description: User Overview Object
+    UserDetails:
+      discriminator:
+        propertyName: userDetails
+      type: object
+      description: User Details Object
       properties:
         name:
           type: string
-          example: 'Dillon'
-        id:
+        image_url:
           type: string
-          example: 'USR-aaaaaaaa-bbbb-cccc-dddd-0123456789ab'
-        href:
+        display_name:
           type: string
-          example: 'http://conversation.local/v1/users/USR-aaaaaaaa-bbbb-cccc-dddd-0123456789ab'
-x-groups:
-  conversation:
-    name: "Conversation"
-    order: 1
-    description: >-
-      A conversation is a shared core component that Nexmo APIs rely on. Conversations happen over multiple mediums and and can have associated Users through Memberships.
-    schema:
-      $ref: '#/components/schemas/ConversationFull'
-  user:
-    name: "User"
-    order: 2
-    description: >-
-      The concept of a user exists in Nexmo APIs, you can associate one with a user in your own application if you choose. A user can have multiple memberships to conversations and can communicate with other users through various different mediums.
-  member:
-    name: "Member"
-    order: 3
-    description: >-
-      Memberships connect users with conversations. Each membership has one conversation and one user however a user can have many memberships to conversations just as conversations can have many members.
+        channels:
+          type: string
+    User:
+      discriminator:
+        propertyName: user
+      type: object
+      description: User Object
+      allOf:
+        - $ref: '#/components/schemas/UserOverview'
+        - $ref: '#/components/schemas/UserDetails'
+
+      
