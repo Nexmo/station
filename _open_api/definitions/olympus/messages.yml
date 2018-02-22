@@ -15,6 +15,7 @@ paths:
       summary: Send a Message
       operationId: NewMessage
       x-code-example-path: olympus.messages.send
+      x-group: message
       requestBody:
         description: Send a Message.
         required: true
@@ -251,56 +252,15 @@ components:
                   description: The body of the message.
                   example: 'Hello World!'
                 image:
-                  type: object
-                  properties:
-                    url:
-                      type: string
-                      description: The URL of the image attachment.
-                      minLength: 1
-                      maxLength: 2000
-                      example: 'https://example.com/image.jpg'
+                  $ref: '#/components/schemas/ImageProperty'
                 audio:
-                  type: object
-                  properties:
-                    url:
-                      type: string
-                      description: The URL of the audio attachment.
-                      minLength: 1
-                      maxLength: 2000
-                      example: 'https://example.com/audio.mp3'
+                  $ref: '#/components/schemas/AudioProperty'
                 video:
-                  type: object
-                  properties:
-                    url:
-                      type: string
-                      description: The URL of the video attachment.
-                      minLength: 1
-                      maxLength: 2000
-                      example: 'https://example.com/video.mp4'
+                  $ref: '#/components/schemas/VideoProperty'
                 file:
-                  type: object
-                  properties:
-                    url:
-                      type: string
-                      description: The URL of the file attachment.
-                      minLength: 1
-                      maxLength: 2000
-                      example: 'https://example.com/file.zip'
+                  $ref: '#/components/schemas/FileProperty'
                 location:
-                  type: object
-                  properties:
-                    lat:
-                      type: string
-                      description: The latitude of the location attachment.
-                      example: '51.5228349'
-                    long:
-                      type: string
-                      description: The longitude of the location attachment.
-                      example: '-0.0854414'
-                    url:
-                      type: string
-                      description: The location on a map.
-                      example: 'https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.bing.com%2Fmaps%2Fdefault.aspx%3Fv%3D2%26pc%3DFACEBK%26mid%3D8100%26where1%3D15%2BBonhill%2BSt%252C%2BEC2A%2B4%2BLondon%252C%2BUnited%2BKingdom%26FORM%3DFBKPL1%26mkt%3Den-US&h=ATNzNY8ARRXSMLvvHLbgVpbn_CEd0EZKWz6wlaQ_YFR1d4OJlvt9bxCo1wc8HJFOggZ3PEddy-hXm6x3l4Kfs3n-voldOigKekRnKSIPIZ6XuKEA4_cmWCEcwwXJ-svTX_sGZumQ44vbbcsP&s=1'
+                  $ref: '#/components/schemas/LocationProperty'
 
     ToProperty:
       type: object
@@ -430,21 +390,87 @@ components:
               type: string
               minLength: 1
               maxLength: 1000
-              example: 'Pretty majestical, aye?'
-            url:
-              type: string
-              description: The URL for the attachment. Required for `image`, `audio`, `video` or `file`.
-              minLength: 1
-              maxLength: 1000
-              example: 'http://example.com/image.jpg'
-            custom:
-              type: object
-              description: This is a highly experimental feature. To enable the user to send any type of Messenger message we have included a custom object. To use this feature include the original Messenger API payload from the message object onwards.
-              properties:
-                custom:
-                  type: object
+              example: 'Hello world!'
+            image:
+              $ref: '#/components/schemas/ImageProperty'
+            audio:
+              $ref: '#/components/schemas/AudioProperty'
+            video:
+              $ref: '#/components/schemas/VideoProperty'
+            file:
+              $ref: '#/components/schemas/FileProperty'
+            location:
+              $ref: '#/components/schemas/LocationProperty'
+            # @TODO: Clarify requirements
+            # custom:
+            #   type: object
+            #   description: This is a highly experimental feature. To enable the user to send any type of Messenger message we have included a custom object. To use this feature include the original Messenger API payload from the message object onwards.
+            #   properties:
+            #     custom:
+            #       type: object
+
     TimestampProperty:
       type: string
       format: ISO 8601
       description: The datetime of when the event occurred.
       example: '2020-01-01T14:00:00.000Z'
+
+    ImageProperty:
+      type: object
+      properties:
+        url:
+          type: string
+          description: The URL of the image attachment.
+          minLength: 1
+          maxLength: 2000
+          example: 'https://example.com/image.jpg'
+    AudioProperty:
+      type: object
+      properties:
+        url:
+          type: string
+          description: The URL of the audio attachment.
+          minLength: 1
+          maxLength: 2000
+          example: 'https://example.com/audio.mp3'
+    VideoProperty:
+      type: object
+      properties:
+        url:
+          type: string
+          description: The URL of the video attachment.
+          minLength: 1
+          maxLength: 2000
+          example: 'https://example.com/video.mp4'
+    FileProperty:
+      type: object
+      properties:
+        url:
+          type: string
+          description: The URL of the file attachment.
+          minLength: 1
+          maxLength: 2000
+          example: 'https://example.com/file.zip'
+    LocationProperty:
+      type: object
+      properties:
+        lat:
+          type: string
+          description: The latitude of the location attachment.
+          example: '51.5228349'
+        long:
+          type: string
+          description: The longitude of the location attachment.
+          example: '-0.0854414'
+        url:
+          type: string
+          description: The location on a map.
+          example: 'https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.bing.com%2Fmaps%2Fdefault.aspx%3Fv%3D2%26pc%3DFACEBK%26mid%3D8100%26where1%3D15%2BBonhill%2BSt%252C%2BEC2A%2B4%2BLondon%252C%2BUnited%2BKingdom%26FORM%3DFBKPL1%26mkt%3Den-US&h=ATNzNY8ARRXSMLvvHLbgVpbn_CEd0EZKWz6wlaQ_YFR1d4OJlvt9bxCo1wc8HJFOggZ3PEddy-hXm6x3l4Kfs3n-voldOigKekRnKSIPIZ6XuKEA4_cmWCEcwwXJ-svTX_sGZumQ44vbbcsP&s=1'
+x-groups:
+  message:
+    name: "Message"
+    order: 1
+    description: The Message object contains information about the request and details of the message object.
+    schema:
+      application/json:
+        $ref: '#/components/schemas/Response'
