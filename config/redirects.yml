@@ -79,3 +79,6 @@
 
 /messaging/sms/guides/global-messaging: /messaging/sms/guides/country-specific-features
 /messaging/sms/guides/delivery-reciepts: /messaging/sms/guides/delivery-receipts
+
+/olympus/messages/api-reference: /api/olympus/messages
+/olympus/workflows/api-reference: /api/olympus/workflows
