@@ -268,6 +268,4 @@ Return to your emulators so you can see `alice` has a conversation listed now. Y
 
 # Trying it out
 
-Once you've completed this quickstart, you can run the sample app on two different devices. You'll be able to login as a user, join an existing conversation or receive invites, and chat with users. Here's a gif of our quickstart in action.
-
-![Awesome Chat](http://g.recordit.co/Us6wTTvKnI.gif)
+Once you've completed this quickstart, you can run the sample app on two different devices. You'll be able to login as a user, join an existing conversation or receive invites, and chat with users.

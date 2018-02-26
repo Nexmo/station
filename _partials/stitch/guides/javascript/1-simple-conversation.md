@@ -246,7 +246,7 @@ new ChatApp
 
 Let's fill in the `authenticate` function. For now, stub it out to always return the `USER_JWT` value. This is where you would normally use the users session to authenticate the user and return their JWT.
 
-```html
+```js
 authenticate() {
   // Your authentication logic would go here.
   return USER_JWT

@@ -4,9 +4,13 @@ title: Overview
 
 # In-App Voice Overview
 
-Cras justo odio, dapibus ac facilisis in, egestas eget quam. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Maecenas faucibus mollis interdum. Aenean lacinia bibendum nulla sed consectetur.
+Nexmo In-App Voice uses WebRTC and includes all the essentials you need to build a feature rich voice experience.
 
-[TODO] Insert content
+User Control – Users can control whether their audio stream is muted or unmuted. 
+
+Notifications  – Users can be notified when they receive a call or when participants are muted. 
+
+Group Calls – Configure call settings so users can start a group call by adding participants in real time.
 
 ## Concepts
 
@@ -18,6 +22,12 @@ Cras justo odio, dapibus ac facilisis in, egestas eget quam. Praesent commodo cu
 
 **Member**
     > Memberships connect users with conversations. Each membership has one conversation and one user however a user can have many memberships to conversations just as conversations can have many members.
+
+**Audio**
+    > Audio streams can be enabled and disabled in a Conversation so that Members can communicate with voice.
+
+**Media Events**
+    > Media events will fire in a Conversation when media state changes for a member. This can be when an Audio stream is started or ended.
 
 ## Getting Started
 
@@ -43,10 +53,10 @@ To start with you'll need a [Nexmo Account](/account/guides/management#create-an
 |
 | #### Create an Application
 |
-| Create an application named `My first Conversation Application` and store the returned private key as `private.key` within your current working directory.
+| Create an application named `My first Stitch Application` and store the returned private key as `private.key` within your current working directory.
 |
 | ```sh
-| $ nexmo app:create "My first Conversation Application" --type=rtc --keyfile=private.key
+| $ nexmo app:create "My first Stitch Application" --type=rtc --keyfile=private.key
 | ```
 |
 |
@@ -78,38 +88,37 @@ source: _examples/conversations/overview/join-the-conversation/
 
 ## Try out the quickstarts
 
-* [JavaScript Quickstarts](/conversation/guides/javascript-quickstart)
-* [iOS Quickstarts](/conversation/guides/ios-quickstart)
-* [Android Quickstarts](/conversation/guides/android-quickstart)
+* [JavaScript Quickstarts](/stitch/in-app-voice/guides/1-enable-audio?platform=javascript)
+* [iOS Quickstarts](/stitch/in-app-voice/guides/1-enable-audio?platform=ios)
+* [Android Quickstarts](/stitch/in-app-voice/guides/1-enable-audio?platform=android)
 
 ## Client Libraries
 
 <div class="row">
   <div class="columns small-12 medium-4">
-    <a href="/conversation/client-sdks/javascript" class="card spacious card--image card--javascript">
+    <a href="/stitch/client-sdks/javascript" class="card spacious card--image card--javascript">
       <h2>JavaScript</h2>
     </a>
   </div>
   <div class="columns small-12 medium-4">
-    <a href="/conversation/client-sdks/android" class="card spacious card--image card--android">
+    <a href="/stitch/client-sdks/android" class="card spacious card--image card--android">
       <h2>Android</h2>
     </a>
   </div>
   <div class="columns small-12 medium-4">
-    <a href="/conversation/client-sdks/ios" class="card spacious card--image card--ios">
+    <a href="/stitch/client-sdks/ios" class="card spacious card--image card--ios">
       <h2>iOS</h2>
     </a>
   </div>
 </div>
 
-## Conversation API Features
+## Stitch In-App Voice Features
 
-* IP Messaging
-* WebRTC Audio [Coming soon]
+* WebRTC Audio over multiple platforms
 
 ## References
 
-* [API Reference](/api/conversation)
+* [API Reference](/api/stitch)
 * [Nexmo CLI](https://github.com/nexmo/nexmo-cli/tree/beta)
 * [Server-side Gateway](https://github.com/Nexmo/messaging-gateway) with [Android](https://github.com/Nexmo/messaging-demo-android) and [JavaScript](https://github.com/Nexmo/messaging-demo-js) client demos
 
@@ -117,17 +126,17 @@ source: _examples/conversations/overview/join-the-conversation/
 
 <div class="row">
   <div class="columns small-12 medium-4">
-    <a href="/sdk/conversation/javascript/" class="card spacious card--image card--javascript-outline">
+    <a href="/sdk/stitch/javascript/" class="card spacious card--image card--javascript-outline">
       <h2>JavaScript</h2>
     </a>
   </div>
   <div class="columns small-12 medium-4">
-    <a href="/sdk/conversation/android/" class="card spacious card--image card--android-outline">
+    <a href="/sdk/stitch/android/" class="card spacious card--image card--android-outline">
       <h2>Android</h2>
     </a>
   </div>
   <div class="columns small-12 medium-4">
-    <a href="/sdk/conversation/ios/" class="card spacious card--image card--ios-outline">
+    <a href="/sdk/stitch/ios/" class="card spacious card--image card--ios-outline">
       <h2>iOS</h2>
     </a>
   </div>

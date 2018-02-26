@@ -108,9 +108,9 @@ source: _examples/conversations/overview/join-the-conversation/
 
 ## Try out the quickstarts
 
-* [JavaScript Quickstarts](/conversation/guides/javascript-quickstart)
-* [iOS Quickstarts](/conversation/guides/ios-quickstart)
-* [Android Quickstarts](/conversation/guides/android-quickstart)
+* [JavaScript Quickstarts](/stitch/in-app-messaging/guides/1-simple-conversation?platform=javascript)
+* [iOS Quickstarts](/stitch/in-app-messaging/guides/1-simple-conversation?platform=ios)
+* [Android Quickstarts](/stitch/in-app-messaging/guides/1-simple-conversation?platform=android)
 
 ## Client Libraries
 
@@ -139,7 +139,7 @@ source: _examples/conversations/overview/join-the-conversation/
 
 ## References
 
-* [API Reference](/api/conversation)
+* [API Reference](/api/stitch)
 * [Nexmo CLI](https://github.com/nexmo/nexmo-cli/tree/beta)
 * [Server-side Gateway](https://github.com/Nexmo/messaging-gateway) with [Android](https://github.com/Nexmo/messaging-demo-android) and [JavaScript](https://github.com/Nexmo/messaging-demo-js) client demos
 

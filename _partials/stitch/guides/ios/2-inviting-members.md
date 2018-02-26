@@ -65,7 +65,7 @@ Now, let's update the login workflow to accommodate a second user.
 
 Define a variable with a value of the second User JWT that was created earlier and set the value to the `SECOND_USER_JWT` that was generated earlier.
 
-```Swift
+```swift
 // a stub for holding the value of private.key 
 struct Authenticate {
 
@@ -78,7 +78,7 @@ struct Authenticate {
 Update the authenticate function with an instance of `UIAlertController` with an action for one user, another for another user. 
 
 
-```Swift
+```swift
    // login button
     @IBAction func loginBtn(_ sender: Any) {
         
@@ -172,7 +172,7 @@ We'll be running this device on two different devices (on an iOS simulator and a
 
 The next step is to update the login method to listen to changes in conversations' array on the `client.conversation` that we will configure to subscribe to events for users inivited to a conversation. Once a user receives an invite, we're going to automatically join the user to that Conversation.
 
-```Swift
+```swift
  // whenver the conversations array is modified
                     self.client.conversation.conversations.asObservable.subscribe(onNext: { (change) in
                         switch change {
@@ -199,7 +199,7 @@ As soon as the invite is received, the user subscribes to the conversation.
 
 As soon as the user subscribes to a conversation, we check to see whether the user joined the conversation or not. 
 
-```Swift
+```swift
 		
 		// figure out which conversation a member has joined
 		_ = self.client.conversation.conversations.filter({ (conversation) -> Bool in
@@ -250,4 +250,4 @@ Return to your emulators so you can see `alice` has a conversation listed now. Y
 
 # Trying it out
 
-Once you've completed this quickstart, you can run the sample app on two different devices. You'll be able to login as a user, join an existing conversation or receive invites, and chat with users. Here's a gif of our quickstart in action.
+Once you've completed this quickstart, you can run the sample app on two different devices. You'll be able to login as a user, join an existing conversation or receive invites, and chat with users.

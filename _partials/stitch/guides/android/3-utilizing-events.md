@@ -462,6 +462,4 @@ We've added `Member self` to our constructor and as a member variable to the `Ch
 # Trying it out
 
 Run the apps on both of your emulators. On one of them, login with the username "jamie". On the other emulator login with the username "alice"
-Once you've completed this quickstart, you can run the sample app on two different devices. You'll be able to login as a user, join an existing conversation, chat with users, show a typing indicator, and mark messages as read. Here's a gif of our quickstart in action.
-
-![Awesome Chat](http://g.recordit.co/hfTUzwQYNH.gif)
+Once you've completed this quickstart, you can run the sample app on two different devices. You'll be able to login as a user, join an existing conversation, chat with users, show a typing indicator, and mark messages as read.

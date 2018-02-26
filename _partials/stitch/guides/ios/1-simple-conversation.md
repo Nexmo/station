@@ -14,8 +14,7 @@ This guide will introduce you to the following concepts.
 
 ### Before you begin
 
-* _**[Contact us](mailto:ea-support@nexmo.com) for access to the CocoaPod (if you haven't already done so)**_
-* Ensure you have Node.JS and NPM installed (you'll need it for the Nexmo CLI) <sup>[1](#myfootnote1)</sup>
+* Ensure you have Node.JS and NPM installed (you'll need it for the Nexmo CLI)
 * Ensure you have Xcode installed
 * Create a free Nexmo account - [signup](https://dashboard.nexmo.com)
 * Install the Nexmo CLI:
@@ -160,7 +159,7 @@ target 'QuickStartOne' do
 end
 
 ```
-### 2.2 Adding ViewControllers & .storyboard files
+### 2.3 Adding ViewControllers & .storyboard files
 
 Let's add a few view controllers. Start by adding a custom subclass of `UIViewController` from a CocoaTouch file named `LoginViewController`, which we will use for creating the login functionality, and another custom subclass of `UIViewController` from a CocoaTouch file named `ChatViewController`, which we will use for creating the chat functionality. Add two new scenes to `Main.storyboard`, assigning each to one of the added custom subclasses of `UIViewController` respectively. 
 
@@ -173,16 +172,16 @@ Let's layout the login functionality. Set constraints on the top & leading attri
 
 Below `UIKit` let's import the `NexmoConversation`. Next we setup a custom instance of the `ConversationClient` and saving it as a member variable in the view controller. 
 
-```Swift
+```swift
     /// Nexmo Conversation client
     let client: ConversationClient = {
         return ConversationClient.instance
     }()
 ```
 
-We also need to wire up the buttons in `LoginViewController.swift` Don't forget to replace `USER_JWT` with the JWT generated from the Nexmo CLI in [step 1.6](#16---generate-a-user-jwt).
+We also need to wire up the buttons in `LoginViewController.swift` Don't forget to replace `USER_JWT` with the JWT generated from the Nexmo CLI in step 1.5.
 
-```Swift
+```swift
     // status label
     @IBOutlet weak var statusLbl: UILabel!
     
@@ -263,7 +262,7 @@ Next, let's stub out the login workflow.
 
 Create an authenticate struct with a member set as `userJWT`. For now, stub it out to always return the vaue for `USER_JWT`. 
 
-```Swift
+```swift
 // a stub for holding the value for private.key 
 struct Authenticate {
 
@@ -278,9 +277,9 @@ After the user logs in, they'll press the "Chat" button which will take them to 
 
 As we mentioned above, creating a conversation results from a call to the the new() method. In the absence of a server we’ll ‘simulate’ the creation of a conversation within the app when the user clicks the chatBtn.
 
-When we construct the segue for `ChatViewController`, we pass the first conversation so that the new controller. Remember that the `CONVERSATION_ID` comes from the id generated in [step 1.3](#13---create-a-conversation).
+When we construct the segue for `ChatViewController`, we pass the first conversation so that the new controller. Remember that the `CONVERSATION_ID` comes from the id generated in step 1.2.
 
-```Swift
+```swift
     // prepare(for segue:)
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -303,7 +302,7 @@ We'll make a `ChatActivity` with this as the layout. Add an instance of UITextVi
 
 Like last time we'll wire up the views in `ChatViewController.swift` We also need to grab the reference to `conversation` from the incoming view controller.
 
-```Swift
+```swift
 
 import UIKit
 import NexmoConversation
@@ -327,7 +326,7 @@ class ChatController: UIViewController {
 
 To send a message we simply need to call `send()` on our instance of `conversation`. `send()` takes one argument, a `String message`.
 
-```Swift
+```swift
     // sendBtn for sending text
     @IBAction func sendBtn(_ sender: Any) {
         
@@ -346,7 +345,7 @@ To send a message we simply need to call `send()` on our instance of `conversati
 
 In `viewDidLoad()` we want to add a handler for handling new events like the TextEvents we create when we press the send button. We can do this like so:
 
-```Swift
+```swift
         // a handler for updating the textView with TextEvents
         conversation?.events.newEventReceived.addHandler { event in
             guard let event = event as? TextEvent, event.isCurrentlyBeingSent == false else { return }
@@ -359,8 +358,3 @@ In `viewDidLoad()` we want to add a handler for handling new events like the Tex
 ## 3.0 - Trying it out
 
 After this you should be able to run the app and send messages.
-
-![Hello world!](http://recordit.co/1Gqo2J5rfn)
-
-##### Footnotes 
-<a name="myfootnote1">1</a>: Since MacOS is a UNIX based OS, the best practice for installation is to avoid `sudo`. Node.js requires `sudo` but [Homebrew](https://brew.sh/), the missing package manager for macOS, does not. Additionally, the `$PATH` (i.e., to the Node executable) is automatically defined.  
