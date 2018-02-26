@@ -253,62 +253,7 @@ paths:
         required: true
         description: Conversation ID
         schema:
-          type: string
-    post:
-      x-swagger-router-controller: rtc
-      operationId: createCall
-      x-group: conversation
-      summary: Create a call
-      responses:
-        '201':
-          $ref: '#/components/responses/CallCreated'
-        '400':
-          $ref: '#/components/responses/ClientError'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CreateCall'
-
-  /sessions:
-    post:
-      x-swagger-router-controller: sessions
-      operationId: createSession
-      x-group: session
-      summary: Create a session
-      responses:
-        '201':
-          $ref: '#/components/responses/SessionCreated'
-        '400':
-          $ref: '#/components/responses/ClientError'
-      requestBody:
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              type: object
-              properties:
-                capi_id:
-                  type: string
-                callback:
-                  type: string
-  '/sessions/{session_id}':
-    parameters:
-      - name: session_id
-        in: path
-        required: true
-        description: Session ID
-        schema:
-          type: string
-    delete:
-      x-swagger-router-controller: sessions
-      operationId: deleteSession
-      x-group: session
-      summary: Delete a session
-      responses:
-        '200':
-          $ref: '#/components/responses/SessionDeleted'
-        '400':
-          $ref: '#/components/responses/ClientError'
+          type: string         
   /users:
     post:
       x-swagger-router-controller: users
