@@ -28,7 +28,7 @@
         <article>
             <pre class="prettyprint source linenums"><code>/*
  * Conversation SDK
- *  Member object model
+ *  Member Object Model
  *
  * Copyright (c) Nexmo Inc. 2015
  */
@@ -37,7 +37,7 @@ var WildEmitter = require('wildemitter');
 var User = require('./user').User;
 var Event = require('./events/event').Event;
 var TextEvent = require('./events/text_event').TextEvent;
-var ImageEvent = require('./events/image_event').ImageEvent;
+var ImageEvent = require('./events/image_event');
 
 // Conversation Client Error
 var ConversationClientError = require('./conversationClientError');
@@ -49,7 +49,7 @@ var NexmoClientError = ConversationClientError.NexmoClientError;
  * An individual user (i.e. conversation member).
  * @class
  * @param {Conversation} conversation
- * @param {Object} params 
+ * @param {object} params 
  */
 var Member = function(conversation, params) {
     this.conversation = conversation;
@@ -105,19 +105,15 @@ var Member = function(conversation, params) {
             delete this.user.user_id;
         }
     }
-    // call WildEmitter constructor
-    WildEmitter.call(this);
     this._normalise(params);
 };
 
-Member.prototype = new WildEmitter();
-//reset the original Type
-Member.prototype.constructor = Member;
+WildEmitter.mixin(Member);
 
 /*
  * Play the given stream only to this member within the conversation
  * 
- * @param {String} [params] 
+ * @param {string} [params] 
  * 
  * @returns {Promise&lt;Event>} - not tested yet
  */
@@ -144,7 +140,7 @@ Member.prototype.playStream = function(params) {
 /** 
  * Speak the given text only to this member within the conversation
  * 
- * @param {String} [params] 
+ * @param {string} [params] 
  * 
  * @returns {Promise&lt;Event>}
  */
@@ -197,12 +193,11 @@ Member.prototype.kick = function() {
 };
 
 /**
- * @ignore
  * Mute this member
- * 
- * @param {Boolean} [params] is muted
- * 
- * @returns {Promise} - 
+ * @param {Boolean} [mute] is muted
+ *
+ * @returns {Promise} -
+ *
  */
 Member.prototype.mute = function(mute) {
     var self = this;
@@ -231,7 +226,7 @@ Member.prototype.mute = function(mute) {
 /*
  * Control the volume of this member
  * 
- * @param {String} [params] 
+ * @param {string} [params] 
  * 
  * @returns {Promise} - not tested yet
  */
@@ -260,12 +255,12 @@ Member.prototype.volume = function(up) {
 };
 
 /**
- * @ignore
  * Earmuff this member
  * 
  * @param {Boolean} [params] 
  * 
- * @returns {Promise} 
+ * @returns {Promise}
+ *
  */
 Member.prototype.earmuff = function(earmuff) {
     var self = this;
@@ -298,7 +293,7 @@ Member.prototype.earmuff = function(earmuff) {
 /*
  * Record this member
  * 
- * @param {String} [params] 
+ * @param {string} [params] 
  * 
  * @returns {Promise} - not tested yet
  */
@@ -359,13 +354,13 @@ module.exports = {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ConversationClientErrorTypes">ConversationClientErrorTypes</a></li><li><a href="global.html#me">me</a></li><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li><li><a href="global.html#NexmoClientErrorTypes">NexmoClientErrorTypes</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:call:member:state">call:member:state</a></li><li><a href="Call.html#event:call:state:changed">call:state:changed</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CALL_STATES">CALL_STATES</a></li><li><a href="global.html#ConversationClientErrorTypes">ConversationClientErrorTypes</a></li><li><a href="global.html#me">me</a></li><li><a href="global.html#MEMBER_CALL_STATES">MEMBER_CALL_STATES</a></li><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li><li><a href="global.html#NexmoClientErrorTypes">NexmoClientErrorTypes</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Jan 08 2018 16:23:20 GMT+0000 (GMT)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Feb 23 2018 20:11:48 GMT+0000 (GMT)
 </footer>
 
 <script> prettyPrint(); </script>

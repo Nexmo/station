@@ -14,7 +14,7 @@
     <a title="SynchronizingState Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">NexmoConversation Docs</a> (70% documented)</p>
+        <p><a href="../index.html">NexmoConversation Docs</a> (100% documented)</p>
         <p class="header-right"><a href="https://github.com/Nexmo/conversation-ios-sdk"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -84,13 +84,16 @@
                 <a href="../Classes/User.html">User</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/Audio.html">Audio</a>
+                <a href="../Classes/Media.html">Media</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/Audio/State.html">– State</a>
+                <a href="../Classes/Media/State.html">– State</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/Audio/Errors.html">– Errors</a>
+                <a href="../Classes/Media/Errors.html">– Errors</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Call.html">Call</a>
               </li>
             </ul>
           </li>
@@ -107,9 +110,6 @@
                 <a href="../Classes/ConversationController.html">ConversationController</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/ConversationController/JoinConversation.html">– JoinConversation</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Classes/AppLifecycleController.html">AppLifecycleController</a>
               </li>
               <li class="nav-group-task">
@@ -119,16 +119,13 @@
                 <a href="../Classes/MediaController.html">MediaController</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/MediaController/Media.html">– Media</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/PushNotificationController.html">PushNotificationController</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/PushNotificationController/State.html">– State</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/RTCController.html">RTCController</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/RTCController/Media.html">– Media</a>
               </li>
             </ul>
           </li>
@@ -183,9 +180,6 @@
                 <a href="../Structs/MemberModel/State.html">– State</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/MemberModel/Action.html">– Action</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Structs/MemberModel/Channel.html">– Channel</a>
               </li>
               <li class="nav-group-task">
@@ -235,6 +229,17 @@
             </ul>
           </li>
           <li class="nav-group-name">
+            <a href="../Observable.html">Observable</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/Observable.html">Observable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MutableObservable.html">MutableObservable</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
             <a href="../Other Guides.html">Other Guides</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
@@ -255,7 +260,7 @@
                 <a href="../Classes/Signal.html">Signal</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/SignalBase.html">SignalBase</a>
+                <a href="../Other Classes.html#/s:17NexmoConversation10SignalBaseC">SignalBase</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/SignalReference.html">SignalReference</a>
@@ -274,17 +279,6 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Other Extensions.html">Other Extensions</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Extensions/ObservableType.html">ObservableType</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Extensions/PrimitiveSequence.html">PrimitiveSequence</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
             <a href="../Other Protocols.html">Other Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
@@ -294,7 +288,7 @@
                 <a href="../Protocols/NetworkErrorProtocol.html">NetworkErrorProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/RawDecodable.html">RawDecodable</a>
+                <a href="../Protocols/ObservableConvertible.html">ObservableConvertible</a>
               </li>
             </ul>
           </li>
@@ -314,7 +308,7 @@
             <h1>SynchronizingState</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">SynchronizingState</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">SynchronizingState</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="kt">CustomDebugStringConvertible</span></code></pre>
 
                 </div>
               </div>
@@ -346,7 +340,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>processing conversations</p>
 
                       </div>
                       <div class="declaration">
@@ -377,7 +371,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>processing events</p>
 
                       </div>
                       <div class="declaration">
@@ -408,7 +402,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>processing members</p>
 
                       </div>
                       <div class="declaration">
@@ -439,7 +433,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>processing users</p>
 
                       </div>
                       <div class="declaration">
@@ -470,7 +464,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>processing receipts</p>
 
                       </div>
                       <div class="declaration">
@@ -501,7 +495,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>sending all unsent request i.e events</p>
 
                       </div>
                       <div class="declaration">
@@ -520,7 +514,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2018-02-02)</p>
+          <p>&copy; 2018 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2018-02-22)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

@@ -13,7 +13,7 @@
     <a title="DesignRationale  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">NexmoConversation Docs</a> (70% documented)</p>
+        <p><a href="index.html">NexmoConversation Docs</a> (100% documented)</p>
         <p class="header-right"><a href="https://github.com/Nexmo/conversation-ios-sdk"><img src="img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -83,13 +83,16 @@
                 <a href="Classes/User.html">User</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/Audio.html">Audio</a>
+                <a href="Classes/Media.html">Media</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/Audio/State.html">– State</a>
+                <a href="Classes/Media/State.html">– State</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/Audio/Errors.html">– Errors</a>
+                <a href="Classes/Media/Errors.html">– Errors</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/Call.html">Call</a>
               </li>
             </ul>
           </li>
@@ -106,9 +109,6 @@
                 <a href="Classes/ConversationController.html">ConversationController</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/ConversationController/JoinConversation.html">– JoinConversation</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Classes/AppLifecycleController.html">AppLifecycleController</a>
               </li>
               <li class="nav-group-task">
@@ -118,16 +118,13 @@
                 <a href="Classes/MediaController.html">MediaController</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/MediaController/Media.html">– Media</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/PushNotificationController.html">PushNotificationController</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/PushNotificationController/State.html">– State</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/RTCController.html">RTCController</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/RTCController/Media.html">– Media</a>
               </li>
             </ul>
           </li>
@@ -182,9 +179,6 @@
                 <a href="Structs/MemberModel/State.html">– State</a>
               </li>
               <li class="nav-group-task">
-                <a href="Structs/MemberModel/Action.html">– Action</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Structs/MemberModel/Channel.html">– Channel</a>
               </li>
               <li class="nav-group-task">
@@ -234,6 +228,17 @@
             </ul>
           </li>
           <li class="nav-group-name">
+            <a href="Observable.html">Observable</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/Observable.html">Observable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/MutableObservable.html">MutableObservable</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
             <a href="Other Guides.html">Other Guides</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
@@ -254,7 +259,7 @@
                 <a href="Classes/Signal.html">Signal</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/SignalBase.html">SignalBase</a>
+                <a href="Other Classes.html#/s:17NexmoConversation10SignalBaseC">SignalBase</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/SignalReference.html">SignalReference</a>
@@ -273,17 +278,6 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="Other Extensions.html">Other Extensions</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="Extensions/ObservableType.html">ObservableType</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Extensions/PrimitiveSequence.html">PrimitiveSequence</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
             <a href="Other Protocols.html">Other Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
@@ -293,7 +287,7 @@
                 <a href="Protocols/NetworkErrorProtocol.html">NetworkErrorProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a href="Protocols/RawDecodable.html">RawDecodable</a>
+                <a href="Protocols/ObservableConvertible.html">ObservableConvertible</a>
               </li>
             </ul>
           </li>
@@ -356,21 +350,21 @@
 
 <p>A major design rationale we have undertaken in Swift is to use reactive(Rx) programming paradigm to better leverage events and chaining whilst in Objective-C providing a simple closure blocked base syntax.</p>
 
-<p>Reactive (Rx) programming provides a way for composing asynchronous and event-based streams which can be observed or chained together. A stream is a sequence of ongoing events ordered in time. It can emit three different things: a value (of some type), an error, or a <q>completed</q> signal. The SDK uses <a href="RxSwift">https://github.com/ReactiveX/RxSwift</a> objects such as <code>Observables</code> and <code>Variable</code> object to help facilitate the use of reactive behaviour.</p>
+<p>Reactive (Rx) programming provides a way for composing asynchronous and event-based streams which can be observed or chained together. A stream is a sequence of ongoing events ordered in time. It can emit three different things: a value (of some type), an error, or a <q>completed</q> signal. The SDK uses <a href="RxSwift">https://github.com/ReactiveX/RxSwift</a> objects such as <code>Observables</code> and <code>Variable</code> object to help facilitate the use of reactive behaviour. For SDK uses we created a very simple wrapper that allows you to subscribe and create a chain of varies actions without having to learn too much about other paradigms.</p>
 <h4 id='observables-and-observers' class='heading'>Observables and Observers</h4>
 
-<p>Two concepts to be aware of for this guide are the <code>Observable</code> and the <code>Observer</code>.
-    - An <code>Observable</code> is something which emits notifications of change.
+<p>Two concepts to be aware of for this guide are the <code><a href="Classes/Observable.html">Observable</a></code> and the <code>Observer</code>.
+    - An <code><a href="Classes/Observable.html">Observable</a></code> is something which emits notifications of change.
     - An <code>Observer</code> is something which subscribes to an Observable, in order to be notified when it has changed.
 You can have multiple Observers listening to an Observable. This means that when the Observable changes, it will notify all its Observers.</p>
 
-<p>Observing for change in client state i.e connected, sync etc.. To observe to an <code>Observable</code> object, we first have to call subscription or a high-order function like:</p>
+<p>Observing for change in client state i.e connected, sync etc.. To observe to an <code><a href="Classes/Observable.html">Observable</a></code> object, we first have to call subscription or a high-order function like:</p>
 <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">client</span> <span class="o">=</span> <span class="kt">ConversationClient</span><span class="o">.</span><span class="n">instance</span>
 
 <span class="c1">// observe for changes in client state</span>
-<span class="n">client</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="nf">asObservable</span><span class="p">()</span><span class="o">.</span><span class="nf">subscribe</span><span class="p">(</span><span class="nv">onNext</span><span class="p">:</span> <span class="p">{</span> <span class="n">state</span> <span class="k">in</span>
+<span class="n">client</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="nf">subscribe</span><span class="p">(</span><span class="nv">onSuccess</span><span class="p">:</span> <span class="p">{</span> <span class="n">state</span> <span class="k">in</span>
     <span class="c1">// new state</span>
-<span class="p">})</span><span class="o">.</span><span class="nf">addDisposableTo</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">disposeBag</span><span class="p">)</span>
+<span class="p">})</span>
 </code></pre>
 
 <p>The <code>.subscribe()</code> function allows developers to listen for the next result, errors and when it is complete</p>
@@ -388,13 +382,13 @@ You can have multiple Observers listening to an Observable. This means that when
 <pre class="highlight plaintext"><code>// SDK
 let client = ConversationClient.instance
 
-client.conversation.conversations.asObservable.subscribe(onNext: { changes in
+client.conversation.conversations.asObservable.subscribe(onSuccess: { changes in
     switch changes {
-    case .inserted(let conversations, let reason): break
+    case .inserted(let conversation, let reason): break
     case .updated(let conversations): break
     case .deleted(let conversations): break
     }
-}).addDisposableTo(client.disposeBag)
+})
 </code></pre>
 
 <p>Chaining actions together i.e login, create conversation and than send a text event. Example of using Swift high order function to chain request together:  </p>
@@ -403,22 +397,18 @@ client.conversation.conversations.asObservable.subscribe(onNext: { changes in
 <span class="c1">// send a text event</span>
 <span class="n">client</span>
     <span class="o">.</span><span class="nf">login</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="s">"TOKEN_HERE"</span><span class="p">)</span><span class="o">.</span><span class="nf">asObservable</span><span class="p">()</span>
-    <span class="o">.</span><span class="n">flatMap</span> <span class="p">{</span> <span class="n">client</span><span class="o">.</span><span class="n">conversation</span><span class="o">.</span><span class="nf">new</span><span class="p">(</span><span class="s">"New conversation"</span><span class="p">,</span> <span class="nv">withJoin</span><span class="p">:</span> <span class="kc">true</span><span class="p">)</span><span class="o">.</span><span class="nf">asObservable</span><span class="p">()</span> <span class="p">}</span>
-    <span class="o">.</span><span class="nf">do</span><span class="p">(</span><span class="nv">onNext</span><span class="p">:</span> <span class="p">{</span> <span class="n">_</span> <span class="o">=</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">invite</span><span class="p">(</span><span class="s">"User 2"</span><span class="p">)</span><span class="o">.</span><span class="nf">subscribe</span><span class="p">()</span> <span class="p">})</span>
-    <span class="o">.</span><span class="nf">subscribe</span><span class="p">(</span><span class="nv">onNext</span><span class="p">:</span> <span class="p">{</span> <span class="n">conversation</span> <span class="k">in</span>
+    <span class="o">.</span><span class="n">flatMap</span> <span class="p">{</span> <span class="n">client</span><span class="o">.</span><span class="n">conversation</span><span class="o">.</span><span class="nf">new</span><span class="p">(</span><span class="s">"New conversation"</span><span class="p">,</span> <span class="nv">withJoin</span><span class="p">:</span> <span class="kc">true</span><span class="p">)</span> <span class="p">}</span>
+    <span class="o">.</span><span class="nf">subscribe</span><span class="p">(</span><span class="nv">onSuccess</span><span class="p">:</span> <span class="p">{</span> <span class="n">conversation</span> <span class="k">in</span>
         <span class="k">try</span><span class="p">?</span> <span class="n">conversation</span><span class="o">.</span><span class="nf">send</span><span class="p">(</span><span class="s">"Hello World!"</span><span class="p">)</span>
-    <span class="p">})</span><span class="o">.</span><span class="nf">addDisposableTo</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">disposeBag</span><span class="p">)</span>
+    <span class="p">})</span>
 </code></pre>
 
 <p>The following will first login, after that has been successful it will create a new conversation with join, invite a new user and then send a text event.</p>
-<h4 id='dispose-bag' class='heading'>Dispose bag:</h4>
-
-<p>All subscription requires a dispose bag to be returned to the calling function to help with memory references counting in Swift. Dispose bags are used to return ARC like behaviour to RxSwift, when a DisposeBag is deallocated (i.e when parent object called deinit) it will call dispose on each of the added disposables.</p>
 
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2018-02-02)</p>
+          <p>&copy; 2018 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2018-02-22)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

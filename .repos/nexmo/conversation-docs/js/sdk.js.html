@@ -39,10 +39,11 @@ var logger = require('loglevel');
 var prefix = require('loglevel-plugin-prefix');
 
 var utils = require('./utils');
-
 var RTC_Cache = require('./modules/rtc_cache');
-var Application = require('./application').Application,
-	User = require('./user').User;
+var Application = require('./application').Application;
+var User = require('./user').User;
+
+prefix.reg(logger);
 
 prefix.apply(logger, {
 	template: '[%t] %l (NXM-%n):',
@@ -67,16 +68,16 @@ var NexmoClientError = ConversationClientError.NexmoClientError;
  * The parent ConversationClient class.
  *
  * @class ConversationClient
- * @param {Object} [params]
+ * @param {object} [params]
  * @param {Boolean} params.debug=false set mode to debug
- * @param {String} params.url=nexmo_ws_url Nexmo Conversation Websocket url 
- * @param {String} params.path=/rtc Nexmo Conversation Websocket url path suffix
+ * @param {string} params.url=nexmo_ws_url Nexmo Conversation Websocket url 
+ * @param {string} params.path=/rtc Nexmo Conversation Websocket url path suffix
  * @param {Boolean} params.reconnection=true socket.io reconnection attribute
  * @param {Boolean} params.forceNew=true socket.io forceNew attribute
  * @param {Boolean} params.autoConnect=true socket.io autoConnect attribute
- * @param {String} params.ips_url=ips_url Nexmo IPS url for image upload
- * @param {String} params.environment='production' development / production environment
- * @param {Object} params.iceServers={'stun:stun.l.google.com:19302'} iceServers for RTCPeerConnection
+ * @param {string} params.ips_url=ips_url Nexmo IPS url for image upload
+ * @param {string} params.environment='production' development / production environment
+ * @param {object} params.iceServers={'stun:stun.l.google.com:19302'} iceServers for RTCPeerConnection
  *
  * @fires ConversationClient#ready
  */
@@ -100,7 +101,9 @@ function ConversationClient(params) {
 		url: '@@ws_url',
 		iceServers: {
 			urls: 'stun:stun.l.google.com:19302'
-		}
+		},
+		rtcstarts_enables: false,
+		rtcstarts_url: '@@rtcstarts_url'
 	};
 	var item,
 		connection;
@@ -154,8 +157,6 @@ function ConversationClient(params) {
 			});
 		}
 	}
-	// call WildEmitter constructor
-	WildEmitter.call(this);
 
 	// Create the socket.io connection and allow multiple instances
 	connection = socket_io.connect(config.url, {
@@ -273,7 +274,7 @@ function ConversationClient(params) {
 	});
 }
 
-ConversationClient.prototype = new WildEmitter();
+WildEmitter.mixin(ConversationClient);
 
 /**
  * Conversation listening for text events.
@@ -382,7 +383,7 @@ ConversationClient.prototype = new WildEmitter();
  * });
  */
 /**
- * Conversation listening for members stoped typing.
+ * Conversation listening for members stopped typing.
  *
  * @event Conversation#text:typing:off
  * 
@@ -473,7 +474,7 @@ ConversationClient.prototype.sendRequest = function(request, callback) {
 /**
  * Login to the cloud.
  *x
- * @param {String} params.token - the login token
+ * @param {string} params.token - the login token
  */
 ConversationClient.prototype.login = function(token) {
 	var self = this;
@@ -481,19 +482,19 @@ ConversationClient.prototype.login = function(token) {
 	// return a promise for the application
 	var p = new Promise(function(resolve, reject) {
 		//make sure the token gets removed from localstorage until we work the retry mechanism
-		if (typeof(Storage) !== "undefined") {
+		if (typeof (Storage) !== "undefined") {
 			localStorage.removeItem("NXMO_user_data");
 		}
 		self.sendRequest({
-				type: 'session:login',
-				body: {
-					token: token,
-					SDK_version: self.config.SDK_version,
-					//device_id: //can use https://github.com/Valve/fingerprintjs2,
-					OS_family: 'js',
-					OS_revision: (typeof navigator !== "undefined") ? navigator.userAgent : (typeof window !== "undefined") ? window.navigator.userAgent : "Generic JS navigator"
-				}
-			},
+			type: 'session:login',
+			body: {
+				token: token,
+				SDK_version: self.config.SDK_version,
+				//device_id: //can use https://github.com/Valve/fingerprintjs2,
+				OS_family: 'js',
+				OS_revision: (typeof navigator !== "undefined") ? navigator.userAgent : (typeof window !== "undefined") ? window.navigator.userAgent : "Generic JS navigator"
+			}
+		},
 			function(response) {
 				if (response.type === "session:success") {
 					var application = new Application(self);
@@ -578,10 +579,10 @@ ConversationClient.prototype.logout = function() {
 		}
 
 		// prepare for logout
-		if (self.application &amp;&amp; self.application.activeStream &amp;&amp; self.application.activeStream.stream) {
+		if (self.application &amp;&amp; self.application.activeStream) {
 			self.application.activeStream.conversation.media.disable()
 				// mimicking .finally
-				.then(function() {}).catch(function() {}).then(function() {
+				.then(function() { }).catch(function() { }).then(function() {
 					logoutRequest();
 				});
 		} else {
@@ -618,13 +619,13 @@ module.exports = ConversationClient;</code></pre>
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ConversationClientErrorTypes">ConversationClientErrorTypes</a></li><li><a href="global.html#me">me</a></li><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li><li><a href="global.html#NexmoClientErrorTypes">NexmoClientErrorTypes</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:call:member:state">call:member:state</a></li><li><a href="Call.html#event:call:state:changed">call:state:changed</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CALL_STATES">CALL_STATES</a></li><li><a href="global.html#ConversationClientErrorTypes">ConversationClientErrorTypes</a></li><li><a href="global.html#me">me</a></li><li><a href="global.html#MEMBER_CALL_STATES">MEMBER_CALL_STATES</a></li><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li><li><a href="global.html#NexmoClientErrorTypes">NexmoClientErrorTypes</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Jan 08 2018 16:23:20 GMT+0000 (GMT)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Feb 23 2018 20:11:48 GMT+0000 (GMT)
 </footer>
 
 <script> prettyPrint(); </script>

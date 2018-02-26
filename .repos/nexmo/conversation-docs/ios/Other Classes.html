@@ -13,7 +13,7 @@
     <a title="Other Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">NexmoConversation Docs</a> (70% documented)</p>
+        <p><a href="index.html">NexmoConversation Docs</a> (100% documented)</p>
         <p class="header-right"><a href="https://github.com/Nexmo/conversation-ios-sdk"><img src="img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -83,13 +83,16 @@
                 <a href="Classes/User.html">User</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/Audio.html">Audio</a>
+                <a href="Classes/Media.html">Media</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/Audio/State.html">– State</a>
+                <a href="Classes/Media/State.html">– State</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/Audio/Errors.html">– Errors</a>
+                <a href="Classes/Media/Errors.html">– Errors</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/Call.html">Call</a>
               </li>
             </ul>
           </li>
@@ -106,9 +109,6 @@
                 <a href="Classes/ConversationController.html">ConversationController</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/ConversationController/JoinConversation.html">– JoinConversation</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Classes/AppLifecycleController.html">AppLifecycleController</a>
               </li>
               <li class="nav-group-task">
@@ -118,16 +118,13 @@
                 <a href="Classes/MediaController.html">MediaController</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/MediaController/Media.html">– Media</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/PushNotificationController.html">PushNotificationController</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/PushNotificationController/State.html">– State</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/RTCController.html">RTCController</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/RTCController/Media.html">– Media</a>
               </li>
             </ul>
           </li>
@@ -182,9 +179,6 @@
                 <a href="Structs/MemberModel/State.html">– State</a>
               </li>
               <li class="nav-group-task">
-                <a href="Structs/MemberModel/Action.html">– Action</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Structs/MemberModel/Channel.html">– Channel</a>
               </li>
               <li class="nav-group-task">
@@ -234,6 +228,17 @@
             </ul>
           </li>
           <li class="nav-group-name">
+            <a href="Observable.html">Observable</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/Observable.html">Observable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/MutableObservable.html">MutableObservable</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
             <a href="Other Guides.html">Other Guides</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
@@ -254,7 +259,7 @@
                 <a href="Classes/Signal.html">Signal</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/SignalBase.html">SignalBase</a>
+                <a href="Other Classes.html#/s:17NexmoConversation10SignalBaseC">SignalBase</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/SignalReference.html">SignalReference</a>
@@ -273,17 +278,6 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="Other Extensions.html">Other Extensions</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="Extensions/ObservableType.html">ObservableType</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Extensions/PrimitiveSequence.html">PrimitiveSequence</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
             <a href="Other Protocols.html">Other Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
@@ -293,7 +287,7 @@
                 <a href="Protocols/NetworkErrorProtocol.html">NetworkErrorProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a href="Protocols/RawDecodable.html">RawDecodable</a>
+                <a href="Protocols/ObservableConvertible.html">ObservableConvertible</a>
               </li>
             </ul>
           </li>
@@ -320,9 +314,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@NexmoConversation@objc(cs)NXMSignalBase"></a>
+                    <a name="/s:17NexmoConversation10SignalBaseC"></a>
                     <a name="//apple_ref/swift/Class/SignalBase" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@NexmoConversation@objc(cs)NXMSignalBase">SignalBase</a>
+                    <a class="token" href="#/s:17NexmoConversation10SignalBaseC">SignalBase</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -330,16 +324,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Base Signal class. This definition does not use generics, and can therefore be used
-by objective C code.</p>
+                        <p>Base Signal class</p>
 
-                        <a href="Classes/SignalBase.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SignalBase</span><span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SignalBase</span></code></pre>
 
                         </div>
                       </div>
@@ -359,34 +351,7 @@ by objective C code.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The main signal class which uses generics to convey the parameter types of the signal. It is
-used liked this:</p>
-<pre class="highlight swift"><code>   <span class="k">let</span> <span class="nv">testSignal</span><span class="p">:</span> <span class="kt">Signal</span><span class="o">&lt;</span><span class="p">(</span><span class="kt">String</span><span class="p">,</span> <span class="kt">NSNumber</span><span class="p">)</span><span class="o">&gt;</span> <span class="o">=</span> <span class="kt">Signal</span><span class="p">()</span>
-</code></pre>
-
-<p>Note that the signal parameters are passed in a tuple (ie. in brackets).</p>
-
-<p>Two types of handler are supported: selector based and Swift functions, they are registered
-as follows:</p>
-<pre class="highlight swift"><code>   <span class="k">let</span> <span class="nv">ref1</span> <span class="o">=</span> <span class="n">testSignal</span><span class="o">.</span><span class="nf">addHandler</span><span class="p">(</span><span class="k">self</span><span class="p">,</span> <span class="nv">selector</span><span class="p">:</span> <span class="kd">#selector(</span><span class="nf">AnObject.selHandler(_:p2:)</span><span class="kd">)</span><span class="p">)</span>
-   <span class="k">let</span> <span class="nv">ref2</span> <span class="o">=</span> <span class="n">testSignal</span><span class="o">.</span><span class="nf">addHandler</span><span class="p">(</span><span class="k">self</span><span class="p">,</span> <span class="nv">handler</span><span class="p">:</span> <span class="kt">AnObject</span><span class="o">.</span><span class="n">swiftHandler</span><span class="p">)</span>
-</code></pre>
-
-<p>The references that are returned can be used to later remove the handler using dispose(). A
-weak reference is kept for the target, so that if the lifecycle of the handler mirros that
-of the target, you don&rsquo;t need to call dispose(). This is useful in UI code which doesn&rsquo;t
-have a <q>destructor</q>. So you only need to remember the references if you want to dictate
-when to remove the handler. If you don&rsquo;t care, you don&rsquo;t have to remember the reference and
-the garbage collector will take care of everything.</p>
-
-<p>To immediately remove a handler, call dispose() on the reference from addHandler():</p>
-<pre class="highlight swift"><code>   <span class="n">ref1</span><span class="o">.</span><span class="nf">dispose</span><span class="p">()</span>
-   <span class="n">ref2</span><span class="o">.</span><span class="nf">dispose</span><span class="p">()</span>
-</code></pre>
-
-<p>To raise/trigger the signal call emit, passing the parameters in a tuple:</p>
-<pre class="highlight swift"><code>   <span class="n">testSignal</span><span class="o">.</span><span class="nf">emit</span><span class="p">((</span><span class="s">"Foo"</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-</code></pre>
+                        <p>The main signal class which uses generics to convey the parameter types of the signal</p>
 
                         <a href="Classes/Signal.html" class="slightly-smaller">See more</a>
                       </div>
@@ -394,7 +359,7 @@ the garbage collector will take care of everything.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">Signal</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="Classes/SignalBase.html">SignalBase</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">Signal</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="Other Classes.html#/s:17NexmoConversation10SignalBaseC">SignalBase</a></span></code></pre>
 
                         </div>
                       </div>
@@ -408,9 +373,9 @@ the garbage collector will take care of everything.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@NexmoConversation@objc(cs)NXMSignalReference"></a>
+                    <a name="/c:@M@NexmoConversation@objc(cs)SignalReference"></a>
                     <a name="//apple_ref/swift/Class/SignalReference" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@NexmoConversation@objc(cs)NXMSignalReference">SignalReference</a>
+                    <a class="token" href="#/c:@M@NexmoConversation@objc(cs)SignalReference">SignalReference</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -439,7 +404,7 @@ It is used to later remove the handler.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2018-02-02)</p>
+          <p>&copy; 2018 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2018-02-22)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

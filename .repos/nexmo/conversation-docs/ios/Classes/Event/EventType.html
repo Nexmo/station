@@ -14,7 +14,7 @@
     <a title="EventType Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../../index.html">NexmoConversation Docs</a> (70% documented)</p>
+        <p><a href="../../index.html">NexmoConversation Docs</a> (100% documented)</p>
         <p class="header-right"><a href="https://github.com/Nexmo/conversation-ios-sdk"><img src="../../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -84,13 +84,16 @@
                 <a href="../../Classes/User.html">User</a>
               </li>
               <li class="nav-group-task">
-                <a href="../../Classes/Audio.html">Audio</a>
+                <a href="../../Classes/Media.html">Media</a>
               </li>
               <li class="nav-group-task">
-                <a href="../../Classes/Audio/State.html">– State</a>
+                <a href="../../Classes/Media/State.html">– State</a>
               </li>
               <li class="nav-group-task">
-                <a href="../../Classes/Audio/Errors.html">– Errors</a>
+                <a href="../../Classes/Media/Errors.html">– Errors</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/Call.html">Call</a>
               </li>
             </ul>
           </li>
@@ -107,9 +110,6 @@
                 <a href="../../Classes/ConversationController.html">ConversationController</a>
               </li>
               <li class="nav-group-task">
-                <a href="../../Classes/ConversationController/JoinConversation.html">– JoinConversation</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../../Classes/AppLifecycleController.html">AppLifecycleController</a>
               </li>
               <li class="nav-group-task">
@@ -119,16 +119,13 @@
                 <a href="../../Classes/MediaController.html">MediaController</a>
               </li>
               <li class="nav-group-task">
+                <a href="../../Classes/MediaController/Media.html">– Media</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../../Classes/PushNotificationController.html">PushNotificationController</a>
               </li>
               <li class="nav-group-task">
                 <a href="../../Classes/PushNotificationController/State.html">– State</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../../Classes/RTCController.html">RTCController</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../../Classes/RTCController/Media.html">– Media</a>
               </li>
             </ul>
           </li>
@@ -183,9 +180,6 @@
                 <a href="../../Structs/MemberModel/State.html">– State</a>
               </li>
               <li class="nav-group-task">
-                <a href="../../Structs/MemberModel/Action.html">– Action</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../../Structs/MemberModel/Channel.html">– Channel</a>
               </li>
               <li class="nav-group-task">
@@ -235,6 +229,17 @@
             </ul>
           </li>
           <li class="nav-group-name">
+            <a href="../../Observable.html">Observable</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../../Classes/Observable.html">Observable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/MutableObservable.html">MutableObservable</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
             <a href="../../Other Guides.html">Other Guides</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
@@ -255,7 +260,7 @@
                 <a href="../../Classes/Signal.html">Signal</a>
               </li>
               <li class="nav-group-task">
-                <a href="../../Classes/SignalBase.html">SignalBase</a>
+                <a href="../../Other Classes.html#/s:17NexmoConversation10SignalBaseC">SignalBase</a>
               </li>
               <li class="nav-group-task">
                 <a href="../../Classes/SignalReference.html">SignalReference</a>
@@ -274,17 +279,6 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../../Other Extensions.html">Other Extensions</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../../Extensions/ObservableType.html">ObservableType</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../../Extensions/PrimitiveSequence.html">PrimitiveSequence</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
             <a href="../../Other Protocols.html">Other Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
@@ -294,7 +288,7 @@
                 <a href="../../Protocols/NetworkErrorProtocol.html">NetworkErrorProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a href="../../Protocols/RawDecodable.html">RawDecodable</a>
+                <a href="../../Protocols/ObservableConvertible.html">ObservableConvertible</a>
               </li>
             </ul>
           </li>
@@ -352,6 +346,9 @@
 <li>audioMute: audio mute</li>
 <li>audioEarmuffed: audio earmuffed</li>
 <li>audioSpeakingOn: audio speaking on</li>
+<li>sipHangUp: media hangup from member</li>
+<li>audioRingingStart: start ringing event</li>
+<li>audioRingingStop: stop ringing event</li>
 </ul>
 
           </section>
@@ -371,7 +368,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>invited</p>
 
                       </div>
                       <div class="declaration">
@@ -402,7 +399,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>joined</p>
 
                       </div>
                       <div class="declaration">
@@ -433,7 +430,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>lefted</p>
 
                       </div>
                       <div class="declaration">
@@ -464,7 +461,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>is typing</p>
 
                       </div>
                       <div class="declaration">
@@ -495,7 +492,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>is not typing</p>
 
                       </div>
                       <div class="declaration">
@@ -526,7 +523,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>deleted event</p>
 
                       </div>
                       <div class="declaration">
@@ -557,7 +554,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>text</p>
 
                       </div>
                       <div class="declaration">
@@ -588,7 +585,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>text delivered</p>
 
                       </div>
                       <div class="declaration">
@@ -619,7 +616,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>text seen</p>
 
                       </div>
                       <div class="declaration">
@@ -650,7 +647,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>image</p>
 
                       </div>
                       <div class="declaration">
@@ -681,7 +678,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>image delivered</p>
 
                       </div>
                       <div class="declaration">
@@ -712,7 +709,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>image seen</p>
 
                       </div>
                       <div class="declaration">
@@ -743,7 +740,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>new session</p>
 
                       </div>
                       <div class="declaration">
@@ -774,7 +771,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>offer model</p>
 
                       </div>
                       <div class="declaration">
@@ -805,7 +802,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>ICE model</p>
 
                       </div>
                       <div class="declaration">
@@ -836,7 +833,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>answer model</p>
 
                       </div>
                       <div class="declaration">
@@ -867,7 +864,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>call terminated</p>
 
                       </div>
                       <div class="declaration">
@@ -898,7 +895,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>member media</p>
 
                       </div>
                       <div class="declaration">
@@ -929,7 +926,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>audio play</p>
 
                       </div>
                       <div class="declaration">
@@ -960,7 +957,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>audio play done</p>
 
                       </div>
                       <div class="declaration">
@@ -991,7 +988,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>audio say</p>
 
                       </div>
                       <div class="declaration">
@@ -1022,7 +1019,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>audio say done</p>
 
                       </div>
                       <div class="declaration">
@@ -1053,7 +1050,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>audio dtmf</p>
 
                       </div>
                       <div class="declaration">
@@ -1084,7 +1081,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>audio record</p>
 
                       </div>
                       <div class="declaration">
@@ -1115,7 +1112,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>audio record done</p>
 
                       </div>
                       <div class="declaration">
@@ -1146,7 +1143,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>audio unmute</p>
 
                       </div>
                       <div class="declaration">
@@ -1177,7 +1174,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>audio unearmuff</p>
 
                       </div>
                       <div class="declaration">
@@ -1208,7 +1205,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>audio speaking off</p>
 
                       </div>
                       <div class="declaration">
@@ -1239,7 +1236,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>audio mute</p>
 
                       </div>
                       <div class="declaration">
@@ -1270,7 +1267,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>audio earmuffed</p>
 
                       </div>
                       <div class="declaration">
@@ -1301,7 +1298,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>audio speaking on</p>
 
                       </div>
                       <div class="declaration">
@@ -1332,7 +1329,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>media hangup from member</p>
 
                       </div>
                       <div class="declaration">
@@ -1348,10 +1345,72 @@
                 </li>
               </ul>
             </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17NexmoConversation5EventC0C4TypeO17audioRingingStartA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/audioRingingStart" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17NexmoConversation5EventC0C4TypeO17audioRingingStartA2EmF">audioRingingStart</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>start ringing event</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">audioRingingStart</span> <span class="o">=</span> <span class="s">"audio:ringing:start"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17NexmoConversation5EventC0C4TypeO16audioRingingStopA2EmF"></a>
+                    <a name="//apple_ref/swift/Element/audioRingingStop" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17NexmoConversation5EventC0C4TypeO16audioRingingStopA2EmF">audioRingingStop</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>stop ringing event</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">audioRingingStop</span> <span class="o">=</span> <span class="s">"audio:ringing:stop"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2018-02-02)</p>
+          <p>&copy; 2018 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2018-02-22)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

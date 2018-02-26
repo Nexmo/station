@@ -13,7 +13,7 @@
     <a title="CHANGELOG  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">NexmoConversation Docs</a> (70% documented)</p>
+        <p><a href="index.html">NexmoConversation Docs</a> (100% documented)</p>
         <p class="header-right"><a href="https://github.com/Nexmo/conversation-ios-sdk"><img src="img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -83,13 +83,16 @@
                 <a href="Classes/User.html">User</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/Audio.html">Audio</a>
+                <a href="Classes/Media.html">Media</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/Audio/State.html">– State</a>
+                <a href="Classes/Media/State.html">– State</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/Audio/Errors.html">– Errors</a>
+                <a href="Classes/Media/Errors.html">– Errors</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/Call.html">Call</a>
               </li>
             </ul>
           </li>
@@ -106,9 +109,6 @@
                 <a href="Classes/ConversationController.html">ConversationController</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/ConversationController/JoinConversation.html">– JoinConversation</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Classes/AppLifecycleController.html">AppLifecycleController</a>
               </li>
               <li class="nav-group-task">
@@ -118,16 +118,13 @@
                 <a href="Classes/MediaController.html">MediaController</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/MediaController/Media.html">– Media</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/PushNotificationController.html">PushNotificationController</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/PushNotificationController/State.html">– State</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/RTCController.html">RTCController</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/RTCController/Media.html">– Media</a>
               </li>
             </ul>
           </li>
@@ -182,9 +179,6 @@
                 <a href="Structs/MemberModel/State.html">– State</a>
               </li>
               <li class="nav-group-task">
-                <a href="Structs/MemberModel/Action.html">– Action</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Structs/MemberModel/Channel.html">– Channel</a>
               </li>
               <li class="nav-group-task">
@@ -234,6 +228,17 @@
             </ul>
           </li>
           <li class="nav-group-name">
+            <a href="Observable.html">Observable</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/Observable.html">Observable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/MutableObservable.html">MutableObservable</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
             <a href="Other Guides.html">Other Guides</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
@@ -254,7 +259,7 @@
                 <a href="Classes/Signal.html">Signal</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/SignalBase.html">SignalBase</a>
+                <a href="Other Classes.html#/s:17NexmoConversation10SignalBaseC">SignalBase</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/SignalReference.html">SignalReference</a>
@@ -273,17 +278,6 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="Other Extensions.html">Other Extensions</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="Extensions/ObservableType.html">ObservableType</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Extensions/PrimitiveSequence.html">PrimitiveSequence</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
             <a href="Other Protocols.html">Other Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
@@ -293,7 +287,7 @@
                 <a href="Protocols/NetworkErrorProtocol.html">NetworkErrorProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a href="Protocols/RawDecodable.html">RawDecodable</a>
+                <a href="Protocols/ObservableConvertible.html">ObservableConvertible</a>
               </li>
             </ul>
           </li>
@@ -311,7 +305,144 @@
         <section>
           <section class="section">
             
-            <h1 id='0-19-1-2-2-2018' class='heading'>0.19.1 / 2-2-2018</h1>
+            <h1 id='0-20-0-22-2-2018' class='heading'>0.20.0 / 22-2-2018</h1>
+<h1 id='breaking-changes' class='heading'>Breaking changes</h1>
+<h2 id='rename' class='heading'>Rename</h2>
+
+<ul>
+<li><code>Audio</code> class has been renamed to <code><a href="Classes/Media.html">Media</a></code></li>
+<li><code>RTCController</code> class has been renamed to <code><a href="Classes/MediaController.html">MediaController</a></code></li>
+</ul>
+
+<p>Previous version:</p>
+<pre class="highlight swift"><code><span class="kt">Conversation</span><span class="o">.</span><span class="n">audio</span>
+
+<span class="kt">Client</span><span class="o">.</span><span class="n">media</span>
+</code></pre>
+
+<p>New version:</p>
+<pre class="highlight swift"><code><span class="kt">Conversation</span><span class="o">.</span><span class="n">media</span>
+
+<span class="kt">Client</span><span class="o">.</span><span class="n">media</span> <span class="c1">// same property name</span>
+</code></pre>
+<h2 id='observable' class='heading'>Observable</h2>
+
+<ul>
+<li>Removed <code>RxSwift.Observable</code> object for our own wrapper which is well documented with a simpler API design. Now you have <code>NexmoConversation.Observable</code> and <code>NexmoConversation.MutableObservable</code></li>
+<li><code>Signal.addHandler</code> is now <code>.subscribe(onSuccess: onError:)</code> along with all async code to be consistent across the whole codebase</li>
+<li><code>.disposed</code> is not required now as the client is a singleton</li>
+</ul>
+
+<p>Previous version:</p>
+<pre class="highlight swift"><code><span class="n">events</span><span class="o">.</span><span class="n">newEventReceived</span><span class="o">.</span><span class="n">addHandler</span> <span class="p">{</span> <span class="n">event</span> <span class="k">in</span>
+    <span class="c1">// code here</span>
+<span class="p">}</span>
+
+<span class="n">client</span><span class="o">.</span><span class="nf">login</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="n">token</span><span class="p">)</span><span class="o">.</span><span class="nf">subscribe</span><span class="p">(</span><span class="nv">onNext</span><span class="p">:</span> <span class="p">{</span>
+    <span class="c1">// code here           </span>
+<span class="p">},</span> <span class="nv">onError</span><span class="p">:</span> <span class="p">{</span> <span class="n">error</span> <span class="k">in</span>
+    <span class="c1">// code here</span>
+<span class="p">})</span><span class="o">.</span><span class="nf">disposed</span><span class="p">(</span><span class="nv">by</span><span class="p">:</span> <span class="n">disposeBag</span><span class="p">)</span>
+</code></pre>
+
+<p>New version:</p>
+<pre class="highlight swift"><code><span class="n">client</span><span class="o">.</span><span class="nf">login</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="n">token</span><span class="p">)</span><span class="o">.</span><span class="nf">subscribe</span><span class="p">(</span><span class="nv">onSuccess</span><span class="p">:</span> <span class="p">{</span>
+    <span class="c1">// code here           </span>
+<span class="p">},</span> <span class="nv">onError</span><span class="p">:</span> <span class="p">{</span> <span class="n">error</span> <span class="k">in</span>
+    <span class="c1">// code here</span>
+<span class="p">})</span>
+</code></pre>
+
+<p>Note: </p>
+
+<ul>
+<li><code>onNext:</code> has to be replaced with <code>onSuccess:</code></li>
+<li><code>disposed</code> has been removed</li>
+</ul>
+<h3 id='code-nexmoconversation-observable-code-class' class='heading'><code>NexmoConversation.Observable</code> class</h3>
+
+<p>Two property:
+<code>.mainThread</code>
+<code>.backgroundThread</code></p>
+
+<p>6 Methods: (2 for subscribe and 4 high order function for chaining observable).
+<code>filter</code>
+<code>map</code>
+<code>flatMap</code>
+<code>reduce</code>
+<code>subscribe</code></p>
+<h3 id='code-nexmoconversation-mutableobservable-code-class-subclass-of-code-nexmoconversation-observable-code-class' class='heading'><code>NexmoConversation.MutableObservable</code> class (subclass of <code>NexmoConversation.Observable</code> class)</h3>
+
+<p>One extra property:
+<code>.value</code></p>
+<h2 id='call' class='heading'>Call</h2>
+
+<p>Simple wrapper for <code><a href="Classes/Conversation.html">Conversation</a></code> class to create a call</p>
+<h3 id='create-call' class='heading'>Create call</h3>
+<pre class="highlight swift"><code><span class="k">do</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">users</span> <span class="o">=</span> <span class="p">[</span><span class="s">"user1"</span><span class="p">,</span> <span class="s">"user2"</span><span class="p">]</span>
+
+    <span class="k">try</span> <span class="n">client</span><span class="o">.</span><span class="n">media</span><span class="o">.</span><span class="nf">call</span><span class="p">(</span><span class="n">users</span><span class="p">,</span> <span class="nv">onSuccess</span><span class="p">:</span> <span class="p">{</span> <span class="n">result</span> <span class="k">in</span>
+        <span class="c1">// code here</span>
+        <span class="c1">// result contains Call object and any errors from requesting invites for users</span>
+    <span class="p">},</span> <span class="nv">onError</span><span class="p">:</span> <span class="p">{</span> <span class="n">networkError</span> <span class="k">in</span>
+        <span class="c1">// code here</span>
+    <span class="p">})</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="k">let</span> <span class="nv">error</span> <span class="p">{</span>
+    <span class="c1">// code here</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>Pass a list of users to create a <code><a href="Classes/Call.html">Call</a></code> object</p>
+<h3 id='receive-an-incoming-call' class='heading'>Receive an incoming call</h3>
+<pre class="highlight swift"><code><span class="k">try</span> <span class="n">client</span><span class="o">.</span><span class="n">media</span><span class="o">.</span><span class="n">inboundCalls</span><span class="o">.</span><span class="nf">subscribe</span><span class="p">(</span><span class="nv">onSuccess</span><span class="p">:</span> <span class="p">{</span> <span class="n">call</span> <span class="k">in</span>
+    <span class="c1">// code here</span>
+<span class="p">})</span>
+</code></pre>
+
+<p>Get given a <code><a href="Classes/Call.html">Call</a></code> object for all incoming calls</p>
+<h3 id='answer-incoming-call' class='heading'>Answer incoming call</h3>
+<pre class="highlight swift"><code><span class="n">call</span><span class="o">.</span><span class="nf">answer</span><span class="p">(</span><span class="nv">onSuccess</span><span class="p">:</span> <span class="p">{</span>
+    <span class="c1">// code here              </span>
+<span class="p">},</span> <span class="nv">onFailure</span><span class="p">:</span> <span class="p">{</span> <span class="n">error</span> <span class="k">in</span>
+    <span class="c1">// code here</span>
+<span class="p">})</span>
+</code></pre>
+
+<p><code>onSuccess:</code> will be called when call has been answered</p>
+<h3 id='reject-incoming-call' class='heading'>Reject incoming call</h3>
+<pre class="highlight swift"><code><span class="n">call</span><span class="o">.</span><span class="nf">reject</span><span class="p">()</span>
+</code></pre>
+
+<p>optional <code>onError:</code> can be called </p>
+<h3 id='hangup-call' class='heading'>hangup call</h3>
+<pre class="highlight swift"><code><span class="n">call</span><span class="o">.</span><span class="nf">hangUp</span><span class="p">(</span><span class="nv">onSuccess</span><span class="p">:</span> <span class="p">{</span>
+    <span class="c1">// code here</span>
+<span class="p">},</span> <span class="nv">onFailure</span><span class="p">:</span> <span class="p">{</span> <span class="n">error</span> <span class="k">in</span>
+    <span class="c1">// code here</span>
+<span class="p">})</span>
+</code></pre>
+
+<p><code>onSuccess</code> is called when call has successfully hangup</p>
+<h1 id='bugs' class='heading'>Bugs</h1>
+
+<ul>
+<li>Fixed bug where SynchronizingState did not do sync in order</li>
+<li>Fixed bug with ghost conversation would get lost due to memory ref</li>
+<li>Fixed bug where <code><a href="Classes/Media.html">Media</a></code> session was creating a connection too early</li>
+</ul>
+<h1 id='others' class='heading'>Others</h1>
+
+<ul>
+<li>Documentation now has 100% coverage, few minor changes to section list and ordering of enum values to always be on top of a class.</li>
+<li>Console logs are more readable and take up less space</li>
+<li>Fixed some Swiftlint warnings and errors</li>
+<li>Security updates on repo</li>
+</ul>
+<h1 id='0-19-2-8-2-2018' class='heading'>0.19.2 / 8-2-2018</h1>
+
+<p>Fix issue where muting did not work on second attempt and issues where full sync had to happen on second launch due to database permissions.</p>
+<h1 id='0-19-1-2-2-2018' class='heading'>0.19.1 / 2-2-2018</h1>
 
 <p>Fix cocoapods build</p>
 <h1 id='0-19-0-1-2-2018' class='heading'>0.19.0 / 1-2-2018</h1>
@@ -321,7 +452,7 @@
 <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">event</span> <span class="o">=</span> <span class="n">event</span> <span class="k">as?</span> <span class="kt">MediaEvent</span>
 </code></pre>
 
-<p><code>invitations</code> in <code><a href="Classes/RTCController.html">RTCController</a></code> has been renamed to <code>media</code> getter</p>
+<p><code>invitations</code> in <code>RTCController</code> has been renamed to <code>media</code> getter</p>
 
 <p>Old:</p>
 <pre class="highlight swift"><code><span class="n">client</span><span class="o">.</span><span class="n">rtc</span><span class="o">.</span><span class="n">invitations</span>
@@ -631,7 +762,7 @@ client.login(with: TOKEN)
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2018-02-02)</p>
+          <p>&copy; 2018 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2018-02-22)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

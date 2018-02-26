@@ -14,7 +14,7 @@
     <a title="MediaController Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">NexmoConversation Docs</a> (70% documented)</p>
+        <p><a href="../index.html">NexmoConversation Docs</a> (100% documented)</p>
         <p class="header-right"><a href="https://github.com/Nexmo/conversation-ios-sdk"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -84,13 +84,16 @@
                 <a href="../Classes/User.html">User</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/Audio.html">Audio</a>
+                <a href="../Classes/Media.html">Media</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/Audio/State.html">– State</a>
+                <a href="../Classes/Media/State.html">– State</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/Audio/Errors.html">– Errors</a>
+                <a href="../Classes/Media/Errors.html">– Errors</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Call.html">Call</a>
               </li>
             </ul>
           </li>
@@ -107,9 +110,6 @@
                 <a href="../Classes/ConversationController.html">ConversationController</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/ConversationController/JoinConversation.html">– JoinConversation</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Classes/AppLifecycleController.html">AppLifecycleController</a>
               </li>
               <li class="nav-group-task">
@@ -119,16 +119,13 @@
                 <a href="../Classes/MediaController.html">MediaController</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/MediaController/Media.html">– Media</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/PushNotificationController.html">PushNotificationController</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/PushNotificationController/State.html">– State</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/RTCController.html">RTCController</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/RTCController/Media.html">– Media</a>
               </li>
             </ul>
           </li>
@@ -183,9 +180,6 @@
                 <a href="../Structs/MemberModel/State.html">– State</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/MemberModel/Action.html">– Action</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Structs/MemberModel/Channel.html">– Channel</a>
               </li>
               <li class="nav-group-task">
@@ -235,6 +229,17 @@
             </ul>
           </li>
           <li class="nav-group-name">
+            <a href="../Observable.html">Observable</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/Observable.html">Observable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MutableObservable.html">MutableObservable</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
             <a href="../Other Guides.html">Other Guides</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
@@ -255,7 +260,7 @@
                 <a href="../Classes/Signal.html">Signal</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/SignalBase.html">SignalBase</a>
+                <a href="../Other Classes.html#/s:17NexmoConversation10SignalBaseC">SignalBase</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/SignalReference.html">SignalReference</a>
@@ -274,17 +279,6 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a href="../Other Extensions.html">Other Extensions</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Extensions/ObservableType.html">ObservableType</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Extensions/PrimitiveSequence.html">PrimitiveSequence</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
             <a href="../Other Protocols.html">Other Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
@@ -294,7 +288,7 @@
                 <a href="../Protocols/NetworkErrorProtocol.html">NetworkErrorProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/RawDecodable.html">RawDecodable</a>
+                <a href="../Protocols/ObservableConvertible.html">ObservableConvertible</a>
               </li>
             </ul>
           </li>
@@ -318,25 +312,25 @@
 
                 </div>
               </div>
-            <p>Media controller handles fetching assets</p>
+            <p>Controller for Media event such as Audio and Video</p>
 
           </section>
           <section class="section task-group-section">
             <div class="task-group">
               <div class="task-name-container">
-                <a name="/Download"></a>
-                <a name="//apple_ref/swift/Section/Download" class="dashAnchor"></a>
-                <a href="#/Download">
-                  <h3 class="section-name">Download</h3>
+                <a name="/Typealias"></a>
+                <a name="//apple_ref/swift/Section/Typealias" class="dashAnchor"></a>
+                <a href="#/Typealias">
+                  <h3 class="section-name">Typealias</h3>
                 </a>
               </div>
               <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:17NexmoConversation15MediaControllerC8downloadXeXeF"></a>
-                    <a name="//apple_ref/swift/Method/download(at:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:17NexmoConversation15MediaControllerC8downloadXeXeF">download(at:)</a>
+                    <a name="/s:17NexmoConversation15MediaControllerC10Invitationa"></a>
+                    <a name="//apple_ref/swift/Alias/Invitation" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17NexmoConversation15MediaControllerC10Invitationa">Invitation</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -344,14 +338,194 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Download object</p>
+                        <p>Conversation who been invited to start new media (Audio, Video)</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">download</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt"><a href="../Protocols/RawDecodable.html">RawDecodable</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">at</span> <span class="nv">url</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Single</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">Invitation</span> <span class="o">=</span> <span class="p">(</span><span class="nv">conversation</span><span class="p">:</span> <span class="kt"><a href="../Classes/Conversation.html">Conversation</a></span><span class="p">,</span> <span class="nv">member</span><span class="p">:</span> <span class="kt"><a href="../Classes/Member.html">Member</a></span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="kt"><a href="../Classes/MediaController/Media.html">Media</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17NexmoConversation15MediaControllerC10CallResulta"></a>
+                    <a name="//apple_ref/swift/Alias/CallResult" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17NexmoConversation15MediaControllerC10CallResulta">CallResult</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Result of creating a call object</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">CallResult</span> <span class="o">=</span> <span class="p">(</span><span class="nv">call</span><span class="p">:</span> <span class="kt"><a href="../Classes/Call.html">Call</a></span><span class="p">,</span> <span class="nv">error</span><span class="p">:</span> <span class="p">[</span><span class="kt">Error</span><span class="p">])</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Enum"></a>
+                <a name="//apple_ref/swift/Section/Enum" class="dashAnchor"></a>
+                <a href="#/Enum">
+                  <h3 class="section-name">Enum</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17NexmoConversation15MediaControllerC0C0O"></a>
+                    <a name="//apple_ref/swift/Enum/Media" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17NexmoConversation15MediaControllerC0C0O">Media</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Media type</p>
+
+<ul>
+<li>none: non media</li>
+<li>audio: audio enabled</li>
+<li>video: video enabled</li>
+</ul>
+
+                        <a href="../Classes/MediaController/Media.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Media</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Properties%20-%20Observable"></a>
+                <a name="//apple_ref/swift/Section/Properties - Observable" class="dashAnchor"></a>
+                <a href="#/Properties%20-%20Observable">
+                  <h3 class="section-name">Properties - Observable</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17NexmoConversation15MediaControllerC11invitationsAA10ObservableCyAA0B0C12conversation_AA6MemberC6memberAC0C0O4typetGv"></a>
+                    <a name="//apple_ref/swift/Property/invitations" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17NexmoConversation15MediaControllerC11invitationsAA10ObservableCyAA0B0C12conversation_AA6MemberC6memberAC0C0O4typetGv">invitations</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Observe for incoming conversations with audio enabled</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">invitations</span><span class="p">:</span> <span class="kt">NexmoConversation</span><span class="o">.</span><span class="kt"><a href="../Classes/Observable.html">Observable</a></span><span class="o">&lt;</span><span class="kt"><a href="../Classes/MediaController.html#/s:17NexmoConversation15MediaControllerC10Invitationa">Invitation</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17NexmoConversation15MediaControllerC12inboundCallsAA10ObservableCyAA4CallCGv"></a>
+                    <a name="//apple_ref/swift/Property/inboundCalls" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17NexmoConversation15MediaControllerC12inboundCallsAA10ObservableCyAA4CallCGv">inboundCalls</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Register for receiving inbound Calls from another member</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">inboundCalls</span><span class="p">:</span> <span class="kt">NexmoConversation</span><span class="o">.</span><span class="kt"><a href="../Classes/Observable.html">Observable</a></span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Call.html">Call</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Call"></a>
+                <a name="//apple_ref/swift/Section/Call" class="dashAnchor"></a>
+                <a href="#/Call">
+                  <h3 class="section-name">Call</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:17NexmoConversation15MediaControllerC4callySaySSG_yAA4CallCAD_Says5Error_pG5errortc9onSuccessysAH_pc0I7FailuretKF"></a>
+                    <a name="//apple_ref/swift/Method/call(_:onSuccess:onFailure:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:17NexmoConversation15MediaControllerC4callySaySSG_yAA4CallCAD_Says5Error_pG5errortc9onSuccessysAH_pc0I7FailuretKF">call(_:onSuccess:onFailure:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Make a call</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    Device permission error for audio
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">call</span><span class="p">(</span><span class="n">_</span> <span class="nv">usernames</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">],</span> <span class="nv">onSuccess</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Classes/MediaController.html#/s:17NexmoConversation15MediaControllerC10CallResulta">CallResult</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">onFailure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -362,21 +536,22 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>url</em>
+                                <em>usernames</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>path of object</p>
+                                  <p>List of usernames to call
+
+<ul>
+<li>onSuccess: Active Call object</li>
+<li>onFailure: Reason of error</li>
+</ul></p>
                                 </div>
                               </td>
                             </tr>
                           </tbody>
                         </table>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>observable with result of T</p>
                       </div>
                     </section>
                   </div>
@@ -386,7 +561,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2018-02-02)</p>
+          <p>&copy; 2018 <a class="link" href="https://nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2018-02-22)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
