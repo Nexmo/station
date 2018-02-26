@@ -4,13 +4,34 @@ title: Overview
 
 # Stitch Overview
 
-Cras justo odio, dapibus ac facilisis in, egestas eget quam. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Maecenas faucibus mollis interdum. Aenean lacinia bibendum nulla sed consectetur.
+Stitch is a conversation-centric product consisting of iOS, Android, and JavaScript SDKs and an API. Stitch enables communications across multiple channels including in-app messaging and in-app voice over IP; with PSTN voice coming soon. 
 
-[TODO] Insert content
+Enable chat or voice on your mobile or web application with our SDKs so that your users can seamlessly communicate no matter which device they are on.
+
+## In-App Messaging
+
+Build a feature rich chat experience that showcases typing indicators and sent, delivered and read receipts.
+
+Offline Sync – With built in caching, messages are saved and sent or received once their device is back online.
+
+Push Notifications – Keep users aware of important alerts by sending notifications to their device.
+
+Text and Image Support – Users can quickly send and receive texts and images from your application.
+
+
+## In-App Voice
+
+Nexmo In-App Voice uses WebRTC and includes all the essentials you need to build a feature rich voice experience.
+
+User Control – Users can control whether their audio stream is muted or unmuted. 
+
+Notifications  – Users can be notified when they receive a call or when participants are muted. 
+
+Group Calls – Configure call settings so users can start a group call by adding participants in real time.
 
 ## Participating in the developer preview
 
-This Developer Preview will focus on the IP messaging capabilities. During this program there will be frequent releases with new features and bug fixes based on your feedback. During the preview it is possible (and probable) that there shall be breaking changes to the SDK and API but these will be explicitly communicated beforehand.
+This Developer Preview will focus on the In-App Messaging and Voice capabilities. During this program there will be frequent releases with new features and bug fixes based on your feedback. During the preview it is possible (and probable) that there shall be breaking changes to the SDK and API but these will be explicitly communicated beforehand.
 
 If you want communicate with us during the developer preview you can:
 
@@ -114,7 +135,7 @@ source: _examples/conversations/overview/join-the-conversation/
 ## Conversation API Features
 
 * IP Messaging
-* WebRTC Audio [Coming soon]
+* WebRTC Audio
 
 ## References
 
