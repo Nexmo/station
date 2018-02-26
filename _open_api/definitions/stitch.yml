@@ -3,7 +3,7 @@ servers:
   - url: 'https://api.nexmo.com/beta'
 info:
   version: 1.6.0
-  title: Nexmo Conversation Service API
+  title: Nexmo Stitch API
   description: >-
       The Nexmo Stitch API enables you to build conversation features where communication can take place across multiple mediums including IP Messaging, PSTN Voice, SMS and WebRTC Audio and Video. The context of the conversations is maintained though each communication event taking place within a conversation, no matter the medium.
   contact:
@@ -15,14 +15,13 @@ paths:
     post:
       x-swagger-router-controller: createConversation
       operationId: createConversation
-      description: Create a new conversation
+      x-group: conversation
+      summary: Create a conversation
       responses:
         '201':
           $ref: '#/components/responses/ConversationUpdated'
         '400':
           $ref: '#/components/responses/ClientError'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
       requestBody:
         content:
           application/json:
@@ -31,14 +30,13 @@ paths:
     get:
       x-swagger-router-controller: listConversations
       operationId: listConversations
-      description: List conversations
+      x-group: conversation
+      summary: List conversations
       responses:
         '200':
           $ref: '#/components/responses/ConversationsListed'
         '400':
           $ref: '#/components/responses/ValidationError'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
       requestBody:
         content:
           application/json:
@@ -55,14 +53,13 @@ paths:
     put:
       x-swagger-router-controller: conversations
       operationId: replaceConversation
-      description: Replace an existing conversation
+      x-group: conversation
+      summary: Update a conversation
       responses:
         '200':
           $ref: '#/components/responses/ConversationUpdated'
         '400':
           $ref: '#/components/responses/ClientError'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
       requestBody:
         content:
           application/json:
@@ -71,26 +68,23 @@ paths:
     get:
       x-swagger-router-controller: retrieveConversation
       operationId: retrieveConversation
-      description: Retrieve a single conversation
+      x-group: conversation
+      summary: Retrieve a conversation
       responses:
         '200':
           $ref: '#/components/responses/ConversationRetrieved'
         '400':
           $ref: '#/components/responses/ClientError'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
     delete:
       x-swagger-router-controller: deleteConversation
       operationId: deleteConversation
-      description: Delete a single conversation
+      x-group: conversation
+      summary: Delete a conversation
       responses:
         '200':
           $ref: '#/components/responses/Success'
         '400':
           $ref: '#/components/responses/ClientError'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
-
   '/conversations/{conv_id}/events':
     parameters:
       - name: conv_id
@@ -102,14 +96,13 @@ paths:
     post:
       x-swagger-router-controller: createEvent
       operationId: createEvent
-      description: Create a new event
+      x-group: event
+      summary: Create an event
       responses:
         '201':
           $ref: '#/components/responses/EventCreated'
         '400':
           $ref: '#/components/responses/ClientError'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
       requestBody:
         content:
           application/json:
@@ -118,7 +111,8 @@ paths:
     get:
       x-swagger-router-controller: getEvents
       operationId: getEvents
-      description: Get events
+      x-group: event
+      summary: List events
       responses:
         '200':
           $ref: '#/components/responses/EventsRetrieved'
@@ -126,8 +120,6 @@ paths:
           $ref: '#/components/responses/ClientError'
         '404':
           $ref: '#/components/responses/NotFound'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
       requestBody:
         content:
           application/json:
@@ -150,7 +142,8 @@ paths:
     get:
       x-swagger-router-controller: getEvent
       operationId: getEvent
-      description: Get an event
+      x-group: event
+      summary: Retrieve an event
       responses:
         '200':
           $ref: '#/components/responses/EventRetrieved'
@@ -158,12 +151,11 @@ paths:
           $ref: '#/components/responses/ClientError'
         '404':
           $ref: '#/components/responses/NotFound'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
     delete:
       x-swagger-router-controller: deleteEvent
       operationId: deleteEvent
-      description: Delete an event
+      x-group: event
+      summary: Delete an event
       responses:
         '200':
           $ref: '#/components/responses/EventDeleted'
@@ -171,15 +163,11 @@ paths:
           $ref: '#/components/responses/ClientError'
         '404':
           $ref: '#/components/responses/NotFound'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/deleteEventRequestPayload'
-
-
   '/conversations/{conv_id}/members':
     parameters:
       - name: conv_id
@@ -191,25 +179,23 @@ paths:
     get:
       x-swagger-router-controller: members
       operationId: getMembers
-      description: Get all members in conversation
+      x-group: member
+      summary: List members
       responses:
         '200':
           $ref: '#/components/responses/MembersRetrieved'
         '400':
           $ref: '#/components/responses/ClientError'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
     post:
       x-swagger-router-controller: members
       operationId: createMember
-      description: Create a new member in conversation
+      x-group: member
+      summary: Create a member
       responses:
         '201':
           $ref: '#/components/responses/MemberCreated'
         '400':
           $ref: '#/components/responses/ClientError'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
       requestBody:
         content:
           application/json:
@@ -232,23 +218,21 @@ paths:
     get:
       x-swagger-router-controller: members
       operationId: getMember
-      description: Get a member in conversation
+      x-group: member
+      summary: Retrieve a member
       responses:
         '200':
           $ref: '#/components/responses/MemberRetrieved'
         '404':
           $ref: '#/components/responses/NotFound'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
     put:
       x-swagger-router-controller: members
       operationId: updateMember
-      description: Update a member in conversation
+      x-group: member
+      summary: Update a member
       responses:
         '200':
           $ref: '#/components/responses/MemberUpdated'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
       requestBody:
         content:
           application/json:
@@ -257,12 +241,11 @@ paths:
     delete:
       x-swagger-router-controller: members
       operationId: deleteMember
-      description: Delete a member in conversation
+      x-group: member
+      summary: Delete a member
       responses:
         '200':
           $ref: '#/components/responses/Success'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
   '/conversations/{conv_id}/rtc':
     parameters:
       - name: conv_id
@@ -274,14 +257,13 @@ paths:
     post:
       x-swagger-router-controller: rtc
       operationId: createCall
-      description: Create a new call in conversation
+      x-group: conversation
+      summary: Create a call
       responses:
         '201':
           $ref: '#/components/responses/CallCreated'
         '400':
           $ref: '#/components/responses/ClientError'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
       requestBody:
         content:
           application/json:
@@ -292,14 +274,13 @@ paths:
     post:
       x-swagger-router-controller: sessions
       operationId: createSession
-      description: Create New Session
+      x-group: session
+      summary: Create a session
       responses:
         '201':
           $ref: '#/components/responses/SessionCreated'
         '400':
           $ref: '#/components/responses/ClientError'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
       requestBody:
         content:
           application/x-www-form-urlencoded:
@@ -321,37 +302,34 @@ paths:
     delete:
       x-swagger-router-controller: sessions
       operationId: deleteSession
-      description: Delete a specific session
+      x-group: session
+      summary: Delete a session
       responses:
         '200':
           $ref: '#/components/responses/SessionDeleted'
         '400':
           $ref: '#/components/responses/ClientError'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
   /users:
     post:
       x-swagger-router-controller: users
       operationId: createUser
-      description: Create a new user and returns the ID
+      x-group: user
+      summary: Create a user
       responses:
         '201':
           $ref: '#/components/responses/Created'
         '400':
           $ref: '#/components/responses/NotFound'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
       requestBody:
         $ref: '#/components/requestBodies/UserDetails'
     get:
       x-swagger-router-controller: users
       operationId: getUsers
-      description: Get all users
+      x-group: user
+      summary: List users
       responses:
         '200':
           $ref: '#/components/responses/FoundUsers'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
   '/users/{user_id}':
     parameters:
       - name: user_id
@@ -363,31 +341,30 @@ paths:
     get:
       x-swagger-router-controller: users
       operationId: getUser
-      description: Get a specific user
+      x-group: user
+      summary: Retrieve a user
       responses:
         '200':
           $ref: '#/components/responses/FoundUser'
         '404':
           $ref: '#/components/responses/NotFound'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
     put:
       x-swagger-router-controller: users
       operationId: updateUser
-      description: Update a particular user
+      x-group: user
+      summary: Update a user
       responses:
         '200':
           $ref: '#/components/responses/Updated'
         '404':
           $ref: '#/components/responses/NotFound'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
       requestBody:
         $ref: '#/components/requestBodies/UserDetails'
     delete:
       x-swagger-router-controller: users
       operationId: deleteUser
-      description: Delete a particular user
+      x-group: user
+      summary: Delete a user
       responses:
         '200':
           $ref: '#/components/responses/Success'
@@ -402,281 +379,190 @@ paths:
     get:
       x-swagger-router-controller: users
       operationId: getuserConversations
-      description: Get all conversations this user is a member of
+      x-group: user
+      summary: List user conversations
       responses:
         '200':
           $ref: '#/components/responses/FoundList'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
 components:
   responses:
     ConversationUpdated:
       description: Create / Update Conversation Successfully
       content:
-        text/plain; charset=utf-8:
-          schema:
-            $ref: '#/components/schemas/ConversationUpdated'
         application/json:
           schema:
             $ref: '#/components/schemas/ConversationUpdated'
     ConversationRetrieved:
       description: Retrieved Conversation Successfully
       content:
-        text/plain; charset=utf-8:
-          schema:
-            $ref: '#/components/schemas/Conversation'
         application/json:
           schema:
             $ref: '#/components/schemas/Conversation'
     ConversationsListed:
       description: List Conversations Successfully
       content:
-        text/plain; charset=utf-8:
-          schema:
-            $ref: '#/components/schemas/ConversationsListed'
         application/json:
           schema:
             $ref: '#/components/schemas/ConversationsListed'
     DeviceCreated:
       description: Create Device Successfully
       content:
-        text/plain; charset=utf-8:
-          schema:
-            $ref: '#/components/schemas/DeviceCreated'
         application/json:
           schema:
             $ref: '#/components/schemas/DeviceCreated'
     EventCreated:
       description: Create Event Successfully
       content:
-        text/plain; charset=utf-8:
-          schema:
-            $ref: '#/components/schemas/EventCreated'
         application/json:
           schema:
             $ref: '#/components/schemas/EventCreated'
     EventRetrieved:
       description: Retrieved Event Successfully
       content:
-        text/plain; charset=utf-8:
-          schema:
-            $ref: '#/components/schemas/EventRetrieved'
         application/json:
           schema:
             $ref: '#/components/schemas/EventRetrieved'
     EventsRetrieved:
       description: Retrieved Events Successfully
       content:
-        text/plain; charset=utf-8:
-          schema:
-            $ref: '#/components/schemas/EventsRetrieved'
         application/json:
           schema:
             $ref: '#/components/schemas/EventsRetrieved'
     EventDeleted:
       description: Delete Event Successfully
       content:
-        text/plain; charset=utf-8:
-          schema:
-            $ref: '#/components/schemas/EventDeleted'
         application/json:
           schema:
             $ref: '#/components/schemas/EventDeleted'
     Success:
       description: Success
       content:
-        text/plain; charset=utf-8:
-          schema:
-            $ref: '#/components/schemas/Success'
         application/json:
           schema:
             $ref: '#/components/schemas/Success'
     EmptyJSON:
       description: Empty JSON
       content:
-        text/plain; charset=utf-8:
-          schema:
-            $ref: '#/components/schemas/EmptyJSON'
         application/json:
           schema:
             $ref: '#/components/schemas/EmptyJSON'
     ClientError:
       description: Not Found
       content:
-        text/plain; charset=utf-8:
-          schema:
-            $ref: '#/components/schemas/ClientError'
         application/json:
           schema:
             $ref: '#/components/schemas/ClientError'
     ValidationError:
       description: Validation Error
       content:
-        text/plain; charset=utf-8:
-          schema:
-            $ref: '#/components/schemas/ValidationError'
         application/json:
           schema:
             $ref: '#/components/schemas/ValidationError'
     NotFound:
       description: Not Found
       content:
-        text/plain; charset=utf-8:
-          schema:
-            $ref: '#/components/schemas/NotFoundError'
         application/json:
           schema:
             $ref: '#/components/schemas/NotFoundError'
     InternalServerError:
       description: Internal Server Error
       content:
-        text/plain; charset=utf-8:
-          schema:
-            $ref: '#/components/schemas/InternalServerError'
         application/json:
           schema:
             $ref: '#/components/schemas/InternalServerError'
     Created:
       description: Created Successfully
       content:
-        text/plain; charset=utf-8:
-          schema:
-            $ref: '#/components/schemas/Created'
         application/json:
           schema:
             $ref: '#/components/schemas/Created'
     Updated:
       description: Updated Successfully
       content:
-        text/plain; charset=utf-8:
-          schema:
-            $ref: '#/components/schemas/Updated'
         application/json:
           schema:
             $ref: '#/components/schemas/Updated'
     FoundList:
       description: Retrieved Listing Successfully
       content:
-        text/plain; charset=utf-8:
-          schema:
-            $ref: '#/components/schemas/FoundList'
         application/json:
           schema:
             $ref: '#/components/schemas/FoundList'
     MemberCreated:
       description: Create Member Successfully
       content:
-        text/plain; charset=utf-8:
-          schema:
-            $ref: '#/components/schemas/MemberCreated'
         application/json:
           schema:
             $ref: '#/components/schemas/MemberCreated'
     MemberUpdated:
       description: Update Member Successfully
       content:
-        text/plain; charset=utf-8:
-          schema:
-            $ref: '#/components/schemas/MemberRetrieved'
         application/json:
           schema:
             $ref: '#/components/schemas/MemberRetrieved'
     MemberRetrieved:
       description: Member Retrieved Successfully
       content:
-        text/plain; charset=utf-8:
-          schema:
-            $ref: '#/components/schemas/MemberRetrieved'
         application/json:
           schema:
             $ref: '#/components/schemas/MemberRetrieved'
     MembersRetrieved:
       description: Members Retrieved Successfully
       content:
-        text/plain; charset=utf-8:
-          schema:
-            $ref: '#/components/schemas/MembersRetrieved'
         application/json:
           schema:
             $ref: '#/components/schemas/MembersRetrieved'
     CallCreated:
       description: Create Call Successfully
       content:
-        text/plain; charset=utf-8:
-          schema:
-            $ref: '#/components/schemas/CallCreated'
         application/json:
           schema:
             $ref: '#/components/schemas/CallCreated'
     OfferCreated:
       description: Create Offer Successfully
       content:
-        text/plain; charset=utf-8:
-          schema:
-            $ref: '#/components/schemas/OfferCreated'
         application/json:
           schema:
             $ref: '#/components/schemas/OfferCreated'
     CallAnswered:
       description: Call Answered Successfully
       content:
-        text/plain; charset=utf-8:
-          schema:
-            $ref: '#/components/schemas/CallAnswered'
         application/json:
           schema:
             $ref: '#/components/schemas/CallAnswered'
     CallTerminated:
       description: Call Terminated Successfully
       content:
-        text/plain; charset=utf-8:
-          schema:
-            $ref: '#/components/schemas/CallTerminated'
         application/json:
           schema:
             $ref: '#/components/schemas/CallTerminated'
     SessionCreated:
       description: Create Session Successfully
       content:
-        text/plain; charset=utf-8:
-          schema:
-            $ref: '#/components/schemas/SessionCreated'
         application/json:
           schema:
             $ref: '#/components/schemas/SessionCreated'
     SessionDeleted:
       description: Delete Session Successfully
       content:
-        text/plain; charset=utf-8:
-          schema:
-            $ref: '#/components/schemas/SessionDeleted'
         application/json:
           schema:
             $ref: '#/components/schemas/SessionDeleted'
     SessionsPurged:
       description: Purge Session Successfully
       content:
-        text/plain; charset=utf-8:
-          schema:
-            $ref: '#/components/schemas/SessionsPurged'
         application/json:
           schema:
             $ref: '#/components/schemas/SessionsPurged'
     FoundUser:
       description: Retrieved User Successfully
       content:
-        text/plain; charset=utf-8:
-          schema:
-            $ref: '#/components/schemas/User'
         application/json:
           schema:
             $ref: '#/components/schemas/User'
     FoundUsers:
       description: Retrieved Users Successfully
       content:
-        text/plain; charset=utf-8:
-          schema:
-            $ref: '#/components/schemas/FoundUsers'
         application/json:
           schema:
             $ref: '#/components/schemas/FoundUsers'
@@ -1052,6 +938,7 @@ components:
       type: object
       description: Delete Event Response Payload Object
     Success:
+      type: object
       description: Success
       discriminator:
         propertyName: Success
@@ -1435,5 +1322,44 @@ components:
       allOf:
         - $ref: '#/components/schemas/UserOverview'
         - $ref: '#/components/schemas/UserDetails'
-
-      
+x-groups:
+  conversation:
+    name: "Conversation"
+    order: 1
+    description: >-
+      A conversation is a shared core component that Nexmo APIs rely on. Conversations happen over multiple mediums and and can have associated Users through Memberships.
+    schema:
+      application/json:
+        $ref: '#/components/schemas/ConversationUpdated'
+  user:
+    name: "User"
+    order: 2
+    description: >-
+      The concept of a user exists in Nexmo APIs, you can associate one with a user in your own application if you choose. A user can have multiple memberships to conversations and can communicate with other users through various different mediums.
+    schema:
+      application/json:
+        $ref: '#/components/schemas/GenericResource'
+  member:
+    name: "Member"
+    order: 3
+    description: >-
+      Memberships connect users with conversations. Each membership has one conversation and one user however a user can have many memberships to conversations just as conversations can have many members.
+    schema:
+      application/json:
+        $ref: '#/components/schemas/MemberCreated'
+  session:
+    name: "Session"
+    order: 3
+    description: >-
+      Coming soon
+    schema:
+      application/json:
+        $ref: '#/components/schemas/SessionCreated'
+  event:
+    name: "Event"
+    order: 4
+    description: >-
+      Coming soon
+    schema:
+      application/json:
+        $ref: '#/components/schemas/EventCreated'
