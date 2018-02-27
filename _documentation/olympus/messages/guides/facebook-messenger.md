@@ -4,4 +4,76 @@ title: Facebook Messenger
 
 # Facebook Messenger
 
-Content coming soon.
+You can use the Messages API to send and receive messages using Facebook Messenger. Follow these instructions to get setup:
+
+## Setup a Facebook Page
+
+To use the Messages API with Facebook Messenger you must have a Facebook Account and a Facebook Page.
+
+- [How do I create a Facebook Account?](https://en-gb.facebook.com/help/570785306433644/?helpref=hc_fnav)
+- [How do I create a Facebook Page?](https://en-gb.facebook.com/help/104002523024878?helpref=about_content)
+
+## Link your Facebook Page to Nexmo
+
+Next you'll need to link your Facebook page to Nexmo, this will allow us to handle the inbound messages and allow you to send messages from the Nexmo Messages API.
+
+- [Subscribe your page to Facebook and Chatapp](https://static.nexmo.com/messenger/)
+
+## Configure your inbound message endpoint with Nexmo
+
+From [Nexmo Dashboard](https://dashboard.nexmo.com) go to [Settings](https://dashboard.nexmo.com/settings).
+
+Enter your endpoint in the field labeled **Webhook URL for Inbound Message**:
+
+```screenshot
+script: app/screenshots/webhook-url-for-inbound-message.js
+image: public/assets/screenshots/1b9047ceebd9312df0a3be8202be342c4da70201.png
+```
+
+## Receiving a message
+
+When a message is sent to your page an event will be sent to your event endpoint, here is an example payload:
+
+```json
+{  
+  "message_uuid":"aaaaaaaa-bbbb-cccc-dddd-0123456789ab",
+  "to":{  
+    "type":"messenger",
+    "id":"0000000000000000"
+  },
+  "from":{  
+    "type":"messenger",
+    "id":"1111111111111111"
+  },
+  "timestamp":"2020-01-01T14:00:00.000Z",
+  "message":{  
+    "content":{  
+      "type":"text",
+      "text":"Hello+from+Facebook+Messenger!"
+    }
+  }
+}
+```
+
+## Responding
+
+You can use the Messages API to respond to the inbound message. Replace the following variables in the example below:
+
+Key | Description
+-- | --
+`NEXMO_APPLICATION_ID` |	The ID of the application that you created.
+`SENDER_ID` | Your sender ID. This value should be the `to.id` value you received in the inbound messenger event.
+`RECIPIENT_ID` | The recipient ID. This value should be the `from.id` value you received in the inbound messenger event.
+
+## Generate a JWT
+
+ ```curl
+ $ JWT="$(nexmo jwt:generate /path/to/private.key \application_id=NEXMO_APPLICATION_ID)"
+ $ echo $JWT
+ ```
+
+## Example
+
+```tabbed_examples
+config: 'olympus.messages.send-facebook-messenger'
+```
