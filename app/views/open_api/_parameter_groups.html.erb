@@ -18,7 +18,7 @@
     <% if endpoint.request_body.properties_for_format(format).any? %>
       <h4>
         Request body
-        <span class="label label--inverted right"><%= format %></span>
+        <span class="label label--inverted float-right"><%= format %></span>
       </h4>
 
       <%= render 'parameters', parameters: endpoint.request_body.properties_for_format(format), callback: callback %>
