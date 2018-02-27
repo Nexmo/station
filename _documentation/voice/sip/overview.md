@@ -113,3 +113,4 @@ We have provided examples for a number of different SIP capable systems:
 * [FreePBX](/voice/sip/configure/freepbx)
 * [FreeSWITCH](/voice/sip/configure/freeswitch)
 * [MiTel MiVoice and MiTel Border Gateway](/voice/sip/configure/mitel-mivoice)
+* [ShoreTel Director and InGate SIParator](/voice/sip/configure/shoretel)
