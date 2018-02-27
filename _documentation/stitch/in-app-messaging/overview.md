@@ -95,30 +95,25 @@ source: _examples/conversations/overview/join-the-conversation/
 * [iOS Quickstarts](/stitch/in-app-messaging/guides/1-simple-conversation?platform=ios)
 * [Android Quickstarts](/stitch/in-app-messaging/guides/1-simple-conversation?platform=android)
 
-## Client Libraries
+## SDK Documentation
 
 <div class="row">
   <div class="columns small-12 medium-4">
-    <a href="/conversation/client-sdks/javascript" class="card spacious card--image card--javascript">
+    <a href="/stitch/client-sdks/javascript" class="card spacious card--image card--javascript">
       <h2>JavaScript</h2>
     </a>
   </div>
   <div class="columns small-12 medium-4">
-    <a href="/conversation/client-sdks/android" class="card spacious card--image card--android">
+    <a href="/stitch/client-sdks/android" class="card spacious card--image card--android">
       <h2>Android</h2>
     </a>
   </div>
   <div class="columns small-12 medium-4">
-    <a href="/conversation/client-sdks/ios" class="card spacious card--image card--ios">
+    <a href="/stitch/client-sdks/ios" class="card spacious card--image card--ios">
       <h2>iOS</h2>
     </a>
   </div>
 </div>
-
-## Conversation API Features
-
-* IP Messaging
-* WebRTC Audio
 
 ## References
 
@@ -126,21 +121,21 @@ source: _examples/conversations/overview/join-the-conversation/
 * [Nexmo CLI](https://github.com/nexmo/nexmo-cli/tree/beta)
 * [Server-side Gateway](https://github.com/Nexmo/messaging-gateway) with [Android](https://github.com/Nexmo/messaging-demo-android) and [JavaScript](https://github.com/Nexmo/messaging-demo-js) client demos
 
-## API References
+## Find the SDKs online
 
 <div class="row">
   <div class="columns small-12 medium-4">
-    <a href="/sdk/conversation/javascript/" class="card spacious card--image card--javascript-outline">
+    <a href="https://www.npmjs.com/package/nexmo-conversation" class="card spacious card--image card--javascript-outline">
       <h2>JavaScript</h2>
     </a>
   </div>
   <div class="columns small-12 medium-4">
-    <a href="/sdk/conversation/android/" class="card spacious card--image card--android-outline">
+    <a href="https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.nexmo%22%20AND%20a%3A%22conversation%22" class="card spacious card--image card--android-outline">
       <h2>Android</h2>
     </a>
   </div>
   <div class="columns small-12 medium-4">
-    <a href="/sdk/conversation/ios/" class="card spacious card--image card--ios-outline">
+    <a href="https://cocoapods.org/pods/NexmoConversation" class="card spacious card--image card--ios-outline">
       <h2>iOS</h2>
     </a>
   </div>

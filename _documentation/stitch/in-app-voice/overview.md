@@ -6,11 +6,11 @@ title: Overview
 
 Nexmo In-App Voice uses WebRTC and includes all the essentials you need to build a feature rich voice experience.
 
-User Control – Users can control whether their audio stream is muted or unmuted. 
+- User Control – Users can control whether their audio stream is muted or unmuted. 
 
-Notifications  – Users can be notified when they receive a call or when participants are muted. 
+- Notifications  – Users can be notified when they receive a call or when participants are muted. 
 
-Group Calls – Configure call settings so users can start a group call by adding participants in real time.
+- Group Calls – Configure call settings so users can start a group call by adding participants in real time.
 
 ## Concepts
 
@@ -92,7 +92,7 @@ source: _examples/conversations/overview/join-the-conversation/
 * [iOS Quickstarts](/stitch/in-app-voice/guides/1-enable-audio?platform=ios)
 * [Android Quickstarts](/stitch/in-app-voice/guides/1-enable-audio?platform=android)
 
-## Client Libraries
+## SDK Documentation
 
 <div class="row">
   <div class="columns small-12 medium-4">
@@ -112,31 +112,27 @@ source: _examples/conversations/overview/join-the-conversation/
   </div>
 </div>
 
-## Stitch In-App Voice Features
-
-* WebRTC Audio over multiple platforms
-
 ## References
 
 * [API Reference](/api/stitch)
 * [Nexmo CLI](https://github.com/nexmo/nexmo-cli/tree/beta)
 * [Server-side Gateway](https://github.com/Nexmo/messaging-gateway) with [Android](https://github.com/Nexmo/messaging-demo-android) and [JavaScript](https://github.com/Nexmo/messaging-demo-js) client demos
 
-## API References
+## Find the SDKs online
 
 <div class="row">
   <div class="columns small-12 medium-4">
-    <a href="/sdk/stitch/javascript/" class="card spacious card--image card--javascript-outline">
+    <a href="https://www.npmjs.com/package/nexmo-conversation" class="card spacious card--image card--javascript-outline">
       <h2>JavaScript</h2>
     </a>
   </div>
   <div class="columns small-12 medium-4">
-    <a href="/sdk/stitch/android/" class="card spacious card--image card--android-outline">
+    <a href="https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.nexmo%22%20AND%20a%3A%22conversation%22" class="card spacious card--image card--android-outline">
       <h2>Android</h2>
     </a>
   </div>
   <div class="columns small-12 medium-4">
-    <a href="/sdk/stitch/ios/" class="card spacious card--image card--ios-outline">
+    <a href="https://cocoapods.org/pods/NexmoConversation" class="card spacious card--image card--ios-outline">
       <h2>iOS</h2>
     </a>
   </div>
