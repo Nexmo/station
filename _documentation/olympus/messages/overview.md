@@ -7,7 +7,6 @@ title: Overview
 The Messaging API is a single API that enables easy integration with various communication channels such as: SMS, Facebook Messenger and Viber.
 
 * **Send and receive** SMS, Facebook and Viber Messages with one API.
-* **Failover** with Workflows when messages can't be delivered.
 * **Handle media** such as images, audio, video & files.
 * **Receive location events** sent by users from Facebook Messenger.
 
@@ -15,7 +14,7 @@ The Messaging API is a single API that enables easy integration with various com
 
 In this document you can learn about:
 
-* [Olympus Concepts](#concepts)
+* [Concepts](#concepts)
 * [How to Get Started with Olympus](#getting-started)
 * [Building Blocks](#building-blocks)
 * [Guides](#guides)
@@ -23,10 +22,9 @@ In this document you can learn about:
 
 ## Concepts
 
-To use Olympus, you may need to familiarise yourself with:
+To use the Messages API, you may need to familiarise yourself with:
 
-* **[Authentication](/concepts/guides/authentication)** - The Messages and Workflows APIs are authenticated with JWT.
-* **[Messages](/olympus/messages/overview)** - The Messages API is used for sending messages to a single channel.
+* **[Authentication](/concepts/guides/authentication)** - The Messages API is authenticated with JWT.
 * **[Workflows](/olympus/workflows/overview)** - The Workflow API is used to combine messages together with logic to allow for failover.
 
 ## Getting Started
@@ -65,6 +63,7 @@ config: 'olympus.messages.send-sms'
 * [Send an SMS with Messages API](/olympus/messages/building-blocks/send-an-sms-with-messages-api)
 * [Send with Facebook Messenger](/olympus/messages/building-blocks/send-with-facebook-messenger)
 * [Send a Viber Service Message](/olympus/messages/building-blocks/send-a-viber-service-message)
+* [Send a message with failover](/olympus/workflows/building-blocks/send-a-message-with-failover)
 
 ## Guides
 
