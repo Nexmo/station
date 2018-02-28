@@ -49,17 +49,17 @@ Read more about:
 
 <div class="row">
   <div class="columns small-12 medium-4">
-    <a href="/stitch/client-sdks/javascript" class="card spacious card--image card--javascript">
+    <a href="/stitch/sdk-documentation/javascript" class="card spacious card--image card--javascript">
       <h2>JavaScript</h2>
     </a>
   </div>
   <div class="columns small-12 medium-4">
-    <a href="/stitch/client-sdks/android" class="card spacious card--image card--android">
+    <a href="/stitch/sdk-documentation/android" class="card spacious card--image card--android">
       <h2>Android</h2>
     </a>
   </div>
   <div class="columns small-12 medium-4">
-    <a href="/stitch/client-sdks/ios" class="card spacious card--image card--ios">
+    <a href="/stitch/sdk-documentation/ios" class="card spacious card--image card--ios">
       <h2>iOS</h2>
     </a>
   </div>

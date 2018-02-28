@@ -60,7 +60,7 @@ en:
     contribute: Contribute
     structure: Structure
 
-    client-sdks: SDK Documentation
+    sdk-documentation: SDK Documentation
     android: Android
     ios: iOS
     javascript: JavaScript

@@ -94,6 +94,9 @@
 /stitch/client-sdks/android: /sdk/conversation/android/
 /stitch/client-sdks/ios: /sdk/conversation/ios/
 /stitch/client-sdks/javascript: /sdk/conversation/javascript/
+/stitch/sdk-documentation/android: /sdk/conversation/android/
+/stitch/sdk-documentation/ios: /sdk/conversation/ios/
+/stitch/sdk-documentation/javascript: /sdk/conversation/javascript/
 
 /stitch: /stitch/overview
 /stitch/api-reference: /api/stitch
