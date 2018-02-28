@@ -26,5 +26,11 @@ navigation_weight:
   API Reference: 50
 
   Getting Started: 2
-  In-App Messaging: 4
-  In-App Voice: 3
+  In-App Messaging: 3
+  In-App Voice: 4
+
+navigation_overrides:
+  stitch:
+      sdk-documentation:
+        link: false
+        prevent_navigation_item_class: true
