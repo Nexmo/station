@@ -1,6 +1,6 @@
 ## Inviting Members with the Nexmo Conversation Android SDK
 
-In this getting started guide we'll demonstrate creating a second user and inviting them to the Conversation we created in the [simple conversation](1-simple-conversation.md) getting started guide. From there we'll list the conversations that are available to the user and upon receiving an invite to new conversations we'll automatically join them.
+In this getting started guide we'll demonstrate creating a second user and inviting them to the Conversation we created in the [simple conversation](/stitch/in-app-messaging/guides/1-simple-conversation) getting started guide. From there we'll list the conversations that are available to the user and upon receiving an invite to new conversations we'll automatically join them.
 
 ## Concepts
 
@@ -14,7 +14,7 @@ This guide will introduce you to the following concepts:
 ### Before you begin
 
 
-* Ensure you have run through the [previous guide](1-simple-conversation.md)
+* Ensure you have run through the [previous guide](1-simple-conversation)
 * Make sure you have two Android devices to complete this example. They can be two emulators, one emulator and one physical device, or two physical devices.
 
 ## 1 - Setup
@@ -64,7 +64,7 @@ $ echo $SECOND_USER_JWT
 
 ## 2 Update the Android App
 
-We will use the application we already created for [the first getting started guide](1-simple-conversation.md). With the basic setup in place we can now focus on updating the client-side application.
+We will use the application we already created for [the first getting started guide](/stitch/in-app-messaging/guides/1-simple-conversation). With the basic setup in place we can now focus on updating the client-side application.
 
 ### 2.1 Update the stubbed out Login
 

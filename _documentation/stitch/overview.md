@@ -38,17 +38,6 @@ If you want communicate with us during the developer preview you can:
 * Join the [Nexmo community slack](https://developer.nexmo.com/community/slack/) and ask @chris, @laka, @eric.giannini or @leggetter for access to the private [#in-app-messaging](https://nexmo-community.slack.com/messages/G5V788WHJ/) channel
 * Email [ea-support@nexmo.com](mailto:ea-support@nexmo.com) directly
 
-## Concepts
-
-**Conversation**
-    > A conversation is a shared core component that Nexmo APIs rely on. Conversations happen over multiple mediums and and can have associated Users through Memberships.
-
-**User**
-    > The concept of a user exists in Nexmo APIs, you can associate one with a user in your own application if you choose. A user can have multiple memberships to conversations and can communicate with other users through various different mediums.
-
-**Member**
-    > Memberships connect users with conversations. Each membership has one conversation and one user however a user can have many memberships to conversations just as conversations can have many members.
-
 ## Next Steps
 
 Read more about:

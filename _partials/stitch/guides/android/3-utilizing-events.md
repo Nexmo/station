@@ -1,6 +1,6 @@
 ## Using more Event Listeners with the Nexmo Conversation Android SDK
 
-In this getting started guide we'll demonstrate how to show previous history of a Conversation we created in the [simple conversation](1-simple-conversation.md) getting started guide. From there we'll cover how to show when a member is typing and mark text as being seen.
+In this getting started guide we'll demonstrate how to show previous history of a Conversation we created in the [simple conversation](/stitch/in-app-messaging/guides/1-simple-conversation) getting started guide. From there we'll cover how to show when a member is typing and mark text as being seen.
 
 ## Concepts
 
@@ -10,7 +10,7 @@ This guide will introduce you to **Conversation Events**. We'll be attaching the
 ### Before you begin
 
 
-* Ensure you have run through the [the first](1-simple-conversation.md) and [second](2-inviting-members.md) quickstarts.
+* Ensure you have run through the [the first](/stitch/in-app-messaging/guides/1-simple-conversation) and [second](/stitch/in-app-messaging/guides/2-inviting-members) quickstarts.
 * Make sure you have two Android devices to complete this example. They can be two emulators, one emulator and one physical device, or two physical devices.
 
 ## 1 - Setup

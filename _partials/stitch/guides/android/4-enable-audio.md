@@ -3,7 +3,7 @@ Create group chats with any number of members to communicate real time.
 
 
 ## Integrating with Audio Calling APIs
-After the [SDK integration ](https://github.com/nexmoinc/conversation-android-sdk/blob/develop/README.md), follow below steps to enable audio call.
+After the [SDK integration](https://github.com/nexmoinc/conversation-android-sdk/blob/develop/README.md), follow below steps to enable audio call.
 
 Prequisites: add audio related permissions to your Manifest file to enable audio support:
 
