@@ -35,7 +35,7 @@ This Developer Preview will focus on the In-App Messaging and Voice capabilities
 
 If you want communicate with us during the developer preview you can:
 
-* Join the [Nexmo community slack](https://developer.nexmo.com/community/slack/) and ask @chris, @laka, @eric.giannini or @leggetter for access to the private [#in-app-messaging](https://nexmo-community.slack.com/messages/G5V788WHJ/) channel
+* Join the [Nexmo community slack](https://developer.nexmo.com/community/slack/) and check out our [#stitch](https://nexmo-community.slack.com/messages/G5V788WHJ/) channel
 * Email [ea-support@nexmo.com](mailto:ea-support@nexmo.com) directly
 
 ## Next Steps
