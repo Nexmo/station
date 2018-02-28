@@ -31,7 +31,7 @@ Nexmo In-App Voice uses WebRTC and includes all the essentials you need to build
 
 ## Getting Started
 
-To start with you'll need a [Nexmo Account](/account/guides/management#create-and-configure-a-nexmo-account), an [Application](/concepts/guides/applications) and the  private key provided when you created the application. Follow the prerequisites if you've not got an Application already.
+To start you'll need a [Nexmo Account](/account/guides/management#create-and-configure-a-nexmo-account), an [Application](/concepts/guides/applications) and the  private key provided when you created the application. Follow the prerequisites if you've not got an Application already.
 
 | ### Prerequisites
 |
