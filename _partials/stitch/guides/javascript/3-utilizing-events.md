@@ -76,10 +76,10 @@ setupConversationEvents(conversation) {
   conversation.on('text', (sender, message) => {
     console.log('*** Message received', sender, message)
     const date = new Date(Date.parse(message.timestamp))
-    const text = `${sender.name} @ ${date}: <b>${message.body.text}</b><br>`
+    const text = `${sender.user.name} @ ${date}: <b>${message.body.text}</b><br>`
     this.messageFeed.innerHTML = text + this.messageFeed.innerHTML
 
-    if (sender.name !== this.conversation.me.name) {
+    if (sender.user.name !== this.conversation.me.name) {
         message.seen().then(this.eventLogger('text:seen')).catch(this.errorLogger)
     }
   })
@@ -183,4 +183,5 @@ That's it! Your page should now look something like [this](https://github.com/Ne
 
 ## Where next?
 
-- Have a look at the [Nexmo Conversation JS SDK API Reference](https://developer.nexmo.com/sdk/conversation/javascript/)
+* Try out [Quickstart 4](/stitch/in-app-messaging/guides/4-enable-audio)
+* Have a look at the [Nexmo Conversation JS SDK API Reference](/stitch/client-sdks/javascript)

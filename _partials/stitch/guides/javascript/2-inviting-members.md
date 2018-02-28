@@ -269,8 +269,9 @@ MEM-aaaaaaaa-bbbb-cccc-dddd-0123456789ab | USR-aaaaaaaa-bbbb-cccc-dddd-012345678
 
 Return to the previously opened browser windows so you can see `alice` has a conversation listed now. You can click the conversation name and proceed to chat between `alice` and `jamie`.
 
-That's it! Your page should now look something like [this](https://github.com/Nexmo/conversation-js-quickstart/blob/qs4/examples/2-inviting-members/index.html).
+That's it! Your page should now look something like [this](https://github.com/Nexmo/conversation-js-quickstart/blob/master/examples/2-inviting-members/index.html).
 
 ## Where next?
 
-- Have a look at the [Nexmo Conversation JS SDK API Reference](https://developer.nexmo.com/sdk/conversation/javascript/)
+* Try out [Quickstart 3](/stitch/in-app-messaging/guides/3-utilizing-events)
+* Have a look at the [Nexmo Conversation JS SDK API Reference](/stitch/client-sdks/javascript)

@@ -240,7 +240,7 @@ class ChatApp {
   setupUserEvents() { // TODO }
 }
 
-new ChatApp
+new ChatApp()
 </script>
 ```
 
@@ -312,7 +312,7 @@ setupConversationEvents(conversation) {
   conversation.on('text', (sender, message) => {
     console.log('*** Message received', sender, message)
     const date = new Date(Date.parse(message.timestamp))
-    const text = `${sender.name} @ ${date}: <b>${message.body.text}</b><br>`
+    const text = `${sender.user.name} @ ${date}: <b>${message.body.text}</b><br>`
     this.messageFeed.innerHTML = text + this.messageFeed.innerHTML
   })
 }
@@ -358,5 +358,5 @@ Run `index.html` in two side-by-side browser windows to see the conversation tak
 
 ## Where next?
 
-* Try out [Quickstart 2](https://github.com/Nexmo/conversation-js-quickstart/blob/master/docs/2-inviting-members.md)
-* Have a look at the [Nexmo Conversation JS SDK API Reference](https://developer.nexmo.com/sdk/conversation/javascript/)
+* Try out [Quickstart 2](/stitch/in-app-messaging/guides/1-simple-conversation)
+* Have a look at the [Nexmo Conversation JS SDK API Reference](/stitch/client-sdks/javascript)
