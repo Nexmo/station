@@ -57,7 +57,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="../../../../../favicon.ico" />
 <title>
 
-  Call
+  ReceiptRecord
 
 
 </title>
@@ -175,7 +175,7 @@
               
     <li><h2>Classes</h2>
       <ul>
-          <li class="selected api apilevel-"><a href="../../../../../com/nexmo/sdk/conversation/client/Call.html">Call</a></li>
+          <li class="api apilevel-"><a href="../../../../../com/nexmo/sdk/conversation/client/Call.html">Call</a></li>
           <li class="api apilevel-"><a href="../../../../../com/nexmo/sdk/conversation/client/Conversation.html">Conversation</a></li>
           <li class="api apilevel-"><a href="../../../../../com/nexmo/sdk/conversation/client/ConversationClient.html">ConversationClient</a></li>
           <li class="api apilevel-"><a href="../../../../../com/nexmo/sdk/conversation/client/ConversationClient.ConversationClientBuilder.html">ConversationClient.ConversationClientBuilder</a></li>
@@ -187,7 +187,7 @@
           <li class="api apilevel-"><a href="../../../../../com/nexmo/sdk/conversation/client/ImageRepresentation.html">ImageRepresentation</a></li>
           <li class="api apilevel-"><a href="../../../../../com/nexmo/sdk/conversation/client/Member.html">Member</a></li>
           <li class="api apilevel-"><a href="../../../../../com/nexmo/sdk/conversation/client/MemberMedia.html">MemberMedia</a></li>
-          <li class="api apilevel-"><a href="../../../../../com/nexmo/sdk/conversation/client/ReceiptRecord.html">ReceiptRecord</a></li>
+          <li class="selected api apilevel-"><a href="../../../../../com/nexmo/sdk/conversation/client/ReceiptRecord.html">ReceiptRecord</a></li>
           <li class="api apilevel-"><a href="../../../../../com/nexmo/sdk/conversation/client/SeenReceipt.html">SeenReceipt</a></li>
           <li class="api apilevel-"><a href="../../../../../com/nexmo/sdk/conversation/client/Text.html">Text</a></li>
           <li class="api apilevel-"><a href="../../../../../com/nexmo/sdk/conversation/client/User.html">User</a></li>
@@ -248,6 +248,15 @@
   
   
 
+  
+   
+  
+  
+   
+  
+  
+  
+
 
 <div class="sum-details-links">
 
@@ -259,17 +268,26 @@ Summary:
 
 
 
+  <a href="#inhconstants">Inherited Constants</a>
+  
+
+
+  &#124; <a href="#lfields">Fields</a>
+  
 
 
 
 
-  <a href="#proctors">Protected Ctors</a>
+  &#124; <a href="#proctors">Protected Ctors</a>
   
 
 
   &#124; <a href="#pubmethods">Methods</a>
   
 
+
+  &#124; <a href="#promethods">Protected Methods</a>
+  
 
 
   &#124; <a href="#inhmethods">Inherited Methods</a>
@@ -296,7 +314,7 @@ Summary:
      
     
     class
-<h1>Call</h1>
+<h1>ReceiptRecord</h1>
 
 
 
@@ -307,6 +325,11 @@ Summary:
   
 
   
+  
+      implements 
+      
+        Parcelable 
+      
   
   
 
@@ -329,7 +352,7 @@ Summary:
         
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
          	
-        <td colspan="1" class="jd-inheritance-class-cell">com.nexmo.sdk.conversation.client.Call</td>
+        <td colspan="1" class="jd-inheritance-class-cell">com.nexmo.sdk.conversation.client.ReceiptRecord</td>
     </tr>
     
 
@@ -338,6 +361,44 @@ Summary:
 
 
 
+<table class="jd-sumtable jd-sumtable-subclasses"><tr><td colspan="12" style="border:none;margin:0;padding:0;">
+
+  <a href="#" onclick="return toggleInherited(this, null)" id="subclasses-direct" class="jd-expando-trigger closed"
+          ><img id="subclasses-direct-trigger"
+          src="../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>Known Direct Subclasses
+
+  <div id="subclasses-direct">
+      <div id="subclasses-direct-list"
+              class="jd-inheritedlinks"
+              
+              >
+          
+            
+              <a href="../../../../../com/nexmo/sdk/conversation/client/DeliveredReceipt.html">DeliveredReceipt</a>,
+            
+              <a href="../../../../../com/nexmo/sdk/conversation/client/SeenReceipt.html">SeenReceipt</a>
+            
+          
+      </div>
+      <div id="subclasses-direct-summary"
+              style="display: none;"
+              >
+  <table class="jd-sumtable-expando">
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../com/nexmo/sdk/conversation/client/DeliveredReceipt.html">DeliveredReceipt</a></td>
+              <td class="jd-descrcol" width="100%">A delivery receipt confirms delivery of your message, but not that the members involved in the conversation
+ have seen it or read it.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../com/nexmo/sdk/conversation/client/SeenReceipt.html">SeenReceipt</a></td>
+              <td class="jd-descrcol" width="100%">Seen receipts for events: of type Text and Image.&nbsp;</td>
+          </tr>
+  </table>
+      </div>
+  </div>
+</td></tr></table>
+
 
 
 
@@ -345,21 +406,8 @@ Summary:
 
 
 <h2>Class Overview</h2>
-<p>Calls can be made towards specified users.
-
- <p>Example usage:</p>
- <pre>
-     conversationClient.call(userArray, new RequestHandler<Call>() {
-         &#64;Override
-         public void onSuccess(Call call) {
-              // Update the application UI here if needed with the ongoing call.
-         }
-         &#64;Override
-         public void onError(NexmoAPIError error) {
-              // Update the application UI here if needed.
-         }
-    });
- </pre></p>
+<p>Receipt Record holds data for: SeenReceipt and DeliveryReceipt.
+ Receipt records are irrevocable ( ex: you cannot un-do a markAsSeen event)</p>
 
 
 
@@ -402,6 +450,74 @@ Summary:
 
 
 
+<!-- =========== ENUM CONSTANT SUMMARY =========== -->
+<table id="inhconstants" class="jd-sumtable"><tr><th>
+  <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
+  <div style="clear:left;">Inherited Constants</div></th></tr>
+
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-constants-android.os.Parcelable" class="jd-expando-trigger closed"
+          ><img id="inherited-constants-android.os.Parcelable-trigger"
+          src="../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>From interface
+android.os.Parcelable
+<div id="inherited-constants-android.os.Parcelable">
+  <div id="inherited-constants-android.os.Parcelable-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-constants-android.os.Parcelable-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol">CONTENTS_FILE_DESCRIPTOR</td>
+        <td class="jd-descrcol" width="100%"></td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol">PARCELABLE_WRITE_RETURN_VALUE</td>
+        <td class="jd-descrcol" width="100%"></td>
+    </tr>
+    
+    
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+</table>
+
+
+
+
+<!-- =========== FIELD SUMMARY =========== -->
+<table id="lfields" class="jd-sumtable"><tr><th colspan="12">Fields</th></tr>
+
+
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol">
+          public
+          static
+          final
+          Creator&lt;<a href="../../../../../com/nexmo/sdk/conversation/client/ReceiptRecord.html">ReceiptRecord</a>&gt;</td>
+          <td class="jd-linkcol"><a href="../../../../../com/nexmo/sdk/conversation/client/ReceiptRecord.html#CREATOR">CREATOR</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+
+</table>
 
 
 
@@ -427,7 +543,7 @@ Summary:
             
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../com/nexmo/sdk/conversation/client/Call.html#Call(com.nexmo.sdk.conversation.client.Conversation)">Call</a></span>(<a href="../../../../../com/nexmo/sdk/conversation/client/Conversation.html">Conversation</a> conversation)
+        <span class="sympad"><a href="../../../../../com/nexmo/sdk/conversation/client/ReceiptRecord.html#ReceiptRecord(com.nexmo.sdk.conversation.client.Event, com.nexmo.sdk.conversation.client.Member, java.util.Date)">ReceiptRecord</a></span>(<a href="../../../../../com/nexmo/sdk/conversation/client/Event.html">Event</a> event, <a href="../../../../../com/nexmo/sdk/conversation/client/Member.html">Member</a> member, Date timestamp)
         
   </td></tr>
 
@@ -443,7 +559,7 @@ Summary:
             
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../com/nexmo/sdk/conversation/client/Call.html#Call(com.nexmo.sdk.conversation.client.Conversation, java.lang.String)">Call</a></span>(<a href="../../../../../com/nexmo/sdk/conversation/client/Conversation.html">Conversation</a> conversation, String from)
+        <span class="sympad"><a href="../../../../../com/nexmo/sdk/conversation/client/ReceiptRecord.html#ReceiptRecord(android.os.Parcel)">ReceiptRecord</a></span>(Parcel in)
         
   </td></tr>
 
@@ -467,46 +583,10 @@ Summary:
             
             
             
-            void
+            int
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../com/nexmo/sdk/conversation/client/Call.html#answer(com.nexmo.sdk.conversation.client.event.RequestHandler<java.lang.Void>)">answer</a></span>(<a href="../../../../../com/nexmo/sdk/conversation/client/event/RequestHandler.html">RequestHandler</a>&lt;Void&gt; listener)
-        
-        <div class="jd-descrdiv">Answer an incoming call.</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            String
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../com/nexmo/sdk/conversation/client/Call.html#from()">from</a></span>()
-        
-        <div class="jd-descrdiv">Get the username of user who initiated call.</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            final
-            
-            
-            <a href="../../../../../com/nexmo/sdk/conversation/client/Conversation.html">Conversation</a>
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../com/nexmo/sdk/conversation/client/Call.html#getConversation()">getConversation</a></span>()
+        <span class="sympad"><a href="../../../../../com/nexmo/sdk/conversation/client/ReceiptRecord.html#describeContents()">describeContents</a></span>()
         
   </td></tr>
 
@@ -519,10 +599,10 @@ Summary:
             
             
             
-            String
+            boolean
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../com/nexmo/sdk/conversation/client/Call.html#getName()">getName</a></span>()
+        <span class="sympad"><a href="../../../../../com/nexmo/sdk/conversation/client/ReceiptRecord.html#equals(java.lang.Object)">equals</a></span>(Object o)
         
   </td></tr>
 
@@ -535,13 +615,11 @@ Summary:
             
             
             
-            void
+            <a href="../../../../../com/nexmo/sdk/conversation/client/Event.html">Event</a>
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../com/nexmo/sdk/conversation/client/Call.html#hangup(com.nexmo.sdk.conversation.client.event.RequestHandler<java.lang.Void>)">hangup</a></span>(<a href="../../../../../com/nexmo/sdk/conversation/client/event/RequestHandler.html">RequestHandler</a>&lt;Void&gt; listener)
+        <span class="sympad"><a href="../../../../../com/nexmo/sdk/conversation/client/ReceiptRecord.html#getEvent()">getEvent</a></span>()
         
-        <div class="jd-descrdiv">Hangs up the call while leaving the generated conversation.</div>
-  
   </td></tr>
 
 
@@ -553,13 +631,11 @@ Summary:
             
             
             
-            void
+            <a href="../../../../../com/nexmo/sdk/conversation/client/Member.html">Member</a>
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../com/nexmo/sdk/conversation/client/Call.html#reject(com.nexmo.sdk.conversation.client.event.RequestHandler<java.lang.Void>)">reject</a></span>(<a href="../../../../../com/nexmo/sdk/conversation/client/event/RequestHandler.html">RequestHandler</a>&lt;Void&gt; listener)
+        <span class="sympad"><a href="../../../../../com/nexmo/sdk/conversation/client/ReceiptRecord.html#getMember()">getMember</a></span>()
         
-        <div class="jd-descrdiv">Reject an incoming call.</div>
-  
   </td></tr>
 
 
@@ -568,21 +644,35 @@ Summary:
         <td class="jd-typecol">
             
             
-            final
             
             
-            List&lt;<a href="../../../../../com/nexmo/sdk/conversation/client/Member.html">Member</a>&gt;
+            
+            Date
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../com/nexmo/sdk/conversation/client/Call.html#to()">to</a></span>()
+        <span class="sympad"><a href="../../../../../com/nexmo/sdk/conversation/client/ReceiptRecord.html#getTimestamp()">getTimestamp</a></span>()
         
-        <div class="jd-descrdiv">Get all the members on the call.</div>
-  
   </td></tr>
 
 
 	 
     <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            int
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../../com/nexmo/sdk/conversation/client/ReceiptRecord.html#hashCode()">hashCode</a></span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -592,7 +682,23 @@ Summary:
             String
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../com/nexmo/sdk/conversation/client/Call.html#toString()">toString</a></span>()
+        <span class="sympad"><a href="../../../../../com/nexmo/sdk/conversation/client/ReceiptRecord.html#toString()">toString</a></span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../../com/nexmo/sdk/conversation/client/ReceiptRecord.html#writeToParcel(android.os.Parcel, int)">writeToParcel</a></span>(Parcel dest, int flags)
         
   </td></tr>
 
@@ -601,6 +707,47 @@ Summary:
 </table>
 
 
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="promethods" class="jd-sumtable"><tr><th colspan="12">Protected Methods</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../../com/nexmo/sdk/conversation/client/ReceiptRecord.html#setEvent(com.nexmo.sdk.conversation.client.Event)">setEvent</a></span>(<a href="../../../../../com/nexmo/sdk/conversation/client/Event.html">Event</a> event)
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../../com/nexmo/sdk/conversation/client/ReceiptRecord.html#setMember(com.nexmo.sdk.conversation.client.Member)">setMember</a></span>(<a href="../../../../../com/nexmo/sdk/conversation/client/Member.html">Member</a> member)
+        
+  </td></tr>
+
+
+
+</table>
 
 
 
@@ -813,6 +960,64 @@ From class
 </td></tr>
 
 
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-android.os.Parcelable" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-android.os.Parcelable-trigger"
+          src="../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  android.os.Parcelable
+
+<div id="inherited-methods-android.os.Parcelable">
+  <div id="inherited-methods-android.os.Parcelable-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-android.os.Parcelable-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            abstract
+            
+            
+            
+            
+            int
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">describeContents</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            abstract
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">writeToParcel</span>(Parcel arg0, int arg1)
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
 </table>
 
 
@@ -839,6 +1044,43 @@ From class
 <!-- Fields -->
 
 
+<!-- ========= FIELD DETAIL ======== -->
+<h2>Fields</h2>
+
+
+
+
+<a id="CREATOR"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        Creator&lt;<a href="../../../../../com/nexmo/sdk/conversation/client/ReceiptRecord.html">ReceiptRecord</a>&gt;
+      </span>
+        CREATOR
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+
 <!-- Public ctors -->
 
 
@@ -850,7 +1092,7 @@ From class
 
 
 
-<a id="Call(com.nexmo.sdk.conversation.client.Conversation)"></a>
+<a id="ReceiptRecord(com.nexmo.sdk.conversation.client.Event, com.nexmo.sdk.conversation.client.Member, java.util.Date)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -862,8 +1104,8 @@ From class
          
         
       </span>
-      <span class="sympad">Call</span>
-      <span class="normal">(<a href="../../../../../com/nexmo/sdk/conversation/client/Conversation.html">Conversation</a> conversation)</span>
+      <span class="sympad">ReceiptRecord</span>
+      <span class="normal">(<a href="../../../../../com/nexmo/sdk/conversation/client/Event.html">Event</a> event, <a href="../../../../../com/nexmo/sdk/conversation/client/Member.html">Member</a> member, Date timestamp)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -881,7 +1123,7 @@ From class
 </div>
 
 
-<a id="Call(com.nexmo.sdk.conversation.client.Conversation, java.lang.String)"></a>
+<a id="ReceiptRecord(android.os.Parcel)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -893,8 +1135,8 @@ From class
          
         
       </span>
-      <span class="sympad">Call</span>
-      <span class="normal">(<a href="../../../../../com/nexmo/sdk/conversation/client/Conversation.html">Conversation</a> conversation, String from)</span>
+      <span class="sympad">ReceiptRecord</span>
+      <span class="normal">(Parcel in)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -922,7 +1164,7 @@ From class
 
 
 
-<a id="answer(com.nexmo.sdk.conversation.client.event.RequestHandler<java.lang.Void>)"></a>
+<a id="describeContents()"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -932,85 +1174,9 @@ From class
          
          
          
-        void
+        int
       </span>
-      <span class="sympad">answer</span>
-      <span class="normal">(<a href="../../../../../com/nexmo/sdk/conversation/client/event/RequestHandler.html">RequestHandler</a>&lt;Void&gt; listener)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Answer an incoming call.
- If the call is already answered, an error will be dispatched.
-
- Note: answering the call means accepting invitation to conversation and enable audio.</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>listener</th>
-          <td>The completion listener in charge of dispatching the result.
-</td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
-<a id="from()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        String
-      </span>
-      <span class="sympad">from</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Get the username of user who initiated call.
-</p></div>
-
-    </div>
-</div>
-
-
-<a id="getConversation()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-        final 
-         
-         
-        <a href="../../../../../com/nexmo/sdk/conversation/client/Conversation.html">Conversation</a>
-      </span>
-      <span class="sympad">getConversation</span>
+      <span class="sympad">describeContents</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -1029,7 +1195,7 @@ From class
 </div>
 
 
-<a id="getName()"></a>
+<a id="equals(java.lang.Object)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1039,9 +1205,40 @@ From class
          
          
          
-        String
+        boolean
       </span>
-      <span class="sympad">getName</span>
+      <span class="sympad">equals</span>
+      <span class="normal">(Object o)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="getEvent()"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../com/nexmo/sdk/conversation/client/Event.html">Event</a>
+      </span>
+      <span class="sympad">getEvent</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -1060,7 +1257,7 @@ From class
 </div>
 
 
-<a id="hangup(com.nexmo.sdk.conversation.client.event.RequestHandler<java.lang.Void>)"></a>
+<a id="getMember()"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1070,98 +1267,9 @@ From class
          
          
          
-        void
+        <a href="../../../../../com/nexmo/sdk/conversation/client/Member.html">Member</a>
       </span>
-      <span class="sympad">hangup</span>
-      <span class="normal">(<a href="../../../../../com/nexmo/sdk/conversation/client/event/RequestHandler.html">RequestHandler</a>&lt;Void&gt; listener)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Hangs up the call while leaving the generated conversation.
- The audio is disabled.
-
- Note: when there is only one member left in the call, everyone gets removed from the call.</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>listener</th>
-          <td>The completion listener in charge of dispatching the result.
-</td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
-<a id="reject(com.nexmo.sdk.conversation.client.event.RequestHandler<java.lang.Void>)"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">reject</span>
-      <span class="normal">(<a href="../../../../../com/nexmo/sdk/conversation/client/event/RequestHandler.html">RequestHandler</a>&lt;Void&gt; listener)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Reject an incoming call.
-
- <p> Note: User cannot reject a call that is already answered <code><a href="../../../../../com/nexmo/sdk/conversation/client/Call.html#answer(com.nexmo.sdk.conversation.client.event.RequestHandler<java.lang.Void>)">answer(RequestHandler)</a></code>.
- If the call is already in progress user can hangup <code><a href="../../../../../com/nexmo/sdk/conversation/client/Call.html#hangup(com.nexmo.sdk.conversation.client.event.RequestHandler<java.lang.Void>)">hangup(RequestHandler)</a></code> instead.
- </p></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>listener</th>
-          <td>The completion listener in charge of dispatching the result.
-</td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
-<a id="to()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-        final 
-         
-         
-        List&lt;<a href="../../../../../com/nexmo/sdk/conversation/client/Member.html">Member</a>&gt;
-      </span>
-      <span class="sympad">to</span>
+      <span class="sympad">getMember</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -1174,12 +1282,69 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Get all the members on the call.</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>List of members.
-</li></ul>
-  </div>
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="getTimestamp()"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        Date
+      </span>
+      <span class="sympad">getTimestamp</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="hashCode()"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">hashCode</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     </div>
 </div>
@@ -1216,10 +1381,108 @@ From class
 </div>
 
 
+<a id="writeToParcel(android.os.Parcel, int)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">writeToParcel</span>
+      <span class="normal">(Parcel dest, int flags)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
 
 
 
 <!-- ========= METHOD DETAIL ======== -->
+
+<h2>Protected Methods</h2>
+
+
+
+<a id="setEvent(com.nexmo.sdk.conversation.client.Event)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setEvent</span>
+      <span class="normal">(<a href="../../../../../com/nexmo/sdk/conversation/client/Event.html">Event</a> event)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="setMember(com.nexmo.sdk.conversation.client.Member)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setMember</span>
+      <span class="normal">(<a href="../../../../../com/nexmo/sdk/conversation/client/Member.html">Member</a> member)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
 
 
 

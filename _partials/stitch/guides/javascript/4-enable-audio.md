@@ -128,17 +128,3 @@ That's it! Your page should now look something like [this](https://github.com/Ne
 ## Where next?
 
 - Have a look at the [Nexmo Conversation JS SDK API Reference](https://developer.nexmo.com/sdk/conversation/javascript/)
-
-## ICE Servers
-If for some reason the WebRTC P2P connection doesn't work on your network, you need to overwrite the [ICE Servers](https://en.wikipedia.org/wiki/Interactive_Connectivity_Establishment) when you create you `ConversationClient` instance:
-
-```javascript
-new ConversationClient({
-  debug: false,
-  iceServers: {
-    urls: 'turn:138.68.169.35:3478?transport=tcp',
-    credential: 'bar',
-    username: 'foo2'
-  }
-})
-```
