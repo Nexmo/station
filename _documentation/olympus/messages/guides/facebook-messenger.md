@@ -25,11 +25,11 @@ Next you'll need to link your Facebook page to Nexmo, this will allow us to hand
 
 - [Subscribe your page to Facebook and Nexmo](https://static.nexmo.com/messenger/)
 
-## Configure your inbound message endpoint with Nexmo
+## Configure your Delivery Receipt and Inbound Message endpoint with Nexmo
 
 From [Nexmo Dashboard](https://dashboard.nexmo.com) go to [Settings](https://dashboard.nexmo.com/settings).
 
-Set the HTTP Method to POST and enter your endpoint in the field labeled **Webhook URL for Inbound Message**:
+Set the HTTP Method to POST and enter your endpoint in the fields labeled **Webhook URL for Inbound Message** and **Webhook URL for Delivery Receipt**:
 
 ```screenshot
 script: app/screenshots/webhook-url-for-inbound-message.js
