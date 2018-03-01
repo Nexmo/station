@@ -29,6 +29,17 @@ To use Workflows API, you may need to familiarise yourself with:
 
 ## Getting Started
 
+### Configure your Devlivery Receipt and Inbound Message endpoint with Nexmo
+
+From [Nexmo Dashboard](https://dashboard.nexmo.com) go to [Settings](https://dashboard.nexmo.com/settings).
+
+Set the HTTP Method to POST and enter your endpoint in the fields labeled **Webhook URL for Inbound Message** and **Webhook URL for Delivery Receipt**:
+
+```screenshot
+script: app/screenshots/webhook-url-for-inbound-message.js
+image: public/assets/screenshots/1b9047ceebd9312df0a3be8202be342c4da70201.png
+```
+
 ### Send a message with failover
 
 Sending an message that failsover to another channel is straightforward. In this example we will send a Viber message that failsover to SMS. Sign up for an account and replace the following variables in the example below:
