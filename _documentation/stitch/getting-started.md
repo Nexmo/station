@@ -2,7 +2,7 @@
 title: Getting Started
 ---
 
-## Concepts
+# Concepts
 
 **Conversation**
     > A conversation is a shared core component that Nexmo APIs rely on. Conversations happen over multiple mediums and and can have associated Users through Memberships.
@@ -13,7 +13,9 @@ title: Getting Started
 **Member**
     > Memberships connect users with conversations. Each membership has one conversation and one user however a user can have many memberships to conversations just as conversations can have many members.
 
-## Getting Started
+<br>
+
+# Getting Started
 
 To start you'll need a [Nexmo Account](/account/guides/management#create-and-configure-a-nexmo-account), an [Application](/concepts/guides/applications) and the  private key provided when you created the application. Follow the prerequisites if you've not got an Application already.
 
@@ -69,3 +71,10 @@ source: _examples/conversations/overview/create-a-user/
 ```tabbed_examples
 source: _examples/conversations/overview/join-the-conversation/
 ```
+
+# Next Steps
+
+Read more about:
+
+- [In-App Messaging](/stitch/in-app-messaging/overview)
+- [In-App Voice](/stitch/in-app-voice/overview)
