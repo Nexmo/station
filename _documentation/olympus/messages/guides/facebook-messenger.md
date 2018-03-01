@@ -4,7 +4,13 @@ title: Facebook Messenger
 
 # Facebook Messenger
 
-You can use the Messages API to send and receive messages using Facebook Messenger. Follow these instructions to get setup:
+You can use the Messages API to send and receive messages using Facebook Messenger.
+
+In Facebook Messenger, the default is for the customer to initiate a conversation first with a business. Facebook Messenger uses its own form of IDs for the Facebook Page (what the business communicates as) and the Facebook user. The Facebook user will have Page-scoped ID (PSID) and this is unique for each page. The Businesses can only obtain the PSID of a user when the user first send a message to the business.
+
+In order to get started with Facebook Messenger you will need to first link your Facebook Page to Nexmo, at this point we will provide you with your Facebook Page ID. You will then need to send a message as a Facebook User to your Facebook Page. At this point you will receive an inbound message callback to your server with the PSID of the Facebook user. You can now use this PSID to send a message back to the user.
+
+Follow these instructions to get setup:
 
 ## Setup a Facebook Page
 
@@ -17,13 +23,13 @@ To use the Messages API with Facebook Messenger you must have a Facebook Account
 
 Next you'll need to link your Facebook page to Nexmo, this will allow us to handle the inbound messages and allow you to send messages from the Nexmo Messages API.
 
-- [Subscribe your page to Facebook and Chatapp](https://static.nexmo.com/messenger/)
+- [Subscribe your page to Facebook and Nexmo](https://static.nexmo.com/messenger/)
 
 ## Configure your inbound message endpoint with Nexmo
 
 From [Nexmo Dashboard](https://dashboard.nexmo.com) go to [Settings](https://dashboard.nexmo.com/settings).
 
-Enter your endpoint in the field labeled **Webhook URL for Inbound Message**:
+Set the HTTP Method to POST and enter your endpoint in the field labeled **Webhook URL for Inbound Message**:
 
 ```screenshot
 script: app/screenshots/webhook-url-for-inbound-message.js
@@ -49,7 +55,7 @@ When a message is sent to your page an event will be sent to your event endpoint
   "message":{  
     "content":{  
       "type":"text",
-      "text":"Hello+from+Facebook+Messenger!"
+      "text":"Hello from Facebook Messenger!"
     }
   }
 }
