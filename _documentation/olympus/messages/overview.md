@@ -6,9 +6,15 @@ title: Overview
 
 The Messaging API is a single API that enables easy integration with various communication channels such as: SMS, Facebook Messenger and Viber.
 
-* **Send and receive** SMS, Facebook and Viber Messages with one API.
-* **Handle media** such as images, audio, video & files.
-* **Receive location events** sent by users from Facebook Messenger.
+This APIs is currently in Developer Preview and you will need to request access (link to access page) to use it.
+
+During Developer Preview we will expand the capabilities of the API. Please visit the API Reference for a comprehensive breakdown and on high level we currently support:
+
+* Outbound text messages on SMS, Viber Service Messages and Facebook Messenger.
+* Outbound media messages on Facebook Messenger.
+* Inbound text, media and location messages on Facebook Messenger. 
+
+There may be bugs🐛 and quirks so we'd welcome your feedback-any suggestions you make help us shape the product.
 
 ## Contents
 
@@ -28,6 +34,17 @@ To use the Messages API, you may need to familiarise yourself with:
 * **[Workflows](/olympus/workflows/overview)** - The Workflow API is used to combine messages together with logic to allow for failover.
 
 ## Getting Started
+
+## Configure your Devlivery Receipt and Inbound Message endpoint with Nexmo
+
+From [Nexmo Dashboard](https://dashboard.nexmo.com) go to [Settings](https://dashboard.nexmo.com/settings).
+
+Set the HTTP Method to POST and enter your endpoint in the fields labeled **Webhook URL for Inbound Message** and **Webhook URL for Delivery Receipt**:
+
+```screenshot
+script: app/screenshots/webhook-url-for-inbound-message.js
+image: public/assets/screenshots/1b9047ceebd9312df0a3be8202be342c4da70201.png
+```
 
 ### Send an SMS with Messages API
 
