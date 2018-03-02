@@ -14,7 +14,7 @@ During Developer Preview we will expand the capabilities of the API. Please visi
 * Outbound media messages on Facebook Messenger.
 * Inbound text, media and location messages on Facebook Messenger. 
 
-There may be bugs🐛 and quirks so we'd welcome your feedback-any suggestions you make help us shape the product.
+There may be bugs🐛 and quirks so we'd welcome your feedback-any suggestions you make help us shape the product. If you do need help, please email support@nexmo.com and include Messages API in the subject line.
 
 ## Contents
 
@@ -35,7 +35,11 @@ To use the Messages API, you may need to familiarise yourself with:
 
 ## Getting Started
 
-## Configure your Devlivery Receipt and Inbound Message endpoint with Nexmo
+In this Getting Started section we will show you how you can send an SMS. The same steps taken here can be easily modified to send a message across Viber Service Messages, Facebook Messenger and any future channels that we add.
+
+### 1. Configure your Delivery Receipt and Inbound Message endpoint with Nexmo
+
+To recieve updates about the state of a message (i.e. "delivered" or "read") you have just sent and to recieve inbound messages from your customers you will need to configure an endpoint for Nexmo to send message to. If you don't have a webhook server set up you can use https://hookbin.com for free.
 
 From [Nexmo Dashboard](https://dashboard.nexmo.com) go to [Settings](https://dashboard.nexmo.com/settings).
 
@@ -46,9 +50,20 @@ script: app/screenshots/webhook-url-for-inbound-message.js
 image: public/assets/screenshots/1b9047ceebd9312df0a3be8202be342c4da70201.png
 ```
 
-### Send an SMS with Messages API
+### 2. Generate a JWT to Authenticate with Nexmo
 
-Sending an SMS message with the Messages API is straightforward. Sign up for an account and replace the following variables in the example below:
+Future Nexmo APIs are authenticating with JSON Web Tokens
+(JWTs). This is a more secure method then API key and Secret and only requires a few more steps.
+
+In order to create a JWT for you Nexmo API key you will need to create a Nexmo Voice Application (during the Developer Preview we will be adding Application support for the Messages and Workflows API). This can be done under the [Voice tab](https://dashboard.nexmo.com/voice/create-application) or using the [Nexmo CLI]( https://github.com/Nexmo/nexmo-cli) tool.
+
+You will be asked to provide an Event URL and an Answer URL when creating a Voice Application. These are currently only used by the Voice API and are ignored by the Messages and Workflows APIs. Instead they use the Delivery Receipt and Inbound Message URLs that you set in [Settings](https://dashboard.nexmo.com/settings).
+
+Once you have created a Voice application you can use the application ID and private key to generate a JWT. There is more information on [Voice Application management]( https://www.nexmo.com/blog/2017/06/29/voice-application-management-easier/) and the use of [Nexmo libraries](https://developer.nexmo.com/tools).
+
+### 3. Send an SMS with Messages API
+
+Sending an SMS message with the Messages API is straightforward. Replace the following variables in the example below:
 
 Key | Description
 -- | --
