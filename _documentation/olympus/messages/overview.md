@@ -14,7 +14,7 @@ During Developer Preview we will expand the capabilities of the API. Please visi
 * Outbound media messages on Facebook Messenger.
 * Inbound text, media and location messages on Facebook Messenger. 
 
-There may be bugs🐛 and quirks so we'd welcome your feedback-any suggestions you make help us shape the product. If you do need help, please email support@nexmo.com and include Messages API in the subject line.
+There may be bugs🐛 and quirks so we'd welcome your feedback - any suggestions you make help us shape the product. If you do need help, please email support@nexmo.com and include Messages API in the subject line.
 
 ## Contents
 
@@ -39,7 +39,7 @@ In this Getting Started section we will show you how you can send an SMS. The sa
 
 ### 1. Configure your Delivery Receipt and Inbound Message endpoint with Nexmo
 
-To recieve updates about the state of a message (i.e. "delivered" or "read") you have just sent and to recieve inbound messages from your customers you will need to configure an endpoint for Nexmo to send message to. If you don't have a webhook server set up you can use https://hookbin.com for free.
+To recieve updates about the state of a message (i.e. "delivered" or "read") you have just sent and to recieve inbound messages from your customers you will need to configure an endpoint for Nexmo to send message to. If you don't have a webhook server set up you can use https://requestb.in/ for free.
 
 From [Nexmo Dashboard](https://dashboard.nexmo.com) go to [Settings](https://dashboard.nexmo.com/settings).
 
