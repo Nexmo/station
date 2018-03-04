@@ -162,6 +162,7 @@ components:
             **SMS**: The phone number of the message recipient in the [E.164](https://en.wikipedia.org/wiki/E.164) format.
 
             **Messenger**: or **Viber**: This value is not required.
+
     MessageProperty:
       type: object
       required:
@@ -208,11 +209,46 @@ components:
           example: 600
           minimum: 30
           maximum: 86400
+
+    FailoverProperty:
+      description: 'Please note that last message does not have failover attribute inside it. All other messages must contain a failover attribute.'
+      type: object
+      properties:
+        expiry_time:
+          description: 'In seconds. Minimum value is 30 and maximum value is 86,400 seconds (1 day).'
+          type: integer
+          example: 600
+          minimum: 30
+          maximum: 86400
+        condition_status:
+          description: 'Set the status the message must reach in the expiry_time before failing over. Options are delivered or read.'
+          type: string
+          enum:
+            - delivered
+            - read
+
     TimestampProperty:
       type: string
       format: ISO 8601
       description: The datetime of when the event occurred.
       example: '2020-01-01T14:00:00.000Z'
+
+    sendWithFailoverMessage:
+      type: object
+      description: Send With Failover Message
+      required:
+        - to
+        - from
+        - message
+      properties:
+        to:
+          $ref: '#/components/schemas/ToProperty'
+        from:
+          $ref: '#/components/schemas/FromProperty'
+        message:
+          $ref: '#/components/schemas/MessageProperty'
+        failover:
+          $ref: '#/components/schemas/FailoverProperty'
 
     sendMessage:
       type: object
@@ -228,17 +264,6 @@ components:
           $ref: '#/components/schemas/FromProperty'
         message:
           $ref: '#/components/schemas/MessageProperty'
-
-    sendWithFailoverMessage:
-      type: object
-      description: Send With Failover Message
-      required:
-        - to
-        - from
-        - message
-      properties:
-        to:
-          $ref: '#/components/schemas/ToProperty'
 
     Response:
       required:
@@ -334,6 +359,7 @@ components:
                   type: string
                   example: 'aaaaaaaa-bbbb-cccc-dddd-0123456789ab'
                 href:
+                  description: 'Please note GET is not currently supported'
                   type: string
                   example: '/workflows/aaaaaaaa-bbbb-cccc-dddd-0123456789ab'
 
@@ -361,9 +387,11 @@ components:
           description:  'This is the total cost of your Workflow request. Please note if a preceding message in the workflow request is delivered after the final message in the workflow is delivered it may not reflect the true total cost of the workflow.'
           properties:
             price:
+              description: The charge amount as a stringified number.
               type: string
               example: "0.02"
             currency:
+              description: The charge currency in ISO 4217 format.
               type: string
               enum:
                 - EUR
@@ -380,6 +408,7 @@ components:
                     type: string
                     example: 'aaaaaaaa-bbbb-cccc-dddd-0123456789ab'
                   href:
+                    description: 'Please note GET is not currently supported'
                     type: string
                     example: 'aaaaaaaa-bbbb-cccc-dddd-0123456789ab'
                   channel:
