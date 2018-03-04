@@ -1,87 +1,443 @@
----
-title: Overview
----
+openapi: "3.0.0"
+info:
+  version: 0.3.0
+  title: Workflows API
+  description: 'The Workflows API enables the developer to specify a multiple message workflow. A workflow follows a template. The first one we are adding is the failover template. The failover template instructs the messaging API to first send a message to the specified channel. If that message fails immediately or if the condition_status is not reached within the given time period the next message is sent. The developer will also recieve status webhooks from the messages resource for each delivery and read event.'
+servers:
+  - url: https://api.nexmo.com/beta
+paths:
+  /workflows:
+    post:
+      security:
+        - bearerAuth: []
+      summary: Create a workflow
+      operationId: createWorkflow
+      requestBody:
+        description: Please note that last message does not have failover attribute inside it. All other messages must contain a failover attribute. 
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/createWorkflow'
+      responses:
+        '202':
+          description: Accepted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      callbacks:
+        message-status:
+          '{$request.body#/callback}':
+            post:
+              summary: Message Status
+              operationId: message-status
+              x-example-path: '/webhooks/message-status'
+              description: staus of the message read or delivered etc.
+              requestBody:
+                required: true
+                content:
+                  application/json:
+                    schema:
+                      $ref: '#/components/schemas/MessageStatus'
+              responses:
+                  '200':
+                    description: Your server returns this code if it accepts the callback
+        final-report:
+          '{$request.body#/callback}':
+            post:
+              summary: The Final Report
+              operationId: final-report
+              x-example-path: '/webhooks/final-report'
+              description: The final workflow callback is sent when The condition_status was met within the expiry_time. If we take the example API call above. If we received a delivered status at 300 seconds (within the expiry_time) the workflow would be marked as completed. We would not send an SMS. We would then send the final callback. The final message in the failover is delivered. If the message Errors on the last step we will send the final callback. Please note GET is not currently supported. You will notice we have an href to a resource in some of the callbacks. These will fail to load but we wanted to maintain the same structure so that we can seamlessly integrate GET later.
+              requestBody:
+                required: true
+                content:
+                  application/json:
+                    schema:
+                      $ref: '#/components/schemas/finalReport'
+              responses:
+                  '200':
+                    description: Your server returns this code if it accepts the callback
 
-# Overview
+components:
 
-The Workflow API is an API allows you to combine multiple [Messages](/olympus/messages/overview) and provide failover between them.
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
 
-* **Send** SMS, Facebook and Viber Messages with Workflows built on-top of the the [Messages API](/olympus/messages/overview).
-* **Failover** with Workflows when messages can't be delivered.
+  schemas:
 
-## Contents
+    createWorkflow:
+      type: object
+      properties:
+        template:
+          description: 'The template that the workflow API will execute. For the initial version of the API the only available value will be failover'
+          type: string
+          enum:
+            - failover
+          example: failover
+        workflow:
+          description: 'Contains a message object that must reflect the current /messages resource. All parameters within the content object reflect the /messages docs.'
+          type: array
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/sendWithFailoverMessage'
+              - $ref: '#/components/schemas/sendMessage'
 
-In this document you can learn about:
+    ToProperty:
+      type: object
+      required:
+        - type
+      properties:
+        type:
+          type: string
+          description: The type of message that you want to send.
+          example: 'sms'
+          enum:
+            - sms
+            - viber_service_msg
+            - messenger
+        id:
+          description: |
+            The ID of the message recipient.
 
-* [Concepts](#concepts)
-* [How to Get Started with Olympus](#getting-started)
-* [Building Blocks](#building-blocks)
-* [Guides](#guides)
-* [Reference](#reference)
+            **Messenger**: This value should be the `from.id` value you received in the inbound messenger event.
 
-## Concepts
+            **SMS**: or **Viber**: This value is not required.
+          type: string
+          minLength: 1
+          maxLength: 50
+          example: '0123456789012345'
+        number:
+          type: string
+          minLength: 1
+          maxLength: 50
+          example: '447700900000'
+          description: |
+            **SMS**: or **Viber**: The phone number of the message recipient in the [E.164](https://en.wikipedia.org/wiki/E.164) format.
 
-To use Workflows API, you may need to familiarise yourself with:
+            **Messenger**: This value is not required.
 
-* **[Authentication](/concepts/guides/authentication)** - The Workflows API is authenticated with JWT.
-* **[Messages](/olympus/messages/overview)** - The Messages API is used for sending messages to a single channel.
+    FromProperty:
+      type: object
+      required:
+        - type
+      properties:
+        type:
+          type: string
+          description: The type of message that you want to send.
+          example: sms
+          enum:
+            - sms
+            - viber_service_msg
+            - messenger
+        id:
+          description: |
+            Your ID for the platform that you are sending from.
 
-## Getting Started
+            **Messenger**: This value should be the `to.id` value you received in the inbound messenger event.
 
-### Configure your Devlivery Receipt and Inbound Message endpoint with Nexmo
+            **Viber**: This is your service message ID given to you by Nexmo Account Manager. More information on Viber can be found on [nexmo.com](https://www.nexmo.com/products/chat).
 
-From [Nexmo Dashboard](https://dashboard.nexmo.com) go to [Settings](https://dashboard.nexmo.com/settings).
+            **SMS**: This value is not required.
+          type: string
+          minLength: 1
+          maxLength: 50
+          example: '0123456789012345'
+        number:
+          type: string
+          minLength: 1
+          maxLength: 50
+          example: '447700900000'
+          description: |
+            **SMS**: The phone number of the message recipient in the [E.164](https://en.wikipedia.org/wiki/E.164) format.
 
-Set the HTTP Method to POST and enter your endpoint in the fields labeled **Webhook URL for Inbound Message** and **Webhook URL for Delivery Receipt**:
+            **Messenger**: or **Viber**: This value is not required.
 
-```screenshot
-script: app/screenshots/webhook-url-for-inbound-message.js
-image: public/assets/screenshots/1b9047ceebd9312df0a3be8202be342c4da70201.png
-```
+    MessageProperty:
+      type: object
+      required:
+        - content
+      properties:
+        content:
+          type: object
+          properties:
+            type:
+              description: |
+                The type of message that you are sending.
 
-### Send a message with failover
+                **Messenger**: supports all types.
 
-Sending an message that failsover to another channel is straightforward. In this example we will send a Viber message that failsover to SMS. Sign up for an account and replace the following variables in the example below:
+                **SMS** or **Viber**  only support `text`.
+              type: string
+              enum:
+                - text
+                - image
+                - audio
+                - video
+                - file
+              example: 'text'
+            text:
+              description: |
+                The text of the message.
 
-Key | Description
--- | --
-`NEXMO_APPLICATION_ID` |	The ID of the application that you created.
-`FROM_NUMBER` | The phone number you are sending the message from in [E.164](https://en.wikipedia.org/wiki/E.164) format. For example `447700900000`.
-`TO_NUMBER` | The phone number you are sending the message to in [E.164](https://en.wikipedia.org/wiki/E.164) format. For example `447700900000`.
-`VIBER_SERVICE_MESSAGE_ID` | Your Viber Service Message ID. [Find out more](#).
+                **Messenger**: Is limited to 640 characters
 
-| #### Prerequisites
-|
-| 1. [Rent a virtual number](/account/guides/numbers#rent-virtual-numbers)
-|
-| 2. [Create an application](/concepts/guides/applications#getting-started-with-applications)
-|
-| 3. Generate a JWT:
-|
-|     ```curl
-|     $ JWT="$(nexmo jwt:generate /path/to/private.key \application_id=NEXMO_APPLICATION_ID)"
-|     $ echo $JWT
-|     ```
+                **SMS** or **Viber**: Is 1000 characters
+              type: string
+              minLength: 1
+              maxLength: 1000
+              example: 'Pretty majestical, aye?'
+            url:
+              type: string
+              description: The URL for the attachment. Required for `image`, `audio`, `video` or `file`.
+              minLength: 1
+              maxLength: 1000
+              example: 'http://example.com/image.jpg'
+        viber_ttl:
+          description: 'Only valid for Viber Service Messages. Set the time-to-live of message to be delivered in seconds. i.e. if the message is not delivered in 600 seconds then delete the message. Please note that this cancels the notification on Android and an iOS the viber_expiry_text is shown. Minimum value is 30 and maximum value is 86,400 seconds (1 day).'
+          type: integer
+          example: 600
+          minimum: 30
+          maximum: 86400
 
-#### Example
+    FailoverProperty:
+      description: 'Please note that last message does not have failover attribute inside it. All other messages must contain a failover attribute.'
+      type: object
+      properties:
+        expiry_time:
+          description: 'In seconds. Minimum value is 30 and maximum value is 86,400 seconds (1 day).'
+          type: integer
+          example: 600
+          minimum: 30
+          maximum: 86400
+        condition_status:
+          description: 'Set the status the message must reach in the expiry_time before failing over. Options are delivered or read.'
+          type: string
+          example: 'delivered'
+          enum:
+            - delivered
+            - read
 
-```tabbed_examples
-config: 'olympus.workflows.send-failover-sms-viber'
-```
+    TimestampProperty:
+      type: string
+      format: ISO 8601
+      description: The datetime of when the event occurred.
+      example: '2020-01-01T14:00:00.000Z'
 
-## Building Blocks
+    sendWithFailoverMessage:
+      type: object
+      description: Send With Failover Message
+      required:
+        - to
+        - from
+        - message
+      properties:
+        to:
+          $ref: '#/components/schemas/ToProperty'
+        from:
+          $ref: '#/components/schemas/FromProperty'
+        message:
+          $ref: '#/components/schemas/MessageProperty'
+        failover:
+          $ref: '#/components/schemas/FailoverProperty'
 
-* [Send an SMS with Messages API](/olympus/messages/building-blocks/send-an-sms-with-messages-api)
-* [Send with Facebook Messenger](/olympus/messages/building-blocks/send-with-facebook-messenger)
-* [Send a Viber Service Message](/olympus/messages/building-blocks/send-a-viber-service-message)
-* [Send a message with failover](/olympus/workflows/building-blocks/send-a-message-with-failover)
+    sendMessage:
+      type: object
+      description: 'Send Message'
+      required:
+        - to
+        - from
+        - message
+      properties:
+        to:
+          $ref: '#/components/schemas/ToProperty'
+        from:
+          $ref: '#/components/schemas/FromProperty'
+        message:
+          $ref: '#/components/schemas/MessageProperty'
 
-## Guides
+    Response:
+      required:
+        - workflow_uuid
+      type: object
+      properties:
+        worflow_uuid:
+          description: 'The parent ID for workflow request.'
+          type: string
+          example: 'aaaaaaaa-bbbb-cccc-dddd-0123456789ab'
 
-* [Facebook Messenger](/olympus/messages/guides/facebook-messenger)
-* [Viber Service Messages](/olympus/messages/guides/viber-service-messages)
+    Error:
+      description: 'The error format is standardized to the 4xx/5xx range with a code and a human readable explanation.'
+      required:
+        - type
+        - title
+        - detail
+        - instance
+      type: object
+      properties:
+        type:
+          type: string
+          example: 'https://www.nexmo.com/messages/Errors#InvalidParams'
+        detail:
+          type: string
+          example: 'Your request parameters did not validate.'
+        instance:
+          type: string
+          example:
+        invalid_parameters:
+          type: object
+          properties:
+            name:
+              type: string
+              example: 'Invalid `from` parameter'
+            reason:
+              type: string
+              example: 'Invalid `from` parameter'
 
-## Reference
+    MessageStatus:
+      description: 'The callbacks for the message status are the same as defined in the Messaging API. The only difference will be that workflow_uuid and link will be appended.'
+      type: object
+      properties:
+        message_uuid:
+          type: string
+          example: 'aaaaaaaa-bbbb-cccc-dddd-0123456789ab'
+        to:
+          $ref: '#/components/schemas/ToProperty'
+        from:
+          $ref: '#/components/schemas/FromProperty'
+        timestamp:
+          $ref: '#/components/schemas/TimestampProperty'
+        status:
+          type: string
+          example: delivered
+          description: The status of the message.
+          enum:
+            - submitted
+            - delivered
+            - read
+            - rejected
+            - undeliverable
+        error:
+          type: object
+          properties:
+            code:
+              type: integer
+              example: 1300
+              description: The error code. See [Errors](#errors) for a table of descriptions.
+            reason:
+              type: string
+              example: 'Not part of the provider network'
+              description: Text describing the error. See [Errors](#errors) for a more details.
+        usage:
+          type: object
+          properties:
+            currency:
+              type: string
+              example: EUR
+              description: The charge currency in ISO 4217 format.
+              enum:
+                - EUR
+            price:
+              type: string
+              example: '0.0333'
+              description: The charge amount as a stringified number.
+        _links:
+          type: object
+          properties:
+            workflow:
+              type: object
+              properties:
+                workflow_uuid:
+                  type: string
+                  example: 'aaaaaaaa-bbbb-cccc-dddd-0123456789ab'
+                href:
+                  description: 'Please note GET is not currently supported'
+                  type: string
+                  example: '/workflows/aaaaaaaa-bbbb-cccc-dddd-0123456789ab'
 
-* [Messages API Reference](/api/olympus/messages)
-* [Workflows API Reference](/api/olympus/workflows)
+    finalReport:
+      type: object
+      properties:
+        workflow_uuid:
+          type: string
+          example: 'aaaaaaaa-bbbb-cccc-dddd-0123456789ab'
+        template:
+          type: string
+          enum:
+            - failover
+          example: failover
+        status:
+          type: string
+          enum:
+            - completed
+            - error
+          example: completed
+        timestamp:
+          $ref: '#/components/schemas/TimestampProperty'
+        usage:
+          type: object
+          description:  'This is the total cost of your Workflow request. Please note if a preceding message in the workflow request is delivered after the final message in the workflow is delivered it may not reflect the true total cost of the workflow.'
+          properties:
+            price:
+              description: The charge amount as a stringified number.
+              type: string
+              example: "0.02"
+            currency:
+              description: The charge currency in ISO 4217 format.
+              type: string
+              enum:
+                - EUR
+              example: 'EUR'
+        _links:
+          type: object
+          properties:
+            messages:
+              type: array
+              items:
+                type: object
+                properties:
+                  message_uuid:
+                    type: string
+                    example: 'aaaaaaaa-bbbb-cccc-dddd-0123456789ab'
+                  href:
+                    description: 'Please note GET is not currently supported'
+                    type: string
+                    example: 'aaaaaaaa-bbbb-cccc-dddd-0123456789ab'
+                  channel:
+                    type: string
+                    enum:
+                      - messenger
+                      - viber_sevice_msg
+                      - sms
+                    example: viber_service_msg
+                  usage:
+                    type: object
+                    properties:
+                      currency:
+                        type: string
+                        example: EUR
+                        description: The charge currency in ISO 4217 format.
+                        enum:
+                          - EUR
+                      price:
+                        type: string
+                        example: '0.0333'
+                        description: The charge amount as a stringified number.
+                  status:
+                    type: string
+                    enum:
+                      - submitted
+                      - delivered
+                      - read
+                      - rejected
+                      - undeliverable
