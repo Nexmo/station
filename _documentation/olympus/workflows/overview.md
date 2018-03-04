@@ -6,7 +6,7 @@ title: Overview
 
 The Workflow API is an API allows you to combine multiple [Messages](/olympus/messages/overview) and provide failover between them.
 
-* **Send and receive** SMS, Facebook and Viber Messages with Workflows built on-top of the the [Messages API](/olympus/messages/overview).
+* **Send** SMS, Facebook and Viber Messages with Workflows built on-top of the the [Messages API](/olympus/messages/overview).
 * **Failover** with Workflows when messages can't be delivered.
 
 ## Contents
@@ -25,7 +25,6 @@ To use Workflows API, you may need to familiarise yourself with:
 
 * **[Authentication](/concepts/guides/authentication)** - The Workflows API is authenticated with JWT.
 * **[Messages](/olympus/messages/overview)** - The Messages API is used for sending messages to a single channel.
-* **[Workflows](/olympus/workflows/overview)** - The Workflow API is used to combine messages together with logic to allow for failover.
 
 ## Getting Started
 
