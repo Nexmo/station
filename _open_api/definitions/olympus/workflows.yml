@@ -2,7 +2,7 @@ openapi: "3.0.0"
 info:
   version: 0.3.0
   title: Workflows API
-  description: 'The workflow API enables the developer to specify a multiple message workflow. A workflow follows a template. The first one we are adding is the failover template. The failover template instructs the messaging API to first send a message to the specified channel. If that message fails immediately or if the condition_status is not reached within the given time period the next message is sent. The developer will also recieve status webhooks from the messages resource for each delivery and read event.'
+  description: 'The Workflows API enables the developer to specify a multiple message workflow. A workflow follows a template. The first one we are adding is the failover template. The failover template instructs the messaging API to first send a message to the specified channel. If that message fails immediately or if the condition_status is not reached within the given time period the next message is sent. The developer will also recieve status webhooks from the messages resource for each delivery and read event.'
 servers:
   - url: https://api.nexmo.com/beta
 paths:
@@ -223,6 +223,7 @@ components:
         condition_status:
           description: 'Set the status the message must reach in the expiry_time before failing over. Options are delivered or read.'
           type: string
+          example: 'delivered'
           enum:
             - delivered
             - read
@@ -271,6 +272,7 @@ components:
       type: object
       properties:
         worflow_uuid:
+          description: 'The parent ID for workflow request.'
           type: string
           example: 'aaaaaaaa-bbbb-cccc-dddd-0123456789ab'
 
