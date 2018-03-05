@@ -181,6 +181,10 @@ a {
   text-align: right;
 }
 
+.indent {
+  margin-left: $spacing * 1.5;
+}
+
 pre.highlight {
   background: $code-background;
   padding: $spacing;
@@ -250,6 +254,10 @@ blockquote {
   h1, h2, h3, h4, h5, h6 {
     color: darken($text, 5%);
     position: relative;
+
+    + div {
+      margin-top: $spacing;
+    }
   }
 
   h2, h3, h4, h5, h6 {
