@@ -82,7 +82,7 @@ gem 'icalendar'
 #
 # If using development copy uncomment:
 # gem 'oas_parser', path: '../oas_parser', require: 'oas_parser'
-gem 'oas_parser', github: 'Nexmo/oas_parser', branch: 'empty-collections'
+gem 'oas_parser', '0.10.0'
 #
 # Otherwise use a published gem:
 # gem 'oas_parser', '~> 0.9.0'
@@ -121,7 +121,7 @@ gem 'groupdate', '3.2.0'
 gem 'gravatar_image_tag', '1.2.0'
 
 # Provides Open API Spec 3 definitions for Nexmo APIs
-gem 'nexmo_api_specification', '0.10.0'
+gem 'nexmo_api_specification', '0.11.1'
 
 # Really simple JSON and XML parsing, ripped from Merb and Rails.
 gem 'crack', '0.4.3'
