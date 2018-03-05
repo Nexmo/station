@@ -1,8 +1,0 @@
-# 2:
-#   dismissible: false
-#   path: '^\/(api\/)?conversation'
-#   content:
-#     <h2>Welcome to the Developer Preview for In-App Messaging</h2>
-#     <p>The JavaScript, iOS, and Android SDKs for In-App Messaging are in developer preview and we plan to have frequent releases with new features and bug fixes based on your feedback.</p>
-#     <p>Currently the API supports IP messaging, push notifications, and image sharing.</p>
-#     <p>If you are interested in participating, have any questions, or feedback you can email us at <a href="mailto:ea-support@nexmo.com">ea-support@nexmo.com</a>.</p>

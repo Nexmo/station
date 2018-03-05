@@ -82,22 +82,9 @@
 /messaging/sms/guides/global-messaging: /messaging/sms/guides/country-specific-features
 /messaging/sms/guides/delivery-reciepts: /messaging/sms/guides/delivery-receipts
 
-/conversation/early-access: /stitch
-/conversation/overview: /stitch/overview
-
-/conversation/early-access: /stitch
-/conversation/developer-preview: /stitch
-/conversation/api-reference: /api/stitch
-/conversation/client-sdks/android: /sdk/conversation/android/
-/conversation/client-sdks/ios: /sdk/conversation/ios/
-/conversation/client-sdks/javascript: /sdk/conversation/javascript/
-
-/stitch/client-sdks/android: /sdk/conversation/android/
-/stitch/client-sdks/ios: /sdk/conversation/ios/
-/stitch/client-sdks/javascript: /sdk/conversation/javascript/
-/stitch/sdk-documentation/android: /sdk/conversation/android/
-/stitch/sdk-documentation/ios: /sdk/conversation/ios/
-/stitch/sdk-documentation/javascript: /sdk/conversation/javascript/
+/stitch/sdk-documentation/android: /sdk/stitch/android/
+/stitch/sdk-documentation/ios: /sdk/stitch/ios/
+/stitch/sdk-documentation/javascript: /sdk/stitch/javascript/
 
 /stitch: /stitch/overview
 /stitch/api-reference: /api/stitch
