@@ -2,7 +2,7 @@
 title: Overview
 ---
 
-# In-App Messaging Overview
+# In-App Messaging Overview [Developer Preview]
 
 Nexmo In-App Messaging enables you to build conversation features where communication can take place across multiple platforms.
 

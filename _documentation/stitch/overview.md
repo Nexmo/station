@@ -2,9 +2,9 @@
 title: Overview
 ---
 
-# Stitch Overview
+# Stitch Overview [Developer Preview]
 
-Stitch is a conversation-centric product consisting of iOS, Android, and JavaScript SDKs and an API. Stitch enables communications across multiple channels including in-app messaging and in-app voice over IP; with PSTN voice coming soon. 
+Stitch is a conversation-centric product consisting of iOS, Android, and JavaScript SDKs and an API. Stitch enables communications across multiple channels including in-app messaging and in-app voice over IP; with PSTN voice coming soon.
 
 Enable chat or voice on your mobile or web application with our SDKs so that your users can seamlessly communicate no matter which device they are on.
 
@@ -23,9 +23,9 @@ Enable chat or voice on your mobile or web application with our SDKs so that you
 
 - Nexmo In-App Voice uses WebRTC and includes all the essentials you need to build a feature rich voice experience.
 
-- User Control – Users can control whether their audio stream is muted or unmuted. 
+- User Control – Users can control whether their audio stream is muted or unmuted.
 
-- Notifications  – Users can be notified when they receive a call or when participants are muted. 
+- Notifications  – Users can be notified when they receive a call or when participants are muted.
 
 - Group Calls – Configure call settings so users can start a group call by adding participants in real time.
 

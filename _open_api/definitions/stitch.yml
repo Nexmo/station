@@ -10,6 +10,7 @@ info:
     name: Nexmo Support
     url: 'https://developer.nexmo.com/'
     email: ea-support@nexmo.com
+  x-label: Developer Preview
 paths:
   /conversations:
     post:
@@ -253,7 +254,7 @@ paths:
         required: true
         description: Conversation ID
         schema:
-          type: string         
+          type: string
   /users:
     post:
       x-swagger-router-controller: users

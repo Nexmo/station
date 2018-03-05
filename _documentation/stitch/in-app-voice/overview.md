@@ -2,13 +2,13 @@
 title: Overview
 ---
 
-# In-App Voice Overview
+# In-App Voice Overview [Developer Preview]
 
 Nexmo In-App Voice uses WebRTC and includes all the essentials you need to build a feature rich voice experience.
 
-- User Control – Users can control whether their audio stream is muted or unmuted. 
+- User Control – Users can control whether their audio stream is muted or unmuted.
 
-- Notifications  – Users can be notified when they receive a call or when participants are muted. 
+- Notifications  – Users can be notified when they receive a call or when participants are muted.
 
 - Group Calls – Configure call settings so users can start a group call by adding participants in real time.
 
