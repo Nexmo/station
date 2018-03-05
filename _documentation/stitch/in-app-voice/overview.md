@@ -71,19 +71,19 @@ To start you'll need a [Nexmo Account](/account/guides/management#create-and-con
 ### Create a Conversation
 
 ```tabbed_examples
-source: _examples/conversations/overview/create-a-conversation/
+source: _examples/stitch/overview/create-a-conversation/
 ```
 
 ### Create a User
 
 ```tabbed_examples
-source: _examples/conversations/overview/create-a-user/
+source: _examples/stitch/overview/create-a-user/
 ```
 
 ### Join the Conversation
 
 ```tabbed_examples
-source: _examples/conversations/overview/join-the-conversation/
+source: _examples/stitch/overview/join-the-conversation/
 ```
 
 ## Try out the quickstarts
