@@ -51,6 +51,10 @@ $card-animation-speed: 200ms;
   margin-bottom: $spacing;
   font-size: 16px;
 
+  .icon-external-link {
+    display: none;
+  }
+
   .spacious {
     padding: $spacing 0;
   }
