@@ -78,7 +78,7 @@ The `p` tag allows you to specify paragraphs in your speech.
 
 🔈[https://nexmo-developer-production.s3.amazonaws.com/assets/ssml/05-paragraphs.mp3]
 
-### Phonemes
+### Phonemes
 
 The `phoneme` tag allows you to send an International Phonetic Alphabet (IPA) representation of a word. To use this, you need to specify both an `alphabet` (either `ipa` or [`x-sampa`](https://en.wikipedia.org/wiki/X-SAMPA)) and the `ph` attribute containing the phonetic symbols.
 
