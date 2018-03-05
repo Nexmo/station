@@ -184,4 +184,4 @@ That's it! Your page should now look something like [this](https://github.com/Ne
 ## Where next?
 
 * Try out [Quickstart 4](/stitch/in-app-messaging/guides/4-enable-audio)
-* Have a look at the [Nexmo Conversation JS SDK API Reference](/stitch/client-sdks/javascript)
+* Have a look at the [Nexmo Conversation JS SDK API Reference](/stitch/sdk-documentation/javascript)

@@ -274,4 +274,4 @@ That's it! Your page should now look something like [this](https://github.com/Ne
 ## Where next?
 
 * Try out [Quickstart 3](/stitch/in-app-messaging/guides/3-utilizing-events)
-* Have a look at the [Nexmo Conversation JS SDK API Reference](/stitch/client-sdks/javascript)
+* Have a look at the [Nexmo Conversation JS SDK API Reference](/stitch/sdk-documentation/javascript)

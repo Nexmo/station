@@ -85,7 +85,7 @@ Read more about:
     </a>
   </div>
   <div class="columns small-12 medium-4">
-    <a href="https://cocoapods.org/pods/NexmoConversation" class="card spacious card--image card--ios-outline">
+    <a href="https://cocoapods.org/pods/Stitch" class="card spacious card--image card--ios-outline">
       <h2>iOS</h2>
     </a>
   </div>

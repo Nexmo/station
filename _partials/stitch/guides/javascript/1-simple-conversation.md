@@ -359,4 +359,4 @@ Run `index.html` in two side-by-side browser windows to see the conversation tak
 ## Where next?
 
 * Try out [Quickstart 2](/stitch/in-app-messaging/guides/1-simple-conversation)
-* Have a look at the [Nexmo Conversation JS SDK API Reference](/stitch/client-sdks/javascript)
+* Have a look at the [Nexmo Conversation JS SDK API Reference](/stitch/sdk-documentation/javascript)
