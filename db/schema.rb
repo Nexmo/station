@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180306184642) do
+ActiveRecord::Schema.define(version: 20180306185340) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20180306184642) do
     t.string "summary"
     t.string "icon"
     t.string "slug"
+    t.text "description_short"
     t.index ["published"], name: "index_careers_on_published"
     t.index ["slug"], name: "index_careers_on_slug"
   end

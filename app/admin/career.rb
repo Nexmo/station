@@ -1,8 +1,14 @@
 ActiveAdmin.register Career do
+  controller do
+    def find_resource
+      scoped_collection.friendly.find(params[:id])
+    end
+  end
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
-  permit_params :title, :summary, :published, :location, :description, :url, :icon
+  permit_params :title, :summary, :published, :location, :description, :description_short, :url, :icon
   #
   # or
   #
@@ -18,7 +24,7 @@ ActiveAdmin.register Career do
     column :summary
     column :published
     column :location
-    column :description
+    column :description_short
     column :url
     column :icon
     actions
@@ -31,6 +37,7 @@ ActiveAdmin.register Career do
       input :published
       input :location
       input :description
+      input :description_short
       input :url
       input :icon
     end
