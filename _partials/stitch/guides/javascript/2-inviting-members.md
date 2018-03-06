@@ -1,6 +1,6 @@
 # Getting Started with the Nexmo Conversation JS SDK
 
-In this getting started guide we'll cover creating a second user and inviting them to the Conversation we created in the [simple conversation](/stitch/in-app-messaging/guides/2-inviting-members) getting started guide. From there we'll list the conversations that are available to the user and upon receiving an invite to new conversations we'll automatically join them.
+In this getting started guide we'll cover creating a second user and inviting them to the Conversation we created in the [simple conversation](/stitch/in-app-messaging/guides/1-simple-conversation) getting started guide. From there we'll list the conversations that are available to the user and upon receiving an invite to new conversations we'll automatically join them.
 
 ## Concepts
 
