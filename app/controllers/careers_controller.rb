@@ -1,5 +1,5 @@
 class CareersController < ApplicationController
   def show
-    @carrer = Career.find(params['id'])
+    @carrer = Career.friendly.find(params['id'])
   end
 end
