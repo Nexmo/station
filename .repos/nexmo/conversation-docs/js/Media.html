@@ -93,7 +93,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line35">line 35</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line32">line 32</a>
     </li></ul></dd>
     
 
@@ -155,7 +155,7 @@
 
 
 <div class="description">
-    Disable media partcipation in the conversation for this application
+    Disable media particiaption in the conversation for this application
 </div>
 
 
@@ -199,7 +199,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line654">line 654</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line642">line 642</a>
     </li></ul></dd>
     
 
@@ -248,8 +248,8 @@
     
     <pre class="prettyprint"><code>function disable() {
   conversation.media.disable()
-     .then(function(response) {
-      }).catch(function(error) {
+     .then((response) => {
+      }).catch((error) => {
           console.log(error);
       });
 }</code></pre>
@@ -375,7 +375,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line65">line 65</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line64">line 64</a>
     </li></ul></dd>
     
 
@@ -711,7 +711,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line499">line 499</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line489">line 489</a>
     </li></ul></dd>
     
 
@@ -761,28 +761,28 @@
     <pre class="prettyprint"><code>Enable media in this conversation
 function enable() {
   conversation.media.enable()
-     .then(function(stream) {
-	 		var media = document.createElement("video");
-			var source = document.createElement("source");
-			var media_div = document.createElement("div");
+     .then((stream) => {
+                const media = document.createElement("video");
+                const source = document.createElement("source");
+                const media_div = document.createElement("div");
+     
+                media.appendChild(source);
+                media_div.appendChild(media);
+                document.insertBefore(media_div);
+     
+                // Older browsers may not have srcObject
+                if ("srcObject" in media) {
+                    media.srcObject = stream;
+                } else {
+                    // Avoid using this in new browsers, as it is going away.
+                    media.src = window.URL.createObjectURL(stream);
+                }
+     
+                media.onloadedmetadata = (e) => {
+                    media.play();
+                };
 
-			media.appendChild(source);
-			media_div.appendChild(media);
-			document.insertBefore(media_div);
-
-			// Older browsers may not have srcObject
-			if ("srcObject" in media) {
-				media.srcObject = stream;
-			} else {
-				// Avoid using this in new browsers, as it is going away.
-				media.src = window.URL.createObjectURL(stream);
-			}
-
-			media.onloadedmetadata = function(e) {
-				media.play();
-			};
-
-		 }).catch(function(error) {
+		 }).catch((error) => {
           console.log(error);
       });
 }</code></pre>
@@ -795,7 +795,7 @@ function enable() {
     
 
     
-    <h4 class="name" id="mute"><span class="type-signature"></span>mute<span class="signature">(params<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="fetchRecording"><span class="type-signature"></span>fetchRecording<span class="signature">(url)</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="Event.html">Event</a>>}</span></h4>
     
 
     
@@ -803,7 +803,160 @@ function enable() {
 
 
 <div class="description">
-    Mute this member
+    Download the recoding file
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>url</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the recording url coming in the recording event</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line808">line 808</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;<a href="Event.html">Event</a>></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="mute"><span class="type-signature"></span>mute<span class="signature">(mute<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Mute our member
 </div>
 
 
@@ -841,7 +994,7 @@ function enable() {
 
         <tr>
             
-                <td class="name"><code>params</code></td>
+                <td class="name"><code>mute</code></td>
             
 
             <td class="type">
@@ -908,7 +1061,7 @@ function enable() {
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line716">line 716</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line703">line 703</a>
     </li></ul></dd>
     
 
@@ -942,7 +1095,111 @@ function enable() {
     
 
     
-    <h4 class="name" id="record"><span class="type-signature"></span>record<span class="signature">(params)</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="Event.html">Event</a>>}</span></h4>
+    <h4 class="name" id="playStream"><span class="type-signature"></span>playStream<span class="signature">()</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="Event.html">Event</a>>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Play an audio stream in a conversation
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line838">line 838</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;<a href="Event.html">Event</a>></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="record"><span class="type-signature"></span>record<span class="signature">(params)</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="Recording.html">Recording</a>>}</span></h4>
     
 
     
@@ -1207,7 +1464,7 @@ function enable() {
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line802">line 802</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line777">line 777</a>
     </li></ul></dd>
     
 
@@ -1241,7 +1498,7 @@ function enable() {
     </dt>
     <dd>
         
-<span class="param-type">Promise.&lt;<a href="Event.html">Event</a>></span>
+<span class="param-type">Promise.&lt;<a href="Recording.html">Recording</a>></span>
 
 
     </dd>
@@ -1506,7 +1763,7 @@ function enable() {
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line756">line 756</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line738">line 738</a>
     </li></ul></dd>
     
 
@@ -1615,7 +1872,7 @@ function enable() {
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line902">line 902</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line873">line 873</a>
     </li></ul></dd>
     
 
@@ -1665,15 +1922,15 @@ function enable() {
     <pre class="prettyprint"><code>Send ringing event
 function startRinging() {
   conversation.media.startRinging()
-     .then(function(response) {
-      }).catch(function(error) {
+     .then((response) => {
+      }).catch((error) => {
           console.log(error);
       });
 }
 
-conversation.on('audio:ringing:start', function(data)){
+conversation.on('audio:ringing:start', (data) => {
 console.log("ringing");
-}</code></pre>
+});</code></pre>
 
 
 
@@ -1735,7 +1992,7 @@ console.log("ringing");
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line940">line 940</a>
+        <a href="modules_media.js.html">modules/media.js</a>, <a href="modules_media.js.html#line908">line 908</a>
     </li></ul></dd>
     
 
@@ -1813,13 +2070,13 @@ console.log("ringing stopped");
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:call:member:state">call:member:state</a></li><li><a href="Call.html#event:call:state:changed">call:state:changed</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CALL_STATES">CALL_STATES</a></li><li><a href="global.html#ConversationClientErrorTypes">ConversationClientErrorTypes</a></li><li><a href="global.html#me">me</a></li><li><a href="global.html#MEMBER_CALL_STATES">MEMBER_CALL_STATES</a></li><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li><li><a href="global.html#NexmoClientErrorTypes">NexmoClientErrorTypes</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:call:member:state">call:member:state</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ConversationClientErrorTypes">ConversationClientErrorTypes</a></li><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li><li><a href="global.html#NexmoClientErrorTypes">NexmoClientErrorTypes</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Feb 23 2018 20:11:48 GMT+0000 (GMT)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Mar 02 2018 15:55:42 GMT+0000 (GMT)
 </footer>
 
 <script> prettyPrint(); </script>
