@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180125163023) do
+ActiveRecord::Schema.define(version: 20180306161650) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,19 @@ ActiveRecord::Schema.define(version: 20180125163023) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
+  end
+
+  create_table "careers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "title"
+    t.boolean "published"
+    t.string "location"
+    t.text "description"
+    t.string "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "summary"
+    t.string "icon"
+    t.index ["published"], name: "index_careers_on_published"
   end
 
   create_table "events", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
@@ -76,6 +89,16 @@ ActiveRecord::Schema.define(version: 20180125163023) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["uri"], name: "index_feedback_resources_on_uri", unique: true
+  end
+
+  create_table "oauth_users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "provider"
+    t.string "uid"
+    t.json "details"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["provider"], name: "index_oauth_users_on_provider"
+    t.index ["uid"], name: "index_oauth_users_on_uid"
   end
 
   create_table "sessions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|

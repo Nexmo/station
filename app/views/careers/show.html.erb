@@ -1,0 +1,21 @@
+<div class="center spacious content-block">
+  <h3>
+    <i class="icon icon-<%= @carrer.icon %>"></i>
+    <%= @carrer.title %>
+  </h3>
+  <p><%= @carrer.summary %></p>
+  <i><%= @carrer.location %></i>
+</div>
+
+<div class="row">
+  <div class="columns small-12 medium-10 large-8 medium-centered">
+    <hr><br><br>
+    <%= @carrer.description.render_markdown %>
+  </div>
+</div>
+
+<center>
+  <br>
+  <%= link_to "Find out more", @carrer.url, class: 'button' %>
+  <br><br>
+</center>
