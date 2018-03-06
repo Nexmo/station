@@ -121,6 +121,7 @@ class StaticController < ApplicationController
 
   def team
     @team = YAML.load_file("#{Rails.root}/config/team.yml")
+    @careers = Career.all
     render layout: 'page'
   end
 end
