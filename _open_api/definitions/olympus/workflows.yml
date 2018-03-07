@@ -13,7 +13,7 @@ paths:
       summary: Create a workflow
       operationId: createWorkflow
       requestBody:
-        description: Please note that last message does not have failover attribute inside it. All other messages must contain a failover attribute. 
+        description: Please note that last message does not have failover attribute inside it. All other messages must contain a failover attribute.
         required: true
         content:
           application/json:
@@ -387,6 +387,7 @@ components:
         usage:
           type: object
           description:  'This is the total cost of your Workflow request. Please note if a preceding message in the workflow request is delivered after the final message in the workflow is delivered it may not reflect the true total cost of the workflow.'
+          x-nexmo-developer-collection-description-shown: true
           properties:
             price:
               description: The charge amount as a stringified number.

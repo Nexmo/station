@@ -72,7 +72,11 @@
           </div>
 
           <div class="table-list-column" flex="3">
-            <% unless parameter.collection? %>
+            <% if parameter.collection? %>
+              <% if parameter.raw['x-nexmo-developer-collection-description-shown'] %>
+                <%= (parameter.description ? "#{parameter.description}" : '<i>None</i>').render_markdown %>
+              <% end %>
+            <% else %>
               <%= (parameter.description ? "#{parameter.description}" : '<i>None</i>').render_markdown %>
             <% end %>
 
@@ -113,7 +117,12 @@
           </div>
 
           <% unless model %>
-            <% unless parameter.collection? %>
+            <% if parameter.collection? %>
+              <% if parameter.raw['x-nexmo-developer-collection-description-shown'] %>
+                <!-- Just for spacing -->
+                <div class="table-list-column" flex="2"></div>
+              <% end %>
+            <% else %>
               <div class="table-list-column" flex="2">
                 <%= (parameter.example ? "<code>#{parameter.example}</code>" : '<i>None</i>').html_safe %>
               </div>
