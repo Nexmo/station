@@ -2,9 +2,9 @@
 title: Overview
 ---
 
-# Stitch Overview [Developer Preview]
+# Nexmo Stitch Overview [Developer Preview]
 
-Stitch is a conversation-centric product consisting of iOS, Android, and JavaScript SDKs and an API. Stitch enables communications across multiple channels including in-app messaging and in-app voice over IP; with PSTN voice coming soon.
+Nexmo Stitch is a conversation-centric product consisting of iOS, Android, and JavaScript SDKs and an API. Stitch enables communications across multiple channels including in-app messaging and in-app voice over IP; with PSTN voice coming soon.
 
 Enable chat or voice on your mobile or web application with our SDKs so that your users can seamlessly communicate no matter which device they are on.
 
