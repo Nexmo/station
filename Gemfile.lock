@@ -144,6 +144,8 @@ GEM
       railties (>= 3.1.0)
       sass (>= 3.3.0, < 3.5)
       sprockets-es6 (>= 0.9.0)
+    friendly_id (5.2.3)
+      activerecord (>= 4.0.0)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     gravatar_image_tag (1.2.0)
@@ -407,6 +409,7 @@ DEPENDENCIES
   factory_girl_rails (= 4.8.0)
   faker (= 1.8.4)
   foundation-rails (= 6.4.1.2)
+  friendly_id (= 5.2.3)
   git-hookshot!
   gravatar_image_tag (= 1.2.0)
   groupdate (= 3.2.0)

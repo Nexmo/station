@@ -1,7 +1,11 @@
 <div>
-  <%= gravatar_image_tag email, gravatar: { size: 140 }, class: 'avatar' %>
+  <% if local_assigns[:image] %>
+    <%= image_tag image, class: 'avatar', width: 140, height: 140 %>
+  <% else %>
+    <%= gravatar_image_tag email, gravatar: { size: 140 }, class: 'avatar' %>
+  <% end %>
   <br>
   <h3><b><%= name %></b></h3>
-  <h4><%= local_assigns[:role] ? role : 'Developer Advocate' %></h3>
+  <h4><%= local_assigns[:role] ? role : 'Developer Advocate' %></h4>
   <h5><a target="_blank" href="https://twitter.com/<%= twitter %>">@<%= twitter %></a></h5>
 </div>
