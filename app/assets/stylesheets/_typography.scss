@@ -80,6 +80,10 @@ h2 {
     font-size: 20px;
     line-height: 20px;
   }
+
+  small {
+    font-size: 0.8em;
+  }
 }
 
 h3 {
@@ -478,4 +482,8 @@ b {
   &--strong {
     color: $red;
   }
+}
+
+.subtle {
+  color: $text-subtle;
 }
