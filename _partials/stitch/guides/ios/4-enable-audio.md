@@ -16,7 +16,6 @@ If you are unfamiliar with any of the above referenced concepts, checkout our qu
 
 ### Before you begin
 
-* _**[Contact us](mailto:ea-support@nexmo.com) for access to the CocoaPod (if you haven't already done so)**_
 * Ensure you have Node.JS and NPM installed (you'll need it for the Nexmo CLI)
 * Ensure you have Xcode installed
 * Create a free Nexmo account - [signup](https://dashboard.nexmo.com)

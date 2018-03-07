@@ -55,6 +55,7 @@ You can see the JWT for the user by running the following:
 ```bash
 $ echo $SECOND_USER_JWT
 ```
+
 ## 2 Update the iOS App
 
 We will use the application we already created for [the first getting started guide](/stitch/in-app-messaging/guides/1-simple-conversation). With the basic setup in place we can now focus on updating the client-side application.
