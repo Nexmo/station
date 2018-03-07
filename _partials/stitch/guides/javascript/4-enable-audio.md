@@ -127,4 +127,4 @@ That's it! Your page should now look something like [this](https://github.com/Ne
 
 ## Where next?
 
-- Have a look at the [Nexmo Conversation JS SDK API Reference](/stitch/sdk-documentation/javascript)
+- Have a look at the [Nexmo Conversation JS SDK API Reference](/sdk/stitch/javascript/)

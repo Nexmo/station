@@ -335,7 +335,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line23">line 23</a>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line21">line 21</a>
     </li></ul></dd>
     
 
@@ -378,6 +378,84 @@
 
     
 
+    
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id="me"><span class="type-signature"></span>me<span class="type-signature"> :<a href="Member.html">Member</a></span></h4>
+
+
+
+
+<div class="description">
+    A Member Object representing the current user.
+Only set if the user is or has been a member of the Conversation,
+otherwise the value will be `null`.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type"><a href="Member.html">Member</a></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line50">line 50</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
     
 
     
@@ -490,7 +568,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line454">line 454</a>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line434">line 434</a>
     </li></ul></dd>
     
 
@@ -531,7 +609,7 @@
     
         <p class="code-caption">cancel sending an image</p>
     
-    <pre class="prettyprint"><code>conversation.sendImage(fileInput.files[0]).then(function(imageRequest){
+    <pre class="prettyprint"><code>conversation.sendImage(fileInput.files[0]).then((imageRequest) => { 
    conversation.abortSendImage(imageRequest);
 });</code></pre>
 
@@ -595,7 +673,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line180">line 180</a>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line172">line 172</a>
     </li></ul></dd>
     
 
@@ -644,8 +722,7 @@
     
         <p class="code-caption">delete the conversation</p>
     
-    <pre class="prettyprint"><code>		conversation.del()
-			.then(function() {
+    <pre class="prettyprint"><code>		conversation.del().then(() => {
 				console.log("conversation deleted");
 		})</code></pre>
 
@@ -758,7 +835,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line204">line 204</a>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line194">line 194</a>
     </li></ul></dd>
     
 
@@ -995,7 +1072,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line510">line 510</a>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line486">line 486</a>
     </li></ul></dd>
     
 
@@ -1213,7 +1290,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line230">line 230</a>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line220">line 220</a>
     </li></ul></dd>
     
 
@@ -1262,16 +1339,16 @@
     
         <p class="code-caption">invite a user to a conversation</p>
     
-    <pre class="prettyprint"><code> var user_id = 'user to invite';
- var user_name = 'username to invite';
+    <pre class="prettyprint"><code> const user_id = 'user to invite';
+ const user_name = 'username to invite';
 
  conversation.invite({
          id: user_id,
          user_name: user_name
      })
-		.then(function(member) {
+		.then((member) => {
            displayMessage(member.state + " user: " + user_id + " " + user_name);
-      }).catch(function(error) {
+      }).catch((error) => {
          console.log(error);
  });</code></pre>
 
@@ -1445,7 +1522,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line278">line 278</a>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line266">line 266</a>
     </li></ul></dd>
     
 
@@ -1494,16 +1571,16 @@
     
         <p class="code-caption">invite a user to a conversation</p>
     
-    <pre class="prettyprint"><code> var user_id = 'user to invite';
- var user_name = 'username to invite';
+    <pre class="prettyprint"><code> const user_id = 'user to invite';
+ const user_name = 'username to invite';
 
  conversation.inviteWithAudio({
          id: user_id,
          user_name: user_name
      })
-		.then(function(member) {
+		.then((member) => {
            displayMessage(member.state + " user: " + user_id + " " + user_name);
-      }).catch(function(error) {
+      }).catch((error) => {
          console.log(error);
  });</code></pre>
 
@@ -1592,12 +1669,12 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
             
                 <td class="default">
                 
-                    self.application.me.id
+                    this.application.me.id
                 
                 </td>
             
 
-            <td class="description last">The user to join (defaults to self)
+            <td class="description last">The user to join (defaults to this)
                 <h6>Properties</h6>
                 
 
@@ -1710,7 +1787,7 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line126">line 126</a>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line121">line 121</a>
     </li></ul></dd>
     
 
@@ -1759,8 +1836,7 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
     
         <p class="code-caption">join a user to a conversation</p>
     
-    <pre class="prettyprint"><code>		conversation.join()
-			.then(function(member) {
+    <pre class="prettyprint"><code>		conversation.join().then((member) => {
 				console.log("joined as member: ", member)
 		})</code></pre>
 
@@ -1824,7 +1900,7 @@ Accept an invitation if our member has state INVITED and no user_id / user_name 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line294">line 294</a>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line282">line 282</a>
     </li></ul></dd>
     
 
@@ -2111,7 +2187,7 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line384">line 384</a>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line365">line 365</a>
     </li></ul></dd>
     
 
@@ -2160,13 +2236,13 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
     
         <p class="code-caption">sending an image</p>
     
-    <pre class="prettyprint"><code>conversation.sendImage(fileInput.files[0]).then(function(imageRequest){
-
-        imageRequest.onabort = function(e) {
+    <pre class="prettyprint"><code>conversation.sendImage(fileInput.files[0]).then((imageRequest) => { 
+   
+        imageRequest.onabort = (e) => {
            console.log(e);
          console.log("Image:" + e.type);
      };
-         imageRequest.onloadend = function(e) {
+         imageRequest.onloadend = (e) => {
          console.log("Image:" + e.type);
      };
 });</code></pre>
@@ -2280,7 +2356,7 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line329">line 329</a>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line315">line 315</a>
     </li></ul></dd>
     
 
@@ -2333,9 +2409,9 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
     
         <p class="code-caption"> sending a text </p>
     
-    <pre class="prettyprint"><code>	conversation.sendText("Hi Nexmo").then(function(){
+    <pre class="prettyprint"><code>	conversation.sendText("Hi Nexmo").then(() => {
 			console.log('message was sent');
-		}).catch(function(error){
+		}).catch((error)=>{
 			console.log('error sending the message', error);
 	});</code></pre>
 
@@ -2399,7 +2475,7 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line465">line 465</a>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line464">line 464</a>
     </li></ul></dd>
     
 
@@ -2507,7 +2583,7 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line475">line 475</a>
+        <a href="conversation.js.html">conversation.js</a>, <a href="conversation.js.html#line473">line 473</a>
     </li></ul></dd>
     
 
@@ -2698,7 +2774,7 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line290">line 290</a>
+        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line293">line 293</a>
     </li></ul></dd>
     
 
@@ -2729,8 +2805,7 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
     
         <p class="code-caption">get details about the deleted event</p>
     
-    <pre class="prettyprint"><code>conversation.on("event:delete",
-  function(member, event) {
+    <pre class="prettyprint"><code>conversation.on("event:delete", (member, event) => {
      console.log(event.id);
      console.log(event.body.timestamp.deleted);
 });</code></pre>
@@ -2870,7 +2945,7 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line270">line 270</a>
+        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line274">line 274</a>
     </li></ul></dd>
     
 
@@ -2901,8 +2976,7 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
     
         <p class="code-caption">listen for image events</p>
     
-    <pre class="prettyprint"><code>conversation.on("image",
-  function(sender, image) {
+    <pre class="prettyprint"><code>conversation.on("image", (sender, image) => {
      console.log(sender,image);
 
 // Identify your own imageEvent.
@@ -3047,7 +3121,7 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line251">line 251</a>
+        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line256">line 256</a>
     </li></ul></dd>
     
 
@@ -3078,8 +3152,7 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
     
         <p class="code-caption">listen for text events</p>
     
-    <pre class="prettyprint"><code>conversation.on("text",
-  function(sender, message) {
+    <pre class="prettyprint"><code>conversation.on("text",(sender, message) => {
      console.log(sender,message);
 
 // Identify your own message.
@@ -3224,7 +3297,7 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line393">line 393</a>
+        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line389">line 389</a>
     </li></ul></dd>
     
 
@@ -3255,14 +3328,13 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
     
         <p class="code-caption">listen for seen image events</p>
     
-    <pre class="prettyprint"><code>conversation.on("image:seen",
-  function(data, image) {
+    <pre class="prettyprint"><code>conversation.on("image:seen", (data, image) => {
      console.log(image);
 
 // Check if the event belongs to this conversation
      if (image.cid === conversation.id)
 // Get the list of members that have seen this event
-     for (var member_id in image.state.seen_by) {
+     for (let member_id in image.state.seen_by) {
           if (conversation.me.id !== member_id) {
               console.log(conversation.members[member_id].name);
            }
@@ -3404,7 +3476,7 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line318">line 318</a>
+        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line319">line 319</a>
     </li></ul></dd>
     
 
@@ -3435,8 +3507,7 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
     
         <p class="code-caption">get the name of the invited member</p>
     
-    <pre class="prettyprint"><code>conversation.on("member:invited",
-  function(member, event ) {
+    <pre class="prettyprint"><code>conversation.on("member:invited", (member, event) => {
      console.log(member.user.name + " invited to the conversation");
 });</code></pre>
 
@@ -3575,7 +3646,7 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line304">line 304</a>
+        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line306">line 306</a>
     </li></ul></dd>
     
 
@@ -3606,8 +3677,7 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
     
         <p class="code-caption">get the name of the new member</p>
     
-    <pre class="prettyprint"><code>conversation.on("member:joined",
-  function(member, event) {
+    <pre class="prettyprint"><code>conversation.on("member:joined", (member, event) => {
 		console.log(event.id)
      console.log(member.user.name+ " joined the conversation");
 });</code></pre>
@@ -3778,8 +3848,7 @@ implements xhr (https://xhr.spec.whatwg.org/) - this.imageRequest
     
         <p class="code-caption">get the username of the member that left</p>
     
-    <pre class="prettyprint"><code>conversation.on("member:left",
-  function(member , event ) {
+    <pre class="prettyprint"><code>conversation.on("member:left", (member , event) => {
      console.log(member.user.name + " left");
 });</code></pre>
 
@@ -3968,7 +4037,7 @@ Change in media presence state. They are in the conversation with text, audio or
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line414">line 414</a>
+        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line409">line 409</a>
     </li></ul></dd>
     
 
@@ -3999,8 +4068,7 @@ Change in media presence state. They are in the conversation with text, audio or
     
         <p class="code-caption">get every member's media change events </p>
     
-    <pre class="prettyprint"><code>conversation.on("member:media",
-  function(from, media ) {
+    <pre class="prettyprint"><code>conversation.on("member:media", (from, media) => {
      console.log(from.media.audio); //true
 		console.log(event.body.media); //{"audio":true}
 });</code></pre>
@@ -4140,7 +4208,7 @@ Change in media presence state. They are in the conversation with text, audio or
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line370">line 370</a>
+        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line367">line 367</a>
     </li></ul></dd>
     
 
@@ -4171,15 +4239,14 @@ Change in media presence state. They are in the conversation with text, audio or
     
         <p class="code-caption">listen for seen text events</p>
     
-    <pre class="prettyprint"><code>conversation.on("text:seen",
-  function(data, text) {
+    <pre class="prettyprint"><code>conversation.on("text:seen", (data, text) => {
      console.log(text);
 
 // Check if the event belongs to this conversation
      if (text.cid === conversation.id)
 
 // Get the list of members that have seen this event
-     for (var member_id in text.state.seen_by) {
+     for (let member_id in text.state.seen_by) {
          if (conversation.me.id !== member_id) {
              console.log(conversation.members[member_id].name);
          }
@@ -4321,7 +4388,7 @@ Change in media presence state. They are in the conversation with text, audio or
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line357">line 357</a>
+        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line355">line 355</a>
     </li></ul></dd>
     
 
@@ -4352,8 +4419,7 @@ Change in media presence state. They are in the conversation with text, audio or
     
         <p class="code-caption">get the username of the member that stopped typing</p>
     
-    <pre class="prettyprint"><code>conversation.on("text:typing:off",
-  function(data) {
+    <pre class="prettyprint"><code>conversation.on("text:typing:off", (data) => {
      console.log(data.name + " stopped typing...");
 });</code></pre>
 
@@ -4492,7 +4558,7 @@ Change in media presence state. They are in the conversation with text, audio or
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line344">line 344</a>
+        <a href="sdk.js.html">sdk.js</a>, <a href="sdk.js.html#line343">line 343</a>
     </li></ul></dd>
     
 
@@ -4523,8 +4589,7 @@ Change in media presence state. They are in the conversation with text, audio or
     
         <p class="code-caption">get the username of the member that is typing</p>
     
-    <pre class="prettyprint"><code>conversation.on("text:typing:on",
-  function(data) {
+    <pre class="prettyprint"><code>conversation.on("text:typing:on", (data) => {
      console.log(data.name + " is typing...");
 });</code></pre>
 
@@ -4542,13 +4607,13 @@ Change in media presence state. They are in the conversation with text, audio or
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:call:member:state">call:member:state</a></li><li><a href="Call.html#event:call:state:changed">call:state:changed</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CALL_STATES">CALL_STATES</a></li><li><a href="global.html#ConversationClientErrorTypes">ConversationClientErrorTypes</a></li><li><a href="global.html#me">me</a></li><li><a href="global.html#MEMBER_CALL_STATES">MEMBER_CALL_STATES</a></li><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li><li><a href="global.html#NexmoClientErrorTypes">NexmoClientErrorTypes</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:call:member:state">call:member:state</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ConversationClientErrorTypes">ConversationClientErrorTypes</a></li><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li><li><a href="global.html#NexmoClientErrorTypes">NexmoClientErrorTypes</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Feb 23 2018 20:11:48 GMT+0000 (GMT)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Mar 02 2018 15:55:42 GMT+0000 (GMT)
 </footer>
 
 <script> prettyPrint(); </script>
