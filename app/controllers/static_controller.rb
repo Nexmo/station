@@ -121,7 +121,13 @@ class StaticController < ApplicationController
 
   def team
     @team = YAML.load_file("#{Rails.root}/config/team.yml")
-    @careers = Career.all
+
+    if current_user && current_user.admin?
+      @careers = Career.all
+    else
+      @careers = Career.published
+    end
+
     render layout: 'page'
   end
 end
