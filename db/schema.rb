@@ -106,16 +106,6 @@ ActiveRecord::Schema.define(version: 20180306185340) do
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
   end
 
-  create_table "oauth_users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.string "provider"
-    t.string "uid"
-    t.json "details"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["provider"], name: "index_oauth_users_on_provider"
-    t.index ["uid"], name: "index_oauth_users_on_uid"
-  end
-
   create_table "sessions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "title"
     t.text "description"
