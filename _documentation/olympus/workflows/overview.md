@@ -1,8 +1,8 @@
 ---
-title: Overview
+title: Workflows Overview
 ---
 
-# Overview
+# Workflows Overview [Developer Preview]
 
 The Workflows API allows you to combine multiple [Messages](/olympus/messages/overview) and provide failover between them.
 
@@ -28,7 +28,7 @@ To use Workflows API, you may need to familiarise yourself with:
 
 ## Getting Started
 
-### Configure your Devlivery Receipt and Inbound Message endpoint with Nexmo
+### Configure your Delivery Receipt and Inbound Message endpoint with Nexmo
 
 From [Nexmo Dashboard](https://dashboard.nexmo.com) go to [Settings](https://dashboard.nexmo.com/settings).
 

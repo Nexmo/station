@@ -1,8 +1,8 @@
 ---
-title: Overview
+title: Messages Overview
 ---
 
-# Overview
+# Messages Overview [Developer Preview]
 
 The Messaging API is a single API that enables easy integration with various communication channels such as: SMS, Facebook Messenger and Viber.
 
@@ -12,7 +12,7 @@ During Developer Preview we will expand the capabilities of the API. Please visi
 
 * Outbound text messages on SMS, Viber Service Messages and Facebook Messenger.
 * Outbound media messages on Facebook Messenger.
-* Inbound text, media and location messages on Facebook Messenger. 
+* Inbound text, media and location messages on Facebook Messenger.
 
 There may be bugs🐛 and quirks so we'd welcome your feedback - any suggestions you make help us shape the product. If you do need help, please email support@nexmo.com and include Messages API in the subject line.
 
