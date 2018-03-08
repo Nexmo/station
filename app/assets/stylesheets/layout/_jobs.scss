@@ -1,13 +1,14 @@
 .jobs {
   column-count: 2;
-  column-gap: $spacing;
+  column-gap: 0;
 
   @include tablet {
     column-count: 1;
   }
 
   &__job {
-    display: inline-block;
-    margin: 0 0 $spacing;
+    break-inside: avoid;
+    padding-left: $spacing / 2;
+    padding-right: $spacing / 2;
   }
 }

@@ -8,7 +8,7 @@ ActiveAdmin.register Career do
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
-  permit_params :title, :summary, :published, :location, :description, :description_short, :url, :icon
+  permit_params :title, :summary, :published, :location, :description, :description_short, :url, :icon, :role_group
   #
   # or
   #
@@ -27,6 +27,7 @@ ActiveAdmin.register Career do
     column :description_short
     column :url
     column :icon
+    column :role_group
     actions
   end
 
@@ -40,6 +41,7 @@ ActiveAdmin.register Career do
       input :description_short
       input :url
       input :icon
+      input :role_group
     end
     actions
   end
