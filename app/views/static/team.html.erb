@@ -33,19 +33,24 @@
 
   <br>
 
-  <div class="jobs">
-    <% @careers.each do |career| %>
-      <div class="jobs__job box">
-        <h2>
-          <i class="icon icon--large icon-<%= career.icon %>"></i><br><br>
-          <%= career.title %>
-          <br><br><i><small class="subtle"><%= career.location %></small></i>
-        </h2>
-        <div class="left spacious">
-          <%= career.description_short.render_markdown %>
+  <% @careers.group_by(&:role_group).each do |group_name, careers| %>
+    <h2 class="spacious"><%= group_name %></h2>
+    <div class="jobs">
+      <% careers.each do |career| %>
+        <div class="jobs__job">
+          <div class="box box--white">
+            <h2>
+              <i class="icon icon--large icon-<%= career.icon %>"></i><br><br>
+              <%= career.title %>
+              <br><br><i><small class="subtle"><%= career.location %></small></i>
+            </h2>
+            <div class="left spacious">
+              <%= career.description_short.render_markdown %>
+            </div>
+            <%= link_to "Find out more", career, class: 'button' %>
+          </div>
         </div>
-        <%= link_to "Find out more", career, class: 'button' %>
-      </div>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>
