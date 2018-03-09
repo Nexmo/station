@@ -88,3 +88,8 @@
 
 /olympus/messages/api-reference: /api/olympus/messages
 /olympus/workflows/api-reference: /api/olympus/workflows
+
+/olympus/messages/guides: /olympus/messages/guides/facebook-messenger
+/olympus/workflows/guides: /olympus/messages/guides/failover
+/olympus/messages/building-blocks: /olympus/messages/building-blocks/send-an-sms-with-messages-api
+/olympus/workflows/building-blocks: /olympus/workflows/building-blocks/send-a-message-with-failover

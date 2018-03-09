@@ -1,5 +1,5 @@
 ---
-title: Messages Overview
+title: Overview
 ---
 
 # Messages Overview [Developer Preview]

@@ -1,5 +1,5 @@
 ---
-title: Workflows Overview
+title: Overview
 ---
 
 # Workflows Overview [Developer Preview]
