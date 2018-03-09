@@ -38,6 +38,10 @@ en:
     sip: SIP
     account: Account
     number-insight: Number Insight
+    stitch: Stitch
+    in-app-messaging: In-App Messaging
+    in-app-voice: In-App Voice
+
     olympus: Olympus
     messages: Messages
     workflows: Workflows
@@ -59,3 +63,10 @@ en:
     configure: Configure
     contribute: Contribute
     structure: Structure
+
+    sdk-documentation: SDK Documentation
+    android: Android
+    ios: iOS
+    javascript: JavaScript
+
+    javascript-quickstart: JS Quickstart

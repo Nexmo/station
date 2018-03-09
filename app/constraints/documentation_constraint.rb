@@ -11,11 +11,11 @@ class DocumentationConstraint
   end
 
   def self.product
-    { product: /voice|messaging|verify|number-insight|account|concepts/ }
+    { product: /voice|messaging|verify|number-insight|account|concepts|stitch/ }
   end
 
   def self.product_with_parent
-    { product: /voice\/sip|voice\/voice-api|messaging\/sms|messaging\/conversion-api|messaging\/sns|messaging\/us-short-codes|verify|number-insight|account|concepts/ }
+    { product: /voice\/sip|voice\/voice-api|messaging\/sms|messaging\/conversion-api|messaging\/sns|messaging\/us-short-codes|verify|number-insight|account|concepts|stitch\/in-app-voice|stitch\/in-app-messaging/ }
   end
 
   def self.language_configuration

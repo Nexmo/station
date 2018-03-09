@@ -84,8 +84,7 @@ gem 'icalendar'
 # gem 'oas_parser', path: '../oas_parser', require: 'oas_parser'
 #
 # Otherwise use a published gem:
-# gem 'oas_parser', '~> 0.9.0'
-gem 'oas_parser', github: 'Nexmo/oas_parser', branch: 'oneof-properties'
+gem 'oas_parser', '0.10.0'
 
 # Generate JSON strings from Ruby objects with flexible formatting options.
 gem 'neatjson'
@@ -121,10 +120,13 @@ gem 'groupdate', '3.2.0'
 gem 'gravatar_image_tag', '1.2.0'
 
 # Provides Open API Spec 3 definitions for Nexmo APIs
-gem 'nexmo_api_specification', '0.10.0'
+gem 'nexmo_api_specification', '0.11.1'
 
 # Really simple JSON and XML parsing, ripped from Merb and Rails.
 gem 'crack', '0.4.3'
+
+# FriendlyId is the "Swiss Army bulldozer" of slugging and permalink plugins for Active Record.
+gem 'friendly_id', '5.2.3'
 
 group :development, :test do
   gem 'awesome_print'

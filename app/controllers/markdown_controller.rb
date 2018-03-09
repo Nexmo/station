@@ -11,6 +11,9 @@ class MarkdownController < ApplicationController
     document = File.read("#{Rails.root}/#{@document_path}")
 
     @frontmatter = YAML.safe_load(document)
+
+    raise Errno::ENOENT if @frontmatter['redirect']
+
     @document_title = @frontmatter['title']
 
     @content = MarkdownPipeline.new({

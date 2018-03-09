@@ -28,8 +28,14 @@
         },
       <% end %>
 
+      <% if @feedback_author %>
+        feedback_author: {
+          email: '<%= @feedback_author.email %>',
+        },
+      <% end %>
+
       <% if @document_path %>
-        github_url: '<%= "https://github.com/Nexmo/nexmo-developer/blob/master/#{@document_path}" %>',
+        github_url: '<%= "https://github.com/Nexmo/nexmo-developer/blob#{ ENV['branch'] || 'master' }/#{@document_path}" %>',
       <% end %>
     }
   </script>

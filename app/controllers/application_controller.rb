@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   rescue_from Errno::ENOENT, with: :no_document
   rescue_from Errno::ENOENT, with: :no_document
+  rescue_from ActiveRecord::RecordNotFound, with: :not_found
   protect_from_forgery with: :exception
 
   http_basic_authenticate_with name: ENV['USERNAME'], password: ENV['PASSWORD'], if: :requires_authentication?
@@ -46,6 +47,7 @@ class ApplicationController < ActionController::Base
   end
 
   def ssl_configured?
+    return false if ENV['DISABLE_SSL']
     return false if Rails.env.development?
     return false if Rails.env.test?
     return true
