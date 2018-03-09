@@ -6,21 +6,23 @@ title: Authentication
 
 Nexmo API provides various means of Authentication depending on what product you are using.
 
-API | API Key & Secret | JSON Web Token (JWT) | OAuth
--- | -- | -- | --
-[SMS](/api/sms) | ✅ | ❎ | ✅
-[Voice](/api/voice) | ❎ | ✅ | ❎
-[Verify](/api/verify) | ✅ | ❎| ❎
-[Number Insight](/api/number-insight) | ✅ | ❎| ❎
-[Conversion](/api/conversion) | ✅ | ❎| ❎
-[Developer](/api/developer) | ✅ | ❎| ❎
+API | API Key & Secret (Query String) | API Key & Secret (Header) | JSON Web Token (JWT) | OAuth
+-- | -- | -- | -- | --
+[SMS](/api/sms) | ✅ | ❎ | ❎ | ✅
+[Voice](/api/voice) | ❎ | ❎ | ✅ | ❎
+[Verify](/api/verify) | ✅ | ❎ | ❎| ❎
+[Number Insight](/api/number-insight) | ✅ | ❎ | ❎| ❎
+[Conversion](/api/conversion) | ✅ | ❎ | ❎| ❎
+[Developer](/api/developer) | ✅ | ❎ | ❎| ❎
 
 ## Contents
 
-In this document you can learn about:
+In this document you can learn about authentication via the following means:
 
 * [API Key & Secret](#api-key-secret)
-* [Header-based API Key Authentication](#header-based-api-key-authentication)
+  * [Request Body](#request-body)
+  * [Query String](#query-string)
+  * [Header-based](#header-based-api-key-secret-authentication)
 * [JSON Web Tokens (JWT)](#json-web-tokens-jwt)
 * [OAuth](#oauth)
 
@@ -30,11 +32,19 @@ When you create a Nexmo account you will be provided an API key and secret. Thes
 
 > Note: The secret should always be kept secure and never shared. Be careful when adding it to your codebase to make sure it is not shared with anyone who may use it maliciously. Read more about the [Best Security Practices for your Nexmo Account](https://help.nexmo.com/hc/en-us/articles/115014939548).
 
-The API key and secret should be included in the parameters of requests you make to the SMS, Conversion, Number Insight or Developer API.
+Nexmo APIs may require your API Key and Secret in a number of different ways.
 
-## Header-based API Key Authentication
+### Request Body
 
-A number of Nexmo APIs now require authentication done using an API key and secret sent base64-encoded in the `Authorization` header.
+For `POST` requests to the SMS API, your API key and secret should be sent as part of the body of the request in the JSON object.
+
+### Query String
+
+Your API key and secret should be included in the parameters of requests you make to the Conversion, Number Insight or Developer API.
+
+### Header-based API Key & Secret Authentication
+
+A number of newer Nexmo APIs require authentication to be done using an API key and secret sent Base64-encoded in the `Authorization` header.
 
 For these APIs, you send your API key and secret in the following way:
 
