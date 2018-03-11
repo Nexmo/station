@@ -6,7 +6,7 @@ title: Facebook Messenger
 
 You can use the Messages API to send and receive messages using Facebook Messenger.
 
-In Facebook Messenger, the default is for the customer to initiate a conversation first with a business. Facebook Messenger uses its own form of IDs for the Facebook Page (what the business communicates as) and the Facebook user. The Facebook user will have Page-scoped ID (PSID) and this is unique for each page. The Businesses can only obtain the PSID of a user when the user first send a message to the business.
+In Facebook Messenger, the default is for the customer to initiate a conversation first with a business. Facebook Messenger uses its own form of IDs for the Facebook Page (what the business communicates as) and the Facebook user. The Facebook user will have Page-scoped ID (PSID) and this is unique for each page. The Businesses can only obtain the PSID of a user when the user first sends a message to the business.
 
 In order to get started with Facebook Messenger you will need to first link your Facebook Page to Nexmo, at this point we will provide you with your Facebook Page ID. You will then need to send a message as a Facebook User to your Facebook Page. At this point you will receive an inbound message callback to your server with the PSID of the Facebook user. You can now use this PSID to send a message back to the user.
 
