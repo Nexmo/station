@@ -6,8 +6,10 @@ title: Overview
 
 The Workflows API allows you to combine multiple [Messages](/olympus/messages/overview) and provide failover between them.
 
-* **Send** SMS, Facebook and Viber Messages with Workflows built on-top of the the [Messages API](/olympus/messages/overview).
-* **Failover** with Workflows when messages can't be delivered.
+* **Send** SMS, Facebook Messenger and Viber Service Messages with Workflows built on-top of the the [Messages API](/olympus/messages/overview).
+* **Failover** to the next message if the condition status is not met within the time period or if the message immediately fails.
+
+With Facebook Messenger and Viber Service Messages you can use `delivered` and `read` statuses as the condition status. With SMS you can only use `delivered`.
 
 ## Contents
 
@@ -28,7 +30,7 @@ To use Workflows API, you may need to familiarise yourself with:
 
 ## Getting Started
 
-### Configure your Delivery Receipt and Inbound Message endpoint with Nexmo
+### 1. Configure your Delivery Receipt and Inbound Message endpoint with Nexmo
 
 From [Nexmo Dashboard](https://dashboard.nexmo.com) go to [Settings](https://dashboard.nexmo.com/settings).
 
@@ -36,10 +38,27 @@ Set the HTTP Method to POST and enter your endpoint in the fields labeled **Webh
 
 ```screenshot
 script: app/screenshots/webhook-url-for-inbound-message.js
-image: public/assets/screenshots/1b9047ceebd9312df0a3be8202be342c4da70201.png
+image: public/assets/screenshots/dashboardSettings.png
 ```
 
-### Send a message with failover
+### 2. Generate a JWT to Authenticate with Nexmo
+
+Future Nexmo APIs are authenticating with JSON Web Tokens (JWTs). This is a more secure method then API key and Secret and only requires a few more steps.
+
+In order to create a JWT for you Nexmo API key you will need to create a Nexmo Voice Application (during the Developer Preview we will be adding Application support for the Messages and Workflows API). This can be done under the [Voice tab](https://dashboard.nexmo.com/voice/create-application) or using the [Nexmo CLI]( https://github.com/Nexmo/nexmo-cli) tool.
+
+You will be asked to provide an Event URL and an Answer URL when creating a Voice Application. These are currently only used by the Voice API and are ignored by the Messages and Workflows APIs. Instead the Messages API and Workflows API use the Delivery Receipt and Inbound Message URLs that you set in [Settings](https://dashboard.nexmo.com/settings).
+
+Once you have created a Voice application you can use the application ID and private key to generate a JWT. There is more information on [Voice Application management]( https://www.nexmo.com/blog/2017/06/29/voice-application-management-easier/) and the use of [Nexmo libraries](https://developer.nexmo.com/tools).
+
+If you're using the Nexmo CLI the command is:
+
+```curl
+$ JWT="$(nexmo jwt:generate /path/to/private.key \application_id=NEXMO_APPLICATION_ID)"
+$ echo $JWT
+```
+
+### 3. Send a message with failover
 
 Sending an message that failsover to another channel is straightforward. In this example we will send a Viber message that failsover to SMS. Sign up for an account and replace the following variables in the example below:
 

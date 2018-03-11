@@ -4,7 +4,7 @@ title: Send a message with failover
 
 # Send a message with failover
 
-Sending an message that failsover to another channel is straightforward. In this example we will send a Viber message that failsover to SMS. Sign up for an account and replace the following variables in the example below:
+In this example we will send a Viber message that failsover to SMS. In the array you can order the messages in any order you want. Each message object must contain a failover object except for the last message as there is nothing to failover to.
 
 Key | Description
 -- | --

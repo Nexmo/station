@@ -10,7 +10,7 @@ Viber Service Messages can only be sent by businesses that have been approved by
 
 The advantage of Viber Service Messages is that the identifier of users on the platform is the mobile phone number. The business accounts can also be limited to only outbound messages to the customer. This means there is no way for a customer to respond and means that you don't need 
 
-In order to get started with Viber Service Messages you will need to contact sales@nexmo.com. Nexmo is an official partner and will handle the application and creation of your Viber Service Messages account for you.
+In order to get started with Viber Service Messages you will need to email [sales@nexmo.com](mailto:sales@nexmo.com). Nexmo is an official partner and will handle the application and creation of your Viber Service Messages account for you.
 
 If successful, your account manager will provide you with a Viber Service Messages ID. This ID can only be used on Nexmo.
 
@@ -22,7 +22,7 @@ Set the HTTP Method to POST and enter your endpoint in the fields labeled **Webh
 
 ```screenshot
 script: app/screenshots/webhook-url-for-inbound-message.js
-image: public/assets/screenshots/1b9047ceebd9312df0a3be8202be342c4da70201.png
+image: public/assets/screenshots/dashboardSettings.png
 ```
 
 ## Send a message

@@ -212,7 +212,7 @@ components:
               description: 'Only valid for Viber Service Messages. Set the time-to-live of message to be delivered in seconds. i.e. if the message is not delivered in 600 seconds then delete the message.'
               type: integer
               example: 600
-              minimum: 30
+              minimum: 15
               maximum: 86400
 
     FailoverProperty:
@@ -220,10 +220,10 @@ components:
       type: object
       properties:
         expiry_time:
-          description: 'In seconds. Minimum value is 30 and maximum value is 86,400 seconds (1 day).'
+          description: 'In seconds. Minimum value is 15 and maximum value is 86,400 seconds (1 day).'
           type: integer
           example: 600
-          minimum: 30
+          minimum: 15
           maximum: 86400
         condition_status:
           description: 'Set the status the message must reach in the expiry_time before failing over. Options are delivered or read.'
