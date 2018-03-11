@@ -4,8 +4,6 @@ title: Send a Viber Service Message
 
 # Send a Viber Service Message
 
-Sending an Viber Service Message with the Messages API is straightforward. Sign up for an account and replace the following variables in the example below:
-
 Key | Description
 -- | --
 `NEXMO_APPLICATION_ID` |	The ID of the application that you created.
