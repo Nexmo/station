@@ -197,12 +197,14 @@ components:
               minLength: 1
               maxLength: 1000
               example: 'Pretty majestical, aye?'
-            url:
-              type: string
-              description: The URL for the attachment. Required for `image`, `audio`, `video` or `file`.
-              minLength: 1
-              maxLength: 1000
-              example: 'http://example.com/image.jpg'
+            image:
+              $ref: '#/components/schemas/ImageProperty'
+            audio:
+              $ref: '#/components/schemas/AudioProperty'
+            video:
+              $ref: '#/components/schemas/VideoProperty'
+            file:
+              $ref: '#/components/schemas/FileProperty'
         viber_service_msg:
           type: object
           properties:
@@ -236,6 +238,43 @@ components:
       format: ISO 8601
       description: The datetime of when the event occurred.
       example: '2020-01-01T14:00:00.000Z'
+
+    ImageProperty:
+        type: object
+        properties:
+          url:
+            type: string
+            description: The URL of the image attachment.
+            minLength: 1
+            maxLength: 2000
+            example: 'https://example.com/image.jpg'
+    AudioProperty:
+      type: object
+      properties:
+        url:
+          type: string
+          description: The URL of the audio attachment.
+          minLength: 1
+          maxLength: 2000
+          example: 'https://example.com/audio.mp3'
+    VideoProperty:
+      type: object
+      properties:
+        url:
+          type: string
+          description: The URL of the video attachment.
+          minLength: 1
+          maxLength: 2000
+          example: 'https://example.com/video.mp4'
+    FileProperty:
+      type: object
+      properties:
+        url:
+          type: string
+          description: The URL of the file attachment.
+          minLength: 1
+          maxLength: 2000
+          example: 'https://example.com/file.zip'
 
     sendWithFailoverMessage:
       type: object
