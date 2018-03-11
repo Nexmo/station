@@ -203,12 +203,15 @@ components:
               minLength: 1
               maxLength: 1000
               example: 'http://example.com/image.jpg'
-        viber_ttl:
-          description: 'Only valid for Viber Service Messages. Set the time-to-live of message to be delivered in seconds. i.e. if the message is not delivered in 600 seconds then delete the message. Please note that this cancels the notification on Android and an iOS the viber_expiry_text is shown. Minimum value is 30 and maximum value is 86,400 seconds (1 day).'
-          type: integer
-          example: 600
-          minimum: 30
-          maximum: 86400
+        viber_service_msg:
+          type: object
+          properties:
+            ttl:
+              description: 'Only valid for Viber Service Messages. Set the time-to-live of message to be delivered in seconds. i.e. if the message is not delivered in 600 seconds then delete the message.'
+              type: integer
+              example: 600
+              minimum: 30
+              maximum: 86400
 
     FailoverProperty:
       description: 'Please note that last message does not have failover attribute inside it. All other messages must contain a failover attribute.'

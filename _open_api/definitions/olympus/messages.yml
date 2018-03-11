@@ -384,7 +384,7 @@ components:
           type: object
           properties:
             ttl:
-              description: 'Only valid for Viber Service Messages. Set the time-to-live of message to be delivered in seconds. i.e. if the message is not delivered in 600 seconds then delete the message. Please note that this cancels the notification on Android and an iOS the viber_expiry_text is shown. Minimum value is 30 and maximum value is 86,400 seconds (1 day).'
+              description: 'Only valid for Viber Service Messages. Set the time-to-live of message to be delivered in seconds. i.e. if the message is not delivered in 600 seconds then delete the message.'
               type: integer
               example: 600
               minimum: 30
