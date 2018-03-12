@@ -16,7 +16,10 @@
   <% if ENV['BUGSNAG_JS_API_KEY'] %>
     <% if ['staging', 'production'].include? Rails.env %>
       <script src="//d2wy8f7a9ursnm.cloudfront.net/v4/bugsnag.min.js"></script>
-      <script>window.bugsnagClient = bugsnag('<%= ENV['BUGSNAG_JS_API_KEY'] %>')</script>
+      <script>
+        window.bugsnagClient = bugsnag('<%= ENV['BUGSNAG_JS_API_KEY'] %>')
+        bugsnagClient.app.releaseStage = '<%= Rails.env %>'
+      </script>
     <% end %>
   <% end %>
 
