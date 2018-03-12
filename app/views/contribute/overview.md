@@ -22,6 +22,10 @@ Documentation for documentation... how very meta. The Write the Docs guide provi
 
 The styleguide provides examples of how to implement and use all the various components throughout Nexmo Developer from typography and headings to tabbed code examples and syntax highlighting.
 
+## [Platform](/contribute/guides/platform)
+
+The platform guide goes into some of the details of how Nexmo Developer works internally including aspects such as Markdown handling, assets and supporting tools.
+
 ## [GitHub: Nexmo Developer](https://github.com/nexmo/nexmo-developer)
 
 Nexmo Developer is an open-source platform built using a mix of Ruby on Rails, HTML, JavaScript (ES7 + Webpack), Sass and a custom Markdown parser. All of the tooling and documentation is available for you to contribute to or remix for your own project.
