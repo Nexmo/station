@@ -2,7 +2,9 @@
   <div class="slate-layout-documentation">
     <div>
       <%= content_tag :h3, endpoint.summary, id: endpoint.operationId %>
-      <%= content_tag :p, endpoint.description.render_markdown %>
+      <% if endpoint.description %>
+        <%= content_tag :p, endpoint.description.render_markdown %>
+      <% end %>
 
       <div class="api-path">
         <span class="api-path-method api-path-method--<%= endpoint.method %>"><%= endpoint.method.upcase %></span>

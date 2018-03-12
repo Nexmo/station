@@ -113,4 +113,16 @@
     color: $blue;
     border: 1px solid $blue;
   }
+
+  &--status--2xx {
+    background: $positive;
+  }
+
+  &--status--3xx {
+    background: $orange;
+  }
+
+  &--status--4xx {
+    background: $red;
+  }
 }

@@ -39,14 +39,13 @@
 
 /events: /community
 
-
-
 /voice/api-reference: /api/voice
 /voice/voice-api/ncco-reference: /api/voice/ncco
 /voice/voice-api/api-reference: /api/voice
 /messaging/sms/api-reference: /api/sms
 /verify/api-reference: /api/verify
 /number-insight/api-reference: /api/number-insight
+
 
 /sip: /voice/sip
 /voice/guides/sip: /voice/sip
@@ -79,3 +78,10 @@
 
 /messaging/sms/guides/global-messaging: /messaging/sms/guides/country-specific-features
 /messaging/sms/guides/delivery-reciepts: /messaging/sms/guides/delivery-receipts
+
+/stitch/sdk-documentation/android: /sdk/stitch/android/
+/stitch/sdk-documentation/ios: /sdk/stitch/ios/
+/stitch/sdk-documentation/javascript: /sdk/stitch/javascript/
+
+/stitch: /stitch/overview
+/stitch/api-reference: /api/stitch
