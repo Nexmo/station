@@ -163,7 +163,7 @@ def send_response
   return if ticket.messages.count > 1
 
   client = Nexmo::Client.new
-  result = client.send_message(
+  result = client.sms.send(
     from: ENV['NEXMO_NUMBER'],
     to: ticket.number,
     text: "Dear customer, your support" \
