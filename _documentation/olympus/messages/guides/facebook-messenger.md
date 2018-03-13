@@ -21,9 +21,20 @@ To use the Messages API with Facebook Messenger you must have a Facebook Account
 
 ## 2. Link your Facebook Page to Nexmo
 
-Next you'll need to link your Facebook page to Nexmo, this will allow us to handle the inbound messages and allow you to send messages from the Nexmo Messages API.
+Next you'll need to link your Facebook page to Nexmo, this will allow us to handle the inbound messages and allow you to send messages from the Nexmo Messages API. You will need to generate a JWT to do this.
 
 - [Subscribe your page to Facebook and Nexmo](https://static.nexmo.com/messenger/)
+
+To generate a JWT with the app you have already created, you can do this using the Nexmo CLI tool.
+
+Key | Description
+-- | --
+`NEXMO_APPLICATION_ID` |	The ID of the application that you created.
+
+ ```curl
+ $ JWT="$(nexmo jwt:generate /path/to/private.key \application_id=NEXMO_APPLICATION_ID)"
+ $ echo $JWT
+ ```
 
 ## 3. Configure your Delivery Receipt and Inbound Message endpoint with Nexmo
 
