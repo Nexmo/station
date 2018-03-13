@@ -20,7 +20,7 @@ client = Nexmo::Client.new(
   private_key: PRIVATE_KEY
 )
 
-client.create_call(
+client.calls.create(
   from: { type: 'phone', number: FROM_NUMBER },
   to: [{ type: 'phone', number: TO_NUMBER }],
   answer_url: [
