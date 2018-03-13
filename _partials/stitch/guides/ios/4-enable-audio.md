@@ -1,6 +1,6 @@
 ## Getting Started with Nexmo In-App Voice!
 
-In this getting started guide we'll demonstrate how to use In-App Voice for the Nexmo conversation iOS SDK.
+In this getting started guide we'll demonstrate how to use In-App Voice for the Nexmo Stitch iOS SDK.
 
 ## Concepts
 
@@ -12,7 +12,7 @@ Our previous guides introduced you to the following concepts:
 - **Conversations**
 - **Members**
 
-If you are unfamiliar with any of the above referenced concepts, checkout our quick start on [simple conversation.](https://github.com/Nexmo/conversation-ios-quickstart/blob/master/docs/1-simple-conversation.md)
+If you are unfamiliar with any of the above referenced concepts, checkout our quick start on [simple conversation.](/stitch/in-app-messaging/guides/1-simple-conversation?platform=ios)
 
 ### Before you begin
 
@@ -35,7 +35,7 @@ If you are unfamiliar with any of the above referenced concepts, checkout our qu
 
 Open Xcode and start a new project. We'll name it "AudioQuickStart".
 
-### 1.1 Adding the Nexmo iOS Conversation SDK to Cocoapods
+### 1.1 Adding the Nexmo Stitch iOS SDK to Cocoapods
 
 Navigate to the project's root directory in the Terminal. Run: `pod init`. Open the file entitled `PodFile`. Configure its specifications accordingly:
 
@@ -73,7 +73,7 @@ Below `UIKit` let's import the `NexmoConversation`. Next we setup a custom insta
     }()
 ```
 
-We also need to wire up the buttons in `LoginViewController.swift` Don't forget to replace `USER_JWT` with the JWT generated from the Nexmo CLI. For a refresher on how to generate a JWT, check out [quickstart one](https://github.com/Nexmo/conversation-ios-quickstart/blob/master/docs/1-simple-conversation.md#15---generate-a-user-jwt).
+We also need to wire up the buttons in `LoginViewController.swift` Don't forget to replace `USER_JWT` with the JWT generated from the Nexmo CLI. For a refresher on how to generate a JWT, check out [quickstart one](/stitch/in-app-messaging/guides/1-simple-conversation?platform=ios).
 
 ```swift
     // status label
@@ -171,7 +171,7 @@ After the user logs in, they'll press the "Chat" button which will take them to 
 
 As we mentioned above, creating a conversation results from a call to the the `new()` method. In the absence of a server we’ll 'simulate' the creation of a conversation within the app when the user clicks the chatBtn.
 
-When we construct the segue for `ChatViewController`, we pass the first conversation so that the new controller. Remember that the `CONVERSATION_ID` comes from the id generated in [the first quickstart](https://github.com/Nexmo/conversation-ios-quickstart/blob/master/docs/1-simple-conversation.md#12---create-a-conversation).
+When we construct the segue for `ChatViewController`, we pass the first conversation so that the new controller. Remember that the `CONVERSATION_ID` comes from the id generated in [the first quickstart](/stitch/in-app-messaging/guides/1-simple-conversation?platform=ios).
 
 ```swift
     // prepare(for segue:)
@@ -335,6 +335,6 @@ Configure the text property on the button's text label to display either speaker
 
 By implementing our enable / disable functions, we will see the updates right there inside of Xcode in the console log.
 
-## 3.0 - Try it out!
+## Try it out!
 
 After this you should be able to run the app and enable / disable audio. Try speaking to your self!

@@ -1,13 +1,13 @@
-## Getting Started with the Nexmo iOS Conversation SDK
+# Getting Started with the Nexmo Stitch iOS SDK
 
-In this getting started guide we'll demonstrate how to build a simple conversation app with IP messaging using the Nexmo Conversation iOS SDK.
+In this getting started guide we'll demonstrate how to build a simple conversation app with IP messaging using the Nexmo Stitch iOS SDK.
 
 ## Concepts
 
 This guide will introduce you to the following concepts.
 
 * **Nexmo Applications** - contain configuration for the application that you are building
-* **JWTs** ([JSON Web Tokens](https://jwt.io/)) - the Conversation API uses JWTs for authentication. JWTs contain all the information the Nexmo platform needs to authenticate requests. JWTs also contain information such as the associated Applications, Users and permissions. It helps you as well as Nexmo facilitate the retention & analysis of metadata for future AI implementations. 
+* **JWTs** ([JSON Web Tokens](https://jwt.io/)) - the Stitch API uses JWTs for authentication. JWTs contain all the information the Nexmo platform needs to authenticate requests. JWTs also contain information such as the associated Applications, Users and permissions. It helps you as well as Nexmo facilitate the retention & analysis of metadata for future AI implementations. 
 * **Users** - users who are associated with the Nexmo Application. It's expected that Users will have a one-to-one mapping with your own authentication system.
 * **Conversations** - A thread of conversation between two or more Users.
 * **Members** - Users that are part of a conversation.
@@ -38,7 +38,7 @@ _Note: The steps within this section can all be done dynamically via server-side
 Create an application within the Nexmo platform.
 
 ```bash
-$ nexmo app:create "Conversation iOS App" http://example.com/answer http://example.com/event --type=rtc --keyfile=private.key
+$ nexmo app:create "Stitch iOS App" http://example.com/answer http://example.com/event --type=rtc --keyfile=private.key
 ```
 
 Nexmo Applications contain configuration for the application that you are building. The output of the above command will be something like this:
@@ -129,7 +129,7 @@ You can see the JWT for the user by running the following:
 $ echo $USER_JWT
 ```
 
-### 1.6 The Nexmo Conversation API Dashboard 
+### 1.6 The Nexmo Stitch API Dashboard 
 
 If you would like to double check any of the JWT credentials, navigate to [your-applications](https://dashboard.nexmo.com/voice/your-applications) where you can see a table with three entries respectively entitled "Name", "Id", or "Security settings". Under the menu options for "Edit" next to "Delete", you can take a peak at the details of the applications such as "Application name", "Application Id", etc... 
 
@@ -141,7 +141,7 @@ With the basic setup in place we can now focus on the client-side application
 
 Open Xcode and start a new project. We'll name it "QuickStartOne". 
 
-### 2.2 Adding the Nexmo iOS Conversation SDK to Cocoapods
+### 2.2 Adding the Nexmo Stitch iOS SDK to Cocoapods
 
 Navigate to the project's root directory in the Terminal. Run: `pod init`. Open the file entitled `PodFile`. Configure its specifications accordingly: 
 
@@ -355,6 +355,6 @@ In `viewDidLoad()` we want to add a handler for handling new events like the Tex
         }
 ```
 
-## 3.0 - Trying it out
+## Try it out
 
 After this you should be able to run the app and send messages.
