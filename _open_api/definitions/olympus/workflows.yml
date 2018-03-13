@@ -213,7 +213,7 @@ components:
               description: 'Only valid for Viber Service Messages. Set the time-to-live of message to be delivered in seconds. i.e. if the message is not delivered in 600 seconds then delete the message.'
               type: integer
               example: 600
-              minimum: 15
+              minimum: 30
               maximum: 86400
 
     FailoverProperty:
