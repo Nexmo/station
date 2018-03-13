@@ -13,7 +13,7 @@ This API is currently in Developer Preview and you will need to [request access]
 
 With Facebook Messenger and Viber Service Messages you can use `delivered` and `read` statuses as the condition status. With SMS you can only use `delivered`.
 
-There may be bugs🐛 and quirks so we'd welcome your feedback - any suggestions you make help us shape the product. If you do need help, please email [support@nexmo.com](mailto:support@nexmo.com) and include Workflows API in the subject line.
+There may be bugs🐛 and quirks so we'd welcome your feedback - any suggestions you make help us shape the product. If you do need help, please email [support@nexmo.com](mailto:support@nexmo.com) and include Workflows API in the subject line. Please note that during the Developer Preview period support times are limited to Monday to Friday.
 
 ## Contents
 
