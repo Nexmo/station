@@ -1,4 +1,4 @@
-## Getting Started with Nexmo In-App Voice!
+# Getting Started with Nexmo In-App Voice!
 
 In this getting started guide we'll demonstrate how to use In-App Voice for the Nexmo Stitch iOS SDK.
 
