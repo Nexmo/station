@@ -6,7 +6,7 @@ title: Overview
 
 The Messaging API is a single API that enables easy integration with various communication channels such as: SMS, Facebook Messenger and Viber.
 
-This APIs is currently in Developer Preview and you will need to [request access](https://www.nexmo.com/products/messages) to use it.
+This API is currently in Developer Preview and you will need to [request access](https://www.nexmo.com/products/messages) to use it.
 
 During Developer Preview we will expand the capabilities of the API. Please visit the API Reference for a comprehensive breakdown and on high level we currently support:
 

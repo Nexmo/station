@@ -6,7 +6,7 @@ title: Overview
 
 The Workflows API allows you to combine multiple [Messages](/olympus/messages/overview) and provide failover between them.
 
-This APIs is currently in Developer Preview and you will need to [request access](https://www.nexmo.com/products/messages) to use it.
+This API is currently in Developer Preview and you will need to [request access](https://www.nexmo.com/products/messages) to use it.
 
 * **Send** SMS, Facebook Messenger and Viber Service Messages with Workflows built on-top of the the [Messages API](/olympus/messages/overview).
 * **Failover** to the next message if the condition status is not met within the time period or if the message immediately fails.
