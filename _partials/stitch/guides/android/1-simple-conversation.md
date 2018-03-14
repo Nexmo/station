@@ -1,13 +1,13 @@
-## Getting Started with the Nexmo Conversation Android SDK
+# Getting Started with the Nexmo Stitch Android SDK
 
-In this getting started guide we'll demonstrate how to build a simple conversation app with IP messaging using the Nexmo Conversation Android SDK.
+In this getting started guide we'll demonstrate how to build a simple conversation app with IP messaging using the Nexmo Stitch Android SDK.
 
 ## Concepts
 
 This guide will introduce you to the following concepts.
 
 * **Nexmo Applications** - contain configuration for the application that you are building
-* **JWTs** ([JSON Web Tokens](https://jwt.io/)) - the Conversation API uses JWTs for authentication. JWTs contain all the information the Nexmo platform needs to authenticate requests. JWTs also contain information such as the associated Applications, Users and permissions.
+* **JWTs** ([JSON Web Tokens](https://jwt.io/)) - the Stitch API uses JWTs for authentication. JWTs contain all the information the Nexmo platform needs to authenticate requests. JWTs also contain information such as the associated Applications, Users and permissions.
 * **Users** - users who are associated with the Nexmo Application. It's expected that Users will have a one-to-one mapping with your own authentication system.
 * **Conversations** - A thread of conversation between two or more Users.
 * **Members** - Users that are part of a conversation.
@@ -38,7 +38,7 @@ _Note: The steps within this section can all be done dynamically via server-side
 Create an application within the Nexmo platform.
 
 ```bash
-$ nexmo app:create "Conversation Android App" http://example.com/answer http://example.com/event --type=rtc --keyfile=private.key
+$ nexmo app:create "Stitch Android App" http://example.com/answer http://example.com/event --type=rtc --keyfile=private.key
 ```
 
 Nexmo Applications contain configuration for the application that you are building. The output of the above command will be something like this:
@@ -133,11 +133,11 @@ $ echo $USER_JWT
 
 With the basic setup in place we can now focus on the client-side application
 
-### 2.1 Start a new project and add the Nexmo Conversation SDK
+### 2.1 Start a new project and add the Nexmo Stitch SDK
 
-Open Android Studio and start a new project. We'll name it "Conversation Android Quickstart 1". The minimum SDK will be set to API 19. We can start with an empty activity named "Login Activity".
+Open Android Studio and start a new project. We'll name it "Stitch Android Quickstart 1". The minimum SDK will be set to API 19. We can start with an empty activity named "Login Activity".
 
-In the `build.gradle` file we'll add the Nexmo Conversation Android SDK.
+In the `build.gradle` file we'll add the Nexmo Stitch Android SDK.
 
 ```groovy
 //app/build.gradle
@@ -242,7 +242,7 @@ We're going to create a simple layout for the first activity in our app. There w
 
 We're creating an instance of `ConversationClient` and saving it as a member variable in the activity.
 
-We also need to wire up the buttons in `LoginActivity.java` Don't forget to replace `USER_JWT` with the JWT generated from the Nexmo CLI in [step 1.6](#16---generate-a-user-jwt) and `CONVERSATION_ID` with the id generated in [step 1.3](#13---create-a-conversation)
+We also need to wire up the buttons in `LoginActivity.java` Don't forget to replace `USER_JWT` with the JWT generated from the Nexmo CLI in step 1.5 and `CONVERSATION_ID` with the id generated in step 1.2
 
 ```java
 //LoginActivity.java
@@ -526,7 +526,7 @@ protected void onPause() {
 
 When we created our `ChatActivity` we added a member variable to our activity with `SubscriptionList subscriptions = new SubscriptionList();` A `SubscriptionList` is a utility list that the library provides to make it easier to manage subscriptions within the app lifecycle. Basically, when we add a new `ResultListener` we should call `.addTo(subscriptions)` on that `ResultListener` so that we can call `subscriptions.unsubscribeAll();` when our activity winds down. We do this to minimize memory leaks.
 
-## 3.0 - Trying it out
+## Try it out
 
 After this you should be able to run the app and send messages to a conversation like so:
 
@@ -534,4 +534,4 @@ After this you should be able to run the app and send messages to a conversation
 
 ## Where next?
 
-Try out [Quickstart 2](https://github.com/Nexmo/conversation-android-quickstart/blob/master/docs/2-inviting-members.md)
+Try out [Quickstart 2](/stitch/in-app-messaging/guides/2-inviting-members?platform=android)
