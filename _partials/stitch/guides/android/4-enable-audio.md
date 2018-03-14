@@ -1,4 +1,4 @@
-# Getting Started with Nexmo In-App Voice and the Android SDK
+# Getting Started with Nexmo In-App Voice and the Stitch Android SDK
 
 In this getting started guide we'll cover adding audio events to the Conversation we created in the previous quickstarts. We'll deal with media events, the ones that come via the conversation, and the ones we send to the conversation.
 
@@ -12,6 +12,7 @@ This guide will introduce you to the following concepts.
 ## Before you begin
 
 - Ensure you have run through the [previous quickstarts](/stitch/in-app-messaging/guides/3-utilizing-events?platform=android)
+- If you're continuing on from the previous guide you may need to regenerate the users JWTs. See quickstarts 1 and 2 for how to do so.
 
 ## 1 - Update the Android App
 
@@ -211,7 +212,7 @@ Now we need to add a check for `MemberMedia` events with an `else if`.
 
 After we check that the event `equals(EventType.MEMBER_MEDIA)` we'll show a message in the adapter that tells who enabled or disabled audio. Don't forget to set the visibility of the `seenIcon`! We'll just always set it to invisible in this case.
 
-## 3 Try it out!
+## Try it out!
 
 After this you should be able to run the app in two different android devices or emulators. Try enabling or disabling audio and speaking to yourself or a friend!
 

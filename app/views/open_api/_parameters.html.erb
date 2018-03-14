@@ -4,7 +4,7 @@
   format = nil if local_assigns[:format].nil?
 %>
 
-<% if parameters[0].subproperties_are_one_of_many? %>
+<% if parameters[0] && parameters[0].subproperties_are_one_of_many? %>
     <h3>Any one of the following:</h3>
     <div style="margin-left: 20px;">
       <% parameters[0].properties.each do |property| %>
