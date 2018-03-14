@@ -142,4 +142,16 @@ module ApplicationHelper
   def document_meta(path)
     YAML.load_file(path)
   end
+
+  def show_canonical_meta?
+    return true if params[:code_language].present?
+    return true if Rails.env.production? && request.base_url != 'https://developer.nexmo.com'
+    false
+  end
+
+  def canonical_url
+    path = request.path.chomp("/#{params[:code_language]}")
+    base_url = Rails.env.production? ? 'https://developer.nexmo.com' : request.base_url
+    path.prepend(base_url)
+  end
 end
