@@ -14,7 +14,7 @@ During Developer Preview we will expand the capabilities of the API. Please visi
 * Outbound media messages on Facebook Messenger.
 * Inbound text, media and location messages on Facebook Messenger.
 
-There may be bugs🐛 and quirks so we'd welcome your feedback - any suggestions you make help us shape the product. If you do need help, please email [support@nexmo.com](mailto:support@nexmo.com) and include Messages API in the subject line. Please note that during the Developer Preview period support times are limited to Monday to Friday.
+There may be bugs and quirks so we'd welcome your feedback - any suggestions you make help us shape the product. If you do need help, please email [support@nexmo.com](mailto:support@nexmo.com) and include Messages API in the subject line. Please note that during the Developer Preview period support times are limited to Monday to Friday.
 
 ## Contents
 
