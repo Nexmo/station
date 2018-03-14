@@ -11,7 +11,7 @@ Key | Description
 `NEXMO_APPLICATION_ID` |	The ID of the application that you created.
 `FROM_NUMBER` | The phone number you are sending the message from in [E.164](https://en.wikipedia.org/wiki/E.164) format. For example `447700900000`.
 `TO_NUMBER` | The phone number you are sending the message to in [E.164](https://en.wikipedia.org/wiki/E.164) format. For example `447700900000`.
-`VIBER_SERVICE_MESSAGE_ID` | Your Viber Service Message ID. [Find out more](#).
+`VIBER_SERVICE_MESSAGE_ID` | Your Viber Service Message ID.
 
 ## Prerequisites
 
