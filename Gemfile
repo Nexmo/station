@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.4.1'
+ruby '2.5.0'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
@@ -7,7 +7,7 @@ git_source(:github) do |repo_name|
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.2'
+gem 'rails', '~> 5.1.5'
 gem 'webpacker', github: 'rails/webpacker'
 
 # Use postgresql as the database for Active Record
@@ -135,7 +135,7 @@ group :development, :test do
   gem 'diffy'
   gem 'pry'
   gem 'rawler', git: 'https://github.com/oscardelben/rawler.git', require: false
-  gem 'rspec-rails', '~> 3.5'
+  gem 'rspec-rails', '~> 3.7'
 end
 
 group :development do
