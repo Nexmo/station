@@ -36,14 +36,14 @@ $ echo $JWT
 
 ## 3. Send a message with failover
 
-Sending an message with failover to another channel is done by making one request to the Workflows API endpoint. In this example we will send a Viber message that when the failover condition is met (i.e. the message has not been delivered to their phone), the API will proceed to send an SMS.
+Sending an message with failover to another channel is done by making one request to the Workflows API endpoint. In this example we will send a Facebook Messenger message that when the failover condition is met (i.e. the message has not been read), the API will proceed to send an SMS.
 
 Key | Description
 -- | --
 `NEXMO_APPLICATION_ID` |	The ID of the application that you created.
 `FROM_NUMBER` | The phone number you are sending the message from in [E.164](https://en.wikipedia.org/wiki/E.164) format. For example `447700900000`.
-`TO_NUMBER` | The phone number you are sending the message to in [E.164](https://en.wikipedia.org/wiki/E.164) format. For example `447700900000`.
-`VIBER_SERVICE_MESSAGE_ID` | Your Viber Service Message ID.
+`SENDER_ID` | Your sender ID. This value should be the `to.id` value you received in the inbound messenger event.
+`RECIPIENT_ID` | The recipient ID is the Facebook user you are messaging. This value should be the `from.id` value you received in the inbound messenger event. It is sometimes called the PSID.
 
 | #### Prerequisites
 |
@@ -61,5 +61,5 @@ Key | Description
 #### Example
 
 ```tabbed_examples
-config: 'messages_and_workflows_apis.workflows.send-failover-sms-viber'
+config: 'messages_and_workflows_apis.workflows.send-failover-sms-facebook'
 ```

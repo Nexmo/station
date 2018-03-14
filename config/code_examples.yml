@@ -168,3 +168,11 @@ messages_and_workflows_apis:
       node:
         source: '.repos/nexmo-community/nexmo-node-quickstart/workflows/send-failover-sms-viber.js'
         from_line: 11
+    send-failover-sms-facebook:
+      curl:
+        source: '_examples/curl/messages-and-workflows-apis/workflows/send-failover-sms-facebook.sh'
+      httpie:
+        source: '_examples/httpie/messages-and-workflows-apis/workflows/send-failover-sms-facebook.sh'
+      node:
+        source: '.repos/nexmo-community/nexmo-node-quickstart/workflows/send-failover-sms-facebook.js'
+        from_line: 11
