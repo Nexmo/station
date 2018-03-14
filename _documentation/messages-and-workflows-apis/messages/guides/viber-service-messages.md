@@ -30,7 +30,7 @@ image: public/assets/screenshots/dashboardSettings.png
 Key | Description
 -- | --
 `NEXMO_APPLICATION_ID` |	The ID of the application that you created.
-`VIBER_SERVICE_MESSAGE_ID` | Your Viber Service Message ID. [Find out more](#).
+`VIBER_SERVICE_MESSAGE_ID` | Your Viber Service Message ID.
 `TO_NUMBER` | The phone number you are sending the message to in [E.164](https://en.wikipedia.org/wiki/E.164) format. For example `447700900000`.
 
 ## Prerequisites
