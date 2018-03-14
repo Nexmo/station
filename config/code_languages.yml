@@ -2,6 +2,10 @@ curl:
   weight: 1
   label: cURL
   lexer: sh
+httpie:
+  weight: 1
+  label: HTTPie
+  lexer: sh
 node:
   weight: 2
   label: Node.js

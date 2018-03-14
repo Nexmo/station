@@ -85,3 +85,11 @@
 
 /stitch: /stitch/overview
 /stitch/api-reference: /api/stitch
+
+/messages-and-workflows-apis/messages/api-reference: /api/messages-and-workflows-apis/messages
+/messages-and-workflows-apis/workflows/api-reference: /api/messages-and-workflows-apis/workflows
+
+/messages-and-workflows-apis/messages/guides: /messages-and-workflows-apis/messages/guides/facebook-messenger
+/messages-and-workflows-apis/workflows/guides: /messages-and-workflows-apis/workflows/guides/failover
+/messages-and-workflows-apis/messages/building-blocks: /messages-and-workflows-apis/messages/building-blocks/send-an-sms-with-messages-api
+/messages-and-workflows-apis/workflows/building-blocks: /messages-and-workflows-apis/workflows/building-blocks/send-a-message-with-failover
