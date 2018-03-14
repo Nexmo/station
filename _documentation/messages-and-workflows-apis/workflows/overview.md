@@ -36,7 +36,7 @@ To use Workflows API, you may need to familiarise yourself with:
 
 From [Nexmo Dashboard](https://dashboard.nexmo.com), go to [Settings](https://dashboard.nexmo.com/settings).
 
-Set the HTTP method to POST and enter your endpoint in the fields labeled **Webhook URL for Inbound Message** and **Webhook URL for Delivery Receipt**:
+Set the HTTP method to `POST` and enter your endpoint in the fields labeled **Webhook URL for Inbound Message** and **Webhook URL for Delivery Receipt**:
 
 ```screenshot
 script: app/screenshots/webhook-url-for-inbound-message.js
@@ -53,7 +53,7 @@ In order to create a JWT for you Nexmo API key you will need to create a Nexmo V
 
 You will be asked to provide an Event URL and an Answer URL when creating a Voice Application. These are currently only used by the Voice API and are ignored by the Messages and Workflows APIs. Instead the Messages API and Workflows API use the Delivery Receipt and Inbound Message URLs that you set in [Settings](https://dashboard.nexmo.com/settings).
 
-Once you have created a Voice application you can use the application ID and private key to generate a JWT. There is more information on [Voice Application management]( https://www.nexmo.com/blog/2017/06/29/voice-application-management-easier/) and the use of [Nexmo libraries](https://developer.nexmo.com/tools).
+Once you have created a Voice application you can use the application ID and private key to generate a JWT. There is more information on [Voice Application management](https://www.nexmo.com/blog/2017/06/29/voice-application-management-easier/) and the use of [Nexmo libraries](https://developer.nexmo.com/tools).
 
 If you're using the Nexmo CLI the command is:
 
@@ -64,7 +64,7 @@ $ echo $JWT
 
 ### 3. Send a message with failover
 
-Sending an message with failover to another channel is done by making one request to the Workflows API endpoint. In this example we will send a Facebook message that switches to SMS. Sign up for an account and replace the following variables in the example below:
+Sending an message with failover to another channel is done by making one request to the Workflows API endpoint. In this example we will send a Viber message that when the failover condition is met (i.e. the message has not been delivered to their phone), the API will proceed to send an SMS.
 
 Key | Description
 -- | --
