@@ -1,6 +1,6 @@
-## Using more Event Listeners with the Nexmo Conversation Android SDK
+# Using more Event Listeners with the Nexmo Stitch Android SDK
 
-In this getting started guide we'll demonstrate how to show previous history of a Conversation we created in the [simple conversation](/stitch/in-app-messaging/guides/1-simple-conversation) getting started guide. From there we'll cover how to show when a member is typing and mark text as being seen.
+In this getting started guide we'll demonstrate how to show previous history of a Conversation we created in the [simple conversation](/stitch/in-app-messaging/guides/1-simple-conversation?platform=android) getting started guide. From there we'll cover how to show when a member is typing and mark text as being seen.
 
 ## Concepts
 
@@ -10,20 +10,14 @@ This guide will introduce you to **Conversation Events**. We'll be attaching the
 ### Before you begin
 
 
-* Ensure you have run through the [the first](/stitch/in-app-messaging/guides/1-simple-conversation) and [second](/stitch/in-app-messaging/guides/2-inviting-members) quickstarts.
+* Ensure you have run through the [the first](/stitch/in-app-messaging/guides/1-simple-conversation?platform=android) and [second](/stitch/in-app-messaging/guides/2-inviting-members?platform=android) quickstarts.
 * Make sure you have two Android devices to complete this example. They can be two emulators, one emulator and one physical device, or two physical devices.
 
 ## 1 - Setup
 
-For this quickstart you won't need to emulate any server side events with curl. You'll just need to be able to login as both users created in quickstarts 1 and 2.
+For this quickstart you won't need to emulate any server side events with the Nexmo CLI. You'll just need to be able to login as both users created in quickstarts 1 and 2.
 
-If you're continuing on from the previous guide you may already have a `APP_JWT`. If not, generate a JWT using your Application ID (`YOUR_APP_ID`).
-
-```bash
-$ APP_JWT="$(nexmo jwt:generate ./private.key application_id=YOUR_APP_ID exp=$(($(date +%s)+86400)))"
-```
-
-You may also need to regenerate the users JWTs. See quickstarts 1 and 2 for how to do so.
+If you're continuing on from the previous guide you may need to regenerate the users JWTs. See quickstarts 1 and 2 for how to do so.
 
 ## 2 Update the Android App
 
@@ -89,7 +83,7 @@ Notice that we've added the RecyclerView as well as a TextView with the id `typi
 
 ### 2.2 Adding the new UI to the ChatActivity
 
-In the previous examples we showed messages by adding to a TextView. For this example we'll show you how to use the Conversation SDK in a RecyclerView. Let's add our new UI elements to the ChatActivity:
+In the previous examples we showed messages by adding to a TextView. For this example we'll show you how to use the Stitch SDK in a RecyclerView. Let's add our new UI elements to the ChatActivity:
 
 ```java
 //ChatActivity.java
@@ -393,7 +387,7 @@ private void sendTypeIndicator(Member.TYPING_INDICATOR typingIndicator) {
 }
 ```
 
-We can tell the Conversation SDK when a member is typing using `TextView`'s `addTextChangedListener`. We'll attach a `TextWatcher` to the `chatBox`. In the `afterTextChanged` callback we'll look at the length of the text in the EditText. If the text is greater than 0, we know that the user is still typing. Depending on if the user is typing we'll call `sendTypeIndicator()` with `Member.TYPING_INDICATOR.ON` or `Member.TYPING_INDICATOR.OFF` as an argument. The `sendTypeIndicator` method just fires either `conversation.startTyping()` or `conversation.stopTyping()` By adding a listener to `conversation.typingEvent()` we can then update our `typingNotificationTxt` with the correct message of who's typing or set the message to null if no one is typing.
+We can tell the Stitch SDK when a member is typing using `TextView`'s `addTextChangedListener`. We'll attach a `TextWatcher` to the `chatBox`. In the `afterTextChanged` callback we'll look at the length of the text in the EditText. If the text is greater than 0, we know that the user is still typing. Depending on if the user is typing we'll call `sendTypeIndicator()` with `Member.TYPING_INDICATOR.ON` or `Member.TYPING_INDICATOR.OFF` as an argument. The `sendTypeIndicator` method just fires either `conversation.startTyping()` or `conversation.stopTyping()` By adding a listener to `conversation.typingEvent()` we can then update our `typingNotificationTxt` with the correct message of who's typing or set the message to null if no one is typing.
 
 Finally we'll add a Listener to the `conversation.seenEvent()` so that when an event is marked as seen, we'll update the `ChatAdapter` and show the events as seen in our UI.
 
@@ -459,7 +453,11 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
 
 We've added `Member self` to our constructor and as a member variable to the `ChatAdapter`. We've also made some changes to the `onBindViewHolder` method. Before we start marking something as read, we want to ensure that we're referring to a `Text` message. That's what the `events.get(position).getType().equals(EventType.TEXT)` check is doing. We only want to mark a message as read if it the sender of the message is not our `self`. That's why `!textMessage.getMember().equals(self)` is there. We also don't want to mark something as read if it's already been marked read. The `memberHasSeen` method looks up all of the `SeenReceipt`s and will only mark the method as read if the current user hasn't created a `SeenReceipt`. Then, we only want to show the `seenIcon` if the message has been marked as read. That's what `!textMessage.getSeenReceipts().isEmpty()` is for.
 
-# Trying it out
+## Try it out
 
 Run the apps on both of your emulators. On one of them, login with the username "jamie". On the other emulator login with the username "alice"
 Once you've completed this quickstart, you can run the sample app on two different devices. You'll be able to login as a user, join an existing conversation, chat with users, show a typing indicator, and mark messages as read.
+
+## Where next?
+
+Try out [Enabling Audio in your App](/stitch/in-app-voice/guides/1-enable-audio?platform=android)

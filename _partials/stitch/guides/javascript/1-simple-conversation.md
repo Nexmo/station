@@ -1,13 +1,13 @@
-# Getting Started with the Nexmo Conversation JS SDK
+# Getting Started with the Nexmo Stitch JavaScript SDK
 
-In this getting started guide we'll demonstrate how to build a simple conversation app with IP messaging using the Nexmo Conversation JavaScript SDK.
+In this getting started guide we'll demonstrate how to build a simple conversation app with IP messaging using the Nexmo Stitch JavaScript SDK.
 
 ## Concepts
 
 This guide will introduce you to the following concepts.
 
 * **Nexmo Applications** - contain configuration for the application that you are building
-* **JWTs** ([JSON Web Tokens](https://jwt.io/)) - the Conversation API uses JWTs for authentication. JWTs contain all the information the Nexmo platform needs to authenticate requests. JWTs also contain information such as the associated Applications, Users and permissions.
+* **JWTs** ([JSON Web Tokens](https://jwt.io/)) - the Stitch API uses JWTs for authentication. JWTs contain all the information the Nexmo platform needs to authenticate requests. JWTs also contain information such as the associated Applications, Users and permissions.
 * **Users** - users who are associated with the Nexmo Application. It's expected that Users will have a one-to-one mapping with your own authentication system.
 * **Conversations** - A thread of conversation between two or more Users.
 * **Members** - Users that are part of a conversation.
@@ -37,7 +37,7 @@ _Note: The steps within this section can all be done dynamically via server-side
 Create a Nexmo application within the Nexmo platform to use within this guide.
 
 ```bash
-$ nexmo app:create "My Conversation App" https://example.com/answer https://example.com/event --type=rtc --keyfile=private.key
+$ nexmo app:create "My Stitch App" https://example.com/answer https://example.com/event --type=rtc --keyfile=private.key
 ```
 
 The output of the above command will be something like this:
@@ -185,15 +185,15 @@ The UI contains:
 </html>
 ```
 
-### 2.2 - Add the Nexmo Conversation JS SDK
+### 2.2 - Add the Nexmo Stitch JS SDK
 
-Install the Nexmo Conversation JS SDK
+Install the Nexmo Stitch JS SDK
 
 ```bash
 $ npm install nexmo-conversation
 ```
 
-Include the Conversation JS SDK in the `<head>`
+Include the Nexmo Stitch JS SDK in the `<head>`
 
 ```html
 <script src="./node_modules/nexmo-conversation/dist/conversationClient.js"></script>
@@ -358,5 +358,5 @@ Run `index.html` in two side-by-side browser windows to see the conversation tak
 
 ## Where next?
 
-- Try out [Quickstart 2](/stitch/in-app-messaging/guides/2-inviting-members)
-- Have a look at the [Nexmo Conversation JS SDK API Reference](/sdk/stitch/javascript/)
+- Try out [Quickstart 2](/stitch/in-app-messaging/guides/2-inviting-members?platform=javascript)
+- Have a look at the [Nexmo Stitch JavaScript SDK API Reference](/sdk/stitch/javascript/)

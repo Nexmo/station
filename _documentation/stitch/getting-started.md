@@ -39,10 +39,10 @@ To start you'll need a [Nexmo Account](/account/guides/management#create-and-con
 |
 | #### Create an Application
 |
-| Create an application named `My first Conversation Application` and store the returned private key as `private.key` within your current working directory.
+| Create an application named `My first Stitch Application` and store the returned private key as `private.key` within your current working directory.
 |
 | ```sh
-| $ nexmo app:create "My first Conversation Application" --type=rtc --keyfile=private.key
+| $ nexmo app:create "My first Stitch Application" --type=rtc --keyfile=private.key
 | ```
 |
 |
