@@ -11,7 +11,7 @@ curl -X POST https://api.nexmo.com/beta/workflows \
         "message": {
           "content": {
             "type": "text",
-            "text": "This is a Facebook Messenger Message sent from the Workflow API"
+            "text": "This is a Facebook Messenger Message sent from the Workflows API"
           }
         },
         "failover":{
@@ -25,7 +25,7 @@ curl -X POST https://api.nexmo.com/beta/workflows \
         "message": {
           "content": {
             "type": "text",
-            "text": "This is an SMS sent from the Workflow API"
+            "text": "This is an SMS sent from the Workflows API"
           }
         }
       }
