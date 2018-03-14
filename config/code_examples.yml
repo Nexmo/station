@@ -133,26 +133,26 @@ number_insight:
   async:
     curl:
       source: '_examples/curl/number_insight/async.sh'
-olympus:
+messages_and_workflows_apis:
   messages:
     send-sms:
       curl:
-        source: '_examples/curl/olympus/messages/send-sms.sh'
+        source: '_examples/curl/messages-and-workflows-apis/messages/send-sms.sh'
       httpie:
-        source: '_examples/httpie/olympus/messages/send-sms.sh'
+        source: '_examples/httpie/messages-and-workflows-apis/messages/send-sms.sh'
     send-viber:
       curl:
-        source: '_examples/curl/olympus/messages/send-viber.sh'
+        source: '_examples/curl/messages-and-workflows-apis/messages/send-viber.sh'
       httpie:
-        source: '_examples/httpie/olympus/messages/send-viber.sh'
+        source: '_examples/httpie/messages-and-workflows-apis/messages/send-viber.sh'
     send-facebook-messenger:
       curl:
-        source: '_examples/curl/olympus/messages/send-facebook-messenger.sh'
+        source: '_examples/curl/messages-and-workflows-apis/messages/send-facebook-messenger.sh'
       httpie:
-        source: '_examples/httpie/olympus/messages/send-facebook-messenger.sh'
+        source: '_examples/httpie/messages-and-workflows-apis/messages/send-facebook-messenger.sh'
   workflows:
     send-failover-sms-viber:
       curl:
-        source: '_examples/curl/olympus/workflows/send-failover-sms-viber.sh'
+        source: '_examples/curl/messages-and-workflows-apis/workflows/send-failover-sms-viber.sh'
       httpie:
-        source: '_examples/httpie/olympus/workflows/send-failover-sms-viber.sh'
+        source: '_examples/httpie/messages-and-workflows-apis/workflows/send-failover-sms-viber.sh'

@@ -86,10 +86,10 @@
 /stitch: /stitch/overview
 /stitch/api-reference: /api/stitch
 
-/olympus/messages/api-reference: /api/olympus/messages
-/olympus/workflows/api-reference: /api/olympus/workflows
+/messages-and-workflows-apis/messages/api-reference: /api/messages-and-workflows-apis/messages
+/messages-and-workflows-apis/workflows/api-reference: /api/messages-and-workflows-apis/workflows
 
-/olympus/messages/guides: /olympus/messages/guides/facebook-messenger
-/olympus/workflows/guides: /olympus/messages/guides/failover
-/olympus/messages/building-blocks: /olympus/messages/building-blocks/send-an-sms-with-messages-api
-/olympus/workflows/building-blocks: /olympus/workflows/building-blocks/send-a-message-with-failover
+/messages-and-workflows-apis/messages/guides: /messages-and-workflows-apis/messages/guides/facebook-messenger
+/messages-and-workflows-apis/workflows/guides: /messages-and-workflows-apis/messages/guides/failover
+/messages-and-workflows-apis/messages/building-blocks: /messages-and-workflows-apis/messages/building-blocks/send-an-sms-with-messages-api
+/messages-and-workflows-apis/workflows/building-blocks: /messages-and-workflows-apis/workflows/building-blocks/send-a-message-with-failover

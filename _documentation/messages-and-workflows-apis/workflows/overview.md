@@ -2,44 +2,39 @@
 title: Overview
 ---
 
-# Messages Overview [Developer Preview]
+# Workflows Overview [Developer Preview]
 
-The Messaging API is a single API that enables easy integration with various communication channels such as: SMS, Facebook Messenger and Viber.
+The Workflows API allows you to combine multiple [Messages](/messages-and-workflows-apis/messages/overview) and provide failover between them.
 
 This API is currently in Developer Preview and you will need to [request access](https://www.nexmo.com/products/messages) to use it.
 
-During Developer Preview we will expand the capabilities of the API. Please visit the API Reference for a comprehensive breakdown and on high level we currently support:
+* **Send** SMS, Facebook Messenger and Viber Service Messages with Workflows built on-top of the the [Messages API](/messages-and-workflows-apis/messages/overview).
+* **Failover** to the next message if the condition status is not met within the time period or if the message immediately fails.
 
-* Outbound text messages on SMS, Viber Service Messages and Facebook Messenger.
-* Outbound media messages on Facebook Messenger.
-* Inbound text, media and location messages on Facebook Messenger.
+With Facebook Messenger and Viber Service Messages you can use `delivered` and `read` statuses as the condition status. With SMS you can only use `delivered`.
 
-There may be bugs🐛 and quirks so we'd welcome your feedback - any suggestions you make help us shape the product. If you do need help, please email [support@nexmo.com](mailto:support@nexmo.com) and include Messages API in the subject line. Please note that during the Developer Preview period support times are limited to Monday to Friday.
+There may be bugs🐛 and quirks so we'd welcome your feedback - any suggestions you make help us shape the product. If you do need help, please email [support@nexmo.com](mailto:support@nexmo.com) and include Workflows API in the subject line. Please note that during the Developer Preview period support times are limited to Monday to Friday.
 
 ## Contents
 
 In this document you can learn about:
 
 * [Concepts](#concepts)
-* [How to Get Started with Olympus](#getting-started)
+* [How to Get Started with Workflows](#getting-started)
 * [Building Blocks](#building-blocks)
 * [Guides](#guides)
 * [Reference](#reference)
 
 ## Concepts
 
-To use the Messages API, you may need to familiarise yourself with:
+To use Workflows API, you may need to familiarise yourself with:
 
-* **[Authentication](/concepts/guides/authentication)** - The Messages API is authenticated with JWT.
-* **[Workflows](/olympus/workflows/overview)** - The Workflow API is used to combine messages together with logic to allow for failover.
+* **[Authentication](/concepts/guides/authentication)** - The Workflows API is authenticated with JWT.
+* **[Messages](/messages-and-workflows-apis/messages/overview)** - The Messages API is used for sending messages to a single channel.
 
 ## Getting Started
 
-In this Getting Started section we will show you how you can send an SMS. The same steps taken here can be easily modified to send a message across Viber Service Messages, Facebook Messenger and any future channels that we add.
-
 ### 1. Configure your Delivery Receipt and Inbound Message endpoint with Nexmo
-
-To recieve updates about the state of a message (i.e. "delivered" or "read") you have just sent and to recieve inbound messages from your customers you will need to configure an endpoint for Nexmo to send message to. If you don't have a webhook server set up you can use a service like [requestb.in](https://requestb.in/) for free.
 
 From [Nexmo Dashboard](https://dashboard.nexmo.com) go to [Settings](https://dashboard.nexmo.com/settings).
 
@@ -67,15 +62,16 @@ $ JWT="$(nexmo jwt:generate /path/to/private.key \application_id=NEXMO_APPLICATI
 $ echo $JWT
 ```
 
-### 3. Send an SMS with Messages API
+### 3. Send a message with failover
 
-Sending an SMS message with the Messages API is straightforward. Replace the following variables in the example below:
+Sending an message that failsover to another channel is straightforward. In this example we will send a Viber message that failsover to SMS. Sign up for an account and replace the following variables in the example below:
 
 Key | Description
 -- | --
 `NEXMO_APPLICATION_ID` |	The ID of the application that you created.
 `FROM_NUMBER` | The phone number you are sending the message from in [E.164](https://en.wikipedia.org/wiki/E.164) format. For example `447700900000`.
 `TO_NUMBER` | The phone number you are sending the message to in [E.164](https://en.wikipedia.org/wiki/E.164) format. For example `447700900000`.
+`VIBER_SERVICE_MESSAGE_ID` | Your Viber Service Message ID. [Find out more](#).
 
 | #### Prerequisites
 |
@@ -93,22 +89,19 @@ Key | Description
 #### Example
 
 ```tabbed_examples
-config: 'olympus.messages.send-sms'
+config: 'messages_and_workflows_apis.workflows.send-failover-sms-viber'
 ```
 
 ## Building Blocks
 
-* [Send an SMS with Messages API](/olympus/messages/building-blocks/send-an-sms-with-messages-api)
-* [Send with Facebook Messenger](/olympus/messages/building-blocks/send-with-facebook-messenger)
-* [Send a Viber Service Message](/olympus/messages/building-blocks/send-a-viber-service-message)
-* [Send a message with failover](/olympus/workflows/building-blocks/send-a-message-with-failover)
+* [Send a message with failover](/messages-and-workflows-apis/workflows/building-blocks/send-a-message-with-failover)
 
 ## Guides
 
-* [Facebook Messenger](/olympus/messages/guides/facebook-messenger)
-* [Viber Service Messages](/olympus/messages/guides/viber-service-messages)
+* [Facebook Messenger](/messages-and-workflows-apis/messages/guides/facebook-messenger)
+* [Viber Service Messages](/messages-and-workflows-apis/messages/guides/viber-service-messages)
 
 ## Reference
 
-* [Messages API Reference](/api/olympus/messages)
-* [Workflows API Reference](/api/olympus/workflows)
+* [Messages API Reference](/api/messages-and-workflows-apis/messages)
+* [Workflows API Reference](/api/messages-and-workflows-apis/workflows)

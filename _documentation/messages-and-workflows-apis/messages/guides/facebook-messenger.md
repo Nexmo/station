@@ -92,5 +92,5 @@ Key | Description
 ### Example
 
 ```tabbed_examples
-config: 'olympus.messages.send-facebook-messenger'
+config: 'messages_and_workflows_apis.messages.send-facebook-messenger'
 ```

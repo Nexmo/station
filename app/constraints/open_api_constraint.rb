@@ -3,8 +3,8 @@ OPEN_API_PRODUCTS = %w(
   media
   number-insight
   stitch
-  olympus/messages
-  olympus/workflows
+  messages-and-workflows-apis/messages
+  messages-and-workflows-apis/workflows
 )
 
 class OpenApiConstraint

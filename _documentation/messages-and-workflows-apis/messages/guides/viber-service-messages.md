@@ -47,5 +47,5 @@ $ echo $JWT
 ## Example
 
 ```tabbed_examples
-config: 'olympus.messages.send-viber'
+config: 'messages_and_workflows_apis.messages.send-viber'
 ```

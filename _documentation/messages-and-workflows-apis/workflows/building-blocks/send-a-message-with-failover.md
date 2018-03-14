@@ -28,5 +28,5 @@ $ echo $JWT
 ## Example
 
 ```tabbed_examples
-config: 'olympus.workflows.send-failover-sms-viber'
+config: 'messages_and_workflows_apis.workflows.send-failover-sms-viber'
 ```

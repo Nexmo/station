@@ -28,5 +28,5 @@ $ echo $JWT
 ## Example
 
 ```tabbed_examples
-config: 'olympus.messages.send-sms'
+config: 'messages_and_workflows_apis.messages.send-sms'
 ```
