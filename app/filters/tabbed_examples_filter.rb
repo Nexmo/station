@@ -45,7 +45,13 @@ class TabbedExamplesFilter < Banzai::Filter
 
   def load_examples_from_config
     configs = YAML.load_file("#{Rails.root}/config/code_examples.yml")
-    config = @config['config'].split('.').inject(configs) { |h, k| h[k] }
+
+
+    begin
+      config = @config['config'].split('.').inject(configs) { |h, k| h[k] }
+    rescue NoMethodError
+      raise "Example missing (#{@config['config']}) in code_examples.yml. Try restarting the server or check for presence of key."
+    end
 
     config.map do |title, config|
       handle_tab(title, config)
