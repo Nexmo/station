@@ -116,7 +116,15 @@ module ApplicationHelper
         if options['link'] == false
           ss << "<span>#{normalised_title(child)}</span>"
         else
-          ss << link_to(normalised_title(child), url, class: "#{has_active_class ? 'active' : ''}")
+          link = link_to url, class: "#{has_active_class ? 'active' : ''}" do
+            if options['label']
+              (normalised_title(child) + content_tag(:span, options['label'], class: 'navigation-item__label')).html_safe
+            else
+              normalised_title(child)
+            end
+          end
+
+          ss << link
         end
       end
 
