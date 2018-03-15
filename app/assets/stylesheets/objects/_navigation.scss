@@ -105,7 +105,7 @@
   .navigation-item--api-reference {
     @include highlighted-navigation($blue);
   }
-  
+
   .navigation-item--sdk-documentation > {
     @include highlighted-navigation($pink);
   }
@@ -133,5 +133,21 @@
     > ul {
       width: 20%;
     }
+  }
+}
+
+#sidenav .navigation {
+  .navigation-item__label {
+    font-size: 11px;
+    color: $blue;
+    margin: 0 5px;
+    position: relative;
+    top: -1px;
+    line-height: 14px;
+    background: $mint;
+    color: darken($mint, 40%);
+    border-radius: $radius;
+    padding: 0 3px;
+    font-weight: 500;
   }
 }
