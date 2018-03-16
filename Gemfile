@@ -88,7 +88,8 @@ gem 'icalendar'
 # gem 'oas_parser', github: 'Nexmo/oas_parser', branch: 'oneof-properties'
 #
 # Otherwise use a published gem:
-gem 'oas_parser', '0.11.0'
+# gem 'oas_parser', '0.11.0'
+gem 'oas_parser', github: 'Nexmo/oas_parser', branch: 'basic-auth'
 
 # Generate JSON strings from Ruby objects with flexible formatting options.
 gem 'neatjson'
