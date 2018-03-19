@@ -7,7 +7,7 @@ menu_weight: 2
 [
   {
   "action": "record",
-  "eventURL": ["https://example.com/recording"],
+  "eventUrl": ["https://example.com/recording"],
   },
   {
     "action": "connect",
