@@ -1,5 +1,5 @@
 ---
-title: Call
+title: Record a Message
 menu_weight: 1
 ---
 
@@ -13,7 +13,7 @@ menu_weight: 1
   {
       "action": "record",
       "eventUrl": [
-          "http://myrecordings/voicemails"
+          "http://example.com/recording"
       ],
       "endOnSilence": "3",
       "endOnKey" : "#",
