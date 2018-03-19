@@ -35,8 +35,7 @@ Use the `record` action to record a Call or part of a Call:
 [
   {
     "action": "record",
-    "eventUrl": ["https://example.com/recordings"],
-    "endOnSilence": 3
+    "eventUrl": ["https://example.com/recordings"]
   },
   {
     "action": "connect",
