@@ -1,5 +1,5 @@
 ---
-title: Standard conversation
+title: Conversation
 menu_weight: 2
 ---
 
