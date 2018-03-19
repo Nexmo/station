@@ -7,14 +7,11 @@ menu_weight: 1
 [
   {
       "action": "talk",
-      "text": "Please leave a message after the tone, then press #. We will get back to you as soon as we can",
-      "voiceName": "Emma"
+      "text": "Please leave a message after the tone, then press #. We will get back to you as soon as we can"
   },
   {
       "action": "record",
-      "eventUrl": [
-          "http://example.com/recording"
-      ],
+      "eventUrl": ["http://example.com/recording"],
       "endOnSilence": "3",
       "endOnKey" : "#",
       "beepStart": "true"
