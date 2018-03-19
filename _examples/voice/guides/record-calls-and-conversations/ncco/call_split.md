@@ -7,7 +7,7 @@ menu_weight: 2
 [
   {
   "action": "record",
-  "split" : "legs",
+  "split" : "conversation",
   "eventURL": ["https://example.com/recording"],
   },
   {
