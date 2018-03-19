@@ -3,7 +3,7 @@ title: Record a Message
 menu_weight: 1
 ---
 
-```
+```json
 [
   {
       "action": "talk",
