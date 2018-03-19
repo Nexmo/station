@@ -1,5 +1,5 @@
 ---
-title: Record a Call with Split Legs
+title: Record a Call with Split Audio
 menu_weight: 2
 ---
 
