@@ -113,3 +113,6 @@ We have provided examples for a number of different SIP capable systems:
 * [FreePBX](/voice/sip/configure/freepbx)
 * [FreeSWITCH](/voice/sip/configure/freeswitch)
 * [MiTel MiVoice and MiTel Border Gateway](/voice/sip/configure/mitel-mivoice)
+* [ShoreTel Director and InGate SIParator](/voice/sip/configure/shoretel)
+* [Skype for Business with Oracle E-SBC](/voice/sip/configure/skypeforbusiness)
+* [NEC SV9100](/voice/sip/configure/nec-sv9100)
