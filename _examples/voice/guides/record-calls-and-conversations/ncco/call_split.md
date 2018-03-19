@@ -8,7 +8,7 @@ menu_weight: 2
   {
   "action": "record",
   "split" : "conversation",
-  "eventURL": ["https://example.com/recording"],
+  "eventUrl": ["https://example.com/recording"],
   },
   {
     "action": "connect",
