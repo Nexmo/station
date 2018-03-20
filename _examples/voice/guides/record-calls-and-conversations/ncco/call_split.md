@@ -1,5 +1,5 @@
 ---
-title: Record a Call
+title: Record a Call with Split Audio
 menu_weight: 2
 ---
 
@@ -7,6 +7,7 @@ menu_weight: 2
 [
   {
   "action": "record",
+  "split" : "conversation",
   "eventUrl": ["https://example.com/recording"],
   },
   {

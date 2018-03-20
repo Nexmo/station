@@ -35,8 +35,7 @@ Use the `record` action to record a Call or part of a Call:
 [
   {
     "action": "record",
-    "eventUrl": ["https://example.com/recordings"],
-    "endOnSilence": 3
+    "eventUrl": ["https://example.com/recordings"]
   },
   {
     "action": "connect",
@@ -52,7 +51,7 @@ Use the `record` action to record a Call or part of a Call:
 ]
 ```
 
-The record action is asynchronous. Recording starts when the record action is executed in the NCCO and finishes when the synchronous condition in the action is met. That is, `endOnSilence`, *timeOut* or *endOnKey*. If you do not set a synchronous condition, the Voice API immediately executes the next NCCO without recording.
+The record action is asynchronous. Recording starts when the record action is executed in the NCCO and finishes when the synchronous condition in the action is met. That is, `endOnSilence`, `timeOut` or `endOnKey`. If you do not set a synchronous condition, the Voice API immediately executes the next NCCO without recording.
 
 For information about the workflow to follow, see [Recordings](/voice/guides/record-calls-and-conversations).
 
@@ -61,6 +60,7 @@ You can use the following options to control a `record` action:
 Option | Description | Required
  -- | -- | --
 `format` | Record the Call in a specific format.  Options are: <ul><li>mp3</li><li>wav</li></ul> The default value is *mp3*. | No
+`split` | Record the sent and received audio in separate channels of a stereo recording—set to `conversation` to enable this.| No
 `endOnSilence` | Stop recording after n seconds of silence. Once the recording is stopped the recording data is sent to *event_url*. The range of possible values is *3<=endOnSilence<=10*. | No
 `endOnKey` | Stop recording when a digit is pressed on the handset. Possible values are: `*`, `#` or any single digit e.g. `9` | No
 `timeOut` | The maximum length of a recording in seconds. One the recording is stopped the recording data is sent to *event_url*. The range of possible values is between `3` seconds and `7200` seconds (2 hours) | No
