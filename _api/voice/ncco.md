@@ -358,7 +358,7 @@ Name | Locale & Gender | Now redirects to
 -----|-----------------|-----------------
 `Chipmunk` | `en-US`, male | `Justin`
 `Eric` | `en-US`, male | `Justin`
-`Jennifer` | `en-US`, female | `Kimberley`
+`Jennifer` | `en-US`, female | `Kimberly`
 `Agnieszka` | `pl-PL`, female | `Ewa`
 
 <a name="stream"></a>
