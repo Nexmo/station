@@ -350,6 +350,16 @@ Name | Language | Gender
 `Astrid` | `sv-SE` | `female`
 `Filiz` | `tr-TR` | `female`
 
+#### Discontinued voices
+
+Some voices have been removed. The table below shows the discontinued voice names and which voice you will now get if you use the discontinued voice name.
+
+Name | Locale & Gender | Now redirects to
+-----|-----------------|-----------------
+`Chipmunk` | `en-US`, male | `Justin`
+`Eric` | `en-US`, male | `Justin`
+`Jennifer` | `en-US`, female | `Kimberley`
+`Agnieszka` | `pl-PL`, female | `Ewa`
 
 <a name="stream"></a>
 ## Stream
