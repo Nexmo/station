@@ -5,7 +5,7 @@ description: Record the audio from a Call or Conversation.
 
 #Record calls and conversations
 
-Recordings are contextual, they are attached to the UUID of each leg in a Call or a Conversation. Different NCCOs are used to record in different contexts.
+Recordings are attached to the UUID of a Call Leg or Conversation. Different NCCOs are used to record in different contexts.
 
 * Record a message - You can use the `record` action to  record audio from a caller without continuing to the next action, this would be used for a voicemail style of scenario. To use `record` in this mode set a synchronous flag namely `endOnSilence` or `endOnKey` within your action.
 * Record Calls between two people - you can set the [record](/voice/guides/ncco-reference#record) action at the start of your NCCO so everything is recorded. Recording starts when the `record` action is executed If you do not set a synchronous condition, the Voice API immediately executes the next NCCO without recording.
