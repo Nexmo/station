@@ -316,13 +316,11 @@ Name | Language | Gender
 `Geraint` | `en-GB-WLS` | `male`
 `Gwyneth` | `cy-GB-WLS` | `female`
 `Raveena` | `en-IN` | `female`
-`Chipmunk` | `en-US` | `male`
-`Eric` | `en-US` | `male`
 `Ivy` | `en-US` | `female`
-`Jennifer` | `en-US` | `female`
 `Justin` | `en-US` | `male`
 `Kendra` | `en-US` | `female`
 `Kimberly` | `en-US` | `female`
+`Joanna` | `en-US` | `female`
 `Conchita` | `es-ES` | `female`
 `Enrique` | `es-ES` | `male`
 `Penelope` | `es-US` | `female`
@@ -334,10 +332,10 @@ Name | Language | Gender
 `Karl` | `is-IS` | `male`
 `Carla` | `it-IT` | `female`
 `Giorgio` | `it-IT` | `male`
+`Mizuki` | `ja-JP` | `female`
 `Liv` | `nb-NO` | `female`
 `Lotte` | `nl-NL` | `female`
 `Ruben` | `nl-NL` | `male`
-`Agnieszka` | `pl-PL` | `female`
 `Jacek` | `pl-PL` | `male`
 `Ewa` | `pl-PL` | `female`
 `Jan` | `pl-PL` | `male`
