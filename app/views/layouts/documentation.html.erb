@@ -10,7 +10,15 @@
           <nav class="columns small-12 medium-3 sidenav" id="sidenav" data-turbolinks-permanent>
             <%= sidenav(@sidenav_root) %>
           </nav>
-          <div class="columns small-12 medium-9" id="primary-content" data-turbolinks-permanent data-initial-language="<%= @code_language %>">
+          <div
+            data-turbolinks-permanent
+            class="columns small-12 medium-9"
+            id="primary-content"
+            <% if @code_language %>
+              data-initial-language="<%= @code_language.key %>"
+              data-initial-language-type="<%= @code_language.type %>"
+            <% end %>
+          >
             <%= yield %>
             <%= render partial: 'layouts/partials/feedback' %>
           </div>

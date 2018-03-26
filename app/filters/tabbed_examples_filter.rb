@@ -81,8 +81,8 @@ class TabbedExamplesFilter < Banzai::Filter
 
   def sort_examples
     @examples.sort_by do |example|
-      if language_configuration[example[:language]]
-        language_configuration[example[:language]]['weight'] || 1000
+      if CodeLanguageResolver.find(example[:language])
+        CodeLanguageResolver.find(example[:language]).weight
       else
         1000
       end
@@ -90,8 +90,8 @@ class TabbedExamplesFilter < Banzai::Filter
   end
 
   def active_class(index, language, options = {})
-    if options[:code_language] && language_exists?(options[:code_language])
-      'is-active' if language == options[:code_language]
+    if options[:code_language] && language_exists?(code_language)
+      'is-active' if language == code_language
     elsif index.zero?
       'is-active'
     end
@@ -103,13 +103,18 @@ class TabbedExamplesFilter < Banzai::Filter
 
   def language_data(example)
     language = example[:language]
-    configuration = language_configuration[language]
+    configuration = CodeLanguageResolver.find(language)
     return unless configuration
 
     <<~HEREDOC
       data-language="#{language}"
-      data-language-linkable="#{configuration['linkable'] != false}"
+      data-language-type="#{configuration.type}"
+      data-language-linkable="#{configuration.linkable?}"
     HEREDOC
+  end
+
+  def code_language
+    options[:code_language] ? options[:code_language].key : ''
   end
 
   def build_html
@@ -118,7 +123,7 @@ class TabbedExamplesFilter < Banzai::Filter
     tabs = []
     content = []
 
-    tabs << "<ul class='tabs tabs--code' data-tabs id='#{examples_uid}' data-initial-language=#{options[:code_language]}>"
+    tabs << "<ul class='tabs tabs--code' data-tabs id='#{examples_uid}' data-initial-language='#{code_language}'>"
     content << "<div class='tabs-content tabs-content--code' data-tabs-content='#{examples_uid}'>"
 
     @examples.each_with_index do |example, index|
@@ -154,16 +159,16 @@ class TabbedExamplesFilter < Banzai::Filter
   end
 
   def language_label(language)
-    if language_configuration[language]
-      language_configuration[language]['label']
+    if CodeLanguageResolver.find(language)
+      CodeLanguageResolver.find(language).label
     else
       language
     end
   end
 
   def language_to_lexer_name(language)
-    if language_configuration[language]
-      language_configuration[language]['lexer']
+    if CodeLanguageResolver.find(language)
+      CodeLanguageResolver.find(language).lexer
     else
       language
     end
@@ -173,9 +178,5 @@ class TabbedExamplesFilter < Banzai::Filter
     language = language_to_lexer_name(language)
     return Rouge::Lexers::PHP.new({ start_inline: true }) if language == 'php'
     Rouge::Lexer.find(language) || Rouge::Lexer.find('text')
-  end
-
-  def language_configuration
-    @language_configuration ||= YAML.load_file("#{Rails.root}/config/code_languages.yml")
   end
 end

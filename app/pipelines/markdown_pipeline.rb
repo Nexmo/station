@@ -19,7 +19,7 @@ class MarkdownPipeline < Banzai::Pipeline
       IndentFilter,
       ModalFilter,
       JsSequenceDiagramFilter,
-      PartialFilter,
+      PartialFilter.new(options),
       TechioFilter,
       TutorialsFilter,
       LanguageFilter,

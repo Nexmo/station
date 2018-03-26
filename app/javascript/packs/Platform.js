@@ -1,6 +1,7 @@
-export default class Format {
+export default class Platform {
   constructor() {
     this.platformSelector = $('.js-platform-selector')[0]
+
     if (this.platformSelector) {
       this.platformChanged(this.platformSelector.value, false)
       $(this.platformSelector).change((event) => this.platformChanged(event.target.value))
@@ -9,7 +10,6 @@ export default class Format {
   }
 
   platformChanged(platform, persist = true) {
-    console.log('Setting platform', platform);
     $('.js-platform').hide()
     $(`.js-platform[data-platform='${platform}']`).show()
 
@@ -25,7 +25,7 @@ export default class Format {
   }
 
   restoreFormat() {
-    const platform = this.getParameter('platform')
+    const platform = this.getActivePlatform()
 
     if (platform) {
       $(this.platformSelector).val(platform)
@@ -39,9 +39,7 @@ export default class Format {
     }
   }
 
-  getParameter(parameter) {
-    if (window.URLSearchParams) {
-      return new URLSearchParams(window.location.search).get(parameter)
-    }
+  getActivePlatform() {
+    return $('.js-platform[data-active=true]').data('platform')
   }
 }

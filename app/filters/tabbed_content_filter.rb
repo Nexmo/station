@@ -21,7 +21,7 @@ class TabbedContentFilter < Banzai::Filter
   def sort_contents(contents)
     contents.sort_by do |content|
       if content[:frontmatter]['language']
-        language_configuration[content[:frontmatter]['language']]['weight']
+        CodeLanguageResolver.find(content[:frontmatter]['language']).weight
       else
         content[:frontmatter]['menu_weight'] || 999
       end
@@ -30,7 +30,7 @@ class TabbedContentFilter < Banzai::Filter
 
   def active_class(index, language, options = {})
     if options[:code_language]
-      'is-active' if language == options[:code_language]
+      'is-active' if language == options[:code_language].key
     elsif index.zero?
       'is-active'
     end
@@ -39,13 +39,13 @@ class TabbedContentFilter < Banzai::Filter
   def language_data(content)
     language = content[:frontmatter]['language']
     return unless language
-
-    configuration = language_configuration[language]
+    
+    configuration = CodeLanguageResolver.find(language)
     return unless configuration
 
     <<~HEREDOC
       data-language="#{language}"
-      data-language-linkable="#{configuration['linkable'] != false}"
+      data-language-linkable="#{configuration.linkable?}"
     HEREDOC
   end
 
@@ -83,9 +83,5 @@ class TabbedContentFilter < Banzai::Filter
 
     # Wrap in an extra Div prevents markdown for formatting
     "<div>#{tabs.join('')}#{body.join('')}</div>"
-  end
-
-  def language_configuration
-    @language_configuration ||= YAML.load_file("#{Rails.root}/config/code_languages.yml")
   end
 end

@@ -1,7 +1,10 @@
 import { Tabs } from 'foundation-sites/js/foundation.tabs'
+import UserPreference from './UserPreference'
 
 export default class TabbedExamples {
   constructor() {
+    this.userPreference = new UserPreference
+
     if ($('[data-tabs]')[0]) {
       $('[data-tabs]').each(function(index, element) {
         new Tabs($(element))
@@ -24,8 +27,14 @@ export default class TabbedExamples {
   }
 
   initialLanguage() {
-    const initialLanguage = $('#primary-content').attr('data-initial-language')
-    return initialLanguage === '' ? false : initialLanguage
+    const initialLanguage = {
+      language: $('#primary-content').attr('data-initial-language'),
+      type: $('#primary-content').attr('data-initial-language')
+    }
+
+    if (initialLanguage.language) {
+      return initialLanguage
+    }
   }
 
   shouldRestoreTabs() {
@@ -45,28 +54,27 @@ export default class TabbedExamples {
     return $(this.context).find(`[data-language='${language}']`).length > 0
   }
 
+  languages() {
+    return $(this.context).find(`[data-language]`).map(function(index, el) {
+      return $(el).data('language')
+    })
+  }
+
   restoreTabs() {
     $('[data-tabs]').each((index, element) => {
       this.context = element
       if (this.shouldRestoreTabs()) {
-        if (window.localStorage) {
-          var language = window.localStorage.getItem('languagePreference')
-          window.initialLanguage = language
-          if (language) { this.setLanguage(language, this.context) }
-        }
-
-        if (window.localStorage) {
-          var secondaryLanguage = window.localStorage.getItem('secondaryLanguagePreference')
-          if (secondaryLanguage) { this.setLanguage(secondaryLanguage, this.context) }
-        }
+        const language = this.userPreference.topMatch(this.languages())
+        if (language) { this.setLanguage(language, this.context) }
       }
     })
   }
 
   setInitialState() {
     const initialLanguage = this.initialLanguage()
+
     if (initialLanguage) {
-      this.persistLanguage(initialLanguage, true)
+      this.persistLanguage(initialLanguage.language, initialLanguage.type, true)
     }
   }
 
@@ -83,6 +91,7 @@ export default class TabbedExamples {
 
   onTabClick(event) {
     const language = $(event.currentTarget).data('language')
+    const languageType = $(event.currentTarget).data('language-type')
     const linkable = $(event.currentTarget).data('language-linkable')
 
     if (language) {
@@ -99,17 +108,13 @@ export default class TabbedExamples {
         }
       }
 
-      this.persistLanguage(language, linkable)
+      this.persistLanguage(language, languageType, linkable)
     }
   }
 
-  persistLanguage(language, linkable) {
-    if (language && window.localStorage) {
-      if (linkable) {
-        window.localStorage.setItem('languagePreference', language)
-      } else {
-        window.localStorage.setItem('secondaryLanguagePreference', language)
-      }
+  persistLanguage(language, languageType, linkable) {
+    if (language) {
+      this.userPreference.promote(languageType, language)
     }
   }
 

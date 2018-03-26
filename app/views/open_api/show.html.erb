@@ -36,7 +36,12 @@
           <ul class="tabs tabs--code" data-tabs>
             <% if @definition_initialization_config['tabs'] %>
               <% @definition_initialization_config['tabs'].each_with_index do |tab, index| %>
-                <li class="tabs-title <%= index.zero? ? 'is-active' : '' %>" language-linkable="false" data-language="<%= tab %>"><a href="#<%= tab %>"><%= CODE_LANGUAGES[tab]['label'] %></a></li>
+                <li
+                  class="tabs-title <%= index.zero? ? 'is-active' : '' %>"
+                  language-linkable="false"
+                  data-language="<%= tab %>"
+                  data-language-type="<%= CodeLanguageResolver.find(tab).type %>"
+                ><a href="#<%= tab %>"><%= CodeLanguageResolver.find(tab).label %></a></li>
               <% end %>
             <% end %>
           </ul>
