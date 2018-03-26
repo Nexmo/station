@@ -15,19 +15,19 @@ Nexmo In-App Voice uses WebRTC and includes all the essentials you need to build
 ## Concepts
 
 **Conversation**
-    > A conversation is a shared core component that Nexmo APIs rely on. Conversations happen over multiple mediums and and can have associated Users through Memberships.
+    -> A conversation is a shared core component that Nexmo APIs rely on. Conversations happen over multiple mediums and and can have associated Users through Memberships.
 
 **User**
-    > The concept of a user exists in Nexmo APIs, you can associate one with a user in your own application if you choose. A user can have multiple memberships to conversations and can communicate with other users through various different mediums.
+    -> The concept of a user exists in Nexmo APIs, you can associate one with a user in your own application if you choose. A user can have multiple memberships to conversations and can communicate with other users through various different mediums.
 
 **Member**
-    > Memberships connect users with conversations. Each membership has one conversation and one user however a user can have many memberships to conversations just as conversations can have many members.
+    -> Memberships connect users with conversations. Each membership has one conversation and one user however a user can have many memberships to conversations just as conversations can have many members.
 
 **Audio**
-    > Audio streams can be enabled and disabled in a Conversation so that Members can communicate with voice.
+    -> Audio streams can be enabled and disabled in a Conversation so that Members can communicate with voice.
 
 **Media Events**
-    > Media events will fire in a Conversation when media state changes for a member. This can be when an Audio stream is started or ended.
+    -> Media events will fire in a Conversation when media state changes for a member. This can be when an Audio stream is started or ended.
 
 ## Getting Started
 
