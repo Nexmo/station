@@ -93,7 +93,7 @@ gem 'neatjson'
 gem 'faker', '1.8.4'
 
 # factory_girl_rails provides integration between factory_girl and rails 3 or newer (currently just automatic factory definition loading)
-gem 'factory_girl_rails', '4.8.0'
+gem 'factory_bot_rails', '4.8.2'
 
 # A slim ruby wrapper for posting to slack webhooks
 gem 'slack-notifier', '2.3.1'
@@ -102,7 +102,7 @@ gem 'slack-notifier', '2.3.1'
 gem 'activeadmin', '1.1.0'
 
 # Flexible authentication solution for Rails with Warden
-gem 'devise', '4.3.0'
+gem 'devise', '4.4.3'
 
 # Simple wrapper for the GitHub API
 gem 'octokit'
