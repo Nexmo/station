@@ -31,6 +31,12 @@ navigation_weight:
 
 navigation_overrides:
   stitch:
-      sdk-documentation:
-        link: false
-        prevent_navigation_item_class: true
+    label: 'Developer Preview'
+    sdk-documentation:
+      link: false
+      prevent_navigation_item_class: true
+  messages-and-workflows-apis:
+    messages:
+      label: 'Developer Preview'
+    workflows:
+      label: 'Developer Preview'

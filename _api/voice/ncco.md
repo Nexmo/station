@@ -35,8 +35,7 @@ Use the `record` action to record a Call or part of a Call:
 [
   {
     "action": "record",
-    "eventUrl": ["https://example.com/recordings"],
-    "endOnSilence": 3
+    "eventUrl": ["https://example.com/recordings"]
   },
   {
     "action": "connect",
@@ -52,7 +51,7 @@ Use the `record` action to record a Call or part of a Call:
 ]
 ```
 
-The record action is asynchronous. Recording starts when the record action is executed in the NCCO and finishes when the synchronous condition in the action is met. That is, `endOnSilence`, *timeOut* or *endOnKey*. If you do not set a synchronous condition, the Voice API immediately executes the next NCCO without recording.
+The record action is asynchronous. Recording starts when the record action is executed in the NCCO and finishes when the synchronous condition in the action is met. That is, `endOnSilence`, `timeOut` or `endOnKey`. If you do not set a synchronous condition, the Voice API immediately executes the next NCCO without recording.
 
 For information about the workflow to follow, see [Recordings](/voice/guides/record-calls-and-conversations).
 
@@ -61,6 +60,7 @@ You can use the following options to control a `record` action:
 Option | Description | Required
  -- | -- | --
 `format` | Record the Call in a specific format.  Options are: <ul><li>mp3</li><li>wav</li></ul> The default value is *mp3*. | No
+`split` | Record the sent and received audio in separate channels of a stereo recording—set to `conversation` to enable this.| No
 `endOnSilence` | Stop recording after n seconds of silence. Once the recording is stopped the recording data is sent to *event_url*. The range of possible values is *3<=endOnSilence<=10*. | No
 `endOnKey` | Stop recording when a digit is pressed on the handset. Possible values are: `*`, `#` or any single digit e.g. `9` | No
 `timeOut` | The maximum length of a recording in seconds. One the recording is stopped the recording data is sent to *event_url*. The range of possible values is between `3` seconds and `7200` seconds (2 hours) | No
@@ -316,13 +316,11 @@ Name | Language | Gender
 `Geraint` | `en-GB-WLS` | `male`
 `Gwyneth` | `cy-GB-WLS` | `female`
 `Raveena` | `en-IN` | `female`
-`Chipmunk` | `en-US` | `male`
-`Eric` | `en-US` | `male`
 `Ivy` | `en-US` | `female`
-`Jennifer` | `en-US` | `female`
 `Justin` | `en-US` | `male`
 `Kendra` | `en-US` | `female`
 `Kimberly` | `en-US` | `female`
+`Joanna` | `en-US` | `female`
 `Conchita` | `es-ES` | `female`
 `Enrique` | `es-ES` | `male`
 `Penelope` | `es-US` | `female`
@@ -334,10 +332,10 @@ Name | Language | Gender
 `Karl` | `is-IS` | `male`
 `Carla` | `it-IT` | `female`
 `Giorgio` | `it-IT` | `male`
+`Mizuki` | `ja-JP` | `female`
 `Liv` | `nb-NO` | `female`
 `Lotte` | `nl-NL` | `female`
 `Ruben` | `nl-NL` | `male`
-`Agnieszka` | `pl-PL` | `female`
 `Jacek` | `pl-PL` | `male`
 `Ewa` | `pl-PL` | `female`
 `Jan` | `pl-PL` | `male`
@@ -352,6 +350,16 @@ Name | Language | Gender
 `Astrid` | `sv-SE` | `female`
 `Filiz` | `tr-TR` | `female`
 
+#### Discontinued voices
+
+Some voices have been removed. The table below shows the discontinued voice names and which voice you will now get if you use the discontinued voice name.
+
+Name | Locale & Gender | Now redirects to
+-----|-----------------|-----------------
+`Chipmunk` | `en-US`, male | `Justin`
+`Eric` | `en-US`, male | `Justin`
+`Jennifer` | `en-US`, female | `Kimberly`
+`Agnieszka` | `pl-PL`, female | `Ewa`
 
 <a name="stream"></a>
 ## Stream

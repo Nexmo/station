@@ -1,6 +1,6 @@
-# Getting Started with the Nexmo Conversation JS SDK
+# Getting Started with the Nexmo Stitch JavaScript SDK
 
-In this getting started guide we'll cover adding audio events to the Conversation we created in the [simple conversation with events](/stitch/in-app-messaging/guides/3-utilizing-events) getting started guide. We'll deal with media events, the ones that come via the conversation, and the ones we send to the conversation.
+In this getting started guide we'll cover adding audio events to the Conversation we created in the [simple conversation with events](/stitch/in-app-messaging/guides/3-utilizing-events?platform=javascript) getting started guide. We'll deal with media events, the ones that come via the conversation, and the ones we send to the conversation.
 
 ## Concepts
 
@@ -11,11 +11,11 @@ This guide will introduce you to the following concepts.
 
 ## Before you begin
 
-- Ensure you have run through the [previous guide](/stitch/in-app-messaging/guides/3-utilizing-events)
+- Ensure you have run through the [previous guide](/stitch/in-app-messaging/guides/3-utilizing-events?platform=javascript)
 
 ## 1 - Update the JavaScript App
 
-We will use the application we already created for [the third getting started guide](/stitch/in-app-messaging/guides/3-utilizing-events). All the basic setup has been done in the previous guides and should be in place. We can now focus on updating the client-side application.
+We will use the application we already created for [the third getting started guide](/stitch/in-app-messaging/guides/3-utilizing-events?platform=javascript). All the basic setup has been done in the previous guides and should be in place. We can now focus on updating the client-side application.
 
 ### 1.1 - Add audio UI
 
@@ -108,10 +108,10 @@ If we want the conversation history to be updated, we need to add a case for `me
 ```javascript
 showConversationHistory(conversation) {
   ...
-  switch (events[Object.keys(events)[i - 1]].type) {
+  switch (value.type) {
     ...
     case 'member:media':
-      eventsHistory += `${conversation.members[events[Object.keys(events)[i - 1]].from].user.name} @ ${date}: <b>${events[Object.keys(events)[i - 1]].body.audio ? "enabled" : "disabled"} audio</b><br>`
+      eventsHistory = `${conversation.members[value.from].user.name} @ ${date}: <b>${value.body.audio ? "enabled" : "disabled"} audio</b><br>` + eventsHistory
       break;
     ...
   }
@@ -127,4 +127,4 @@ That's it! Your page should now look something like [this](https://github.com/Ne
 
 ## Where next?
 
-- Have a look at the [Nexmo Conversation JS SDK API Reference](/sdk/stitch/javascript/)
+- Have a look at the [Nexmo Stitch JavaScript SDK API Reference](/sdk/stitch/javascript/)

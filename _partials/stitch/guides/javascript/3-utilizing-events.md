@@ -1,6 +1,6 @@
-# Getting Started with the Nexmo Conversation JS SDK
+# Getting Started with the Nexmo Stitch JavaScript SDK
 
-In this getting started guide we'll cover adding more events to the Conversation we created in the [simple conversation with member invites](/stitch/in-app-messaging/guides/2-inviting-members) getting started guide. We'll deal with multiple types of events, the ones that come via the conversation, and the ones we send to the conversation.
+In this getting started guide we'll cover adding more events to the Conversation we created in the [simple conversation with member invites](/stitch/in-app-messaging/guides/2-inviting-members?platform=javascript) getting started guide. We'll deal with multiple types of events, the ones that come via the conversation, and the ones we send to the conversation.
 
 ## Concepts
 
@@ -12,11 +12,11 @@ This guide will introduce you to the following concepts.
 
 ## Before you begin
 
-- Ensure you have run through the [previous guide](/stitch/in-app-messaging/guides/2-inviting-members)
+- Ensure you have run through the [previous guide](/stitch/in-app-messaging/guides/2-inviting-members?platform=javascript)
 
 ## 1 - Update the JavaScript App
 
-We will use the application we already created for [the second getting started guide](/stitch/in-app-messaging/guides/2-inviting-members). All the basic setup has been done in the previous guides and should be in place. We can now focus on updating the client-side application.
+We will use the application we already created for [the second getting started guide](/stitch/in-app-messaging/guides/2-inviting-members?platform=javascript). All the basic setup has been done in the previous guides and should be in place. We can now focus on updating the client-side application.
 
 ### 1.1 - Add conversation history
 
@@ -26,33 +26,34 @@ The first thing we're going to do is add history to the existing conversation. W
 showConversationHistory(conversation) {
   conversation.getEvents().then((events) => {
     var eventsHistory = ""
-    for (var i = Object.keys(events).length; i > 0; i--) {
-      const date = new Date(Date.parse(events[Object.keys(events)[i - 1]].timestamp))
-      if (conversation.members[events[Object.keys(events)[i - 1]].from]) {
-        switch (events[Object.keys(events)[i - 1]].type) {
+
+    events.forEach((value, key) => {
+      if (conversation.members[value.from]) {
+        const date = new Date(Date.parse(value.timestamp))
+        switch (value.type) {
           case 'text:seen':
             break;
           case 'text:delivered':
             break;
           case 'text':
-            eventsHistory += `${conversation.members[events[Object.keys(events)[i - 1]].from].user.name} @ ${date}: <b>${events[Object.keys(events)[i - 1]].body.text}</b><br>`
+            eventsHistory = `${conversation.members[value.from].user.name} @ ${date}: <b>${value.body.text}</b><br>` + eventsHistory
             break;
 
           case 'member:joined':
-            eventsHistory += `${conversation.members[events[Object.keys(events)[i - 1]].from].user.name} @ ${date}: <b>joined the conversation</b><br>`
+            eventsHistory = `${conversation.members[value.from].user.name} @ ${date}: <b>joined the conversation</b><br>` + eventsHistory
             break;
           case 'member:left':
-            eventsHistory += `${conversation.members[events[Object.keys(events)[i - 1]].from].user.name} @ ${date}: <b>left the conversation</b><br>`
+            eventsHistory = `${conversation.members[value.from].user.name} @ ${date}: <b>left the conversation</b><br>` + eventsHistory
             break;
           case 'member:invited':
-            eventsHistory += `${conversation.members[events[Object.keys(events)[i - 1]].from].user.name} @ ${date}: <b>invited to the conversation</b><br>`
+            eventsHistory = `${conversation.members[value.from].user.name} @ ${date}: <b>invited to the conversation</b><br>` + eventsHistory
             break;
 
           default:
-            eventsHistory += `${conversation.members[events[Object.keys(events)[i - 1]].from].user.name} @ ${date}: <b>unknown event</b><br>`
+            eventsHistory = `${conversation.members[value.from].user.name} @ ${date}: <b>unknown event</b><br>` + eventsHistory
         }
       }
-    }
+    })
 
     this.messageFeed.innerHTML = eventsHistory + this.messageFeed.innerHTML
   })
@@ -129,12 +130,12 @@ setupUserEvents() {
 ### 1.4 - Leave a conversation
 
 Finally, we'll add the UI for user to leave a conversation. Let's add the button at the top of the messages area.
+
 ```html
 <section id="messages">
   <button id="leave">Leave Conversation</button>
   ...
 </section>
-
 ```
 
 And add the button in the class constructor
@@ -186,5 +187,5 @@ That's it! Your page should now look something like [this](https://github.com/Ne
 
 ## Where next?
 
-- Try out [Quickstart 4](/stitch/in-app-voice/guides/1-enable-audio)
-- Have a look at the [Nexmo Conversation JS SDK API Reference](/sdk/stitch/javascript/)
+- Try out [Quickstart 4](/stitch/in-app-voice/guides/1-enable-audio?platform=javascript)
+- Have a look at the [Nexmo Stitch JavaScript SDK API Reference](/sdk/stitch/javascript/)

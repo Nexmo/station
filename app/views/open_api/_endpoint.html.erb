@@ -14,7 +14,7 @@
         </code>
       </div>
 
-      <% if endpoint.jwt? %>
+      <% if endpoint.jwt? || endpoint.basic_auth? %>
         <h4>Authentication</h4>
         <ul class="table-list table-list--dark">
           <li class="table-list-header">
@@ -35,11 +35,22 @@
                   <span class="flag flag--strong">REQUIRED</span> | <i>string</i>
                 </small>
               </div>
-              <div class="table-list-column" flex="3">
-                <b>Your JSON web token</b><br>
-                <small><%= link_to "Read more about JWTs", "/concepts/guides/authentication#json-web-tokens-jwt" %></small>
-              </div>
-              <div class="table-list-column" flex="2"><code>Bearer &lt;JWT&gt;</code></div>
+
+              <% if endpoint.jwt? %>
+                <div class="table-list-column" flex="3">
+                  <b>Your JSON web token.</b><br>
+                  <small><%= link_to "Read more about JWTs", "/concepts/guides/authentication#json-web-tokens-jwt" %></small>
+                </div>
+                <div class="table-list-column" flex="2"><code>Bearer &lt;JWT&gt;</code></div>
+              <% end %>
+
+              <% if endpoint.basic_auth? %>
+                <div class="table-list-column" flex="3">
+                  <b>Base64 encoded API key and secret joined by a colon.</b><br>
+                  <small><%= link_to "Read more", "/concepts/guides/authentication#header-based-api-key-secret-authentication" %></small>
+                </div>
+                <div class="table-list-column" flex="2"><code>Basic &lt;base64&gt;</code></div>
+              <% end %>
 
               <div class="table-list-column">
                 <i>None</i>

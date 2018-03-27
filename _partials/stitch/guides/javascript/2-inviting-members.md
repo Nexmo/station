@@ -1,6 +1,6 @@
-# Getting Started with the Nexmo Conversation JS SDK
+# Getting Started with the Nexmo Stitch JavaScript SDK
 
-In this getting started guide we'll cover creating a second user and inviting them to the Conversation we created in the [simple conversation](/stitch/in-app-messaging/guides/1-simple-conversation) getting started guide. From there we'll list the conversations that are available to the user and upon receiving an invite to new conversations we'll automatically join them.
+In this getting started guide we'll cover creating a second user and inviting them to the Conversation we created in the [simple conversation](/stitch/in-app-messaging/guides/1-simple-conversation?platform=javascript) getting started guide. From there we'll list the conversations that are available to the user and upon receiving an invite to new conversations we'll automatically join them.
 
 ## Concepts
 
@@ -12,7 +12,7 @@ This guide will introduce you to the following concepts.
 
 ## Before you begin
 
-- Ensure you have run through the [previous guide](/stitch/in-app-messaging/guides/1-simple-conversation)
+- Ensure you have run through the [previous guide](/stitch/in-app-messaging/guides/1-simple-conversation?platform=javascript)
 - Ensure you have the previous [application set up in the CLI](https://github.com/Nexmo/nexmo-cli/tree/beta#setup-an-application)
 
 ## 1 - Setup
@@ -53,7 +53,7 @@ $ echo $SECOND_USER_JWT
 
 ## 2 - Update the JavaScript App
 
-We will use the application we already created for [the first getting started guide](/stitch/in-app-messaging/guides/1-simple-conversation). With the basic setup in place we can now focus on updating the client-side application.
+We will use the application we already created for [the first getting started guide](/stitch/in-app-messaging/guides/1-simple-conversation?platform=javascript). With the basic setup in place we can now focus on updating the client-side application.
 
 ### 2.1 - Add placeholder UI to list Conversations
 
@@ -273,5 +273,5 @@ That's it! Your page should now look something like [this](https://github.com/Ne
 
 ## Where next?
 
-- Try out [Quickstart 3](/stitch/in-app-messaging/guides/3-utilizing-events)
-- Have a look at the [Nexmo Conversation JS SDK API Reference](/sdk/stitch/javascript/)
+- Try out [Quickstart 3](/stitch/in-app-messaging/guides/3-utilizing-events?platform=javascript)
+- Have a look at the [Nexmo Stitch JavaScript SDK API Reference](/sdk/stitch/javascript/)
