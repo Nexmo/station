@@ -1,7 +1,8 @@
 class TabbedExamplesFilter < Banzai::Filter
   def call(input)
-    input.gsub(/```tabbed_examples(.+?)```/m) do |_s|
-      @config = YAML.safe_load($1)
+    input.gsub(/^(\s*)```tabbed_examples(.+?)```/m) do |_s|
+      @indentation = $1
+      @config = YAML.safe_load($2)
       validate_config
 
       @examples = load_examples
@@ -130,9 +131,6 @@ class TabbedExamplesFilter < Banzai::Filter
       HEREDOC
       highlighted_source = highlight(example[:source], example[:language])
 
-      # Freeze to prevent Markdown formatting edge cases
-      highlighted_source = "FREEZESTART#{Base64.urlsafe_encode64(highlighted_source)}FREEZEEND"
-
       content << <<~HEREDOC
         <div class="tabs-panel #{active_class(index, example[:language], options)}" id="#{example_uid}" aria-hidden="#{!!!active_class(index, example[:language], options)}">
           <pre class="highlight #{example[:language]}"><code>#{highlighted_source}</code></pre>
@@ -143,8 +141,8 @@ class TabbedExamplesFilter < Banzai::Filter
     tabs << '</ul>'
     content << '</div>'
 
-    # Wrap in an extra Div prevents markdown for formatting
-    "<div>#{tabs.join('')}#{content.join('')}</div>"
+    source = "#{tabs.join('')}#{content.join('')}"
+    "#{@indentation}FREEZESTART#{Base64.urlsafe_encode64(source)}FREEZEEND"
   end
 
   def highlight(source, language)
