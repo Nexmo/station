@@ -135,11 +135,13 @@ gem 'friendly_id', '5.2.3'
 # Boot large ruby/rails apps faster
 gem 'bootsnap', require: false
 
+# Convenient diffing in ruby
+gem 'diffy', require: false
+
 group :development, :test do
   gem 'awesome_print'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
-  gem 'diffy', require: false
   gem 'pry', require: false
   gem 'rawler', git: 'https://github.com/oscardelben/rawler.git', require: false
   gem 'rspec-rails', '~> 3.7'
