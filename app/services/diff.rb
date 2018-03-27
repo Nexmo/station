@@ -1,3 +1,5 @@
+require 'diffy'
+
 class Diff
   def self.generate(mode:)
     document_paths = {
