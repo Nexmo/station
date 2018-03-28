@@ -23,7 +23,7 @@ RSpec.describe CodeLanguageResolver do
 
     context 'when given an invalid key' do
       it 'returns nil' do
-        expect(CodeLanguageResolver.find('foobar')).to eq(nil)
+        expect { CodeLanguageResolver.find('foobar') }.to raise_exception('Language foobar does not exist.')
       end
     end
   end
