@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.4.1'
+ruby '2.5.0'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
@@ -7,7 +7,7 @@ git_source(:github) do |repo_name|
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.2'
+gem 'rails', '~> 5.1.5'
 gem 'webpacker', github: 'rails/webpacker'
 
 # Use postgresql as the database for Active Record
@@ -56,9 +56,9 @@ gem 'nokogiri', '1.8.1'
 gem 'dotenv-rails', groups: [:development, :test]
 
 # Ruby/ProgressBar is a text progress bar library for Ruby.
-gem 'ruby-progressbar'
+gem 'ruby-progressbar', require: false
 
-gem 'rubocop'
+gem 'rubocop', require: false
 
 # Ruby notifier for bugsnag.com
 gem 'bugsnag'
@@ -76,7 +76,7 @@ gem 'rest-client'
 gem 'recaptcha', require: "recaptcha/rails"
 
 # Implements the iCalendar specification (RFC-5545) in Ruby.
-gem 'icalendar'
+gem 'icalendar', require: false
 
 # A parser for Open API specifications
 #
@@ -94,10 +94,10 @@ gem 'oas_parser', '0.11.1'
 gem 'neatjson'
 
 # Faker, a port of Data::Faker from Perl, is used to easily generate fake data: names, addresses, phone numbers, etc.
-gem 'faker', '1.8.4'
+gem 'faker', '1.8.4', require: false
 
 # factory_girl_rails provides integration between factory_girl and rails 3 or newer (currently just automatic factory definition loading)
-gem 'factory_girl_rails', '4.8.0'
+gem 'factory_bot_rails', '4.8.2', require: false
 
 # A slim ruby wrapper for posting to slack webhooks
 gem 'slack-notifier', '2.3.1'
@@ -106,10 +106,10 @@ gem 'slack-notifier', '2.3.1'
 gem 'activeadmin', '1.1.0'
 
 # Flexible authentication solution for Rails with Warden
-gem 'devise', '4.3.0'
+gem 'devise', '4.4.3'
 
 # Simple wrapper for the GitHub API
-gem 'octokit'
+gem 'octokit', require: false
 
 # Cross-language UserAgent classifier library, ruby implementation
 gem 'woothee'
@@ -132,14 +132,19 @@ gem 'crack', '0.4.3'
 # FriendlyId is the "Swiss Army bulldozer" of slugging and permalink plugins for Active Record.
 gem 'friendly_id', '5.2.3'
 
+# Boot large ruby/rails apps faster
+gem 'bootsnap', require: false
+
+# Convenient diffing in ruby
+gem 'diffy', require: false
+
 group :development, :test do
   gem 'awesome_print'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
-  gem 'diffy'
-  gem 'pry'
+  gem 'pry', require: false
   gem 'rawler', git: 'https://github.com/oscardelben/rawler.git', require: false
-  gem 'rspec-rails', '~> 3.5'
+  gem 'rspec-rails', '~> 3.7'
 end
 
 group :development do
@@ -151,7 +156,6 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'guard-livereload', '~> 2.5', require: false
   gem 'guard-rspec'
-  gem 'pry'
 
   # Share git hooks in Ruby projects among all the collaborators automatically, without them having to do anything
   gem 'git-hookshot', git: 'https://github.com/brandonweiss/git-hookshot.git'
