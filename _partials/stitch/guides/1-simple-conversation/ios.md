@@ -1,18 +1,21 @@
-# Getting Started with Nexmo In-App Voice!
+---
+title: iOS
+platform: ios
+---
 
-In this getting started guide we'll demonstrate how to use In-App Voice for the Nexmo Stitch iOS SDK.
+# Getting Started with the Nexmo Stitch iOS SDK
+
+In this getting started guide we'll demonstrate how to build a simple conversation app with IP messaging using the Nexmo Stitch iOS SDK.
 
 ## Concepts
 
-Our previous guides introduced you to the following concepts:
+This guide will introduce you to the following concepts.
 
-- **Nexmo Applications**
-- **JWTs**
-- **Users**
-- **Conversations**
-- **Members**
-
-If you are unfamiliar with any of the above referenced concepts, checkout our quick start on [simple conversation.](/stitch/in-app-messaging/guides/1-simple-conversation?platform=ios)
+* **Nexmo Applications** - contain configuration for the application that you are building
+* **JWTs** ([JSON Web Tokens](https://jwt.io/)) - the Stitch API uses JWTs for authentication. JWTs contain all the information the Nexmo platform needs to authenticate requests. JWTs also contain information such as the associated Applications, Users and permissions. It helps you as well as Nexmo facilitate the retention & analysis of metadata for future AI implementations.
+* **Users** - users who are associated with the Nexmo Application. It's expected that Users will have a one-to-one mapping with your own authentication system.
+* **Conversations** - A thread of conversation between two or more Users.
+* **Members** - Users that are part of a conversation.
 
 ### Before you begin
 
@@ -31,38 +34,146 @@ If you are unfamiliar with any of the above referenced concepts, checkout our qu
     $ nexmo setup api_key api_secret
     ```
 
-### 1.0 - Start a new iOS project
+## 1 - Setup
 
-Open Xcode and start a new project. We'll name it "AudioQuickStart".
+_Note: The steps within this section can all be done dynamically via server-side logic. But in order to get the client-side functionality we're going to manually run through setup._
 
-### 1.1 Adding the Nexmo Stitch iOS SDK to Cocoapods
+### 1.1 - Create a Nexmo application
+
+Create an application within the Nexmo platform.
+
+```bash
+$ nexmo app:create "Stitch iOS App" http://example.com/answer http://example.com/event --type=rtc --keyfile=private.key
+```
+
+Nexmo Applications contain configuration for the application that you are building. The output of the above command will be something like this:
+
+```bash
+Application created: aaaaaaaa-bbbb-cccc-dddd-0123456789ab
+No existing config found. Writing to new file.
+Credentials written to /path/to/your/local/folder/.nexmo-app
+Private Key saved to: private.key
+```
+
+The first item is the Application ID and the second is a private key that is used generate JWTs that are used to authenticate your interactions with Nexmo. You should take a note of it. We'll refer to this as `YOUR_APP_ID` later.
+
+
+### 1.2 - Create a Conversation
+
+Create a conversation within the application:
+
+```bash
+$ nexmo conversation:create display_name="Nexmo Chat"
+```
+
+The output of the above command will be something like this:
+
+```sh
+Conversation created: CON-aaaaaaaa-bbbb-cccc-dddd-0123456789ab
+```
+
+That is the Conversation ID. Take a note of it as this is the unique identifier for the conversation that has been created. We'll refer to this as YOUR_CONVERSATION_ID later.
+
+### 1.3 - Create a User
+
+Create a user who will participate within the conversation.
+
+```bash
+$ nexmo user:create name="jamie"
+```
+
+The output will look as follows:
+
+```sh
+User created: USR-aaaaaaaa-bbbb-cccc-dddd-0123456789ab
+```
+
+Take a note of the `id` attribute as this is the unique identifier for the user that has been created. We'll refer to this as `YOUR_USER_ID` later.
+
+### 1.4 - Add the User to the Conversation
+
+Finally, let's add the user to the conversation that we created. Remember to replace `YOUR_CONVERSATION_ID` and `YOUR_USER_ID` values.
+
+```bash
+$ nexmo member:add YOUR_CONVERSATION_ID action=join channel='{"type":"app"}' user_id=YOUR_USER_ID
+```
+
+The output of this command will confirm that the user has been added to the "Nexmo Chat" conversation.
+
+```sh
+Member added: MEM-aaaaaaaa-bbbb-cccc-dddd-0123456789ab
+```
+
+You can also check this by running the following request, replacing `YOUR_CONVERSATION_ID`:
+
+```bash
+$ nexmo member:list YOUR_CONVERSATION_ID -v
+```
+
+Where you should see a response similar to the following:
+
+```sh
+name                                     | user_id                                  | user_name | state  
+---------------------------------------------------------------------------------------------------------
+MEM-aaaaaaaa-bbbb-cccc-dddd-0123456789ab | USR-aaaaaaaa-bbbb-cccc-dddd-0123456789ab | jamie     | JOINED
+```
+
+### 1.5 - Generate a User JWT
+
+Generate a JWT for the user and take a note of it. Remember to change the `YOUR_APP_ID` value in the command.
+
+```bash
+$ USER_JWT="$(nexmo jwt:generate ./private.key sub=jamie exp=$(($(date +%s)+86400)) acl='{"paths": {"/v1/sessions/**": {}, "/v1/users/**": {}, "/v1/conversations/**": {}}}' application_id=YOUR_APP_ID)"
+```
+
+*Note: The above command saves the generated JWT to a `USER_JWT` variable. It also sets the expiry of the JWT to one day from now.*
+
+You can see the JWT for the user by running the following:
+
+```bash
+$ echo $USER_JWT
+```
+
+### 1.6 The Nexmo Stitch API Dashboard
+
+If you would like to double check any of the JWT credentials, navigate to [your-applications](https://dashboard.nexmo.com/voice/your-applications) where you can see a table with three entries respectively entitled "Name", "Id", or "Security settings". Under the menu options for "Edit" next to "Delete", you can take a peak at the details of the applications such as "Application name", "Application Id", etc...
+
+## 2 - Create the iOS App
+
+With the basic setup in place we can now focus on the client-side application
+
+### 2.1 Start a new project
+
+Open Xcode and start a new project. We'll name it "QuickStartOne".
+
+### 2.2 Adding the Nexmo Stitch iOS SDK to Cocoapods
 
 Navigate to the project's root directory in the Terminal. Run: `pod init`. Open the file entitled `PodFile`. Configure its specifications accordingly:
 
-```ruby
+```bash
 # Uncomment the next line to define a global platform for your project
 platform :ios, '9.0'
 
 source "https://github.com/Nexmo/PodSpec.git"
 source 'git@github.com:CocoaPods/Specs.git'
 
-target 'AudioQuickStart' do
+target 'QuickStartOne' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
-  pod "NexmoConversation", :git => "https://github.com/nexmo/conversation-ios-sdk.git", :branch => "master" #latest release
+  pod "NexmoConversation", :git => "https://github.com/nexmo/conversation-ios-sdk.git", :branch => "master" # development
 end
 
 ```
-### 1.2 Adding ViewControllers & .storyboard files
+### 2.3 Adding ViewControllers & .storyboard files
 
 Let's add a few view controllers. Start by adding a custom subclass of `UIViewController` from a CocoaTouch file named `LoginViewController`, which we will use for creating the login functionality, and another custom subclass of `UIViewController` from a CocoaTouch file named `ChatViewController`, which we will use for creating the chat functionality. Add two new scenes to `Main.storyboard`, assigning each to one of the added custom subclasses of `UIViewController` respectively.
 
 
-### 1.3 Creating the login layout
+### 2.4 Creating the login layout
 Let's layout the login functionality. Set constraints on the top & leading attributes of an instance of UIButton with a constant HxW at 71x94 to the top of the Bottom Layout Guide + 20 and the leading attribute of `view` + 16. This is our login button. Reverse leading to trailing for another instance of UIButton with the same constraints. This our chat button. Set the text on these instances accordingly. Add a status label centered horizontally & vertically. Finally, embedd this scene into a navigation controller. Control drag from the chat button to scene assigned to the chat controller, naming the segue `chatView`.
 
 
-### 1.4 - Create the Login Functionality
+### 2.5 - Create the Login Functionality
 
 Below `UIKit` let's import the `NexmoConversation`. Next we setup a custom instance of the `ConversationClient` and saving it as a member variable in the view controller.
 
@@ -73,7 +184,7 @@ Below `UIKit` let's import the `NexmoConversation`. Next we setup a custom insta
     }()
 ```
 
-We also need to wire up the buttons in `LoginViewController.swift` Don't forget to replace `USER_JWT` with the JWT generated from the Nexmo CLI. For a refresher on how to generate a JWT, check out [quickstart one](/stitch/in-app-messaging/guides/1-simple-conversation?platform=ios).
+We also need to wire up the buttons in `LoginViewController.swift` Don't forget to replace `USER_JWT` with the JWT generated from the Nexmo CLI in step 1.5.
 
 ```swift
     // status label
@@ -150,11 +261,11 @@ We also need to wire up the buttons in `LoginViewController.swift` Don't forget 
     }
 ```
 
-### 1.5 Stubbed Out Login
+### 2.6 Stubbed Out Login
 
 Next, let's stub out the login workflow.
 
-Create an authenticate struct with a member set as `userJWT`. For now, stub it out to always return the value for `USER_JWT`.
+Create an authenticate struct with a member set as `userJWT`. For now, stub it out to always return the vaue for `USER_JWT`.
 
 ```swift
 // a stub for holding the value for private.key
@@ -167,11 +278,11 @@ struct Authenticate {
 
 After the user logs in, they'll press the "Chat" button which will take them to the ChatViewController and let them begin chatting in the conversation we've already created.
 
-### 1.6 Navigate to ChatViewController
+### 2.5 Navigate to ChatViewController
 
-As we mentioned above, creating a conversation results from a call to the the `new()` method. In the absence of a server we’ll 'simulate' the creation of a conversation within the app when the user clicks the chatBtn.
+As we mentioned above, creating a conversation results from a call to the the new() method. In the absence of a server we’ll ‘simulate’ the creation of a conversation within the app when the user clicks the chatBtn.
 
-When we construct the segue for `ChatViewController`, we pass the first conversation so that the new controller. Remember that the `CONVERSATION_ID` comes from the id generated in [the first quickstart](/stitch/in-app-messaging/guides/1-simple-conversation?platform=ios).
+When we construct the segue for `ChatViewController`, we pass the first conversation so that the new controller. Remember that the `CONVERSATION_ID` comes from the id generated in step 1.2.
 
 ```swift
     // prepare(for segue:)
@@ -187,12 +298,12 @@ When we construct the segue for `ChatViewController`, we pass the first conversa
     }
 ```
 
-### 1.7 Create the Chat layout
+### 2.6 Create the Chat layout
 
 We'll make a `ChatActivity` with this as the layout. Add an instance of UITextView, UITextField, & UIButton.Set the constraints on UITextView with setting its constraints: .trailing = trailingMargin, .leading = Text Field.leading, .top = Top Layout Guide.bottom, .bottom + 15 = Text Field.top. Set the leading attribute on the Text Field to = leadingMargin and its .bottom attribute + 20 to Bottom Layout Guide's top attribute. Set the Button's .trailing to trailingMargin + 12 and its .bottom attribute + 20 to the Bottom Layout Guide's .top attribute.
 
 
-### 1.8 Create the ChatActivity
+### 2.7 Create the ChatActivity
 
 Like last time we'll wire up the views in `ChatViewController.swift` We also need to grab the reference to `conversation` from the incoming view controller.
 
@@ -216,7 +327,7 @@ class ChatController: UIViewController {
 
 ```
 
-### 1.9 - Sending and receiving `text` Events
+### 2.8 - Sending `text` Events
 
 To send a message we simply need to call `send()` on our instance of `conversation`. `send()` takes one argument, a `String message`.
 
@@ -235,6 +346,8 @@ To send a message we simply need to call `send()` on our instance of `conversati
     }
 ```
 
+### 2.9 - Receiving `text` Events
+
 In `viewDidLoad()` we want to add a handler for handling new events like the TextEvents we create when we press the send button. We can do this like so:
 
 ```swift
@@ -243,98 +356,10 @@ In `viewDidLoad()` we want to add a handler for handling new events like the Tex
             guard let event = event as? TextEvent, event.isCurrentlyBeingSent == false else { return }
             guard let text = event.text else { return }
 
-            self.textView.insertText(" \(text) \n ")
+            self.textView.insertText("\n \n \(text) \n \n")
         }
 ```
-## 2.0 - Building Audio
 
-Since we will be tapping into protected device functionality we will have to ask for permission. We will update our `.plist` as well as display an alert. After permissions we will add AVFoundation class, set up audio from within the SDK and add a speaker emoji for our UI 🔈
+## Try it out
 
-## 2.1 Xcode Permission
-
-Open up the raw version of the `.plist`. Drop the following lines of code in there.
-
-```
-<key>NSMicrophoneUsageDescription</key>
-	<string>audio call permission</string>
-```
-
-## 2.2 User Permission
-
-Add the AVFoundation library:
-```swift
-import AVFoundation
-```
-
-Create a `setupAudio()` function:
-
-```swift
-    private func setupAudio() {
-        do {
-            let session = AVAudioSession.sharedInstance()
-
-            try session.setCategory(AVAudioSessionCategoryPlayAndRecord)
-            session.requestRecordPermission { _ in }
-        } catch  {
-            print(error)
-        }
-    }
-```
-
-## 2.3 Enable / Disable
-
-To add functionality for enable / disable, we simple create functions that call the `.enable()` or `.disable()` methods on media property of our instance of the conversation client like so down below in sections 2.3.1 and 2.3.2
-
-### 2.3.1 Enable
-Create a function for enable.
-
-```swift
-    private func enable() {
-        do {
-            try self.conversation?.audio.enable()
-        } catch let error {
-            self.getView.state.text = "failed: \(error)"
-        }
-    }
-```
-
-### 2.3.2 Disable
-Create a function for disable.
-
-```swift
-    @IBAction internal func disable() {
-        conversation?.audio.disable()
-
-        self.navigationController?.popViewController(animated: true)
-    }
-```
-
-## 2.4 Speaker Emoji for UI
-
-Let's use a speaker emoji for our UI. Drag and drop a UIButton on the left hand side of the UITextField. Control click to drag an action onto `ViewController.Swift`. Name the function like so:
-
-```swift
-
-  @IBAction func phoneButtonPressed(_ sender: UIButton) {
-
-    do {
-        try conversation?.audio.enable()
-        sender.titleLabel?.text = "🔇"
-    } catch {
-        conversation?.audio.disable()
-        sender.titleLabel?.text = "🔈"
-    }
-
-  }
-
-```
-
-Configure the text property on the button's text label to display either speaker 🔈 for enabled audio or else mute 🔇 for disabled audio.
-
-## 2.5 Console logs
-
-By implementing our enable / disable functions, we will see the updates right there inside of Xcode in the console log.
-
-## Try it out!
-
-After this you should be able to run the app and enable / disable audio. Try speaking to your self!
+After this you should be able to run the app and send messages.

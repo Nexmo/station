@@ -51,6 +51,7 @@ Some actions and options are:
 ```tabbed_content
 source: '_examples/voice/ncco/actions'
 ```
+
 For your NCCO to execute correctly, the JSON syntax must be valid. It is better to generate JSON dynamically using a JSON library than to attempt to write it yourself programatically.
 
 The actions you can use in an NCCO are:

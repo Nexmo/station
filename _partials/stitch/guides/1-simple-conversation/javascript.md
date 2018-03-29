@@ -1,3 +1,8 @@
+---
+title: JavaScript
+language: javascript
+---
+
 # Getting Started with the Nexmo Stitch JavaScript SDK
 
 In this getting started guide we'll demonstrate how to build a simple conversation app with IP messaging using the Nexmo Stitch JavaScript SDK.

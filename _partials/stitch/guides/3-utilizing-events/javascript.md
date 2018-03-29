@@ -1,3 +1,8 @@
+---
+title: JavaScript
+language: javascript
+---
+
 # Getting Started with the Nexmo Stitch JavaScript SDK
 
 In this getting started guide we'll cover adding more events to the Conversation we created in the [simple conversation with member invites](/stitch/in-app-messaging/guides/2-inviting-members?platform=javascript) getting started guide. We'll deal with multiple types of events, the ones that come via the conversation, and the ones we send to the conversation.
