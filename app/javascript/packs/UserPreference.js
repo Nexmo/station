@@ -24,8 +24,8 @@ export default class UserPreference {
   }
 
   all() {
-    return this.languages().concat(
-      this.platforms(),
+    return this.platforms().concat(
+      this.languages(),
       this.terminalPrograms(),
       this.frameworks()
     )
@@ -61,7 +61,7 @@ export default class UserPreference {
   }
 
   promote(type, value) {
-    let list = this.getByType(type)
+    let list = this.getByType(type) || [];
     list = list.filter(item => item !== value)
     list.unshift(value)
     this.store(type, list)

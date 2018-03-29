@@ -148,6 +148,13 @@ tabs:
   Ruby:
     source: .repos/nexmo-community/nexmo-ruby-quickstart/sms/send.rb
     from_line: 9
+    language_key: php
+```
+
+**Tabbed Examples (via config)**
+
+```tabbed_examples
+config: messaging.sms.send
 ```
 
 ## Tables

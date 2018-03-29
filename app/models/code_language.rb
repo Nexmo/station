@@ -1,7 +1,7 @@
 class CodeLanguage
   include ActiveModel::Model
-  attr_accessor :key, :label, :lexer, :type
-  attr_writer :weight, :linkable, :languages
+  attr_accessor :key, :label, :type
+  attr_writer :weight, :linkable, :languages, :lexer
 
   def weight
     @weight || 999
@@ -9,5 +9,10 @@ class CodeLanguage
 
   def linkable?
     @linkable || true
+  end
+
+  def lexer
+    return Rouge::Lexers::PHP.new({ start_inline: true }) if @lexer == 'php'
+    Rouge::Lexer.find(@lexer) || Rouge::Lexer.find('text')
   end
 end

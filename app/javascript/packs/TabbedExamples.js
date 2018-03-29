@@ -11,43 +11,17 @@ export default class TabbedExamples {
       })
 
       this.restoreTabs = this.restoreTabs.bind(this)
-      this.setInitialState = this.setInitialState.bind(this)
       this.setupEvents = this.setupEvents.bind(this)
       this.onTabClick = this.onTabClick.bind(this)
       this.onPopState = this.onPopState.bind(this)
       this.persistLanguage = this.persistLanguage.bind(this)
       this.restoreTabs()
-      this.setInitialState()
       this.setupEvents()
-
-      // Reset so that the language is read as normal instead of the data
-      // attribute when the page loads in next time.
-      $('#primary-content').data('initial-language', false)
     }
   }
 
-  initialLanguage() {
-    const initialLanguage = {
-      language: $('#primary-content').attr('data-initial-language'),
-      type: $('#primary-content').attr('data-initial-language')
-    }
-
-    if (initialLanguage.language) {
-      return initialLanguage
-    }
-  }
-
-  shouldRestoreTabs() {
-    const initialLanguage = this.initialLanguage()
-
-    if (initialLanguage) {
-      // Continue to restore the tab as if it were a normal page load if an
-      // initialLanguage (url) is set but the tab does not exist
-      return !this.doesTabLanguageExist(initialLanguage)
-    }
-
-    // Normal page load: Try to restore the tab.
-    return true
+  shouldRestoreTabs(element) {
+    return !$(element).data('has-initial-tab')
   }
 
   doesTabLanguageExist(language) {
@@ -63,19 +37,11 @@ export default class TabbedExamples {
   restoreTabs() {
     $('[data-tabs]').each((index, element) => {
       this.context = element
-      if (this.shouldRestoreTabs()) {
+      if (this.shouldRestoreTabs(element)) {
         const language = this.userPreference.topMatch(this.languages())
         if (language) { this.setLanguage(language, this.context) }
       }
     })
-  }
-
-  setInitialState() {
-    const initialLanguage = this.initialLanguage()
-
-    if (initialLanguage) {
-      this.persistLanguage(initialLanguage.language, initialLanguage.type, true)
-    }
   }
 
   setupEvents() {
@@ -100,12 +66,8 @@ export default class TabbedExamples {
       if (linkable) {
         $(document).trigger('codeLanguageChange', { language })
 
-        if (window.history.state.language || this.initialLanguage()) {
-          window.history.pushState({ language }, 'language', language)
-        } else {
-          let path = window.location.pathname.replace(/\/$/, '')
-          window.history.pushState({ language }, 'language', `${path}/${language}`)
-        }
+        const rootPath = $('body').data('push-state-root')
+        window.history.pushState({ language }, 'language', `${rootPath}/${language}`)
       }
 
       this.persistLanguage(language, languageType, linkable)

@@ -17,7 +17,6 @@ import Scrollspy from './Scrollspy'
 import GithubCards from './GithubCards'
 import TabbedExamples from './TabbedExamples'
 import Format from './Format'
-import Platform from './Platform'
 import JsSequenceDiagrams from './JsSequenceDiagrams'
 import Navigation from './Navigation'
 import Scroll from './Scroll'
@@ -47,7 +46,6 @@ let refresh = () => {
   JsSequenceDiagrams()
   new TabbedExamples
   new Format
-  new Platform
   Modals()
   APIStatus()
 
