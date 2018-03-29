@@ -34,8 +34,6 @@ class Feedback extends React.Component {
       code_language: data.language,
       code_language_selected_whilst_on_page: true,
       code_language_set_by_url: false,
-    }, () => {
-      console.log(this.state);
     })
   }
 
@@ -139,8 +137,6 @@ class Feedback extends React.Component {
   }
 
   sendFeedback() {
-    console.log('sendFeedback')
-
     this.setState({
       uploadingFeedbackFull: true
     })
