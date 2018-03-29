@@ -22,6 +22,13 @@ class TabFilter < Banzai::Filter
       tab['data-language-linkable'] = content[:language].linkable?
     end
 
+    if content[:platform]
+      tab['data-language'] = content[:platform].languages.map(&:key).join(',')
+      tab['data-platform'] = content[:platform].key
+      tab['data-platform-type'] = content[:platform].type
+      tab['data-platform-linkable'] = content[:platform].linkable?
+    end
+
     tab_link = Nokogiri::XML::Element.new 'a', @document
     tab_link.content = content[:tab_title]
     tab_link['href'] = "##{content[:id]}"
@@ -131,7 +138,7 @@ class TabFilter < Banzai::Filter
       if is_tabbed_content?
         content[:frontmatter] = YAML.safe_load(source)
         content[:language_key] = content[:frontmatter]['language']
-        content[:language_key] ||= content[:frontmatter]['platform']
+        content[:platform_key] = content[:frontmatter]['platform']
         content[:tab_title] = content[:frontmatter]['title']
         content[:body] = MarkdownPipeline.new(options).call(source)
       end
@@ -177,6 +184,12 @@ class TabFilter < Banzai::Filter
       if content[:language_key]
         content.merge!({
           :language => CodeLanguageResolver.find(content[:language_key]),
+        })
+      end
+
+      if content[:platform_key]
+        content.merge!({
+          :platform => CodeLanguageResolver.find(content[:platform_key]),
         })
       end
 

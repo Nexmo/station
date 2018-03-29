@@ -45,7 +45,7 @@ languages:
     weight: 7
     label: Ruby
     lexer: ruby
-  switft:
+  swift:
     weight: 8
     label: Swift
     lexer: swift

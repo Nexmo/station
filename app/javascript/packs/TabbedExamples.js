@@ -29,17 +29,33 @@ export default class TabbedExamples {
   }
 
   languages() {
-    return $(this.context).find(`[data-language]`).map(function(index, el) {
-      return $(el).data('language')
+    let obj = {}
+
+    $(this.context).find(`[data-language]`).each(function(index, el) {
+      $(el).data('language').split(',').forEach(function(language) {
+        obj[language] = {
+          platform: $(el).data('platform') || false
+        }
+      })
     })
+
+    return obj
   }
 
   restoreTabs() {
     $('[data-tabs]').each((index, element) => {
       this.context = element
       if (this.shouldRestoreTabs(element)) {
-        const language = this.userPreference.topMatch(this.languages())
-        if (language) { this.setLanguage(language, this.context) }
+        let languages = this.languages()
+        const language = this.userPreference.topMatch(Object.keys(languages))
+
+        if (language) {
+          if (languages[language]['platform']) {
+            this.setPlatform(languages[language]['platform'], this.context)
+          } else {
+            this.setLanguage(language, this.context)
+          }
+        }
       }
     })
   }
@@ -82,6 +98,15 @@ export default class TabbedExamples {
 
   setLanguage(language, context = '.tabs') {
     $(context).find(`[data-language='${language}'] a`).each(function() {
+      let tabs = $(this).parents('.tabs')
+      let tab = $(this).parent()
+
+      new Tabs(tabs)._handleTabChange(tab, true)
+    })
+  }
+
+  setPlatform(platform, context = '.tabs') {
+    $(context).find(`[data-platform='${platform}'] a`).each(function() {
       let tabs = $(this).parents('.tabs')
       let tab = $(this).parent()
 

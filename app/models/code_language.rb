@@ -15,4 +15,10 @@ class CodeLanguage
     return Rouge::Lexers::PHP.new({ start_inline: true }) if @lexer == 'php'
     Rouge::Lexer.find(@lexer) || Rouge::Lexer.find('text')
   end
+
+  def languages
+    @languages.map do |language|
+      CodeLanguageResolver.find(language)
+    end
+  end
 end
