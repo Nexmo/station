@@ -4,7 +4,7 @@ Nexmo Developer is a platform hosting the Nexmo documentation, API reference, SD
 
 ### Prerequisites
 
-- Ruby 2.4.1 + bundler
+- Ruby 2.5.0 + bundler
 - PostgreSQL
 - Yarn
 
