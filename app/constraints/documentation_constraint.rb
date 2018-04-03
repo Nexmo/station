@@ -25,8 +25,8 @@ class DocumentationConstraint
     { product: Regexp.new(products.compact.join('|')) }
   end
 
-  def self.product_with_parent
-    products = [
+  def self.product_with_parent_list
+    [
       'voice/sip',
       'voice/voice-api',
       'messaging/sms',
@@ -42,8 +42,10 @@ class DocumentationConstraint
       'messages-and-workflows-apis/messages',
       'messages-and-workflows-apis/workflows',
     ]
+  end
 
-    { product: Regexp.new(products.compact.join('|')) }
+  def self.product_with_parent
+    { product: Regexp.new(product_with_parent_list.compact.join('|')) }
   end
 
   def self.language_configuration
