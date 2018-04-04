@@ -15,10 +15,10 @@
 
   <div class="row">
     <% @sessions.each_with_position do |session, first, last| %>
-      <div class="columns small-12 medium-6 large-3 <%= 'end' if last %>">
+      <div class="columns small-12 medium-6 large-4 <%= 'end' if last %>">
         <%= session.video_content.html_safe %>
         <h3><%= session.title %></h3>
-        <p class="truncate"><%= session.description %></p>
+        <p><%= session.description %></p>
         <br>
       </div>
     <% end %>
