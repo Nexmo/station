@@ -12,7 +12,7 @@ The Messages API lets you retrieve messages you have sent via the SMS API by ID,
 
 ### Search
 
-Retrieve information about a single messages that you sent using SMS API or were received on your number.
+Retrieve information about a single message that you sent using SMS API or that was received on your number.
 
 #### Request
 
