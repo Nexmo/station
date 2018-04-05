@@ -166,7 +166,7 @@ Parameter | Description
 `count` | The number of items associated with your account.
 `page_size` | Set the number of items returned on each call to this endpoint. The default is 10 records.
 `page_index` | Set the offset from the first page. The default value is `0`.
-`applications` | The collection of your applications. Each object contains information about an an individual application. The public_key in not included in the application information.
+`applications` | The collection of your applications. Each object contains information about an an individual application. The public_key is not included in the application information.
 `_links` | A series of links between resources in this API in the following [HAL specification](http://stateless.co/hal_specification.html).
 
 ## Retrieve an application
