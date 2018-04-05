@@ -1,6 +1,6 @@
 ---
 title: Developer - Messages API Reference
-description: Reference guide for the Account API.
+description: Reference guide for the Messages API.
 api: Developer API
 ---
 
