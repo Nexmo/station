@@ -136,6 +136,9 @@ gem 'bootsnap', require: false
 # Convenient diffing in ruby
 gem 'diffy', require: false
 
+# Automatic Ruby code style checking tool. Aims to enforce the community-driven Ruby Style Guide.
+gem 'rubocop'
+
 group :development, :test do
   gem 'awesome_print'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -143,7 +146,6 @@ group :development, :test do
   gem 'pry', require: false
   gem 'rawler', git: 'https://github.com/oscardelben/rawler.git', require: false
   gem 'rspec-rails', '~> 3.7'
-  gem 'rubocop'
 end
 
 group :development do
