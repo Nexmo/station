@@ -1,6 +1,6 @@
 ---
 title: Developer - Numbers API Reference
-description: Reference guide for the Account API.
+description: Reference guide for the Numbers API.
 api: Developer API
 ---
 
