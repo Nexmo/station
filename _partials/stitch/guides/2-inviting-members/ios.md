@@ -1,3 +1,8 @@
+---
+title: iOS
+platform: ios
+---
+
 # Inviting Members with the Nexmo Stitch iOS SDK
 
 In this getting started guide we'll demonstrate creating a second user and inviting them to the Conversation we created in the [simple conversation](/stitch/in-app-messaging/guides/1-simple-conversation?platform=ios) getting started guide. From there we'll list the conversations that are available to the user and upon receiving an invite to new conversations we'll automatically join them.
@@ -6,9 +11,9 @@ In this getting started guide we'll demonstrate creating a second user and invit
 
 This guide will introduce you to the following concepts:
 
-* **Invites** - How do we invite users to a conversation? By programming a call to `.subscription` on an instance of `ConversationClient` to subscribe to events for new invitations. 
-* **Application Events** - By programming a call to `.subscription` on an instance of `ConversationClient` to subscribe to events for new members. 
-* **Conversation Events** - By programming a call to `.subscription` on an instance of `ConversationClient` to check membership to a collection of conversations. 
+* **Invites** - How do we invite users to a conversation? By programming a call to `.subscription` on an instance of `ConversationClient` to subscribe to events for new invitations.
+* **Application Events** - By programming a call to `.subscription` on an instance of `ConversationClient` to subscribe to events for new members.
+* **Conversation Events** - By programming a call to `.subscription` on an instance of `ConversationClient` to check membership to a collection of conversations.
 
 
 ### Before you begin
@@ -67,45 +72,45 @@ Now, let's update the login workflow to accommodate a second user.
 Define a variable with a value of the second User JWT that was created earlier and set the value to the `SECOND_USER_JWT` that was generated earlier.
 
 ```swift
-// a stub for holding the value of private.key 
+// a stub for holding the value of private.key
 struct Authenticate {
 
     static let userJWT = "USER_JWT"
     static let anotherUserJWT = "SECOND_USER_JWT"
-    
+
 }
 ```
 
-Update the authenticate function with an instance of `UIAlertController` with an action for one user, another for another user. 
+Update the authenticate function with an instance of `UIAlertController` with an action for one user, another for another user.
 
 
 ```swift
    // login button
     @IBAction func loginBtn(_ sender: Any) {
-        
+
         print("DEMO - login button pressed.")
-        
+
         let alert = UIAlertController(title: "My Alert", message: "This is an alert.", preferredStyle: .alert)
-        
+
         alert.addAction(UIAlertAction(title: NSLocalizedString("jamie", comment: "First User"), style: .`default`, handler: { _ in
             NSLog("The \"First User\" is here!")
-            
+
             let token = Authenticate.userJWT
-            
+
             print("DEMO - login called on client.")
-            
+
             self.client.login(with: token).subscribe(onSuccess: {
-                
+
                 if let user = self.client.account.user {
-                
+
                     print("DEMO - login successful and here is our \(user)")
-                    
+
 				 }, onError: { [weak self] error in
-				 
+
                 self?.statusLbl.isHidden = false
-                
+
                 print(error.localizedDescription)
-                
+
                 let reason: String = {
                     switch error {
                     case LoginResult.failed: return "failed"
@@ -116,32 +121,32 @@ Update the authenticate function with an instance of `UIAlertController` with an
                     default: return "unknown"
                     }
                 }()
-                
+
                 print("DEMO - login unsuccessful with \(reason)")
-                
+
             }).addDisposableTo(self.client.disposeBag) // Rx does not maintain a memory reference; to make sure that reference is still in place; keep a reference of this object while I do an operation.
-            
+
                 }))
-        
+
         alert.addAction(UIAlertAction(title: NSLocalizedString("alice", comment: "Second User"), style: .default, handler: { (_) in
-        
+
             NSLog("The \"Second User\" is here!")
-            
+
             let token = Authenticate.anotherUserJWT
-            
+
             print("DEMO - login called on client.")
-            
+
             self.client.login(with: token).subscribe(onSuccess: {
-                
+
                 if let user = self.client.account.user {
                     print("DEMO - login successful and here is our \(user)")
-                    
+
                   }, onError: { [weak self] error in
-                  
+
                 self?.statusLbl.isHidden = false
-                
+
                 print(error.localizedDescription)
-                
+
                 let reason: String = {
                     switch error {
                     case LoginResult.failed: return "failed"
@@ -152,18 +157,18 @@ Update the authenticate function with an instance of `UIAlertController` with an
                     default: return "unknown"
                     }
                 }()
-                
+
                 print("DEMO - login unsuccessful with \(reason)")
-                
+
             }).addDisposableTo(self.client.disposeBag) // Rx does not maintain a memory reference; to make sure that reference is still in place; keep a reference of this object while I do an operation.
-            
+
                 }))
-        
+
         DispatchQueue.main.async {
-         
+
             self.present(alert, animated: true, completion: nil)
         }
-        
+
     }
 ```
 
@@ -194,14 +199,14 @@ The next step is to update the login method to listen to changes in conversation
                     })
 ```
 
-As soon as the invite is received, the user subscribes to the conversation. 
+As soon as the invite is received, the user subscribes to the conversation.
 
 ### 2.3 List the Conversations and handle selecting one
 
-As soon as the user subscribes to a conversation, we check to see whether the user joined the conversation or not. 
+As soon as the user subscribes to a conversation, we check to see whether the user joined the conversation or not.
 
 ```swift
-		
+
 		// figure out which conversation a member has joined
 		_ = self.client.conversation.conversations.filter({ (conversation) -> Bool in
 		conversation.members.contains(where: { (member) -> Bool in
@@ -211,7 +216,7 @@ As soon as the user subscribes to a conversation, we check to see whether the us
 ```
 
 
-We'll loop through the conversations the user is a member to make sure that the user is joined to the desired conversation. 
+We'll loop through the conversations the user is a member to make sure that the user is joined to the desired conversation.
 
 ### 2.4 - Run the apps
 

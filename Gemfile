@@ -58,8 +58,6 @@ gem 'dotenv-rails', groups: [:development, :test]
 # Ruby/ProgressBar is a text progress bar library for Ruby.
 gem 'ruby-progressbar', require: false
 
-gem 'rubocop', require: false
-
 # Ruby notifier for bugsnag.com
 gem 'bugsnag'
 
@@ -145,6 +143,7 @@ group :development, :test do
   gem 'pry', require: false
   gem 'rawler', git: 'https://github.com/oscardelben/rawler.git', require: false
   gem 'rspec-rails', '~> 3.7'
+  gem 'rubocop'
 end
 
 group :development do

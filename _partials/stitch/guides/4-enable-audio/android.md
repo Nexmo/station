@@ -1,3 +1,8 @@
+---
+title: Android
+platform: android
+---
+
 # Getting Started with Nexmo In-App Voice and the Stitch Android SDK
 
 In this getting started guide we'll cover adding audio events to the Conversation we created in the previous quickstarts. We'll deal with media events, the ones that come via the conversation, and the ones we send to the conversation.

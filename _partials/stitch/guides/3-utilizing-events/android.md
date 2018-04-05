@@ -1,3 +1,8 @@
+---
+title: Android
+platform: android
+---
+
 # Using more Event Listeners with the Nexmo Stitch Android SDK
 
 In this getting started guide we'll demonstrate how to show previous history of a Conversation we created in the [simple conversation](/stitch/in-app-messaging/guides/1-simple-conversation?platform=android) getting started guide. From there we'll cover how to show when a member is typing and mark text as being seen.

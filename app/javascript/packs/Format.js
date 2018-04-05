@@ -10,7 +10,6 @@ export default class Format {
   }
 
   formatChanged(format, persist = true) {
-    console.log('Setting format', format);
     $('.js-format').hide()
     $(`.js-format[data-format='${format}']`).show()
 

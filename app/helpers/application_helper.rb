@@ -157,9 +157,12 @@ module ApplicationHelper
     false
   end
 
+  def canonical_path
+    request.path.chomp("/#{params[:code_language]}")
+  end
+
   def canonical_url
-    path = request.path.chomp("/#{params[:code_language]}")
     base_url = Rails.env.production? ? 'https://developer.nexmo.com' : request.base_url
-    path.prepend(base_url)
+    canonical_path.prepend(base_url)
   end
 end

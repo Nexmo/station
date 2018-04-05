@@ -7,9 +7,6 @@ class MarkdownController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:preview]
 
   def show
-    @document_path = "#{@namespace_path}/#{@document}.md"
-    document = File.read("#{Rails.root}/#{@document_path}")
-
     @frontmatter = YAML.safe_load(document)
 
     raise Errno::ENOENT if @frontmatter['redirect']
@@ -70,5 +67,20 @@ class MarkdownController < ApplicationController
       @namespace_root = '_documentation'
       @sidenav_root = "#{Rails.root}/_documentation"
     end
+  end
+
+  def set_document_path_when_file_name_is_the_same_as_a_linkable_code_language
+    path = "#{@namespace_path}/#{@document}/#{params[:code_language]}.md"
+    if File.exist? path
+      @document_path = path
+      [params, request.parameters].each { |o| o.delete(:code_language) }
+      @code_language = nil
+    end
+  end
+
+  def document
+    set_document_path_when_file_name_is_the_same_as_a_linkable_code_language
+    @document_path ||= "#{@namespace_path}/#{@document}.md"
+    @document = File.read("#{Rails.root}/#{@document_path}")
   end
 end

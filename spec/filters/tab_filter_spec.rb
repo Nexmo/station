@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe TabbedExamplesFilter do
+RSpec.describe TabFilter do
   context 'when no config is provided' do
     it 'raises an exception' do
       input = <<~HEREDOC
@@ -9,7 +9,7 @@ RSpec.describe TabbedExamplesFilter do
       HEREDOC
 
       expect {
-        TabbedExamplesFilter.new.call(input)
+        TabFilter.new.call(input)
       }.to raise_error('A source, tabs or config key must be present in this tabbed_example config')
     end
   end
@@ -23,7 +23,7 @@ RSpec.describe TabbedExamplesFilter do
       HEREDOC
 
       expect {
-        TabbedExamplesFilter.new.call(input)
+        TabFilter.new.call(input)
       }.to raise_error('A source, tabs or config key must be present in this tabbed_example config')
     end
   end

@@ -4,9 +4,7 @@ class DocumentationConstraint
   end
 
   def self.code_language
-    linkable_languages = language_configuration.map do |language, configuration|
-      language unless configuration["linkable"] == false
-    end
+    linkable_languages = CodeLanguageResolver.linkable.map(&:key)
     { code_language: Regexp.new(linkable_languages.compact.join('|')) }
   end
 
