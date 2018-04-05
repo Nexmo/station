@@ -539,4 +539,4 @@ After this you should be able to run the app and send messages to a conversation
 
 ## Where next?
 
-Try out [Quickstart 2](/stitch/in-app-messaging/guides/2-inviting-members?platform=android)
+Try out [Quickstart 2](/stitch/in-app-messaging/guides/2-inviting-members/android)

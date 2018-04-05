@@ -363,5 +363,5 @@ Run `index.html` in two side-by-side browser windows to see the conversation tak
 
 ## Where next?
 
-- Try out [Quickstart 2](/stitch/in-app-messaging/guides/2-inviting-members?platform=javascript)
+- Try out [Quickstart 2](/stitch/in-app-messaging/guides/2-inviting-members/javascript)
 - Have a look at the [Nexmo Stitch JavaScript SDK API Reference](/sdk/stitch/javascript/)

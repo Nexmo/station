@@ -5,7 +5,7 @@ platform: android
 
 # Using more Event Listeners with the Nexmo Stitch Android SDK
 
-In this getting started guide we'll demonstrate how to show previous history of a Conversation we created in the [simple conversation](/stitch/in-app-messaging/guides/1-simple-conversation?platform=android) getting started guide. From there we'll cover how to show when a member is typing and mark text as being seen.
+In this getting started guide we'll demonstrate how to show previous history of a Conversation we created in the [simple conversation](/stitch/in-app-messaging/guides/1-simple-conversation/android) getting started guide. From there we'll cover how to show when a member is typing and mark text as being seen.
 
 ## Concepts
 
@@ -15,7 +15,7 @@ This guide will introduce you to **Conversation Events**. We'll be attaching the
 ### Before you begin
 
 
-* Ensure you have run through the [the first](/stitch/in-app-messaging/guides/1-simple-conversation?platform=android) and [second](/stitch/in-app-messaging/guides/2-inviting-members?platform=android) quickstarts.
+* Ensure you have run through the [the first](/stitch/in-app-messaging/guides/1-simple-conversation/android) and [second](/stitch/in-app-messaging/guides/2-inviting-members/android) quickstarts.
 * Make sure you have two Android devices to complete this example. They can be two emulators, one emulator and one physical device, or two physical devices.
 
 ## 1 - Setup
@@ -465,4 +465,4 @@ Once you've completed this quickstart, you can run the sample app on two differe
 
 ## Where next?
 
-Try out [Enabling Audio in your App](/stitch/in-app-voice/guides/1-enable-audio?platform=android)
+Try out [Enabling Audio in your App](/stitch/in-app-voice/guides/1-enable-audio/android)

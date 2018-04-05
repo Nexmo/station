@@ -16,7 +16,7 @@ This guide will introduce you to the following concepts.
 
 ## Before you begin
 
-- Ensure you have run through the [previous quickstarts](/stitch/in-app-messaging/guides/3-utilizing-events?platform=android)
+- Ensure you have run through the [previous quickstarts](/stitch/in-app-messaging/guides/3-utilizing-events/android)
 - If you're continuing on from the previous guide you may need to regenerate the users JWTs. See quickstarts 1 and 2 for how to do so.
 
 ## 1 - Update the Android App

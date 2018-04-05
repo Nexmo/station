@@ -91,9 +91,9 @@ source: _examples/stitch/overview/join-the-conversation/
 
 ## Try out the quickstarts
 
-* [JavaScript Quickstarts](/stitch/in-app-messaging/guides/1-simple-conversation?platform=javascript)
-* [iOS Quickstarts](/stitch/in-app-messaging/guides/1-simple-conversation?platform=ios)
-* [Android Quickstarts](/stitch/in-app-messaging/guides/1-simple-conversation?platform=android)
+* [JavaScript Quickstarts](/stitch/in-app-messaging/guides/1-simple-conversation/javascript)
+* [iOS Quickstarts](/stitch/in-app-messaging/guides/1-simple-conversation/ios)
+* [Android Quickstarts](/stitch/in-app-messaging/guides/1-simple-conversation/android)
 
 ## SDK Documentation
 

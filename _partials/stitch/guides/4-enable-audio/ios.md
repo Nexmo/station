@@ -17,7 +17,7 @@ Our previous guides introduced you to the following concepts:
 - **Conversations**
 - **Members**
 
-If you are unfamiliar with any of the above referenced concepts, checkout our quick start on [simple conversation.](/stitch/in-app-messaging/guides/1-simple-conversation?platform=ios)
+If you are unfamiliar with any of the above referenced concepts, checkout our quick start on [simple conversation.](/stitch/in-app-messaging/guides/1-simple-conversation/ios)
 
 ### Before you begin
 
@@ -78,7 +78,7 @@ Below `UIKit` let's import the `NexmoConversation`. Next we setup a custom insta
     }()
 ```
 
-We also need to wire up the buttons in `LoginViewController.swift` Don't forget to replace `USER_JWT` with the JWT generated from the Nexmo CLI. For a refresher on how to generate a JWT, check out [quickstart one](/stitch/in-app-messaging/guides/1-simple-conversation?platform=ios).
+We also need to wire up the buttons in `LoginViewController.swift` Don't forget to replace `USER_JWT` with the JWT generated from the Nexmo CLI. For a refresher on how to generate a JWT, check out [quickstart one](/stitch/in-app-messaging/guides/1-simple-conversation/ios).
 
 ```swift
     // status label
@@ -176,7 +176,7 @@ After the user logs in, they'll press the "Chat" button which will take them to 
 
 As we mentioned above, creating a conversation results from a call to the the `new()` method. In the absence of a server we’ll 'simulate' the creation of a conversation within the app when the user clicks the chatBtn.
 
-When we construct the segue for `ChatViewController`, we pass the first conversation so that the new controller. Remember that the `CONVERSATION_ID` comes from the id generated in [the first quickstart](/stitch/in-app-messaging/guides/1-simple-conversation?platform=ios).
+When we construct the segue for `ChatViewController`, we pass the first conversation so that the new controller. Remember that the `CONVERSATION_ID` comes from the id generated in [the first quickstart](/stitch/in-app-messaging/guides/1-simple-conversation/ios).
 
 ```swift
     // prepare(for segue:)

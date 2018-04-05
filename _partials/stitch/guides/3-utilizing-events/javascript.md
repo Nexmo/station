@@ -5,7 +5,7 @@ language: javascript
 
 # Getting Started with the Nexmo Stitch JavaScript SDK
 
-In this getting started guide we'll cover adding more events to the Conversation we created in the [simple conversation with member invites](/stitch/in-app-messaging/guides/2-inviting-members?platform=javascript) getting started guide. We'll deal with multiple types of events, the ones that come via the conversation, and the ones we send to the conversation.
+In this getting started guide we'll cover adding more events to the Conversation we created in the [simple conversation with member invites](/stitch/in-app-messaging/guides/2-inviting-members/javascript) getting started guide. We'll deal with multiple types of events, the ones that come via the conversation, and the ones we send to the conversation.
 
 ## Concepts
 
@@ -17,11 +17,11 @@ This guide will introduce you to the following concepts.
 
 ## Before you begin
 
-- Ensure you have run through the [previous guide](/stitch/in-app-messaging/guides/2-inviting-members?platform=javascript)
+- Ensure you have run through the [previous guide](/stitch/in-app-messaging/guides/2-inviting-members/javascript)
 
 ## 1 - Update the JavaScript App
 
-We will use the application we already created for [the second getting started guide](/stitch/in-app-messaging/guides/2-inviting-members?platform=javascript). All the basic setup has been done in the previous guides and should be in place. We can now focus on updating the client-side application.
+We will use the application we already created for [the second getting started guide](/stitch/in-app-messaging/guides/2-inviting-members/javascript). All the basic setup has been done in the previous guides and should be in place. We can now focus on updating the client-side application.
 
 ### 1.1 - Add conversation history
 
@@ -192,5 +192,5 @@ That's it! Your page should now look something like [this](https://github.com/Ne
 
 ## Where next?
 
-- Try out [Quickstart 4](/stitch/in-app-voice/guides/1-enable-audio?platform=javascript)
+- Try out [Quickstart 4](/stitch/in-app-voice/guides/1-enable-audio/javascript)
 - Have a look at the [Nexmo Stitch JavaScript SDK API Reference](/sdk/stitch/javascript/)

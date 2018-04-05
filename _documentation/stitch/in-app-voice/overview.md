@@ -88,9 +88,9 @@ source: _examples/stitch/overview/join-the-conversation/
 
 ## Try out the quickstarts
 
-* [JavaScript Quickstarts](/stitch/in-app-voice/guides/1-enable-audio?platform=javascript)
-* [iOS Quickstarts](/stitch/in-app-voice/guides/1-enable-audio?platform=ios)
-* [Android Quickstarts](/stitch/in-app-voice/guides/1-enable-audio?platform=android)
+* [JavaScript Quickstarts](/stitch/in-app-voice/guides/1-enable-audio/javascript)
+* [iOS Quickstarts](/stitch/in-app-voice/guides/1-enable-audio/ios)
+* [Android Quickstarts](/stitch/in-app-voice/guides/1-enable-audio/android)
 
 ## SDK Documentation
 

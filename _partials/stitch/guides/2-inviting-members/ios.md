@@ -5,7 +5,7 @@ platform: ios
 
 # Inviting Members with the Nexmo Stitch iOS SDK
 
-In this getting started guide we'll demonstrate creating a second user and inviting them to the Conversation we created in the [simple conversation](/stitch/in-app-messaging/guides/1-simple-conversation?platform=ios) getting started guide. From there we'll list the conversations that are available to the user and upon receiving an invite to new conversations we'll automatically join them.
+In this getting started guide we'll demonstrate creating a second user and inviting them to the Conversation we created in the [simple conversation](/stitch/in-app-messaging/guides/1-simple-conversation/ios) getting started guide. From there we'll list the conversations that are available to the user and upon receiving an invite to new conversations we'll automatically join them.
 
 ## Concepts
 
@@ -19,7 +19,7 @@ This guide will introduce you to the following concepts:
 ### Before you begin
 
 
-* Ensure you have run through the [previous guide](/stitch/in-app-messaging/guides/1-simple-conversation?platform=ios)
+* Ensure you have run through the [previous guide](/stitch/in-app-messaging/guides/1-simple-conversation/ios)
 * Make sure you have two iOS devices to complete this example. They can be two simulators, one simulator and one physical device, or two physical devices.
 
 > Note: We do not currently support any drag & drop UIs yet so we'll build on the last UI.
@@ -63,7 +63,7 @@ $ echo $SECOND_USER_JWT
 
 ## 2 Update the iOS App
 
-We will use the application we already created for [the first getting started guide](/stitch/in-app-messaging/guides/1-simple-conversation?platform=ios). With the basic setup in place we can now focus on updating the client-side application.
+We will use the application we already created for [the first getting started guide](/stitch/in-app-messaging/guides/1-simple-conversation/ios). With the basic setup in place we can now focus on updating the client-side application.
 
 ### 2.1 Update the stubbed out Login
 
