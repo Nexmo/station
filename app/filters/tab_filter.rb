@@ -243,7 +243,9 @@ class TabFilter < Banzai::Filter
 
     if options[:code_language]
       contents.each_with_index do |content, index|
-        active_index = index if content[:language_key] == options[:code_language].key
+        %i{language_key platform_key}.each do |key|
+          active_index = index if content[key] == options[:code_language].key
+        end
       end
     end
 
