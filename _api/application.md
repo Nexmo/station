@@ -27,7 +27,7 @@ The following table shows the parameters you use to create a new application:
 Parameter | Description | Required
 -- | -- | --
 `name` | The name of your application. | Yes
-`type` |type	The Nexmo product or products that you access with this application. Currently only `voice` is supported. | Yes
+`type` | The Nexmo product or products that you access with this application. Currently only `voice` is supported. | Yes
 `answer_url` | The URL where your webhook delivers the Nexmo Call Control Object that governs this call. As soon as your user answers a call Nexmo makes a request to `answer_url`. | Yes
 `answer_method` | The HTTP method used to make the request to `answer_url`. The default value is `GET`. | No
 `event_url` | Nexmo sends event information asynchronously to this URL when status changes. | Yes
@@ -247,7 +247,7 @@ The following table shows the parameters you use to update an application:
 Parameter | Description | Required
 -- | -- | --
 `name` | The name of your application. | Yes
-`type` |type	The Nexmo product or products that you access with this application. Currently only `voice` is supported. | Yes
+`type` | The Nexmo product or products that you access with this application. Currently only `voice` is supported. | Yes
 `answer_url` | The URL where your webhook delivers the Nexmo Call Control Object that governs this call. As soon as your user answers a call Nexmo makes a request to `answer_url`. | Yes
 `answer_method` | The HTTP method used to make the request to `answer_url`. The default value is `GET`. | No
 `event_url` | Nexmo sends event information asynchronously to this URL when status changes. | Yes
