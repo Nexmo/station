@@ -597,6 +597,7 @@ Value | Description
 `ringing` | The user's handset is ringing.
 `answered` | The user has answered your call.
 `machine` | Platform detected an answering machine.
+`human` | Platform detected human answering the call.
 `completed` | Platform has terminated this call.
 `timeout` | Your user did not answer your call within `ringing_timer` seconds.
 `failed` | The call failed to complete
