@@ -195,13 +195,13 @@ The UI contains:
 Install the Nexmo Stitch JS SDK
 
 ```bash
-$ npm install nexmo-conversation
+$ npm install nexmo-stitch
 ```
 
 Include the Nexmo Stitch JS SDK in the `<head>`
 
 ```html
-<script src="./node_modules/nexmo-conversation/dist/conversationClient.js"></script>
+<script src="./node_modules/nexmo-stitch/dist/conversationClient.js"></script>
 ```
 
 ### 2.3 - Stubbed Out Login
@@ -357,7 +357,7 @@ setupUserEvents() {
 }
 ```
 
-That's it! Your page should now look something like [this](https://github.com/Nexmo/conversation-js-quickstart/blob/master/examples/1-simple-conversation/index.html).
+That's it! Your page should now look something like [this](https://github.com/Nexmo/stitch-js-quickstart/blob/master/examples/1-simple-conversation/index.html).
 
 Run `index.html` in two side-by-side browser windows to see the conversation take place.
 

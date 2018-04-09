@@ -27,7 +27,7 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/*
- * Conversation SDK
+ * Nexmo Stitch SDK
  *  Application Object Model
  *
  * Copyright (c) Nexmo Inc. 2015-2018
@@ -130,8 +130,8 @@ class Application {
 	 */
 
 	/*
-	* Entry point for events in Application level 
-	**/
+	 * Entry point for events in Application level 
+	 **/
 	_handleEvent(event) {
 		const cid = event.cid;
 		if (cid in this.conversations) {
@@ -147,36 +147,44 @@ class Application {
 	}
 
 	/*
-	* Update the event to map local generated events
-	* in case we need a more specific event to pass in the application listener
-	* or f/w the event as it comes 
-	**/
+	 * Update the event to map local generated events
+	 * in case we need a more specific event to pass in the application listener
+	 * or f/w the event as it comes 
+	 **/
 	_handleApplicationEvent(event) {
 		const conversation = this.conversations[event.cid];
-		const mutated_event = JSON.parse(JSON.stringify(event));
+		const copied_event = JSON.parse(JSON.stringify(event));
 		let payload;
 		switch (event.type) {
 			case 'member:invited':
 				if (conversation.me &amp;&amp; (conversation.me.user.name === event.body.invited_by)) return;
-				// identify only call type conversations to create member:call type of event. 
-				// other media invites should continue as member:invited
-				if (conversation.display_name &amp;&amp; conversation.display_name.startsWith('CALL_') &amp;&amp;
-					(mutated_event.body.user.media &amp;&amp; mutated_event.body.user.media.audio)) {
-					let caller = 'unknown';
-					if (mutated_event &amp;&amp; mutated_event.body.invited_by) {
-						caller = utils.getMemberFromNameOrNull(conversation, mutated_event.body.invited_by) || 'unknown';
+				//media audio invite
+				if (copied_event.body.user.media &amp;&amp; copied_event.body.user.media.audio) {
+					if (conversation.display_name &amp;&amp; conversation.display_name.startsWith('CALL_')) {
+						//audio call module
+						const caller = utils.getMemberFromNameOrNull(conversation, copied_event.body.invited_by) || 'unknown';
+						const call = new Call(this, conversation, caller);
+						payload = call;
+						copied_event.type = 'member:call';
+					} else {
+						payload = new Event(conversation, copied_event);
 					}
-					payload = new Call(this, conversation, caller);
-					mutated_event.type = 'member:call';
+					if (!copied_event.body.invited_by) {
+						// VAPI invites
+						const call = new Call(this, conversation, "unknown");
+						call.type = call.TYPES.PHONE
+						payload = call;
+						copied_event.type = 'member:call';
+					}
 				} else {
-					payload = new Event(conversation, mutated_event);
+					payload = new Event(conversation, copied_event);
 				}
 				break;
 			default:
-				payload = new Event(conversation, mutated_event);
+				payload = new Event(conversation, copied_event);
 				break;
 		}
-		this.emit(mutated_event.type, conversation.members[mutated_event.from], payload);
+		this.emit(copied_event.type, conversation.members[copied_event.from], payload);
 	}
 
 	/**
@@ -432,13 +440,13 @@ module.exports = Application;</code></pre>
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:call:member:state">call:member:state</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ConversationClientErrorTypes">ConversationClientErrorTypes</a></li><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li><li><a href="global.html#NexmoClientErrorTypes">NexmoClientErrorTypes</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:call:member:state">call:member:state</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Mar 22 2018 23:12:17 GMT+0000 (GMT)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Apr 04 2018 18:14:13 GMT+0100 (BST)
 </footer>
 
 <script> prettyPrint(); </script>
