@@ -182,7 +182,7 @@ Parameter | Description | Required
 `moHttpUrl` | An URL encoded URI to the webhook endpoint that handles inbound messages. Your webhook endpoint must be active before you make this request, Nexmo makes a [GET] request to your endpoint and checks that it returns a `200 OK` response. Set to empty string to clear. | No
 `moSmppSysType` | The associated system type for your SMPP client. For example `inbound`. | No
 `voiceCallbackType` | The voice webhook type. Possible values are `sip`, `tel`, or `app` | No
-`voiceCallbackValue` | A URI for your `voiceCallbackType` or an Application ID
+`voiceCallbackValue` | A SIP URI, telephone number or Application ID  | No
 `voiceStatusCallback` | A webhook URI for Nexmo to send a request to when a call ends. | No
 
 Please note, that `voiceCallbackValue` has to be used together with `voiceCallbackType` parameter.
