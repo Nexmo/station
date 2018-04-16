@@ -6,6 +6,10 @@ title: Overview
 
 We're always looking at ways to improve our documentation and platform and would love to invite you to contribute your suggestions not only to the content but also the open-source platform that it is built upon.
 
+## [Introduction to contributing](/contribute/guides/introduction)
+
+An introductory guide for first time contributors to understand how and where contributions to Nexmo Developer documentation can be made.
+
 ## [Styleguide](/contribute/guides/styleguide)
 
 The styleguide provides examples of how to implement and use all the various components throughout Nexmo Developer from typography and headings to tabbed code examples and syntax highlighting.
