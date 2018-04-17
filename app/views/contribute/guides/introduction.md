@@ -4,7 +4,7 @@ title: Introduction to contributing content
 
 # Introduction to contributing content
 
-The easiest ways to contribute to Nexmo Developers content can be found at the footer of most pages. You can either comment on the documentation usefulness or propose changes to improve the content.  
+The easiest ways to contribute to Nexmo Developer can be found in the footer of most pages. You can either comment on the documentation usefulness or propose changes to improve the content.  
 
 ## Feedback
 
