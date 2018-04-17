@@ -19,7 +19,6 @@ Number Insight Advanced Async API | <https://docs.nexmo.com/number-insight/advan
 
 Title | Link
 -- | --
-Call API | <https://docs.nexmo.com/voice/voice-deprecated/call>
 VoiceXML Quickstarts | <https://docs.nexmo.com/voice/voice-deprecated/VoiceXML>
 
 ## Deprecated Verify products
