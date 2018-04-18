@@ -4,7 +4,7 @@ title: Overview
 
 # Workflows Overview [Developer Preview]
 
-The Workflows API allows you to combine [messages](/olympus/messages/overview) sent via multiple channels and provides failover between them. This enables you to attempt to send a message to a user via Facebook or Viber, and then fall back to sending via SMS if the user does not receive or read the first message. Trying Facebook and Viber first allows you to provide a richer experience to the user including images and potentially to save money on SMS charges.
+The Workflows API allows you to combine [messages](/messages-and-workflows-apis/messages/overview) sent via multiple channels and provides failover between them. This enables you to attempt to send a message to a user via Facebook or Viber, and then fall back to sending via SMS if the user does not receive or read the first message. Trying Facebook and Viber first allows you to provide a richer experience to the user including images and potentially to save money on SMS charges.
 
 * **Send** SMS, Facebook Messenger and Viber Service Messages with Workflows built on-top of the the [Messages API](/messages-and-workflows-apis/messages/overview).
 * **Failover** to the next message if the success condition is not met within the time period or if the message immediately fails.
