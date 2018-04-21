@@ -25,6 +25,7 @@ In this document you can learn about:
 * [Building Blocks](#building-blocks)
 * [Guides](#guides)
 * [Reference](#reference)
+* [Notices](#notices)
 
 ## Concepts
 
@@ -114,3 +115,59 @@ config: 'messages_and_workflows_apis.messages.send-sms'
 
 * [Messages API Reference](/api/messages-and-workflows-apis/messages)
 * [Workflows API Reference](/api/messages-and-workflows-apis/workflows)
+
+## Notices
+
+### Adding Message Category
+
+On the 7th May Facebook Messenger will make it mandatory to tag the type of message being sent to the user. Viber Service Messages also requires that the type of message is tagged as well. The use of different tags enable the business to send messages for different use cases. For example, with Viber Service Messages it enables the business to send promotional content; with Facebook Messenger it enables updates to be send after the 24+1 window. 
+
+To reduce the burden to the developer and a breaking change in the Messages API we will set defaults for each channel. 
+
+For Facebook Messenger we send the "response" type by default.
+
+For Viber Service Messages we send the "transaction" type by default.
+
+The defaults can be overridden by using the channel specific property. For Facebook Messenger the possible values for "message_category" are "response", "update" and "message_tag". If "message_tag" is used then an additional "message_tag" for that type needs to be added. A full list of the possible tags are availble on [developer.facebook.com](https://developers.facebook.com/docs/messenger-platform/send-messages/message-tags). For Viber Service Message the possible values are "transaction" and "promotion".
+
+
+An example for Facebook Messenger:
+
+```
+ ...
+   "message":{ 
+      "content":{
+          "type": "text",
+          "text": "Nexmo"
+      },
+      "messenger": {
+         "message_category": "response",
+         "message_tag": "ticket_update"
+      }
+   }
+...
+
+```
+
+
+An example for Viber Service Messages:
+
+```
+ ...
+   "message":{ 
+      "content":{
+          "type": "text",
+          "text": "Nexmo"
+      },
+      "viber_service_msg": {
+         "message_category": "promotion"
+      }
+   }
+...
+
+```
+
+
+These defaults will be implemented on the 7th May at 12:00 GMT. It will also be possible to override the defaults as well on this date.
+
+

@@ -314,7 +314,7 @@ components:
         - workflow_uuid
       type: object
       properties:
-        worflow_uuid:
+        workflow_uuid:
           description: 'The parent ID for workflow request.'
           type: string
           example: 'aaaaaaaa-bbbb-cccc-dddd-0123456789ab'
