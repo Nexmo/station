@@ -124,15 +124,15 @@ config: 'messages_and_workflows_apis.messages.send-sms'
 
 ### Adding Message Category
 
-On the 7th May Facebook Messenger will make it mandatory to tag the type of message being sent to the user. Viber Service Messages also requires that the type of message is tagged as well. The use of different tags enable the business to send messages for different use cases. For example, with Viber Service Messages it enables the business to send promotional content; with Facebook Messenger it enables updates to be send after the 24+1 window. 
+On the 7th May 2018 Facebook Messenger will make it mandatory to tag the type of message being sent to the user. Viber Service Messages also requires that the type of message is tagged as well. The use of different tags enables the business to send messages for different use cases. For example, with Viber Service Messages, tagging enables the business to send promotional content. With Facebook Messenger tagging enables updates to be sent after the [24+1 window](https://developers.facebook.com/docs/messenger-platform/policy/policy-overview) messaging policy.
 
 To reduce the burden to the developer and a breaking change in the Messages API we will set defaults for each channel. 
 
-For Facebook Messenger we send the `response` type by default.
+For Facebook Messenger, Nexmo sends the `response` type by default.
 
-For Viber Service Messages we send the `transaction` type by default.
+For Viber Service Messages, Nexmo sends the `transaction` type by default.
 
-The defaults can be overridden by using the channel specific property. For Facebook Messenger the possible values for `message_category` are `response`, `update` and `message_tag`. If `message_tag` is used then an additional `message_tag` for that type needs to be added. A full list of the possible tags are availble on [developer.facebook.com](https://developers.facebook.com/docs/messenger-platform/send-messages/message-tags). For Viber Service Message the possible values are `transaction` and `promotion`. The first message to a user on Viber Service Messages must be a `transaction` one.
+The defaults can be overridden by using the channel specific property. For Facebook Messenger the possible values for `message_category` are `response`, `update` and `message_tag`. If `message_tag` is used, then an additional `message_tag` for that type needs to be added. A full list of the possible tags is availble on [developer.facebook.com](https://developers.facebook.com/docs/messenger-platform/send-messages/message-tags). For Viber Service Message the possible values are `transaction` and `promotion`. The first message to a user on Viber Service Messages must be a `transaction` one.
 
 An example for Facebook Messenger:
 
@@ -169,4 +169,4 @@ An example for Viber Service Messages:
 
 ```
 
-These defaults will be implemented on the 7th May at 12:00 GMT. It will also be possible to override the defaults as well on this date.
+These defaults will be implemented on the 7th May 2018 at 12:00 GMT. It will also be possible to override the defaults as well after this date.
