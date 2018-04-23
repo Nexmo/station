@@ -144,7 +144,7 @@ An example for Facebook Messenger:
           "text": "Nexmo"
       },
       "messenger": {
-         "message_category": "response",
+         "message_category": "message_tag",
          "message_tag": "ticket_update"
       }
    }
