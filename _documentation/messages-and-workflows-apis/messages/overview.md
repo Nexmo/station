@@ -59,7 +59,11 @@ In order to create a JWT to authenticate your requests, you will need to create 
 
 You will be asked to provide an Event URL and an Answer URL when creating a Voice Application. These are currently only used by the Voice API and are ignored by the Messages and Workflows APIs. Instead the Messages API and Workflows API use the Delivery Receipt and Inbound Message URLs that you set in [Settings](https://dashboard.nexmo.com/settings).
 
-Once you have created a Voice application you can use the application ID and private key to generate a JWT. There is more information on [Voice Application management](https://www.nexmo.com/blog/2017/06/29/voice-application-management-easier/) and the use of [Nexmo libraries](https://developer.nexmo.com/tools).
+Once you have created a Voice application you can use the application ID and private key to generate a JWT. For more information please visit:
+
+* [Authenticaion with JWTs](https://developer.nexmo.com/concepts/guides/authentication#json-web-tokens-jwt).
+* Blog post on [Voice Application management](https://www.nexmo.com/blog/2017/06/29/voice-application-management-easier/).
+* [Nexmo libraries](https://developer.nexmo.com/tools).
 
 If you're using the Nexmo CLI the command is:
 
@@ -124,12 +128,11 @@ On the 7th May Facebook Messenger will make it mandatory to tag the type of mess
 
 To reduce the burden to the developer and a breaking change in the Messages API we will set defaults for each channel. 
 
-For Facebook Messenger we send the "response" type by default.
+For Facebook Messenger we send the `response` type by default.
 
-For Viber Service Messages we send the "transaction" type by default.
+For Viber Service Messages we send the `transaction` type by default.
 
-The defaults can be overridden by using the channel specific property. For Facebook Messenger the possible values for "message_category" are "response", "update" and "message_tag". If "message_tag" is used then an additional "message_tag" for that type needs to be added. A full list of the possible tags are availble on [developer.facebook.com](https://developers.facebook.com/docs/messenger-platform/send-messages/message-tags). For Viber Service Message the possible values are "transaction" and "promotion".
-
+The defaults can be overridden by using the channel specific property. For Facebook Messenger the possible values for `message_category` are `response`, `update` and `message_tag`. If `message_tag` is used then an additional `message_tag` for that type needs to be added. A full list of the possible tags are availble on [developer.facebook.com](https://developers.facebook.com/docs/messenger-platform/send-messages/message-tags). For Viber Service Message the possible values are `transaction` and `promotion`.
 
 An example for Facebook Messenger:
 
@@ -149,7 +152,6 @@ An example for Facebook Messenger:
 
 ```
 
-
 An example for Viber Service Messages:
 
 ```
@@ -167,7 +169,4 @@ An example for Viber Service Messages:
 
 ```
 
-
 These defaults will be implemented on the 7th May at 12:00 GMT. It will also be possible to override the defaults as well on this date.
-
-
