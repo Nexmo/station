@@ -132,7 +132,7 @@ For Facebook Messenger, Nexmo sends the `response` type by default.
 
 For Viber Service Messages, Nexmo sends the `transaction` type by default.
 
-The defaults can be overridden by using the channel specific property. For Facebook Messenger the possible values for `message_category` are `response`, `update` and `message_tag`. If `message_tag` is used, then an additional `message_tag` for that type needs to be added. A full list of the possible tags is available on [developer.facebook.com](https://developers.facebook.com/docs/messenger-platform/send-messages/message-tags). For Viber Service Message the possible values are `transaction` and `promotion`. The first message to a user on Viber Service Messages must be a `transaction` one.
+The defaults can be overridden by using the channel specific property. For Facebook Messenger the possible values for `category` are `response`, `update` and `message_tag`. If `message_tag` is used, then an additional `message_tag` for that type needs to be added. A full list of the possible tags is available on [developer.facebook.com](https://developers.facebook.com/docs/messenger-platform/send-messages/message-tags). For Viber Service Message the possible values are `transaction` and `promotion`. The first message to a user on Viber Service Messages must be a `transaction` one.
 
 An example for Facebook Messenger:
 
@@ -144,7 +144,7 @@ An example for Facebook Messenger:
           "text": "Nexmo"
       },
       "messenger": {
-         "message_category": "message_tag",
+         "category": "message_tag",
          "message_tag": "ticket_update"
       }
    }
@@ -162,7 +162,7 @@ An example for Viber Service Messages:
           "text": "Nexmo"
       },
       "viber_service_msg": {
-         "message_category": "promotion"
+         "category": "promotion"
       }
    }
 ...
