@@ -57,7 +57,7 @@ In this Getting Started section we will show you how you can send an SMS. The sa
 
 ### 1. Configure your Delivery Receipt and Inbound Message endpoint with Nexmo
 
-To receive updates about the state of a message (i.e. "delivered" or "read") you have just sent and to receive inbound messages from your customers you will need to configure an endpoint for Nexmo to send message to. If you don't have a webhook server set up you can use a service like [requestb.in](https://requestb.in/) for free. If the endpoint in your account is already in production and you would like a second one for using the Messages API, please email [support@nexmo.com](mailto:support@nexmo.com) and ask for a sub API Key.
+To receive updates about the state of a message (i.e. "delivered" or "read") you have just sent and to receive inbound messages from your customers you will need to configure an endpoint for Nexmo to send message to. If you don't have a webhook server set up you can use a service like [hookbin.com](https://hookbin.com/) for free. If the endpoint in your account is already in production and you would like a second one for using the Messages API, please email [support@nexmo.com](mailto:support@nexmo.com) and ask for a sub API Key.
 
 From [Nexmo Dashboard](https://dashboard.nexmo.com) go to [Settings](https://dashboard.nexmo.com/settings).
 
