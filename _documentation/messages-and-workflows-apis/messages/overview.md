@@ -6,6 +6,23 @@ title: Overview
 
 The Messaging API is a single API that enables easy integration with various communication channels such as: SMS, Facebook Messenger and Viber.
 
+```
+curl -X POST https://api.nexmo.com/beta/messages \
+  -H 'Authorization: Basic base64(API_KEY:API_SECRET)'\
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json' \
+  -d $'{
+    "from": { "type": "sms", "number": "TO_NUMBER" },
+    "to": { "type": "sms", "number": "FROM_NUMBER" },
+    "message": {
+      "content": {
+        "type": "text",
+        "text": "This is an SMS sent from the Messages API"
+      }
+    }
+  }'
+```
+
 This API is currently in Developer Preview and you will need to [request access](https://www.nexmo.com/products/messages) to use it.
 
 During Developer Preview we will expand the capabilities of the API. Please visit the API Reference for a comprehensive breakdown and on high level we currently support:
@@ -31,7 +48,7 @@ In this document you can learn about:
 
 To use the Messages API, you may need to familiarise yourself with:
 
-* **[Authentication](/concepts/guides/authentication)** - The Messages API is authenticated with JWT.
+* **[Authentication](/concepts/guides/authentication)** - The Messages API is authenticated with either [Header-based API Key & Secret Authentication](/concepts/guides/authentication#header-based-api-key-secret-authentication) or [JSON Web Tokens (JWT)](/concepts/guides/authentication#json-web-tokens-jwt).
 * **[Workflows](/messages-and-workflows-apis/workflows/overview)** - The Workflow API is used to combine messages together with logic to allow for failover.
 
 ## Getting Started
@@ -40,7 +57,7 @@ In this Getting Started section we will show you how you can send an SMS. The sa
 
 ### 1. Configure your Delivery Receipt and Inbound Message endpoint with Nexmo
 
-To receive updates about the state of a message (i.e. "delivered" or "read") you have just sent and to receive inbound messages from your customers you will need to configure an endpoint for Nexmo to send message to. If you don't have a webhook server set up you can use a service like [requestb.in](https://requestb.in/) for free.
+To receive updates about the state of a message (i.e. "delivered" or "read") you have just sent and to receive inbound messages from your customers you will need to configure an endpoint for Nexmo to send message to. If you don't have a webhook server set up you can use a service like [requestb.in](https://requestb.in/) for free. If the endpoint in your account is already in production and you would like a second one for using the Messages API, please email [support@nexmo.com](mailto:support@nexmo.com) and ask for a sub API Key.
 
 From [Nexmo Dashboard](https://dashboard.nexmo.com) go to [Settings](https://dashboard.nexmo.com/settings).
 
@@ -50,6 +67,8 @@ Set the HTTP Method to POST and enter your endpoint in the fields labeled **Webh
 script: app/screenshots/webhook-url-for-inbound-message.js
 image: public/assets/screenshots/dashboardSettings.png
 ```
+
+
 
 ### 2. Generate a JWT to Authenticate with Nexmo
 
