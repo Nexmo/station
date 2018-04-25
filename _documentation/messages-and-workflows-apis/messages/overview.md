@@ -68,8 +68,6 @@ script: app/screenshots/webhook-url-for-inbound-message.js
 image: public/assets/screenshots/dashboardSettings.png
 ```
 
-
-
 ### 2. Generate a JWT to Authenticate with Nexmo
 
 The Messages API authenticates using JSON Web Tokens (JWTs).
