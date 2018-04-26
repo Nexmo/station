@@ -57,7 +57,7 @@ In this Getting Started section we will show you how you can send an SMS. The sa
 
 ### 1. Configure your Delivery Receipt and Inbound Message endpoint with Nexmo
 
-To receive updates about the state of a message (i.e. "delivered" or "read") you have just sent and to receive inbound messages from your customers you will need to configure an endpoint for Nexmo to send message to. If you don't have a webhook server set up you can use a service like [hookbin.com](https://hookbin.com/) for free. If the endpoint in your account is already in production and you would like a second one for using the Messages API, please email [support@nexmo.com](mailto:support@nexmo.com) and ask for a sub API Key.
+To receive updates about the state of a message (i.e. "delivered" or "read") you have just sent and to receive inbound messages from your customers you will need to configure an endpoint for Nexmo to send messages to. If you don't have a webhook server set up you can use a service like [hookbin.com](https://hookbin.com/) for free. If the endpoint in your account is already in production and you would like a second one for using the Messages API, please email [support@nexmo.com](mailto:support@nexmo.com) and ask for a sub API Key.
 
 From [Nexmo Dashboard](https://dashboard.nexmo.com) go to [Settings](https://dashboard.nexmo.com/settings).
 
@@ -139,7 +139,7 @@ config: 'messages_and_workflows_apis.messages.send-sms'
 
 ## Notices
 
-### Adding Message Category
+### Adding Category and Tag
 
 On the 7th May 2018 Facebook Messenger will make it mandatory to tag the type of message being sent to the user. Viber Service Messages also requires that the type of message is tagged as well. The use of different tags enables the business to send messages for different use cases. For example, with Viber Service Messages, tagging enables the business to send promotional content. With Facebook Messenger tagging enables updates to be sent after the [24+1 window](https://developers.facebook.com/docs/messenger-platform/policy/policy-overview) messaging policy.
 
