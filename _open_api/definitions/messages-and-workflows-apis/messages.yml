@@ -409,7 +409,7 @@ components:
                 - update
                 - message_tag
             tag:
-              description: ‘A full list of the possible tags is available on [developer.facebook.com](https://developers.facebook.com/docs/messenger-platform/send-messages/message-tags)'
+              description: ‘A full list of the possible tags is available on [developers.facebook.com](https://developers.facebook.com/docs/messenger-platform/send-messages/message-tags)'
               type: string
               example: 'ticket_update'
 
