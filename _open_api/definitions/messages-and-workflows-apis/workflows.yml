@@ -214,7 +214,7 @@ components:
           type: object
           properties:
             category:
-              description: 'The use of different category tags enables the business to send messages for different use cases. For Viber Service Messages the first message sent from a business to a user must be personal, informative & a targeted message - not promotional. By default Nexmo sends the `transaction` category to Viber Service Messages.'
+              description: 'The use of different category tags enables the business to send messages for different use cases. For Viber Service Messages the first message sent from a business to a user must be personal, informative and a targeted message - not promotional. By default Nexmo sends the `transaction` category to Viber Service Messages.'
               type: string
               example: 'transaction'
               enum:
@@ -238,7 +238,7 @@ components:
                 - update
                 - message_tag
             tag:
-              description: ‘A full list of the possible tags is available on [developer.facebook.com](https://developers.facebook.com/docs/messenger-platform/send-messages/message-tags)'
+              description: ‘A full list of the possible tags is available on [developers.facebook.com](https://developers.facebook.com/docs/messenger-platform/send-messages/message-tags)'
               type: string
               example: 'ticket_update'
 
