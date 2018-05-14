@@ -190,7 +190,7 @@ Thats's it! Your page should now look something like [this](https://github.com/N
 
 ### 1.6 - Calling a Stitch user from a phone
 
-After you've set up you're app to handle incoming calls, you can follow the [PSTN to IP tutorial](https://www.nexmo.com/blog/2018/05/11/connect-phone-call-to-stitch-in-app-voice-dr/) published on our blog to find out how you can connect a phone call to a Stitch user. Now you can make PSTN Phone Calls via the Nexmo Voice API and receive those calls via the Stitch SDK.
+After you've set up you're app to handle incoming calls, you can follow the [PSTN to IP tutorial](https://www.nexmo.com/blog/2018/05/13/connect-phone-call-to-stitch-in-app-voice-dr/) published on our blog to find out how you can connect a phone call to a Stitch user. Now you can make PSTN Phone Calls via the Nexmo Voice API and receive those calls via the Stitch SDK.
 
 ## Where next?
 
