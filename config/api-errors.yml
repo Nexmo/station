@@ -1,4 +1,6 @@
 products:
+  sms:
+    title: SMS API
   redact:
     title: Redact API
 
