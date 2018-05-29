@@ -25,7 +25,9 @@ If you are sending a message with type value of `text` then the following charac
 | 3 | 456 | `(160 - 8) * 3 = 456` |
 | 4 | 608 | `(160 - 8) * 4 = 608` |
 
-If your SMS uses Unicode the number of characters you can send per part depends on how many bytes the ligatures that you are sending require. Use this tool to test with your message templates:
+If your SMS uses a Unicode character outside of the GSM standard or extended table then every character in the message will be encoding using UCS-2.
+
+Use this tool to test with your message templates:
 
 ```partial
 source: app/views/tools/concatenation.html
