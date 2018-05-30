@@ -76,3 +76,7 @@ In the above example code you will need to:
 3. Replace `FROM_NUMBER` and `TO_NUMBER` with suitable phone numbers. The `FROM_NUMBER` would typically be a Nexmo Number but also could be any other number you own. The `TO_NUMBER` is the number of the phone to which the message will be sent. 
 
 NOTE: Throughout the Nexmo APIs numbers are always specified in E.164 format, for example, 447700900000.
+
+### Run the code
+
+The example code will send a message via Facebook Messenger and if not read within the expiry time an SMS will be sent.
