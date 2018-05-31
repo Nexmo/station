@@ -20,15 +20,15 @@ This guide will introduce you to the following concepts.
 * Create a free Nexmo account - [signup](https://dashboard.nexmo.com)
 * Install the Nexmo CLI:
 
-    ```bash
-    $ npm install -g nexmo-cli@beta
-    ```
+```bash
+$ npm install -g nexmo-cli@beta
+```
 
-    Setup the CLI to use your Nexmo API Key and API Secret. You can get these from the [setting page](https://dashboard.nexmo.com/settings) in the Nexmo Dashboard.
+Setup the CLI to use your Nexmo API Key and API Secret. You can get these from the [setting page](https://dashboard.nexmo.com/settings) in the Nexmo Dashboard.
 
-    ```bash
-    $ nexmo setup api_key api_secret
-    ```
+```bash
+$ nexmo setup api_key api_secret
+```
 
 
 ## Set up instructions
@@ -59,12 +59,13 @@ The new or existing application should be used to generate a user JWT that your 
 When you use one of the Nexmo Stitch SDKs to make a PSTN call, you'll pass in the PSTN number you want to call as an argument to that SDK's `callPhone()` method. Then the Stitch API will make a request to your answer URL `https://example.com/answer` with the following parameters:
 
 ```
-?to=14155550100\
+?from=demo
+&to=14155550100\
 &conversation_uuid=CON-4e977dab-2abc-42b5-bf64-d468d4763e54\
-&uuid=0666edbe58077d826944a7c1913da2b0
+&uuid=NONE
 ```
 
-We can use the `to` parameter to dynamically tell Nexmo which phone number to call.
+We can use the `to` parameter to dynamically tell Nexmo which phone number to call. The `from` parameter is the name of the Stitch user that initiated the call. The `conversation_uuid` is the ID of the conversation that is created for the IP and PSTN user for this call. The `UUID` parameter does not apply to this guide.
 
 ## Setting up the answer and event URLs
 
