@@ -28,7 +28,7 @@ implementation 'com.nexmo:stitch:1.4.0'
 
 Now that you have the SDK included in your project, you'll need to create a new instance on the `ConversationClient`. You can do this in a new Activity where you'll be making the outbound PSTN call. For this purpose let's create a `CallActivity` with and its layout:
 
-```kotlin
+```java
 class CallActivity : BaseActivity() {
     private var currentCall: Call? = null
     private lateinit var client: ConversationClient
@@ -85,7 +85,7 @@ In this example we're assuming the user has already logged in with the `conversa
 
 Now that we've set up our `CallActivity` we can add the PSTN calling functionality. To do this we'll need to make some changes to the Activity. First in the `onCreate` method let's set the click listener for the `callControlBtn`.
 
-```kotlin
+```java
 override fun onCreate(savedInstanceState: Bundle?) {
   ...
   callControlBtn.setOnClickListener { callPhone() }
@@ -94,7 +94,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
 
 Now that we've set up the click listener, we need to implement the `callPhone()` and `endCall()` methods:
 
-```kotlin
+```java
 fun callPhone() {
     val phoneNumber = phoneNumberInput.text.toString()
 

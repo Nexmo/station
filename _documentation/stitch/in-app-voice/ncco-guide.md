@@ -1,10 +1,10 @@
 ---
-title: Outbound PSTN Calling NCCO guide
+title: NCCO for Outbound Phone Calls
 ---
 
 # Outbound PSTN Calling NCCO guide
 
-In this guide we'll demonstrate how to set up a dynamic answer URL with an NCCO that will Nexmo Stitch In-App Voice to make outbound PSTN calls. After completing this guide, you can follow along with the JavaScript, Android, or iOS guides.
+In this guide we'll demonstrate how to set up a dynamic answer URL with NCCO that will allow you to make outbound PSTN calls from within your application. After completing this guide, you can follow along with the JavaScript, Android, or iOS guides.
 
 ## Concepts
 
