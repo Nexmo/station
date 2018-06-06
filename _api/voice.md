@@ -119,7 +119,7 @@ This request contains:
 
 * A [Base URL](#crabase)
 * [Parameters](#craparameters)
-* [JWT](#jwt_minting)
+* [JWT](#generating-a-jwt)
 
 You receive the call details in the [response](#craresponse).
 
@@ -270,7 +270,7 @@ Key | Value
 
 You can use a [PUT] request to modify an existing call. You can use this to terminate a call, mute or unmute a call, "earmuff" a call (which suspends audio to one call) or "unearmuff" it, and to transfer the call to a different NCCO.
 
-These requests must be authenticated using a [JSON Web Token (JWT)](#jwt_minting).
+These requests must be authenticated using a [JSON Web Token (JWT)](#generating-a-jwt).
 
 #### Base URL
 
@@ -324,7 +324,7 @@ This request contains:
 
 * A [Base URL](#cspbase)
 * [Payload](#cspparameters )
-* [JWT](#jwt_minting)
+* [JWT](#generating-a-jwt)
 
 Information about streaming is sent to you in the:
 
@@ -372,7 +372,7 @@ This request contains:
 
 * A [Base URL](#csdbase)
 * [Payload](#csdparameters )
-* [JWT](#jwt_minting)
+* [JWT](#generating-a-jwt)
 
 Information about streaming is sent to you in the:
 
@@ -420,7 +420,7 @@ This request contains:
 
 * A [Base URL](#ctpbase)
 * [Payload](#ctpparameters )
-* [JWT](#jwt_minting)
+* [JWT](#generating-a-jwt)
 
 Information about streaming is sent to you in the:
 
@@ -469,7 +469,7 @@ This request contains:
 
 * A [Base URL](#ctdbase)
 * [Payload](#ctdparameters )
-* [JWT](#jwt_minting)
+* [JWT](#generating-a-jwt)
 
 Information about the synthesized audio is sent to you in the:
 
@@ -517,7 +517,7 @@ This request contains:
 
 * A [Base URL](#dtmfbase)
 * [Payload](#dtmfparameters )
-* [JWT](#jwt_minting)
+* [JWT](#generating-a-jwt)
 
 Information about this request is sent to you in the:
 
@@ -558,8 +558,8 @@ Key | Value
 
 Each call you make to this API must have:
 
-* [Security](#security)
-* [Encoding](#encode)
+* [Security](#security-and-authentication)
+* [Encoding](#encoding)
 
 ### Encoding
 
@@ -633,3 +633,5 @@ The error format is standardized to the `4xx`/`5xx` range with a code and a huma
   }
 }
 ```
+
+The `invalid_parameters` property is optional and will not be returned for `401 Unauthorized` errors.
