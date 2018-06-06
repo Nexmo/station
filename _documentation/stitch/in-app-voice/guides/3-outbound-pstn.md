@@ -1,5 +1,5 @@
 ---
-title: Outbound PSTN Calling
+title: Outbound Phone Calls
 navigation_weight: 3
 ---
 

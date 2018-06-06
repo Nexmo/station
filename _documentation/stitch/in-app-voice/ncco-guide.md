@@ -4,7 +4,7 @@ title: NCCO for Outbound Phone Calls
 
 # Outbound PSTN Calling NCCO guide
 
-In this guide we'll demonstrate how to set up a dynamic answer URL with NCCO that will allow you to make outbound PSTN calls from within your application. After completing this guide, you can follow along with the JavaScript, Android, or iOS guides.
+In this guide we'll demonstrate how to set up a dynamic answer URL with NCCO that will allow you to make outbound PSTN calls from within your application. After completing this guide, you can follow along with the [JavaScript, Android, or iOS guides](/stitch/in-app-voice/guides/3-outbound-pstn).
 
 ## Concepts
 
@@ -94,6 +94,8 @@ After you've implemented the `callPhone()` method and called it in your project 
 
 ## Where next?
 
-After reading this guide, you should read more about implementing outbound PSTN calling with the JavaScript, Android or iOS SDKs.
+An example of an answer URL with a dynamic NCCO object using the `NEXMO_NUMBER` and `TO_NUMBER` is available in the [IP to PSTN glitch demo project](https://glitch.com/edit/#!/nexmo-ip-to-pstn)
 
-If you'd like to see an example of an answer URL with a dynamic NCCO object using the `NEXMO_NUMBER` and `TO_NUMBER` refer to the [IP to PSTN glitch project](https://glitch.com/edit/#!/nexmo-ip-to-pstn)
+After reading this guide, you should read more about implementing outbound PSTN calling with the [JavaScript, Android or iOS SDKs](/stitch/in-app-voice/guides/3-outbound-pstn).
+
+If you'd like to learn more about other actions you can use in your NCCO to control the flow of a call such as recording, sending audio files or synthesized speech, you can read more about that in the [NCCO reference guide for the Voice API](/api/voice/ncco).
