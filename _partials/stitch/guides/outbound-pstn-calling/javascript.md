@@ -1,6 +1,6 @@
 ---
 title: JavaScript
-platform: javascript
+language: javascript
 ---
 
 # Outbound PSTN Calling guide for JavaScript
