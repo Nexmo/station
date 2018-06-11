@@ -1,4 +1,9 @@
-# Getting Started with the Nexmo Stitch JS SDK
+---
+title: JavaScript
+platform: javascript
+---
+
+# Outbound PSTN Calling guide for JavaScript
 
 In this getting started guide we'll cover adding call methods for phone numbers to the Conversation we created in the [simple conversation with user calling](/stitch/in-app-messaging/guides/5-calling-users/javascript) getting started guide. We'll deal with member call events that trigger on the application and call state events that trigger on the Call object.
 
