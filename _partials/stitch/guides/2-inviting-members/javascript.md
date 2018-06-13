@@ -3,7 +3,7 @@ title: JavaScript
 language: javascript
 ---
 
-# Getting Started with the Nexmo Stitch JavaScript SDK
+# Inviting Members with the Nexmo Stitch JavaScript SDK
 
 In this getting started guide we'll cover creating a second user and inviting them to the Conversation we created in the [simple conversation](/stitch/in-app-messaging/guides/1-simple-conversation/javascript) getting started guide. From there we'll list the conversations that are available to the user and upon receiving an invite to new conversations we'll automatically join them.
 

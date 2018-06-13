@@ -280,3 +280,15 @@ The HTML `<audio>` element can be utilised in Markdown with the following syntax
 This produces the following output:
 
 🔈[https://developer.nexmo.com.s3.amazonaws.com/assets/ssml/06-phonemes.mp3]
+
+## Dynamic content
+
+You can use sytax such as:
+
+````
+Welcome to [~dynamic_content_example~]
+````
+
+This will render as:
+
+Welcome to [~dynamic_content_example~]
