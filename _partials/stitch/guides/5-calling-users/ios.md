@@ -139,7 +139,7 @@ We no longer need the generic do-try-catch.  Inside of the function, however, we
 ```
 ## 3.0 Try it out!
 
-There it is. If a member is present in the chat, then he or she may be called. Open the app on two devices. Now run the app on two devices (make sure they have a working mic and speakers!), making sure to login with the user name jamie in one and with alice in the other. Call one from the other, accept the call and start talking. You'll also see events being logged Logcat.
+There it is. If a member is present in the chat, then he or she may be called. Open the app on two devices. Now run the app on two devices (make sure they have a working mic and speakers!), making sure to login with one user name in one and with another in the other. Call one from the other, accept the call and start talking. You'll also see events being logged. If you would like, you can compare codebases [here](https://github.com/Nexmo/stitch-ios-quickstart/tree/master/examples/convenience-calling). 
 
 # Calling a Stitch user from a phone
 
@@ -147,5 +147,5 @@ After you've set up you're app to handle incoming calls, you can follow [the PST
 
 # Where next?
 
-Have a look at the Nexmo [Conversation iOS SDK API Reference](https://developer.nexmo.com/sdk/stitch/ios/).
+Have a look at the Nexmo [Conversation iOS SDK API Reference](https://developer.nexmo.com/sdk/stitch/ios/). 
 
