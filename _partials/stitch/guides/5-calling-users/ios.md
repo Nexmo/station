@@ -5,7 +5,7 @@ platform: ios
 
 # Call Convenience methods for Stitch and iOS
 
-In this getting started guide we'll cover adding call methods to the Conversation we created in the [simple conversation with audio](/stitch/in-app-messaging/guides/4-enable-audio/ios) getting started guide. We'll deal with member call events that trigger on the application and call state events that trigger on the Call object.
+In this getting started guide we'll cover adding call methods to the Conversation we created in the [simple conversation with audio](/stitch/in-app-voice/guides/1-enable-audio/ios) getting started guide. We'll deal with member call events that trigger on the application and call state events that trigger on the Call object.
 
 The main difference between using these Call convenience methods and enabling and disabling the audio in the previous quickstart is that these methods do a lot of the heavy lifting for you. By calling a user directly, a new conversation is created, and users are automatically invited to the new conversation with audio enabled. This can make it easier to start a separate direct call to a user or start a private group call among users.
 
@@ -18,11 +18,11 @@ This guide will introduce you to the following concepts.
 
 
 ### Before you begin
-- Ensure you have run through the [previous guide](/stitch/in-app-messaging/guides/4-enable-audio/ios) 
+- Ensure you have run through the [previous guide](/stitch/in-app-voice/guides/1-enable-audio/ios) 
 
 ### 1.0 - Updating iOS App
 
-We will use the application we already created for [the first audio getting started guide](/stitch/in-app-messaging/guides/4-enable-audio/ios). All the basic setup has been done in the previous guides and should be in place. We can now focus on updating the client-side application.
+We will use the application we already created for [the first audio getting started guide](/stitch/in-app-voice/guides/1-enable-audio/ios). All the basic setup has been done in the previous guides and should be in place. We can now focus on updating the client-side application.
 
 ### 1.1 Modify the ChatController with `.storyboard` files 
 To modify the `.storyboard` to accomodate a call convenience method, let's perform the following changes: 
