@@ -139,6 +139,13 @@ We no longer need the generic do-try-catch.  Inside of the function, however, we
 ```
 ## 3.0 Try it out!
 
-There it is. If a member is present in the chat, then he or she may be called. 
+There it is. If a member is present in the chat, then he or she may be called. Open the app on two devices. Now run the app on two devices (make sure they have a working mic and speakers!), making sure to login with the user name jamie in one and with alice in the other. Call one from the other, accept the call and start talking. You'll also see events being logged Logcat.
 
+# Calling a Stitch user from a phone
+
+After you've set up you're app to handle incoming calls, you can follow [the PSTN to IP tutorial](https://www.nexmo.com/blog/2018/05/13/connect-phone-call-to-stitch-in-app-voice-dr/) published on our blog to find out how you can connect a phone call to a Stitch user. Now you can make PSTN Phone Calls via the Nexmo Voice API and receive those calls via the Stitch SDK. 
+
+# Where next?
+
+Have a look at the Nexmo [Conversation iOS SDK API Reference](https://developer.nexmo.com/sdk/stitch/ios/).
 
