@@ -3,9 +3,9 @@ title: iOS
 platform: ios
 ---
 
-# Nexmo In-App to Phone Calling, or, Outbound PSTN Calling for iOS with Swift
+# Outbound PSTN Calling for iOS with Swift
  
-In this getting started guide we'll cover how to make an outbound PSTN call from your Android app using the Nexmo Stitch SDK.
+In this getting started guide we'll cover how to make an outbound PSTN call from your iOS app using the Nexmo Stitch SDK.
 
 ## Concepts
 
@@ -27,22 +27,16 @@ To set up the Nexmo In-App to Phone Calling in iOS with Swift, you will need to 
 First you'll need the latest version of the Nexmo Stitch SDK in your `ViewController.swift`.
 
 ```
- // TODO: STEP 1
- import Stitch
+import Stitch
 ```
 
 Now that you have the SDK included in your project, you'll ned to create a new instance of the `ConversationClient`. You can do this in your `ViewController.swift` where you'll be making your outbound PSTN call. 
 
  ```
- // TODO: STEP 2
  private var call: Call?
  ```
  
  ```
-    // MARK:
-    // MARK: Lifecycle
-    
-    // TODO: STEP 3
     override func viewDidLoad() {
         super.viewDidLoad()
         ConversationClient.configuration = Configuration.init(with: .info)
@@ -55,10 +49,6 @@ Now that you have the SDK included in your project, you'll ned to create a new i
 In this example we're assuming the user has already logged in with the `conversationClient.login()` method. For more details about how to implement that read the [simple conversation quickstart](/stitch/in-app-messaging/guides/1-simple-conversation/swift).
  
  ```   
-    // MARK:
-    // MARK: Action
-        
-    // TODO: STEP 4
    @IBAction
    func makeCall() {
        guard let number = textfield.text else { return }
@@ -75,7 +65,6 @@ In this example we're assuming the user has already logged in with the `conversa
 
 
 ```
-   // TODO: STEP 5
      @IBAction
      func hangup() {
          call?.hangUp(onSuccess: {
@@ -100,4 +89,4 @@ After you've followed along with this quickstart, you will be able to make a cal
 
 ## Where next?
  
-You can view the source code for this [quickstart on GitHub](https://github.com/Nexmo/stitch-ios-quickstart/examples/call-convenenience).
+You can view the source code for this [quickstart on GitHub](https://github.com/Nexmo/stitch-ios-quickstart/tree/master/examples/ip-pstn_phone-calling/ip-pstn_phone-calling).
