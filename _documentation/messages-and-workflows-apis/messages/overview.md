@@ -58,7 +58,7 @@ The following code shows how to send an SMS message using the Messages API:
 
 ```
 curl -X POST https://api.nexmo.com/beta/messages \
-     -u 'API_KEY:API_SECRET' \
+     -u 'NEXMO_API_KEY:NEXMO_API_SECRET' \
      -H 'Content-Type: application/json' \
      -H 'Accept: application/json' \
      -d $'{
@@ -77,8 +77,8 @@ In the above example you will need to replace the following variable with actual
 
 Key | Description
 -- | --
-`API_KEY` | Nexmo API key which can be obtained from your Nexmo Dashboard.
-`API_SECRET` | Nexmo API secret which can be obtained from your Nexmo Dashboard.
+`NEXMO_API_KEY` | Nexmo API key which can be obtained from your Nexmo Dashboard.
+`NEXMO_API_SECRET` | Nexmo API secret which can be obtained from your Nexmo Dashboard.
 `FROM_NUMBER` | A phone number you own or some text to identify the sender.
 `TO_NUMBER` | The number of the phone to which the message will be sent.
 
