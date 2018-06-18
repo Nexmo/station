@@ -116,6 +116,7 @@ Some additional points to bear in mind:
 * Avoid subjective phrases. "You can easily...". "It is simple to...".
 * Avoid statements that predict the future, for example, "the next version will have super xxx feature...". There are good legal reasons for avoiding predicting the future.
 * Avoid time sensitive information. Specify an exact version where possible, for example '1.1', rather than 'current version' as the current version may change.
+* Avoid using ampersand instead of 'and', unless you are specifying a programming language operator or similar.
 
 ### Replaceable values
 
@@ -135,7 +136,7 @@ SNS ARN | `arn:aws:sns:us-east-1:01234567890:example` | -
 
 ### Numbers
 
-When using a real number is not avoidable, for example when listing out the result of `nexmo numbers:list` in the CLI, use the following numbers:
+When use of a real phone number can't be avoided, for example when listing out the result of `nexmo numbers:list` in the CLI, use the following numbers:
 
 #### US Numbers
 

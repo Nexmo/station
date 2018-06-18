@@ -22,7 +22,7 @@ It's important to make sure that the user has a grasp of subjects that are commo
 
 ## Getting started
 
-This section is designed to prove to the user the product does what it claims to. This could be an interactive demonstration or an opinionated & basic getting started guide.
+This section is designed to prove to the user the product does what it claims to. This could be an interactive demonstration or an opinionated and basic getting started guide.
 
 ## Features
 
