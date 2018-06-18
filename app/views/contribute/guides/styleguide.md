@@ -1,10 +1,11 @@
 ---
-title: Styleguide
+title: Markdown style guide
+navigation_weight: 3
 ---
 
 ⚓ Anchor Example
 
-# Styleguide
+# Markdown style guide
 
 Here is a complete overview of the basic markdown and custom plugins that Nexmo Developer supports.
 
