@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: Event</title>
+    <title>JSDoc: Source: handlers/sip_events.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,135 +17,54 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: Event</h1>
+    <h1 class="page-title">Source: handlers/sip_events.js</h1>
 
     
 
 
 
-
-<section>
-
-<header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>Event<span class="signature">()</span><span class="type-signature"></span></h2>
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-
-    
-
-    
-    <h4 class="name" id="Event"><span class="type-signature"></span>new Event<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Conversation Event Object.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="events_event.js.html">events/event.js</a>, <a href="events_event.js.html#line14">line 14</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const logger = require('loglevel');
+
+/**
+ * Handle sip Events
+ *
+ * @class SipEventHandler
+  */
+class SipEventHandler {
+	constructor(application) {
+		this.log = logger.getLogger(this.constructor.name);
+		this.application = application;
+	}
+
+	/**
+	 * Entry point for events in Application level
+	 * The event belongs to a call Object
+	 * @private
+	 */
+	_handleSipCallEvent(event) {
+		if (!this.application.calls.has(event.cid)) {
+			this.log.warn('There is no call object for this Conversation id.');
+			return;
+		}
+		const event_call = this.application.calls.get(event.cid);
+		switch (event.type) {
+			case 'sip:ringing':
+				event_call._handleStateChange(event);
+				break;
+			default:
+				break;
+		}
+	}
+
+}
+
+module.exports = SipEventHandler;
+</code></pre>
+        </article>
+    </section>
 
 
 
