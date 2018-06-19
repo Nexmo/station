@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: Event</title>
+    <title>JSDoc: Source: utils.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,135 +17,122 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: Event</h1>
+    <h1 class="page-title">Source: utils.js</h1>
 
     
 
 
 
-
-<section>
-
-<header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>Event<span class="signature">()</span><span class="type-signature"></span></h2>
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-
-    
-
-    
-    <h4 class="name" id="Event"><span class="type-signature"></span>new Event<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Conversation Event Object.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="events_event.js.html">events/event.js</a>, <a href="events_event.js.html#line14">line 14</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/*
+ * Nexmo Stitch SDK
+ *  Utility functions
+ *
+ * Copyright (c) Nexmo Inc. 2015-2018
+ */
+var uuid = require('uuid');
+
+
+
+/**
+ * Utilities class for the SDK.
+ *  
+ * @class Utils
+ */
+class Utils {
+    /**
+     * Get the Member from the username of a conversation
+     * 
+     * @param {string} username the username of the member to get
+     * @param {Conversation} conversation the Conversation to search in
+     * @returns {Member} the requested Member
+     * @static
+     * @private
+     */
+    static getMemberFromNameOrNull(conversation, username) {
+        if (!conversation || !username) return null;
+        for (var member_id in conversation.members) {
+            if (conversation.members[member_id].user.name === username) {
+                return conversation.members[member_id];
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Perform a network GET request to the given url with the given data object
+     * 
+     * @param {string} url the url to GET
+     * @param {object} [data] the data to send
+     * @returns {Promise&lt;XMLHttpRequest.response>} the XMLHttpRequest.response
+     * @static
+     * @private
+     */
+    static networkFetch(url, data) {
+        return Utils.getToken().then((token) => {
+
+            return new Promise((resolve, reject) => {
+                const xhr = new XMLHttpRequest();
+                xhr.open("GET", url);
+                xhr.setRequestHeader("Authorization", "Bearer " + token);
+                xhr.responseType = 'arraybuffer';
+                xhr.onload = function() {
+                    if (xhr.readyState === 4 &amp;&amp; xhr.status === 200) {
+                        resolve(this.response);
+                    }
+                };
+                xhr.onerror = (error) => {
+                    reject(new NexmoClientError(error));
+                }
+                xhr.send(data);
+            });
+        });
+    }
+
+    /**
+     * Perform a network POST request to the given url with the given data object
+     * 
+     * @param {string} url the url to POST
+     * @returns {Promise&lt;XMLHttpRequest>} the XMLHttpRequest
+     * @static
+     * @private
+     */
+    static networkSend(url, data) {
+        return Utils.getToken().then((token) => {
+            return new Promise((resolve, reject) => {
+                const xhr = new XMLHttpRequest();
+                xhr.open("POST", url);
+                xhr.setRequestHeader("Authorization", "Bearer " + token);
+                xhr.onloadstart = () => {
+                    resolve(xhr);
+                };
+                xhr.onerror = (error) => {
+                    reject(new NexmoClientError(error));
+                }
+                xhr.send(data);
+            });
+        });
+    }
+
+    static getToken() {
+        if (!localStorage.getItem("NXMO_user_data")) {
+            return Promise.reject(new NexmoClientError("error:user:relogin"));
+        } else {
+            return Promise.resolve(JSON.parse(localStorage.getItem("NXMO_user_data")).token);
+        }
+    }
+
+    static allocateUUID() {
+        return uuid.v4();
+    }
+}
+
+module.exports = Utils;
+</code></pre>
+        </article>
+    </section>
 
 
 
