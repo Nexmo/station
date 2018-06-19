@@ -40,4 +40,4 @@ The Contribution Guidelines outline the process and steps for reporting bugs or 
 
 ## [Markdown Preview Editor](/markdown)
 
-Try out editing markdown without the need to setup Nexmo Developer in your development environment. Using this tool you can preview your markdown with all the styling and added functionally that is possible with Nexmo Developer documentation.
+Try out editing Markdown without the need to setup Nexmo Developer in your development environment. Using this tool you can preview your Markdown with all the styling and added functionality that is possible with Nexmo Developer documentation.
