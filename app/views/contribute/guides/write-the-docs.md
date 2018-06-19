@@ -117,6 +117,7 @@ Some additional points to bear in mind:
 * Avoid statements that predict the future, for example, "the next version will have super xxx feature...". There are good legal reasons for avoiding predicting the future.
 * Avoid time sensitive information. Specify an exact version where possible, for example '1.1', rather than 'current version' as the current version may change.
 * Avoid using ampersand instead of 'and', unless you are specifying a programming language operator or similar.
+* "It's" is *always* it is.
 
 ### Replaceable values
 
