@@ -148,7 +148,7 @@ In the `build.gradle` file we'll add the Nexmo Stitch Android SDK and the WebRTC
 //app/build.gradle
 dependencies {
 ...
-  compile 'com.nexmo:conversation:1.3.1'
+  compile 'com.nexmo:stitch:1.6.0'
   compile 'com.android.support:appcompat-v7:25.3.1'
 ...
 }
