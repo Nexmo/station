@@ -3,7 +3,7 @@ title: Overview
 navigation_weight: 1
 ---
 
-# Overview
+# Messages API Overview
 
 The Messages API provides integration with the following communications channels:
 
@@ -45,9 +45,9 @@ If you decide to use the client library you will need the following information:
 
 Key | Description
 -- | --
-`NEXMO_API_KEY` | The Nexmo API key which you can obtain from your Nexmo Dashboard.
-`NEXMO_API_SECRET` | The Nexmo API secret which you can obtain from your Nexmo Dashboard.
-`NEXMO_APPLICATION_ID` | The Nexmo Application ID for your Nexmo Application which can be obtained from your Nexmo Dashboard.
+`NEXMO_API_KEY` | The Nexmo API key which you can obtain from your [Nexmo Dashboard](https://dashboard.nexmo.com).
+`NEXMO_API_SECRET` | The Nexmo API secret which you can obtain from your [Nexmo Dashboard](https://dashboard.nexmo.com).
+`NEXMO_APPLICATION_ID` | The Nexmo Application ID for your Nexmo Application which can be obtained from your [Nexmo Dashboard](https://dashboard.nexmo.com).
 `NEXMO_APPLICATION_PRIVATE_KEY_PATH` | The path to the `private.key` file that was generated when you created your Nexmo Application.
 
 These variables can then be replaced with actual values in the client library example code.
@@ -77,12 +77,12 @@ In the above example you will need to replace the following variable with actual
 
 Key | Description
 -- | --
-`NEXMO_API_KEY` | Nexmo API key which can be obtained from your Nexmo Dashboard.
-`NEXMO_API_SECRET` | Nexmo API secret which can be obtained from your Nexmo Dashboard.
+`NEXMO_API_KEY` | Nexmo API key which can be obtained from your [Nexmo Dashboard](https://dashboard.nexmo.com).
+`NEXMO_API_SECRET` | Nexmo API secret which can be obtained from your [Nexmo Dashboard](https://dashboard.nexmo.com).
 `FROM_NUMBER` | A phone number you own or some text to identify the sender.
 `TO_NUMBER` | The number of the phone to which the message will be sent.
 
-**NOTE:** Don't use a leading `+` or `00` when entering a phone number, start with the country code, for example 447700900000.
+> **NOTE:** Don't use a leading `+` or `00` when entering a phone number, start with the country code, for example 447700900000.
 
 ### Run the code
 
