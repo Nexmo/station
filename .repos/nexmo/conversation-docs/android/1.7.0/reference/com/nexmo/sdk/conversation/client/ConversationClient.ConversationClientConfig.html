@@ -57,7 +57,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="../../../../../favicon.ico" />
 <title>
 
-  Call.CALL_STATE
+  ConversationClient.ConversationClientConfig
 
 
 </title>
@@ -182,7 +182,7 @@
           <li class="api apilevel-"><a href="../../../../../com/nexmo/sdk/conversation/client/Conversation.html">Conversation</a></li>
           <li class="api apilevel-"><a href="../../../../../com/nexmo/sdk/conversation/client/ConversationClient.html">ConversationClient</a></li>
           <li class="api apilevel-"><a href="../../../../../com/nexmo/sdk/conversation/client/ConversationClient.ConversationClientBuilder.html">ConversationClient.ConversationClientBuilder</a></li>
-          <li class="api apilevel-"><a href="../../../../../com/nexmo/sdk/conversation/client/ConversationClient.ConversationClientConfig.html">ConversationClient.ConversationClientConfig</a></li>
+          <li class="selected api apilevel-"><a href="../../../../../com/nexmo/sdk/conversation/client/ConversationClient.ConversationClientConfig.html">ConversationClient.ConversationClientConfig</a></li>
           <li class="api apilevel-"><a href="../../../../../com/nexmo/sdk/conversation/client/ConversationClient.IPSHeader.html">ConversationClient.IPSHeader</a></li>
           <li class="api apilevel-"><a href="../../../../../com/nexmo/sdk/conversation/client/DeliveredReceipt.html">DeliveredReceipt</a></li>
           <li class="api apilevel-"><a href="../../../../../com/nexmo/sdk/conversation/client/Event.html">Event</a></li>
@@ -200,7 +200,7 @@
               
     <li><h2>Enums</h2>
       <ul>
-          <li class="selected api apilevel-"><a href="../../../../../com/nexmo/sdk/conversation/client/Call.CALL_STATE.html">Call.CALL_STATE</a></li>
+          <li class="api apilevel-"><a href="../../../../../com/nexmo/sdk/conversation/client/Call.CALL_STATE.html">Call.CALL_STATE</a></li>
           <li class="api apilevel-"><a href="../../../../../com/nexmo/sdk/conversation/client/Call.MEMBER_CALL_STATE.html">Call.MEMBER_CALL_STATE</a></li>
           <li class="api apilevel-"><a href="../../../../../com/nexmo/sdk/conversation/client/Conversation.MEDIA_TYPE.html">Conversation.MEDIA_TYPE</a></li>
           <li class="api apilevel-"><a href="../../../../../com/nexmo/sdk/conversation/client/ImageRepresentation.TYPE.html">ImageRepresentation.TYPE</a></li>
@@ -254,25 +254,6 @@
   
   
 
-  
-   
-  
-  
-  
-  
-
-  
-  
-  
-  
-
-  
-   
-  
-  
-  
-  
-
 
 <div class="sum-details-links">
 
@@ -282,11 +263,11 @@ Summary:
 
 
 
-  <a href="#enumconstants">Enums</a>
+
+
+
+  <a href="#lfields">Fields</a>
   
-
-
-
 
 
 
@@ -318,19 +299,15 @@ Summary:
 <div id="jd-header">
     public
     static 
-    final 
+     
     
-    enum
-<h1>Call.CALL_STATE</h1>
+    class
+<h1>ConversationClient.ConversationClientConfig</h1>
 
 
 
   
-  
-  
-
-  
-    extends Enum&lt;E&nbsp;extends&nbsp;Enum&lt;E&gt;&gt;<br/>
+    extends Object<br/>
   
   
   
@@ -350,7 +327,7 @@ Summary:
 
     <tr>
          	
-        <td colspan="3" class="jd-inheritance-class-cell">java.lang.Object</td>
+        <td colspan="2" class="jd-inheritance-class-cell">java.lang.Object</td>
     </tr>
     
 
@@ -358,17 +335,7 @@ Summary:
         
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
          	
-        <td colspan="2" class="jd-inheritance-class-cell">java.lang.Enum&lt;E&nbsp;extends&nbsp;java.lang.Enum&lt;E&gt;&gt;</td>
-    </tr>
-    
-
-    <tr>
-        
-            <td class="jd-inheritance-space">&nbsp;</td>
-        
-            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
-         	
-        <td colspan="1" class="jd-inheritance-class-cell">com.nexmo.sdk.conversation.client.Call.CALL_STATE</td>
+        <td colspan="1" class="jd-inheritance-class-cell">com.nexmo.sdk.conversation.client.ConversationClient.ConversationClientConfig</td>
     </tr>
     
 
@@ -377,6 +344,37 @@ Summary:
 
 
 
+<table class="jd-sumtable jd-sumtable-subclasses"><tr><td colspan="12" style="border:none;margin:0;padding:0;">
+
+  <a href="#" onclick="return toggleInherited(this, null)" id="subclasses-direct" class="jd-expando-trigger closed"
+          ><img id="subclasses-direct-trigger"
+          src="../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>Known Direct Subclasses
+
+  <div id="subclasses-direct">
+      <div id="subclasses-direct-list"
+              class="jd-inheritedlinks"
+              
+              >
+          
+            
+              <a href="../../../../../com/nexmo/sdk/conversation/client/ConversationClient.ConversationClientBuilder.html">ConversationClient.ConversationClientBuilder</a>
+            
+          
+      </div>
+      <div id="subclasses-direct-summary"
+              style="display: none;"
+              >
+  <table class="jd-sumtable-expando">
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../com/nexmo/sdk/conversation/client/ConversationClient.ConversationClientBuilder.html">ConversationClient.ConversationClientBuilder</a></td>
+              <td class="jd-descrcol" width="100%">API for creating <code><a href="../../../../../com/nexmo/sdk/conversation/client/ConversationClient.html">ConversationClient</a></code> instances.&nbsp;</td>
+          </tr>
+  </table>
+      </div>
+  </div>
+</td></tr></table>
+
 
 
 
@@ -384,7 +382,22 @@ Summary:
 
 
 <h2>Class Overview</h2>
-<p>Enum for Call states.
+<p>POJO which contains current configuration (has to be built by Builder)
+ First step is to acquire a ```ConversationClient``` instance based on a context.
+
+ <pre>
+     ConversationClient client = new ConversationClient.ConversationClientBuilder()
+     .context(this)
+     .build();
+ </pre>
+ Optional parameters for ConversationClientBuilder are:
+ <pre>.environmentHost(endpoint)      // default Config.ENDPOINT_PRODUCTION = "https://ws.nexmo.com"</pre>
+ <pre.endpointPath(endpointPath)     // default Config.ENDPOINT_PATH = "/rtc/"></pre>
+ <pre>.imageProcessingServiceUrl(ips) // default Config.IPS_ENDPOINT_PRODUCTION = "https://api.nexmo.com/v1/image"</pre>
+ <pre>.flushPending(true)             // default true. Pending operations from previous app start will be flushed on login process</pre>
+ <pre>.logLevel(Log.ASSERT)           // default Log.ASSERT(minimal output). For verbose logs use Log.VERBOSE</pre>
+ <pre>.autoReconnect(true)            // default true. Set automatic reconnect policy if the connectivity gets lost.</pre>
+
 </p>
 
 
@@ -423,81 +436,119 @@ Summary:
 
 
 
-<!-- =========== ENUM CONSTANT SUMMARY =========== -->
-<table id="enumconstants" class="jd-sumtable"><tr><th colspan="12">Enum Values</th></tr>
+
+
+
+
+
+
+
+<!-- =========== FIELD SUMMARY =========== -->
+<table id="lfields" class="jd-sumtable"><tr><th colspan="12">Fields</th></tr>
+
 
     
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-descrcol"><a href="../../../../../com/nexmo/sdk/conversation/client/Call.CALL_STATE.html">Call.CALL_STATE</a>&nbsp;</td>
-        <td class="jd-linkcol">ANSWERED&nbsp;</td>
-        <td class="jd-descrcol" width="100%">The destination has answered and enabled audio.&nbsp;</td>
-    </tr>
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol">
+          protected
+          
+          
+          boolean</td>
+          <td class="jd-linkcol"><a href="../../../../../com/nexmo/sdk/conversation/client/ConversationClient.ConversationClientConfig.html#autoReconnect">autoReconnect</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
     
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol">
+          protected
+          
+          
+          Context</td>
+          <td class="jd-linkcol"><a href="../../../../../com/nexmo/sdk/conversation/client/ConversationClient.ConversationClientConfig.html#context">context</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
     
-    <tr class=" api apilevel-" >
-        <td class="jd-descrcol"><a href="../../../../../com/nexmo/sdk/conversation/client/Call.CALL_STATE.html">Call.CALL_STATE</a>&nbsp;</td>
-        <td class="jd-linkcol">BUSY&nbsp;</td>
-        <td class="jd-descrcol" width="100%">The number being dialed was on another call.&nbsp;</td>
-    </tr>
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol">
+          protected
+          
+          
+          boolean</td>
+          <td class="jd-linkcol"><a href="../../../../../com/nexmo/sdk/conversation/client/ConversationClient.ConversationClientConfig.html#enableCrashReporting">enableCrashReporting</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
     
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol">
+          protected
+          
+          
+          String</td>
+          <td class="jd-linkcol"><a href="../../../../../com/nexmo/sdk/conversation/client/ConversationClient.ConversationClientConfig.html#endpointPath">endpointPath</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
     
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-descrcol"><a href="../../../../../com/nexmo/sdk/conversation/client/Call.CALL_STATE.html">Call.CALL_STATE</a>&nbsp;</td>
-        <td class="jd-linkcol">COMPLETE&nbsp;</td>
-        <td class="jd-descrcol" width="100%">Call was terminated after it was successfully answered.&nbsp;</td>
-    </tr>
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol">
+          protected
+          
+          
+          String</td>
+          <td class="jd-linkcol"><a href="../../../../../com/nexmo/sdk/conversation/client/ConversationClient.ConversationClientConfig.html#environmentHost">environmentHost</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
     
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol">
+          protected
+          
+          
+          boolean</td>
+          <td class="jd-linkcol"><a href="../../../../../com/nexmo/sdk/conversation/client/ConversationClient.ConversationClientConfig.html#flushPending">flushPending</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
     
-    <tr class=" api apilevel-" >
-        <td class="jd-descrcol"><a href="../../../../../com/nexmo/sdk/conversation/client/Call.CALL_STATE.html">Call.CALL_STATE</a>&nbsp;</td>
-        <td class="jd-linkcol">FAILED&nbsp;</td>
-        <td class="jd-descrcol" width="100%">The call failed because something went wrong, for example: the destination number was invalid.&nbsp;</td>
-    </tr>
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol">
+          protected
+          
+          
+          String</td>
+          <td class="jd-linkcol"><a href="../../../../../com/nexmo/sdk/conversation/client/ConversationClient.ConversationClientConfig.html#imageProcessingServiceUrl">imageProcessingServiceUrl</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
     
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol">
+          protected
+          
+          
+          int</td>
+          <td class="jd-linkcol"><a href="../../../../../com/nexmo/sdk/conversation/client/ConversationClient.ConversationClientConfig.html#logLevel">logLevel</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
     
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-descrcol"><a href="../../../../../com/nexmo/sdk/conversation/client/Call.CALL_STATE.html">Call.CALL_STATE</a>&nbsp;</td>
-        <td class="jd-linkcol">MACHINE&nbsp;</td>
-        <td class="jd-descrcol" width="100%">Platform detected an answering machine.&nbsp;</td>
-    </tr>
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol">
+          protected
+          
+          
+          boolean</td>
+          <td class="jd-linkcol"><a href="../../../../../com/nexmo/sdk/conversation/client/ConversationClient.ConversationClientConfig.html#onMainThread">onMainThread</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
     
-    
-    <tr class=" api apilevel-" >
-        <td class="jd-descrcol"><a href="../../../../../com/nexmo/sdk/conversation/client/Call.CALL_STATE.html">Call.CALL_STATE</a>&nbsp;</td>
-        <td class="jd-linkcol">RINGING&nbsp;</td>
-        <td class="jd-descrcol" width="100%">The destination has started ringing.&nbsp;</td>
-    </tr>
-    
-    
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-descrcol"><a href="../../../../../com/nexmo/sdk/conversation/client/Call.CALL_STATE.html">Call.CALL_STATE</a>&nbsp;</td>
-        <td class="jd-linkcol">STARTED&nbsp;</td>
-        <td class="jd-descrcol" width="100%">The call was initiated, but the other receivers haven't received it yet.&nbsp;</td>
-    </tr>
-    
-    
-    <tr class=" api apilevel-" >
-        <td class="jd-descrcol"><a href="../../../../../com/nexmo/sdk/conversation/client/Call.CALL_STATE.html">Call.CALL_STATE</a>&nbsp;</td>
-        <td class="jd-linkcol">TIMEOUT&nbsp;</td>
-        <td class="jd-descrcol" width="100%">The call has timeout and has been now cancelled.&nbsp;</td>
-    </tr>
-    
-    
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-descrcol"><a href="../../../../../com/nexmo/sdk/conversation/client/Call.CALL_STATE.html">Call.CALL_STATE</a>&nbsp;</td>
-        <td class="jd-linkcol">UNANSWERED&nbsp;</td>
-        <td class="jd-descrcol" width="100%">The caller cancelled the call before being answered by the destination user.&nbsp;</td>
-    </tr>
-    
-    
+
 </table>
-
-
-
-
-
-
-
 
 
 
@@ -520,12 +571,12 @@ Summary:
             
             
             
-            static
             
-            <a href="../../../../../com/nexmo/sdk/conversation/client/Call.CALL_STATE.html">Call.CALL_STATE</a>
+            
+            Context
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../com/nexmo/sdk/conversation/client/Call.CALL_STATE.html#valueOf(java.lang.String)">valueOf</a></span>(String name)
+        <span class="sympad"><a href="../../../../../com/nexmo/sdk/conversation/client/ConversationClient.ConversationClientConfig.html#getContext()">getContext</a></span>()
         
   </td></tr>
 
@@ -535,13 +586,109 @@ Summary:
         <td class="jd-typecol">
             
             
-            final
-            static
             
-            <a href="../../../../../com/nexmo/sdk/conversation/client/Call.CALL_STATE.html">CALL_STATE[]</a>
+            
+            
+            String
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../com/nexmo/sdk/conversation/client/Call.CALL_STATE.html#values()">values</a></span>()
+        <span class="sympad"><a href="../../../../../com/nexmo/sdk/conversation/client/ConversationClient.ConversationClientConfig.html#getEndpointPath()">getEndpointPath</a></span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            String
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../../com/nexmo/sdk/conversation/client/ConversationClient.ConversationClientConfig.html#getEnvironmentHost()">getEnvironmentHost</a></span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            String
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../../com/nexmo/sdk/conversation/client/ConversationClient.ConversationClientConfig.html#getImageProcessingServiceUrl()">getImageProcessingServiceUrl</a></span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../../com/nexmo/sdk/conversation/client/ConversationClient.ConversationClientConfig.html#isAutoReconnect()">isAutoReconnect</a></span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../../com/nexmo/sdk/conversation/client/ConversationClient.ConversationClientConfig.html#isEnableCrashReporting()">isEnableCrashReporting</a></span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../../com/nexmo/sdk/conversation/client/ConversationClient.ConversationClientConfig.html#isFlushPending()">isFlushPending</a></span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../../com/nexmo/sdk/conversation/client/ConversationClient.ConversationClientConfig.html#isOnMainThread()">isOnMainThread</a></span>()
         
   </td></tr>
 
@@ -559,208 +706,6 @@ Summary:
 <table id="inhmethods" class="jd-sumtable"><tr><th>
   <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
   <div style="clear:left;">Inherited Methods</div></th></tr>
-
-
-<tr class="api apilevel-" >
-<td colspan="12">
-  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Enum" class="jd-expando-trigger closed"
-          ><img id="inherited-methods-java.lang.Enum-trigger"
-          src="../../../../../../assets/images/triangle-closed.png"
-          class="jd-expando-trigger-img" /></a>
-From class
-
-  java.lang.Enum
-
-<div id="inherited-methods-java.lang.Enum">
-  <div id="inherited-methods-java.lang.Enum-list"
-        class="jd-inheritedlinks">
-  </div>
-  <div id="inherited-methods-java.lang.Enum-summary" style="display: none;">
-    <table class="jd-sumtable-expando">
-    
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            final
-            
-            
-            Object
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">clone</span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            final
-            
-            
-            int
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">compareTo</span>(E arg0)
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            int
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">compareTo</span>(Object arg0)
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            final
-            
-            
-            boolean
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">equals</span>(Object arg0)
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            final
-            
-            
-            void
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">finalize</span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            final
-            
-            
-            Class&lt;E&gt;
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">getDeclaringClass</span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            final
-            
-            
-            int
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">hashCode</span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            final
-            
-            
-            String
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">name</span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            final
-            
-            
-            int
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">ordinal</span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            String
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">toString</span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            static
-            &lt;T&nbsp;extends&nbsp;Enum&lt;T&gt;&gt;
-            T
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">valueOf</span>(Class&lt;T&gt; arg0, String arg1)
-        
-  </td></tr>
-
-
-</table>
-  </div>
-</div>
-</td></tr>
-
 
 
 <tr class="api apilevel-" >
@@ -964,50 +909,6 @@ From class
 </td></tr>
 
 
-
-
-
-<tr class="api apilevel-" >
-<td colspan="12">
-  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Comparable" class="jd-expando-trigger closed"
-          ><img id="inherited-methods-java.lang.Comparable-trigger"
-          src="../../../../../../assets/images/triangle-closed.png"
-          class="jd-expando-trigger-img" /></a>
-From interface
-
-  java.lang.Comparable
-
-<div id="inherited-methods-java.lang.Comparable">
-  <div id="inherited-methods-java.lang.Comparable-list"
-        class="jd-inheritedlinks">
-  </div>
-  <div id="inherited-methods-java.lang.Comparable-summary" style="display: none;">
-    <table class="jd-sumtable-expando">
-    
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            abstract
-            
-            
-            
-            
-            int
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">compareTo</span>(T arg0)
-        
-  </td></tr>
-
-
-</table>
-  </div>
-</div>
-</td></tr>
-
-
 </table>
 
 
@@ -1028,287 +929,287 @@ From interface
 <!-- Enum Values -->
 
 
-<!-- ========= ENUM CONSTANTS DETAIL ======== -->
-<h2>Enum Values</h2>
-
-
-
-
-<a id="ANSWERED"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-        static 
-        final 
-        <a href="../../../../../com/nexmo/sdk/conversation/client/Call.CALL_STATE.html">Call.CALL_STATE</a>
-      </span>
-        ANSWERED
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>The destination has answered and enabled audio. </p></div>
-
-    
-    </div>
-</div>
-
-
-
-<a id="BUSY"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-        static 
-        final 
-        <a href="../../../../../com/nexmo/sdk/conversation/client/Call.CALL_STATE.html">Call.CALL_STATE</a>
-      </span>
-        BUSY
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>The number being dialed was on another call. </p></div>
-
-    
-    </div>
-</div>
-
-
-
-<a id="COMPLETE"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-        static 
-        final 
-        <a href="../../../../../com/nexmo/sdk/conversation/client/Call.CALL_STATE.html">Call.CALL_STATE</a>
-      </span>
-        COMPLETE
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Call was terminated after it was successfully answered. </p></div>
-
-    
-    </div>
-</div>
-
-
-
-<a id="FAILED"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-        static 
-        final 
-        <a href="../../../../../com/nexmo/sdk/conversation/client/Call.CALL_STATE.html">Call.CALL_STATE</a>
-      </span>
-        FAILED
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>The call failed because something went wrong, for example: the destination number was invalid. </p></div>
-
-    
-    </div>
-</div>
-
-
-
-<a id="MACHINE"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-        static 
-        final 
-        <a href="../../../../../com/nexmo/sdk/conversation/client/Call.CALL_STATE.html">Call.CALL_STATE</a>
-      </span>
-        MACHINE
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Platform detected an answering machine. </p></div>
-
-    
-    </div>
-</div>
-
-
-
-<a id="RINGING"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-        static 
-        final 
-        <a href="../../../../../com/nexmo/sdk/conversation/client/Call.CALL_STATE.html">Call.CALL_STATE</a>
-      </span>
-        RINGING
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>The destination has started ringing. </p></div>
-
-    
-    </div>
-</div>
-
-
-
-<a id="STARTED"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-        static 
-        final 
-        <a href="../../../../../com/nexmo/sdk/conversation/client/Call.CALL_STATE.html">Call.CALL_STATE</a>
-      </span>
-        STARTED
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>The call was initiated, but the other receivers haven't received it yet. </p></div>
-
-    
-    </div>
-</div>
-
-
-
-<a id="TIMEOUT"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-        static 
-        final 
-        <a href="../../../../../com/nexmo/sdk/conversation/client/Call.CALL_STATE.html">Call.CALL_STATE</a>
-      </span>
-        TIMEOUT
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>The call has timeout and has been now cancelled. </p></div>
-
-    
-    </div>
-</div>
-
-
-
-<a id="UNANSWERED"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-        static 
-        final 
-        <a href="../../../../../com/nexmo/sdk/conversation/client/Call.CALL_STATE.html">Call.CALL_STATE</a>
-      </span>
-        UNANSWERED
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>The caller cancelled the call before being answered by the destination user. </p></div>
-
-    
-    </div>
-</div>
-
-
-
-
 <!-- Constants -->
 
 
 <!-- Fields -->
+
+
+<!-- ========= FIELD DETAIL ======== -->
+<h2>Fields</h2>
+
+
+
+
+<a id="autoReconnect"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+        boolean
+      </span>
+        autoReconnect
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<a id="context"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+        Context
+      </span>
+        context
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<a id="enableCrashReporting"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+        boolean
+      </span>
+        enableCrashReporting
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<a id="endpointPath"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+        String
+      </span>
+        endpointPath
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<a id="environmentHost"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+        String
+      </span>
+        environmentHost
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<a id="flushPending"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+        boolean
+      </span>
+        flushPending
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<a id="imageProcessingServiceUrl"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+        String
+      </span>
+        imageProcessingServiceUrl
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<a id="logLevel"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+        int
+      </span>
+        logLevel
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<a id="onMainThread"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+        boolean
+      </span>
+        onMainThread
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
 
 
 <!-- Public ctors -->
@@ -1327,20 +1228,20 @@ From interface
 
 
 
-<a id="valueOf(java.lang.String)"></a>
+<a id="getContext()"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
       <span class="normal">
         public 
-        static 
          
          
          
-        <a href="../../../../../com/nexmo/sdk/conversation/client/Call.CALL_STATE.html">Call.CALL_STATE</a>
+         
+        Context
       </span>
-      <span class="sympad">valueOf</span>
-      <span class="normal">(String name)</span>
+      <span class="sympad">getContext</span>
+      <span class="normal">()</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1358,19 +1259,205 @@ From interface
 </div>
 
 
-<a id="values()"></a>
+<a id="getEndpointPath()"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
       <span class="normal">
         public 
-        static 
-        final 
          
          
-        <a href="../../../../../com/nexmo/sdk/conversation/client/Call.CALL_STATE.html">CALL_STATE[]</a>
+         
+         
+        String
       </span>
-      <span class="sympad">values</span>
+      <span class="sympad">getEndpointPath</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="getEnvironmentHost()"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getEnvironmentHost</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="getImageProcessingServiceUrl()"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getImageProcessingServiceUrl</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="isAutoReconnect()"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">isAutoReconnect</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="isEnableCrashReporting()"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">isEnableCrashReporting</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="isFlushPending()"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">isFlushPending</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="isOnMainThread()"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">isOnMainThread</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
