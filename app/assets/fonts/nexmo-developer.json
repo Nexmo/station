@@ -1,8 +1,8 @@
 {
   "metadata": {
     "name": "Nexmo Developer",
-    "lastOpened": 1418773394855,
-    "created": 1512987929956
+    "lastOpened": 0,
+    "created": 1529614471571
   },
   "iconSets": [
     {
@@ -219,28 +219,36 @@
     {
       "selection": [
         {
-          "order": 56,
+          "order": 75,
+          "id": 17,
+          "name": "in-app-video",
+          "prevSize": 32,
+          "code": 59668,
+          "tempChar": ""
+        },
+        {
+          "order": 66,
           "id": 16,
           "name": "in-app-messaging",
           "prevSize": 32,
           "code": 59664,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
-          "order": 57,
+          "order": 62,
           "id": 15,
           "name": "in-app-voice",
           "prevSize": 32,
           "code": 59665,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
-          "order": 58,
+          "order": 59,
           "id": 14,
           "name": "stitch-messaging",
           "prevSize": 32,
           "code": 59666,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 51,
@@ -248,7 +256,7 @@
           "name": "stitch",
           "prevSize": 32,
           "code": 59667,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 49,
@@ -256,7 +264,7 @@
           "name": "webhook",
           "prevSize": 32,
           "code": 59663,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 42,
@@ -264,7 +272,7 @@
           "name": "account",
           "prevSize": 32,
           "code": 59652,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 44,
@@ -272,7 +280,7 @@
           "name": "voice",
           "prevSize": 32,
           "code": 59653,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 45,
@@ -280,7 +288,7 @@
           "name": "verify",
           "prevSize": 32,
           "code": 59654,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 46,
@@ -288,7 +296,7 @@
           "name": "sms",
           "prevSize": 32,
           "code": 59655,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 43,
@@ -296,7 +304,7 @@
           "name": "number-insight",
           "prevSize": 32,
           "code": 59656,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 41,
@@ -304,7 +312,7 @@
           "name": "swagger",
           "prevSize": 32,
           "code": 59650,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 40,
@@ -312,7 +320,7 @@
           "name": "swagger-o",
           "prevSize": 32,
           "code": 59651,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 32,
@@ -320,7 +328,7 @@
           "name": "community",
           "prevSize": 32,
           "code": 59649,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 30,
@@ -328,20 +336,124 @@
           "name": "toolbox",
           "prevSize": 32,
           "code": 59648,
-          "tempChar": ""
+          "tempChar": ""
         }
       ],
       "id": 4,
       "metadata": {
         "name": "Nexmo",
         "importSize": {
-          "width": 205,
-          "height": 223
+          "width": 45,
+          "height": 51
         }
       },
       "height": 1024,
       "prevSize": 32,
       "icons": [
+        {
+          "id": 17,
+          "paths": [
+            "M318.698 938.266c-25.224 0-45.671-20.448-45.671-45.671s20.448-45.671 45.671-45.671c25.224 0 45.671 20.448 45.671 45.671v0c0 25.224-20.448 45.671-45.671 45.671v0z",
+            "M616.563 594.128v289.653c0 66.378-53.81 120.188-120.188 120.188v0h-356.156c-66.378 0-120.188-53.81-120.188-120.188v0-743.562c0-66.378 53.81-120.188 120.188-120.188v0h308.883l-5.809 13.221h-303.074c-0.001-0-0.001-0-0.002-0-58.744 0-106.366 47.622-106.366 106.366 0 0.211 0.001 0.422 0.002 0.633l-0-0.032v743.562c-0 58.744 47.622 106.366 106.366 106.366h357.158c58.699-0.114 106.252-47.668 106.366-106.355l0-0.011v-289.653h-17.427l23.837-24.038 24.038 24.038z",
+            "M228.357 329.715h-83.13c-2.987 0-5.408-2.421-5.408-5.408v0-90.942c0-2.987 2.421-5.408 5.408-5.408v0h83.13c0.001-0 0.002-0 0.004-0 3.027 0 5.494 2.398 5.605 5.398l0 0.010v90.942c-0.111 3.010-2.578 5.408-5.605 5.408-0.001 0-0.003-0-0.004-0l0 0zM228.357 233.365h-83.13v90.742h82.729z",
+            "M228.357 483.355h-83.13c-3.010-0.111-5.408-2.578-5.408-5.605 0-0.001 0-0.003 0-0.004l-0 0v-90.742c-0-0.001-0-0.002-0-0.004 0-3.027 2.398-5.494 5.398-5.605l0.010-0h83.13c3.013 0.201 5.408 2.595 5.608 5.591l0.001 0.018v90.742c-0.107 3.054-2.555 5.502-5.599 5.608l-0.010 0zM228.357 387.005h-83.13v90.541h82.729z",
+            "M228.357 631.987h-83.13c-2.987-0-5.408-2.421-5.408-5.408v0-90.141c0-2.987 2.421-5.408 5.408-5.408v-0h83.13c0.001-0 0.002-0 0.004-0 3.027 0 5.494 2.398 5.605 5.398l0 0.010v90.141c-0.111 3.010-2.578 5.408-5.605 5.408-0.001 0-0.003-0-0.004-0l0 0zM228.357 535.637h-83.13v90.942h82.729z",
+            "M358.36 331.117h-82.329c-2.987 0-5.408-2.421-5.408-5.408v0-90.942c0-2.987 2.421-5.408 5.408-5.408v0h83.13c2.987 0 5.408 2.421 5.408 5.408h0v90.942c0.002 0.052 0.003 0.112 0.003 0.173 0 1.601-0.695 3.039-1.8 4.029l-0.005 0.005c-0.981 0.783-2.24 1.257-3.609 1.257-0.281 0-0.558-0.020-0.829-0.059l0.031 0.004zM358.36 234.767h-82.329v90.742h82.128z",
+            "M358.36 484.757h-82.329c-2.987 0-5.408-2.421-5.408-5.408v0-90.942c0-2.987 2.421-5.408 5.408-5.408v-0h83.13c2.987 0 5.408 2.421 5.408 5.408l0-0v90.742c0.002 0.052 0.003 0.112 0.003 0.173 0 1.601-0.695 3.039-1.8 4.029l-0.005 0.005c-1.015 0.889-2.354 1.432-3.819 1.432-0.207 0-0.411-0.011-0.613-0.032l0.025 0.002zM358.36 388.407h-82.329v90.742h82.128z",
+            "M358.36 633.59h-82.329c-1.489-0.010-2.834-0.621-3.806-1.602l-0-0c-0.996-0.885-1.62-2.169-1.62-3.599 0-0.143 0.006-0.285 0.019-0.426l-0.001 0.018v-91.543c-0-0.001-0-0.002-0-0.004 0-3.027 2.398-5.494 5.398-5.605l0.010-0h83.13c3.010 0.111 5.408 2.578 5.408 5.605 0 0.001-0 0.003-0 0.004l0-0v90.742c0.078 0.338 0.123 0.726 0.123 1.125 0 1.438-0.583 2.74-1.525 3.682l0-0c-0.888 1.062-2.214 1.733-3.696 1.733-0.394 0-0.778-0.048-1.145-0.137l0.033 0.007zM358.36 537.239h-82.329v90.541h82.128z",
+            "M489.365 634.592h-83.13c-1.489-0.010-2.834-0.621-3.806-1.602l-0-0c-0.996-0.885-1.62-2.169-1.62-3.599 0-0.143 0.006-0.285 0.019-0.426l-0.001 0.018v-89.74c-0-0.001-0-0.002-0-0.004 0-3.027 2.398-5.494 5.398-5.605l0.010-0h83.13c3.010 0.111 5.408 2.578 5.408 5.605 0 0.001-0 0.003-0 0.004l0-0v90.742c0.011 0.122 0.017 0.264 0.017 0.408 0 1.43-0.624 2.714-1.615 3.594l-0.005 0.004c-0.773 0.451-1.701 0.717-2.691 0.717-0.395 0-0.78-0.042-1.15-0.123l0.036 0.006zM489.365 538.241h-83.13v90.541h82.729z",
+            "M616.563 797.847h-595.931",
+            "M596.532 373.183c-2.37-0.007-4.583-0.677-6.464-1.834l0.054 0.031c-3.943-2.261-6.566-6.428-6.61-11.211l-0-0.006v-181.484c-0.001-0.050-0.001-0.109-0.001-0.168 0-4.868 2.631-9.122 6.549-11.416l0.062-0.034c1.925-1.13 4.24-1.798 6.71-1.798s4.786 0.668 6.774 1.832l-0.063-0.034 151.837 91.743c3.863 2.306 6.41 6.464 6.41 11.218v0c0 0.034 0.001 0.074 0.001 0.115 0 4.72-2.551 8.845-6.35 11.070l-0.061 0.033-151.837 90.942c-1.63 0.682-3.525 1.079-5.512 1.079-0.528 0-1.049-0.028-1.563-0.083l0.064 0.006z",
+            "M507.793 74.316h306.879c33.189 0 60.094 26.905 60.094 60.094v269.822c0 33.189-26.905 60.094-60.094 60.094h-306.879c-33.189 0-60.094-26.905-60.094-60.094v-269.822c0-33.189 26.905-60.094 60.094-60.094z"
+          ],
+          "attrs": [
+            {},
+            {
+              "strokeLinejoin": "miter",
+              "strokeLinecap": "butt",
+              "strokeMiterlimit": "4",
+              "strokeWidth": 40.062597809076685
+            },
+            {
+              "fill": "none",
+              "strokeLinejoin": "round",
+              "strokeLinecap": "round",
+              "strokeMiterlimit": "4",
+              "strokeWidth": 30.046948356807512
+            },
+            {
+              "fill": "none",
+              "strokeLinejoin": "round",
+              "strokeLinecap": "round",
+              "strokeMiterlimit": "4",
+              "strokeWidth": 30.046948356807512
+            },
+            {
+              "fill": "none",
+              "strokeLinejoin": "round",
+              "strokeLinecap": "round",
+              "strokeMiterlimit": "4",
+              "strokeWidth": 30.046948356807512
+            },
+            {
+              "fill": "none",
+              "strokeLinejoin": "round",
+              "strokeLinecap": "round",
+              "strokeMiterlimit": "4",
+              "strokeWidth": 30.046948356807512
+            },
+            {
+              "fill": "none",
+              "strokeLinejoin": "round",
+              "strokeLinecap": "round",
+              "strokeMiterlimit": "4",
+              "strokeWidth": 30.046948356807512
+            },
+            {
+              "fill": "none",
+              "strokeLinejoin": "round",
+              "strokeLinecap": "round",
+              "strokeMiterlimit": "4",
+              "strokeWidth": 30.046948356807512
+            },
+            {
+              "fill": "none",
+              "strokeLinejoin": "round",
+              "strokeLinecap": "round",
+              "strokeMiterlimit": "4",
+              "strokeWidth": 30.046948356807512
+            },
+            {
+              "fill": "none",
+              "strokeLinejoin": "miter",
+              "strokeLinecap": "butt",
+              "strokeMiterlimit": "4",
+              "strokeWidth": 40.062597809076685
+            },
+            {
+              "fill": "none",
+              "strokeLinejoin": "miter",
+              "strokeLinecap": "butt",
+              "strokeMiterlimit": "4",
+              "strokeWidth": 40.062597809076685
+            },
+            {
+              "fill": "none",
+              "strokeLinejoin": "miter",
+              "strokeLinecap": "butt",
+              "strokeMiterlimit": "4",
+              "strokeWidth": 40.062597809076685
+            }
+          ],
+          "width": 895,
+          "isMulticolor": false,
+          "isMulticolor2": true,
+          "grid": 0,
+          "tags": [
+            "InApp Video"
+          ],
+          "colorPermutations": {}
+        },
         {
           "id": 16,
           "paths": [
@@ -359,7 +471,10 @@
           "tags": [
             "InApp Messaging"
           ],
-          "colorPermutations": {}
+          "colorPermutations": {
+            "12552552551": [],
+            "119200112019211491501491": []
+          }
         },
         {
           "id": 15,
@@ -379,7 +494,10 @@
           "tags": [
             "InApp Voice"
           ],
-          "colorPermutations": {}
+          "colorPermutations": {
+            "12552552551": [],
+            "119200112019211491501491": []
+          }
         },
         {
           "id": 14,
@@ -404,7 +522,10 @@
           "tags": [
             "Stitch No Video"
           ],
-          "colorPermutations": {}
+          "colorPermutations": {
+            "12552552551": [],
+            "119200112019211491501491": []
+          }
         },
         {
           "id": 10,
@@ -435,7 +556,10 @@
           "tags": [
             "Stitch"
           ],
-          "colorPermutations": {}
+          "colorPermutations": {
+            "12552552551": [],
+            "119200112019211491501491": []
+          }
         },
         {
           "id": 9,
@@ -454,6 +578,9 @@
           "colorPermutations": {
             "12552552551": [
               {}
+            ],
+            "119200112019211491501491": [
+              {}
             ]
           }
         },
@@ -469,6 +596,9 @@
           "isMulticolor2": false,
           "colorPermutations": {
             "12552552551": [
+              {}
+            ],
+            "119200112019211491501491": [
               {}
             ]
           },
@@ -508,6 +638,15 @@
               {},
               {},
               {}
+            ],
+            "119200112019211491501491": [
+              {},
+              {},
+              {},
+              {},
+              {},
+              {},
+              {}
             ]
           },
           "tags": [
@@ -531,6 +670,11 @@
           "isMulticolor2": false,
           "colorPermutations": {
             "12552552551": [
+              {},
+              {},
+              {}
+            ],
+            "119200112019211491501491": [
               {},
               {},
               {}
@@ -560,6 +704,11 @@
               {},
               {},
               {}
+            ],
+            "119200112019211491501491": [
+              {},
+              {},
+              {}
             ]
           },
           "tags": [
@@ -583,6 +732,10 @@
             "12552552551": [
               {},
               {}
+            ],
+            "119200112019211491501491": [
+              {},
+              {}
             ]
           },
           "tags": [
@@ -603,6 +756,9 @@
           "isMulticolor2": false,
           "colorPermutations": {
             "12552552551": [
+              {}
+            ],
+            "119200112019211491501491": [
               {}
             ]
           },
@@ -625,6 +781,9 @@
           "colorPermutations": {
             "12552552551": [
               {}
+            ],
+            "119200112019211491501491": [
+              {}
             ]
           },
           "tags": [
@@ -646,6 +805,10 @@
           "isMulticolor2": false,
           "colorPermutations": {
             "12552552551": [
+              {},
+              {}
+            ],
+            "119200112019211491501491": [
               {},
               {}
             ]
@@ -681,6 +844,13 @@
               {},
               {},
               {}
+            ],
+            "119200112019211491501491": [
+              {},
+              {},
+              {},
+              {},
+              {}
             ]
           },
           "tags": [
@@ -703,9 +873,29 @@
             255,
             1
           ]
+        ],
+        [
+          [
+            0,
+            120,
+            192,
+            1
+          ],
+          [
+            0,
+            119,
+            200,
+            1
+          ],
+          [
+            149,
+            150,
+            149,
+            1
+          ]
         ]
       ],
-      "colorThemeIdx": 0,
+      "colorThemeIdx": 1,
       "invisible": false
     },
     {
@@ -761,7 +951,7 @@
           "order": 33,
           "prevSize": 28,
           "code": 61445,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "name": "star-o",
@@ -804,7 +994,7 @@
           "order": 7,
           "prevSize": 28,
           "code": 61453,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "name": "search-plus",
@@ -832,7 +1022,7 @@
           "order": 9,
           "prevSize": 28,
           "code": 61459,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "name": "trash-o",
@@ -955,7 +1145,7 @@
           "order": 27,
           "prevSize": 28,
           "code": 61485,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "name": "bookmark",
@@ -1048,7 +1238,7 @@
           "order": 8,
           "prevSize": 28,
           "code": 61504,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "name": "map-marker",
@@ -1161,7 +1351,7 @@
           "order": 5,
           "prevSize": 28,
           "code": 61527,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "name": "check-circle",
@@ -1169,7 +1359,7 @@
           "order": 2,
           "prevSize": 28,
           "code": 61528,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "name": "question-circle",
@@ -1383,7 +1573,7 @@
           "order": 47,
           "prevSize": 28,
           "code": 61575,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "name": "thumbs-o-down",
@@ -1391,7 +1581,7 @@
           "order": 48,
           "prevSize": 28,
           "code": 61576,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "name": "star-half",
@@ -1424,7 +1614,7 @@
           "order": 6,
           "prevSize": 28,
           "code": 61582,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "name": "sign-in",
@@ -1477,7 +1667,7 @@
           "order": 16,
           "prevSize": 28,
           "code": 61593,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "name": "facebook, facebook-f",
@@ -1490,7 +1680,7 @@
           "order": 4,
           "prevSize": 28,
           "code": 61595,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "name": "unlock",
@@ -1608,7 +1798,7 @@
           "order": 8,
           "prevSize": 28,
           "code": 61633,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "name": "cloud",
@@ -1616,7 +1806,7 @@
           "order": 15,
           "prevSize": 28,
           "code": 61634,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "name": "flask",
@@ -1764,7 +1954,7 @@
           "order": 20,
           "prevSize": 28,
           "code": 61665,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "name": "rotate-left, undo",
@@ -1935,7 +2125,7 @@
           "order": 21,
           "prevSize": 28,
           "code": 61700,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "name": "angle-right",
@@ -1943,7 +2133,7 @@
           "order": 22,
           "prevSize": 28,
           "code": 61701,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "name": "angle-up",
@@ -1996,7 +2186,7 @@
           "order": 34,
           "prevSize": 28,
           "code": 61712,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "name": "circle",
@@ -2069,7 +2259,7 @@
           "order": 13,
           "prevSize": 28,
           "code": 61729,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "name": "mail-reply-all, reply-all",
@@ -2097,7 +2287,7 @@
           "order": 14,
           "prevSize": 28,
           "code": 61734,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "name": "chain-broken, unlink",
@@ -2183,7 +2373,7 @@
           "order": 35,
           "prevSize": 28,
           "code": 61752,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "name": "chevron-circle-up",
@@ -2431,7 +2621,7 @@
           "order": 17,
           "prevSize": 28,
           "code": 61804,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "name": "instagram",
@@ -2639,7 +2829,7 @@
           "order": 18,
           "prevSize": 28,
           "code": 61848,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "name": "envelope-square",
@@ -27663,7 +27853,7 @@
           "id": 302,
           "prevSize": 32,
           "code": 59949,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "ligatures": "loop2, repeat2",
@@ -36318,7 +36508,10 @@
       "embed": false,
       "showSelector": false,
       "cssVars": true,
-      "cssVarsFormat": "scss"
+      "cssVarsFormat": "scss",
+      "showVersion": true,
+      "showMetadata": true,
+      "autoHost": false
     },
     "imagePref": {
       "prefix": "icon-",
@@ -36326,11 +36519,18 @@
       "useClassSelector": true,
       "color": 0,
       "bgColor": 16777215,
-      "classSelector": ".icon"
+      "classSelector": ".icon",
+      "height": 32,
+      "columns": 16,
+      "margin": 16
     },
     "historySize": 50,
     "showCodes": true,
-    "gridSize": 16
+    "gridSize": 16,
+    "showGrid": true,
+    "quickUsageToken": {
+      "NexmoDeveloper": "NGVjYjk0YjExMDQwNWU2YjM2ODZmNjBiZjU4Njk2ZTUjMSMxNTI5NjE2MDg3IyMj"
+    }
   },
   "uid": -1
 }
