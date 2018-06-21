@@ -153,7 +153,7 @@ setupConversationEvents(conversation) {
 
 Now run `index.html` in two side-by-side browser windows, making sure to login with the user name `jamie` in one and with `alice` in the other. Enable video on both and start talking. You'll also see events being logged in the browser console.
 
-Thats's it! Your page should now look something like [this](https://github.com/Nexmo/conversation-js-quickstart/blob/master/examples/5-enable-video/index.html).
+Thats's it! You can see a full example of what your project should look like in [the source code for this quickstart on GitHub](https://github.com/Nexmo/conversation-js-quickstart/blob/master/examples/5-enable-video/index.html).
 
 ## Where next?
 
