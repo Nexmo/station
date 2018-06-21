@@ -2,9 +2,24 @@
 title: Overview
 ---
 
-# Workflows Overview
+# Overview
 
-The Workflows API enables the developer to specify a multiple message workflow.
+The Workflows API enables the developer to send messages to users using a multiple channel strategy. 
+
+An example workflow might specify a message to be sent a message via Facebook Messenger, and if that message is not read then the user can be sent a message via Viber. If that message is also not read a user could then be sent a message via SMS.
+
+The Workflows API provides the mechanism by which to order messages and specify their _success conditions_. The Workflows API uses the Messages API to actually send the messages.
+
+In this release you can:
+
+* **Send** SMS, Facebook Messenger and Viber Service Messages with Workflows built on-top of the the [Messages API](/messages-and-workflows-apis/messages/overview).
+* **Failover** to the next message if the condition status is not met within the time period or if the message immediately fails.
+
+The condition status is the status that the message returns. With Facebook Messenger and Viber Service Messages, you can use `delivered` and `read` statuses as the condition status. With SMS you can only use `delivered`.
+
+The following diagram illustrates the relationship between the Workflows API and the Messages API:
+
+![Messages and Workflows Overview](/assets/images/messages-workflows-overview.png)
 
 ## Developer Preview
 
@@ -14,43 +29,34 @@ In this release Nexmo provides a failover template. The failover template instru
 
 Nexmo always welcomes your feedback. Your suggestions help us improve the product. If you do need help, please email [support@nexmo.com](mailto:support@nexmo.com) and include Workflow API in the subject line. Please note that during the Developer Preview period support times are limited to Monday to Friday.
 
-## Contents
+## Nexmo Node library support
 
-* [Concepts](#concepts)
-* [Quickstart](#quickstart)
-* [Guides](#guides)
-* [Building Blocks](#building-blocks)
-* [Reference](#reference)
+In addition to using the Messages and Workflows API via HTTP, the Nexmo Node client library also provides support. 
 
-## Concepts
+During the Developer Preview the Node client library with support for the Messages and Workflows API can be installed using:
 
-To use the Workflows API, you may need to familiarise yourself with:
+```
+$ npm install nexmo@beta
+```
 
-**[Authentication](/concepts/guides/authentication)**
+If you decide to use the client library you will need the following information:
 
-The Workflows API is authenticated with either:
+Key | Description
+-- | --
+`NEXMO_API_KEY` | The Nexmo API key which you can obtain from your Nexmo Dashboard.
+`NEXMO_API_SECRET` | The Nexmo API secret which you can obtain from your Nexmo Dashboard.
+`NEXMO_APPLICATION_ID` | The Nexmo Application ID for your Nexmo Application which can be obtained from your Nexmo Dashboard.
+`NEXMO_APPLICATION_PRIVATE_KEY_PATH` | The path to the `private.key` file that was generated when you created your Nexmo Application.
 
-1. [Basic Authentication](/concepts/guides/authentication#header-based-api-key-secret-authentication). Or, 
-2. [JSON Web Tokens (JWT)](/concepts/guides/authentication#json-web-tokens-jwt). This is the recommended approach.
-
-**[Messages](/messages-and-workflows-apis/messages/overview)**
-
-The Messages API is used for sending messages to a single channel.
+These variables can then be replaced with actual values in the client library example code.
 
 ## Quickstart
 
-In this release you can:
-
-* **Send** SMS, Facebook Messenger and Viber Service Messages with Workflows built on-top of the the [Messages API](/messages-and-workflows-apis/messages/overview).
-* **Failover** to the next message if the condition status is not met within the time period or if the message immediately fails.
-
-The condition status is the status that the message returns. With Facebook Messenger and Viber Service Messages, you can use `delivered` and `read` statuses as the condition status. With SMS you can only use `delivered`.
-
-An example is shown here:
+The following code shows how to create a workflow that attempts to send a message via Facebook messenger and if not read within the time limit a message will be sent via SMS:
 
 ```
 curl -X POST https://api.nexmo.com/beta/workflows \
-  -u 'API_KEY:API_SECRET' \
+  -u 'NEXMO_API_KEY:NEXMO_API_SECRET' \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json' \
   -d $'{
@@ -84,23 +90,19 @@ curl -X POST https://api.nexmo.com/beta/workflows \
   }'
 ```
 
-In the above example code you will need to:
+In the above example code you will need to replace the following variables with actual values:
 
-1. Replace `API_KEY` and `API_SECRET` with your Nexmo API_KEY and API_SECRET respectively. These can be obtained from your Dashboard.
-2. Replace `SENDER_ID` with the ID of the Facebook page. Replace `RECIPIENT_ID` with the ID of the Facebook user you are sending the message to. 
-3. Replace `FROM_NUMBER` and `TO_NUMBER` with suitable phone numbers. The `FROM_NUMBER` would typically be a Nexmo Number but also could be any other number you own. The `TO_NUMBER` is the number of the phone to which the message will be sent. Throughout the Nexmo APIs numbers are always specified in E.164 format, for example, 447700900000.
+Key | Description
+-- | --
+`NEXMO_API_KEY` | Nexmo API key which can be obtained from your Nexmo Dashboard.
+`NEXMO_API_SECRET` | Nexmo API secret which can be obtained from your Nexmo Dashboard.
+`SENDER_ID` | Your Page ID. The `SENDER_ID` is the same as the `to.id` value you received in the inbound messenger event on your Inbound Message Webhook URL.
+`RECIPIENT_ID` | The PSID of the user you want to reply to. The `RECIPIENT_ID` is the PSID of the Facebook User you are messaging. This value is the `from.id` value you received in the inbound messenger event on your Inbound Message Webhook URL.
+`FROM_NUMBER` | A phone number you own or some text to identify the sender.
+`TO_NUMBER` | The number of the phone to which the message will be sent.
 
-In this example the workflow attempts to send a Facebook Messenger message to the specified Facebook user, and if this fails (the success condition in this example is `read`), then an SMS is sent.
+**NOTE:** Don't use a leading `+` or `00` when entering a phone number, start with the country code, for example 447700900000.
 
-## Guides
+### Run the code
 
-* [Failover](/messages-and-workflows-apis/workflows/guides/failover): how to set up your account and environment to send a message using Facebook Messenger with fallback to SMS.
-
-## Building Blocks
-
-* [Send a message with failover](/messages-and-workflows-apis/workflows/building-blocks/send-a-message-with-failover): the core details of how to use the Workflows API for sending messages with failover.
-
-## Reference
-
-* [Messages API Reference](/api/messages-and-workflows-apis/messages)
-* [Workflows API Reference](/api/messages-and-workflows-apis/workflows)
+The example code will send a message via Facebook Messenger and if not read within the expiry time an SMS will be sent.

@@ -175,8 +175,6 @@
         
 
         
-        <th>Default</th>
-        
 
         <th class="last">Description</th>
     </tr>
@@ -202,41 +200,8 @@
             
 
             
-                <td class="default">
-                
-                </td>
-            
 
             <td class="description last">The Conversation object that belongs to this call.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>type</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">TYPES</span>
-
-
-            
-            </td>
-
-            
-
-            
-                <td class="default">
-                
-                    APP
-                
-                </td>
-            
-
-            <td class="description last">The type of the call</td>
         </tr>
 
     
@@ -257,10 +222,6 @@
 
             
 
-            
-                <td class="default">
-                
-                </td>
             
 
             <td class="description last">The caller. The member object of the caller ( not a reference to the one in conversation.members)</td>
@@ -284,10 +245,6 @@
 
             
 
-            
-                <td class="default">
-                
-                </td>
             
 
             <td class="description last">The callees. The members that receive the call (not a reference to conversation.members)</td>
@@ -329,7 +286,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_call.js.html">modules/call.js</a>, <a href="modules_call.js.html#line14">line 14</a>
+        <a href="modules_call.js.html">modules/call.js</a>, <a href="modules_call.js.html#line15">line 15</a>
     </li></ul></dd>
     
 
@@ -348,7 +305,9 @@
 <ul>
     <li><a href="Application.html#event:member:call">Application#member:call</a></li>
 
-    <li><a href="Call.html#event:call:member:state">Call#call:member:state</a></li>
+    <li><a href="Call.html#event:member:call:state">Call#member:call:state</a></li>
+
+    <li><a href="Call.html#event:call:state:changed">Call#call:state:changed</a></li>
 </ul>
 
 
@@ -379,350 +338,6 @@
 
     
 
-    
-        <h3 class="subsection-title">Members</h3>
-
-        
-            
-<h4 class="name" id="MEMBER_CALL_STATES"><span class="type-signature">(readonly) </span>MEMBER_CALL_STATES<span class="type-signature"> :string</span></h4>
-
-
-
-
-<div class="description">
-    Enum for Call Member states.
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">string</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-    <h5 class="subsection-title">Properties:</h5>
-
-    
-
-<table class="props">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>RINGING</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">A Member is in ringing state</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>HUNGUP</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">A Member hung up the call</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>ANSWERED</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">A Member answered the call</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>REJECTED</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">A Member rejected the call</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_call.js.html">modules/call.js</a>, <a href="modules_call.js.html#line52">line 52</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id="TYPES"><span class="type-signature">(readonly) </span>TYPES<span class="type-signature"> :string</span></h4>
-
-
-
-
-<div class="description">
-    Enum for Call types.
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">string</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-    <h5 class="subsection-title">Properties:</h5>
-
-    
-
-<table class="props">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>APP</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">A Call originated from APP</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>PHONE</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">A Call originated from PHONE</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_call.js.html">modules/call.js</a>, <a href="modules_call.js.html#line67">line 67</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
     
 
     
@@ -787,7 +402,7 @@ Join the conversation that you are invited
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_call.js.html">modules/call.js</a>, <a href="modules_call.js.html#line237">line 237</a>
+        <a href="modules_call.js.html">modules/call.js</a>, <a href="modules_call.js.html#line351">line 351</a>
     </li></ul></dd>
     
 
@@ -848,6 +463,9 @@ Join the conversation that you are invited
 
 <div class="description">
     Hangs up the call
+
+If there is a knocking active, do a knocking:delete
+otherwise
 Leave from the conversation
 Disable the audio
 </div>
@@ -893,7 +511,7 @@ Disable the audio
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_call.js.html">modules/call.js</a>, <a href="modules_call.js.html#line213">line 213</a>
+        <a href="modules_call.js.html">modules/call.js</a>, <a href="modules_call.js.html#line301">line 301</a>
     </li></ul></dd>
     
 
@@ -998,7 +616,7 @@ Leave from the conversation that you are invited
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_call.js.html">modules/call.js</a>, <a href="modules_call.js.html#line223">line 223</a>
+        <a href="modules_call.js.html">modules/call.js</a>, <a href="modules_call.js.html#line337">line 337</a>
     </li></ul></dd>
     
 
@@ -1058,7 +676,178 @@ Leave from the conversation that you are invited
     
 
     
-    <h4 class="name" id="event:call:member:state">call:member:state</h4>
+    <h4 class="name" id="event:call:state:changed">call:state:changed</h4>
+    
+
+    
+
+
+
+<div class="description">
+    Call listening for call state changed events.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>='started'</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">CALL_STATES</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">state - the new state</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>call</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Call.html">Call</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the actual event</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="modules_call.js.html">modules/call.js</a>, <a href="modules_call.js.html#line43">line 43</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+        <p class="code-caption">listen for member state events</p>
+    
+    <pre class="prettyprint"><code> call.on("call:state:changed",(from, state, call) => {
+             console.log("call: " + call.state);
+      });
+  });</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="event:member:call:state">member:call:state</h4>
     
 
     
@@ -1208,7 +997,7 @@ Leave from the conversation that you are invited
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="modules_call.js.html">modules/call.js</a>, <a href="modules_call.js.html#line28">line 28</a>
+        <a href="modules_call.js.html">modules/call.js</a>, <a href="modules_call.js.html#line29">line 29</a>
     </li></ul></dd>
     
 
@@ -1239,7 +1028,7 @@ Leave from the conversation that you are invited
     
         <p class="code-caption">listen for member state events</p>
     
-    <pre class="prettyprint"><code> call.on("call:member:state",(from, state, event) => {
+    <pre class="prettyprint"><code> call.on("member:call:state",(from, state, event) => {
              console.log("member: " + member.user.name + " has " + state);
       });
   });</code></pre>
@@ -1258,13 +1047,13 @@ Leave from the conversation that you are invited
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:call:member:state">call:member:state</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="SipEventHandler.html">SipEventHandler</a></li><li><a href="TextEvent.html">TextEvent</a></li><li><a href="Utils.html">Utils</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:call:state:changed">call:state:changed</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ANSWERED">ANSWERED</a></li><li><a href="global.html#COMPLETED">COMPLETED</a></li><li><a href="global.html#FAILED">FAILED</a></li><li><a href="global.html#HUNGUP">HUNGUP</a></li><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li><li><a href="global.html#REJECTED">REJECTED</a></li><li><a href="global.html#RINGING">RINGING</a></li><li><a href="global.html#STARTED">STARTED</a></li><li><a href="global.html#TIMEOUT">TIMEOUT</a></li><li><a href="global.html#UNANSWERED">UNANSWERED</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Apr 04 2018 18:14:13 GMT+0100 (BST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Jun 19 2018 13:59:14 GMT+0300 (Eastern European Summer Time)
 </footer>
 
 <script> prettyPrint(); </script>
