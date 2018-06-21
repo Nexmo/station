@@ -24,7 +24,7 @@ We will use the application we already created for [the fourth getting started g
 
 ### 1.1 - Add video UI
 
-First, we'll add the UI for user to enable and disable video, as well as two `<video>` elements that we'll use to play the Video streams we're sending and receiving in the conversation. Let's add the UI at the top of the messages area.
+First, we'll add the UI for a user to enable and disable video, as well as two `<video>` elements that we'll use to play the Video streams we're sending and receiving in the conversation. Let's add the UI at the top of the messages area.
 
 ```html
 <section id="messages">
