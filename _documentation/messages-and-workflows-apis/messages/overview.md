@@ -31,7 +31,7 @@ Nexmo always welcomes your feedback. Your suggestions help us improve the produc
 
 During Developer Preview Nexmo will expand the capabilities of the API.
 
-## Quickstart
+## Getting started
 
 The following code shows how to send an SMS message using the Messages API:
 

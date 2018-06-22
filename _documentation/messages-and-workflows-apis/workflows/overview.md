@@ -29,7 +29,7 @@ In this release Nexmo provides a failover template. The failover template instru
 
 Nexmo always welcomes your feedback. Your suggestions help us improve the product. If you do need help, please email [support@nexmo.com](mailto:support@nexmo.com) and include Workflow API in the subject line. Please note that during the Developer Preview period support times are limited to Monday to Friday.
 
-## Quickstart
+## Getting started
 
 The following code shows how to create a workflow that attempts to send a message via Facebook messenger and if not read within the time limit a message will be sent via SMS:
 
