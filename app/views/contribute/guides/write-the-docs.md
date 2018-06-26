@@ -41,7 +41,7 @@ Examples:
 * *Passive voice:* The apple was eaten by the man.
 * *Active voice:* The NCCO controls the call.
 * *Passive voice:* The call is controlled by the NCCO.
-* *Active voic:e* Nexmo provides a Messages API.
+* *Active voice:* Nexmo provides a Messages API.
 * *Passive voice:* A Messages API is provided by Nexmo.
 
 ## Paragraph breaks
