@@ -19,7 +19,7 @@ This guide will introduce you to the following concepts.
 
 ### Before you begin
 
-* Ensure you have Node.JS and NPM installed (you'll need it for the CLI)
+* Ensure you have [Node.JS](https://nodejs.org/en/download/) and NPM installed (you'll need it for the CLI)
 * Ensure you have Android Studio installed
 * Create a free Nexmo account - [signup](https://dashboard.nexmo.com)
 * Install the Nexmo CLI:
@@ -148,7 +148,7 @@ In the `build.gradle` file we'll add the Nexmo Stitch Android SDK and the WebRTC
 //app/build.gradle
 dependencies {
 ...
-  compile 'com.nexmo:stitch:1.6.0'
+  compile 'com.nexmo:stitch:1.7.1'
   compile 'com.android.support:appcompat-v7:25.3.1'
 ...
 }
