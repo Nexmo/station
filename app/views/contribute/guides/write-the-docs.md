@@ -5,7 +5,7 @@ navigation_weight: 2
 
 # Writing style guide
 
-These are technical writing guidelines that are used across all Nexmo technical documentation as well as blog posts.
+These are technical writing guidelines that can be used across all Nexmo technical documentation as well as blog posts.
 
 These guidelines are designed to improve clarity and consistency. Some of the benefits of writing in this style are:
 
