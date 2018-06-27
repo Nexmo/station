@@ -1,10 +1,14 @@
+---
+title: Call Statuses
+---
+
 # Call Statuses 
 
 This guide explains call statuses like started, ringing, answered, rejected, busy, unanswered, timeout, failed, complete, machine. Since everyone is familiar with the phone, these concepts are pretty straightforward. 
  
 Both inbound and outbound calls follow the same call flow once answered. This call flow is controlled by an NCCO. An NCCO is a script of actions to be run within the context of the call. Actions are executed in the order they appear in the script, with the next action starting when the previous action has finished executing. For more information about NCCOs, see the [NCCO reference](/voice/voice-api/ncco-reference).
 
-# Call Statuses 
+## Lifecycle
 
 Each call goes through a sequence of statuses in its lifecycle:
 
@@ -12,7 +16,7 @@ A call may pass from Created to Ringing to Answered to Complete but there are ma
 
 ![Call_States_RTC.png](./Call_States_RTC.png)
 
-### Statuses
+## Statuses
 
 Here is list of of all eight of the call statuses: 
 
