@@ -1,6 +1,6 @@
 # Call Statuses 
 
-In this guide we are going to explain call statuses like started, ringing, answered, rejected, busy, unanswered, timeout, failed, complete, machine. Since everyone is familiar with the phone, these concepts are pretty straightforward. 
+This guide explains call statuses like started, ringing, answered, rejected, busy, unanswered, timeout, failed, complete, machine. Since everyone is familiar with the phone, these concepts are pretty straightforward. 
  
 Both inbound and outbound calls follow the same call flow once answered. This call flow is controlled by an NCCO. An NCCO is a script of actions to be run within the context of the call. Actions are executed in the order they appear in the script, with the next action starting when the previous action has finished executing. For more information about NCCOs, see the [NCCO reference](/voice/voice-api/ncco-reference).
 
@@ -26,7 +26,7 @@ Here is list of of all eight of the call statuses:
 - **failed**: The call failed before reaching the destination
 - **complete**: The call is completed successfully
 
-These statuses are valid for all 1:1 call combinations such as (IP-IP, IP - PSTN, PSTN - IP, etc...). 
+These statuses are valid for all 1:1 call combinations such as (IP to IP, IP to PSTN, PSTN to IP). 
 
 ## Disclaimer 
 
