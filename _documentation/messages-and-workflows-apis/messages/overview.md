@@ -16,8 +16,9 @@ Further channels may be supported in the future.
 In this release the following features are supported:
 
 * Outbound text messages on SMS, Viber Service Messages and Facebook Messenger.
-* Outbound media messages on Facebook Messenger.
-* Inbound text, media and location messages on Facebook Messenger.
+* Outbound image message on Viber Service Messages.
+* Outbound image, audio, video and file messages on Facebook Messenger.
+* Inbound text, image, audio, video, file and location messages on Facebook Messenger.
 
 The following diagram illustrates the relationship between the Messages API and the Workflows API:
 
