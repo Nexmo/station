@@ -14,7 +14,7 @@ Each call goes through a sequence of statuses in its lifecycle:
 
 A call may pass from Created to Ringing to Answered to Complete but there are many different sets of sequences for statuses in a call's lifecycle. Below is a schematic diagram outlining a few sets. 
 
-![Call_States_RTC.png](./Call_States_RTC.png)
+![Diagram of Call States](/assets/images/call-states-rtc-diagram.png)
 
 ## Statuses
 
