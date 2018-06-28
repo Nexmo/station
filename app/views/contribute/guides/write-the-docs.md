@@ -86,12 +86,18 @@ The industry standard dictionary is [Merriam Webster](https://www.merriam-webste
 
 Latin phrases and abbreviations can sometimes cause confusion. They can also be less convenient to translate.
 
+Examples:
+
 * Use ‘for example’, instead of 'e.g.' and 'that is' rather than 'i.e.'.
 * Don't use words like 'crash', use 'error'. Use 'launch' or 'start' rather than 'fire up'.
 * Bear in mind the reader’s first language may not be English.
 * Mouse is clicked and keyboard is pressed. Avoid terms such as 'hit' when referring to the keyboard.
 
 ## Headings
+
+Be consistent.
+
+For example:
 
 * Use word case for documentation main sections. For example, 'Building Blocks'.
 * Use sentence case for section headings. For example, 'This is a section heading'.
@@ -106,6 +112,8 @@ This is an example of a bulleted list:
 * Use numbered lists for ordered sequences (procedures, tasks and so on).
 
 ## Codeblocks
+
+When inserting codeblocks for example code in the text:
 
 * Specify the coding language where possible.
 * Break the text before a codeblock with a colon, not a period (which is a hard stop in the mind of the reader, rather than a continuation).
