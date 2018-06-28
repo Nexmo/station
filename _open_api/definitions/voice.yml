@@ -621,7 +621,7 @@ paths:
                           $ref: "#/components/schemas/voiceNames"                          
                       loop:
                           type: integer
-                          description: "the number of times to repeeat the text the file, 0 for infinite"
+                          description: "the number of times to repeat the text the file, 0 for infinite"
                           default: 1
           responses:
               '200':
