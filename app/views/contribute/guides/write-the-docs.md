@@ -63,7 +63,7 @@ Use 'you' rather than 'we' when referring to the reader.
 
 Example:
 
-* *Avoid:* We can now provide an API Key.
+* *Avoid:* We now need to enter an API Key.
 * *Avoid:* We can now click the button to register our Nexmo Number.
 * *Better:* You can now click the button to register your Nexmo Number.
 * *Best:* Click the button to register your Nexmo Number.
