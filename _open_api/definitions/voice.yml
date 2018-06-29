@@ -41,10 +41,10 @@ paths:
                   description: The webhook endpoint where you provide the Nexmo Call
                     Control Object that governs this call.
                   type: array
+                  x-nexmo-developer-collection-description-shown: true
+                  example: '["https://example.com/answer"]'
                   items:
                     type: string
-                    format: uri
-                    example: https://example.com/answer
                 answer_method:
                   description: The HTTP method used to send event information to answer_url.
                   type: string
@@ -56,10 +56,11 @@ paths:
                   description: The webhook endpoint where call progress events are
                     sent to. For more information about the values sent, see callback
                   type: array
+                  x-nexmo-developer-collection-description-shown: true
+                  example: '["https://example.com/event"]'
                   items:
                     type: string
                     format: uri
-                    example: https://example.com/event
                 event_method:
                   description: The HTTP method used to send event information to event_url.
                   type: string
@@ -76,6 +77,7 @@ paths:
                   enum:
                   - continue
                   - hangup
+                  example: continue
                 length_timer:
                   description: Set the number of seconds that elapse before Nexmo
                     hangs up after the call state changes to in_progress.
@@ -650,23 +652,26 @@ components:
       properties:
         phone:
           type: object
-          description: Phone number you want to call
+          description: Connect to a Phone (PSTN) number
           properties:
             type:
               type: string
               example: phone
+              description: The type of connection. Must be `phone`
               enum:
               - phone
             number:
               "$ref": "#/components/schemas/addresses/properties/e164"
             dtmfAnswer:
+              description: Provide [DTMF digits](/voice/voice-api/guides/dtmf) to send when the call is answered
               type: string
               example: p*123#
         websocket:
           type: object
-          description: Details of the Websocket you want to connect to
+          description: Connect to a Websocket
           properties:
             type:
+              description: The type of connection. Must be `websocket`
               type: string
               example: websocket
               enum:
@@ -677,6 +682,7 @@ components:
               type: string
               example: audio/l16;rate=16000
               enum:
+              - audio/l16;rate=8000
               - audio/l16;rate=16000
             headers:
               description: Details of the Websocket you want to connect to
@@ -685,11 +691,13 @@ components:
                 customer_id:
                   type: string
                   example: ABC123
+                  description: This is an example header. You can provide any headers you may need
         sip:
           type: object
-          description: phone
+          description: Connect to a SIP Endpoint
           properties:
             type:
+              description: The type of connection. Must be `sip`
               type: string
               example: sip
               enum:
@@ -700,12 +708,14 @@ components:
       type: object
       properties:
         e164:
+          description: The phone number to connect to
           type: string
           minLength: 7
           maxLength: 15
           example: '14155550100'
           pattern: "\\d{7,15}"
         sipuri:
+          description: The sip number to connect to
           type: string
           minLength: 1
           maxLength: 50
@@ -714,8 +724,7 @@ components:
           type: string
           minLength: 1
           maxLength: 50
-          example: wss:\\example.com/socket
-          pattern: "^((ws:\\\\\\\\)|(wss:\\\\\\\\)).*"
+          example: wss://example.com/socket
     callEvent:
       type: object
       required:
