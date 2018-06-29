@@ -18,7 +18,7 @@ A call may pass from Created to Ringing to Answered to Complete but there are ma
 
 ## Statuses
 
-Here is list of of all eight of the call statuses: 
+Here is list of of all ten call statuses: 
 
 - **started** : The call is created on the Nexmo platform
 - **ringing** : The destination has confirmed that the call is ringing
