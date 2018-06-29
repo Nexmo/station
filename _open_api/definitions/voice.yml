@@ -441,6 +441,8 @@ paths:
                       enum:
                       - ncco
                     url:
+                      x-nexmo-developer-collection-description-shown: true
+                      example: '["https://example.com/ncco.json"]'
                       type: array
                       items:
                         type: string
@@ -471,10 +473,11 @@ paths:
             schema:
               properties:
                 stream_url:
+                  x-nexmo-developer-collection-description-shown: true
+                  example: '["https://example.com/waiting.mp3"]'
                   type: array
                   items:
                     type: string
-                    example: https://example.com/waiting.mp3
                 loop:
                   type: integer
                   description: the number of times to play the file, 0 for infinite
