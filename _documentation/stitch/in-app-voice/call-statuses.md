@@ -14,7 +14,7 @@ Each call goes through a sequence of statuses in its lifecycle:
 
 A call may pass from Created to Ringing to Answered to Complete but there are many different sets of sequences for statuses in a call's lifecycle. Below is a schematic diagram outlining a few sets. 
 
-![Visual diagram of Call statuses. A description of the text is given in the next section.](/assets/images/call-states-rtc-diagram.png)
+![Visual diagram of Call statuses. A description of the text is given in the next section.](/assets/images/call-statuses-rtc-diagram.png)
 
 ## Statuses
 
@@ -29,6 +29,7 @@ Here is list of of all eight of the call statuses:
 - **timeout**: The call timed out before it was answered
 - **failed**: The call failed before reaching the destination
 - **complete**: The call is completed successfully
+- **macine**: The call is answered by a machine
 
 These statuses are valid for all 1:1 call combinations such as (IP to IP, IP to PSTN, PSTN to IP). 
 
