@@ -125,13 +125,13 @@ constructor() {
 
 ### 2.3 - Add enable screen share handler
 
-We'll then update the `setupUserEvents` method to trigger `conversation.media.update({screenshare: true})` when the user clicks the `Enable Screen Share` button.
+We'll then update the `setupUserEvents` method to trigger `conversation.media.enable({screenshare: true})` when the user clicks the `Enable Screen Share` button.
 
 ```javascript
 setupUserEvents() {
 ...
     this.enableScreenShareButton.addEventListener('click', () => {
-      this.conversation.media.update({
+      this.conversation.media.enable({
         screenshare: true
       }).then(this.eventLogger('member:media')).catch(this.errorLogger)
     })
