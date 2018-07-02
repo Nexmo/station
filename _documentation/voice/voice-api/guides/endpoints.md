@@ -17,7 +17,7 @@ You can also send an optional `dtmfAnswer` parameter which is a string of digits
 
 ## Session Initiation Protocol (SIP)
 
-SIP is used to connect a call to your own SIP system such as an office PBX or other telephony service using the standards laid down in [RFC3665](https://tools.ietf.org/html/rfc3665).
+SIP is used to connect a call to your own SIP system such as an office PBX or other telephony service using the standards laid down in [RFC3261](https://tools.ietf.org/html/rfc3261).
 
 The `uri` should be constructed as a SIP URL in the format `sip:user@example.com` by default Nexmo will connect to port 5060 unless another port is specified in the URI. You can specify TLS for the SIP transport by adding `;transport=tls` to the end of your URI.
 
