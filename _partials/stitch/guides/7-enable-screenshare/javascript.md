@@ -5,7 +5,7 @@ language: javascript
 
 # Getting Started with the Nexmo Conversation JS SDK
 
-In this getting started guide we'll cover updating media streams to add screen sharing to the Conversation we created in the [simple conversation with video](/stitch/in-app-messaging/guides/5-enable-video/javascript) getting started guide. We'll deal with updating media stream events, the ones that come via the conversation.
+In this getting started guide we'll cover updating media streams to add screen sharing to the Conversation we created in the [simple conversation with video](/stitch/in-app-video/guides/1-enable-video/javascript) getting started guide. We'll deal with updating media stream events, the ones that come via the conversation.
 
 We’ll also build a Chrome extension needed for capturing our screen and update our media object with the screen stream.
 
@@ -18,7 +18,7 @@ This guide will introduce you to the following concepts:
 
 ## Before you begin
 
-- Ensure you have run through the [previous guide.](/stitch/in-app-messaging/guides/5-enable-video/javascript)
+- Ensure you have run through the [previous guide.](/stitch/in-app-video/guides/1-enable-video/javascript)
 
 ## 1 - Creating the Stitch SDK compatible Chrome extension
 
@@ -79,7 +79,7 @@ We'll need to install the extension on Chrome. There are a few ways to do that, 
 
 ### 2 - Updating the JavaScript application
 
-Next we'll have to update the existing JavaScript application we created in the [previous guide](5-enable-video.md).
+Next we'll have to update the existing JavaScript application we created in the [previous guide](/stitch/in-app-video/guides/1-enable-video/javascript).
 
 ### 2.1 -  Adding the extension’s id to ConversationClient
 
