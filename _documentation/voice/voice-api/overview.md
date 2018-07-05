@@ -18,12 +18,12 @@ The Nexmo Voice API is the easiest way to build high-quality voice applications 
 
 In this document you can learn about:
 
-* [Nexmo Voice API Concepts](#concepts)
-* [**How to Get Started with the Voice API**](#getting-started)
-* [Guides](#guides)
-* [Building Blocks](#building-blocks)
-* [Tutorials](#tutorials)
-* [Reference](#reference)
+* [Nexmo Voice API Concepts](#concepts) to introduce terminology
+* [**How to Get Started with the Voice API**](#getting-started) including examples in your language
+* [Guides](#guides) learn about working with the Voice API
+* [Building Blocks](#building-blocks) code snippets to help with specific tasks
+* [Tutorials](#tutorials) detailed tutorials for some common use cases
+* [Reference](#reference) API documentation and other supporting content
 
 ## Concepts
 
