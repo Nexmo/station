@@ -19,7 +19,7 @@ Please read this information carefully, so you can best use the building blocks.
 3. [Install the Nexmo Command Line tools](/tools)
 4. [Create a Nexmo Application using the command line tools or Dashboard](/concepts/guides/applications#getting-started-with-applications)
 5. [Install the Nexmo Library for your programming language](/tools)
-6. [Set up Ngrok](https://ngok.com)
+6. [Set up Ngrok](https://ngrok.com)
 
 Other resources:
 
