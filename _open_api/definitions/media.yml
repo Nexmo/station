@@ -2,7 +2,7 @@ openapi: "3.0.0"
 info:
   version: 1.0.0
   title: Media API
-  description: The Media API can be used to upload, download and delete media items such as audio files for use with other Nexmo APIs.
+  description: The Media API can be used to query, download and delete media items such as audio files for use with other Nexmo APIs.
   x-label: 'BETA'
 servers:
   - url: https://api.nexmo.com/v3
@@ -51,7 +51,7 @@ paths:
           default: '1 week ago'
           x-default-is-meta: true
         - name: end_time
-          description: Retrieve results created on or before this timestap.
+          description: Retrieve results created on or before this timestamp.
           required: false
           in: query
           schema:
