@@ -35,7 +35,7 @@ In this document you can learn about:
 
 * **[Numbers](/voice/voice-api/guides/numbers)** - The key concepts of using phone numbers in the nexmo voice API
 
-* **[Webhooks](/voice/voice-api/guides/webhooks)** - HTTP requests are made to your application web server so that you can act upon them. For example, an incoming call will send a webhook.
+* **[Webhooks](/concepts/guides/webhooks)** - HTTP requests are made to your application web server so that you can act upon them. For example, an incoming call will send a webhook.
 
 ## Getting Started
 
