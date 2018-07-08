@@ -78,7 +78,7 @@ class CallActivity : BaseActivity() {
 </android.support.constraint.ConstraintLayout>
 ```
 
-In this example we're assuming the user has already logged in with the `conversationClient.login()` method. For more details about how to implement that read the [simple conversation quickstart](/stitch/in-app-messaging/guides/1-simple-conversation/android) or view the `LoginActivity` in the [source code for this quickstart](https://github.com/Nexmo/stitch-android-quickstart/blob/master/examples/StitchOutboundPSTNCalling/app/src/main/java/com/nexmo/stitchoutboundpstncalling/LoginActivity.kt)
+In this example we're assuming the user has already logged in with the `conversationClient.login()` method. For more details about how to implement that read the [simple conversation quickstart](/stitch/in-app-messaging/guides/simple-conversation/android) or view the `LoginActivity` in the [source code for this quickstart](https://github.com/Nexmo/stitch-android-quickstart/blob/master/examples/StitchOutboundPSTNCalling/app/src/main/java/com/nexmo/stitchoutboundpstncalling/LoginActivity.kt)
 
 
 ## Making an outbound PSTN call
