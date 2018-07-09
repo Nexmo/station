@@ -28,7 +28,7 @@ Examples:
 
 Use clear, simple, and direct language. Avoid flowery and verbose writing styles.
 
-* Avoid filler words superfluous adjectives 'really nice feature', 'easily', ‘simple’, 'please', 'it may be that', 'and that's it'.
+* Avoid filler words and superfluous adjectives 'really nice feature', 'easily', ‘simple’, 'just', 'please', 'it may be that', 'and that's it'.
 * Avoid subjective phrases. "You can easily...". "It is simple to...".
 
 ## Use active voice
