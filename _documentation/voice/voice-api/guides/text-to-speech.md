@@ -3,7 +3,9 @@ title: Text to Speech
 navigation_weight: 3
 ---
 
-# Overview
+# Text to Speech
+
+## Overview
 
 Nexmo uses text-to-speech engines to allow you to play machine
 generated speech to your users. This can either be done via an NCCO
@@ -144,7 +146,7 @@ enables you to mix multiple languages, to control the speed, volume
 and pitch of synthesised text, and to control pronunciation of words
 and numbers.
 
-In an [NCCO](/api/voice/ncco) `talk` action, you can send SSML tags as
+In an [NCCO](/voice/voice-api/ncco-reference) `talk` action, you can send SSML tags as
 part of the text string. They must all be wrapped in a `speak` root
 tag. You may use either single quotes or escaped double quotes around
 attribute values on SSML tags.

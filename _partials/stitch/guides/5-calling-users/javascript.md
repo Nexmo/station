@@ -5,7 +5,7 @@ language: javascript
 
 # Call Convenience methods for Stitch and JavaScript
 
-In this getting started guide we'll cover adding call methods to the Conversation we created in the [simple conversation with audio](/stitch/in-app-messaging/guides/4-enable-audio/javascript) getting started guide. We'll deal with member call events that trigger on the application and call state events that trigger on the Call object.
+In this getting started guide we'll cover adding call methods to the Conversation we created in the [simple conversation with audio](/stitch/in-app-voice/guides/1-enable-audio/javascript) getting started guide. We'll deal with member call events that trigger on the application and call state events that trigger on the Call object.
 
 ## Concepts
 
@@ -17,11 +17,11 @@ This guide will introduce you to the following concepts.
 
 ## Before you begin
 
-- Ensure you have run through the [previous guide](/stitch/in-app-messaging/guides/4-enable-audio/javascript)
+- Ensure you have run through the [previous guide](/stitch/in-app-voice/guides/1-enable-audio/javascript)
 
 ## 1 - Update the JavaScript App
 
-We will use the application we already created for [the first audio getting started guide](/stitch/in-app-messaging/guides/4-enable-audio/javascript). All the basic setup has been done in the previous guides and should be in place. We can now focus on updating the client-side application.
+We will use the application we already created for [the first audio getting started guide](/stitch/in-app-voice/guides/1-enable-audio/javascript). All the basic setup has been done in the previous guides and should be in place. We can now focus on updating the client-side application.
 
 ### 1.1 - Add call control UI
 
@@ -61,7 +61,7 @@ constructor() {
 
 ### 1.2 - Add helper methods
 
-We'll need a few helper methods so we reduce code duplication in our App. We'll be reusing the `<audio>` element we added in the [previous guide](/stitch/in-app-messaging/guides/4-enable-audio/javascript) to play the audio stream. What this does is take the stream and put it as the source of the `<audio>` tag, and then add a listener to play the audio as soon as the metadata is loaded. So let's add `setupAudioStream(stream)` as a class method:
+We'll need a few helper methods so we reduce code duplication in our App. We'll be reusing the `<audio>` element we added in the [previous guide](/stitch/in-app-voice/guides/1-enable-audio/javascript) to play the audio stream. What this does is take the stream and put it as the source of the `<audio>` tag, and then add a listener to play the audio as soon as the metadata is loaded. So let's add `setupAudioStream(stream)` as a class method:
 
 ```javascript
 setupAudioStream(stream) {
@@ -194,4 +194,4 @@ After you've set up you're app to handle incoming calls, you can follow the [PST
 
 ## Where next?
 
-- Have a look at the [Nexmo Conversation JS SDK API Reference](/sdk/stitch/javascript/)
+- Have a look at the [Nexmo Stitch JavaScript SDK API Reference](/sdk/stitch/javascript/)
