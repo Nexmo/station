@@ -8,9 +8,9 @@ PORT = 3000
 @app.route("/webhooks/answer")
 def answer_call():
 
-    nexmo_number = request.args['to']
     call_from = request.args['from']
 
+    # Dynamically build NCCO based on source phone
     if call_from == "447700900000":
         ncco = [
             {
