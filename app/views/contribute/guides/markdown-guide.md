@@ -1,17 +1,17 @@
 ---
-title: Markdown style guide
+title: Markdown guide
 navigation_weight: 3
 ---
 
 ⚓ Anchor Example
 
-# Markdown style guide
+# Markdown guide
 
 Here is a complete overview of the basic markdown and custom plugins that Nexmo Developer supports.
 
 We use plugins sparingly to extend functionality where the only other option would be HTML.
 
-You can find this document in `/app/views/contribute/guides/styleguide.md`. The side navigation has been left present to be an accurate representation of the content width.
+You can find this document in `/app/views/contribute/guides/markdown-guide.md`. The side navigation has been left present to be an accurate representation of the content width.
 
 There is no markdown syntax in here as this document is rendered with the same engine and no support exists for escaping markdown. Examples would ultimately be rendered. To understand recursion you must first understand recursion.
 
@@ -132,7 +132,7 @@ print_hi('Adam')
 
 For tabbed code we use a custom plugin.
 
-> You'll have to view the `styleguide.md` source to see how since showing you the syntax would result in it being processed.
+> You'll have to view the `markdown-guide.md` source to see how since showing you the syntax would result in it being processed.
 
 ```tabbed_examples
 source: '/_examples/messaging/sending-an-sms/basic'
@@ -142,7 +142,7 @@ source: '/_examples/messaging/sending-an-sms/basic'
 
 For tabbed code we use a custom plugin.
 
-> You'll have to view the `styleguide.md` source to see how since showing you the syntax would result in it being processed.
+> You'll have to view the `markdown-guide.md` source to see how since showing you the syntax would result in it being processed.
 
 ```tabbed_examples
 tabs:
@@ -162,7 +162,7 @@ config: messaging.sms.send
 
 > Pipes should only be between cells. Two hyphens `--` should be used to 'underline' the headings.
 >
-> You'll have to view the `styleguide.md` source to see how since showing you the syntax would result in it being processed.
+> You'll have to view the `markdown-guide.md` source to see how since showing you the syntax would result in it being processed.
 
 Key | Description
 -- | --
@@ -178,7 +178,7 @@ source: '/_examples/styleguide/tabbed-content'
 
 ## JS Sequence Diagram (custom plugin)
 
-> You'll have to view the `styleguide.md` source to see how since showing you the syntax would result in it being processed.
+> You'll have to view the `markdown-guide.md` source to see how since showing you the syntax would result in it being processed.
 
 ```js_sequence_diagram
 Andrew->China: Says Hello
