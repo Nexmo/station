@@ -10,11 +10,11 @@ We're always looking at ways to improve our documentation and platform and would
 
 An introductory guide for first time contributors to understand how and where contributions to Nexmo Developer documentation can be made.
 
-## [Write the Docs](/contribute/guides/write-the-docs)
+## [Writing Style Guide](/contribute/guides/writing-style-guide)
 
-The Write the Docs guide provides guidance and templates for how Nexmo Developer should be written and structured as well as what we use in place of API credentials and other variables throughout the guides.
+The Writing Style guide provides guidance and templates for how Nexmo Developer should be written and structured as well as what we use in place of API credentials and other variables throughout the guides.
 
-## [Markdown Styleguide](/contribute/guides/styleguide)
+## [Markdown Guide](/contribute/guides/markdown-guide)
 
 The Markdown style guide provides examples of how to implement and use all the various components throughout Nexmo Developer from typography and headings to tabbed code examples and syntax highlighting.
 
@@ -24,7 +24,7 @@ The structure section provides an overview of our documentation content types, w
 
 ## [Code Examples](/contribute/guides/code-examples)
 
-The styleguide provides examples of how to implement and use all the various components throughout Nexmo Developer from typography and headings to tabbed code examples and syntax highlighting.
+The Code Examples page provides examples of how to use tabbed code examples and syntax highlighting.
 
 ## [Platform](/contribute/guides/platform)
 
