@@ -1,10 +1,4 @@
 GIT
-  remote: https://github.com/brandonweiss/git-hookshot.git
-  revision: 10f4b35497fd1391b94baa77e4c986d2415f3d29
-  specs:
-    git-hookshot (0.1.0)
-
-GIT
   remote: https://github.com/oscardelben/rawler.git
   revision: f2909b135fce7d35167f98026ac481926c94423e
   specs:
@@ -418,7 +412,6 @@ DEPENDENCIES
   faker (= 1.8.4)
   foundation-rails (= 6.4.1.2)
   friendly_id (= 5.2.3)
-  git-hookshot!
   gravatar_image_tag (= 1.2.0)
   groupdate (= 3.2.0)
   guard-livereload (~> 2.5)

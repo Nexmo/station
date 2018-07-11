@@ -157,9 +157,6 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'guard-livereload', '~> 2.5', require: false
   gem 'guard-rspec'
-
-  # Share git hooks in Ruby projects among all the collaborators automatically, without them having to do anything
-  gem 'git-hookshot', git: 'https://github.com/brandonweiss/git-hookshot.git'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
