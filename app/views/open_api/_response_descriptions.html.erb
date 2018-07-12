@@ -35,20 +35,22 @@
                     <% end %>
                 <% else %>
                     <% schema = response.schema(format) %>
-                    <% schema['properties'].each do |key, value| %>
-                        <% next if key == '_links' %>
-                        <% next if value['x-skip-response-description'] %>
-                        <%
-                            desc = ''
-                            desc = value['title'].render_markdown if value['title']
-                            desc = value['description'].render_markdown if value['description']
-                        %>
-                        <li>
-                            <div class="table-list-columns">
-                                <div class="table-list-column" flex="2"><b><%= key %></b></div>
-                                <div class="table-list-column" flex="4"><%= desc %></div>
-                            </div>
-                        </li>
+                    <% if schema['properties']%>
+                        <% schema['properties'].each do |key, value| %>
+                            <% next if key == '_links' %>
+                            <% next if value['x-skip-response-description'] %>
+                            <%
+                                desc = ''
+                                desc = value['title'].render_markdown if value['title']
+                                desc = value['description'].render_markdown if value['description']
+                            %>
+                            <li>
+                                <div class="table-list-columns">
+                                    <div class="table-list-column" flex="2"><b><%= key %></b></div>
+                                    <div class="table-list-column" flex="4"><%= desc %></div>
+                                </div>
+                            </li>
+                        <% end %>
                     <% end %>
                 <% end %>
 
