@@ -213,7 +213,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(ChatAdapter.ViewHolder holder, int position) {
-        Text textMessage = messages.get(position);
+        Text textMessage = events.get(position);
         if (textMessage.getType().equals(EventType.TEXT)) {
             holder.text.setText(textMessage.getText());
         }
@@ -221,7 +221,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return messages.size();
+        return events.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

@@ -142,7 +142,7 @@ private boolean AUDIO_ENABLED = false;
 
 private void toggleAudio() {
     if(AUDIO_ENABLED) {
-        conversation.audio().disable(new RequestHandler<Void>() {
+        conversation.media(Conversation.MEDIA_TYPE.AUDIO).disable(new RequestHandler<Void>() {
             @Override
             public void onError(NexmoAPIError apiError) {
                 logAndShow(apiError.getMessage());
@@ -155,7 +155,7 @@ private void toggleAudio() {
             }
         });
     } else {
-        conversation.audio().enable(new AudioCallEventListener() {
+        conversation.media(Conversation.MEDIA_TYPE.AUDIO).enable(new AudioCallEventListener() {
             @Override
             public void onRinging() {
                 logAndShow("Ringing");
