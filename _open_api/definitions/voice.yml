@@ -701,7 +701,7 @@ components:
           example: '14155550100'
           pattern: "\\d{7,15}"
         sipuri:
-          description: The sip number to connect to
+          description: The SIP URI to connect to
           type: string
           minLength: 1
           maxLength: 50
