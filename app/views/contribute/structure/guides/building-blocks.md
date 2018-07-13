@@ -27,40 +27,37 @@ Building blocks provide a quick reference to how to achieve a specific single co
 
 ## Anatomy of a building block
 
-Let's look at an example building block and the sections that come together to create a building block.  Detailed information about each section follows.
+A building block is made of many moving parts, so below is a screenshot of an example building block, with the various elements labelled.  More details on each element is below.
 
-![Title and opening statement of building block](/assets/images/contributing/bb-opening-border.png)
+![Screenshot of a sample building block](/assets/images/contributing/building-block-anatomy.png)
 
-The first part of the file is the **title** and opening remarks of the building block.  You can edit this in the [markdown file for each building block](#building-block-markdown-file).
+### Introduction
 
-![Table of placeholder variables](/assets/images/contributing/bb-placeholders-border.png)
+The **introduction** for a building block consists of the title, an opening paragraph about the topic, and then a section introducing the example that this block illustrates.  All these elements are contained in the [markdown file for the block](#building-block-markdown-file).
 
-The **placeholder variables** are also in the [markdown file for each building block](#building-block-markdown-file), these values should be the same in every code block.
+### Placeholders 
 
-![Tabbed content](/assets/images/contributing/bb-tabbed-examples-border.png)
+The **placeholder** are also in the [markdown file](#building-block-markdown-file), these values are per-block and the same ones should be used by each language-specific code example.
 
-The examples themselves are different for each language.  The **tabbed sections** here are defined by which [per-language config files](#language-config-files) are available at the path configured in the [markdown file for each building block](#building-block-markdown-file).  If the file exists, then there will be a tab for it.
+### Tabbed content
 
-![Setup steps](/assets/images/contributing/bb-prereqs-border.png)
+The code snippets of the building blocks are available in a variety of programming languages to support developers from different communities.  The **tabbed content** contains a tab for each [per-language config file](#language-config-files) available at the path configured in the [markdown file for each building block](#building-block-markdown-file).  If the file exists, then there will be a tab for it.
 
-The **pre-requisites and installation steps** are automatically generated from the information in the [per-language config files](#language-config-files), by declaring a list of variables and in most cases showing how to create an application.  See the details for each language for full details of the options available.
+### Setup steps
 
-![Code sample](/assets/images/contributing/bb-write-the-code-border.png)
+The **setup steps** are automatically generated from the information in the [per-language config files](#language-config-files).  The renderer (`app/filters/building_block_filter.rb`) creates these collapsible sections from the configuration supplied.  The filename in the "Write the code" section and the command to "Run your code" are also controlled here.
 
-The [code sample](#source-code) itself lives on an external repository that holds a full, working version of the example.  This is defined in the [per-language config files](#language-config-files) for each building block language example.
+### Quickstart code snippets
 
-![Execution instructions](/assets/images/contributing/bb-run-the-code-border.png)
+The [source code](#source-code) is actually snippets of **code in the quickstart repos**.  These are external repositories that hold full working examples and we use sections of those examples to demonstrate the code.  The source repository, file and range of lines to include are all defined in the [per-language config files](#language-config-files) for each building block language example.
 
-The instruction for running the application that has been created is configured in the [per-language config files](#language-config-files).
+### Run the code
 
-![Demo section](/assets/images/contributing/bb-try-it-out-border.png)
+A user will want to see a **demo** of the code, so this section describes how to interact with or use the main feature of the building block.  This should be the same for all the languages and is defined in the [markdown file for each building block](#building-block-markdown-file).
 
-With the application running, describe how to interact with it.  This should be the same for all the languages and is defined in the [markdown file for each building block](#building-block-markdown-file).
-
-![Further reading](/assets/images/contributing/bb-further-reading-border.png)
+### Further reading
 
 Finally, any additional links and resources may also be added to the [markdown file for each building block](#building-block-markdown-file). 
-
 
 ## File locations for building blocks
 
@@ -77,9 +74,9 @@ navigation_weight: 5
 ---
 ```
 
-This file has the title, and some opening content about what the building block does or what it's for.  Most users may have come from another part of the docs, such as a specific guide, but others may have landed here via search and will loack context.
+This file has the title, and some opening content about what the building block does or what it's for.  Most users may have come from another part of the docs, such as a specific guide, but others may have landed here via search and will lack context.
 
-The placeholders are also included here in the markdown file for the building block itself.
+The [placeholders](#placeholders) are also included here in the markdown file for the building block itself.
 
 Within the building block markdown file, we define a "building block" - this is what renders everything inside the tabbed content block.
 
@@ -93,11 +90,11 @@ application:
 
 This block points to the directory that contains the per-language config files for the tabbed content block.  The settings here are combined with the per-language config files, so it's possible to set common settings in this section.
 
-The only other sections coming from this file are the "Try it out" and "Further reading" ones.
+The only other sections coming from this file are the ["Try it out"](#run-the-code) and ["Further reading"](#further-reading) ones.
 
 ### Language config files
 
-For each of the tabs in the tabbed content block, the content is controlled entirely by a language-specific yaml file.  This yaml file will be in the location specified by the `source` field in the `building_blocks` code sample, and will be named for the language it covers, such as `ruby.yml` or `python.yml`.
+For each of the tabs in the [tabbed content](#tabbed-content) block, the content is controlled entirely by a language-specific yaml file.  This yaml file will be in the location specified by the `source` field in the `building_blocks` code sample, and will be named for the language it covers, such as `ruby.yml` or `python.yml`.
 
 The options available in these config files vary by language but lead to a very consistent output format.  Here's an example from one of our voice applications.
 
@@ -132,7 +129,7 @@ Field | Description
 `language` | The language used, usually lowercase language name (nodejs is spelled "node")
 `unindent` | If the code samples have leading tabs, remove as many as make the included code not be indented
 
-> If the same value for these options would apply to every language example, it can be set in the building block definition in the overall building block markdown file.
+> If the same value for an option applies to every language example, it can be set in the building block definition in the overall building block markdown file.
 
 #### C# Options
 
@@ -148,7 +145,7 @@ Field | Description
 
 ### Source Code
 
-The code displayed within the tabbed examples belongs in external repositories; these are our "Quick Start" repositories on the [Nexmo Community GitHub organisation](https://github.com/nexmo-community).  The directory structure follows that of the `_documentation` directory on Nexmo Developer.
+The code displayed within the [tabbed examples](#tabbed-content) belongs in external repositories; these are our "Quick Start" repositories on the [Nexmo Community GitHub organisation](https://github.com/nexmo-community).  The directory structure follows that of the `_documentation` directory on Nexmo Developer.
 
 The examples on the Quick Start repositories should be self-contained and executable.  In the building blocks, we only include the section(s) that are directly relevant to the task that the building block is intended to illustrate.
 
