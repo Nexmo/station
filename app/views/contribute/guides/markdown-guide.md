@@ -137,12 +137,6 @@ China-->Andrew: How are you?
 Andrew->>China: I am good thanks!
 ```
 
-## Modals (custom plugin)
-
-Sometimes content is too verbose to put on the surface (particularly if it's in a table). You can include a file in a modal:
-
-Why not @[give it a try](/_modals/styleguide/example.md) now?
-
 ## Languages (custom plugin)
 
 Inline [IETF language tag](https://en.wikipedia.org/wiki/IETF_language_tag) support, using both primary language tags and subtags, is provided using the following syntax.
