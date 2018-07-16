@@ -108,6 +108,7 @@ Find out ^[more](Tooltips are useful for when you have more information to conve
 ## Code
 
 See our detailed [code examples guide](/contribute/guides/code-examples) for advice on including code.
+
 ## Tables
 
 > Pipes should only be between cells. Two hyphens `--` should be used to 'underline' the headings.
@@ -122,13 +123,34 @@ Key | Description
 
 ## Tabbed Content (custom plugin)
 
+To use the tabbed content block, add a section like this to your markdown to point out where the directory holding the examples is:
+
+````
+```tabbed_content
+source: '/_examples/styleguide/tabbed-content'
+```
+````
+
+Each file becomes a tab, as you can see:
+
 ```tabbed_content
 source: '/_examples/styleguide/tabbed-content'
 ```
 
 ## JS Sequence Diagram (custom plugin)
 
-> You'll have to view the `markdown-guide.md` source to see how since showing you the syntax would result in it being processed.
+Our sequence diagrams are simple markup that is rendered to a graphical representation by a custom plugin. Starting with code like this:
+
+````
+```js_sequence_diagram
+Andrew->China: Says Hello
+Note right of China: China thinks\nabout it
+China-->Andrew: How are you?
+Andrew->>China: I am good thanks!
+```
+````
+
+Creates the following diagram:
 
 ```js_sequence_diagram
 Andrew->China: Says Hello
