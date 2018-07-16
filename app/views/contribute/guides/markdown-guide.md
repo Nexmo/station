@@ -45,6 +45,24 @@ You can have [labels].
 
 They auto-magically color when you use verbs like [POST] or [DELETE]
 
+**Collapsible Content (custom plugin)**
+
+| ### Click me
+|
+| Here is some hidden content.
+|
+| Markdown _still_ works `here`!
+|
+| Nullam id dolor id nibh ultricies vehicula ut id elit. Donec ullamcorper nulla non metus auctor fringilla. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+
+| ### Alpha
+|
+| Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec id elit non mi porta gravida at eget metus. Sed posuere consectetur est at lobortis. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ullamcorper nulla non metus auctor fringilla.
+|
+| Donec id elit non mi porta gravida at eget metus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nulla vitae elit libero, a pharetra augue. Donec sed odio dui. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Cras mattis consectetur purus sit amet fermentum.
+|
+| Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec id elit non mi porta gravida at eget metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Aenean lacinia bibendum nulla sed consectetur. Nullam quis risus eget urna mollis ornare vel eu leo.
+
 **Tooltips (custom plugin)**
 
 Find out ^[more](Tooltips are useful for when you have more information to convey, but don't want to break context.).
@@ -89,75 +107,7 @@ Find out ^[more](Tooltips are useful for when you have more information to conve
 
 ## Code
 
-**Code blocks**
-
-Normal code blocks are specified using three backticks at the start and end.
-
-```
-This is a normal code block.
-
-It does not specify a language so is not syntax highlighted.
-```
-
-Here is some Ruby:
-
-```ruby
-def print_hi(name)
-  puts "Hi #{name}"
-end
-
-print_hi('Adam')
-#=> prints 'Hi Adam' to STDOUT.
-```
-
-**Collapsible Content (custom plugin)**
-
-| ### Click me
-|
-| Here is some hidden content.
-|
-| Markdown _still_ works `here`!
-|
-| Nullam id dolor id nibh ultricies vehicula ut id elit. Donec ullamcorper nulla non metus auctor fringilla. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-
-| ### Alpha
-|
-| Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec id elit non mi porta gravida at eget metus. Sed posuere consectetur est at lobortis. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ullamcorper nulla non metus auctor fringilla.
-|
-| Donec id elit non mi porta gravida at eget metus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nulla vitae elit libero, a pharetra augue. Donec sed odio dui. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Cras mattis consectetur purus sit amet fermentum.
-|
-| Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec id elit non mi porta gravida at eget metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Aenean lacinia bibendum nulla sed consectetur. Nullam quis risus eget urna mollis ornare vel eu leo.
-
-**Tabbed Examples (custom plugin)**
-
-For tabbed code we use a custom plugin.
-
-> You'll have to view the `markdown-guide.md` source to see how since showing you the syntax would result in it being processed.
-
-```tabbed_examples
-source: '/_examples/messaging/sending-an-sms/basic'
-```
-
-**Tabbed Examples (custom plugin) + pulling code in from external repository**
-
-For tabbed code we use a custom plugin.
-
-> You'll have to view the `markdown-guide.md` source to see how since showing you the syntax would result in it being processed.
-
-```tabbed_examples
-tabs:
-  Ruby:
-    source: .repos/nexmo-community/nexmo-ruby-quickstart/sms/send.rb
-    from_line: 9
-    language_key: php
-```
-
-**Tabbed Examples (via config)**
-
-```tabbed_examples
-config: messaging.sms.send
-```
-
+See our detailed [code examples guide](/contribute/guides/code-examples) for advice on including code.
 ## Tables
 
 > Pipes should only be between cells. Two hyphens `--` should be used to 'underline' the headings.
