@@ -3,7 +3,7 @@ class BuildingBlockFilter < Banzai::Filter
     input.gsub(/```single_building_block(.+?)```/m) do |_s|
       config = YAML.safe_load($1)
 
-      lexer = language_to_lexer(config['language'])
+      lexer = CodeLanguageResolver.find(config['language']).lexer
 
       application_html = generate_application_block(config['application']);
 
@@ -61,31 +61,13 @@ class BuildingBlockFilter < Banzai::Filter
     formatter.format(lexer.lex(source))
   end
 
-  def language_to_lexer_name(language)
-    if language_configuration['languages'][language]
-      language_configuration['languages'][language]['lexer']
-    else
-      language
-    end
-  end
-
-  def language_to_lexer(language)
-    language = language_to_lexer_name(language)
-    return Rouge::Lexers::PHP.new({ start_inline: true }) if language == 'php'
-    Rouge::Lexer.find(language.downcase) || Rouge::Lexer.find('text')
-  end
-
-  def language_configuration
-    @language_configuration ||= YAML.load_file("#{Rails.root}/config/code_languages.yml")
-  end
-
   def generate_code_block(language, input, unindent)
       filename = "#{Rails.root}/#{input['source']}"
       if input
           raise "BuildingBlockFilter - Could not load #{filename} for language #{language}" unless File.exist?(filename)
 
           code = File.read(filename)
-          lexer = language_to_lexer(language)
+          lexer = CodeLanguageResolver.find(language).lexer
 
           total_lines = code.lines.count
 
