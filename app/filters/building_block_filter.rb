@@ -143,5 +143,6 @@ class BuildingBlockFilter < Banzai::Filter
     end
 
     start_section + file_section + line_section
+
   end
 end
