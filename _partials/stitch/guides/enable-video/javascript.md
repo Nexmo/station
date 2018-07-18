@@ -213,4 +213,4 @@ Thats's it! You can see a full example of what your project should look like in 
 
 ## Where next?
 
-- Have a look at the [Nexmo Stitch JavaScript SDK API Reference](/sdk/stitch/javascript/)
+- Have a look at the [Nexmo Stitch JavaScript SDK API Reference](/sdk/stitch/javascript/ target:_blank)

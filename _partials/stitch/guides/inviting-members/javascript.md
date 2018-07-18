@@ -279,4 +279,4 @@ That's it! Your page should now look something like [this](https://github.com/Ne
 ## Where next?
 
 - Try out [Quickstart 3](/stitch/in-app-messaging/guides/utilizing-events/javascript)
-- Have a look at the [Nexmo Stitch JavaScript SDK API Reference](/sdk/stitch/javascript/)
+- Have a look at the [Nexmo Stitch JavaScript SDK API Reference](/sdk/stitch/javascript/ target:_blank)

@@ -62,7 +62,7 @@ Read more about:
 
 <div class="row">
   <div class="columns small-12 medium-4">
-    <a href="/sdk/stitch/javascript/" class="card spacious card--image card--javascript">
+    <a href="/sdk/stitch/javascript/" target="_blank" class="card spacious card--image card--javascript">
       <h2>JavaScript</h2>
     </a>
   </div>
