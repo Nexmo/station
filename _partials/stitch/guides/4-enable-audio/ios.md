@@ -70,7 +70,7 @@ Let's layout the login functionality. Set constraints on the top & leading attri
 
 ### 1.4 - Create the Login Functionality
 
-Below `UIKit` let's import the `NexmoConversation`. Next we setup a custom instance of the `ConversationClient` and saving it as a member variable in the view controller.
+Below `UIKit` let's import `Stitch`. Next we setup a custom instance of the `ConversationClient` and saving it as a member variable in the view controller.
 
 ```swift
 /// Nexmo Conversation client
