@@ -1,7 +1,7 @@
 ---
 title: Overview
 navigation_weight: 1
-description: the Voice API overview.
+description: The Voice API overview.
 ---
 
 # Voice API Overview
@@ -27,13 +27,13 @@ In this document you can learn about:
 
 ## Concepts
 
-* **Authentication with JWTs** - interaction with the Voice API are authenticated using JWTs (JSON Web Tokens). The [Nexmo libraries](/tools) handle JWT generation using a unique Nexmo Voice Application ID and a Private Key. For more information see [authenticating your applications](/concepts/guides/authentication)
+* **Authentication with JWTs** - interaction with the Voice API are authenticated using JWTs (JSON Web Tokens). The [Nexmo libraries](/tools) handle JWT generation using a unique Nexmo Voice Application ID and a Private Key. For more information see [authenticating your applications](/concepts/guides/authentication).
 
-* **Nexmo Voice Applications** - Nexmo Voice Applications represent a one-to-one mapping with the application that you are building. They contain configuration such virtual numbers and webhook callback URLs. You can create Nexmo Voice Applications using the [Nexmo CLI](/tools) or the [Application API](/concepts/guides/applications)
+* **Nexmo Voice Applications** - Nexmo Voice Applications represent a one-to-one mapping with the application that you are building. They contain configuration such virtual numbers and webhook callback URLs. You can create Nexmo Voice Applications using the [Nexmo CLI](/tools) or the [Application API](/concepts/guides/applications).
 
-* **[NCCOs](/voice/voice-api/ncco-reference)** - Nexmo Call Control Objects are a set of actions that instruct Nexmo how to control the call to your Nexmo application. For example, you can `connect` a call, send synthesized speech using `talk`, `stream` audio, or `record` a call. They are represented in JSON form as an Array of objects. For more information see the [NCCO Reference](/voice/voice-api/ncco-reference)
+* **[NCCOs](/voice/voice-api/ncco-reference)** - Nexmo Call Control Objects are a set of actions that instruct Nexmo how to control the call to your Nexmo application. For example, you can `connect` a call, send synthesized speech using `talk`, `stream` audio, or `record` a call. They are represented in JSON form as an Array of objects. For more information see the [NCCO Reference](/voice/voice-api/ncco-reference).
 
-* **[Numbers](/voice/voice-api/guides/numbers)** - The key concepts of using phone numbers in the nexmo voice API
+* **[Numbers](/voice/voice-api/guides/numbers)** - The key concepts of using phone numbers in the nexmo voice API.
 
 * **[Webhooks](/concepts/guides/webhooks)** - HTTP requests are made to your application web server so that you can act upon them. For example, an incoming call will send a webhook.
 
@@ -60,16 +60,16 @@ application:
 
 ## Guides
 
-* [Call Flow](guides/call-flow): The various stages of a call and how they interact.
-* [Legs & Conversations](guides/legs-conversations): When a phone call is made or received by Nexmo it is added to a conversation. A single conversation contains one or more phone calls (sometimes referred to as legs).
-* [DTMF](guides/dtmf): Capture user input by detecting DTMF tones (button presses) during a call.
-* [Endpoints](guides/endpoints): When connecting a call, you can connect to another phone number, a `sip` endpoint or a `websocket`. These are known as endpoints.
-* [Lex connector](guides/lex-connector): You can use the Lex Connector to connect a Nexmo voice call to an [AWS Lex](https://aws.amazon.com/lex/) bot and then have an audio conversation with the bot.
-* [NCCO](ncco-reference): To tell Nexmo how to handle a phone call, you must provide Nexmo an Nexmo Call Control Objects (NCCO) when a call is placed or answered. There are various actions available, such as `talk`, `input` and `record`.
-* [Numbers](guides/numbers): Numbers are a key part of using the Nexmo voice API. This guide covers number formatting, outgoing caller IDs and incoming call numbers.
-* [Recording](guides/recording): Recording audio input from a caller or recording the conversation between two callers.
-* [Text to Speech](guides/text-to-speech): Using our Text-To-Speech engine, you can play machine-generated speech to your callers
-* [Websockets](guides/websockets): You can connect the audio of a call to a websocket to work with it in real time.
+* [Call Flow](/voice/voice-api/guides/call-flow): The various stages of a call and how they interact.
+* [Legs & Conversations](/voice/voice-api/guides/legs-conversations): When a phone call is made or received by Nexmo it is added to a conversation. A single conversation contains one or more phone calls (sometimes referred to as legs).
+* [DTMF](/voice/voice-api/guides/dtmf): Capture user input by detecting DTMF tones (button presses) during a call.
+* [Endpoints](/voice/voice-api/guides/endpoints): When connecting a call, you can connect to another phone number, a `sip` endpoint or a `websocket`. These are known as endpoints.
+* [Lex connector](/voice/voice-api/guides/lex-connector): You can use the Lex Connector to connect a Nexmo voice call to an [AWS Lex](https://aws.amazon.com/lex/) bot and then have an audio conversation with the bot.
+* [NCCO](/voice/voice-api/guides/ncco): To tell Nexmo how to handle a phone call, you must provide Nexmo an Nexmo Call Control Objects (NCCO) when a call is placed or answered. There are various actions available, such as `talk`, `input` and `record`.
+* [Numbers](/voice/voice-api/guides/numbers): Numbers are a key part of using the Nexmo voice API. This guide covers number formatting, outgoing caller IDs and incoming call numbers.
+* [Recording](/voice/voice-api/guides/recording): Recording audio input from a caller or recording the conversation between two callers.
+* [Text to Speech](/voice/voice-api/guides/text-to-speech): Using our Text-To-Speech engine, you can play machine-generated speech to your callers
+* [Websockets](/voice/voice-api/guides/websockets): You can connect the audio of a call to a websocket to work with it in real time.
 
 ## Building Blocks
 
@@ -78,7 +78,7 @@ application:
 * [Download a recording](/voice/voice-api/building-blocks/download-a-recording)
 * [Earmuff a call](/voice/voice-api/building-blocks/earmuff-a-call)
 * [Handle user input with DTMF](/voice/voice-api/building-blocks/handle-user-input-with-dtmf)
-* [Join multiple calls into a conversation](/voice/voice-api/building-blocks/join-multiple-calls-into-a-conversation)
+* [Connect callers to a conference](/voice/voice-api/building-blocks/connect-callers-into-a-conference)
 * [Make an outbound call](/voice/voice-api/building-blocks/make-an-outbound-call)
 * [Mute a call](/voice/voice-api/building-blocks/mute-a-call)
 * [Play an audio stream into a call](/voice/voice-api/building-blocks/play-an-audio-stream-into-a-call)
@@ -99,5 +99,5 @@ application:
 
 ## Reference
 
-* [REST API Reference](/api/voice)
+* [Voice API Reference](/api/voice)
 * [NCCO Reference](/voice/voice-api/ncco-reference)
