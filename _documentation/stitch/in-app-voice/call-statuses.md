@@ -27,8 +27,8 @@ Here is list of of all call statuses:
 - **unanswered**: The call was canceled by the caller
 - **timeout**: The call timed out before it was answered
 - **failed**: The call failed before reaching the destination
-- **complete**: The call is completed successfully
-- **macine**: The call is answered by a machine
+- **completed**: The call is completed successfully
+- **machine**: The call is answered by a machine
 
 These statuses are valid for all 1:1 call combinations such as IP to IP, IP to PSTN, PSTN to IP. 
 
