@@ -78,6 +78,10 @@ class StaticController < ApplicationController
     render 'robots.txt'
   end
 
+  def podcast
+    render layout: 'page'
+  end
+
   def team
     @team = YAML.load_file("#{Rails.root}/config/team.yml")
 
