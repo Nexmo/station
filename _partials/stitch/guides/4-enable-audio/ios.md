@@ -55,7 +55,7 @@ source 'git@github.com:CocoaPods/Specs.git'
 
 target 'enable-audio' do
 
-  pod "Nexmo-Stitch" #, :git => "https://github.com/nexmo/conversation-ios-sdk.git", :branch => "release" # development
+  pod "Nexmo-Stitch" #, :git => "https://github.com/Nexmo/stitch-ios-sdk", :branch => "release" # development
 
 end
 ```
