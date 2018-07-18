@@ -3,7 +3,7 @@ title: JavaScript
 language: javascript
 ---
 
-# Getting Started with the Nexmo Conversation JS SDK
+# Getting Started with Screen Sharing
 
 In this getting started guide we'll cover updating media streams to add screen sharing to the Conversation we created in the [simple conversation with video](/stitch/in-app-video/guides/enable-video/javascript) getting started guide. We'll deal with updating media stream events, the ones that come via the conversation.
 

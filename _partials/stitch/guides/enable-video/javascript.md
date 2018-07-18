@@ -3,7 +3,7 @@ title: JavaScript
 language: javascript
 ---
 
-# Getting Started with the Nexmo Conversation JS SDK
+# Getting Started with the Nexmo In-App Video
 
 In this getting started guide we'll cover adding video events to the Conversation we created in the [simple conversation with audio](/stitch/in-app-voice/guides/enable-audio/javascript) getting started guide. We'll deal with video and media stream events, the ones that come via the conversation, and the ones we send to the conversation.
 
@@ -73,7 +73,7 @@ We don't need to generate new JWTs for `jamie` and `alice` because JWTs are user
 
 ## 2 - Update the JavaScript App
 
-We will use the application we already created for [the fourth getting started guide](/stitch/in-app-voice/guides/enable-audio/javascript). All the basic setup has been done in the previous guides and should be in place. We can now focus on updating the client-side application.
+We will use the application we already created for [the audio quick start guide](/stitch/in-app-voice/guides/enable-audio/javascript). All the basic setup has been done in the previous guides and should be in place. We can now focus on updating the client-side application.
 
 ### 2.1 - Add video UI
 

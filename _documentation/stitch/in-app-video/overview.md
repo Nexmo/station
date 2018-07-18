@@ -25,10 +25,10 @@ Nexmo In-App Video uses WebRTC and includes all the essentials you need to build
     -> Video streams can be enabled and disabled in a Conversation so that Members can communicate with video.
 
 **Media Events**
-    -> Media events will fire in a Conversation when media state changes for a member. This can be when an Video stream is started or ended.
+    -> Media events will fire in a Conversation when media state changes for a member. This can be when a Video stream is started or ended.
 
 **Member Media Events**
-    -> Media events will fire in on a Member when media state changes for a member. This can be when an Video stream is started or ended.
+    -> Media events will fire in on a Member when media state changes for a member. This can be when a Video stream is started or ended.
 
 
 ## Try out the JavaScript Quick Start Guides
