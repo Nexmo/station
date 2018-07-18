@@ -113,7 +113,7 @@ Next, we'll add a listener for `member:call` events on the app, so that we can l
   this.app = app
 
   app.on("member:call", (member, call) => {
-    if (window.confirm(`Incoming call from ${member.user.name}. Do you want to answer?`)) {
+    if (window.confirm(`Incoming call from ${call.from}. Do you want to answer?`)) {
       this.call = call
       call.answer().then((stream) => {
         this.setupAudioStream(stream)

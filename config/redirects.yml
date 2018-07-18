@@ -1,7 +1,7 @@
 ---
 "/contribute": "/contribute/overview"
-"/styleguide": "/contribute/guides/styleguide"
-"/write-the-docs": "/contribute/guides/write-the-docs"
+"/styleguide": "/contribute/guides/markdown-guide"
+"/write-the-docs": "/contribute/guides/writing-style-guide"
 "/account": "/account/overview"
 "/account/guides": "/account/guides/management"
 "/account/building-blocks": "/account/building-blocks/buy-a-number"
@@ -10,6 +10,8 @@
 "/api/account": "/api/developer/account"
 "/api/messages": "/api/developer/account"
 "/api/numbers": "/api/developer/account"
+"/contribute/guides/styleguide": "/contribute/guides/markdown-guide"
+"/contribute/guides/write-the-docs": "/contribute/guides/writing-style-guide"
 "/events": "/community"
 "/messaging": "/messaging/sms/overview"
 "/messaging/sms": "/messaging/sms/overview"

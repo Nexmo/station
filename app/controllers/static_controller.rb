@@ -62,48 +62,6 @@ class StaticController < ApplicationController
     render layout: 'static'
   end
 
-  def styleguide
-    # Read document
-    document = File.read("#{Rails.root}/app/views/static/styleguide.md")
-
-    # Parse frontmatter
-    @frontmatter = YAML.safe_load(document)
-
-    @document_title = @frontmatter['title']
-
-    @side_navigation = 'api/styleguide'
-
-    @content = MarkdownPipeline.new.call(document)
-
-    @return_link = {
-      title: "Contribute",
-      path: contribute_path,
-    }
-
-    render layout: 'static'
-  end
-
-  def write_the_docs
-    # Read document
-    document = File.read("#{Rails.root}/app/views/static/write-the-docs.md")
-
-    # Parse frontmatter
-    @frontmatter = YAML.safe_load(document)
-
-    @document_title = @frontmatter['title']
-
-    @side_navigation = 'api/write-the-docs'
-
-    @content = MarkdownPipeline.new.call(document)
-
-    @return_link = {
-      title: "Contribute",
-      path: contribute_path,
-    }
-
-    render layout: 'static'
-  end
-
   def legacy
     # Read document
     document = File.read("#{Rails.root}/app/views/static/legacy.md")

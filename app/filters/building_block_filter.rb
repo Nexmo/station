@@ -3,7 +3,7 @@ class BuildingBlockFilter < Banzai::Filter
     input.gsub(/```single_building_block(.+?)```/m) do |_s|
       config = YAML.safe_load($1)
 
-      lexer = language_to_lexer(config['language'])
+      lexer = CodeLanguageResolver.find(config['language']).lexer
 
       application_html = generate_application_block(config['application']);
 
@@ -19,6 +19,8 @@ class BuildingBlockFilter < Banzai::Filter
       if config['dependencies']
           dependency_html = generate_dependencies(lexer.tag, config['dependencies'])
       end
+
+      source_url = generate_source_url(config['code'])
 
       client_html = ""
       if highlighted_client_source
@@ -41,6 +43,7 @@ class BuildingBlockFilter < Banzai::Filter
         <h2>Write the code</h2>
         <p>Add the following to <code>#{config['file_name']}</code>:</p>
         <pre class="highlight #{lexer.tag}"><code>#{highlighted_code_source}</code></pre>
+        <a href="#{source_url}">View full source</a>
       HEREDOC
 
       run_html = generate_run_command(config['run_command'], config['file_name'])
@@ -58,31 +61,13 @@ class BuildingBlockFilter < Banzai::Filter
     formatter.format(lexer.lex(source))
   end
 
-  def language_to_lexer_name(language)
-    if language_configuration['languages'][language]
-      language_configuration['languages'][language]['lexer']
-    else
-      language
-    end
-  end
-
-  def language_to_lexer(language)
-    language = language_to_lexer_name(language)
-    return Rouge::Lexers::PHP.new({ start_inline: true }) if language == 'php'
-    Rouge::Lexer.find(language.downcase) || Rouge::Lexer.find('text')
-  end
-
-  def language_configuration
-    @language_configuration ||= YAML.load_file("#{Rails.root}/config/code_languages.yml")
-  end
-
   def generate_code_block(language, input, unindent)
       filename = "#{Rails.root}/#{input['source']}"
       if input
           raise "BuildingBlockFilter - Could not load #{filename} for language #{language}" unless File.exist?(filename)
 
           code = File.read(filename)
-          lexer = language_to_lexer(language)
+          lexer = CodeLanguageResolver.find(language).lexer
 
           total_lines = code.lines.count
 
@@ -216,4 +201,26 @@ HEREDOC
         </div>
         HEREDOC
     end
+
+  def generate_source_url(code)
+    # Source example: .repos/nexmo-community/java-quickstart/ExampleClass.java
+    # Direct link on GitHub is in form https://github.com/nexmo-community/java-quickstart/blob/master/ExampleClass.java
+    start_section = 'https://github.com'
+
+    # Insert "blob/master" and strip ".repos"
+    file_section = code['source'].sub('.repos', '').sub(/-quickstart\//, '\\0blob/master/')
+
+    # Line highlighting
+    line_section = ''
+    if code['from_line']
+      line_section += "#L#{code['from_line']}"
+      if code['to_line']
+        line_section += "-L#{code['to_line']}"
+      else
+        line_section += "-L#{File.read(code['source']).lines.count}"
+      end
+    end
+
+    start_section + file_section + line_section
+  end
 end

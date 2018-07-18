@@ -1,16 +1,17 @@
 ---
-title: Styleguide
+title: Markdown guide
+navigation_weight: 3
 ---
 
 ⚓ Anchor Example
 
-# Styleguide
+# Markdown guide
 
 Here is a complete overview of the basic markdown and custom plugins that Nexmo Developer supports.
 
 We use plugins sparingly to extend functionality where the only other option would be HTML.
 
-You can find this document in `/app/views/contribute/guides/styleguide.md`. The side navigation has been left present to be an accurate representation of the content width.
+You can find this document in `/app/views/contribute/guides/markdown-guide.md`. The side navigation has been left present to be an accurate representation of the content width.
 
 There is no markdown syntax in here as this document is rendered with the same engine and no support exists for escaping markdown. Examples would ultimately be rendered. To understand recursion you must first understand recursion.
 
@@ -43,6 +44,24 @@ This is a [link](http://google.com) to Google.
 You can have [labels].
 
 They auto-magically color when you use verbs like [POST] or [DELETE]
+
+**Collapsible Content (custom plugin)**
+
+| ### Click me
+|
+| Here is some hidden content.
+|
+| Markdown _still_ works `here`!
+|
+| Nullam id dolor id nibh ultricies vehicula ut id elit. Donec ullamcorper nulla non metus auctor fringilla. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+
+| ### Alpha
+|
+| Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec id elit non mi porta gravida at eget metus. Sed posuere consectetur est at lobortis. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ullamcorper nulla non metus auctor fringilla.
+|
+| Donec id elit non mi porta gravida at eget metus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nulla vitae elit libero, a pharetra augue. Donec sed odio dui. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Cras mattis consectetur purus sit amet fermentum.
+|
+| Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec id elit non mi porta gravida at eget metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Aenean lacinia bibendum nulla sed consectetur. Nullam quis risus eget urna mollis ornare vel eu leo.
 
 **Tooltips (custom plugin)**
 
@@ -88,80 +107,13 @@ Find out ^[more](Tooltips are useful for when you have more information to conve
 
 ## Code
 
-**Code blocks**
-
-Normal code blocks are specified using three backticks at the start and end.
-
-```
-This is a normal code block.
-
-It does not specify a language so is not syntax highlighted.
-```
-
-Here is some Ruby:
-
-```ruby
-def print_hi(name)
-  puts "Hi #{name}"
-end
-
-print_hi('Adam')
-#=> prints 'Hi Adam' to STDOUT.
-```
-
-**Collapsible Content (custom plugin)**
-
-| ### Click me
-|
-| Here is some hidden content.
-|
-| Markdown _still_ works `here`!
-|
-| Nullam id dolor id nibh ultricies vehicula ut id elit. Donec ullamcorper nulla non metus auctor fringilla. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-
-| ### Alpha
-|
-| Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec id elit non mi porta gravida at eget metus. Sed posuere consectetur est at lobortis. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ullamcorper nulla non metus auctor fringilla.
-|
-| Donec id elit non mi porta gravida at eget metus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nulla vitae elit libero, a pharetra augue. Donec sed odio dui. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Cras mattis consectetur purus sit amet fermentum.
-|
-| Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec id elit non mi porta gravida at eget metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Aenean lacinia bibendum nulla sed consectetur. Nullam quis risus eget urna mollis ornare vel eu leo.
-
-**Tabbed Examples (custom plugin)**
-
-For tabbed code we use a custom plugin.
-
-> You'll have to view the `styleguide.md` source to see how since showing you the syntax would result in it being processed.
-
-```tabbed_examples
-source: '/_examples/messaging/sending-an-sms/basic'
-```
-
-**Tabbed Examples (custom plugin) + pulling code in from external repository**
-
-For tabbed code we use a custom plugin.
-
-> You'll have to view the `styleguide.md` source to see how since showing you the syntax would result in it being processed.
-
-```tabbed_examples
-tabs:
-  Ruby:
-    source: .repos/nexmo-community/nexmo-ruby-quickstart/sms/send.rb
-    from_line: 9
-    language_key: php
-```
-
-**Tabbed Examples (via config)**
-
-```tabbed_examples
-config: messaging.sms.send
-```
+See our detailed [code examples guide](/contribute/guides/code-examples) for advice on including code.
 
 ## Tables
 
 > Pipes should only be between cells. Two hyphens `--` should be used to 'underline' the headings.
 >
-> You'll have to view the `styleguide.md` source to see how since showing you the syntax would result in it being processed.
+> You'll have to view the `markdown-guide.md` source to see how since showing you the syntax would result in it being processed.
 
 Key | Description
 -- | --
@@ -171,13 +123,34 @@ Key | Description
 
 ## Tabbed Content (custom plugin)
 
+To use the tabbed content block, add a section like this to your markdown to point out where the directory holding the examples is:
+
+````
+```tabbed_content
+source: '/_examples/styleguide/tabbed-content'
+```
+````
+
+Each file becomes a tab, as you can see:
+
 ```tabbed_content
 source: '/_examples/styleguide/tabbed-content'
 ```
 
 ## JS Sequence Diagram (custom plugin)
 
-> You'll have to view the `styleguide.md` source to see how since showing you the syntax would result in it being processed.
+Our sequence diagrams are simple markup that is rendered to a graphical representation by a custom plugin. Starting with code like this:
+
+````
+```js_sequence_diagram
+Andrew->China: Says Hello
+Note right of China: China thinks\nabout it
+China-->Andrew: How are you?
+Andrew->>China: I am good thanks!
+```
+````
+
+Creates the following diagram:
 
 ```js_sequence_diagram
 Andrew->China: Says Hello
@@ -185,12 +158,6 @@ Note right of China: China thinks\nabout it
 China-->Andrew: How are you?
 Andrew->>China: I am good thanks!
 ```
-
-## Modals (custom plugin)
-
-Sometimes content is too verbose to put on the surface (particularly if it's in a table). You can include a file in a modal:
-
-Why not @[give it a try](/_modals/styleguide/example.md) now?
 
 ## Languages (custom plugin)
 
