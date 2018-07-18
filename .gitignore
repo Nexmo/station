@@ -22,3 +22,5 @@
 /node_modules
 /public/packs-test
 config/algolia.yml
+
+.vscode/*
