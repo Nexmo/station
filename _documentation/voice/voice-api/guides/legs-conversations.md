@@ -7,7 +7,7 @@ navigation_weight: 2
 
 ## Overview
 
-The Nexmo Voice API has two types of object that can constitute a call: a leg and a conversation.
+The Nexmo Voice API has two concepts associated with a call - a leg and a conversation.
 
 A leg refers to a single connection either inbound to, or outbound from, the Nexmo platform.
 
