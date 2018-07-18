@@ -160,7 +160,7 @@ source 'git@github.com:CocoaPods/Specs.git'
 target 'QuickStartOne' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
-  pod "Nexmo-Stitch" #, :git => "https://github.com/nexmo/conversation-ios-sdk.git", :branch => "release" # development
+  pod "Nexmo-Stitch" #, :git => "https://github.com/Nexmo/stitch-ios-sdk", :branch => "release" # development
 end
 ```
 ### 2.3 Adding ViewControllers & .storyboard files
