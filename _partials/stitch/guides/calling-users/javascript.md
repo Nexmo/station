@@ -194,4 +194,4 @@ After you've set up you're app to handle incoming calls, you can follow the [PST
 
 ## Where next?
 
-- Have a look at the [Nexmo Stitch JavaScript SDK API Reference](/sdk/stitch/javascript/ target:_blank)
+- Have a look at the <a href="/sdk/stitch/javascript/" target="_blank">Nexmo Stitch JavaScript SDK API Reference</a>
