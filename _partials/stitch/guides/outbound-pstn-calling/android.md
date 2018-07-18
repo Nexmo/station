@@ -23,7 +23,7 @@ You should read the [Outbound PSTN Calling NCCO guide](/stitch/in-app-voice/ncco
 First you'll need the latest version of the Nexmo Stitch SDK in your `app/build.gradle`
 
 ```groovy
-implementation 'com.nexmo:stitch:1.4.0'
+implementation 'com.nexmo:stitch:3.0.0'
 ```
 
 Now that you have the SDK included in your project, you'll need to create a new instance on the `ConversationClient`. You can do this in a new Activity where you'll be making the outbound PSTN call. For this purpose let's create a `CallActivity` with and its layout:
