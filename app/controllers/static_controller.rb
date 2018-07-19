@@ -79,6 +79,12 @@ class StaticController < ApplicationController
   end
 
   def podcast
+    # Get URL and split the / to retrieve the landing page name
+    yaml_name = request.fullpath.split('/')[1]
+
+    # Load the YAML for that particular page
+    @content = YAML.load_file("#{Rails.root}/config/landing_pages/#{yaml_name}.yml")
+
     render layout: 'page'
   end
 

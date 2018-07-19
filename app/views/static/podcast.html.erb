@@ -1,8 +1,15 @@
 <div class="center spacious">
   <h1>
-      <i class="icon icon--large icon-community"></i><br><br>
-      Thanks, Scott. We'll take it from here!
+      <i class="icon icon--large icon-star"></i><br><br>
+      <%=@content['headers']['leader']%>
   </h1>
-
-  <br>
+  <br />
+  <h4><%=@content['headers']['subheading']%></h4>
+  <br />
+  <%= render 'products' %>
+  <br />
 </div>
+
+<center class="spacious">
+  <h2><%= image_tag 'slack.svg', width: 40, id: 'community-slack-image' %> Join the <%= link_to "Nexmo Community Slack", community_slack_path %></h2>
+</center>
