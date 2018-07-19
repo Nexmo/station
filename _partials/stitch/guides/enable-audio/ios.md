@@ -42,21 +42,22 @@ Open Xcode and start a new project. We'll name it "AudioQuickStart".
 
 ### 1.1 Adding the Nexmo Stitch iOS SDK to Cocoapods
 
-Navigate to the project's root directory in the Terminal. Run: `pod init`. Open the file entitled `PodFile`. Configure its specifications accordingly:
+Navigate to the project's root directory in the Terminal. Run: `pod init`. Open the file entitled `Podfile`. Configure its specifications accordingly:
 
 ```ruby
-# Uncomment the next line to define a global platform for your project
-platform :ios, '9.0'
+platform :ios, '10.0'
+
+use_frameworks!
 
 source "https://github.com/Nexmo/PodSpec.git"
 source 'git@github.com:CocoaPods/Specs.git'
 
-target 'AudioQuickStart' do
-  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
-  use_frameworks!
-  pod "NexmoConversation", :git => "https://github.com/nexmo/conversation-ios-sdk.git", :branch => "master" #latest release
-end
 
+target 'enable-audio' do
+
+  pod "Nexmo-Stitch" #, :git => "https://github.com/Nexmo/stitch-ios-sdk", :branch => "release" # development
+
+end
 ```
 ### 1.2 Adding ViewControllers & .storyboard files
 
@@ -69,13 +70,13 @@ Let's layout the login functionality. Set constraints on the top & leading attri
 
 ### 1.4 - Create the Login Functionality
 
-Below `UIKit` let's import the `NexmoConversation`. Next we setup a custom instance of the `ConversationClient` and saving it as a member variable in the view controller.
+Below `UIKit` let's import `Stitch`. Next we setup a custom instance of the `ConversationClient` and saving it as a member variable in the view controller.
 
 ```swift
-    /// Nexmo Conversation client
-    let client: ConversationClient = {
-        return ConversationClient.instance
-    }()
+/// Nexmo Conversation client
+let client: ConversationClient = {
+    return ConversationClient.instance
+}()
 ```
 
 We also need to wire up the buttons in `LoginViewController.swift` Don't forget to replace `USER_JWT` with the JWT generated from the Nexmo CLI. For a refresher on how to generate a JWT, check out [quickstart one](/stitch/in-app-messaging/guides/simple-conversation/ios).
@@ -179,17 +180,16 @@ As we mentioned above, creating a conversation results from a call to the the `n
 When we construct the segue for `ChatViewController`, we pass the first conversation so that the new controller. Remember that the `CONVERSATION_ID` comes from the id generated in [the first quickstart](/stitch/in-app-messaging/guides/simple-conversation/ios).
 
 ```swift
-    // prepare(for segue:)
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+// prepare(for segue:)
+override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
-        // setting up a segue
-        let chatVC = segue.destination as? ChatController
+    // setting up a segue
+    let chatVC = segue.destination as? ChatController
 
-        // passing a reference to the conversation
-        chatVC?.conversation = client.conversation.conversations.first
+    // passing a reference to the conversation
+    chatVC?.conversation = client.conversation.conversations.first
 
-
-    }
+}
 ```
 
 ### 1.7 Create the Chat layout
@@ -226,30 +226,28 @@ class ChatController: UIViewController {
 To send a message we simply need to call `send()` on our instance of `conversation`. `send()` takes one argument, a `String message`.
 
 ```swift
-    // sendBtn for sending text
-    @IBAction func sendBtn(_ sender: Any) {
+// sendBtn for sending text
+@IBAction func sendBtn(_ sender: Any) {
 
-        do {
-            // send method
-            try conversation?.send(textField.text!)
+    do {
+        // send method
+        try conversation?.send(textField.text!)
 
-        } catch let error {
-            print(error)
-        }
-
+    } catch let error {
+        print(error)
     }
+
+}
 ```
 
 In `viewDidLoad()` we want to add a handler for handling new events like the TextEvents we create when we press the send button. We can do this like so:
 
 ```swift
-        // a handler for updating the textView with TextEvents
-        conversation?.events.newEventReceived.addHandler { event in
-            guard let event = event as? TextEvent, event.isCurrentlyBeingSent == false else { return }
-            guard let text = event.text else { return }
-
-            self.textView.insertText(" \(text) \n ")
-        }
+conversation?.events.newEventReceived.subscribe(onSuccess: { event in
+   guard let event = event as? TextEvent, event.isCurrentlyBeingSent == false else { return }
+   guard let text = event.text else { return }
+   self.textView.insertText(" \(text) \n ")
+})
 ```
 ## 2.0 - Building Audio
 
@@ -274,16 +272,16 @@ import AVFoundation
 Create a `setupAudio()` function:
 
 ```swift
-    private func setupAudio() {
-        do {
-            let session = AVAudioSession.sharedInstance()
+private func setupAudio() {
+    do {
+        let session = AVAudioSession.sharedInstance()
 
-            try session.setCategory(AVAudioSessionCategoryPlayAndRecord)
-            session.requestRecordPermission { _ in }
-        } catch  {
-            print(error)
-        }
+        try session.setCategory(AVAudioSessionCategoryPlayAndRecord)
+        session.requestRecordPermission { _ in }
+    } catch  {
+        print(error)
     }
+}
 ```
 
 ## 2.3 Enable / Disable
@@ -294,24 +292,24 @@ To add functionality for enable / disable, we simple create functions that call 
 Create a function for enable.
 
 ```swift
-    private func enable() {
-        do {
-            try self.conversation?.audio.enable()
-        } catch let error {
-            self.getView.state.text = "failed: \(error)"
-        }
+private func enable() {
+    do {
+        try self.conversation?.media.enable()
+    } catch let error {
+        self.getView.state.text = "failed: \(error)"
     }
+}
 ```
 
 ### 2.3.2 Disable
 Create a function for disable.
 
 ```swift
-    @IBAction internal func disable() {
-        conversation?.audio.disable()
+@IBAction internal func disable() {
+    conversation?.media.disable()
 
-        self.navigationController?.popViewController(animated: true)
-    }
+    self.navigationController?.popViewController(animated: true)
+}
 ```
 
 ## 2.4 Speaker Emoji for UI
@@ -323,10 +321,10 @@ Let's use a speaker emoji for our UI. Drag and drop a UIButton on the left hand 
   @IBAction func phoneButtonPressed(_ sender: UIButton) {
 
     do {
-        try conversation?.audio.enable()
+        try conversation?.media.enable()
         sender.titleLabel?.text = "🔇"
     } catch {
-        conversation?.audio.disable()
+        conversation?.media.disable()
         sender.titleLabel?.text = "🔈"
     }
 
@@ -342,4 +340,4 @@ By implementing our enable / disable functions, we will see the updates right th
 
 ## Try it out!
 
-After this you should be able to run the app and enable / disable audio. Try speaking to your self!
+After this you should be able to run the app and enable / disable audio. Try it out [here](https://github.com/Nexmo/stitch-ios-quickstart/tree/master/examples/enable-audio)!
