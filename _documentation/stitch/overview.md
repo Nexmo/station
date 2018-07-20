@@ -72,7 +72,7 @@ Read more about:
     </a>
   </div>
   <div class="columns small-12 medium-4">
-    <a href="/sdk/stitch//ios" class="card spacious card--image card--ios">
+    <a href="/sdk/stitch/ios/" class="card spacious card--image card--ios">
       <h2>iOS</h2>
     </a>
   </div>
