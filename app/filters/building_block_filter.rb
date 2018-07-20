@@ -26,6 +26,7 @@ class BuildingBlockFilter < Banzai::Filter
 
       client_html = ''
       if highlighted_client_source
+        client_url = generate_source_url(config['client'])
         id = SecureRandom.hex
         erb = File.read("#{Rails.root}/app/views/building_blocks/_configure_client.html.erb")
         client_html = ERB.new(erb).result(binding)
@@ -121,17 +122,24 @@ class BuildingBlockFilter < Banzai::Filter
     # Direct link on GitHub is in form https://github.com/nexmo-community/java-quickstart/blob/master/ExampleClass.java
     start_section = 'https://github.com'
 
-    # Insert "blob/master" and strip ".repos"
-    file_section = code['source'].sub('.repos', '').sub(%r{/-quickstart\//}, '\\0blob/master/')
+    # Insert "blob/master" and strip ".repos" - except dotnet that needs "blob/ASPNET" instead
+    repo_path = '\\0blob/master/'
+    if code['source'].include?("dotnet")
+      repo_path = '\\0blob/ASPNET/'
+    end
+    file_section = code['source'].sub('.repos', '').sub(/-quickstart\//, repo_path)
 
     # Line highlighting
     line_section = ''
     if code['from_line']
       line_section += "#L#{code['from_line']}"
-      # By default we read to the end of the file
-      line_section += "-L#{File.read(code['source']).lines.count}"
-      # If we've provided a to_line, use that instead
-      line_section += "-L#{code['to_line']}" if code['to_line']
+      if code['to_line']
+        # If we've provided a to_line, use that
+        line_section += "-L#{code['to_line']}" if code['to_line']
+      else
+        # By default we read to the end of the file
+        line_section += "-L#{File.read(code['source']).lines.count}"
+      end
     end
 
     start_section + file_section + line_section
