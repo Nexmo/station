@@ -152,7 +152,7 @@ Navigate to the project's root directory in the Terminal. Run: `pod init`. Open 
 
 ```bash
 # Uncomment the next line to define a global platform for your project
-platform :ios, '9.0'
+platform :ios, '10.0'
 
 source "https://github.com/Nexmo/PodSpec.git"
 source 'git@github.com:CocoaPods/Specs.git'
@@ -160,9 +160,8 @@ source 'git@github.com:CocoaPods/Specs.git'
 target 'QuickStartOne' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
-  pod "NexmoConversation", :git => "https://github.com/nexmo/conversation-ios-sdk.git", :branch => "master" # development
+  pod "Nexmo-Stitch" #, :git => "https://github.com/Nexmo/stitch-ios-sdk", :branch => "release" # development
 end
-
 ```
 ### 2.3 Adding ViewControllers & .storyboard files
 
