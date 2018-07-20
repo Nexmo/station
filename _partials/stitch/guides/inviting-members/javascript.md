@@ -193,21 +193,23 @@ listConversations(userToken) {
             console.log('*** Logged into app', app)
 
             app.on("member:invited", (member, event) => {
-              //identify the sender.
-              console.log("*** Invitation received:", event);
+              //identify the sender and type of conversation.
+              if (event.body.cname.indexOf("CALL") != 0 && event.invited_by) {
+                console.log("*** Invitation received:", event);
 
-              //accept an invitation.
-              app.getConversation(event.cid || event.body.cname)
-                .then((conversation) => {
-                  this.conversation = conversation
-                  conversation.join().then(() => {
-                    var conversationDictionary = {}
-                    conversationDictionary[this.conversation.id] = this.conversation
-                    this.updateConversationsList(conversationDictionary)
-                  }).catch(this.errorLogger)
+                //accept an invitation.
+                app.getConversation(event.cid || event.body.cname)
+                  .then((conversation) => {
+                    this.conversation = conversation
+                    conversation.join().then(() => {
+                      var conversationDictionary = {}
+                      conversationDictionary[this.conversation.id] = this.conversation
+                      this.updateConversationsList(conversationDictionary)
+                    }).catch(this.errorLogger)
 
-                })
-                .catch(this.errorLogger)
+                  })
+                  .catch(this.errorLogger)
+              }
             })
             return app.getConversations()
         })
