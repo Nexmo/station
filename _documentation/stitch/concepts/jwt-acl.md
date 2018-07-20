@@ -23,16 +23,20 @@ Credentials written to /path/to/your/local/folder/.nexmo-app
 Private Key saved to: private.key
 ```
 
+You can also create a new application within the [Nexmo Dashboard](https://dashboard.nexmo.com/voice/create-application).
+
 ### Claims
 
-Using that `private.key` and the application ID. we can mint a new JWT. In order to log a user in to a Stitch client, the JWT will need the following claims:
+Using that `private.key` and the application ID, we can mint a new JWT. In order to log a user in to a Stitch client, the JWT will need the following claims:
 
-- `sub`: The "subject". The subject in this case will be the name of the user created in Stitch
-- `acl`: Access control list. The Stitch API uses this as a permission system for users. Read more about it in the [ACL overview](#acls)
-- `application_id`: This is the ID of the Nexmo Application you created.
-- `iat`: "Issued at time" This is the time the JWT was issued, in unix epoch time.
-- `jti`: "JWT ID". This is a unique identifier for this JWT.
-- `exp`: "Expiration time" This is the time in the future that the JWT will expire, in unix epoch time. 
+|Claim | Description |
+| --------- | ----------- |
+| `sub`| The "subject". The subject in this case will be the name of the user created in Stitch |
+| `acl`| Access control list. The Stitch API uses this as a permission system for users. Read more about it in the [ACL overview](#acls) |
+| `application_id`| This is the ID of the Nexmo Application you created. |
+| `iat`| "Issued at time" This is the time the JWT was issued, in unix epoch time. |
+| `jti`| "JWT ID". This is a unique identifier for this JWT. |
+| `exp`| "Expiration time" This is the time in the future that the JWT will expire, in unix epoch time.  |
 
 > *The `exp` claim is optional.* If the claim is not provided, then the JWT will expire by default in 15 minutes. The max expiration time for a JWT is 24 hours. JWTs should be typically short living, as it is trivial to create a new JWT and some JWTs can have multiple far-reaching permissions.
 
@@ -60,7 +64,7 @@ Once all the claims have been provided, the resulting claims should appear like 
       "/v1/knocking/**": {}
     }
   },
-  "application_id": "8ab31eef-e181-401e-a6b7-c2ca33a8a01c"
+  "application_id": "aaaaaaaa-bbbb-cccc-dddd-0123456789ab"
 }
 ```
 
@@ -72,16 +76,17 @@ In the previous section, you can see that the `acl` claim has `paths` object con
 
 ### Paths
 
-
-- `/v1/sessions/**`: Log in as a User.
-- `/v1/users/**`: Create and manage Users.
-- `/v1/conversations/**`: Create and manage Conversations & send/receive messages.
-- `/v1/image/**`: Send and receive images.
-- `/v3/media/**`: Send and receive audio.
-- `/v1/knocking/**`: Start Calls.
-- `/v1/push/**`: Receive push notifications
-- `/v1/devices/**`: Send push notifications.
-- `/v1/applications/**`: Upload push notification certificate.
+|Endpoint | Description |
+| --------- | ----------- |
+| `/v1/sessions/**`| Log in as a User.|
+| `/v1/users/**`| Create and manage Users.|
+| `/v1/conversations/**`| Create and manage Conversations & send/receive messages.|
+| `/v1/image/**`| Send and receive images.|
+| `/v3/media/**`| Send and receive audio.|
+| `/v1/knocking/**`| Start Calls.|
+| `/v1/push/**`| Receive push notifications|
+| `/v1/devices/**`| Send push notifications.|
+| `/v1/applications/**`| Upload push notification certificate.|
 
 It is not necessary to provide users with the permissions to access all of these paths. For instance if a user was not going to upload or receive push notifications, you could create a JWT without including the `/v1/applications/**`or `/v1/push/**` paths.
 
@@ -92,7 +97,7 @@ It is not necessary to provide users with the permissions to access all of these
 Currently you can use the beta version of the [Nexmo CLI](https://github.com/Nexmo/nexmo-cli/tree/beta) to create a JWT [including the appropriate claims](https://github.com/Nexmo/nexmo-cli/tree/beta#jwt)
 
 ```sh
-> nexmo jwt:generate path/to/private.key subject=username iat=1475861732 application_id=asdasdas-asdd-2344-2344-asdasdasd345
+nexmo jwt:generate ./private.key sub=jamie exp=$(($(date +%s)+86400)) acl='{"paths":{"/v1/users/**":{},"/v1/conversations/**":{},"/v1/sessions/**":{},"/v1/devices/**":{},"/v1/image/**":{},"/v3/media/**":{},"/v1/applications/**":{},"/v1/push/**":{},"/v1/knocking/**":{}}}' application_id=YOUR_APP_ID
 > JWT: [...JWT String...]
 ```
 
@@ -116,7 +121,7 @@ const aclPaths = {
 }
 
 Nexmo.generateJwt(PRIVATE_KEY, {
-            application_id: "8ab31eef-e181-401e-a6b7-c2ca33a8a01c",
+            application_id: "aaaaaaaa-bbbb-cccc-dddd-0123456789ab",
             sub: "jamie",
             //expire in 24 hours
             exp: new Date().getTime() + 86400,
@@ -130,7 +135,7 @@ The current version of the [Nexmo PHP](https://github.com/Nexmo/nexmo-php) libra
 
 ```php
 Nexmo::generateJwt([
-        'application_id': "8ab31eef-e181-401e-a6b7-c2ca33a8a01c",
+        'application_id': "aaaaaaaa-bbbb-cccc-dddd-0123456789ab",
         'exp' => time() + 86400,
         'sub' => "jamie",
         'acl' => ["paths" => ["/v1/sessions/**" => (object)[], "/v1/users/**" => (object)[], "/v1/conversations/**" => (object)[], "/v1/devices/**" => (object)[], "/v1/image/**" => (object)[], "/v3/media/**" => (object)[], "/v1/applications/**" => (object)[], "/v1/push/**" => (object)[], "/v1/knocking/**" => (object)[]]],
