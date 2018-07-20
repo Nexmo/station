@@ -1,3 +1,8 @@
+# Config for the Hanselminutes landing page
 headers:
   leader: "Thanks, Scott. We'll take it from here!"
-  subheading: "Welcome, Hanselminutes listeners. Thanks for checking out Nexmo."
+  subheading: "Welcome, Hanselminutes listeners. Here is everything you need to build your connected applciations."
+images:
+  top_icon: "icon-star"
+sdk:
+  highlight: false

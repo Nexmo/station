@@ -85,7 +85,7 @@ class StaticController < ApplicationController
     # Load the YAML for that particular page
     @content = YAML.load_file("#{Rails.root}/config/landing_pages/#{yaml_name}.yml")
 
-    render layout: 'page'
+    render layout: 'landing'
   end
 
   def team
