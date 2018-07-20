@@ -31,3 +31,9 @@ The context of the conversations is maintained though each communication event t
 
 **Member**
     -> Memberships connect users with conversations. Each membership has one conversation and one user however a user can have many memberships to conversations just as conversations can have many members.
+
+## Try out the Quick Start Guides
+
+* [JavaScript Quick Start](/stitch/in-app-messaging/guides/simple-conversation/javascript)
+* [Android Quick Start](/stitch/in-app-messaging/guides/simple-conversation/android)
+* [iOS Quick Start](/stitch/in-app-messaging/guides/simple-conversation/ios)

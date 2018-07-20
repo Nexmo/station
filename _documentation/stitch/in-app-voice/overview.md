@@ -28,3 +28,9 @@ Nexmo In-App Voice uses WebRTC and includes all the essentials you need to build
 
 **Media Events**
     -> Media events will fire in a Conversation when media state changes for a member. This can be when an Audio stream is started or ended.
+
+## Try out the Quick Start Guides
+
+* [JavaScript Quick Start](/stitch/in-app-voice/guides/enable-audio/javascript)
+* [Android Quick Start](/stitch/in-app-voice/guides/enable-audio/android)
+* [iOS Quick Start](/stitch/in-app-voice/guides/enable-audio/ios)
