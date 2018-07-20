@@ -25,7 +25,7 @@ Private Key saved to: private.key
 
 ### Claims
 
-Using that `private.key` and the application ID. we can mint a new JWT. All of the Nexmo Client libraries are able to create a new JWT, but some of them don't have the functionality to add additional claims to the JWT. In order to log a user in to a Stitch client, the JWT will need the following claims:
+Using that `private.key` and the application ID. we can mint a new JWT. In order to log a user in to a Stitch client, the JWT will need the following claims:
 
 - `sub`: The "subject". The subject in this case will be the name of the user created in Stitch
 - `acl`: Access control list. The Stitch API uses this as a permission system for users. Read more about it in the [ACL overview](#acls)
@@ -72,16 +72,16 @@ In the previous section, you can see that the `acl` claim has `paths` object con
 
 ### Paths
 
-    
+
+- `/v1/sessions/**`: Log in as a User.
 - `/v1/users/**`: Create and manage Users.
 - `/v1/conversations/**`: Create and manage Conversations & send/receive messages.
-- `/v1/sessions/**`: Log in as a User.
-- `/v1/devices/**`: Send/receive push notifications.
 - `/v1/image/**`: Send and receive images.
 - `/v3/media/**`: Send and receive audio.
-- `/v1/applications/**`: Upload push notification certificate
+- `/v1/knocking/**`: Start Calls.
 - `/v1/push/**`: Receive push notifications
-- `/v1/knocking/**`: Start Calls
+- `/v1/devices/**`: Send push notifications.
+- `/v1/applications/**`: Upload push notification certificate.
 
 It is not necessary to provide users with the permissions to access all of these paths. For instance if a user was not going to upload or receive push notifications, you could create a JWT without including the `/v1/applications/**`or `/v1/push/**` paths.
 
@@ -139,5 +139,5 @@ Nexmo::generateJwt([
 
 ### Other languages
 
-Creating a JWT with the appropriate claims for authenticating a Stitch user is not currently provided in any of the other Nexmo Client Libraries. Instead, we encourage you to use your JWT library of choice to create a new JWT with the [Sample JWT Payload](#sample-jwt-payload)
+Creating a JWT with the appropriate claims for authenticating a Stitch user is not currently provided in any of the other Nexmo Client Libraries. Instead, we encourage you to use your JWT library of choice to create a new JWT with the [Sample JWT Payload](#sample-jwt-payload). [JWT.io](https://jwt.io/#libraries-io) has a selection of libraries for generating JWTs in multiple languages.
 
