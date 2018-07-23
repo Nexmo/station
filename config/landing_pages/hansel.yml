@@ -4,5 +4,11 @@ headers:
   subheading: "Welcome, Hanselminutes listeners. Here is everything you need to build your connected applciations."
 images:
   top_icon: "icon-star"
+button:
+  signup:
+    show: "true"
 sdk:
-  highlight: false
+  highlight: "true"
+  library_name: "dotnet"
+url:
+  reference: "hansel-dr"

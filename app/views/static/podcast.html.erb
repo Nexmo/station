@@ -6,7 +6,9 @@
   <br />
   <h2 class="light"><%=@content['headers']['subheading']%></h2>
   <br />
-  <a role="link" aria-label="Try it free" class="button" href="https://dashboard.nexmo.com/sign-up?ref=hansel-dr">Try It Free</a>
+  <% if @content['button']['signup']['show'] %>
+    <a role="link" aria-label="Try it free" class="button" href="https://dashboard.nexmo.com/sign-up?ref=<%= @content['url']['reference'] %>">Try It Free</a>
+  <% end %>
 </div>
 <div class="container">
   <div class="row">
@@ -18,33 +20,7 @@
 
       <%= render 'products' %>
       <hr>
-      <% if @content['sdk']['highlight'] %>
-      <br />
-      <div class="github-cards">
-        <div>
-          <a href="https://github.com/Nexmo/nexmo-dotnet" class="github-card" data-github="Nexmo/nexmo-dotnet">
-            <h3>nexmo-dotnet</h3>
-            <p>Nexmo REST API client for .NET</p>
-            <img src="//badge.fury.io/nu/nexmo.svg" class="github-card__badge" height="18">
-            <span class="github-card__meta">
-              <span class="github-card__language-icon" style="color: #178600;">●</span> C#
-            </span>
-            <span class="github-card__meta">
-              <i class="icon icon-star" aria-hidden="true"></i>
-              <span data-stars>
-                <i class="icon icon-spinner" aria-hidden="true"></i>
-              </span>
-            </span>
-            <span class="github-card__meta">
-              <i class="icon icon-code-fork" aria-hidden="true"></i>
-              <span data-forks>
-                <i class="icon icon-spinner" aria-hidden="true"></i>
-              </span>
-            </span>
-          </a>
-        </div>
-      </div>
-      <% end %>
+
       <div class="row">
         <div class="columns small-12 medium-6">
           <div class="center spacious content-block">
@@ -69,7 +45,10 @@
           </div>
         </div>
       </div>
-
+      <% if @content['sdk']['highlight'] %>
+        <br />
+        <%= render partial: @content['sdk']['library_name'] %>
+      <% end %>
       <hr>
 
       <div class="center spacious content-block">
