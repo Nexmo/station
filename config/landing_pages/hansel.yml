@@ -1,7 +1,7 @@
 # Config for the Hanselminutes landing page
 headers:
   leader: "Thanks, Scott. We'll take it from here!"
-  subheading: "Welcome, Hanselminutes listeners. Here is everything you need to build your connected applciations."
+  subheading: "Welcome, Hanselminutes listeners. Here is everything you need to build your connected applications."
 images:
   top_icon: "icon-star"
 button:
