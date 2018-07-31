@@ -1,9 +1,9 @@
 ---
-title: Writing style guide
+title: Writing Style Guide
 navigation_weight: 2
 ---
 
-# Writing style guide
+# Writing Style Guide
 
 These are technical writing guidelines that can be used across all Nexmo technical documentation as well as blog posts.
 
@@ -44,9 +44,11 @@ Examples:
 * *Active voice:* Nexmo provides a Messages API.
 * *Passive voice:* A Messages API is provided by Nexmo.
 
+Active voice leads to text that is simpler and more direct, and is easier to translate.
+
 ## Paragraph breaks
 
-In technical writing, and especially blog posts, you can be a little more generous with your use of paragraph breaks. They make the text less overwhelming and easier to read.
+In technical writing, and especially blog posts, you can be a little more generous with your use of paragraph breaks. Paragraph breaks make the text less overwhelming and easier to read.
 
 ## Avoid vague and cautious language
 
@@ -95,12 +97,40 @@ Examples:
 
 ## Headings
 
-Be consistent.
+Try to be consistent with capitalization of headings. You can follow these guidelines:
 
-For example:
+* Use word case for top-level topics and sections. For example, 'Building Blocks', 'Guides', 'Markdown Guide', 'Writing Style Guide', 'Installation Guide', 'Messages and Workflows API', 'Stitch Developer Guide'.
+* Use sentence case for topic titles below a top-level section. For example, 'This is the topic title'. The exception to this is if the heading references a top-level section. For example, 'How to use the Getting Started Guide', as Getting Started Guide is a top-level section in this example.
+* Use sentence case for sub-section headings. For example, 'This is a sub-section heading'.
 
-* Use word case for documentation main sections. For example, 'Building Blocks'.
-* Use sentence case for section headings. For example, 'This is a section heading'.
+There is no need to capitalize minor words in headings. For example:
+
+* *Avoid:* Messages And Workflows API.
+* *Better:* Messages and Workflows API.
+
+Always capitalize words that would normally be capitalized. For example:
+
+* *Avoid:* How to send an sms
+* *Better:* How to send an SMS
+
+The following shows an example of correct heading case:
+
+```
+Getting Started Guide (top-level topic)
+  Overview
+    Concepts
+    How to send an SMS
+    How to use the Installation Guide
+
+Installation Guide
+  Configure your Dashboard
+  Install the client library
+    How to install the Node library
+      Clone the source code from GitHub (sub-section heading, not visible in TOC)
+    How to install the Python library
+      Clone the source code from GitHub (sub-section heading, not visible in TOC)
+  Test the installation
+```
 
 ## Bulleted lists
 
@@ -156,7 +186,7 @@ Some additional points to bear in mind:
 * Avoid statements that predict the future, for example, "the next version will have feature X". There are good legal reasons for avoiding predicting the future.
 * Avoid time sensitive information. Specify an exact version where possible, for example '1.1', rather than 'current version' as the current version may change.
 * Avoid using ampersand ('&') instead of 'and', unless you are specifying a programming language operator or similar.
-* "It's" is _always_ 'it is'.
+* "It's" _always_ means 'it is'.
 
 ## Replaceable values
 
