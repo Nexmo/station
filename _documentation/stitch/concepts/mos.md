@@ -31,3 +31,15 @@ The MOS is calculated using an [agreed upon formula](https://docs.telcobridges.c
 An R-value is calculated based on those factors and is later used to calculate the final MOS, by this well known formula:  
 > MOS = 1 + 0.035R + ((R - 60) * (100 – R) * 0.000007R)
 
+
+
+### What can a MOS can be used for
+
+Among typical usages are 
+
+* Indicating overall call quality through a UI element
+
+* Automatically dropping the call when MOS is insufficient
+ 
+* Triggering a fallback to another communication channel. For example from in-app call via IP to a telephony call via PSTN
+
