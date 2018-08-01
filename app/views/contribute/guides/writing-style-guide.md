@@ -153,6 +153,12 @@ This is an example of a bulleted list:
 * Use bulleted lists for lists.
 * Use numbered lists for ordered sequences (procedures, tasks and so on).
 
+Note the following points:
+
+* The list has a piece of text introducing the list followed by a colon.
+* Each item in the list is terminated by a full-stop (period).
+* If each item in the list is a single word a terminating period is not required.
+
 ## Codeblocks
 
 When inserting codeblocks for example code in the text:
@@ -161,20 +167,19 @@ When inserting codeblocks for example code in the text:
 * Break the text before a codeblock with a colon, not a period (which is a hard stop in the mind of the reader, rather than a continuation).
 * There should not be a space before the colon.
 
-## Three Letter Acronyms (TLAs)
+## Acronyms
 
-Define Three Letter Acronyms (TLAs) before first use. On subsequent use on a page/section you do not need to redefine the TLA.
+Define acronyms before first use. On subsequent use on a page/section you do not need to redefine the acronym.
 
 ## Be explicit
 
 Try to be explicit, that is use precise terms where necessary to improve clarity and avoid ambiguity.
 
-Examples:
+Some examples are given here:
 
 * Using 'Nexmo Number' rather than 'number'.
-* Using 'Nexmo Application' rather than 'application'.
-* Using 'web application' rather than 'application'.
-* Using 'webhook server' rather than 'server' or 'application'.
+* Using 'Nexmo Application' rather than 'application' (where appropriate).
+* Using 'web application' rather than 'application' (where appropriate).
 * Using 'webhook URL' rather than 'endpoint' or 'callback URL'.
 * Using Nexmo Client Library rather than 'library'.
 * Using Nexmo Command Line Interface, or Nexmo CLI, rather than 'command line'.
