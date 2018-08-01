@@ -132,6 +132,18 @@ Installation Guide
   Test the installation
 ```
 
+Another example demonstrates correct heading case:
+
+```
+Building Blocks  (main section)
+  Before you begin
+  Connect an inbound call
+  Download a recording
+  Earmuff a call
+  Handle user input with DTMF
+  ...
+```
+
 ## Bulleted lists
 
 This is an example of a bulleted list:
