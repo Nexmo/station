@@ -6,7 +6,7 @@ dependencies:
 code:
     source: .repos/nexmo-community/nexmo-ruby-quickstart/voice/inbound_tts_call.rb
     from_line: 15
-    to_line: 23
+    to_line: 25
 client:
     source: .repos/nexmo-community/nexmo-ruby-quickstart/voice/inbound_tts_call.rb
     from_line: 1

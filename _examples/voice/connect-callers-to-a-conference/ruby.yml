@@ -4,12 +4,12 @@ language: ruby
 dependencies:
     - sinatra
 code:
-    source: .repos/nexmo-community/nexmo-ruby-quickstart/voice/connect_an_inbound_call.rb
-    from_line: 5
-    to_line: 19
+    source: .repos/nexmo-community/nexmo-ruby-quickstart/voice/join_a_conference_call.rb
+    from_line: 9
+    to_line: 22
 client:
-    source: .repos/nexmo-community/nexmo-ruby-quickstart/voice/connect_an_inbound_call.rb
+    source: .repos/nexmo-community/nexmo-ruby-quickstart/voice/join_a_conference_call.rb
     from_line: 1
-    to_line: 3
-file_name: connect_an_inbound_call.rb
-run_command: 'ruby connect_an_inbound_call.rb'
+    to_line: 7
+file_name: join_a_conference_call.rb
+run_command: 'ruby join_a_conference_call.rb'

@@ -9,7 +9,7 @@ code:
     to_line: 19
 client:
     source: .repos/nexmo-community/nexmo-ruby-quickstart/voice/earmuff-a-call.rb
-    from_line: 10
+    from_line: 8
     to_line: 13
 file_name: earmuff-a-call.rb
 run_command: 'ruby earmuff-a-call.rb'
