@@ -18,7 +18,7 @@ client = Nexmo::Client.new(
   private_key: File.read(NEXMO_APPLICATION_PRIVATE_KEY_PATH)
 )
 
-client.calls.create(
+response = client.calls.create(
   to: [{
     type: 'phone',
     number: RECIPIENT_NUMBER
@@ -31,3 +31,5 @@ client.calls.create(
     'https://developer.nexmo.com/ncco/tts.json'
   ]
 )
+
+puts response.inspect
