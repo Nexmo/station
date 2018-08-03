@@ -8,11 +8,11 @@ The overall quality of a voice or video stream is often depicted through a metri
 
 It is common that MOS is represented as a rational number, or a float type variable, between 1 and 5, with the following scale: 
 
-* 5 - Excellent
-* 4 - Good
-* 3 - Fair
-* 2 - Poor 
-* 1 - Bad
+1. Bad
+2. Poor 
+3. Fair
+4. Good
+5. Excellent
 
 Frequently, MOS higher than 4 reflects a satisfying quality. For MOS higher than 4.3, the human senses cannot usually perceive an increase in quality. On the lower side, when MOS is lower than 3.5, commonly the quality isn’t sufficient, especially for communication purposes.
 
@@ -33,7 +33,7 @@ An R-value is calculated based on those factors and is later used to calculate t
 
 
 
-### What can a MOS can be used for
+### What a MOS can be used for
 
 Among typical usages are 
 
