@@ -19,7 +19,7 @@ Frequently, MOS higher than 4 reflects a satisfying quality. For MOS higher than
 
 ### How is MOS calculated?
 
-The MOS is calculated using an [agreed upon formula](https://docs.telcobridges.com/tbwiki/MOS), which utilizes multiple features of the data steam passed over the network. Among those features, the ones with the most significant impact are: 
+The MOS is [calculated using a formula](https://docs.telcobridges.com/tbwiki/MOS), which utilizes multiple features of the data steam passed over the network via the stats WebRTC exposes. Among those features, the ones with the most significant impact are: 
 
 * Packet loss - the amount of data packets that never made it from the sender to the receiver
 
@@ -28,9 +28,10 @@ The MOS is calculated using an [agreed upon formula](https://docs.telcobridges.c
 * Jitter - the difference between the latency of one data flow to the other. In other words, how delayed was a received data packet, comparing to the previous received data packet
 
 
-An R-value is calculated based on those factors and is later used to calculate the final MOS, by this well known formula:  
+An R-value is calculated based on those factors and is later used to calculate the final MOS, by the following formula:  
 > MOS = 1 + 0.035R + ((R - 60) * (100 – R) * 0.000007R)
 
+The MOS score reflects the quality of the audio or video stream that a participant receives. It is hence a direct reflection of that user's experience of the quality. It is entirely possible that in a single call, two participants can have different MOS scores since it is influenced by conditions such as the device, the local network quality (e.g. WiFi strength), the global network quality (e.g. WiFi, 3G, EDGE), or the infrastructure of any service used to connect calls.
 
 
 ### What a MOS can be used for
