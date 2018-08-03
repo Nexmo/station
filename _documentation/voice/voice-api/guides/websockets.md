@@ -59,8 +59,13 @@ The audio codec presently supported on the WebSocket interface is Linear PCM 16-
 
 To choose the sampling rate set the `Content-Type` parameter to `audio/l16;rate=16000` or `audio/l16;rate=8000` depending on if you need the data at 16kHz or 8kHz. Most realtime transcription services work best with audio at 8kHz.
 
-Each message will be a 20ms sample of the audio from the call, containing 320 samples. If you choose the 8kHz rate each message will be 320 bytes large. Choosing the 16kHz rate will result in each message being 640 bytes large.
+Each message will be a 20ms sample of the audio from the call. If you choose the 8kHz rate each message will be 320 bytes. Choosing the 16kHz rate will result in each message being 640 bytes. This is summarized in the following table:
+
+| Sampling rate (samples per second) | Number of samples in 20ms | Bytes per message |
+|----|----|----|
+| 8000 | 160 | 160 x 2 = 320 |
+| 16000 | 320 | 320 x 2 = 640 |
 
 ## Writing audio to the WebSocket
 
-You can send audio back into the call by writing binary messages to the WebSocket. The audio must be in the same format as described in the previous section. It is important that each message is 640 bytes and contains 20ms of audio. You can send the messages at a faster than real-time rate and they will be buffered for playing at the Nexmo end. So for example, you can send an entire file to the socket in one write, providing the 640 byte per message restriction is observed.
+You can send audio back into the call by writing binary messages to the WebSocket. The audio must be in the same format as described in the previous section. It is important that each message is 320 or 640 bytes (depending on sample rate) and contains 20ms of audio. You can send the messages at a faster than real-time rate and they will be buffered for playing at the Nexmo end. So for example, you can send an entire file to the socket in one write, providing the 320/640 byte per message restriction is observed.
