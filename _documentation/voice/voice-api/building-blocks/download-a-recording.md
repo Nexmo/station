@@ -25,7 +25,7 @@ application:
 
 ## Try it out
 
-You will need a Recording URL from which to download the recording file. You typically get this from the JSON response received on the `/webhooks/recordings` endpoint when the `record` action is used when making a call, connecting another call and so on.
+You will need a Recording URL from which to download the recording file. You typically get this from the JSON response received on the `/webhooks/recordings` endpoint when the `record` action is used when [recording a call](/voice/voice-api/building-blocks/record-a-call), connecting another call and so on.
 
 When you run the script, the recording located at the recording URL will
 be downloaded. You can then listen to the recording.
