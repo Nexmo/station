@@ -13,7 +13,7 @@ Replace the following variables in the example code:
 
 Key |	Description
 -- | --
-`RECORDING_URL` |	The URL of the recording to download.
+`RECORDING_URL` |	The URL of the recording to download. You typically get this from the JSON response received on the `/webhooks/recordings` endpoint when the `record` action is used.
 
 ```building_blocks
 source: '_examples/voice/download-a-recording'
@@ -24,6 +24,8 @@ application:
 ```
 
 ## Try it out
+
+You will need a Recording URL from which to download the recording file. You typically get this from the JSON response received on the `/webhooks/recordings` endpoint when the `record` action is used when making a call, connecting another call and so on.
 
 When you run the script, the recording located at the recording URL will
 be downloaded. You can then listen to the recording.
