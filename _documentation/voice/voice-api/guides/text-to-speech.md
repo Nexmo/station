@@ -90,6 +90,7 @@ Name | Language | Gender | [SSML](#ssml) support
 `Astrid` | `sv-SE` | `female` | ✅
 `Filiz` | `tr-TR` | `female` | ✅
 `Mizuki` | `ja-JP` | `female` | ✅
+`Seoyeon`| `ko-KR` | `female`| ✅
 `Laila` | `ara-XWW` | `female` | ❎
 `Maged` | `ara-XWW` | `male` | ❎
 `Tarik` | `ara-XWW` | `male` | ❎
