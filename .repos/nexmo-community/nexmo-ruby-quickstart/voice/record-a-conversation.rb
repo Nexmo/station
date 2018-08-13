@@ -1,10 +1,3 @@
-require 'dotenv'
-
-Dotenv.load
-
-NEXMO_NUMBER = ENV['NEXMO_NUMBER']
-TO_NUMBER = ENV['RECIPIENT_NUMBER']
-
 require 'sinatra'
 require 'sinatra/multi_route'
 require 'json'
@@ -19,23 +12,19 @@ helpers do
   end
 end
 
+CONF_NAME = "record-a-conversation"
+
 route :get, :post, '/webhooks/answer' do
-  [
-    {
-      "action": "record",
-      "eventUrl": ["#{request.base_url}/webhooks/recordings"]
-    },
-    {
-      "action": "connect",
-      "from": NEXMO_NUMBER,
-      "endpoint": [
+    [
         {
-          "type": "phone",
-          "number": TO_NUMBER
+          action: "conversation",
+          name: CONF_NAME,
+          record: "true",
+          #This currently needs to be set rather than default due to a known issue https://help.nexmo.com/hc/en-us/articles/360001162687
+          eventMethod: "POST", 
+          eventUrl: ["#{request.base_url}/webhooks/recordings"]
         }
-      ]
-    }
-  ].to_json
+      ].to_json
 end
 
 route :get, :post, '/webhooks/recordings' do
