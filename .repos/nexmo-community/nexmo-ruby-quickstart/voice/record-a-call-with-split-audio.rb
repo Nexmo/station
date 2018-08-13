@@ -20,22 +20,23 @@ helpers do
 end
 
 route :get, :post, '/webhooks/answer' do
-  [
-    {
-      "action": "record",
-      "eventUrl": ["#{request.base_url}/webhooks/recordings"]
-    },
-    {
-      "action": "connect",
-      "from": NEXMO_NUMBER,
-      "endpoint": [
+    [
         {
-          "type": "phone",
-          "number": TO_NUMBER
+          "action": "record",
+          "split": "conversation",
+          "eventUrl": ["#{request.base_url}/webhooks/recordings"]
+        },
+        {
+          "action": "connect",
+          "from": NEXMO_NUMBER,
+          "endpoint": [
+            {
+              "type": "phone",
+              "number": TO_NUMBER
+            }
+          ]
         }
-      ]
-    }
-  ].to_json
+      ].to_json
 end
 
 route :get, :post, '/webhooks/recordings' do
