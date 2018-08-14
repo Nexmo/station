@@ -17,6 +17,7 @@ $ cp .env.example .env
 $ bundle install
 $ rake db:create
 $ rake db:migrate
+$ rake db:seed
 $ ./bin/yarn install
 $ rails s
 ```
@@ -91,6 +92,16 @@ $ rake section:create "Example Name"
 
 # Docker users run:
 # $ docker-compose exec web rake section:create "Example Name"
+```
+
+## Admin dashboard
+
+You can access the admin dashboard by visiting `/admin`. If you've populated data via `rake db:seed` you will have an admin user with the username of `admin@nexmo.com` and password of `development`.
+
+New admin users can be created by visiting `/admin/users` or by accessing the rails console and creating a new User like so:
+
+```ruby
+User.create!(email: 'example@example.com', password: 'password', admin: true)
 ```
 
 ### Pre-Commit hooks
