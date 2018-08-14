@@ -32,6 +32,7 @@ Edit the `.env` file as appropriate for your platform.  Then, run the following:
 $ bundle install
 $ rake db:create
 $ rake db:migrate
+$ rake db:seed
 $ ./bin/yarn install
 $ rails s
 ```
@@ -60,6 +61,16 @@ To stop the server cleanly run:
 
 ```
 $ docker-compose down
+```
+
+## Admin dashboard
+
+You can access the admin dashboard by visiting `/admin`. If you've populated data via `rake db:seed` you will have an admin user with the username of `admin@nexmo.com` and password of `development`.
+
+New admin users can be created by visiting `/admin/users` or by accessing the rails console and creating a new User like so:
+
+```ruby
+User.create!(email: 'example@example.com', password: 'password', admin: true)
 ```
 
 ## Troubleshooting

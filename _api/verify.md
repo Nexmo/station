@@ -193,7 +193,7 @@ Parameter | Description | Required
 -- | -- | --
 `format` | The response format. Either `json` or `xml` | Yes
 `request_id` | The [request_id](#keys-and-values) you received in the Verify Request [Response](#rresponse). | ^[Conditional](Either `request_id` or `request_ids` must be provided)
-`request_ids` | More than one [request_id](#keys-and-values). Each request_id is a new parameter in the Verify Search request. | ^[Conditional](Either `request_id` or `request_ids` must be provided)
+`request_ids` | More than one [request_id](#keys-and-values). Each request_id is a new parameter in the Verify Search request. A maximum of 10 request_id parameters can be specified. | ^[Conditional](Either `request_id` or `request_ids` must be provided)
 
 ### Response
 
