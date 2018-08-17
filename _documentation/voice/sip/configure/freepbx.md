@@ -108,4 +108,4 @@ For PJSIP configuration use the following information:
 | Secret | API Secret |
 | From Domain | sip.nexmo.com |
 | DTMF Mode | RFC4733 |
-| Codecs | ulaw, alaw, g729 etc. |
+| Codecs | ulaw, alaw, g729 |
