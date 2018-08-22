@@ -45,6 +45,8 @@
 "/number-insight/guides": "/number-insight/guides/cnam"
 "/number-insight/building-blocks": "/number-insight/building-blocks/number-insight-basic"
 "/number-insight/api-reference": "/api/number-insight"
+"/numbers/guides": "/numbers/guides/numbers"
+"/numbers/building-blocks": "/numbers/building-blocks/number-management/buy-a-number"
 "/redact": "/redact/overview"
 "/redact/api-reference": "/api/redact"
 "/sip": "/voice/sip"
