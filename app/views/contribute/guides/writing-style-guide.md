@@ -146,7 +146,7 @@ Building Blocks  (main section)
 
 ## Blog article titles
 
-For Nexmo developer blog article titles, use title case.
+For Nexmo developer blog article titles, use title case. Blog article sub-headings should also use title case.
 
 You can refer to [these guidelines](https://www.bkacontent.com/wp-content/uploads/2015/10/Rules-of-AP-Title-Case.png) on using title case.
 
