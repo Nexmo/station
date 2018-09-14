@@ -450,7 +450,7 @@ paths:
                   type: string
                   description: The text to read
                   example: Hello. How are you today?
-                voiceName:
+                voice_name:
                   description: The voice & language to use
                   "$ref": "#/components/schemas/voice_name"
                 loop:
