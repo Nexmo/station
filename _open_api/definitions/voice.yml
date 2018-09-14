@@ -452,7 +452,7 @@ paths:
                   example: Hello. How are you today?
                 voiceName:
                   description: The voice & language to use
-                  "$ref": "#/components/schemas/voiceNames"
+                  "$ref": "#/components/schemas/voice_name"
                 loop:
                   type: integer
                   description: The number of times to repeat the text the file, 0
