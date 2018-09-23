@@ -123,6 +123,7 @@ class TabFilter < Banzai::Filter
     source_path += '/*.md' if tabbed_content?
 
     Dir[source_path].map do |content_path|
+      raise "Could not find source file: #{c['source']}" unless File.exist? c['source']
       source = File.read(content_path)
 
       content = {
