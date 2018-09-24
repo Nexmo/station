@@ -57,7 +57,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="../../../../../../../favicon.ico" />
 <title>
 
-  Invitation
+  NetworkState
 
 
 </title>
@@ -146,11 +146,11 @@
   <a href="../../../../../../../com/nexmo/sdk/conversation/client/audio/package-summary.html">com.nexmo.sdk.conversation.client.audio</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../../com/nexmo/sdk/conversation/client/event/package-summary.html">com.nexmo.sdk.conversation.client.event</a></li>
-    <li class="selected api apilevel-">
+    <li class="api apilevel-">
   <a href="../../../../../../../com/nexmo/sdk/conversation/client/event/container/package-summary.html">com.nexmo.sdk.conversation.client.event.container</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../../com/nexmo/sdk/conversation/client/event/misc/package-summary.html">com.nexmo.sdk.conversation.client.event.misc</a></li>
-    <li class="api apilevel-">
+    <li class="selected api apilevel-">
   <a href="../../../../../../../com/nexmo/sdk/conversation/client/event/network/package-summary.html">com.nexmo.sdk.conversation.client.event.network</a></li>
     <li class="api apilevel-">
   <a href="../../../../../../../com/nexmo/sdk/conversation/config/package-summary.html">com.nexmo.sdk.conversation.config</a></li>
@@ -175,20 +175,11 @@
             <ul>
               
               
-    <li><h2>Classes</h2>
-      <ul>
-          <li class="selected api apilevel-"><a href="../../../../../../../com/nexmo/sdk/conversation/client/event/container/Invitation.html">Invitation</a></li>
-          <li class="api apilevel-"><a href="../../../../../../../com/nexmo/sdk/conversation/client/event/container/Receipt.html">Receipt</a>&lt;R&nbsp;extends&nbsp;<a href="../../../../../../../com/nexmo/sdk/conversation/client/ReceiptRecord.html">ReceiptRecord</a>&gt;</li>
-          <li class="api apilevel-"><a href="../../../../../../../com/nexmo/sdk/conversation/client/event/container/Receipt.Delivery.html">Receipt.Delivery</a></li>
-          <li class="api apilevel-"><a href="../../../../../../../com/nexmo/sdk/conversation/client/event/container/Receipt.Seen.html">Receipt.Seen</a></li>
-          <li class="api apilevel-"><a href="../../../../../../../com/nexmo/sdk/conversation/client/event/container/SynchronisingState.html">SynchronisingState</a></li>
-      </ul>
-    </li>
               
               
     <li><h2>Enums</h2>
       <ul>
-          <li class="api apilevel-"><a href="../../../../../../../com/nexmo/sdk/conversation/client/event/container/SynchronisingState.STATE.html">SynchronisingState.STATE</a></li>
+          <li class="selected api apilevel-"><a href="../../../../../../../com/nexmo/sdk/conversation/client/event/network/NetworkState.html">NetworkState</a></li>
       </ul>
     </li>
               
@@ -237,6 +228,25 @@
   
   
 
+  
+   
+  
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+   
+  
+  
+  
+  
+
 
 <div class="sum-details-links">
 
@@ -246,13 +256,13 @@ Summary:
 
 
 
-
-
-
-
-
-  <a href="#pubctors">Ctors</a>
+  <a href="#enumconstants">Enums</a>
   
+
+
+
+
+
 
 
 
@@ -282,15 +292,19 @@ Summary:
 <div id="jd-header">
     public
      
-     
+    final 
     
-    class
-<h1>Invitation</h1>
+    enum
+<h1>NetworkState</h1>
 
 
 
   
-    extends Object<br/>
+  
+  
+
+  
+    extends Enum&lt;E&nbsp;extends&nbsp;Enum&lt;E&gt;&gt;<br/>
   
   
   
@@ -310,7 +324,7 @@ Summary:
 
     <tr>
          	
-        <td colspan="2" class="jd-inheritance-class-cell">java.lang.Object</td>
+        <td colspan="3" class="jd-inheritance-class-cell">java.lang.Object</td>
     </tr>
     
 
@@ -318,7 +332,17 @@ Summary:
         
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
          	
-        <td colspan="1" class="jd-inheritance-class-cell">com.nexmo.sdk.conversation.client.event.container.Invitation</td>
+        <td colspan="2" class="jd-inheritance-class-cell">java.lang.Enum&lt;E&nbsp;extends&nbsp;java.lang.Enum&lt;E&gt;&gt;</td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;</td>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+         	
+        <td colspan="1" class="jd-inheritance-class-cell">com.nexmo.sdk.conversation.client.event.network.NetworkState</td>
     </tr>
     
 
@@ -334,7 +358,8 @@ Summary:
 
 
 <h2>Class Overview</h2>
-<p>Invitation details for any incoming invite.</p>
+<p>Representation connection state of the SDK
+</p>
 
 
 
@@ -372,57 +397,65 @@ Summary:
 
 
 
+<!-- =========== ENUM CONSTANT SUMMARY =========== -->
+<table id="enumconstants" class="jd-sumtable"><tr><th colspan="12">Enum Values</th></tr>
 
-
-
-
-
-
-
-
-
-
-
-
-<!-- ======== CONSTRUCTOR SUMMARY ======== -->
-<table id="pubctors" class="jd-sumtable"><tr><th colspan="12">Public Constructors</th></tr>
-
-
-
-	 
+    
     <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../../../com/nexmo/sdk/conversation/client/event/container/Invitation.html#Invitation(com.nexmo.sdk.conversation.client.Conversation, com.nexmo.sdk.conversation.client.Member, java.lang.String)">Invitation</a></span>(<a href="../../../../../../../com/nexmo/sdk/conversation/client/Conversation.html">Conversation</a> conversation, <a href="../../../../../../../com/nexmo/sdk/conversation/client/Member.html">Member</a> invitedMember, String invitedBy)
-        
-  </td></tr>
-
-
-	 
+        <td class="jd-descrcol"><a href="../../../../../../../com/nexmo/sdk/conversation/client/event/network/NetworkState.html">NetworkState</a>&nbsp;</td>
+        <td class="jd-linkcol">CONNECTED&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Connection completion.&nbsp;</td>
+    </tr>
+    
+    
     <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../../../com/nexmo/sdk/conversation/client/event/container/Invitation.html#Invitation(com.nexmo.sdk.conversation.client.Conversation, com.nexmo.sdk.conversation.client.Member, java.lang.String, boolean)">Invitation</a></span>(<a href="../../../../../../../com/nexmo/sdk/conversation/client/Conversation.html">Conversation</a> conversation, <a href="../../../../../../../com/nexmo/sdk/conversation/client/Member.html">Member</a> invitedMember, String invitedBy, boolean isAudioEnabled)
-        
-  </td></tr>
-
-
-
+        <td class="jd-descrcol"><a href="../../../../../../../com/nexmo/sdk/conversation/client/event/network/NetworkState.html">NetworkState</a>&nbsp;</td>
+        <td class="jd-linkcol">CONNECT_ERROR&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../com/nexmo/sdk/conversation/client/event/network/NetworkState.html">NetworkState</a>&nbsp;</td>
+        <td class="jd-linkcol">CONNECT_TIMEOUT&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../com/nexmo/sdk/conversation/client/event/network/NetworkState.html">NetworkState</a>&nbsp;</td>
+        <td class="jd-linkcol">DISCONNECTED&nbsp;</td>
+        <td class="jd-descrcol" width="100%">User has been disconnected.&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../com/nexmo/sdk/conversation/client/event/network/NetworkState.html">NetworkState</a>&nbsp;</td>
+        <td class="jd-linkcol">RECONNECT&nbsp;</td>
+        <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-descrcol"><a href="../../../../../../../com/nexmo/sdk/conversation/client/event/network/NetworkState.html">NetworkState</a>&nbsp;</td>
+        <td class="jd-linkcol">RECONNECT_ERROR&nbsp;</td>
+        <td class="jd-descrcol" width="100%">Reconnection error.&nbsp;</td>
+    </tr>
+    
+    
 </table>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -440,12 +473,12 @@ Summary:
             
             
             
+            static
             
-            
-            boolean
+            <a href="../../../../../../../com/nexmo/sdk/conversation/client/event/network/NetworkState.html">NetworkState</a>
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../../../com/nexmo/sdk/conversation/client/event/container/Invitation.html#equals(java.lang.Object)">equals</a></span>(Object o)
+        <span class="sympad"><a href="../../../../../../../com/nexmo/sdk/conversation/client/event/network/NetworkState.html#valueOf(java.lang.String)">valueOf</a></span>(String name)
         
   </td></tr>
 
@@ -455,93 +488,13 @@ Summary:
         <td class="jd-typecol">
             
             
+            final
+            static
             
-            
-            
-            <a href="../../../../../../../com/nexmo/sdk/conversation/client/Conversation.html">Conversation</a>
+            <a href="../../../../../../../com/nexmo/sdk/conversation/client/event/network/NetworkState.html">NetworkState[]</a>
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../../../com/nexmo/sdk/conversation/client/event/container/Invitation.html#getConversation()">getConversation</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            String
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../../../com/nexmo/sdk/conversation/client/event/container/Invitation.html#getInvitedBy()">getInvitedBy</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            <a href="../../../../../../../com/nexmo/sdk/conversation/client/Member.html">Member</a>
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../../../com/nexmo/sdk/conversation/client/event/container/Invitation.html#getInvitedMember()">getInvitedMember</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            int
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../../../com/nexmo/sdk/conversation/client/event/container/Invitation.html#hashCode()">hashCode</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            boolean
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../../../com/nexmo/sdk/conversation/client/event/container/Invitation.html#isAudioEnabled()">isAudioEnabled</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            String
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../../../com/nexmo/sdk/conversation/client/event/container/Invitation.html#toString()">toString</a></span>()
+        <span class="sympad"><a href="../../../../../../../com/nexmo/sdk/conversation/client/event/network/NetworkState.html#values()">values</a></span>()
         
   </td></tr>
 
@@ -559,6 +512,208 @@ Summary:
 <table id="inhmethods" class="jd-sumtable"><tr><th>
   <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
   <div style="clear:left;">Inherited Methods</div></th></tr>
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Enum" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.lang.Enum-trigger"
+          src="../../../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  java.lang.Enum
+
+<div id="inherited-methods-java.lang.Enum">
+  <div id="inherited-methods-java.lang.Enum-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.lang.Enum-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            Object
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">clone</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            int
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">compareTo</span>(E arg0)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            int
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">compareTo</span>(Object arg0)
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">equals</span>(Object arg0)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">finalize</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            Class&lt;E&gt;
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">getDeclaringClass</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            int
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">hashCode</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            String
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">name</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            int
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">ordinal</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            String
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">toString</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            static
+            &lt;T&nbsp;extends&nbsp;Enum&lt;T&gt;&gt;
+            T
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">valueOf</span>(Class&lt;T&gt; arg0, String arg1)
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
 
 
 <tr class="api apilevel-" >
@@ -762,6 +917,50 @@ From class
 </td></tr>
 
 
+
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Comparable" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.lang.Comparable-trigger"
+          src="../../../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  java.lang.Comparable
+
+<div id="inherited-methods-java.lang.Comparable">
+  <div id="inherited-methods-java.lang.Comparable-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.lang.Comparable-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            abstract
+            
+            
+            
+            
+            int
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">compareTo</span>(T arg0)
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
 </table>
 
 
@@ -782,6 +981,197 @@ From class
 <!-- Enum Values -->
 
 
+<!-- ========= ENUM CONSTANTS DETAIL ======== -->
+<h2>Enum Values</h2>
+
+
+
+
+<a id="CONNECTED"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../com/nexmo/sdk/conversation/client/event/network/NetworkState.html">NetworkState</a>
+      </span>
+        CONNECTED
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Connection completion.
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<a id="CONNECT_ERROR"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../com/nexmo/sdk/conversation/client/event/network/NetworkState.html">NetworkState</a>
+      </span>
+        CONNECT_ERROR
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<a id="CONNECT_TIMEOUT"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../com/nexmo/sdk/conversation/client/event/network/NetworkState.html">NetworkState</a>
+      </span>
+        CONNECT_TIMEOUT
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<a id="DISCONNECTED"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../com/nexmo/sdk/conversation/client/event/network/NetworkState.html">NetworkState</a>
+      </span>
+        DISCONNECTED
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>User has been disconnected. Possible cause may be connectivity issues.
+ Also occurs after an explicit ConversationClient#logout(RequestHandler<User>).
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+<a id="RECONNECT"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../com/nexmo/sdk/conversation/client/event/network/NetworkState.html">NetworkState</a>
+      </span>
+        RECONNECT
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<a id="RECONNECT_ERROR"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        <a href="../../../../../../../com/nexmo/sdk/conversation/client/event/network/NetworkState.html">NetworkState</a>
+      </span>
+        RECONNECT_ERROR
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Reconnection error.
+</p></div>
+
+    
+    </div>
+</div>
+
+
+
+
 <!-- Constants -->
 
 
@@ -789,75 +1179,6 @@ From class
 
 
 <!-- Public ctors -->
-
-
-<!-- ========= CONSTRUCTOR DETAIL ======== -->
-<h2>Public Constructors</h2>
-
-
-
-<a id="Invitation(com.nexmo.sdk.conversation.client.Conversation, com.nexmo.sdk.conversation.client.Member, java.lang.String)"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        
-      </span>
-      <span class="sympad">Invitation</span>
-      <span class="normal">(<a href="../../../../../../../com/nexmo/sdk/conversation/client/Conversation.html">Conversation</a> conversation, <a href="../../../../../../../com/nexmo/sdk/conversation/client/Member.html">Member</a> invitedMember, String invitedBy)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="Invitation(com.nexmo.sdk.conversation.client.Conversation, com.nexmo.sdk.conversation.client.Member, java.lang.String, boolean)"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        
-      </span>
-      <span class="sympad">Invitation</span>
-      <span class="normal">(<a href="../../../../../../../com/nexmo/sdk/conversation/client/Conversation.html">Conversation</a> conversation, <a href="../../../../../../../com/nexmo/sdk/conversation/client/Member.html">Member</a> invitedMember, String invitedBy, boolean isAudioEnabled)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
 
 
 
@@ -873,20 +1194,20 @@ From class
 
 
 
-<a id="equals(java.lang.Object)"></a>
+<a id="valueOf(java.lang.String)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
       <span class="normal">
         public 
+        static 
          
          
          
-         
-        boolean
+        <a href="../../../../../../../com/nexmo/sdk/conversation/client/event/network/NetworkState.html">NetworkState</a>
       </span>
-      <span class="sympad">equals</span>
-      <span class="normal">(Object o)</span>
+      <span class="sympad">valueOf</span>
+      <span class="normal">(String name)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -904,174 +1225,19 @@ From class
 </div>
 
 
-<a id="getConversation()"></a>
+<a id="values()"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
       <span class="normal">
         public 
+        static 
+        final 
          
          
-         
-         
-        <a href="../../../../../../../com/nexmo/sdk/conversation/client/Conversation.html">Conversation</a>
+        <a href="../../../../../../../com/nexmo/sdk/conversation/client/event/network/NetworkState.html">NetworkState[]</a>
       </span>
-      <span class="sympad">getConversation</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="getInvitedBy()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        String
-      </span>
-      <span class="sympad">getInvitedBy</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="getInvitedMember()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        <a href="../../../../../../../com/nexmo/sdk/conversation/client/Member.html">Member</a>
-      </span>
-      <span class="sympad">getInvitedMember</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="hashCode()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        int
-      </span>
-      <span class="sympad">hashCode</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="isAudioEnabled()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        boolean
-      </span>
-      <span class="sympad">isAudioEnabled</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="toString()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        String
-      </span>
-      <span class="sympad">toString</span>
+      <span class="sympad">values</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">

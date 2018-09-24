@@ -57,7 +57,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="../../../../../../favicon.ico" />
 <title>
 
-  MOSReport
+  AudioCallEventListener
 
 
 </title>
@@ -178,7 +178,7 @@
       <ul>
           <li class="api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/AppRTCAudioManager.AudioManagerEvents.html">AppRTCAudioManager.AudioManagerEvents</a></li>
           <li class="api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/AppRTCClient.html">AppRTCClient</a></li>
-          <li class="api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/AudioCallEventListener.html">AudioCallEventListener</a></li>
+          <li class="selected api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/AudioCallEventListener.html">AudioCallEventListener</a></li>
           <li class="api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/AudioCallStatsListener.html">AudioCallStatsListener</a></li>
           <li class="api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/PeerConnectionClient.PeerConnectionEvents.html">PeerConnectionClient.PeerConnectionEvents</a></li>
           <li class="api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/RtcEvents.html">RtcEvents</a></li>
@@ -193,7 +193,7 @@
           <li class="api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/AppRTCProximitySensor.html">AppRTCProximitySensor</a></li>
           <li class="api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/AppRTCUtils.html">AppRTCUtils</a></li>
           <li class="api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/AudioCallManager.html">AudioCallManager</a></li>
-          <li class="selected api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/MOSReport.html">MOSReport</a></li>
+          <li class="api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/MOSReport.html">MOSReport</a></li>
           <li class="api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/PeerConnectionClient.html">PeerConnectionClient</a></li>
           <li class="api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/PeerConnectionClient.DataChannelParameters.html">PeerConnectionClient.DataChannelParameters</a></li>
           <li class="api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/PeerConnectionClient.PeerConnectionParameters.html">PeerConnectionClient.PeerConnectionParameters</a></li>
@@ -249,43 +249,9 @@
 
 
 
-  
-   
-  
-  
-  
-  
-
 
 <div class="sum-details-links">
 
-
-Summary:
-
-
-
-
-
-
-
-  <a href="#lfields">Fields</a>
-  
-
-
-
-
-  &#124; <a href="#proctors">Protected Ctors</a>
-  
-
-
-  &#124; <a href="#pubmethods">Methods</a>
-  
-
-
-
-  &#124; <a href="#inhmethods">Inherited Methods</a>
-
-&#124; <a href="#" onclick="return toggleAllClassInherited()" id="toggleAllClassInherited">[Expand All]</a>
 
 </div><!-- end sum-details-links -->
 <div class="api-level">
@@ -306,16 +272,10 @@ Summary:
      
      
     
-    class
-<h1>MOSReport</h1>
+    interface
+<h1>AudioCallEventListener</h1>
 
 
-
-  
-    extends Object<br/>
-  
-  
-  
 
   
   
@@ -332,15 +292,7 @@ Summary:
 
     <tr>
          	
-        <td colspan="2" class="jd-inheritance-class-cell">java.lang.Object</td>
-    </tr>
-    
-
-    <tr>
-        
-            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
-         	
-        <td colspan="1" class="jd-inheritance-class-cell">com.nexmo.sdk.conversation.client.audio.MOSReport</td>
+        <td colspan="1" class="jd-inheritance-class-cell">com.nexmo.sdk.conversation.client.audio.AudioCallEventListener</td>
     </tr>
     
 
@@ -356,7 +308,8 @@ Summary:
 
 
 <h2>Class Overview</h2>
-<p>MOS (Mean Opinion Score) report for call quality.</p>
+<p>Created by siltus on 20/09/2017.
+</p>
 
 
 
@@ -401,56 +354,11 @@ Summary:
 
 
 
-<!-- =========== FIELD SUMMARY =========== -->
-<table id="lfields" class="jd-sumtable"><tr><th colspan="12">Fields</th></tr>
-
-
-    
-      <tr class="alt-color api apilevel-" >
-          <td class="jd-typecol">
-          public
-          static
-          final
-          String</td>
-          <td class="jd-linkcol"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/MOSReport.html#TAG">TAG</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
-
-</table>
 
 
 
 
 
-
-
-
-
-<!-- ======== CONSTRUCTOR SUMMARY ======== -->
-<table id="proctors" class="jd-sumtable"><tr><th colspan="12">Protected Constructors</th></tr>
-
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/MOSReport.html#MOSReport(double, double, double, double)">MOSReport</a></span>(double minMOS, double maxMOS, double lastMOS, double averageMOS)
-        
-  </td></tr>
-
-
-
-</table>
 
 
 
@@ -463,15 +371,15 @@ Summary:
 	 
     <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
+            abstract
             
             
             
             
-            
-            double
+            void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/MOSReport.html#getAverageMOS()">getAverageMOS</a></span>()
+        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/AudioCallEventListener.html#onAudioRouteChange(com.nexmo.sdk.conversation.client.audio.AppRTCAudioManager.AudioDevice)">onAudioRouteChange</a></span>(<a href="../../../../../../com/nexmo/sdk/conversation/client/audio/AppRTCAudioManager.AudioDevice.html">AppRTCAudioManager.AudioDevice</a> device)
         
   </td></tr>
 
@@ -479,15 +387,15 @@ Summary:
 	 
     <tr class=" api apilevel-" >
         <td class="jd-typecol">
+            abstract
             
             
             
             
-            
-            double
+            void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/MOSReport.html#getLastMOS()">getLastMOS</a></span>()
+        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/AudioCallEventListener.html#onCallConnected()">onCallConnected</a></span>()
         
   </td></tr>
 
@@ -495,15 +403,15 @@ Summary:
 	 
     <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
+            abstract
             
             
             
             
-            
-            double
+            void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/MOSReport.html#getMaxMOS()">getMaxMOS</a></span>()
+        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/AudioCallEventListener.html#onCallEnded()">onCallEnded</a></span>()
         
   </td></tr>
 
@@ -511,15 +419,15 @@ Summary:
 	 
     <tr class=" api apilevel-" >
         <td class="jd-typecol">
+            abstract
             
             
             
             
-            
-            double
+            void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/MOSReport.html#getMinMOS()">getMinMOS</a></span>()
+        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/AudioCallEventListener.html#onGeneralCallError(com.nexmo.sdk.conversation.client.event.NexmoAPIError)">onGeneralCallError</a></span>(<a href="../../../../../../com/nexmo/sdk/conversation/client/event/NexmoAPIError.html">NexmoAPIError</a> apiError)
         
   </td></tr>
 
@@ -527,15 +435,15 @@ Summary:
 	 
     <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
+            abstract
             
             
             
             
-            
-            String
+            void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/MOSReport.html#toString()">toString</a></span>()
+        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/AudioCallEventListener.html#onRinging()">onRinging</a></span>()
         
   </td></tr>
 
@@ -547,216 +455,6 @@ Summary:
 
 
 
-
-
-<!-- ========== METHOD SUMMARY =========== -->
-<table id="inhmethods" class="jd-sumtable"><tr><th>
-  <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
-  <div style="clear:left;">Inherited Methods</div></th></tr>
-
-
-<tr class="api apilevel-" >
-<td colspan="12">
-  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Object" class="jd-expando-trigger closed"
-          ><img id="inherited-methods-java.lang.Object-trigger"
-          src="../../../../../../../assets/images/triangle-closed.png"
-          class="jd-expando-trigger-img" /></a>
-From class
-
-  java.lang.Object
-
-<div id="inherited-methods-java.lang.Object">
-  <div id="inherited-methods-java.lang.Object-list"
-        class="jd-inheritedlinks">
-  </div>
-  <div id="inherited-methods-java.lang.Object-summary" style="display: none;">
-    <table class="jd-sumtable-expando">
-    
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            Object
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">clone</span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            boolean
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">equals</span>(Object arg0)
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            void
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">finalize</span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            final
-            
-            
-            Class&lt;?&gt;
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">getClass</span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            int
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">hashCode</span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            final
-            
-            
-            void
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">notify</span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            final
-            
-            
-            void
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">notifyAll</span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            String
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">toString</span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            final
-            
-            
-            void
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">wait</span>(long arg0, int arg1)
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            final
-            
-            
-            void
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">wait</span>(long arg0)
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            final
-            
-            
-            void
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">wait</span>()
-        
-  </td></tr>
-
-
-</table>
-  </div>
-</div>
-</td></tr>
-
-
-</table>
 
 
 </div><!-- jd-descr (summary) -->
@@ -782,85 +480,12 @@ From class
 <!-- Fields -->
 
 
-<!-- ========= FIELD DETAIL ======== -->
-<h2>Fields</h2>
-
-
-
-
-<a id="TAG"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-        static 
-        final 
-        String
-      </span>
-        TAG
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    
-    </div>
-</div>
-
-
-
-
 <!-- Public ctors -->
 
 
 
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
 <!-- Protected ctors -->
-
-<h2>Protected Constructors</h2>
-
-
-
-<a id="MOSReport(double, double, double, double)"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        protected 
-         
-         
-         
-         
-        
-      </span>
-      <span class="sympad">MOSReport</span>
-      <span class="normal">(double minMOS, double maxMOS, double lastMOS, double averageMOS)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
 
 
 
@@ -871,7 +496,7 @@ From class
 
 
 
-<a id="getAverageMOS()"></a>
+<a id="onAudioRouteChange(com.nexmo.sdk.conversation.client.audio.AppRTCAudioManager.AudioDevice)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -879,11 +504,42 @@ From class
         public 
          
          
+        abstract 
          
-         
-        double
+        void
       </span>
-      <span class="sympad">getAverageMOS</span>
+      <span class="sympad">onAudioRouteChange</span>
+      <span class="normal">(<a href="../../../../../../com/nexmo/sdk/conversation/client/audio/AppRTCAudioManager.AudioDevice.html">AppRTCAudioManager.AudioDevice</a> device)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="onCallConnected()"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">onCallConnected</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -902,7 +558,7 @@ From class
 </div>
 
 
-<a id="getLastMOS()"></a>
+<a id="onCallEnded()"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -910,11 +566,11 @@ From class
         public 
          
          
+        abstract 
          
-         
-        double
+        void
       </span>
-      <span class="sympad">getLastMOS</span>
+      <span class="sympad">onCallEnded</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -933,7 +589,7 @@ From class
 </div>
 
 
-<a id="getMaxMOS()"></a>
+<a id="onGeneralCallError(com.nexmo.sdk.conversation.client.event.NexmoAPIError)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -941,12 +597,12 @@ From class
         public 
          
          
+        abstract 
          
-         
-        double
+        void
       </span>
-      <span class="sympad">getMaxMOS</span>
-      <span class="normal">()</span>
+      <span class="sympad">onGeneralCallError</span>
+      <span class="normal">(<a href="../../../../../../com/nexmo/sdk/conversation/client/event/NexmoAPIError.html">NexmoAPIError</a> apiError)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -964,7 +620,7 @@ From class
 </div>
 
 
-<a id="getMinMOS()"></a>
+<a id="onRinging()"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -972,42 +628,11 @@ From class
         public 
          
          
+        abstract 
          
-         
-        double
+        void
       </span>
-      <span class="sympad">getMinMOS</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="toString()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        String
-      </span>
-      <span class="sympad">toString</span>
+      <span class="sympad">onRinging</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">

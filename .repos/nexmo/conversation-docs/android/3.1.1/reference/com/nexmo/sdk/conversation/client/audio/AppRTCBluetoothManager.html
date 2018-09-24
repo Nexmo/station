@@ -57,7 +57,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="../../../../../../favicon.ico" />
 <title>
 
-  MOSReport
+  AppRTCBluetoothManager
 
 
 </title>
@@ -188,12 +188,12 @@
     <li><h2>Classes</h2>
       <ul>
           <li class="api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/AppRTCAudioManager.html">AppRTCAudioManager</a></li>
-          <li class="api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/AppRTCBluetoothManager.html">AppRTCBluetoothManager</a></li>
+          <li class="selected api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/AppRTCBluetoothManager.html">AppRTCBluetoothManager</a></li>
           <li class="api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/AppRTCClient.SignalingParameters.html">AppRTCClient.SignalingParameters</a></li>
           <li class="api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/AppRTCProximitySensor.html">AppRTCProximitySensor</a></li>
           <li class="api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/AppRTCUtils.html">AppRTCUtils</a></li>
           <li class="api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/AudioCallManager.html">AudioCallManager</a></li>
-          <li class="selected api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/MOSReport.html">MOSReport</a></li>
+          <li class="api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/MOSReport.html">MOSReport</a></li>
           <li class="api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/PeerConnectionClient.html">PeerConnectionClient</a></li>
           <li class="api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/PeerConnectionClient.DataChannelParameters.html">PeerConnectionClient.DataChannelParameters</a></li>
           <li class="api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/PeerConnectionClient.PeerConnectionParameters.html">PeerConnectionClient.PeerConnectionParameters</a></li>
@@ -262,14 +262,14 @@
 
 Summary:
 
-
-
-
-
-
-
-  <a href="#lfields">Fields</a>
+  <a href="#nestedclasses">Nested Classes</a>
   
+
+
+
+
+
+
 
 
 
@@ -281,6 +281,9 @@ Summary:
   &#124; <a href="#pubmethods">Methods</a>
   
 
+
+  &#124; <a href="#promethods">Protected Methods</a>
+  
 
 
   &#124; <a href="#inhmethods">Inherited Methods</a>
@@ -307,7 +310,7 @@ Summary:
      
     
     class
-<h1>MOSReport</h1>
+<h1>AppRTCBluetoothManager</h1>
 
 
 
@@ -340,7 +343,7 @@ Summary:
         
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
          	
-        <td colspan="1" class="jd-inheritance-class-cell">com.nexmo.sdk.conversation.client.audio.MOSReport</td>
+        <td colspan="1" class="jd-inheritance-class-cell">com.nexmo.sdk.conversation.client.audio.AppRTCBluetoothManager</td>
     </tr>
     
 
@@ -356,7 +359,9 @@ Summary:
 
 
 <h2>Class Overview</h2>
-<p>MOS (Mean Opinion Score) report for call quality.</p>
+<p>AppRTCProximitySensor manages functions related to Bluetoth devices in the
+ AppRTC demo.
+</p>
 
 
 
@@ -386,39 +391,40 @@ Summary:
 
 
 
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<table id="nestedclasses" class="jd-sumtable"><tr><th colspan="12">Nested Classes</th></tr>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- =========== FIELD SUMMARY =========== -->
-<table id="lfields" class="jd-sumtable"><tr><th colspan="12">Fields</th></tr>
-
-
+  
+    <tr class="alt-color api apilevel-" >
+      <td class="jd-typecol">
+        
+         
+         
+        
+        enum</td>
+      <td class="jd-linkcol"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/AppRTCBluetoothManager.State.html">AppRTCBluetoothManager.State</a></td>
+      <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
     
-      <tr class="alt-color api apilevel-" >
-          <td class="jd-typecol">
-          public
-          static
-          final
-          String</td>
-          <td class="jd-linkcol"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/MOSReport.html#TAG">TAG</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
     
 
 </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -444,7 +450,7 @@ Summary:
             
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/MOSReport.html#MOSReport(double, double, double, double)">MOSReport</a></span>(double minMOS, double maxMOS, double lastMOS, double averageMOS)
+        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/AppRTCBluetoothManager.html#AppRTCBluetoothManager(android.content.Context, com.nexmo.sdk.conversation.client.audio.AppRTCAudioManager)">AppRTCBluetoothManager</a></span>(Context context, <a href="../../../../../../com/nexmo/sdk/conversation/client/audio/AppRTCAudioManager.html">AppRTCAudioManager</a> audioManager)
         
   </td></tr>
 
@@ -468,11 +474,13 @@ Summary:
             
             
             
-            double
+            <a href="../../../../../../com/nexmo/sdk/conversation/client/audio/AppRTCBluetoothManager.State.html">AppRTCBluetoothManager.State</a>
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/MOSReport.html#getAverageMOS()">getAverageMOS</a></span>()
+        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/AppRTCBluetoothManager.html#getState()">getState</a></span>()
         
+        <div class="jd-descrdiv">Returns the internal state.</div>
+  
   </td></tr>
 
 
@@ -484,11 +492,14 @@ Summary:
             
             
             
-            double
+            void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/MOSReport.html#getLastMOS()">getLastMOS</a></span>()
+        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/AppRTCBluetoothManager.html#start()">start</a></span>()
         
+        <div class="jd-descrdiv">Activates components required to detect Bluetooth devices and to enable
+ BT SCO (audio is routed via BT SCO) for the headset profile.</div>
+  
   </td></tr>
 
 
@@ -500,11 +511,13 @@ Summary:
             
             
             
-            double
+            boolean
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/MOSReport.html#getMaxMOS()">getMaxMOS</a></span>()
+        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/AppRTCBluetoothManager.html#startScoAudio()">startScoAudio</a></span>()
         
+        <div class="jd-descrdiv">Starts Bluetooth SCO connection with remote device.</div>
+  
   </td></tr>
 
 
@@ -516,11 +529,13 @@ Summary:
             
             
             
-            double
+            void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/MOSReport.html#getMinMOS()">getMinMOS</a></span>()
+        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/AppRTCBluetoothManager.html#stop()">stop</a></span>()
         
+        <div class="jd-descrdiv">Stops and closes all components related to Bluetooth audio.</div>
+  
   </td></tr>
 
 
@@ -532,11 +547,33 @@ Summary:
             
             
             
-            String
+            void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/MOSReport.html#toString()">toString</a></span>()
+        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/AppRTCBluetoothManager.html#stopScoAudio()">stopScoAudio</a></span>()
         
+        <div class="jd-descrdiv">Stops Bluetooth SCO connection with remote device.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/AppRTCBluetoothManager.html#updateDevice()">updateDevice</a></span>()
+        
+        <div class="jd-descrdiv">Use the BluetoothHeadset proxy object (controls the Bluetooth Headset
+ Service via IPC) to update the list of connected devices for the HEADSET
+ profile.</div>
+  
   </td></tr>
 
 
@@ -544,6 +581,115 @@ Summary:
 </table>
 
 
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="promethods" class="jd-sumtable"><tr><th colspan="12">Protected Methods</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            AudioManager
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/AppRTCBluetoothManager.html#getAudioManager(android.content.Context)">getAudioManager</a></span>(Context context)
+        
+        <div class="jd-descrdiv">Stubs for test mocks.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/AppRTCBluetoothManager.html#getBluetoothProfileProxy(android.content.Context, android.bluetooth.BluetoothProfile.ServiceListener, int)">getBluetoothProfileProxy</a></span>(Context context, BluetoothProfile.ServiceListener listener, int profile)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/AppRTCBluetoothManager.html#hasPermission(android.content.Context, java.lang.String)">hasPermission</a></span>(Context context, String permission)
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/AppRTCBluetoothManager.html#logBluetoothAdapterInfo(android.bluetooth.BluetoothAdapter)">logBluetoothAdapterInfo</a></span>(BluetoothAdapter localAdapter)
+        
+        <div class="jd-descrdiv">Logs the state of the local Bluetooth adapter.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/AppRTCBluetoothManager.html#registerReceiver(android.content.BroadcastReceiver, android.content.IntentFilter)">registerReceiver</a></span>(BroadcastReceiver receiver, IntentFilter filter)
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/AppRTCBluetoothManager.html#unregisterReceiver(android.content.BroadcastReceiver)">unregisterReceiver</a></span>(BroadcastReceiver receiver)
+        
+  </td></tr>
+
+
+
+</table>
 
 
 
@@ -782,43 +928,6 @@ From class
 <!-- Fields -->
 
 
-<!-- ========= FIELD DETAIL ======== -->
-<h2>Fields</h2>
-
-
-
-
-<a id="TAG"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-        static 
-        final 
-        String
-      </span>
-        TAG
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    
-    </div>
-</div>
-
-
-
-
 <!-- Public ctors -->
 
 
@@ -830,7 +939,7 @@ From class
 
 
 
-<a id="MOSReport(double, double, double, double)"></a>
+<a id="AppRTCBluetoothManager(android.content.Context, com.nexmo.sdk.conversation.client.audio.AppRTCAudioManager)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -842,8 +951,8 @@ From class
          
         
       </span>
-      <span class="sympad">MOSReport</span>
-      <span class="normal">(double minMOS, double maxMOS, double lastMOS, double averageMOS)</span>
+      <span class="sympad">AppRTCBluetoothManager</span>
+      <span class="normal">(Context context, <a href="../../../../../../com/nexmo/sdk/conversation/client/audio/AppRTCAudioManager.html">AppRTCAudioManager</a> audioManager)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -871,7 +980,7 @@ From class
 
 
 
-<a id="getAverageMOS()"></a>
+<a id="getState()"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -881,9 +990,9 @@ From class
          
          
          
-        double
+        <a href="../../../../../../com/nexmo/sdk/conversation/client/audio/AppRTCBluetoothManager.State.html">AppRTCBluetoothManager.State</a>
       </span>
-      <span class="sympad">getAverageMOS</span>
+      <span class="sympad">getState</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -896,13 +1005,13 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the internal state. </p></div>
 
     </div>
 </div>
 
 
-<a id="getLastMOS()"></a>
+<a id="start()"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -912,9 +1021,9 @@ From class
          
          
          
-        double
+        void
       </span>
-      <span class="sympad">getLastMOS</span>
+      <span class="sympad">start</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -927,13 +1036,24 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Activates components required to detect Bluetooth devices and to enable
+ BT SCO (audio is routed via BT SCO) for the headset profile. The end
+ state will be HEADSET_UNAVAILABLE but a state machine has started which
+ will start a state change sequence where the final outcome depends on
+ if/when the BT headset is enabled.
+ Example of state change sequence when start() is called while BT device
+ is connected and enabled:
+   UNINITIALIZED --> HEADSET_UNAVAILABLE --> HEADSET_AVAILABLE -->
+   SCO_CONNECTING --> SCO_CONNECTED <==> audio is now routed via BT SCO.
+ Note that the AppRTCAudioManager is also involved in driving this state
+ change.
+</p></div>
 
     </div>
 </div>
 
 
-<a id="getMaxMOS()"></a>
+<a id="startScoAudio()"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -943,9 +1063,9 @@ From class
          
          
          
-        double
+        boolean
       </span>
-      <span class="sympad">getMaxMOS</span>
+      <span class="sympad">startScoAudio</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -958,13 +1078,24 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Starts Bluetooth SCO connection with remote device.
+ Note that the phone application always has the priority on the usage of the SCO connection
+ for telephony. If this method is called while the phone is in call it will be ignored.
+ Similarly, if a call is received or sent while an application is using the SCO connection,
+ the connection will be lost for the application and NOT returned automatically when the call
+ ends. Also note that: up to and including API version JELLY_BEAN_MR1, this method initiates a
+ virtual voice call to the Bluetooth headset. After API version JELLY_BEAN_MR2 only a raw SCO
+ audio connection is established.
+ TODO(henrika): should we add support for virtual voice call to BT headset also for JBMR2 and
+ higher. It might be required to initiates a virtual voice call since many devices do not
+ accept SCO audio without a "call".
+</p></div>
 
     </div>
 </div>
 
 
-<a id="getMinMOS()"></a>
+<a id="stop()"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -974,9 +1105,9 @@ From class
          
          
          
-        double
+        void
       </span>
-      <span class="sympad">getMinMOS</span>
+      <span class="sympad">stop</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -989,13 +1120,13 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Stops and closes all components related to Bluetooth audio. </p></div>
 
     </div>
 </div>
 
 
-<a id="toString()"></a>
+<a id="stopScoAudio()"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1005,9 +1136,9 @@ From class
          
          
          
-        String
+        void
       </span>
-      <span class="sympad">toString</span>
+      <span class="sympad">stopScoAudio</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -1020,7 +1151,43 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Stops Bluetooth SCO connection with remote device. </p></div>
+
+    </div>
+</div>
+
+
+<a id="updateDevice()"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">updateDevice</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Use the BluetoothHeadset proxy object (controls the Bluetooth Headset
+ Service via IPC) to update the list of connected devices for the HEADSET
+ profile. The internal state will change to HEADSET_UNAVAILABLE or to
+ HEADSET_AVAILABLE and |bluetoothDevice| will be mapped to the connected
+ device if available.
+</p></div>
 
     </div>
 </div>
@@ -1030,6 +1197,198 @@ From class
 
 
 <!-- ========= METHOD DETAIL ======== -->
+
+<h2>Protected Methods</h2>
+
+
+
+<a id="getAudioManager(android.content.Context)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+         
+         
+        AudioManager
+      </span>
+      <span class="sympad">getAudioManager</span>
+      <span class="normal">(Context context)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Stubs for test mocks.
+</p></div>
+
+    </div>
+</div>
+
+
+<a id="getBluetoothProfileProxy(android.content.Context, android.bluetooth.BluetoothProfile.ServiceListener, int)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">getBluetoothProfileProxy</span>
+      <span class="normal">(Context context, BluetoothProfile.ServiceListener listener, int profile)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="hasPermission(android.content.Context, java.lang.String)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">hasPermission</span>
+      <span class="normal">(Context context, String permission)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="logBluetoothAdapterInfo(android.bluetooth.BluetoothAdapter)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">logBluetoothAdapterInfo</span>
+      <span class="normal">(BluetoothAdapter localAdapter)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Logs the state of the local Bluetooth adapter. </p></div>
+
+    </div>
+</div>
+
+
+<a id="registerReceiver(android.content.BroadcastReceiver, android.content.IntentFilter)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">registerReceiver</span>
+      <span class="normal">(BroadcastReceiver receiver, IntentFilter filter)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="unregisterReceiver(android.content.BroadcastReceiver)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">unregisterReceiver</span>
+      <span class="normal">(BroadcastReceiver receiver)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
 
 
 

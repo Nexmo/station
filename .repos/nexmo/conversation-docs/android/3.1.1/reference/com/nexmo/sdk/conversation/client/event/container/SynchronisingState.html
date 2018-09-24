@@ -57,7 +57,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="../../../../../../../favicon.ico" />
 <title>
 
-  Invitation
+  SynchronisingState
 
 
 </title>
@@ -177,11 +177,11 @@
               
     <li><h2>Classes</h2>
       <ul>
-          <li class="selected api apilevel-"><a href="../../../../../../../com/nexmo/sdk/conversation/client/event/container/Invitation.html">Invitation</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../com/nexmo/sdk/conversation/client/event/container/Invitation.html">Invitation</a></li>
           <li class="api apilevel-"><a href="../../../../../../../com/nexmo/sdk/conversation/client/event/container/Receipt.html">Receipt</a>&lt;R&nbsp;extends&nbsp;<a href="../../../../../../../com/nexmo/sdk/conversation/client/ReceiptRecord.html">ReceiptRecord</a>&gt;</li>
           <li class="api apilevel-"><a href="../../../../../../../com/nexmo/sdk/conversation/client/event/container/Receipt.Delivery.html">Receipt.Delivery</a></li>
           <li class="api apilevel-"><a href="../../../../../../../com/nexmo/sdk/conversation/client/event/container/Receipt.Seen.html">Receipt.Seen</a></li>
-          <li class="api apilevel-"><a href="../../../../../../../com/nexmo/sdk/conversation/client/event/container/SynchronisingState.html">SynchronisingState</a></li>
+          <li class="selected api apilevel-"><a href="../../../../../../../com/nexmo/sdk/conversation/client/event/container/SynchronisingState.html">SynchronisingState</a></li>
       </ul>
     </li>
               
@@ -243,21 +243,24 @@
 
 Summary:
 
-
-
-
-
-
-
-
-
-  <a href="#pubctors">Ctors</a>
+  <a href="#nestedclasses">Nested Classes</a>
   
 
 
 
-  &#124; <a href="#pubmethods">Methods</a>
+
+
+
+
+  &#124; <a href="#lfields">Fields</a>
   
+
+
+
+  &#124; <a href="#pubctors">Ctors</a>
+  
+
+
 
 
 
@@ -285,7 +288,7 @@ Summary:
      
     
     class
-<h1>Invitation</h1>
+<h1>SynchronisingState</h1>
 
 
 
@@ -318,7 +321,7 @@ Summary:
         
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
          	
-        <td colspan="1" class="jd-inheritance-class-cell">com.nexmo.sdk.conversation.client.event.container.Invitation</td>
+        <td colspan="1" class="jd-inheritance-class-cell">com.nexmo.sdk.conversation.client.event.container.SynchronisingState</td>
     </tr>
     
 
@@ -334,7 +337,17 @@ Summary:
 
 
 <h2>Class Overview</h2>
-<p>Invitation details for any incoming invite.</p>
+<p>Synchronisation information.
+
+ <p>The order of sync events is important, depending on which STATE has been synced,
+ UI will be ready for update with fresh info.</p>
+ <ul>
+     <li>OUT_OF_SYNC: Nothing has been synced, this event happens before sync has even started.</li>
+     <li>CONVERSATIONS: Conversations preview has been synced.
+     At this point all members can be displayed in the UI.
+     Wait for the next state for updating members information in the UI.</li>
+     <li>MEMBERS: all information about the members has been synced. At this point all members can be displayed in the UI.</li>
+ </ul></p>
 
 
 
@@ -364,6 +377,25 @@ Summary:
 
 
 
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<table id="nestedclasses" class="jd-sumtable"><tr><th colspan="12">Nested Classes</th></tr>
+
+
+  
+    <tr class="alt-color api apilevel-" >
+      <td class="jd-typecol">
+        
+         
+         
+        
+        enum</td>
+      <td class="jd-linkcol"><a href="../../../../../../../com/nexmo/sdk/conversation/client/event/container/SynchronisingState.STATE.html">SynchronisingState.STATE</a></td>
+      <td class="jd-descrcol" width="100%">&nbsp;</td>
+    </tr>
+    
+    
+
+</table>
 
 
 
@@ -377,6 +409,28 @@ Summary:
 
 
 
+
+
+
+
+<!-- =========== FIELD SUMMARY =========== -->
+<table id="lfields" class="jd-sumtable"><tr><th colspan="12">Fields</th></tr>
+
+
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol">
+          public
+          
+          
+          <a href="../../../../../../../com/nexmo/sdk/conversation/client/event/container/SynchronisingState.STATE.html">SynchronisingState.STATE</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../../com/nexmo/sdk/conversation/client/event/container/SynchronisingState.html#state">state</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+
+</table>
 
 
 
@@ -400,23 +454,7 @@ Summary:
             
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../../../com/nexmo/sdk/conversation/client/event/container/Invitation.html#Invitation(com.nexmo.sdk.conversation.client.Conversation, com.nexmo.sdk.conversation.client.Member, java.lang.String)">Invitation</a></span>(<a href="../../../../../../../com/nexmo/sdk/conversation/client/Conversation.html">Conversation</a> conversation, <a href="../../../../../../../com/nexmo/sdk/conversation/client/Member.html">Member</a> invitedMember, String invitedBy)
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../../../com/nexmo/sdk/conversation/client/event/container/Invitation.html#Invitation(com.nexmo.sdk.conversation.client.Conversation, com.nexmo.sdk.conversation.client.Member, java.lang.String, boolean)">Invitation</a></span>(<a href="../../../../../../../com/nexmo/sdk/conversation/client/Conversation.html">Conversation</a> conversation, <a href="../../../../../../../com/nexmo/sdk/conversation/client/Member.html">Member</a> invitedMember, String invitedBy, boolean isAudioEnabled)
+        <span class="sympad"><a href="../../../../../../../com/nexmo/sdk/conversation/client/event/container/SynchronisingState.html#SynchronisingState()">SynchronisingState</a></span>()
         
   </td></tr>
 
@@ -427,127 +465,6 @@ Summary:
 
 
 
-
-
-<!-- ========== METHOD SUMMARY =========== -->
-<table id="pubmethods" class="jd-sumtable"><tr><th colspan="12">Public Methods</th></tr>
-
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            boolean
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../../../com/nexmo/sdk/conversation/client/event/container/Invitation.html#equals(java.lang.Object)">equals</a></span>(Object o)
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            <a href="../../../../../../../com/nexmo/sdk/conversation/client/Conversation.html">Conversation</a>
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../../../com/nexmo/sdk/conversation/client/event/container/Invitation.html#getConversation()">getConversation</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            String
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../../../com/nexmo/sdk/conversation/client/event/container/Invitation.html#getInvitedBy()">getInvitedBy</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            <a href="../../../../../../../com/nexmo/sdk/conversation/client/Member.html">Member</a>
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../../../com/nexmo/sdk/conversation/client/event/container/Invitation.html#getInvitedMember()">getInvitedMember</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            int
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../../../com/nexmo/sdk/conversation/client/event/container/Invitation.html#hashCode()">hashCode</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            boolean
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../../../com/nexmo/sdk/conversation/client/event/container/Invitation.html#isAudioEnabled()">isAudioEnabled</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            String
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../../../com/nexmo/sdk/conversation/client/event/container/Invitation.html#toString()">toString</a></span>()
-        
-  </td></tr>
-
-
-
-</table>
 
 
 
@@ -788,15 +705,13 @@ From class
 <!-- Fields -->
 
 
-<!-- Public ctors -->
-
-
-<!-- ========= CONSTRUCTOR DETAIL ======== -->
-<h2>Public Constructors</h2>
+<!-- ========= FIELD DETAIL ======== -->
+<h2>Fields</h2>
 
 
 
-<a id="Invitation(com.nexmo.sdk.conversation.client.Conversation, com.nexmo.sdk.conversation.client.Member, java.lang.String)"></a>
+
+<a id="state"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -804,17 +719,14 @@ From class
         public 
          
          
-         
-         
-        
+        <a href="../../../../../../../com/nexmo/sdk/conversation/client/event/container/SynchronisingState.STATE.html">SynchronisingState.STATE</a>
       </span>
-      <span class="sympad">Invitation</span>
-      <span class="normal">(<a href="../../../../../../../com/nexmo/sdk/conversation/client/Conversation.html">Conversation</a> conversation, <a href="../../../../../../../com/nexmo/sdk/conversation/client/Member.html">Member</a> invitedMember, String invitedBy)</span>
+        state
     </h4>
       <div class="api-level">
-        <div>
+        
 
-</div>
+
         
   
 
@@ -823,11 +735,22 @@ From class
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
+    
     </div>
 </div>
 
 
-<a id="Invitation(com.nexmo.sdk.conversation.client.Conversation, com.nexmo.sdk.conversation.client.Member, java.lang.String, boolean)"></a>
+
+
+<!-- Public ctors -->
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<h2>Public Constructors</h2>
+
+
+
+<a id="SynchronisingState()"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -839,8 +762,8 @@ From class
          
         
       </span>
-      <span class="sympad">Invitation</span>
-      <span class="normal">(<a href="../../../../../../../com/nexmo/sdk/conversation/client/Conversation.html">Conversation</a> conversation, <a href="../../../../../../../com/nexmo/sdk/conversation/client/Member.html">Member</a> invitedMember, String invitedBy, boolean isAudioEnabled)</span>
+      <span class="sympad">SynchronisingState</span>
+      <span class="normal">()</span>
     </h4>
       <div class="api-level">
         <div>
@@ -868,228 +791,6 @@ From class
 
 <!-- ========= METHOD DETAIL ======== -->
 <!-- Public methdos -->
-
-<h2>Public Methods</h2>
-
-
-
-<a id="equals(java.lang.Object)"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        boolean
-      </span>
-      <span class="sympad">equals</span>
-      <span class="normal">(Object o)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="getConversation()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        <a href="../../../../../../../com/nexmo/sdk/conversation/client/Conversation.html">Conversation</a>
-      </span>
-      <span class="sympad">getConversation</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="getInvitedBy()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        String
-      </span>
-      <span class="sympad">getInvitedBy</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="getInvitedMember()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        <a href="../../../../../../../com/nexmo/sdk/conversation/client/Member.html">Member</a>
-      </span>
-      <span class="sympad">getInvitedMember</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="hashCode()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        int
-      </span>
-      <span class="sympad">hashCode</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="isAudioEnabled()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        boolean
-      </span>
-      <span class="sympad">isAudioEnabled</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="toString()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        String
-      </span>
-      <span class="sympad">toString</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
 
 
 
