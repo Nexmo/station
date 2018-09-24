@@ -57,7 +57,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="../../../../../../favicon.ico" />
 <title>
 
-  MOSReport
+  PeerConnectionClient
 
 
 </title>
@@ -193,8 +193,8 @@
           <li class="api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/AppRTCProximitySensor.html">AppRTCProximitySensor</a></li>
           <li class="api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/AppRTCUtils.html">AppRTCUtils</a></li>
           <li class="api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/AudioCallManager.html">AudioCallManager</a></li>
-          <li class="selected api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/MOSReport.html">MOSReport</a></li>
-          <li class="api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/PeerConnectionClient.html">PeerConnectionClient</a></li>
+          <li class="api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/MOSReport.html">MOSReport</a></li>
+          <li class="selected api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/PeerConnectionClient.html">PeerConnectionClient</a></li>
           <li class="api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/PeerConnectionClient.DataChannelParameters.html">PeerConnectionClient.DataChannelParameters</a></li>
           <li class="api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/PeerConnectionClient.PeerConnectionParameters.html">PeerConnectionClient.PeerConnectionParameters</a></li>
           <li class="api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/StatsReportHelper.html">StatsReportHelper</a></li>
@@ -262,20 +262,23 @@
 
 Summary:
 
-
-
-
-
-
-
-  <a href="#lfields">Fields</a>
+  <a href="#nestedclasses">Nested Classes</a>
   
 
 
 
 
-  &#124; <a href="#proctors">Protected Ctors</a>
+
+  &#124; <a href="#constants">Constants</a>
   
+
+
+
+
+
+  &#124; <a href="#pubctors">Ctors</a>
+  
+
 
 
   &#124; <a href="#pubmethods">Methods</a>
@@ -307,7 +310,7 @@ Summary:
      
     
     class
-<h1>MOSReport</h1>
+<h1>PeerConnectionClient</h1>
 
 
 
@@ -340,7 +343,7 @@ Summary:
         
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
          	
-        <td colspan="1" class="jd-inheritance-class-cell">com.nexmo.sdk.conversation.client.audio.MOSReport</td>
+        <td colspan="1" class="jd-inheritance-class-cell">com.nexmo.sdk.conversation.client.audio.PeerConnectionClient</td>
     </tr>
     
 
@@ -356,7 +359,12 @@ Summary:
 
 
 <h2>Class Overview</h2>
-<p>MOS (Mean Opinion Score) report for call quality.</p>
+<p>Peer connection client implementation.
+
+ <p>All public methods are routed to local looper thread.
+ All PeerConnectionEvents callbacks are invoked from the same looper thread.
+ This class is a singleton.
+</p>
 
 
 
@@ -386,36 +394,46 @@ Summary:
 
 
 
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<table id="nestedclasses" class="jd-sumtable"><tr><th colspan="12">Nested Classes</th></tr>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- =========== FIELD SUMMARY =========== -->
-<table id="lfields" class="jd-sumtable"><tr><th colspan="12">Fields</th></tr>
-
-
+  
+    <tr class="alt-color api apilevel-" >
+      <td class="jd-typecol">
+        
+         
+         
+        
+        class</td>
+      <td class="jd-linkcol"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/PeerConnectionClient.DataChannelParameters.html">PeerConnectionClient.DataChannelParameters</a></td>
+      <td class="jd-descrcol" width="100%">Peer connection parameters.&nbsp;</td>
+    </tr>
     
-      <tr class="alt-color api apilevel-" >
-          <td class="jd-typecol">
-          public
-          static
-          final
-          String</td>
-          <td class="jd-linkcol"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/MOSReport.html#TAG">TAG</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
+    
+    <tr class=" api apilevel-" >
+      <td class="jd-typecol">
+        
+         
+         
+        
+        interface</td>
+      <td class="jd-linkcol"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/PeerConnectionClient.PeerConnectionEvents.html">PeerConnectionClient.PeerConnectionEvents</a></td>
+      <td class="jd-descrcol" width="100%">Peer connection events.&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+      <td class="jd-typecol">
+        
+         
+         
+        
+        class</td>
+      <td class="jd-linkcol"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/PeerConnectionClient.PeerConnectionParameters.html">PeerConnectionClient.PeerConnectionParameters</a></td>
+      <td class="jd-descrcol" width="100%">Peer connection parameters.&nbsp;</td>
+    </tr>
+    
     
 
 </table>
@@ -428,8 +446,37 @@ Summary:
 
 
 
+
+
+
+<!-- =========== ENUM CONSTANT SUMMARY =========== -->
+<table id="constants" class="jd-sumtable"><tr><th colspan="12">Constants</th></tr>
+
+
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">String</td>
+        <td class="jd-linkcol"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/PeerConnectionClient.html#AUDIO_TRACK_ID">AUDIO_TRACK_ID</a></td>
+        <td class="jd-descrcol" width="100%"></td>
+    </tr>
+    
+    
+
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
-<table id="proctors" class="jd-sumtable"><tr><th colspan="12">Protected Constructors</th></tr>
+<table id="pubctors" class="jd-sumtable"><tr><th colspan="12">Public Constructors</th></tr>
 
 
 
@@ -444,13 +491,15 @@ Summary:
             
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/MOSReport.html#MOSReport(double, double, double, double)">MOSReport</a></span>(double minMOS, double maxMOS, double lastMOS, double averageMOS)
+        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/PeerConnectionClient.html#PeerConnectionClient()">PeerConnectionClient</a></span>()
         
   </td></tr>
 
 
 
 </table>
+
+
 
 
 
@@ -468,10 +517,10 @@ Summary:
             
             
             
-            double
+            void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/MOSReport.html#getAverageMOS()">getAverageMOS</a></span>()
+        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/PeerConnectionClient.html#addRemoteIceCandidate(IceCandidate)">addRemoteIceCandidate</a></span>(IceCandidate candidate)
         
   </td></tr>
 
@@ -484,10 +533,10 @@ Summary:
             
             
             
-            double
+            void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/MOSReport.html#getLastMOS()">getLastMOS</a></span>()
+        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/PeerConnectionClient.html#close()">close</a></span>()
         
   </td></tr>
 
@@ -500,10 +549,10 @@ Summary:
             
             
             
-            double
+            void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/MOSReport.html#getMaxMOS()">getMaxMOS</a></span>()
+        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/PeerConnectionClient.html#createAnswer()">createAnswer</a></span>()
         
   </td></tr>
 
@@ -516,10 +565,10 @@ Summary:
             
             
             
-            double
+            void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/MOSReport.html#getMinMOS()">getMinMOS</a></span>()
+        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/PeerConnectionClient.html#createOffer()">createOffer</a></span>()
         
   </td></tr>
 
@@ -532,10 +581,106 @@ Summary:
             
             
             
-            String
+            void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/MOSReport.html#toString()">toString</a></span>()
+        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/PeerConnectionClient.html#createPeerConnection(com.nexmo.sdk.conversation.client.audio.AppRTCClient.SignalingParameters)">createPeerConnection</a></span>(<a href="../../../../../../com/nexmo/sdk/conversation/client/audio/AppRTCClient.SignalingParameters.html">AppRTCClient.SignalingParameters</a> signalingParameters)
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/PeerConnectionClient.html#createPeerConnectionFactory(android.content.Context, com.nexmo.sdk.conversation.client.audio.PeerConnectionClient.PeerConnectionParameters, com.nexmo.sdk.conversation.client.audio.PeerConnectionClient.PeerConnectionEvents)">createPeerConnectionFactory</a></span>(Context context, <a href="../../../../../../com/nexmo/sdk/conversation/client/audio/PeerConnectionClient.PeerConnectionParameters.html">PeerConnectionClient.PeerConnectionParameters</a> peerConnectionParameters, <a href="../../../../../../com/nexmo/sdk/conversation/client/audio/PeerConnectionClient.PeerConnectionEvents.html">PeerConnectionClient.PeerConnectionEvents</a> events)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/PeerConnectionClient.html#enableStatsEvents(boolean, int)">enableStatsEvents</a></span>(boolean enable, int periodMs)
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            SessionDescription
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/PeerConnectionClient.html#getLocalDescription()">getLocalDescription</a></span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/PeerConnectionClient.html#removeRemoteIceCandidates(IceCandidate[])">removeRemoteIceCandidates</a></span>(IceCandidate[] candidates)
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/PeerConnectionClient.html#setAudioEnabled(boolean)">setAudioEnabled</a></span>(boolean enable)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/PeerConnectionClient.html#setRemoteDescription(SessionDescription)">setRemoteDescription</a></span>(SessionDescription sdp)
         
   </td></tr>
 
@@ -779,16 +924,13 @@ From class
 <!-- Constants -->
 
 
-<!-- Fields -->
-
-
-<!-- ========= FIELD DETAIL ======== -->
-<h2>Fields</h2>
+<!-- ========= ENUM CONSTANTS DETAIL ======== -->
+<h2>Constants</h2>
 
 
 
 
-<a id="TAG"></a>
+<a id="AUDIO_TRACK_ID"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -798,7 +940,7 @@ From class
         final 
         String
       </span>
-        TAG
+        AUDIO_TRACK_ID
     </h4>
       <div class="api-level">
         
@@ -813,37 +955,46 @@ From class
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "ARDAMSa0"
+            
+        </span>
+        </div>
+    
     </div>
 </div>
 
 
 
 
+<!-- Fields -->
+
+
 <!-- Public ctors -->
 
 
-
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
-<!-- Protected ctors -->
-
-<h2>Protected Constructors</h2>
+<h2>Public Constructors</h2>
 
 
 
-<a id="MOSReport(double, double, double, double)"></a>
+<a id="PeerConnectionClient()"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
       <span class="normal">
-        protected 
+        public 
          
          
          
          
         
       </span>
-      <span class="sympad">MOSReport</span>
-      <span class="normal">(double minMOS, double maxMOS, double lastMOS, double averageMOS)</span>
+      <span class="sympad">PeerConnectionClient</span>
+      <span class="normal">()</span>
     </h4>
       <div class="api-level">
         <div>
@@ -861,6 +1012,11 @@ From class
 </div>
 
 
+
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<!-- Protected ctors -->
 
 
 
@@ -871,7 +1027,7 @@ From class
 
 
 
-<a id="getAverageMOS()"></a>
+<a id="addRemoteIceCandidate(IceCandidate)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -881,9 +1037,40 @@ From class
          
          
          
-        double
+        void
       </span>
-      <span class="sympad">getAverageMOS</span>
+      <span class="sympad">addRemoteIceCandidate</span>
+      <span class="normal">(IceCandidate candidate)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="close()"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">close</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -902,7 +1089,7 @@ From class
 </div>
 
 
-<a id="getLastMOS()"></a>
+<a id="createAnswer()"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -912,9 +1099,9 @@ From class
          
          
          
-        double
+        void
       </span>
-      <span class="sympad">getLastMOS</span>
+      <span class="sympad">createAnswer</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -933,7 +1120,7 @@ From class
 </div>
 
 
-<a id="getMaxMOS()"></a>
+<a id="createOffer()"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -943,9 +1130,9 @@ From class
          
          
          
-        double
+        void
       </span>
-      <span class="sympad">getMaxMOS</span>
+      <span class="sympad">createOffer</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -964,7 +1151,7 @@ From class
 </div>
 
 
-<a id="getMinMOS()"></a>
+<a id="createPeerConnection(com.nexmo.sdk.conversation.client.audio.AppRTCClient.SignalingParameters)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -974,9 +1161,102 @@ From class
          
          
          
-        double
+        void
       </span>
-      <span class="sympad">getMinMOS</span>
+      <span class="sympad">createPeerConnection</span>
+      <span class="normal">(<a href="../../../../../../com/nexmo/sdk/conversation/client/audio/AppRTCClient.SignalingParameters.html">AppRTCClient.SignalingParameters</a> signalingParameters)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="createPeerConnectionFactory(android.content.Context, com.nexmo.sdk.conversation.client.audio.PeerConnectionClient.PeerConnectionParameters, com.nexmo.sdk.conversation.client.audio.PeerConnectionClient.PeerConnectionEvents)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">createPeerConnectionFactory</span>
+      <span class="normal">(Context context, <a href="../../../../../../com/nexmo/sdk/conversation/client/audio/PeerConnectionClient.PeerConnectionParameters.html">PeerConnectionClient.PeerConnectionParameters</a> peerConnectionParameters, <a href="../../../../../../com/nexmo/sdk/conversation/client/audio/PeerConnectionClient.PeerConnectionEvents.html">PeerConnectionClient.PeerConnectionEvents</a> events)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="enableStatsEvents(boolean, int)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">enableStatsEvents</span>
+      <span class="normal">(boolean enable, int periodMs)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="getLocalDescription()"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        SessionDescription
+      </span>
+      <span class="sympad">getLocalDescription</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -995,7 +1275,7 @@ From class
 </div>
 
 
-<a id="toString()"></a>
+<a id="removeRemoteIceCandidates(IceCandidate[])"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1005,10 +1285,72 @@ From class
          
          
          
-        String
+        void
       </span>
-      <span class="sympad">toString</span>
-      <span class="normal">()</span>
+      <span class="sympad">removeRemoteIceCandidates</span>
+      <span class="normal">(IceCandidate[] candidates)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="setAudioEnabled(boolean)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setAudioEnabled</span>
+      <span class="normal">(boolean enable)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="setRemoteDescription(SessionDescription)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setRemoteDescription</span>
+      <span class="normal">(SessionDescription sdp)</span>
     </h4>
       <div class="api-level">
         <div>

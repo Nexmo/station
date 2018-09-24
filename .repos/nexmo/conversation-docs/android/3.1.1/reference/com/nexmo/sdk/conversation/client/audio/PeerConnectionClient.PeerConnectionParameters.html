@@ -57,7 +57,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="../../../../../../favicon.ico" />
 <title>
 
-  MOSReport
+  PeerConnectionClient.PeerConnectionParameters
 
 
 </title>
@@ -193,10 +193,10 @@
           <li class="api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/AppRTCProximitySensor.html">AppRTCProximitySensor</a></li>
           <li class="api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/AppRTCUtils.html">AppRTCUtils</a></li>
           <li class="api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/AudioCallManager.html">AudioCallManager</a></li>
-          <li class="selected api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/MOSReport.html">MOSReport</a></li>
+          <li class="api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/MOSReport.html">MOSReport</a></li>
           <li class="api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/PeerConnectionClient.html">PeerConnectionClient</a></li>
           <li class="api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/PeerConnectionClient.DataChannelParameters.html">PeerConnectionClient.DataChannelParameters</a></li>
-          <li class="api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/PeerConnectionClient.PeerConnectionParameters.html">PeerConnectionClient.PeerConnectionParameters</a></li>
+          <li class="selected api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/PeerConnectionClient.PeerConnectionParameters.html">PeerConnectionClient.PeerConnectionParameters</a></li>
           <li class="api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/StatsReportHelper.html">StatsReportHelper</a></li>
       </ul>
     </li>
@@ -273,13 +273,10 @@ Summary:
 
 
 
-
-  &#124; <a href="#proctors">Protected Ctors</a>
+  &#124; <a href="#pubctors">Ctors</a>
   
 
 
-  &#124; <a href="#pubmethods">Methods</a>
-  
 
 
 
@@ -303,11 +300,11 @@ Summary:
 
 <div id="jd-header">
     public
-     
+    static 
      
     
     class
-<h1>MOSReport</h1>
+<h1>PeerConnectionClient.PeerConnectionParameters</h1>
 
 
 
@@ -340,7 +337,7 @@ Summary:
         
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
          	
-        <td colspan="1" class="jd-inheritance-class-cell">com.nexmo.sdk.conversation.client.audio.MOSReport</td>
+        <td colspan="1" class="jd-inheritance-class-cell">com.nexmo.sdk.conversation.client.audio.PeerConnectionClient.PeerConnectionParameters</td>
     </tr>
     
 
@@ -356,7 +353,8 @@ Summary:
 
 
 <h2>Class Overview</h2>
-<p>MOS (Mean Opinion Score) report for call quality.</p>
+<p>Peer connection parameters.
+</p>
 
 
 
@@ -409,10 +407,120 @@ Summary:
       <tr class="alt-color api apilevel-" >
           <td class="jd-typecol">
           public
-          static
+          
+          final
+          boolean</td>
+          <td class="jd-linkcol"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/PeerConnectionClient.PeerConnectionParameters.html#aecDump">aecDump</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol">
+          public
+          
           final
           String</td>
-          <td class="jd-linkcol"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/MOSReport.html#TAG">TAG</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/PeerConnectionClient.PeerConnectionParameters.html#audioCodec">audioCodec</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol">
+          public
+          
+          final
+          int</td>
+          <td class="jd-linkcol"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/PeerConnectionClient.PeerConnectionParameters.html#audioStartBitrate">audioStartBitrate</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol">
+          public
+          
+          final
+          boolean</td>
+          <td class="jd-linkcol"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/PeerConnectionClient.PeerConnectionParameters.html#disableBuiltInAEC">disableBuiltInAEC</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol">
+          public
+          
+          final
+          boolean</td>
+          <td class="jd-linkcol"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/PeerConnectionClient.PeerConnectionParameters.html#disableBuiltInAGC">disableBuiltInAGC</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol">
+          public
+          
+          final
+          boolean</td>
+          <td class="jd-linkcol"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/PeerConnectionClient.PeerConnectionParameters.html#disableBuiltInNS">disableBuiltInNS</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol">
+          public
+          
+          final
+          boolean</td>
+          <td class="jd-linkcol"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/PeerConnectionClient.PeerConnectionParameters.html#disableWebRtcAGCAndHPF">disableWebRtcAGCAndHPF</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol">
+          public
+          
+          final
+          boolean</td>
+          <td class="jd-linkcol"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/PeerConnectionClient.PeerConnectionParameters.html#enableLevelControl">enableLevelControl</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol">
+          public
+          
+          final
+          boolean</td>
+          <td class="jd-linkcol"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/PeerConnectionClient.PeerConnectionParameters.html#noAudioProcessing">noAudioProcessing</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol">
+          public
+          
+          final
+          boolean</td>
+          <td class="jd-linkcol"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/PeerConnectionClient.PeerConnectionParameters.html#tracing">tracing</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol">
+          public
+          
+          final
+          boolean</td>
+          <td class="jd-linkcol"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/PeerConnectionClient.PeerConnectionParameters.html#useOpenSLES">useOpenSLES</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -426,10 +534,8 @@ Summary:
 
 
 
-
-
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
-<table id="proctors" class="jd-sumtable"><tr><th colspan="12">Protected Constructors</th></tr>
+<table id="pubctors" class="jd-sumtable"><tr><th colspan="12">Public Constructors</th></tr>
 
 
 
@@ -444,7 +550,7 @@ Summary:
             
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/MOSReport.html#MOSReport(double, double, double, double)">MOSReport</a></span>(double minMOS, double maxMOS, double lastMOS, double averageMOS)
+        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/PeerConnectionClient.PeerConnectionParameters.html#PeerConnectionParameters(boolean, int, java.lang.String, boolean, boolean, boolean, boolean, boolean, boolean, boolean, boolean)">PeerConnectionParameters</a></span>(boolean tracing, int audioStartBitrate, String audioCodec, boolean noAudioProcessing, boolean aecDump, boolean useOpenSLES, boolean disableBuiltInAEC, boolean disableBuiltInAGC, boolean disableBuiltInNS, boolean enableLevelControl, boolean disableWebRtcAGCAndHPF)
         
   </td></tr>
 
@@ -455,93 +561,6 @@ Summary:
 
 
 
-<!-- ========== METHOD SUMMARY =========== -->
-<table id="pubmethods" class="jd-sumtable"><tr><th colspan="12">Public Methods</th></tr>
-
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            double
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/MOSReport.html#getAverageMOS()">getAverageMOS</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            double
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/MOSReport.html#getLastMOS()">getLastMOS</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            double
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/MOSReport.html#getMaxMOS()">getMaxMOS</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            double
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/MOSReport.html#getMinMOS()">getMinMOS</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            String
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/MOSReport.html#toString()">toString</a></span>()
-        
-  </td></tr>
-
-
-
-</table>
 
 
 
@@ -788,17 +807,317 @@ From class
 
 
 
-<a id="TAG"></a>
+<a id="aecDump"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
       <span class="normal">
         public 
-        static 
+         
+        final 
+        boolean
+      </span>
+        aecDump
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<a id="audioCodec"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
         final 
         String
       </span>
-        TAG
+        audioCodec
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<a id="audioStartBitrate"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+        final 
+        int
+      </span>
+        audioStartBitrate
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<a id="disableBuiltInAEC"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+        final 
+        boolean
+      </span>
+        disableBuiltInAEC
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<a id="disableBuiltInAGC"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+        final 
+        boolean
+      </span>
+        disableBuiltInAGC
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<a id="disableBuiltInNS"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+        final 
+        boolean
+      </span>
+        disableBuiltInNS
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<a id="disableWebRtcAGCAndHPF"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+        final 
+        boolean
+      </span>
+        disableWebRtcAGCAndHPF
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<a id="enableLevelControl"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+        final 
+        boolean
+      </span>
+        enableLevelControl
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<a id="noAudioProcessing"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+        final 
+        boolean
+      </span>
+        noAudioProcessing
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<a id="tracing"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+        final 
+        boolean
+      </span>
+        tracing
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<a id="useOpenSLES"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+        final 
+        boolean
+      </span>
+        useOpenSLES
     </h4>
       <div class="api-level">
         
@@ -822,28 +1141,25 @@ From class
 <!-- Public ctors -->
 
 
-
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
-<!-- Protected ctors -->
-
-<h2>Protected Constructors</h2>
+<h2>Public Constructors</h2>
 
 
 
-<a id="MOSReport(double, double, double, double)"></a>
+<a id="PeerConnectionParameters(boolean, int, java.lang.String, boolean, boolean, boolean, boolean, boolean, boolean, boolean, boolean)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
       <span class="normal">
-        protected 
+        public 
          
          
          
          
         
       </span>
-      <span class="sympad">MOSReport</span>
-      <span class="normal">(double minMOS, double maxMOS, double lastMOS, double averageMOS)</span>
+      <span class="sympad">PeerConnectionParameters</span>
+      <span class="normal">(boolean tracing, int audioStartBitrate, String audioCodec, boolean noAudioProcessing, boolean aecDump, boolean useOpenSLES, boolean disableBuiltInAEC, boolean disableBuiltInAGC, boolean disableBuiltInNS, boolean enableLevelControl, boolean disableWebRtcAGCAndHPF)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -861,171 +1177,16 @@ From class
 </div>
 
 
+
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<!-- Protected ctors -->
 
 
 
 <!-- ========= METHOD DETAIL ======== -->
 <!-- Public methdos -->
-
-<h2>Public Methods</h2>
-
-
-
-<a id="getAverageMOS()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        double
-      </span>
-      <span class="sympad">getAverageMOS</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="getLastMOS()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        double
-      </span>
-      <span class="sympad">getLastMOS</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="getMaxMOS()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        double
-      </span>
-      <span class="sympad">getMaxMOS</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="getMinMOS()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        double
-      </span>
-      <span class="sympad">getMinMOS</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="toString()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        String
-      </span>
-      <span class="sympad">toString</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
 
 
 

@@ -57,7 +57,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="../../../../../../favicon.ico" />
 <title>
 
-  MOSReport
+  StatsReportHelper
 
 
 </title>
@@ -193,11 +193,11 @@
           <li class="api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/AppRTCProximitySensor.html">AppRTCProximitySensor</a></li>
           <li class="api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/AppRTCUtils.html">AppRTCUtils</a></li>
           <li class="api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/AudioCallManager.html">AudioCallManager</a></li>
-          <li class="selected api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/MOSReport.html">MOSReport</a></li>
+          <li class="api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/MOSReport.html">MOSReport</a></li>
           <li class="api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/PeerConnectionClient.html">PeerConnectionClient</a></li>
           <li class="api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/PeerConnectionClient.DataChannelParameters.html">PeerConnectionClient.DataChannelParameters</a></li>
           <li class="api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/PeerConnectionClient.PeerConnectionParameters.html">PeerConnectionClient.PeerConnectionParameters</a></li>
-          <li class="api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/StatsReportHelper.html">StatsReportHelper</a></li>
+          <li class="selected api apilevel-"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/StatsReportHelper.html">StatsReportHelper</a></li>
       </ul>
     </li>
               
@@ -268,14 +268,11 @@ Summary:
 
 
 
-  <a href="#lfields">Fields</a>
+
+
+  <a href="#pubctors">Ctors</a>
   
 
-
-
-
-  &#124; <a href="#proctors">Protected Ctors</a>
-  
 
 
   &#124; <a href="#pubmethods">Methods</a>
@@ -307,7 +304,7 @@ Summary:
      
     
     class
-<h1>MOSReport</h1>
+<h1>StatsReportHelper</h1>
 
 
 
@@ -340,7 +337,7 @@ Summary:
         
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
          	
-        <td colspan="1" class="jd-inheritance-class-cell">com.nexmo.sdk.conversation.client.audio.MOSReport</td>
+        <td colspan="1" class="jd-inheritance-class-cell">com.nexmo.sdk.conversation.client.audio.StatsReportHelper</td>
     </tr>
     
 
@@ -354,9 +351,6 @@ Summary:
 
 <div class="jd-descr">
 
-
-<h2>Class Overview</h2>
-<p>MOS (Mean Opinion Score) report for call quality.</p>
 
 
 
@@ -401,35 +395,13 @@ Summary:
 
 
 
-<!-- =========== FIELD SUMMARY =========== -->
-<table id="lfields" class="jd-sumtable"><tr><th colspan="12">Fields</th></tr>
-
-
-    
-      <tr class="alt-color api apilevel-" >
-          <td class="jd-typecol">
-          public
-          static
-          final
-          String</td>
-          <td class="jd-linkcol"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/MOSReport.html#TAG">TAG</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
-
-</table>
-
-
-
-
 
 
 
 
 
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
-<table id="proctors" class="jd-sumtable"><tr><th colspan="12">Protected Constructors</th></tr>
+<table id="pubctors" class="jd-sumtable"><tr><th colspan="12">Public Constructors</th></tr>
 
 
 
@@ -444,13 +416,15 @@ Summary:
             
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/MOSReport.html#MOSReport(double, double, double, double)">MOSReport</a></span>(double minMOS, double maxMOS, double lastMOS, double averageMOS)
+        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/StatsReportHelper.html#StatsReportHelper()">StatsReportHelper</a></span>()
         
   </td></tr>
 
 
 
 </table>
+
+
 
 
 
@@ -466,12 +440,12 @@ Summary:
             
             
             
-            
+            static
             
             double
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/MOSReport.html#getAverageMOS()">getAverageMOS</a></span>()
+        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/StatsReportHelper.html#computeMOS(RTCStatsReport)">computeMOS</a></span>(RTCStatsReport report)
         
   </td></tr>
 
@@ -482,60 +456,12 @@ Summary:
             
             
             
+            static
             
-            
-            double
+            JSONObject
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/MOSReport.html#getLastMOS()">getLastMOS</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            double
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/MOSReport.html#getMaxMOS()">getMaxMOS</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            double
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/MOSReport.html#getMinMOS()">getMinMOS</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            String
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/MOSReport.html#toString()">toString</a></span>()
+        <span class="sympad"><a href="../../../../../../com/nexmo/sdk/conversation/client/audio/StatsReportHelper.html#statsToJson(RTCStatsReport)">statsToJson</a></span>(RTCStatsReport report)
         
   </td></tr>
 
@@ -782,68 +708,28 @@ From class
 <!-- Fields -->
 
 
-<!-- ========= FIELD DETAIL ======== -->
-<h2>Fields</h2>
+<!-- Public ctors -->
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<h2>Public Constructors</h2>
 
 
 
-
-<a id="TAG"></a>
+<a id="StatsReportHelper()"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
       <span class="normal">
         public 
-        static 
-        final 
-        String
-      </span>
-        TAG
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    
-    </div>
-</div>
-
-
-
-
-<!-- Public ctors -->
-
-
-
-<!-- ========= CONSTRUCTOR DETAIL ======== -->
-<!-- Protected ctors -->
-
-<h2>Protected Constructors</h2>
-
-
-
-<a id="MOSReport(double, double, double, double)"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        protected 
          
          
          
          
         
       </span>
-      <span class="sympad">MOSReport</span>
-      <span class="normal">(double minMOS, double maxMOS, double lastMOS, double averageMOS)</span>
+      <span class="sympad">StatsReportHelper</span>
+      <span class="normal">()</span>
     </h4>
       <div class="api-level">
         <div>
@@ -861,6 +747,11 @@ From class
 </div>
 
 
+
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<!-- Protected ctors -->
 
 
 
@@ -871,20 +762,20 @@ From class
 
 
 
-<a id="getAverageMOS()"></a>
+<a id="computeMOS(RTCStatsReport)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
       <span class="normal">
         public 
-         
+        static 
          
          
          
         double
       </span>
-      <span class="sympad">getAverageMOS</span>
-      <span class="normal">()</span>
+      <span class="sympad">computeMOS</span>
+      <span class="normal">(RTCStatsReport report)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -902,20 +793,20 @@ From class
 </div>
 
 
-<a id="getLastMOS()"></a>
+<a id="statsToJson(RTCStatsReport)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
       <span class="normal">
         public 
+        static 
          
          
          
-         
-        double
+        JSONObject
       </span>
-      <span class="sympad">getLastMOS</span>
-      <span class="normal">()</span>
+      <span class="sympad">statsToJson</span>
+      <span class="normal">(RTCStatsReport report)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -928,99 +819,15 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="getMaxMOS()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        double
-      </span>
-      <span class="sympad">getMaxMOS</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="getMinMOS()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        double
-      </span>
-      <span class="sympad">getMinMOS</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="toString()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        String
-      </span>
-      <span class="sympad">toString</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>JSONException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
 
     </div>
 </div>
