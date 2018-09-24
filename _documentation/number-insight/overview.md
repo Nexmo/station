@@ -77,10 +77,8 @@ $ nexmo setup NEXMO_API_KEY NEXMO_API_SECRET
 
 Execute the example command shown below, replacing the phone number with one that you want information about:
 
-```tabbed_examples
-tabs:
-  CLI:
-    source: _examples/number-insight/basic/CLI
+```
+nexmo insight:basic 447700900000
 ```
 
 ### View the response
