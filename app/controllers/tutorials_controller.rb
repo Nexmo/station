@@ -4,12 +4,12 @@ class TutorialsController < ApplicationController
 
   def index
     @product = params['product']
+    @language = params['code_language']
 
-    if @product
-      @tutorials = Tutorial.by_product(params['product'])
-    else
-      @tutorials = Tutorial.all
-    end
+    @tutorials = Tutorial.all
+
+    @tutorials = Tutorial.by_product(@product, @tutorials) if @product
+    @tutorials = Tutorial.by_language(@language, @tutorials) if @language
 
     @document_title = 'Tutorials'
 
