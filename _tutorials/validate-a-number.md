@@ -331,3 +331,9 @@ p insight.valid_number
 ## Conclusion
 
 In this tutorial you learned how to validate and determine the international format of a number and calculate the cost of calling or sending SMS messages to it.
+
+## Resources and Further Reading
+
+- Check out our [Number Insight Guides](/number-insight) for more things you can do with Number Insight.
+- Read [Blog Posts](https://www.nexmo.com/?s=number+insight) about Number Insight.
+- Visit the [Number Insight API Reference](/api/number-insight) for detailed documentation on each endpoint.
