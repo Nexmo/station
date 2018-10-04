@@ -28,7 +28,7 @@ You learn how to sanitize and validate phone numbers using the Nexmo REST API cl
 * [Before you begin](#before-you-begin) make sure that you have what you need to complete this tutorial
 * [Create the project](#create-the-project) by cloning the tutorial source code on GitHub and configuring it with your Nexmo account details
 * [Install the dependencies](#install-the-dependencies) including the Ruby REST API client
-* [Code Walkthrough](#code-walkthrough) learn how the code works
+* [Code walkthrough](#code-walkthrough) to learn how the code works
 
 ## Before you begin
 
@@ -47,11 +47,11 @@ git clone git@github.com:Nexmo/ruby-ni-customer-number-validation.git
 
 Change to the project folder:
 
-```change to folder
-$ cd ruby-ni-customer-number-validation
+```
+cd ruby-ni-customer-number-validation
 ```
 
-Copy the `.env-example` file to `.env` and use `.env` to configure your API key and secret from the [Nexmo Developer dashboard](https://dashboard.nexmo.com):
+Copy the `.env-example` file to `.env` and edit `.env` to configure your API key and secret from the [Nexmo Developer dashboard](https://dashboard.nexmo.com):
 
 ```
 NEXMO_API_KEY="(Your API key)"
