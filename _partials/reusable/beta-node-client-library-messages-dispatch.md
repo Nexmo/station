@@ -5,17 +5,13 @@ In addition to being able to use Messages and Dispatch via the REST APIs, Nexmo 
 
 ## Installation
 
-During Beta the Node client library containing support for the Messages and Dispatch API can be installed using:
-
-``` bash
-$ npm install nexmo@beta
-```
-
-If you already have the library installed and want to upgrade to the latest version use:
+During Beta, the Node client library containing support for the Messages and Dispatch API can be installed using:
 
 ``` bash
 $ npm install --save nexmo@beta
 ```
+
+If you already have the library installed the above command will upgrade your library to the latest version.
 
 ## Usage
 
