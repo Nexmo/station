@@ -112,6 +112,10 @@ class BuildingBlockFilter < Banzai::Filter
 
     app['name'] = 'ExampleProject' unless app['name']
 
+    # We should remove this default once we're sure that all building blocks
+    # have a type set e.g audit
+    app['type'] ||= 'voice'
+
     if app['type'] == 'voice'
       app['event_url'] = "#{base_url}/webhooks/events" unless app['event_url']
       app['answer_url'] = "#{base_url}/webhooks/answer" unless app['answer_url']
