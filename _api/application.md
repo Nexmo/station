@@ -34,7 +34,7 @@ source: _examples/api/application/messages/create-an-application
 The following table shows the parameters you use to create a new application:
 
 Parameter | Description | Required Voice | Required Messages
--- | -- | --
+-- | -- | -- | --
 `name` | The name of your application. | ✓ | ✓
 `type` | The Nexmo product or products that you access with this application. Currently only `voice` and `messages` are supported. | ✓ | ✓
 `answer_url` | The URL where your webhook delivers the Nexmo Call Control Object that governs this call. As soon as your user answers a call Nexmo makes a request to `answer_url`. | ✓ | n/a
