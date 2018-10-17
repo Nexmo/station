@@ -24,3 +24,4 @@ before_script:
 script:
   - bundle exec rake spec
   - bundle exec rubocop
+  - bundle exec rake ci:render_pages
