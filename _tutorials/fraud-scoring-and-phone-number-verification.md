@@ -190,18 +190,19 @@ Your application therefore must trigger the following sequence of events:
 Participant Browser
 Participant App
 Participant Nexmo
-Participant Phone
 Note over App,Nexmo: Initialization
-Browser->App: Submit number
-App->Nexmo: Number Insight Request
-Nexmo-->App: Number Insight Response
-App->Nexmo: Verify Request
-Nexmo-->App: Verify Response
-App-->Browser: Request for Code
-Browser-->App: Submit code
-App-->Nexmo: Code Verification Request
-Nexmo->App: Code Verification Status
-Nexmo-->Browser: Continue Registration
+Browser->App: User registers by \nsubmitting number
+App->Nexmo: Number Insight request
+Nexmo-->App: Number Insight response
+Note over App,Nexmo: If Number Insight shows that the \nuser and their phone are in different \ncountries, start the verification process
+App->Nexmo: Send verification code to user's phone
+Nexmo-->App: Receive acknowledgement that \nverification code was sent
+App->Browser: Request the code from the user
+Browser->App: User submits the code they received
+App->Nexmo: Check verification code
+Nexmo-->App: Code Verification status
+Note over Browser,App: If either Number Insight response or verification step \nis satisfactory, continue registration
+App->Browser: Confirm registration
 ```
 
 ### Creating the fraud detection logic
