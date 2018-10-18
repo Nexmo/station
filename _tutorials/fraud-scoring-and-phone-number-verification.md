@@ -33,7 +33,6 @@ To complete this tutorial, you need:
 * The `api_key` and `api_secret` for your [Nexmo account](https://dashboard.nexmo.com/sign-up)  - sign up for an account if you do not already have one.
 * Basic knowledge of Node.js and the `express` package.
 * A publicly accessible Web server so Nexmo can make webhook requests to your app. For local development, we recommend [ngrok](https://ngrok.com/).
-* Access to the [tutorial source code](https://github.com/Nexmo/node-verify-fraud-detection) on GitHub.
 
 > [Learn how to use `ngrok`](https://developer.nexmo.com/concepts/guides/webhooks#using-ngrok-for-local-development)
 
@@ -408,3 +407,19 @@ In this tutorial, you built a very basic fraud detection system. You used the fo
 * The roaming country
 
 You also learned how to verify a number using the [Verify API](/verify).
+
+## Next Steps
+
+Here are a few resources that might help you build this type of application:
+
+* The [source code](https://github.com/Nexmo/node-verify-fraud-detection) for this tutorial on GitHub\
+* Code samples, showing you how to:
+  * [Request](/number-insight/building-blocks/number-insight-advanced-async) and [receive](/number-insight/building-blocks/number-insight-advanced-async-callback) Number Insight Advanced API data asynchronously
+  * [Send](/verify/building-blocks/send-verify-request) and [check](/verify/building-blocks/check-verify-request) verification codes using the Verify API
+* Blog posts:
+  * [Number Insight API](https://www.nexmo.com/?s=number+insight)
+  * [Verify API](https://www.nexmo.com/?s=verify)
+* API reference documentation:
+  * [Number Insight API](/number-insight/api-reference)
+  * [Verify API](/verify/api-reference)
+  
