@@ -31,9 +31,7 @@ paths:
                     - "$ref": "#/components/schemas/endpoints/properties/sip"
                     - "$ref": "#/components/schemas/endpoints/properties/websocket"
                 from:
-                  type: array
-                  items:
-                    oneOf:
+                  oneOf:
                     - "$ref": "#/components/schemas/endpoints/properties/phone"
                     - "$ref": "#/components/schemas/endpoints/properties/sip"
                     - "$ref": "#/components/schemas/endpoints/properties/websocket"
