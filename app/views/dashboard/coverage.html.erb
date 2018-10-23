@@ -51,6 +51,7 @@
 <br>
 
  <h2>Executive Summary</h2>
+<div class="Vlt-table Vlt-table--data Vlt-table--bordered">
   <table>
     <thead>
     <tr>
@@ -69,6 +70,7 @@
     <% end %>
     </tbody>
   </table>
+</div>
 
 <hr style="clear:both;" />
 
@@ -98,6 +100,7 @@
   %>
   <h3>Section Summary</h3>
 
+  <div class="Vlt-table Vlt-table--data Vlt-table--bordered">
   <table>
     <thead>
     <tr>
@@ -116,10 +119,12 @@
     <% end %>
     </tbody>
   </table>
+  </div>
 
   <% # In-depth statistics about each block %>
     <% blocks.each do |section, entries| %>
         <h3><%= section %></h3>
+    <div class="Vlt-table Vlt-table--data Vlt-table--bordered">
         <table>
             <thead>
                 <tr>
@@ -137,7 +142,7 @@
                     %>
                 <% entries.each do |name, languages| %>
                     <% count += 1 %>
-                    <tr>
+                    <tr class="Vlt-table__row--nohighlight">
                         <td style="width: 200px;"><strong><%= name %></strong></td>
                         <% @supported_languages.each do |lang| %>
                             <% next if lang == 'csharp' %>
@@ -153,7 +158,7 @@
                         <% end %>
                     </tr>
                 <% end %>
-                <tr>
+                <tr class="Vlt-table__row--nohighlight">
                     <td><strong>Coverage</strong></td>
                     <% @supported_languages.each do |lang| %>
                         <% next if lang == 'csharp' %>
@@ -162,6 +167,7 @@
                 </tr>
             </tbody>
         </table>
+    </div>
     <% end %>
     <hr>
 <% end %>
