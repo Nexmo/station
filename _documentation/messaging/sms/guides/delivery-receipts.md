@@ -8,15 +8,7 @@ When you make a successful request to the SMS API, it returns an array of `messa
 
 Nexmo's [adaptive routing](https://help.nexmo.com/hc/en-us/articles/218435987-What-is-Nexmo-Adaptive-Routing-) then identifies the best carrier for your message. When the selected carrier has delivered the message, it returns a *delivery receipt* (DLR). To receive DLRs in your application, you must provide a [webhook](/concepts/guides/webhooks) for Nexmo to send them to.
 
-This guide contains the following:
-
-* [How delivery receipts work](#how-delivery-receipts-work)
-* [Handling delivery receipts](#handling-delivery-receipts)
-* [Understanding the delivery receipt](#understanding-the-delivery-receipt)
-* [Using the SMS API in campaigns](#using-the-sms-api-in-campaigns)
-* [Links to other resources](#other-resources)
-
-> **Note**: A DLR does not guarantee that a message has reached its target. See [how delivery receipts work](#how-delivery-receipts-work).
+> **Note**: In most situations, a DLR is a reliable indicator that a message was delivered. However, it is not an absolute guarantee. See [how delivery receipts work](#how-delivery-receipts-work).
 
 ## How delivery receipts work
 
@@ -43,60 +35,11 @@ Not all DLRs guarantee that the target received your message. Some delivery rece
 
 If your message is longer than can be sent in a single SMS, the messages are [concatenated](/messaging/sms/guides/concatenation-and-encoding). You should receive a carrier DLR for each part of the concatenated SMS. Handset DLRs for a concatenated message are delayed. This is because the target handset has to process each part of the concatenated message before it can acknowledge receipt of the full message.
 
-## Handling delivery receipts
+## Understanding the delivery receipt
 
-To receive DLRs in your application, you must implement a webhook endpoint that Nexmo's API can send the payload to. This endpoint must be accessible via the public Internet.
-
-### Make your machine publicly available
-
-If you are running the code above on your desktop/laptop computer, you will need to make your computer publicly available so Nexmo can send the delivery receipt to it. An easy way to achive this is by using [ngrok](https://ngrok.com). See [this blog post](https://www.nexmo.com/blog/2017/07/04/local-development-nexmo-ngrok-tunnel-dr/) to learn how to use `ngrok`.
-
-### Create your webhook
-
-Create your webhook using your chosen Nexmo REST API client library:
-
-```building_blocks
-source: '/messaging/sms/building-blocks/delivery-receipt'
-```
-
-### Tell Nexmo about your webhook
-
-Once your webhook is running, you need to provide Nexmo with its URL so that the API can send delivery receipts to it.
-
-The webhook URL is the domain name of your application or the one provided by `ngrok`, combined with the path to your webhook endpoint. For example: `https://demo.ngrok.io/webhooks/delivery-receipt`.
-
-Paste your webhook URL into the [settings section of Nexmo Dashboard](https://dashboard.nexmo.com/settings)
-in the field marked labelled "Webhook URL for Delivery Receipt" and press "Save Changes".
-
-```screenshot
-script: app/screenshots/webhook-url-for-delivery-receipt.js
-image: public/assets/screenshots/smsDeliveryReceiptsWebhook.png
-```
-### Send a message and capture the receipt
-
-You can now test your delivery receipt webhook by sending a message. Either use your chosen REST client library, or the [Nexmo CLI](/tools).
-
-To send a message with the Nexmo CLI, enter the following:
-
-```
-$ nexmo sms 447700900000 "A text message sent using the Nexmo SMS API"
-```
-
-Shortly after sending your message, Nexmo will notify your server about any delivery receipts and display their contents in the console: 
+This is a typical DLR:
 
 ```json
-{
-	"err-code": "0",
-	"message-timestamp": "2018-10-25 12:10:26",
-	"messageId": "0B00000127FDBC63",
-	"msisdn": "447547232824",
-	"network-code": "23410",
-	"price": "0.03330000",
-	"scts": "1810251210",
-	"status": "accepted",
-	"to": "Nexmo CLI"
-}
-
 {
   "err-code": "0",
   "message-timestamp": "2018-10-25 12:10:29",
@@ -110,7 +53,9 @@ Shortly after sending your message, Nexmo will notify your server about any deli
 }
 ```
 
-## Understanding the delivery receipt
+The most important fields are `status` and `err-code` as these tell you whether your message was delivered and, if not, what went wrong.
+
+### DLR status messages
 
 The `status` field in the DLR tells you if your SMS was delivered successfully. Possible values are:
 
@@ -124,9 +69,32 @@ The `status` field in the DLR tells you if your SMS was delivered successfully. 
 | `rejected` | Downstream carrier refuses to deliver message |
 | `unknown`  | No useful information available |
 
-If the `err-code` is non-zero then your message failed. See the [Knowledge Base article](https://help.nexmo.com/hc/en-us/articles/204014733) for error code descriptions.
 
-The other fields in the DLR are explained in the [API Reference](/api/sms#delivery-receipt).
+### DLR error codes
+
+The `err-code` field in the DLR provides more detailed information and can help troubleshoot a failed delivery. A non-zero code indicates that the message could not be delivered.
+
+| `err-code` | Meaning | Description |
+|---|---|---|
+| 0 | Delivered  | Message was delivered successfully |
+| 1 | Unknown  | Message was not delivered, and no reason could be determined |
+| 2 | Absent Subscriber - Temporary | Message was not delivered because handset was temporarily unavailable - retry | 
+| 3 | Absent Subscriber - Permanent | The number is no longer active and should be removed from your database  |
+| 4 | Call Barred by User | This is a permanent error:the number should be removed from your database and the user must contact their network operator to remove the bar |
+| 5 | Portability Error | There is an issue relating to portability of the number and you should contact the network operator to resolve it |
+| 6 | Anti-Spam Rejection  | The message has been blocked by a carrier's anti-spam filter |
+| 7 | Handset Busy | The handset was not available at the time the message was sent - retry |
+| 8 | Network Error | The message failed due to a network error - retry  |
+| 9 | Illegal Number | The user has specifically requested not to receive messages from a specific service |
+| 10 | Illegal Message | There is an error in a message parameter, e.g. wrong encoding flag |
+| 11 | Unroutable  | Nexmo cannot find a suitable route to deliver the message - contact <mailto://support@nexmo.com> |
+| 12 | Destination Unreachable | A route to the number cannot be found - confirm the recipient's number  |
+| 13 | Subscriber Age Restriction | The target cannot receive your message due to their age  |
+| 14 | Number Blocked by Carrier | The recipient should ask their carrier to enable SMS on their plan |
+| 15 | Pre-paid Insufficient Funds | The recipient is on a pre-paid plan and does not have enough credit to receive your message |
+| 99 | General Error | Typically refers to an error in the route - contact <mailto://support@nexmo.com> |
+
+> The other fields in the DLR are explained in the [API Reference](/api/sms#delivery-receipt).
 
 ## Using the SMS API in campaigns
 
@@ -138,7 +106,3 @@ Optionally, you can identify specific customers or campaigns by including a refe
 
 * [Webhooks Guide](/concepts/guides/webhooks) — a detailed guide to how to use webhooks with Nexmo's platform
 * [Why was my SMS not delivered?](https://help.nexmo.com/hc/en-us/articles/204016013-Why-was-my-SMS-not-delivered-) - useful troubleshooting tips
-* [Receiving SMS delivery receipts with PHP](https://www.nexmo.com/blog/2018/06/25/receiving-sms-delivery-receipts-with-php-dr/) - blog post
-* [How to receive an SMS delivery receipt from a mobile carrier with Ruby on Rails](https://www.nexmo.com/blog/2017/10/19/receive-sms-delivery-receipt-ruby-on-rails-dr/) - blog post
-* [Creating a delivery receipt web hook](/messaging/sms/building-blocks) - code samples
-* [Sending an SMS](/messaging/sms/building-blocks/send-an-sms) - code samples
