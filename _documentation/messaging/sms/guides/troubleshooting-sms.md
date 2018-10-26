@@ -43,5 +43,5 @@ If the SMS API returns a non-zero `status` value then use the following table to
 
 ## What else could have gone wrong?
 
-If the value of `status` is zero and your message still did not arrive, then something went wrong during the actual delivery process. To know if your message reached the intended recipient, you need a [delivery receipt](/sms/guides/delivery-receipts) from the carrier.
+If the value of `status` is zero and your message still did not arrive, then something went wrong during the actual delivery process. To know if your message reached the intended recipient, you need a [delivery receipt](/messaging/sms/guides/delivery-receipts) from the carrier.
 
