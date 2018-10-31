@@ -1,10 +1,10 @@
 ---
-title: Overview
+title: SMS API
 navigation_weight: 1
-description: The SMS API overview.
+description: Overview of the SMS API
 ---
 
-# SMS API Overview
+# SMS API
 
 Nexmo's SMS API enables you to send and receive text messages to and from users worldwide, using simple REST APIs.
 
