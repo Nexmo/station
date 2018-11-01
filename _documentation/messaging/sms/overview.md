@@ -14,27 +14,6 @@ Nexmo's SMS API enables you to send and receive text messages to and from users 
 * Scale your applications with familiar web technologies.
 * Pay only for what you use, nothing more.
 
-## Contents
-
-This document contains the following information:
-
-* [Nexmo SMS API Concepts](#concepts) - what you need to know
-* [**How to Get Started with the SMS API**](#getting-started) - try it out, using your chosen programming language
-* [Guides](#guides) - learn how to use the SMS API
-* [Building Blocks](#building-blocks) - code snippets to help with specific tasks
-* [Tutorials](#tutorials) - detailed tutorials for some common use cases
-* [Reference](#reference) - complete API documentation
-
-## Concepts
-
-Before using the Nexmo SMS API, familiarise yourself with the following:
-
-* **[Number format](/voice/voice-api/guides/numbers)** - The SMS API requires phone numbers in E.164 format.
-
-* **[Authentication](/concepts/guides/authentication)** - The SMS API authenticates using your account API key and secret.
-
-* **[Webhooks](/concepts/guides/webhooks)** - The SMS API makes HTTP requests to your application web server so that you can act upon them. For example: inbound SMS and delivery receipts.
-
 ## Getting Started
 
 ### Send an SMS
@@ -53,6 +32,28 @@ Key | Description
 ```building_blocks
 source: '_examples/messaging/sms/send-an-sms'
 ```
+
+## Contents
+
+The rest of this document contains the following information:
+
+* [Nexmo SMS API Concepts](#concepts) - what you need to know
+* [Guides](#guides) - learn how to use the SMS API
+* [Building Blocks](#building-blocks) - code snippets to help with specific tasks
+* [Tutorials](#tutorials) - detailed tutorials for some common use cases
+* [Reference](#reference) - complete API documentation
+
+## Concepts
+
+Before using the Nexmo SMS API, familiarise yourself with the following:
+
+* **[Number format](/voice/voice-api/guides/numbers)** - The SMS API requires phone numbers in E.164 format.
+
+* **[Authentication](/concepts/guides/authentication)** - The SMS API authenticates using your account API key and secret.
+
+* **[Webhooks](/concepts/guides/webhooks)** - The SMS API makes HTTP requests to your application web server so that you can act upon them. For example: inbound SMS and delivery receipts.
+
+
 ## Guides
 
 ```concept_list
