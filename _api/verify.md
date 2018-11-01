@@ -174,6 +174,8 @@ Key | Value
 
 ## Verify Search
 
+> <strong>Please note that the Verify Search API is rate limited to one request per second.</strong>
+
 1. Send a Verify Search [request](#request-3) containing the [request_id](#keys-and-values)'s of the Verify requests to search for.
 2. Check the *status* response parameter in the Search [Response](#response-4) to see if the request was successfully completed.
 
