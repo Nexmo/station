@@ -38,6 +38,7 @@ class DashboardController < ApplicationController
       month = meta[0]
       prod = meta[1] # Can't call it product due to the method defined in this class
       sentiment = meta[2]
+      next unless prod # We have some feedback from non-product pages. Let's ignore that for now
       @summary[prod] = @summary[prod] || {}
       @summary[prod][month] = @summary[prod][month] || {}
       @summary[prod][month][sentiment] = count
