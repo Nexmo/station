@@ -42,6 +42,13 @@ class DashboardController < ApplicationController
       @summary[prod][month] = @summary[prod][month] || {}
       @summary[prod][month][sentiment] = count
     end
+
+    # Sort by product, then by month
+    @summary = @summary.sort.to_h
+
+    @summary.each do |product, data|
+      @summary[product] = data.sort.to_h
+    end
   end
 
   def coverage
