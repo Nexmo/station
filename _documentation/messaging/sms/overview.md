@@ -1,7 +1,5 @@
 ---
-title: SMS API
-navigation_weight: 1
-description: Overview of the SMS API
+title: Overview
 ---
 
 # SMS API
