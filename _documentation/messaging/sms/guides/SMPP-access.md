@@ -1,5 +1,5 @@
 ---
-title: SMPP Access
+title: SMPP access
 ---
 
 # SMPP Access
