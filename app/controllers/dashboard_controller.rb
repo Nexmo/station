@@ -18,6 +18,40 @@ class DashboardController < ApplicationController
     end
   end
 
+  def stats_summary
+    return unless created_after || created_before
+    @feedbacks = Feedback::Feedback.joins(:resource)
+
+    if created_after && created_before
+      @feedbacks = @feedbacks.created_between(created_after, created_before)
+    elsif created_after
+      @feedbacks = @feedbacks.created_after(created_after)
+    elsif created_before
+      @feedbacks = @feedbacks.created_before(created_before)
+    end
+
+    grouped_results = @feedbacks.group(["DATE_TRUNC('month', feedback_feedbacks.created_at)", 'feedback_resources.product', 'feedback_feedbacks.sentiment']).count(:id)
+
+    # Reformat in to something usable
+    @summary = {}
+    grouped_results.each do |meta, count|
+      month = meta[0]
+      prod = meta[1] # Can't call it product due to the method defined in this class
+      sentiment = meta[2]
+      next unless prod # We have some feedback from non-product pages. Let's ignore that for now
+      @summary[prod] = @summary[prod] || {}
+      @summary[prod][month] = @summary[prod][month] || {}
+      @summary[prod][month][sentiment] = count
+    end
+
+    # Sort by product, then by month
+    @summary = @summary.sort.to_h
+
+    @summary.each do |product, data|
+      @summary[product] = data.sort.to_h
+    end
+  end
+
   def coverage
     @supported_languages = %w[
       curl
@@ -32,7 +66,7 @@ class DashboardController < ApplicationController
       json
       xml
     ]
-    @product = product.tr('-', '_') if product
+    @product = product
 
     @complete_coverage = {}
 
@@ -44,10 +78,36 @@ class DashboardController < ApplicationController
       @supported_languages.delete(lang)
     end
 
-    return unless hide_response
+    if hide_response
+      @supported_languages.delete('json')
+      @supported_languages.delete('xml')
+    end
 
-    @supported_languages.delete('json')
-    @supported_languages.delete('xml')
+    @toplevel_summary = {}
+    @complete_coverage.each do |toplevel, blocks|
+      @toplevel_summary[toplevel] = { 'blocks' => 0, 'langs' => {} } unless @toplevel_summary[toplevel]
+      blocks.each do |_section, entries|
+        entries.each do |_name, languages|
+          @toplevel_summary[toplevel]['blocks'] += 1
+          @supported_languages.each do |lang|
+            @toplevel_summary[toplevel]['langs'][lang] = 0 unless @toplevel_summary[toplevel]['langs'][lang]
+            @toplevel_summary[toplevel]['langs'][lang] += 1 if languages[lang]
+          end
+        end
+      end
+    end
+
+    @overall_summary = { 'blocks' => 0, 'langs' => {} }
+    @supported_languages.each do |lang|
+      @overall_summary['langs'][lang] = 0
+    end
+
+    @toplevel_summary.each do |_title, summary|
+      @overall_summary['blocks'] += summary['blocks']
+      summary['langs'].each do |lang, value|
+        @overall_summary['langs'][lang] += value
+      end
+    end
   end
 
   private
@@ -130,6 +190,7 @@ class DashboardController < ApplicationController
       parts.insert(1, 'top-level') if parts.count < 4
       source = parts[-1]
       parts = parts[0..-2]
+      next if parts[0] == 'migrate'
 
       x = @complete_coverage
       parts.each do |key, _value|
@@ -163,6 +224,7 @@ class DashboardController < ApplicationController
       parts.insert(1, 'top-level') if parts.count < 3
 
       parts = [parts[0], parts[1], parts[2..-1].join('/')] if parts.count > 3
+      next if parts[0] == 'migrate'
 
       x = @complete_coverage
       parts.each do |key, _value|
