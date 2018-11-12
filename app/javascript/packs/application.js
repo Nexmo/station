@@ -24,7 +24,6 @@ import Notices from './Notices'
 import Feedback from './Feedback'
 import Concatenation from './Concatenation'
 import APIStatus from './APIStatus'
-import Markdown from './Markdown'
 import BuildingBlockEvents from './BuildingBlockEvents'
 
 import {
@@ -59,10 +58,6 @@ let refresh = () => {
 
   if (document.getElementById('ConcatenationComponent')) {
     ReactDOM.render(<Concatenation/>, document.getElementById('ConcatenationComponent'))
-  }
-
-  if (document.getElementById('MarkdownComponent')) {
-    ReactDOM.render(<Markdown/>, document.getElementById('MarkdownComponent'))
   }
 
   // If we're on a two pane page, make sure that the main pane is focused
