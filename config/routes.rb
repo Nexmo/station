@@ -72,9 +72,6 @@ Rails.application.routes.draw do
   get '/extend', to: 'extend#index'
   get '/extend/:title', to: 'extend#show'
 
-  get '/changelog', to: 'changelog#index'
-  get '/changelog/:version', to: 'changelog#show', constraints: { version: /\d\.\d\.\d/ }
-
   match '/search', to: 'search#results', via: %i[get post]
 
   get '/api-errors', to: 'api_errors#index'
