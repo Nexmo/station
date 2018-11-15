@@ -1,5 +1,6 @@
 ---
-title: Connect external services to your Nexmo account for the Messages API
+title: Overview
+meta_title: Connect external services to your Nexmo account for the Messages API
 navigation_weight: 1
 ---
 

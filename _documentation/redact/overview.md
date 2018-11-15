@@ -1,5 +1,6 @@
 ---
-title: Redact your data to stay GDPR compliant
+title: Overview
+meta_title: Redact your data to stay GDPR compliant
 ---
 
 # Redact your data

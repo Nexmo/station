@@ -1,5 +1,6 @@
 ---
-title: Realtime communication with In-App Video
+title: Overview
+meta_title: Realtime communication with In-App Video
 ---
 
 # In-App Video Overview [Developer Preview]

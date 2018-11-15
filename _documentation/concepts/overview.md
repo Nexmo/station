@@ -1,5 +1,6 @@
 ---
-title: Understanding core Nexmo concepts
+title: Overview
+meta_title: Understanding core Nexmo concepts
 ---
 
 # Concepts

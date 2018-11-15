@@ -14,7 +14,7 @@ class MarkdownController < ApplicationController
 
     raise Errno::ENOENT if @frontmatter['redirect']
 
-    @document_title = @frontmatter['title']
+    @document_title = @frontmatter['meta_title'] || @frontmatter['title']
 
     @content = MarkdownPipeline.new({
       code_language: @code_language,

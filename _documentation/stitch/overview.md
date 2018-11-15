@@ -1,5 +1,6 @@
 ---
-title: Realtime communication with In-App Messaging, Audio and Video
+title: Overview
+meta_title: Realtime communication with In-App Messaging, Audio and Video
 ---
 
 # Nexmo Stitch Overview [Developer Preview]

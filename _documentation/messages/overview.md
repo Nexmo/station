@@ -1,5 +1,6 @@
 ---
-title: Send messages via SMS, WhatsApp, Viber and Facebook Messenger
+title: Overview
+meta_title: Send messages via SMS, WhatsApp, Viber and Facebook Messenger
 navigation_weight: 1
 ---
 

@@ -1,5 +1,6 @@
 ---
-title: Manage your Nexmo account
+title: Overview
+meta_title: Manage your Nexmo account
 ---
 
 # Account Overview

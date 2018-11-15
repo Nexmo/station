@@ -1,5 +1,6 @@
 ---
-title: Subscribe your users to an Amazon SNS topic and notify them by SMS
+title: Overview
+meta_title: Subscribe your users to an Amazon SNS topic and notify them by SMS
 description: You use Nexmo SNS to subscribe your users to a topic and notify them about updates.
 ---
 
