@@ -22,13 +22,14 @@
 package com.nexmo.quickstart.insight;
 
 import com.nexmo.client.NexmoClient;
+import com.nexmo.client.insight.AdvancedInsightRequest;
 import com.nexmo.client.insight.AdvancedInsightResponse;
 import com.nexmo.client.insight.RoamingDetails;
 
 import static com.nexmo.quickstart.Util.configureLogging;
 import static com.nexmo.quickstart.Util.envVar;
 
-public class AdvancedInsight {
+public class AdvancedInsightWithCnam {
     public static void main(String[] args) throws Exception {
         configureLogging();
 
@@ -38,8 +39,14 @@ public class AdvancedInsight {
 
         NexmoClient client = new NexmoClient.Builder().apiKey(NEXMO_API_KEY).apiSecret(NEXMO_API_SECRET).build();
 
-        AdvancedInsightResponse response = client.getInsightClient().getAdvancedNumberInsight(INSIGHT_NUMBER);
+        AdvancedInsightRequest request = new AdvancedInsightRequest.Builder(INSIGHT_NUMBER).cnam(true).build();
 
+        AdvancedInsightResponse response = client.getInsightClient().getAdvancedNumberInsight(request);
+
+        printResults(response);
+    }
+
+    private static void printResults(AdvancedInsightResponse response) {
         System.out.println("BASIC INFO:");
         System.out.println("International format: " + response.getInternationalFormatNumber());
         System.out.println("National format: " + response.getNationalFormatNumber());
@@ -66,5 +73,9 @@ public class AdvancedInsight {
                 System.out.println(" on the network " + roaming.getRoamingNetworkName());
             }
         }
+
+        System.out.println("CNAM INFORMATION:");
+        System.out.println("Name: " + response.getCallerIdentity().getName());
+        System.out.println("Type: " + response.getCallerIdentity().getType());
     }
 }
