@@ -3,7 +3,7 @@
     <div class="item">
       <div class="Vlt-card Vlt-card--image Nxd-card--tutorials">
         <div class="Vlt-card__image Vlt-card__image--tech Vlt-card__image--blue">
-          <div class="Vlt-badge Vlt-badge--large Nxd-tutorials__product Nxd-tutorials__product--<%= tutorial.subtitle %>"><%= tutorial.subtitle %></div>
+          <a href="/<%= tutorial.products.join("") %>/tutorials/<%= @language %>" class="Vlt-badge Vlt-badge--large Nxd-tutorials__product Nxd-tutorials__product--<%= tutorial.subtitle %>"><%= tutorial.subtitle %></a>
         </div>
 
         <a href="<%= tutorial.path %>">
