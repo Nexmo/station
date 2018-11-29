@@ -58,6 +58,8 @@ If you are testing locally using [Ngrok](https://ngrok.com) you will set your we
 
 Change `demo` in the above with whatever Ngrok generates for you, unless you have paid for a reusable URL.
 
+> **NOTE:** Make sure your webhook URLs are configured and your webhooks server is running before testing your application.
+
 ```partial
 source: _partials/reusable/generate-a-jwt.md
 ```

@@ -1,15 +1,15 @@
 ## Configure your webhook URLs
 
-There are at least two webhooks you need to configure:
+There are at least two webhooks you must configure:
 
 * Message Status webhook
 * Inbound Message webhook
 
-If you want to receive inbound messages you need to configure and handle an Inbound Message Webhook URL. When an inbound message is received this webhook URL is invoked with the message payload.
+When messages status updates are generated, such as `delivered`, `rejected` or `accepted`, callbacks will be received on the _Message Status_ webhook URL.
 
-If you wish to get a status update on a sent message, such as `delivered`, `rejected` or `accepted`, then you need to configure and handle the message status webhook.
+When an inbound message is received, a callback with message payload is invoked on the _Inbound Message_ webhook URL.
 
-> **IMPORTANT:** At the very least your webhook handler should return a 200 response for inbound callbacks.
+> **IMPORTANT:** Both webhook URLs should be configured. At the very least your webhook handlers should return 200 responses for both Inbound Message and Message Status callbacks. This ensures potential [callback queuing](#callback-queue) issues are avoided.
 
 ### To configure the webhook URLs
 
