@@ -14,7 +14,7 @@ By default Verify messages conform to the following templates:
 source: '_examples/api/templates/default'
 ```
 
-Nexmo inserts a random ${pin} into *template*. The *brand* and *pin_expiry* parameters in your call to [Verify Request](/verify#verify-request) fill ${brand} and ${pin_expiry} in the template.
+Nexmo inserts a random ${pin} into *template*. The *brand* and *pin_expiry* parameters in your call to [Verify Request](/api/verify#verify-request) fill ${brand} and ${pin_expiry} in the template.
 
 You use a custom template to create a fully branded experience for your user. You completely manage the text, variables and audio streams.
 
@@ -72,8 +72,8 @@ The following table shows the parameters you use to create a custom template:
 Parameter | Description | Required
 -- | -- | --
 `action_type` | Possible values are: `sms` - send a text message _or_ `voice` - send a text-to-speech message | Yes
-`lg` | Explicitly control the [language, accent and gender](/voice/voice-api/guides/text-to-speech#locale) used to deliver the message in your custom template. For example, *en-in* is a female voice that delivers your message in English with an Indian accent. Calls to [Verify Request](/verify#verify-request) for a custom template must use the same *lg*. <br>For templates in an [custom locale](/voice/voice-api/guides/text-to-speech#locale) such as *en-ie*, you must supply links to recorded files in your template. | yes
-`template` | The content displayed in the text message or spoken to your user in a text-to-speech call. For example: *Your ${brand} download code ${pin} is valid for the next ${pin_expiry} minutes*. You must set the custom template variables in calls to [Verify Request](/verify#verify-request).<br> If you set *action_type* to *voice* and specify a template, it is used in a text-to-speech call. Do not specify *digit_n*, *welcome_message* or *bye_message*. | No
+`lg` | Explicitly control the [language, accent and gender](/voice/voice-api/guides/text-to-speech#locale) used to deliver the message in your custom template. For example, *en-in* is a female voice that delivers your message in English with an Indian accent. Calls to [Verify Request](/api/verify#verify-request) for a custom template must use the same *lg*. <br>For templates in an [custom locale](/voice/voice-api/guides/text-to-speech#locale) such as *en-ie*, you must supply links to recorded files in your template. | yes
+`template` | The content displayed in the text message or spoken to your user in a text-to-speech call. For example: *Your ${brand} download code ${pin} is valid for the next ${pin_expiry} minutes*. You must set the custom template variables in calls to [Verify Request](/api/verify#verify-request).<br> If you set *action_type* to *voice* and specify a template, it is used in a text-to-speech call. Do not specify *digit_n*, *welcome_message* or *bye_message*. | No
 `type` | The encoding used for *template*. Possible values are: `unicode` _or_ `text` | No
 `digit_n` | URL to the media file played when digit n (0-9) is touched on the user's handset. If you specify *digit_n*, you must set *welcome_message* or *bye_message*. Nexmo inserts a PIN between *welcome_message* and *bye_message*. | No
 `welcome_message` | URL to the media file played at the start of the call. | If you set digit_n
