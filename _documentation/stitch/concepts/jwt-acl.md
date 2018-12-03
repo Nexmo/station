@@ -124,7 +124,7 @@ Nexmo.generateJwt(PRIVATE_KEY, {
             application_id: "aaaaaaaa-bbbb-cccc-dddd-0123456789ab",
             sub: "jamie",
             //expire in 24 hours
-            exp: new Date().getTime() + 86400,
+            exp: Math.round(new Date().getTime()/1000)+86400,
             acl: aclPaths
           })
 ```
