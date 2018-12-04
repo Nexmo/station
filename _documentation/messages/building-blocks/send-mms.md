@@ -14,7 +14,7 @@ Ensure the following variables are set to your required values using any conveni
 
 Key | Description
 -- | --
-`US_FROM` | The US Short Code or US LVN you are sending the message from.
+`FROM_NUMBER` | The phone number you are sending the MMS from. (US Short Code and US LVN)
 `TO_NUMBER` | The phone number you are sending the message to. T-Mobile network is not supported.
 `IMG_URL` | The URL of the media you want to send
 
