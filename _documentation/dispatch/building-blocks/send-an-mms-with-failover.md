@@ -18,8 +18,7 @@ Key | Description
 -- | --
 `NEXMO_APPLICATION_ID` | The ID of the application that you created.
 `US_FROM` | The phone number you are sending the MMS from.
-`TO_NUMBER` | The phone number you are sending the MMS to.
-`WHATSAPP_NUMBER` | Your WhatsApp Number.
+`TO_NUMBER` | The phone number you are sending the MMS to (T-Mobile is not supported).
 
 > **NOTE:** Don't use a leading `+` or `00` when entering a phone number, start with the country code, for example 447700900000.
 
