@@ -13,7 +13,7 @@ The Nexmo Voice API is the easiest way to build high-quality voice applications 
 * Control the flow of inbound and outbound calls in JSON with Nexmo Call Control Objects (NCCO)
 * Record and store inbound or outbound calls
 * Create conference calls
-* Send text-to-speech messages in 23 languages with different genders and accents
+* Send text-to-speech messages in 40 languages with different genders and accents
 
 ## Contents
 
