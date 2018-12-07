@@ -5,7 +5,7 @@ navigation_weight: 13
 
 # Record a call with split audio
 
-A building blocks that shows how to answer an incoming call and set it up to
+A building block that shows how to answer an incoming call and set it up to
 record the conversation legs separately, then connect the call. When the call
 is completed, the `eventUrl` you specify in the `record` action of the NCCO
 will receive a webhook including the URL of the recording for download.
