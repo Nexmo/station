@@ -24,8 +24,8 @@ Nexmo-->Your server: Nexmo sends the verification result
 
 The following sample shows you how to start the verification process by sending a verification code to a user. To learn how to validate the code the user supplies and perform other operations, see [verification workflow](/verify/guides/verification-workflow   ).
 
-```tabbed_examples
-source: '_examples/verify/building-blocks/send-verification-request'
+```building_blocks
+source: '_examples/verify/send-verification-request'
 ```
 
 ## Features
@@ -34,7 +34,7 @@ Nexmo handles code generation, verification and delivery via the fastest route a
 
 If the user does not respond to one of two SMS [within a specified time period](/verify/guides/verification-stages), the Verify API sends it as a voice call using [TTS](/concepts/guides/glossary#tts-api) (Text to Speech) based on the user's locale. For example, the TTS for a `61*` phone number is sent in English with an Australian accent (`en-au`). You can specify the language, accent and gender in the request.
 
-By using the Verify API for [2FA]() (two-factor authentication), you can:
+By using the Verify API for 2FA, you can:
 
 * Protect against spam, by preventing spammers from creating multiple accounts
 * Monitor suspicious activity, by forcing an account user to verify ownership of a number
