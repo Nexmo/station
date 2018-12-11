@@ -211,7 +211,7 @@ In this tutorial, to send an SMS you add the [Nexmo REST API client for Ruby](ht
 gem 'nexmo'
 ```
 
-Use your Nexmo API [key and secret](http://developer.dev/concepts/guides/authentication) to initialize the client:
+Use your Nexmo API [key and secret](/concepts/guides/authentication) to initialize the client:
 
 **app.rb**
 
@@ -226,7 +226,7 @@ nexmo = Nexmo::Client.new(
 
 > **Note**: Do not store your API credentials in your code, use environment variables instead.
 
-Use the initialized library to make a request to [SMS API](/api/sms#request):
+Use the initialized library to make a request to [SMS API](/api/sms#send-an-sms):
 
 **app.rb**
 

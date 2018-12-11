@@ -38,7 +38,7 @@ To do this:
 
 ## Using OAuth in your App
 
-After you have [setup OAuth access](#setup), include OAuth in your App:
+After you have [setup OAuth access](#setting-up-oauth-access), include OAuth in your App:
 
 1. Define the names for incoming return parameters:
 

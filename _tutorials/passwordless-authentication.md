@@ -19,11 +19,11 @@ We will build a simple app that uses the Nexmo Verify API to log a user in witho
 
 The following sections explain the code in this tutorial. They show you how to:
 
-* [Create a basic Web app](#a-basic-web-application) - create a basic Web app that the user logs into
+* [Create a basic Web app](#create-a-basic-web-app) - create a basic Web app that the user logs into
 * [Collect the user's phone number](#collect-a-phone-number) - add a form to collect the user's phone number
 * [Send the verification request](#send-verification-request) - create a verification request and send a PIN to the user's phone number
-* [Collect the PIN](#collect-pin-code) - add a form to collect the PIN from the user
-* [Verify the PIN](#verify-pin-code) - verify that the PIN the user provided is valid and log him or her in
+* [Collect the PIN](#collect-the-pin) - add a form to collect the PIN from the user
+* [Verify the PIN](#verify-the-pin) - verify that the PIN the user provided is valid and log him or her in
 
 ## Prerequisites
 
@@ -33,6 +33,7 @@ To work through this tutorial you need:
 * To download the tutorial from <https://github.com/Nexmo/ruby-passwordless-login>
 * Follow the installation instructions in the tutorial readme
 
+⚓ A basic web application
 ## Create a basic Web app
 
 To build the web app, we use [Sinatra](http://www.sinatrarb.com) and [Rack-Flash](https://github.com/nakajima/rack-flash) to create a single page web app:
@@ -165,6 +166,7 @@ end
 
 You can see that we have stored the user's phone number and the `request_id` that the Verify API returns to us as session data. We will need that request identifier in the next step.
 
+⚓ Collect PIN Code
 ## Collect the PIN
 
 When the user receives the PIN they enter it into the UI of your app. The app uses *request_id* to send a Verify check request for the PIN.
@@ -208,9 +210,10 @@ end
 </form>
 ```
 
+⚓ Verify PIN Code
 ## Verify the PIN
 
-To verify the PIN submitted by the user you use the Nexmo library to make a [Verify Check](/api/verify#check) request. You pass in the `request_id` (which we stored in the user's session data) and the PIN entered by the user.
+To verify the PIN submitted by the user you use the Nexmo library to make a [Verify Check](/api/verify#verify-check) request. You pass in the `request_id` (which we stored in the user's session data) and the PIN entered by the user.
 
 The Verify API response tells you if the user entered the correct PIN. If the `status` is `0`, log the user in.
 

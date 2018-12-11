@@ -22,12 +22,12 @@ Nexmo strongly recommends you use one of our [client libraries](/tools) to gener
 
 The process for sending a signed message is as follows:
 
-1. Create a signed [request](/api/sms#request) to send an SMS.
+1. Create a signed [request](/api/sms#send-an-sms) to send an SMS.
 2. Check the [response codes](/api/sms#errors) and ensure that you sent the request correctly.
 3. Your message is delivered to the handset. The user's handset returns a delivery receipt.
 4. *(optional)* If you requested signed delivery receipts and inbound messages, you will want to validate the signature for each incoming request.
 
-If you did not generate the signature correctly the [status](/api/sms#status-codes) is `14, invalid signature`. You can find more information in the [troubleshooting](#troubleshooting-signatures) section of this guide.
+If you did not generate the signature correctly the [status](/messaging/sms/guides/troubleshooting-sms#sms-api-error-codes) is `14, invalid signature`. You can find more information in the [troubleshooting](#troubleshooting-signatures) section of this guide.
 
 > It is possible to *require* that all outgoing SMS use message signing. Contact support@nexmo.com to enable or disable this setting on your account.
 

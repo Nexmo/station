@@ -86,7 +86,7 @@ The parameters are the phone number you want to use and the UUID returned when y
 
 There's a detailed walkthrough of the code sample but for the impatient, let's try the application before we dive in too deeply. You should have your number and application created and linked from the above instructions; now we'll grab and run the code.
 
-Start by cloning the [repository](git@github.com:Nexmo/php-phone-menu.git) if you haven't already.
+Start by cloning the [repository](https://github.com/Nexmo/php-phone-menu) if you haven't already.
 
 In the project directory, install the dependencies with Composer:
 

@@ -50,7 +50,7 @@ You will need a couple of Nexmo numbers to try this application. To buy a number
 nexmo number:buy --country_code US --confirm
 ```
 
-You can use any country code in [ISO 3166-1 alpha-2 format](https://en.wikipedia.org/wiki/iso_3166-1_alpha-2) for this command. The result is the number you have bought so copy that (you can always get a list with `nexmo numbers:list`) and link it the the application you created:
+You can use any country code in [ISO 3166-1 alpha-2 format](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) for this command. The result is the number you have bought so copy that (you can always get a list with `nexmo numbers:list`) and link it the the application you created:
 
 ```bash
 nexmo link:app [number] [application ID]
@@ -76,7 +76,7 @@ Check everything is working as expected by visiting <http://localhost:5000>. You
 
 ## Handle inbound voice calls
 
-When Nexmo receives an inbound call to your Nexmo number it makes a request to the webhook endpoint you set when you [created a Voice application](#create-a-voice-application).
+When Nexmo receives an inbound call to your Nexmo number it makes a request to the webhook endpoint you set when you [created a Voice application](#get-started).
 
 ```js_sequence_diagram
 Participant App

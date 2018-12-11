@@ -22,7 +22,7 @@ In this tutorial you see how easy it is to build an app that adds two-factor aut
 2. [Enforce phone number verification](#enforce-phone-number-verification) - verify a user's phone number on registration and signup.
 3. [Send a verification request](#send-a-verification-request) - use Verify to send a PIN to the user’s phone number.
 4. [Collect the PIN](#send-a-verification-request) - add a form to collect the PIN received by your user.
-5. [Verify the PIN](#verify-the-pin) - verify the PIN the user provided is valid and log him or her in valid.
+5. [Verify the PIN](#verify-pin) - verify the PIN the user provided is valid and log them in.
 
 ## Prerequisites
 
@@ -311,9 +311,10 @@ end
 <% end %>
 ```
 
+⚓ Verify the PIN
 ## Verify PIN
 
-To validate the PIN submitted by the user you use the [Nexmo REST API client for Ruby](https://github.com/Nexmo/nexmo-ruby) to make a [Verify Check](/api/verify#check) request. You pass the *request_id* and the PIN entered by the user to Verify.  
+To validate the PIN submitted by the user you use the [Nexmo REST API client for Ruby](https://github.com/Nexmo/nexmo-ruby) to make a [Verify Check](/api/verify#verify-check) request. You pass the *request_id* and the PIN entered by the user to Verify.  
 
 The Verify API response tells you if the user entered the correct PIN. If *status* is *0*, log the user in:
 

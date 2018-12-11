@@ -20,7 +20,7 @@ You will see how to build add a Call Whisper to an inbound call:
 
 * [How it works](#how-it-works) - an overview of who is calling who and how the process flows throughout the example application.
 * [Before you begin](#before-you-begin) - set up the application and numbers needed for this tutorial.
-* [Getting started with code](#gettings-started-with-code) - clone the repository and get the application running.
+* [Getting started with code](#getting-started-with-code) - clone the repository and get the application running.
 * [Code walkthrough](#code-walkthrough) - dive in to the finer points of how the application works.
 * [Further reading](#further-reading) - check out some other resources that you might find helpful.
 
@@ -123,7 +123,7 @@ The demo is fun but if you're interested in building this yourself, then there a
 
 ### Answer the incoming call, and start an outbound call
 
-Whenever someone calls one of the numbers that are linked to the Nexmo application, Nexmo will receive an incoming call. Nexmo will then notify your web application of that call. It does this by making a [webhook request](/api/voice#cc_answer_webhook) to your web app's `answer_url` endpoint - in this case `/answer`. When the call is answered, the application connects that caller to the call center operative.
+Whenever someone calls one of the numbers that are linked to the Nexmo application, Nexmo will receive an incoming call. Nexmo will then notify your web application of that call. It does this by making a [webhook request](/voice/voice-api/webhook-reference#answer-webhook) to your web app's `answer_url` endpoint - in this case `/answer`. When the call is answered, the application connects that caller to the call center operative.
 
 **lib/routes.js**
 
