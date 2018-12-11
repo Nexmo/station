@@ -26,6 +26,10 @@ Modify `autoload_configs/acl.conf.xml` and allow traffic from Nexmo's IPs:
 
 Add the following to `sip_profiles/internal.xml`:
 
+```xml
+<param name="apply-inbound-acl" value="nexmo"/>
+```
+
 Create a public dial plan for Nexmo in `dialplan/public/nexmo_sip.xml`:
 
 ```xml
