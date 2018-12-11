@@ -1,9 +1,11 @@
 ---
-title: Voicebase Real-time sentiment analysis 
+title: Voicebase Real-time sentiment analysis
 description: Nexmo Websocket application using Voicebase to perform real-time transcription and sentiment analysis
 tags: ["Sentiment Analysis", "Transcription", "AI", "Voicebase"]
-link: https://github.com/VonageGarage/Nexmo-RTS-Voicebase
+cta: Get this Repo
+link: https://github.com/nexmo-community/Nexmo-RTS-Voicebase
 image: /assets/images/extend/voicebase_logo.png
+published: true
 ---
 
 ## About

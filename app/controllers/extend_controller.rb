@@ -7,13 +7,14 @@ class ExtendController < ApplicationController
     @extensions = document_paths.map do |document_path|
       document = File.read(document_path)
       frontmatter = YAML.safe_load(document)
+      next unless frontmatter['published']
       title = frontmatter['title']
       description = frontmatter['description']
       tags = frontmatter['tags'] || []
       image = frontmatter['image'] || ''
       route = File.basename(document_path, '.*')
       { title: title, description: description, tags: tags, image: image, route: route }
-    end
+    end.compact
 
     render layout: 'page'
   end
@@ -28,8 +29,9 @@ class ExtendController < ApplicationController
     description = frontmatter['description']
     tags = frontmatter['tags'] || []
     image = frontmatter['image'] || ''
+    cta = frontmatter['cta'] || 'Use This'
     link = frontmatter['link'] || ''
-    @extension = { title: title, body: body, image: image, description: description, tags: tags, link: link }
+    @extension = { title: title, body: body, image: image, description: description, tags: tags, link: link, cta: cta }
 
     render layout: 'page'
   end
