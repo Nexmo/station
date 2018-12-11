@@ -54,7 +54,7 @@ gem 'banzai', '~> 0.1.2'
 gem 'foundation-rails', '6.4.1.2'
 
 # Nokogiri (鋸) is an HTML, XML, SAX, and Reader parser. Among Nokogiri's many features is the ability to search documents via XPath or CSS3 selectors.
-gem 'nokogiri', '1.8.2'
+gem 'nokogiri', '~> 1.8.5'
 
 # Autoload dotenv in Rails.
 gem 'dotenv-rails', groups: %i[development test]
