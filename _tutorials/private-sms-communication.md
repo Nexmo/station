@@ -152,7 +152,7 @@ sendSMS() {
 ```
 
 ## Receive inbound SMS
-When one user sends a message to the other, they are sending it to the application's virtual number instead of the target user's real number. When Nexmo receives an inbound SMS on othe virtual number it makes an HTTP request to the webhook endpoint associated with that number:
+When one user sends a message to the other, they are sending it to the application's virtual number instead of the target user's real number. When Nexmo receives an inbound SMS on the virtual number it makes an HTTP request to the webhook endpoint associated with that number:
 
 In `server.js`, we provide a route handler for the `/webhooks/inbound-sms` request that Nexmo's servers make to your application when your virtual number receives an SMS. We're using a `POST` request here, but you could also use `GET` or `POST-JSON`. This is configurable in the dashboard, as described in [expose your application to the internet](#expose-your-application-to-the-internet).
 
