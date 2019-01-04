@@ -91,7 +91,7 @@ VIRTUAL_NUMBER=YOUR_NEXMO_VIRTUAL_NUMBER
 
 ## Create a chat
 
-To use the application, you make a `POST` request to the `/chat` route, passing in the real phone numbers of two users.
+To use the application, you make a `POST` request to the `/chat` route, passing in the real phone numbers of two users. (You can see a sample request in [start the chat](#start-the-chat)).
 
 The route handler for `/chat` is shown below:
 
@@ -117,19 +117,15 @@ The chat object is created in the `createChat()` method of the `smsProxy` class.
 ```javascript
 createChat(userANumber, userBNumber) {
     this.chat = {
-        userA: {
-            realNumber: userANumber
-        },
-        userB: {
-            realNumber: userBNumber
-        }
+        userA: userANumber,
+        userB: userBNumber
     };
 
     this.sendSMS();
 }
 ```
 
-Now that we have created a chat, we need to send each user a confirmation SMS from the virtual number of the other user.
+Now that we have created a chat, we need to send each user a confirmation SMS from the virtual number.
 
 ### Send a confirmation SMS
 
@@ -142,14 +138,14 @@ sendSMS() {
     /*  Send UserA chat information
         from the virtual number
         to UserA's real number */
-    this.nexmo.message.sendSms(this.chat.userB.realNumber,
+    this.nexmo.message.sendSms(this.chat.userB,
                                 process.env.VIRTUAL_NUMBER,
                                 'Reply to this SMS to talk to UserB');
 
     /*  Send UserB chat information
         from the virtual number
         to UserB's real number */
-    this.nexmo.message.sendSms(this.chat.userA.realNumber,
+    this.nexmo.message.sendSms(this.chat.userA,
                                 process.env.VIRTUAL_NUMBER,
                                 'Reply to this SMS to talk to UserA');
 }
@@ -186,11 +182,11 @@ getDestinationRealNumber(from) {
     let destinationRealNumber = null;
 
     // Use `from` numbers to work out who is sending to whom
-    const fromUserA = (from === this.chat.userA.realNumber);
-    const fromUserB = (from === this.chat.userB.realNumber);
+    const fromUserA = (from === this.chat.userA);
+    const fromUserB = (from === this.chat.userB);
 
     if (fromUserA || fromUserB) {
-        destinationRealNumber = fromUserA ? this.chat.userB.realNumber : this.chat.userA.realNumber;
+        destinationRealNumber = fromUserA ? this.chat.userB : this.chat.userA;
     }
 
     return destinationRealNumber;
@@ -269,9 +265,9 @@ In this tutorial, you learned how to build an SMS proxy to enable two users to e
 
 ## Where Next?
 
-You could extend this sample application to use the same virtual number to host multiple chats by using `SmsProxy.createChat()` to instantiate and then persist a separate `chat` object for different pairs of users. So, for example, you could have one `chat` object for `userA` and `userB` to converse, another for `userC` and `userD` and a third for `userA` and `userC`.
+You could extend this sample application to use the same virtual number to host multiple chats by using `SmsProxy.createChat()` to instantiate and then persist a separate `chat` object for different pairs of users. So, for example, you could have one `chat` object for `userA` and `userB` to converse and another for `userC` and `userD`.
 
-You could also create routes that enable you to see all current chats and also terminate a chat when it's over.
+You could create routes that enable you to see all current chats and also terminate a chat when it's over.
 
 The following resources will help you find out more about what you learned in this tutorial:
 
