@@ -5,10 +5,6 @@ terminal_programs:
     lexer: sh
     icon: curl
     run_command: 'sh {filename}'
-  httpie:
-    weight: 1
-    label: HTTPie
-    lexer: sh
   cli:
     label: CLI
     lexer: sh

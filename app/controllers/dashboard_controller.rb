@@ -55,7 +55,6 @@ class DashboardController < ApplicationController
   def coverage
     @supported_languages = %w[
       curl
-      httpie
       csharp
       dotnet
       java
