@@ -36,7 +36,7 @@
                     onchange: "this.form.submit();" %>
             </div>
         <br>
-        <p><label>Ignore Languages:</label> <input type="text" name="ignore" placeholder="curl,httpie" value="<%=params[:ignore]%>" /></p>
+        <p><label>Ignore Languages:</label> <input type="text" name="ignore" placeholder="curl,php" value="<%=params[:ignore]%>" /></p>
         <p><label>Hide json/xml entries:</label> <input type="checkbox" name="hide_response" value="1" <%= params[:hide_response] ? 'checked' : '' %> /></p>
         <br>
     <%= link_to 'Reset', '/coverage' %> &nbsp;
