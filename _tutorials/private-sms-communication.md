@@ -108,6 +108,7 @@ app.post('/chat', (req, res) => {
             res.json(result);
         }
     });
+    res.send('OK');
 
 });
 ```
@@ -125,31 +126,33 @@ createChat(userANumber, userBNumber) {
 }
 ```
 
-Now that we have created a chat, we need to send each user a confirmation SMS from the virtual number.
+Now that we have created a chat, we need to let each user know how they can contact the other.
 
-### Send a confirmation SMS
+### Introduce the users
 
 > **Note**: In this tutorial each user receives the virtual number via an SMS. In production systems this could be supplied using email, in-app notifications or as a predefined number.
 
-In the `sendSMS()` method of the `smsProxy` class we call the Nexmo REST API client library's `sendSms()` method twice to send a message to each user's real number, making it appear to be from the application's virtual number:
+In the `sendSMS()` method of the `smsProxy` class we use the Nexmo REST API client library's `sendSms()` method to send two messages to the virtual number from each user's real number. 
 
 ```javascript
 sendSMS() {
-    /*  Send UserA chat information
-        from the virtual number
-        to UserA's real number */
-    this.nexmo.message.sendSms(this.chat.userB,
-                                process.env.VIRTUAL_NUMBER,
-                                'Reply to this SMS to talk to UserB');
-
-    /*  Send UserB chat information
-        from the virtual number
-        to UserB's real number */
+    /*  
+        Send a message from userA to the virtual number
+    */
     this.nexmo.message.sendSms(this.chat.userA,
                                 process.env.VIRTUAL_NUMBER,
                                 'Reply to this SMS to talk to UserA');
+
+    /*  
+        Send a message from userB to the virtual number
+    */
+    this.nexmo.message.sendSms(this.chat.userB,
+                                process.env.VIRTUAL_NUMBER,
+                                'Reply to this SMS to talk to UserB');
 }
 ```
+
+We now need to intercept these incoming messages on the virtual number and proxy them to the intended recipient's real number.
 
 ## Receive inbound SMS
 When one user sends a message to the other, they are sending it to the application's virtual number instead of the target user's real number. When Nexmo receives an inbound SMS on the virtual number it makes an HTTP request to the webhook endpoint associated with that number:
@@ -159,10 +162,10 @@ In `server.js`, we provide a route handler for the `/webhooks/inbound-sms` reque
 We retrieve the `from` and `text` parameters from the inbound request, and pass them to the `SmsProxy` class to determine which real number to send it to:
 
 ```javascript
-app.post('/webhooks/inbound-sms', (req, res) => {
-    const from = req.body.msisdn;
-    const to = req.body.to;
-    const text = req.body.text;
+app.get('/webhooks/inbound-sms', (req, res) => {
+    const from = req.query.msisdn;
+    const to = req.query.to;
+    const text = req.query.text;
 
     // Route virtual number to real number
     smsProxy.proxySms(from, text);
@@ -205,7 +208,7 @@ proxySms(from, text) {
     const destinationRealNumber = this.getDestinationRealNumber(from);
 
     if (destinationRealNumber  === null) {
-        console.log(`No chat found for ${proxyRoute}`);
+        console.log(`No chat found for this number);
         return;
     }
 
