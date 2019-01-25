@@ -104,7 +104,6 @@ class TabFilter < Banzai::Filter
   def contents
     list = content_from_source if @config['source']
     list = content_from_tabs if @config['tabs']
-    list = content_from_config if @config['config']
 
     list ||= []
 
@@ -125,8 +124,8 @@ class TabFilter < Banzai::Filter
   end
 
   def validate_config
-    return if @config && (@config['source'] || @config['tabs'] || @config['config'])
-    raise 'A source, tabs or config key must be present in this tabbed_example config'
+    return if @config && (@config['source'] || @config['tabs'])
+    raise 'Source or tabs must be present in this tabbed_example config'
   end
 
   def content_from_source
@@ -134,7 +133,9 @@ class TabFilter < Banzai::Filter
     source_path += '/*' if tabbed_code_examples?
     source_path += '/*.md' if tabbed_content?
 
-    Dir[source_path].map do |content_path|
+    files = Dir[source_path]
+    raise "Empty content_from_source file list in #{source_path}" if files.empty?
+    files.map do |content_path|
       raise "Could not find content_from_source file: #{content_path}" unless File.exist? content_path
       source = File.read(content_path)
 
@@ -162,30 +163,10 @@ class TabFilter < Banzai::Filter
 
   def content_from_tabs
     @config['tabs'].map do |title, config|
+      raise "Could not find content_from_tabs file: #{config['source']}" unless File.exist? config['source']
       source = File.read(config['source'])
 
       config.symbolize_keys.merge({
-        id: SecureRandom.hex,
-        source: source,
-        language_key: title.dup.downcase,
-      })
-    end
-  end
-
-  def content_from_config
-    configs = YAML.load_file("#{Rails.root}/config/code_examples.yml")
-
-    begin
-      config = @config['config'].split('.').inject(configs) { |h, k| h[k] }
-    rescue NoMethodError
-      raise "Example missing (#{@config['config']}) in code_examples.yml. Try restarting the server or check for presence of key."
-    end
-
-    config.map do |title, c|
-      raise "Could not find content_from_config source file: #{c['source']}" unless File.exist? c['source']
-      source = File.read(c['source'])
-
-      c.symbolize_keys.merge({
         id: SecureRandom.hex,
         source: source,
         language_key: title.dup.downcase,
