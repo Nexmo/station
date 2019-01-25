@@ -71,7 +71,7 @@ navigation_overrides:
   client-sdk:
     svg: 'queue'
     svgColor: 'teal'
-    label: 'Early Access'
+    label: 'Developer Preview'
     sdk-documentation:
       link: false
       prevent_navigation_item_class: true
