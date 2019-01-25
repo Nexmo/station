@@ -1,0 +1,101 @@
+# Developer Spotlight Landing Page Config
+
+title: "Write for Nexmo"
+meta_title: "meta title goes here"
+
+rows:
+  - columns:
+    - width: 1
+      entries:
+      - type: header
+        header:
+          title: "Write for Nexmo"
+          subtitle: "Teach others, grow as a writer, and help us build the next go-to destination for developers in search of high quality technical content and inspiring development stories."
+          icon:
+      - type: action_button
+        action_button:
+          text: "Apply Now"
+          url: "https://developer.nexmo.com/spotlight#submit-your-idea"
+    - width: 3
+      entries:
+      - type: html
+        html:
+          content: '<img src="/path/to/spotlight-logo.png" />'
+  - columns:
+    - width: 2
+      entries:
+      - type: linked_image
+        linked_image:
+          image: "babel-fish-tutorial-1200x600.png"
+          url: "https://www.nexmo.com/blog/2018/03/14/speech-voice-translation-microsoft-dr/"
+          alt_text: "speech voice teanslation with babel fish"
+      - type: linked_image
+        linked_image:
+          image: "tts-superhero.png"
+          url: "https://www.nexmo.com/blog/2017/08/14/text-to-speech-phone-call-with-django-dr/"
+          alt_text: "text-to-speech with django and nexmo voice api"
+      - type: linked_image
+        linked_image:
+          image: "escape-1200x600.png"
+          url: "https://www.nexmo.com/blog/2018/03/02/getting-bad-date-fitbit-nexmo-dr/"
+          alt_text: "get out of a bad date with nexmo and fitbit"
+      - type: linked_image
+        linked_image:
+          image: "sms-fortune-cookie-1200x600.png"
+          url: "https://www.nexmo.com/blog/2018/08/14/serverless-sms-nexmo-ibm-dr/"
+          alt_text: "serverless sms fortune cookies with nexmo and ibm"
+          content: "<a href=\"/blog/path\" ><img src=\"/path/to/blog/img\"></a>"
+    - width: 2
+      entries:
+      - type: structured_text
+        structured_text:
+          header: "What We're Looking For"
+          icon: "icon-magnifier"
+          text:
+            - content: "We're interested in both technical tutorials and general pieces on programming. Successful submissions will be:"
+              type: large
+            - content: "Original. Literally, we want original work (nothing that has been published elsewhere). And more figuratively, we want to see original thought and interesting points of view we can't find anywhere else."
+              type: small
+            - content: "Well-written. Our standards are high, and we want everything published on our blog to meet those standards. That said, you don't have to be a professional writer to submit! If the post is original, helpful and interesting, our editorial team is happy to work with you to get it publication ready."
+              type: small
+      - type: structured_text
+        structured_text:
+          header: "What's in it for You?"
+          icon: "icon-head"
+          text:
+            - content: "We pay $400 USD per post. Your tutorial will be published on our blog, and may be shared in our newsletter or showcased as part of our \"Tutorial Tuesday\" weekly feature."
+              type: large
+            - content: "We make every effort to amplify the reach of each and every blog post on our site, and yours will be no exception; you'll have the Nexmo marketing and social media teams behind you getting the word out about your work. Your success is our success."
+              type: large
+      - type: structured_text
+        structured_text:
+          header: "The Process"
+          icon: "icon-gear"
+          text:
+          - content: "When we receive your submission, our editorial team will evaluate it to see if it's a good fit for the Nexmo blog."
+            type: large
+          - content: "Submission is not a guarantee that your work will be published; we reserve the right to decline submissions that aren't right for our platform. But we really want to help you get published so if you take the time to submit, we will review your work and provide feedback. Our goal is simple: we want to see what you're doing with Nexmo's products, and we want you to share your story with the community."
+            type: small
+          - content: "We'll be in touch to let you know if we want to publish your post and tell you what the next steps are."
+            type: small
+      - type: structured_text
+        structured_text:
+          header: "Who Owns Your Work?"
+          icon: "icon-pointingarrows"
+          text:
+          - content: "You do! You grant Nexmo an unlimited license to publish and promote your post, but you retain full ownership."
+            type: large
+          - content: "This means you are free to re-publish elsewhere (on your own Medium page, for example). All we require is that you add a `rel=canonical` tag to your post wherever possible, naming the original post at Nexmo the canonical URL."
+            type: small
+      - type: structured_text
+        structured_text:
+          header: "Submit Your Idea"
+          icon: "icon-envelope"
+          text:
+          - content: "Before you start writing, [email us](mailto:devrel@nexmo.com?subject=Developer Spotlight Submission) and tell us about your idea. If it’s not what we’re looking for, we’ll let you know and might be able to suggest an alternative approach"
+            type: large
+          - content: "In your email to us: <br> * Tell us who you are and why you want to write for Nexmo * Briefly summarise your idea and state why it’s something our audience will benefit from hearing about * Include links to samples of your writing (such as blog posts or articles)"
+            type: small
+
+
+
