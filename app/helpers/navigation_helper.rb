@@ -24,6 +24,9 @@ module NavigationHelper
       # the header as a navigation item in the sidebar
       next unless heading.ancestors('.tabs-content').empty?
 
+      # Same with callouts
+      next unless heading.ancestors('.Vlt-callout').empty?
+
       if last_node.nil? || heading.name == last_node.name
         # Do nothing (cleaner than adding wrapping further conditions)
       elsif heading.name >= last_node.name # e.g. h2 -> h3
