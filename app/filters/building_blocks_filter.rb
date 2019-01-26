@@ -83,7 +83,10 @@ class BuildingBlocksFilter < Banzai::Filter
   def content_from_source
     source_path = "#{Rails.root}/#{@config['source']}/*.yml"
 
-    Dir[source_path].map do |content_path|
+    files = Dir[source_path]
+    raise "No .yml files found for #{@config['source']} building blocks" if files.empty?
+
+    files.map do |content_path|
       source = File.read(content_path)
 
       # Load the defaults for this language
