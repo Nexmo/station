@@ -19,6 +19,7 @@
 "/account/numbers/building-blocks/buy-a-number": "/numbers/building-blocks/buy-a-number"
 "/account/secret-management/api-reference": "/api/account/secret-management"
 "/account/api-reference": "/api/account"
+"/voice/voice-api": "/voice/voice-api/overview"
 "/api/voice/ncco": "/voice/voice-api/ncco-reference"
 "/api/developer": "/api/developer/account"
 "/api/account": "/api/developer/account"
