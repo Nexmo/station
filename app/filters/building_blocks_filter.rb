@@ -138,7 +138,7 @@ class BuildingBlocksFilter < Banzai::Filter
 
     if options[:code_language]
       contents.each_with_index do |content, index|
-        active_index = index if content['language'] == options['language_key'].key
+        active_index = index if content['language'] == options[:code_language].key
       end
     end
 
