@@ -33,7 +33,7 @@ class TutorialsController < ApplicationController
     @frontmatter = YAML.safe_load(document)
     @document_title = @frontmatter['title']
 
-    @content = MarkdownPipeline.new({ code_language: @code_language }).call(document)
+    @content = MarkdownPipeline.new({ code_language: @code_language, disable_label_filter: true }).call(document)
 
     render layout: 'static'
   end

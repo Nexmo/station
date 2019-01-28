@@ -33,7 +33,7 @@ class MarkdownPipeline < Banzai::Pipeline
       # As HTML
       UserPersonalizationFilter.new(options),
       HeadingFilter,
-      LabelFilter,
+      LabelFilter.new(options),
       BreakFilter,
       UnfreezeFilter,
       IconFilter,
