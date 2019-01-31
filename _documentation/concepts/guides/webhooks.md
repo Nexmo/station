@@ -88,8 +88,8 @@ Webhooks are an unusual situation for developers; often you will work on local p
 
 If you restrict inbound traffic (including delivery receipts), you need to whitelist the following IP addresses in your firewall. Inbound traffic from Nexmo might come from any of the following:
 
-* `174.37.245.32/29`
-* `174.36.197.192/28`
-* `173.193.199.16/28`
 * `119.81.44.0/28`
+* `169.60.146.16/28`
+* `169.63.86.160/28`
 * `5.10.112.112/28`
+* `169.50.200.64/28`
