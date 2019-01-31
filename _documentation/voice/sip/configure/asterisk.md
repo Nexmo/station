@@ -24,27 +24,21 @@ allow=G729
 dtmfmode=rfc2833
 
 [nexmo-sip-01](nexmo-sip)
-host=173.193.199.24
-
-[nexmo-sip-02](nexmo-sip)
-host=174.37.245.34
-
-[nexmo-sip-03](nexmo-sip)
 host=5.10.112.121
 
-[nexmo-sip-04](nexmo-sip)
+[nexmo-sip-02](nexmo-sip)
 host=5.10.112.122
 
-[nexmo-sip-05](nexmo-sip)
+[nexmo-sip-03](nexmo-sip)
 host=119.81.44.6
 
-[nexmo-sip-06](nexmo-sip)
+[nexmo-sip-04](nexmo-sip)
 host=119.81.44.7
 
-[nexmo-sip-07](nexmo-sip)
+[nexmo-sip-05](nexmo-sip)
 host=169.60.141.29
 
-[nexmo-sip-08](nexmo-sip)
+[nexmo-sip-06](nexmo-sip)
 host=169.60.141.30
 ````
 
@@ -111,8 +105,6 @@ host=169.60.141.30
   endpoint = nexmo
   match = 5.10.112.122
   match = 5.10.112.121
-  match = 173.193.199.24
-  match = 174.37.245.34
   match = 119.81.44.6
   match = 119.81.44.7
   match = 169.60.141.29
