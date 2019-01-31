@@ -10,22 +10,6 @@ Below we provide example configurations for using Nexmo's SIP service with [Free
 ## Inbound configuration
 
 ````
-host=173.193.199.24
-type=friend
-insecure=port,invite
-;Add your codec list here.
-; Note: Use "ulaw" for US only, "alaw" for the rest of the world.
-allow=ulaw,alaw,g729
-dtmfmode=rfc2833
-
-host=174.37.245.34
-type=friend
-insecure=port,invite
-;Add your codec list here.
-; Note: Use "ulaw" for US only, "alaw" for the rest of the world.
-allow=ulaw,alaw,g729
-dtmfmode=rfc2833
-
 host=5.10.112.121
 type=friend
 insecure=port,invite
