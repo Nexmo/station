@@ -75,6 +75,10 @@ current:
     email: 'paul.ardeleanu@vonage.com'
     twitter: 'pardel'
     role: 'Developer Advocate'
+  - name: 'Luke Oliff'
+    email: 'luke.oliff@vonage.com'
+    twitter: 'mroliff'
+    role: 'Developer Advocate'
 alumni:
   - name: 'Adam Butler'
     email: 'adam.butler@vonage.com'
