@@ -1,0 +1,8 @@
+<% 
+    raise "missing 'url' key in action_button landing page block" unless local_assigns['url']
+    raise "missing 'text' key in action_button landing page block" unless local_assigns['text']
+%>
+
+<a class="Vlt-btn Vlt-btn--primary" href="<%= local_assigns['url'] %>">
+    <%= local_assigns['text'] %>
+</a>

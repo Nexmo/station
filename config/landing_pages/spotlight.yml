@@ -5,72 +5,82 @@ meta_title: "meta title goes here"
 
 rows:
   - columns:
-    - width: 1
-      entries:
+    - entries:
       - type: header
         header:
           title: "Write for Nexmo"
-          subtitle: "Teach others, grow as a writer, and help us build the next go-to destination for developers in search of high quality technical content and inspiring development stories."
-          icon:
+          subtitle: "Teach others, grow as a writer, and help us build the next go-to destination for developers in search of [high quality technical content](https://www.nexmo.com/blog/category/developer/) and inspiring development stories."
+          icon: icon-rocket
+          icon_color: blue
       - type: action_button
         action_button:
           text: "Apply Now"
-          url: "https://developer.nexmo.com/spotlight#submit-your-idea"
-    - width: 3
+          url: "#submit-your-idea"
+    - width: 2
       entries:
       - type: html
         html:
-          content: '<img src="/path/to/spotlight-logo.png" />'
+          content: '<img src="/assets/images/developer_spotlight.png" />'
+  - columns:
+    - entries:
+        - type: line_divider
   - columns:
     - width: 2
       entries:
+      - type: section_header
+        section_header:
+          title: "Examples"
+          icon: icon-app
+          icon_color: yellow
       - type: linked_image
         linked_image:
-          image: "babel-fish-tutorial-1200x600.png"
+          image: "https://www.nexmo.com/wp-content/uploads/2019/01/New-spreadsheet-who-dis-768x384.png"
+          url: "https://www.nexmo.com/blog/2019/01/23/how-to-send-sms-from-a-spreadsheet-dr/"
+          alt_text: "send an sms from a spreadsheet"
+      - type: linked_image
+        linked_image:
+          image: "https://www.nexmo.com/wp-content/uploads/2018/11/PyCascades-CoC-Hotline-768x384.png"
+          url: "https://www.nexmo.com/blog/2018/11/15/pycascades-code-of-conduct-hotline-nexmo-voice-api-dr/"
+          alt_text: "pycascades code of conduct hotline with nexmo voice api"
+      - type: linked_image
+        linked_image:
+          image: "https://www.nexmo.com/wp-content/uploads/2018/11/Queue-wait-time-notifications-768x384.png"
+          url: "https://www.nexmo.com/blog/2018/11/13/queue-notifications-nexmo-laravel-horizon-dr/"
+          alt_text: "queue notifications with laravel and nexmo"
+      - type: linked_image
+        linked_image:
+          image: "https://www.nexmo.com/wp-content/uploads/2018/03/babel-fish-tutorial-1200x600.png"
           url: "https://www.nexmo.com/blog/2018/03/14/speech-voice-translation-microsoft-dr/"
-          alt_text: "speech voice teanslation with babel fish"
-      - type: linked_image
-        linked_image:
-          image: "tts-superhero.png"
-          url: "https://www.nexmo.com/blog/2017/08/14/text-to-speech-phone-call-with-django-dr/"
-          alt_text: "text-to-speech with django and nexmo voice api"
-      - type: linked_image
-        linked_image:
-          image: "escape-1200x600.png"
-          url: "https://www.nexmo.com/blog/2018/03/02/getting-bad-date-fitbit-nexmo-dr/"
-          alt_text: "get out of a bad date with nexmo and fitbit"
-      - type: linked_image
-        linked_image:
-          image: "sms-fortune-cookie-1200x600.png"
-          url: "https://www.nexmo.com/blog/2018/08/14/serverless-sms-nexmo-ibm-dr/"
-          alt_text: "serverless sms fortune cookies with nexmo and ibm"
-          content: "<a href=\"/blog/path\" ><img src=\"/path/to/blog/img\"></a>"
+          alt_text: "speech voice translation tutorial"
     - width: 2
       entries:
       - type: structured_text
         structured_text:
           header: "What We're Looking For"
-          icon: "icon-magnifier"
+          icon: "icon-search"
+          icon_color: blue
           text:
             - content: "We're interested in both technical tutorials and general pieces on programming. Successful submissions will be:"
               type: large
-            - content: "Original. Literally, we want original work (nothing that has been published elsewhere). And more figuratively, we want to see original thought and interesting points of view we can't find anywhere else."
+            - content: "**Original.** Literally, we want original work (nothing that has been published elsewhere). And more figuratively, we want to see original thought and interesting points of view we can't find anywhere else."
               type: small
-            - content: "Well-written. Our standards are high, and we want everything published on our blog to meet those standards. That said, you don't have to be a professional writer to submit! If the post is original, helpful and interesting, our editorial team is happy to work with you to get it publication ready."
+            - content: "**Well-written.** Our standards are high, and we want everything published on our blog to meet those standards. That said, you don't have to be a professional writer to submit! If the post is original, helpful and interesting, our editorial team is happy to work with you to get it publication ready."
               type: small
       - type: structured_text
         structured_text:
           header: "What's in it for You?"
-          icon: "icon-head"
+          icon: "icon-user"
+          icon_color: blue
           text:
             - content: "We pay $400 USD per post. Your tutorial will be published on our blog, and may be shared in our newsletter or showcased as part of our \"Tutorial Tuesday\" weekly feature."
               type: large
             - content: "We make every effort to amplify the reach of each and every blog post on our site, and yours will be no exception; you'll have the Nexmo marketing and social media teams behind you getting the word out about your work. Your success is our success."
-              type: large
+              type: small
       - type: structured_text
         structured_text:
           header: "The Process"
           icon: "icon-gear"
+          icon_color: blue
           text:
           - content: "When we receive your submission, our editorial team will evaluate it to see if it's a good fit for the Nexmo blog."
             type: large
@@ -81,7 +91,8 @@ rows:
       - type: structured_text
         structured_text:
           header: "Who Owns Your Work?"
-          icon: "icon-pointingarrows"
+          icon: "icon-merge"
+          icon_color: blue
           text:
           - content: "You do! You grant Nexmo an unlimited license to publish and promote your post, but you retain full ownership."
             type: large
@@ -91,11 +102,19 @@ rows:
         structured_text:
           header: "Submit Your Idea"
           icon: "icon-envelope"
+          icon_color: blue
           text:
           - content: "Before you start writing, [email us](mailto:devrel@nexmo.com?subject=Developer Spotlight Submission) and tell us about your idea. If it’s not what we’re looking for, we’ll let you know and might be able to suggest an alternative approach"
             type: large
-          - content: "In your email to us: <br> * Tell us who you are and why you want to write for Nexmo * Briefly summarise your idea and state why it’s something our audience will benefit from hearing about * Include links to samples of your writing (such as blog posts or articles)"
+          - content: "In your email to us:"
             type: small
+      - type: unordered_list
+        unordered_list:
+          bullet_shape: square
+          list:
+          - item: "Tell us who you are and why you want to write for Nexmo"
+          - item: "Briefly summarise your idea and state why it’s something our audience will benefit from hearing about" 
+          - item: "Include links to samples of your writing (such as blog posts or articles)"
 
 
 

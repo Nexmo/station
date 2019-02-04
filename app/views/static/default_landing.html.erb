@@ -1,30 +1,22 @@
-<div class="Nxd-landing-page">
-    <%
-      @landing_config["rows"].each do |row|
-        some_columns_have_widths = row['columns'].select { |c| c['width'] }.count > 0
-        if some_columns_have_widths
-          row['columns'] = row['columns'].map { |c| c['width'] ||= 1; c }
-          row['column_count'] = row['columns'].map { |c| c['width'] }.sum
-        end
-    %>
+<div class="Vlt-article container Nxd-landing-page">
+    <% @landing_config["rows"].each do |row| %>
     <div class="Vlt-grid Nxd-landing-row">
       <% row["columns"].each do |info| %>
         <% if row['column_count']%>
-          <div class="Vlt-col--<%= info["width"] %>of<%= row['column_count'] %> Nxd-landing-col">
+          <div class="Vlt-col Vlt-col--<%= info["width"] %>of<%= row['column_count'] %> Nxd-landing-col">
         <% else %>
           <div class="Vlt-col Nxd-landing-col">
         <% end %>
         <% info["entries"].each do |data| %>
-          <% if data["type"] == "text" %>
-            <%= data["text"]["content"] %>
-          <% elsif data["type"] == "html" %>
-            <%= data["html"]["content"] %>
-          <% else%>
-            Unsupported block: <%= data['type'] %>
-          <% end %>
+        <%
+          unless lookup_context.exists?(data['type'], "static/default_landing/partials", true)
+          raise "Could not find the #{data['type']} partial file."
+          end
+        %>
+        <%= render partial: "static/default_landing/partials/#{data['type']}", locals: data[data['type']] %>
         <% end %>
         </div>
-        <% end %>
-      </div>
+      <% end %>
+    </div>
     <% end %>
 </div>
