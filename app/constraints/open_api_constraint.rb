@@ -28,7 +28,7 @@ class OpenApiConstraint
     name = name.gsub(/(\.v\d+)/, '')
 
     matches = OPEN_API_PRODUCTS.select do |s|
-      s.include? name
+      s.starts_with?(name) && !s.include?("#{name}/")
     end
 
     matches = matches.map do |s|
