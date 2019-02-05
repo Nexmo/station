@@ -1,12 +1,12 @@
 ---
-title: Send an MMS with Basic Authentication
+title: Send an MMS
 ---
 
-# Send an MMS with Basic Authentication
+# Send an MMS
 
 In this building block you will see how to send an MMS using the Messages API.
 
-> **IMPORTANT:** Only US Short codes are currently supported.  
+> **IMPORTANT:** Only US Short codes and US LVNs are currently supported. Recipients on T-Mobile are not supported.
 
 ## Example
 
@@ -14,17 +14,17 @@ Ensure the following variables are set to your required values using any conveni
 
 Key | Description
 -- | --
-`US_SHORT_CODE` | The US Short Code you are sending the message from.
-`TO_NUMBER` | The phone number you are sending the message to.
+`FROM_NUMBER` | The phone number you are sending the MMS from. (US Short Code and US LVN)
+`TO_NUMBER` | The phone number you are sending the message to. T-Mobile network is not supported.
 `IMG_URL` | The URL of the media you want to send
 
 > **NOTE:** Don't use a leading `+` or `00` when entering a phone number, start with the country code, for example 447700900000.
 
 ```building_blocks
-source: '_examples/messages/send-mms-basic-auth'
+source: '_examples/messages/send-mms'
 application:
   type: messages
-  name: 'Send an MMS with Basic Authentication'
+  name: 'Send an MMS'
 ```
 
 ## Try it out
