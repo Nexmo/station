@@ -83,6 +83,12 @@ end
 
 # We should fix this in OasParser properly rather than monkeypatching at some point
 module OasParser
+  class Path
+    def servers
+      raw['servers']
+    end
+  end
+
   class Parser
     def self.resolve(path)
       filename = path.split('#/')[0]
