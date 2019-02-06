@@ -30,3 +30,6 @@ application:
 ## Try it out
 
 When you run the code an MMS message is sent to the destination number.
+
+## Sending to unsupported networks
+Sending MMS to the Verizon and T-Mobile networks is not currently supported. In order to ensure your messages get to their recipient successfully use our [Dispatch API to automatically failover to SMS](/dispatch/building-blocks/send-an-mms-with-failover) when MMS cannot be delivered.
