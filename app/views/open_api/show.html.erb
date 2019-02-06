@@ -18,10 +18,23 @@
             <p><%= @definition.info['description'].render_markdown %></p>
           <% end %>
 
-          <%= link_to open_api_path({ format: @definition.format, params: request.query_parameters }), class: 'Vlt-btn Vlt-btn--secondary Vlt-btn--app' do %>
-            <svg><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-download" /></svg>
-            Download OpenAPI 3 Definition
-          <% end %>
+          <div class="Vlt-grid">
+            <div class="Vlt-col">
+              <%= link_to open_api_path({ format: @definition.format, params: request.query_parameters }), class: 'Vlt-btn Vlt-btn--secondary Vlt-btn--app' do %>
+                <svg><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-download" /></svg>
+                Download OpenAPI 3 Definition
+              <% end %>
+            </div>
+            <div class="Vlt-col Vlt-right">
+              <%= link_to "https://github.com/Nexmo/api-specification/blob/master/definitions/#{@definition_name}.yml", class: 'Vlt-btn Vlt-btn--tertiary Vlt-btn--app Vlt-right' do %>
+                <svg className="Vlt-icon Vlt-black">
+                  <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-github" />
+                </svg>
+                Improve this specification
+              <% end %>
+            </div>
+          </div>
+
 
         </div>
       </div>
