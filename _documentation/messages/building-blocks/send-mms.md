@@ -6,7 +6,7 @@ title: Send an MMS
 
 In this building block you will see how to send an MMS using the Messages API.
 
-> **IMPORTANT:** Only US Short codes and US LVNs are currently supported for sending MMS. Recipients on T-Mobile and Verizon networks are not currently supported.
+> **IMPORTANT:** Only US Short codes and US LVNs are currently supported for sending MMS. Recipients on T-Mobile and Verizon networks are currently only supported when sending from US Short codes.
 
 ## Example
 
@@ -15,7 +15,7 @@ Ensure the following variables are set to your required values using any conveni
 | Key           | Description                                                                                                 |
 | ------------- | ----------------------------------------------------------------------------------------------------------- |
 | `FROM_NUMBER` | The phone number you are sending the MMS from. (US Short Code and US LVN only)                              |
-| `TO_NUMBER`   | The phone number you are sending the message to. T-Mobile and Verizon networks are not currently supported. |
+| `TO_NUMBER`   | The phone number you are sending the message to. |
 | `IMG_URL`     | The URL of the media you want to send                                                                       |
 
 > **NOTE:** Don't use a leading `+` or `00` when entering a phone number, start with the country code, for example 14155550105.
