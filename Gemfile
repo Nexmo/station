@@ -177,3 +177,4 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 # The following are dependencies of dependencies, but we require them here to
 # force minimum versions due to security issues
 gem 'ffi', '>= 1.9.24'
+gem 'rack', '>= 2.0.6'

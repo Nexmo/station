@@ -455,6 +455,7 @@ DEPENDENCIES
   pg (~> 0.18)
   pry
   puma (~> 3.0)
+  rack (>= 2.0.6)
   rails (~> 5.2.0)
   rawler!
   recaptcha
