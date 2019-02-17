@@ -40,4 +40,14 @@ RSpec.describe 'rendering _github_repo landing page partial' do
       }
     end.to raise_error("Missing 'language' key in github_repo landing page block")
   end
+
+  it 'renders the repo URL correctly' do
+    render partial: '/static/default_landing/partials/github_repo.html.erb', locals: {
+        'repo_url' => 'https://example.com/org/repo-name',
+        'github_repo_title' => 'This is a sample title',
+        'language' => 'Ruby',
+    }
+
+    expect(rendered).to include('https://example.com/org/repo-name')
+  end
 end
