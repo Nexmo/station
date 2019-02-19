@@ -4,6 +4,7 @@ description: Building a VAPI application that sends Text-To-Speech when an answe
 tags: ["Machine Learning","Python"]
 cta: Get this Repo
 link: https://github.com/nexmo-community/AnsweringMachineDetection
+image: /assets/images/extend/machine_learning_icon.png
 published: true
 ---
 
