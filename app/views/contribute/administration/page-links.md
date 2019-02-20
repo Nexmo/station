@@ -128,7 +128,6 @@ $ bundle exec rake links:no_links_outbound
 /stitch/concepts/jwt-acl
 /stitch/in-app-voice/call-statuses
 /stitch/api-reference
-/concepts/guides/oauth
 /account/secret-management/api-reference
 /account/secret-management/building-blocks/list-all-secrets
 /account/secret-management/building-blocks/revoke-a-secret
