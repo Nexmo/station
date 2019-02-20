@@ -89,7 +89,13 @@ export default class VoltaTabbedExamples {
   }
 
   setLanguage(language) {
-      setTimeout(() => { $(`[data-language='${language}']`).click(); }, 0);
+      setTimeout(() => {
+        $(`[data-language='${language}']`).click();
+
+        // Remove skip pushstate after the first load. This is a bit of a hack, but it works to stop breaking
+        // the back button
+        $(".skip-pushstate").removeClass('skip-pushstate');
+      }, 0);
   }
 
   setPlatform(platform) {
