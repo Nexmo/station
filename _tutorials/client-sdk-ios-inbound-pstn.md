@@ -10,24 +10,38 @@ languages:
 
 # How to Receive Phone Calls with the Nexmo Client SDK on iOS
 
-In this guide, we'll learn how to forward an incoming phone call to a Nexmo phone number, to an in-app user by implementing a webhook and linking that to a Nexmo application.
+In this guide, you'll learn how to forward an incoming phone call to a Nexmo phone number, to an in-app user by implementing a webhook and linking that to a Nexmo application.
 
 You will create a simple app to receive a call. The app will automatically log in a user called Jane. After logging in, Jane is able to receive a call and perform actions such as answer, decline or hangup.
 
-```partial
-source: _partials/client-sdk/voice/nexmo-concepts.md
-```
+
+## Nexmo Concepts
+
+Before proceeding any further, here are couple of concepts that you'll need to understand.
+
+A [Nexmo application](https://developer.nexmo.com/concepts/guides/applications) allows you to easily use Nexmo products, in this case the [Voice API](https://developer.nexmo.com/voice/voice-api/overview) to build voice applications in the Cloud.
+
+A Nexmo application requires two URLs as parameters:
+
+* `answer_url` - Nexmo will make a request to this URL as soon as the call is answered.
+* `event_url` - Nexmo sends event information asynchronously to this URL when the call status changes; this ultimately defines the flow of the call.
+
+Both URLs need to return JSON and follow the [Nexmo Call Control Object (NCCO)](https://developer.nexmo.com/voice/voice-api/ncco-reference) reference. In the example below, you will define an NCCO that reads a predefined text for an incoming call, using the [Text to Speech](https://developer.nexmo.com/voice/voice-api/guides/text-to-speech) engine.
+
+A [Nexmo virtual number](https://developer.nexmo.com/numbers/overview) will be associated with the app and serve as the "entry point" to it - this is the number you'll call to test the application.
+
+For more information on Nexmo applications please visit the Nexmo [API Reference](https://developer.nexmo.com/api/application).)
 
 
 ## Prerequisites
 
 - Use an existing Nexmo Application or [create a new one](/tutorials/client-sdk-generate-test-credentials).
-- Have a user named `jane` or [create one](/tutorials/client-sdk-generate-test-credentials#create-a-user) for your Nexmo Application, with a [valid JWT](/tutorials/client-sdk-generate-test-credentials).
+- Have a user named `Jane` or [create one](/tutorials/client-sdk-generate-test-credentials#create-a-user) for your Nexmo Application, with a [valid JWT](/tutorials/client-sdk-generate-test-credentials).
 
 
 ## Application webhook
 
-For your application to connect an income phone call to an app user, you'll need to provide a URL as the `Answer URL` webhook - we've created a [gist](https://gist.github.com/NexmoDev/ed91ac99a0b278fbdcbde72ca3599ac7) for you to use.
+For your application to connect an incoming phone call to an app user, you'll need to provide a URL as the `Answer URL` webhook - we've created a [gist](https://gist.github.com/NexmoDev/ed91ac99a0b278fbdcbde72ca3599ac7) for you to use.
 
 To add this URL, go to your [Nexmo dashboard](https://dashboard.nexmo.com), navigate to [applications](https://dashboard.nexmo.com/voice/your-applications), select your application and click the 'Edit' button.
 
@@ -63,7 +77,7 @@ At this point you should already be able to run the app and see that you can log
 
 ## Receive incoming call
 
-When the phone number associated with your Nexmo app receives a call, the app should notify the user `jane` so that she can decide whether to answer or reject it.
+When the phone number associated with your Nexmo app receives a call, the app should notify the user `Jane` so that she can decide whether to answer or reject it.
 
 This is done by implementing the optional `incomingCall:` method which is declared in the `NXMClientDelegate`.
 

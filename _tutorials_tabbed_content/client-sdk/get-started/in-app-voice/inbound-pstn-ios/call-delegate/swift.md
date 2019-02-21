@@ -4,7 +4,7 @@ language: swift
 menu_weight: 1
 ---
 
-As with `NXMClient`, `NXMCall` also has a delegate. We'll now adopt the `NXMCallDelegate` as an extension on `MainViewController`:
+As with `NXMClient`, `NXMCall` also has a delegate. You will now adopt the `NXMCallDelegate` as an extension on `MainViewController`:
 
 ```swift
 extension MainViewController: NXMCallDelegate {
