@@ -41,7 +41,7 @@ rows:
             name: "icon-laptop"
             color: blue
           text:
-          - content: The main challenge is to build a project around the PHP UK 2019 Conference schedule data by using at least one of <a href="/api">Nexmo’s APIs</a>. You're especially encouraged to use Nexmo's Voice, Verify or Messages APIs.
+          - content: The main challenge is to build a project around the PHP UK 2019 Conference <a href="http://api.joind.in/v2.1/events/7001/talks">schedule data</a> by using at least one of <a href="/api">Nexmo’s APIs</a>. You're especially encouraged to use Nexmo's Voice, Verify or Messages APIs.
             type: large
           - content: Otherwise, you’re welcome to hang out in the Nexmo Hackathon Lounge, build anything you want using our APIs and still present your project.
             type: large
