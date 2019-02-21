@@ -142,6 +142,7 @@ class BuildingBlocksFilter < Banzai::Filter
     end
 
     @tabs['data-has-initial-tab'] = active_index.present?
+    @tabs['class'] += ' skip-pushstate' if @tabs['data-has-initial-tab']
     active_index ||= 0
 
     contents[active_index][:active] = true
