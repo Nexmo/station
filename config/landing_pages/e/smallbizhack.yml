@@ -1,4 +1,4 @@
-title: "Nexmo loves PHP! Use our SDKs or make the API calls yourself to integrate with our calling, messaging and mobile platforms"
+title: "Use our APIs & SDK or or make the API calls yourself to integrate with our calling, messaging and mobile platforms"
 
 rows:
   - columns:
@@ -41,7 +41,7 @@ rows:
             name: "icon-laptop"
             color: blue
           text:
-          - content: Our challenge is straightforward: build your hack using at least one of <a href="/api">Nexmo’s APIs</a>. You're especially encouraged to use Nexmo's Voice, Conversation or Messages APIs and the Nexmo Client SDK.
+          - content: Our challenge is straightforward. Build your hack using at least one of <a href="/api">Nexmo’s APIs</a>. You're especially encouraged to use Nexmo's Voice, Conversation or Messages APIs and the Nexmo Client SDK.
             type: large
 
 
