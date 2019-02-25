@@ -83,15 +83,19 @@
 
       <% endpoint.responses.each do |response| %>
         <% id = SecureRandom.hex %>
+        <%
+          expand_response = response.code[0] == '2' && response.raw['x-expand-response'] != false
+          expand_response = true if response.raw['x-expand-response']
+        %>
 
       <div class="Vlt-accordion">
-        <button tabindex="0" class="Vlt-accordion__trigger <%= response.code[0] == '2' ? 'Vlt-accordion__trigger_active' : '' %>">
+        <button tabindex="0" class="Vlt-accordion__trigger <%= expand_response ? 'Vlt-accordion__trigger_active' : '' %>">
           <h5 class="Vlt-title--nomargin">HTTP response
             <span class="Vlt-badge Vlt-badge--<%= response.code[0] == '2' ? 'green' : response.code[0] == '3' ? 'yellow' : 'red'  %>"><%= response.code %></span>
           </h5>
         </button>
 
-        <div class="Vlt-accordion__content <%= response.code[0] == '2' ? 'Vlt-accordion__content_open' : '' %>">
+        <div class="Vlt-accordion__content <%= expand_response ? 'Vlt-accordion__content_open' : '' %>">
           <div class="tabs-content" data-tabs-content="<%= id %>">
             <% response.formats.each_with_index do |format, index| %>
 

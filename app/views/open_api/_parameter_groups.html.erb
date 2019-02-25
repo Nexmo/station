@@ -2,6 +2,11 @@
   callback = false if local_assigns[:callback].nil?
 %>
 
+<% if endpoint.parameters.select {|p| p.in == 'header'}.any? %>
+  <h4>Header Parameters</h4>
+  <%= render 'parameters', parameters: endpoint.parameters.select { |p| p.in == 'header'}, callback: callback %>
+<% end %>
+
 <% if endpoint.path_parameters.any? %>
   <h4>Path Parameters</h4>
   <%= render 'parameters', parameters: endpoint.path_parameters, callback: callback %>
