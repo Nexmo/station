@@ -12,7 +12,10 @@ class TaskController < ApplicationController
       return redirect_to "/task/#{@task.name}/#{@task.first_step}"
     end
 
-    @content = MarkdownPipeline.new.call(@task.content_for(@task_step))
+    @content = MarkdownPipeline.new({
+                                      code_language: @code_language,
+                                      current_user: current_user,
+                                    }).call(@task.content_for(@task_step))
     render layout: 'documentation'
   end
 
@@ -35,7 +38,7 @@ class TaskController < ApplicationController
 
   def set_task_step
     return unless params[:task_step]
-    @task_step = params[:task_step].gsub('--', '/')
+    @task_step = params[:task_step]
   end
 
   def task_root
