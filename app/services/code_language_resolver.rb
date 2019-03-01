@@ -39,4 +39,8 @@ class CodeLanguageResolver
   private_class_method def self.language_configuration
     @language_configuration ||= YAML.load_file("#{Rails.root}/config/code_languages.yml")
   end
+
+  def self.route_constraint
+    { code_language: Regexp.new(linkable.map(&:key).compact.join('|')) }
+  end
 end

@@ -1,0 +1,35 @@
+<div class="Vlt-grid">
+  <div class="Vlt-col Vlt-col--3of4">
+    <%= @content.html_safe %>
+
+    <br />
+    <div class="Vlt-grid">
+      <div class="Vlt-col">
+        <% if @task.previous_step %>
+          <h4>Previous</h4>
+          <a href="<%= "/task/#{@task.name}/#{@task.previous_step['path']}" %>"> &laquo; <%= @task.previous_step['title'] %></a>
+          <div>
+            <small><%= @task.previous_step['description'] %></small>
+          </div>
+        <% end %>
+      </div>
+      <div class="Vlt-col Vlt-right">
+        <% if @task.next_step %>
+          <h4>Next</h4>
+          <a href="<%= "/task/#{@task.name}/#{@task.next_step['path']}" %>"><%= @task.next_step['title'] %> &raquo;</a>
+          <div>
+            <small><%= @task.next_step['description'] %></small>
+          </div>
+        <% end %>
+      </div>
+     </div>
+  </div>
+  <div class="Vlt-col Vlt-col--1of4">
+    <h4>In this section</h4>
+    <ul>
+    <% @task.subtasks.each_with_index do |t, i| %>
+      <li><a href="<%= "/task/#{@task.name}/#{t['path']}" %>"><%= i+1 %>. <%= t['title'] %></a></li>
+    <% end %>
+    </ul>
+  </div>
+</div>
