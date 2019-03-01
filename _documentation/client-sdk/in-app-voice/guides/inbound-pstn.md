@@ -1,7 +1,7 @@
 ---
 title: Phone to App Calls
 description: This topic shows you how to handle an inbound phone call in your app.
-navigation_weight: 3
+navigation_weight: 2
 ---
 
 # Phone to App Calls
@@ -124,10 +124,7 @@ When the linking is successful, the CLI returns with the message, “Number upda
 
 ## Conclusion
 
-Now that you've linked your number to your application, whenever someone calls your Nexmo number they are going to be connected to a user via In-App Voice. If you want to test this out, you can check out the [JavaScript](/stitch/in-app-voice/guides/calling-users/javascript), [Android](/stitch/in-app-voice/guides/calling-users/android), and [iOS](/stitch/in-app-voice/guides/calling-users/ios) guides detailing how you can implement calling using the SDKs.
+Now that you've linked your number to your application, whenever someone calls your Nexmo number they are going to be connected to a user via In-App Voice. If you want to test this out, you can check out the [Android](/stitch/in-app-voice/guides/calling-users/android) and [iOS](/stitch/in-app-voice/guides/calling-users/ios) guides detailing how you can implement calling using the SDKs.
 
-## What's next?
-
-If you'd like to continue learning how to use the Nexmo Stitch SDK, check out our In-App Voice quick start where we show you how to [make an outbound PSTN call with Stitch](/stitch/in-app-voice/guides/outbound-pstn/) and read the [NCCO guide for calling](/stitch/in-app-voice/guides/ncco-guide).
 
 > Note: Making calls from a phone to an app user via APAC(Asia Pacific) LVNs is unfortunately currently unsupported.

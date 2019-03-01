@@ -27,7 +27,7 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/*
- * Nexmo Stitch SDK
+ * Nexmo Client SDK
  *  Media Object Model
  *
  * Copyright (c) Nexmo Inc. 2017-2018
@@ -50,8 +50,8 @@ const NexmoClientError = ConversationClientError.NexmoClientError;
  * @property {Conversation} parentConversation the conversation object this media instance belongs to
  * @property {Member[]} parentConversation.remoteMembers The remote members
  * @property {number} parentConversation.streamIndex the latest index of the streams, updated in each new peer offer
- * @property {object} rtcObjects data related to the rtc connection
- * @property {string} rtcObjects.id the rtc_id
+ * @property {object[]} rtcObjects data related to the rtc connection
+ * @property {string} rtcObjects.rtc_id the rtc_id
  * @property {PeerConnection} rtcObjects.pc the current PeerConnection object
  * @property {Stream} rtcObjects.localStream the stream of the specific rtc_id
  * @property {string} rtcObjects.type=video|screenshare the type of the stream
@@ -62,17 +62,17 @@ const NexmoClientError = ConversationClientError.NexmoClientError;
  */
 
 /**
- * Application listening for calls.
+ * Member listening for audio stream on.
  *
  * @event Member#media:stream:on
  *
- * @property {number} payload.index the index number of this stream
- * @property {string} payload.remote_member_id the id of the Member the stream belongs to
- * @property {string} payload.name the stream's display name
+ * @property {number} payload.streamIndex the index number of this stream
+ * @property {number} [payload.rtc_id] the rtc_id / leg_id
+ * @property {string} [payload.remote_member_id] the id of the Member the stream belongs to
+ * @property {string} [payload.name] the stream's display name
  * @property {MediaStream} payload.stream the stream that is activated
- * @property {boolean} payload.video_mute if the video is hidden
- * @property {boolean} payload.audio_mute if the audio is muted
- *
+ * @property {boolean} [payload.video_mute] if the video is hidden
+ * @property {boolean} [payload.audio_mute] if the audio is muted
  */
 
 class Media {
@@ -97,7 +97,7 @@ class Media {
                     ws_url: this.application.session.config.rtcstats.ws_url
                 }
             }
-            if (this.application.session.config &amp;&amp; this.application.session.config.screenShareExtensionId !== '') {
+            if (this.application.session.config &amp;&amp; this.application.session.config.screenShareExtensionId &amp;&amp; this.application.session.config.screenShareExtensionId !== '') {
                 this.rtcHelper._setScreenShareExtensionId(this.application.session.config.screenShareExtensionId);
             }
             if (this.rtcstats.emit_events) {
@@ -268,7 +268,7 @@ class Media {
                     this.application.activeStream.pc = pc;
                     this.application.activeStream.localStream = localStream;
                     pc.ontrack = (evt) => {
-                        this.application.activeStream.stream = evt.streams[0];
+                        this.application.activeStreams.push(evt.streams[0]);
                         resolve(evt.streams[0]);
                     };
                     pc.addStream(localStream);
@@ -321,12 +321,13 @@ class Media {
                                     this.application.activeStream.rtc_id = rtc_id;
                                     pc.trace('rtc_id', rtc_id);
                                     this.rtcObjects[rtc_id] = {
-                                        id: rtc_id,
+                                        rtc_id: rtc_id,
                                         pc: pc,
                                         localStream: localStream,
-                                        // type: 'audio,
+                                        type: 'audio',
                                         streamIndex: streamIndex
                                     };
+                                    this.parentConversation.me.emit("media:stream:on", this.rtcObjects[rtc_id]);
                                 } else {
                                     reject(new NexmoApiError(response));
                                 }
@@ -426,30 +427,31 @@ class Media {
                             if (direction === false) {
                                 let rtcObjectWithType = this._findRtcObjectByType('video');
                                 if (rtcObjectWithType) {
-                                    return this._disableLeg(rtcObjectWithType.id);
+                                    return this._disableLeg(rtcObjectWithType.rtc_id);
                                 }
                             }
                             break;
                     }
                 } else {
-                    Promise.resolve();
+                    return Promise.resolve();
                 }
             }).then(() => {
                 if (params.screenshare) {
                     let direction = false;
-                    let name = 'screenshare';
-                    let sources = ['screen', 'window', 'tab'];
+                    let name;
+                    let options = { sources: ['screen', 'window', 'tab'] };
                     if (params.screenshare === Object(params.screenshare)) {
                         direction = params.screenshare.direction;
                         name = params.screenshare.name || 'screenshare';
-                        sources = params.screenshare.sources || sources;
+                        options.sources = params.screenshare.sources || options.sources;
+                        options.sourceId = params.screenshare.sourceId || '';
                     } else {
                         direction = params.screenshare;
                     }
                     switch (direction) {
                         case 'send_only':
                         case true:
-                            return this.rtcHelper.getUserScreen(sources).then((localStream) => {
+                            return this.rtcHelper.getUserScreen(options).then((localStream) => {
                                 return this._handleVideoSend(localStream, true, 'screenshare', name, params);
                             });
                         case 'none':
@@ -458,7 +460,7 @@ class Media {
                             if (direction === false) {
                                 let rtcObjectWithType = this._findRtcObjectByType('screenshare');
                                 if (rtcObjectWithType) {
-                                    return this._disableLeg(rtcObjectWithType.id);
+                                    return this._disableLeg(rtcObjectWithType.rtc_id);
                                 }
                             }
                             break;
@@ -470,7 +472,7 @@ class Media {
     }
 
     _emitEventsByRtcId(rtc_id) {
-        this._eventsQueue.filter((event) => event.id === rtc_id)
+        this._eventsQueue.filter((event) => event.rtc_id === rtc_id)
             .forEach((event) => {
                 event.func();
                 event.ran = true;
@@ -483,7 +485,7 @@ class Media {
             func();
         } else {
             this._eventsQueue.push({
-                id: rtc_id,
+                rtc_id: rtc_id,
                 func: func,
                 ran: false
             })
@@ -546,7 +548,7 @@ class Media {
         };
 
         pc.addStream(localStream);
-        let index = this.streamIndex;
+        let streamIndex = this.streamIndex;
         this.streamIndex++;
         const p = new Promise((resolve, reject) => {
             pc.createOffer()
@@ -576,11 +578,11 @@ class Media {
                         if (response.type === 'rtc:new:success') {
                             const rtc_id = response.body.rtc_id;
                             this.rtcObjects[rtc_id] = {
-                                id: rtc_id,
+                                rtc_id: rtc_id,
                                 pc: pc,
                                 localStream: localStream,
                                 type: type,
-                                streamIndex: index
+                                streamIndex: streamIndex
                             };
                             this._emitEventsByRtcId(rtc_id);
                             pc.trace('rtc_id', rtc_id);
@@ -588,10 +590,10 @@ class Media {
                                 localStream.getVideoTracks()[0].onended = () => {
                                     this._disableLeg(rtc_id)
                                         .then(() => {
-                                            this.parentConversation.me.emit("media:stream:off", index);
+                                            this.parentConversation.me.emit("media:stream:off", streamIndex);
                                         })
                                         .catch(() => {
-                                            this.parentConversation.me.emit("media:stream:off", index);
+                                            this.parentConversation.me.emit("media:stream:off", streamIndex);
                                         })
                                 };
                             }
@@ -606,10 +608,10 @@ class Media {
         });
         this.rtcNewPromises.push(p);
         this.parentConversation.me.emit("media:stream:on", {
-            type,
+            type: type,
             name: name,
-            index: index,
-            localStream
+            streamIndex: streamIndex,
+            stream: localStream
         });
         const promisesArray = [];
         pc.onicecandidate = (event) => {
@@ -691,7 +693,7 @@ class Media {
                     this.log.debug('successfully sent trickle candidates', bodyToSend);
                 })
                 .catch(() => {
-                    this.log.error('failed to sent trickle candidates', bodyToSend);
+                    this.log.error('failed to send trickle candidates', bodyToSend);
                 });
         }
     }
@@ -747,7 +749,8 @@ class Media {
             if (remoteMemberObject.stream !== evt.streams[0]) {
                 remoteMemberObject.stream = evt.streams[0];
                 remoteMemberObject.remote_member.emit("media:stream:on", {
-                    index: remoteMemberObject.streamIndex,
+                    streamIndex: remoteMemberObject.streamIndex,
+                    rtc_id: remoteMemberObject.local_leg_id,
                     remote_member_id: remoteMemberObject.remote_member_id,
                     name: remoteMemberObject.name,
                     stream: remoteMemberObject.stream,
@@ -865,7 +868,7 @@ class Media {
         this._deleteMemberMedia(member);
         member.remote_member.emit("media:stream:off", {
             remote_member_id: member.remote_member_id,
-            index: member.streamIndex
+            streamIndex: member.streamIndex
         });
     }
 
@@ -927,7 +930,7 @@ class Media {
                 this.parentConversation.remoteMembers.forEach((member) => {
                     member.remote_member.emit('media:stream:off', {
                         remote_member_id: member.remote_member_id,
-                        index: member.streamIndex
+                        streamIndex: member.streamIndex
                     });
                     this._deleteMemberMedia(member);
                 });
@@ -937,13 +940,11 @@ class Media {
             if (this.application.activeStream.localStream) {
                 this._closeStream(this.application.activeStream.localStream);
             }
-            if (this.application.activeStream &amp;&amp; this.application.activeStream.stream) {
-                this._closeStream(this.application.activeStream.stream);
-            }
             delete this.pc;
             this.application.activeStream = {};
             this.parentConversation.remoteMembers = [];
             this.parentConversation.releaseGroup('media_module');
+            this.listeningToRtcEvent = false;
         });
     }
 
@@ -1065,13 +1066,13 @@ class Media {
                 Object.values(muteObjects).forEach(rtcObject => {
                     if (audio) {
                         const audioTracks = rtcObject.localStream.getAudioTracks();
-                        const audioPromise = this._setMediaTracksAndMute(rtcObject.id, audioTracks, mute, audioType, audioSuccess);
+                        const audioPromise = this._setMediaTracksAndMute(rtcObject.rtc_id, audioTracks, mute, audioType, audioSuccess);
                         promises.push(audioPromise);
                     }
 
                     if (video) {
                         const videoTracks = rtcObject.localStream.getVideoTracks();
-                        const videoPromise = this._setMediaTracksAndMute(rtcObject.id, videoTracks, mute, videoType, videoSuccess);
+                        const videoPromise = this._setMediaTracksAndMute(rtcObject.rtc_id, videoTracks, mute, videoType, videoSuccess);
                         promises.push(videoPromise);
                     }
                 });
@@ -1174,7 +1175,7 @@ class Media {
                                 if (!params[type]) {
                                     let rtcObjectWithType = this._findRtcObjectByType(type);
                                     if (rtcObjectWithType) {
-                                        disablePromises.push(this._disableLeg(rtcObjectWithType.id));
+                                        disablePromises.push(this._disableLeg(rtcObjectWithType.rtc_id));
                                     }
                                 }
                             });
@@ -1434,13 +1435,13 @@ module.exports = Media;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:Stitch-errors">Stitch-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:NXM-errors">NXM-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Nov 14 2018 16:18:45 GMT+0000 (UTC)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Feb 01 2019 11:02:45 GMT+0000 (UTC)
 </footer>
 
 <script> prettyPrint(); </script>

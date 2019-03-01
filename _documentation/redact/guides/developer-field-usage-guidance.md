@@ -50,6 +50,6 @@ Note that the NCCO provided by the customer server to the Voice API may contain 
 * `brand`
 * `sender_id`
 
-## Stitch
+## Conversation API
 
-Stitch resources can be fully controlled by customers using the related APIs. If any end user personal data is deliberately placed in a Stitch resource such as a user or message, the resource's PUT or DELETE methods may be used to remove this data later.
+Conversation resources can be fully controlled by customers using the related APIs. If any end user personal data is deliberately placed in a Conversation resource such as a user or message, the resource's PUT or DELETE methods may be used to remove this data later.

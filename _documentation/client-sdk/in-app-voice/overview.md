@@ -14,7 +14,7 @@ Nexmo In-App Voice uses WebRTC and includes all the essentials you need to build
 Nexmo In-App Voice integrates with the Nexmo Voice API which amplifies the In-App Voice offering through extra functionality such as:
 
 * Calls to phone devices(PSTN)
-* Calls to SIP-enabled devices 
+* Calls to SIP-enabled devices
 * Connection to other services over Websockets
 * Call management
 * Complex call flow configurations
@@ -50,9 +50,7 @@ For iOS:
 For JavaScript:
 
 1. [Enable audio](/client-sdk/in-app-voice/guides/enable-audio)
-2. [App to App calls](/client-sdk/in-app-voice/guides/calling-users)
-3. [Phone to App calls](/client-sdk/in-app-voice/guides/inbound-pstn)
-4. [App to Phone calls](/client-sdk/in-app-voice/guides/outbound-pstn)
+2. [Phone to App calls](/client-sdk/in-app-voice/guides/inbound-pstn)
 
 ## Concepts
 
