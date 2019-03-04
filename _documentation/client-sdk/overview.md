@@ -1,6 +1,6 @@
 ---
 title: Overview
-meta_title: Realtime communication with In-App Messaging, Audio and Video
+meta_title: Realtime communication with In-App Messaging and Audio
 ---
 
 # Overview [Early Access]
@@ -18,7 +18,6 @@ Multiple types of Media are supported:
 
 * Messaging
 * Voice
-* Video
 
 The Client SDK provides a convenient layer over the Nexmo Conversation API and WebRTC.
 
@@ -42,17 +41,6 @@ Some features include:
 * Notifications  – Users can be notified when they receive a call or when participants are muted.
 * Group Calls – Configure call settings so users can start a group call by adding participants in real time.
 
-## In-App Video
-
-Nexmo In-App Video uses WebRTC and includes all the essentials you need to build a feature-rich video experience.
-
-Some features include:
-
-* User Control – Users can control whether their video stream is muted or unmuted.
-* Notifications  – Users can be notified when other members have enabled a video channel.
-* Group Calls – Configure conversations so users can start a group video call by adding participants in real time.
-* Screen Sharing – Allow users to share their screens.
-
 ## Participating in the Early Access programme
 
 This Early Access will focus on the In-App Voice capabilities. During this program, there will be frequent releases with new features and bug fixes based on your feedback. During the Early Access, it is possible that there shall be breaking changes to the SDK and API but these will be explicitly communicated beforehand.
@@ -68,7 +56,6 @@ Read more about:
 
 * [In-App Messaging](/client-sdk/in-app-messaging/overview)
 * [In-App Voice](/client-sdk/in-app-voice/overview)
-* [In-App Video](/client-sdk/in-app-video/overview)
 
 ## SDK Documentation (generated from source code)
 
