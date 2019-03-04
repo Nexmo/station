@@ -4,7 +4,7 @@ language: objective_c
 menu_weight: 2
 ---
 
-Clone this [Github project](https://github.com/Nexmo/Client-Get-Started-PhoneToApp-Voice-ObjectiveC).
+Clone this [Github project](https://github.com/Nexmo/Client-Get-Started-AppToPhone-Voice-ObjectiveC).
 
 From the Github project you cloned, open the Starter app using XCode:
 

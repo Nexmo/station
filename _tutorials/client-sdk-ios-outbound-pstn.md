@@ -29,7 +29,7 @@ Both URLs need to return JSON and follow the [Nexmo Call Control Object (NCCO)](
 
 A [Nexmo virtual number](https://developer.nexmo.com/numbers/overview) will be associated with the app and serve as the "reference point" to it - this is the number that will be the callee when you'll be testing the application.
 
-For more information on Nexmo applications please visit the Nexmo [API Reference](https://developer.nexmo.com/api/application).)
+For more information on Nexmo applications please visit the Nexmo [API Reference](https://developer.nexmo.com/api/application).
 
 
 ## Prerequisites
@@ -74,6 +74,7 @@ Once created, add the gist raw URL (make sure you're using the raw version) to y
 source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/outbound-pstn-ios/started-project'
 ```
 
+
 ## Login
 
 Using the Nexmo Client SDK should start with logging in to `NexmoClient`, using a `jwt` user token.
@@ -93,15 +94,21 @@ At this point you should already be able to run the app and see that you can log
 
 You can now make an App-to-Phone call.
 
+The `Call` button press is already connected to `ViewController`.
+
 ```tabbed_content
 source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/outbound-pstn-ios/start-call'
 ```
 
-Whilst it is expected for you to replace `CALLEE_PHONE_NUMBER` with the number to be called, ultimately, is the number supplied in the `Answer URL` webhook. In a real-life environment, 
+You are expected to replace `CALLEE_PHONE_NUMBER` with the number to be called but, ultimately, the number called is the one supplied in the `Answer URL` webhook. In a real-life environment, you would create a server component to server as the `Answer URL`; this will receive the `CALLEE_PHONE_NUMBER`, validate it and then supply it in the JSON returned.
+
+**NB:** Whilst the default HTTP method for the `Answer URL` is `GET`, `POST` can also be used.
+
 
 ### Call Type
-  
-Note the second parameter in the `client?.call` method above - while `NXMCallType.server` is used in this scenario, you can also start an in-app call by choosing `NXMCallType.inApp` as the `callType` and usernames as callees.
+
+Note the use of `NXMCallTypeServer` as the `callType` in the `client`'s `call:` method above - this is required for outbound PSTN calls; the other `callType` is `NXMCallTypeInApp`, useful for making simple calls as shown in [this tutorial](/tutorials/client-sdk-ios-in-app-calling).
+
 
 ```tabbed_content
 source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/outbound-pstn-ios/call-type'
@@ -119,9 +126,15 @@ The `statusChanged:` method notifies on changes that happens to members on the c
 
 ## Hangup a call
 
+Once the "End Call" button is pressed, it is time to hangup the call. 
+
 ```tabbed_content
 source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/outbound-pstn-ios/hangup'
 ```
+
+Updates for `callMember` statuses are received in `statusChanged` as part of the `NXMCallDelegate` as you have seen before.  
+
+The existing implementation for `statusChanged:` is already handling call hangup.
 
 
 ## Handle permissions

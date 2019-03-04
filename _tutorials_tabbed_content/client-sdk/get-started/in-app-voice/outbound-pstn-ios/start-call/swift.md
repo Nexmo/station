@@ -4,7 +4,7 @@ language: swift
 menu_weight: 1
 ---
 
-The `Call` button press is already connected to `ViewController`.
+
 
 Implement the `callNumber:` method to start a call. 
 
@@ -29,7 +29,7 @@ Implement the `callNumber:` method to start a call.
 
 If a call is already in progress, taping the button will end it. 
 
-Let's implement `startCall` - it will start the call, and also update the visual elements so that `Jane` knows the call is in progress:
+Implement `startCall` - it will start the call, and also update the interface to show that a call is in progress:
 
 ```swift
 private func startCall() {

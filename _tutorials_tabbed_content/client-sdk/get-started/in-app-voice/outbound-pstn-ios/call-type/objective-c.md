@@ -4,10 +4,8 @@ language: objective_c
 menu_weight: 2
 ---
 
-[TODO]
-
 ```objective-c
-[self.nexmoClient call:@[calees] callType:NXMCallTypeServer delegate:self completion:^(NSError * _Nullable error, NXMCall * _Nullable call) {
+[self.nexmoClient call:@[calees] callType:NXMCallTypeInApp delegate:self completion:^(NSError * _Nullable error, NXMCall * _Nullable call) {
 	...
 }];
 ```

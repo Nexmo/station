@@ -4,63 +4,41 @@ language: objective_c
 menu_weight: 2
 ---
 
-`Call Other` button press is already connected to the `ViewController`.
 
-Implement the `call:` method to start a call. It will start the call, and also update the UIViews so that Jane or Joe know the call is in progress:
+Implement the `callNumber:` method to start a call. 
 
-```objective-c
-- (IBAction)call:(id)sender {
+```swift
+- (IBAction)callNumber:(id)sender {
     if(!self.ongoingCall) {
-        [self updateInterface];
-    }
-    [self.ongoingCall.myCallMember hangup];
-}
-```
-
-Ensure that `NSArray` is initialized with `otherUser.userId`. You can have multiple users in a call. However, this tutorial demonstrates a 1-on-1 call.
-
-As with `NXMClient`, `NXMCall` also receives a delegate which you supplied in the `call:callType:delegate:completion:` method.  
-
-Adopt the `NXMCallDelegate`. Your extension declaration should look like this:
-
-```objective-c
-@interface MainViewController () <NXMClientDelegate, NXMCallDelegate>
-
-```
-
-Copy the following implementation for the `statusChanged` method of the `NXMCallDelegate` along with the aid methods under the `#pragma mark NXMCallDelegate` line:
-
-```objective-c
-- (void)statusChanged:(NXMCallMember *)callMember {
-    if([callMember.userId isEqualToString:self.selectedUser.userId]) {
-        [self statusChangedForMyMember:callMember];
+        [self startCall];
     } else {
-        [self statusChangedForOtherMember:callMember];
+        [self endCall];
     }
 }
-
-- (void)statusChangedForMyMember:(NXMCallMember *)myMember {
-    [self updateCallStatusLabelWithStatus:myMember.status];
-    
-    //Handle Hangup
-
-}
-
-- (void)statusChangedForOtherMember:(NXMCallMember *)otherMember {
-
-}
 ```
 
-The `statusChanged:` method notifies on changes that happens to members on the call.  
+If a call is already in progress, taping the button will end it. 
 
-The `statusChangedForOtherMember` and `statusChangedForMyMember` methods are updated later when you will handle call hangup.
 
-You can build the project now and make an outgoing call. Next you implement how to receive an incoming call.
-
-Note that while `NXMCallTypeInApp` is useful for simple calls, you can also start a call with customized logic [using an NCCO](/client-sdk/in-app-voice/concepts/ncco-guide) ), by choosing `NXMCallTypeServer` as the `callType`.
+Implement the `startCall` method to start a call. It will start the call, and also update the interface to show that a call is in progress:
 
 ```objective-c
- [self.nexmoClient call:@[callees] callType:NXMCallTypeServer delegate:self completion:^(NSError * _Nullable error, NXMCall * _Nullable call){...}];
+- (void)startCall {
+    self.isInCall = YES;
+    [self.nexmoClient call:@[@"CALLEE_NUMBER"] callType:NXMCallTypeServer delegate:self completion:^(NSError * _Nullable error, NXMCall * _Nullable call) {
+        if(error) {
+            NSLog(@"❌❌❌ call not created: %@", error);
+            self.isInCall = NO;
+            self.ongoingCall = nil;
+            [self updateInterface];
+            return;
+        }
+        NSLog(@"🤙🤙🤙 call: %@", call);
+        self.ongoingCall = call;
+        self.ongoingCall.delegate = self;
+        [self updateInterface];
+    }];
+}
 ```
 
-This also allows you to start a PSTN phone call, by adding a phone number to the `callees` array.
+
