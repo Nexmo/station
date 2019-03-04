@@ -19,7 +19,19 @@ RSpec.describe 'rendering _structured_text landing page partial' do
     expect(rendered).to include('Things here')
   end
 
-  it 'raises an error if icon color is not provided' do
+  it 'renders without an icon if an icon is not provided' do
+    render partial: '/static/default_landing/partials/structured_text.html.erb', locals: {
+      'header' => 'My header',
+      'text' => [
+        { 'type' => 'small', 'content' => 'Things here' },
+        { 'type' => 'large', 'content' => 'Large things here' },
+      ],
+    }
+
+    expect(rendered).to_not include('use xlink:href')
+  end
+
+  it 'raises an error if icon key is provided without icon color' do
     expect do
       render partial: '/static/default_landing/partials/structured_text.html.erb', locals: {
         'icon' => { 'name' => 'nexmo-circle' },
@@ -29,10 +41,10 @@ RSpec.describe 'rendering _structured_text landing page partial' do
           { 'type' => 'large', 'content' => 'Large things here' },
         ],
     }
-    end .to raise_error("Missing icon 'color' key in structured_text landing page block")
+    end .to raise_error("Missing 'icon color' key in structured_text landing page icon block")
   end
 
-  it 'raises an error if an icon name is not provided' do
+  it 'raises an error if icon key is provided without icon name' do
     expect do
       render partial: '/static/default_landing/partials/structured_text.html.erb', locals: {
         'icon' => { 'color' => 'blue' },
@@ -42,7 +54,7 @@ RSpec.describe 'rendering _structured_text landing page partial' do
           { 'type' => 'large', 'content' => 'Large things here' },
         ],
     }
-    end .to raise_error("Missing icon 'name' key in structured_text landing page block")
+    end .to raise_error("Missing 'icon name' key in structured_text landing page icon block")
   end
 
   it 'raises an error if a header is not provided' do

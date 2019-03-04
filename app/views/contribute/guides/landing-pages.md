@@ -298,16 +298,13 @@ The `sessions` content block is a pre-defined set of information that takes no p
 
 <img src="/assets/images/contributing/landing_page_screenshots/structured_text.png" width=400>
 
-The `structured_text` content block provides the styling for a block of text content that features a title with an icon and subsequent paragraps of text. The text `content` can render markdown formatting. It takes the following required parameters:
+The `structured_text` content block provides the styling for a block of text content that features a title and subsequent paragraphs of text. The text `content` can render markdown formatting. It takes the following required parameters:
 
 ```yaml
 
 - type: structured_text
   structured_text:
     header: # Header text (i.e. "Who Owns Your Work?")
-    icon:
-      name: # Icon name (i.e. "icon-merge")
-      color: # Icon color (i.e. "blue")
     text:
       - content: # Text content here, including markdown formatting (i.e. "You do!...")
         type: # "large" or "small"
@@ -315,6 +312,16 @@ The `structured_text` content block provides the styling for a block of text con
 ```
 
 You can specify as many `text` blocks as you would like. Each `text` block consists of `content` and `type`.
+
+There is also an optional icon parameter for the `structured_text` content block. You can include it with the following:
+
+```yaml
+
+icon:
+  name: # Icon name (i.e. "icon-merge")
+  color: # Icon color (i.e. "blue")
+
+```
 
 ### Text
 
