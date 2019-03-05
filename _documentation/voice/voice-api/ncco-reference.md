@@ -137,11 +137,11 @@ You can use the following options to control a `connect` action:
 Option | Description | Required
 -- | -- | --
 `endpoint` | Connect to a single endpoint. [Available endpoint types](#endpoint-types-and-values) | Yes
-`from` | A number in [E.164](https://en.wikipedia.org/wiki/E.164) format that identifies the caller.§§ This must be one of your Nexmo virtual numbers, another value will result in the caller ID being unknown. | No
-`eventType` | Set to `synchronous` to: <ul markdown="1"><li>make the `connect` action synchronous</li><li>enable `eventUrl` to return an NCCO that overrides the current NCCO when a call moves to specific states.</li></ul> | No
+`from` | One of:<br /><br /> <ul class="Vlt-list Vlt-list--simple"><li>PSTN call: A number in [E.164](https://en.wikipedia.org/wiki/E.164) format that identifies the caller. This must be one of your Nexmo virtual numbers, another value will result in the caller ID being unknown.</li><li>IP call: The username of the caller</li></ul> | No
+`eventType` | Set to `synchronous` to: <ul class="Vlt-list Vlt-list--simple"><li>make the `connect` action synchronous</li><li>enable `eventUrl` to return an NCCO that overrides the current NCCO when a call moves to specific states.</li></ul> | No
 `timeout` |  If the call is unanswered, set the number in seconds before Nexmo stops ringing `endpoint`. The default value is `60`.
 `limit` | Maximum length of the call in seconds. The default and maximum value is `7200` seconds (2 hours). | No
-`machineDetection` | Configure the behavior when Nexmo detects that a destination is an answerphone. Set to either: <ul markdown="1"><li>`continue` - Nexmo sends an HTTP request to `event_url` with the Call event `machine`</li><li>`hangup` - end the Call</li></ul>   |
+`machineDetection` | Configure the behavior when Nexmo detects that a destination is an answerphone. Set to either: <ul class="Vlt-list Vlt-list--simple"><li>`continue` - Nexmo sends an HTTP request to `event_url` with the Call event `machine`</li><li>`hangup` - end the Call</li></ul>   |
 `eventUrl` | Set the webhook endpoint that Nexmo calls asynchronously on each of the possible [Call States](/voice/voice-api/guides/call-flow#call-states). If `eventType` is set to `synchronous` the `eventUrl` can return an NCCO that overrides the current NCCO when a timeout occurs. | No
 `eventMethod` | The HTTP method Nexmo uses to make the request to <i>eventUrl</i>. The default value is `POST`. | No
 
@@ -154,6 +154,12 @@ Value | Description
 `number` | the phone number to connect to in [E.164](https://en.wikipedia.org/wiki/E.164) format.
 `dtmfAnswer` | Set the digits that are sent to the user as soon as the Call is answered. The * and # digits are respected. You create pauses using p. Each pause is 500ms.
 `onAnswer` | An object containing a `url` key. The URL serves an NCCO to execute in the connected number before the call is joined to your existing conversation
+
+#### app - Connect the call to an IP leg
+
+Value | Description
+-- | --
+`user` | the username of the participant to connect. This username must have been [added as a user](/api/conversation#createUser)
 
 #### Websocket - the websocket to connect to
 
