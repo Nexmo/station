@@ -60,6 +60,10 @@ $quick-search-width: 800px;
       background: $grey-lighter;
     }
 
+    &:focus {
+      background-color: rgba(0,0,0,0.1);
+    }
+
     h6 {
       font-weight: 900;
     }
