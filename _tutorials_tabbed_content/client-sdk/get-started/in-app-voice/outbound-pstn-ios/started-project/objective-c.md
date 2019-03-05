@@ -8,10 +8,11 @@ Clone this [Github project](https://github.com/Nexmo/Client-Get-Started-AppToPho
 
 From the Github project you cloned, open the Starter app using XCode:
 
-1. Open `IAVAppDefine.h` file and replace the user token:
+1. Open `IAVAppDefine.h` file and replace the user id and token:
 
     ```objective-c
-        #define kInAppVoiceJaneToken @"JANE_TOKEN" //TODO: replace with a token for Jane
+        #define kJaneUserId @"" //TODO: swap with Jane's user id
+        #define kJaneToken @"" //TODO: swap with a token for Jane
     ```
 
 2. Open `ViewController.m` file and make sure the following lines exist:

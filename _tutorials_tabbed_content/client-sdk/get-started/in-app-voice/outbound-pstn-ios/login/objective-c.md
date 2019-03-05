@@ -10,7 +10,7 @@ Now locate the following line `#pragma mark - Tutorial Methods` and complete the
 
 ```objective-c
 - (void)setupNexmoClient {
-    self.nexmoClient = [[NXMClient alloc] initWithToken:kInAppVoiceJaneToken];
+    self.nexmoClient = [[NXMClient alloc] initWithToken:kJaneToken];
     [self.nexmoClient setDelegate:self];
     [self.nexmoClient login];
 }

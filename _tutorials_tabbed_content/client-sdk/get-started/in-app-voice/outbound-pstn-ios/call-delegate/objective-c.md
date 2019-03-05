@@ -17,12 +17,14 @@ Copy the following implementation for the `statusChanged` method of the `NXMCall
 
 ```objective-c
 - (void)statusChanged:(NXMCallMember *)callMember {
+    if (![callMember.user.userId  isEqual: kJaneUserId]) {
+        self.callStatus = callMember.status;
+    }
     //Handle Hangup
     if(callMember.status == NXMCallMemberStatusCancelled || callMember.status == NXMCallMemberStatusCompleted) {
         self.ongoingCall = nil;
-        self.isInCall = NO;
+        self.callStatus = NXMCallStatusDisconnected;
     }
     [self updateInterface];
 }
-
 ```
