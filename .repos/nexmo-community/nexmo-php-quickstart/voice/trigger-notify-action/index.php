@@ -17,7 +17,7 @@ $app->get('/webhooks/answer', function (Request $request, Response $response) {
             'action' => 'notify',
             'payload' => ['foo' => 'bar'],
             'eventUrl' => [
-                $uri->getScheme().'://'.$uri->getHost().':'.$uri->getPort().'/webhooks/dtmf'
+                $uri->getScheme().'://'.$uri->getHost().':'.$uri->getPort().'/webhooks/notification'
             ]
         ],
         [
@@ -46,6 +46,18 @@ $app->map(['GET', 'POST'], '/webhooks/notification', function(Request $request, 
             'text' => 'Your notification has been received, loud and clear'
         ]
     ]);
+});
+
+$app->map(['GET', 'POST'], '/webhooks/event', function (Request $request, Response $response) {
+    $params = $request->getParsedBody();
+
+    // Fall back to query parameters if needed
+    if (!count($params)){
+        $params = $request->getQueryParams();
+    }
+
+    error_log(print_r($params, true));
+    return $response->withStatus(204);
 });
 
 $app->run();
