@@ -22,7 +22,8 @@ Action | Description | Synchronous
 [connect](#connect) | To a connectable endpoint such as a phone number. | Yes
 [talk](#talk) | Send synthesized speech to a Conversation. | Yes, unless *bargeIn=true*
 [stream](#stream) | Send audio files to a Conversation. | Yes, unless *bargeIn=true*
-[input ](#input) | Collect digits from the person you are calling. | Yes
+[input](#input) | Collect digits from the person you are calling. | Yes
+[notify](#notify) | Send a request to your application to track progress through an NCCO | Yes
 
 > **Note**: [Connect an inbound call](/voice/voice-api/building-blocks/connect-an-inbound-call) provides an example of how to serve your NCCOs to Nexmo after a Call or Conference is initiated
 
@@ -298,3 +299,28 @@ Name | Description
 `conversation_uuid` | The unique ID for this conversation.
 `timed_out` | Returns `true` if this input timed out based on the value of `timeOut`.
 `dtmf` | The numbers input by your callee, in order.
+
+## Notify
+
+Use the `notify` action to send a custom payload to your event URL
+
+```json
+[
+  {
+    "action": "notify",
+    "payload": {
+      "foo": "bar"
+    },
+    "eventUrl": [
+      "https://example.com/webhooks/event"
+    ],
+    "eventMethod": "POST"
+  }
+]
+```
+
+Option | Description | Required
+-- | -- | --
+`payload` | The JSON body to send to your event URL | Yes
+`eventUrl` | The URL to send events to. If you return an NCCO when you receive a notification, it will replace the current NCCO | Yes
+`eventMethod` | The HTTP method to use when sending `payload` to your `eventUrl` | No
