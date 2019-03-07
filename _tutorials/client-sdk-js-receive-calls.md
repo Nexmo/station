@@ -21,7 +21,7 @@ A [Nexmo application](https://developer.nexmo.com/concepts/guides/applications) 
 
 A Nexmo application requires two URLs as parameters:
 
-* `answer_url` - Nexmo will make a request to this URL as soon as the call is answered.
+* `answer_url` - Nexmo will make a request to this URL as soon as someone makes a call to your Nexmo number.
 * `event_url` - Nexmo sends event information asynchronously to this URL when the call status changes; this ultimately defines the flow of the call.
 
 Both URLs need to return JSON and follow the [Nexmo Call Control Object (NCCO)](https://developer.nexmo.com/voice/voice-api/ncco-reference) reference. In the example below, you will define an NCCO that reads a predefined text for an incoming call, using the [Text to Speech](https://developer.nexmo.com/voice/voice-api/guides/text-to-speech) engine.
