@@ -184,7 +184,7 @@ application.on("member:call", (member, call) => {
 })
 ```
 
-You can reject a call after you've answered it by using the `hangUp()` method on the `call` object.
+You can hang up a call after you've answered it by using the `hangUp()` method on the `call` object.
 
 ## Conclusion
 
