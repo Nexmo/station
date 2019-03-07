@@ -10,7 +10,7 @@ languages:
 
 In this guide, you'll learn how to forward an incoming phone call from a Nexmo phone number, to an in-app user by implementing a webhook and linking that to a Nexmo application.
 
-You will create a simple app to receive a call. The app will automatically log in a user called Jamie. After logging in, Jamie is able to receive a call and perform actions such as answer, decline or hangup.
+You will create a simple app to receive a call. The app will automatically log in a user called jamie. After logging in, jamie is able to receive a call and perform actions such as answer, decline or hangup.
 
 
 ## Nexmo Concepts
@@ -34,7 +34,7 @@ For more information on Nexmo applications please visit the Nexmo [API Reference
 ## Prerequisites
 
 - Use an existing Nexmo Application or [create a new one](/tutorials/client-sdk-generate-test-credentials).
-- Have a user named `Jamie` or [create one](/tutorials/client-sdk-generate-test-credentials#create-a-user) for your Nexmo Application, with a [valid JWT](/tutorials/client-sdk-generate-test-credentials).
+- Have a user named `jamie` or [create one](/tutorials/client-sdk-generate-test-credentials#create-a-user) for your Nexmo Application, with a [valid JWT](/tutorials/client-sdk-generate-test-credentials).
 
 
 ## Application webhook
@@ -54,12 +54,13 @@ NB: This gist is specific to this tutorial and in a real-life scenario, the `ans
 
 ## Adding the Nexmo Client to your application
 
-We'll start with a blank HTML page with three buttons for answering, declining and hanging up a call. Create an `index.html` file with, and initialize it with a boilerplate, for example:
+We'll start with a blank HTML page with three buttons for answering, declining and hanging up a call. Create a minimal `index.html` file with:
 
 ```html
 <html>
   <head>
     <title>Receive Phone Calls</title>
+    <script src="./node_modules/nexmo-client/dist/conversationClient.js"></script>
   </head>
   <body>
     <p id="notification"></p>
@@ -73,19 +74,10 @@ We'll start with a blank HTML page with three buttons for answering, declining a
 </html>
 ```
 
-We'll need to add the Nexmo Client to it, in order to do that we'll install it from NPM first, by running this command in the same folder as your `index.html` file:
+We'll need to add the Nexmo Client to our folder, in order to do that we'll install it from NPM first, by running this command in the same folder as your `index.html` file:
 
 ```bash
 $ npm install nexmo-client --save
-```
-
-We'll also need to add it to the `<head>` of our `index.html` file:
-
-```html
-<head>
-  <title>Receive Phone Calls</title>
-  <script src="./node_modules/nexmo-client/dist/conversationClient.js"></script>
-</head>
 ```
 
 ## Login
@@ -113,7 +105,7 @@ We'll update the empty `<script>` tag that's at the bottom of your `<body>` tag 
 </script>
 ```
 
-At this point you should already be able to run the app and see that you can login successfully with the SDK. Because the Nexmo Client uses IndexedDB for it's sync mechanism, we suggest you don't serve `index.html` using the `file://` protocol. That corrupts the IndexedDB for any other users and makes the SDK behave inconsistently. You can use any HTTP server, like `http-server`:
+At this point you should already be able to run the app and see that you can login successfully with the SDK. Because the Nexmo Client uses IndexedDB for it's sync mechanism, we suggest you don't serve `index.html` using the `file://` protocol. That corrupts the IndexedDB for any other users and makes the SDK behave inconsistently. You can use any HTTP server, like `http-server`. If you want to install it from NPM and then run it with cache disabled, here are the terminal commands:
 
 ```bash
 $ npm install -g http-server
@@ -123,7 +115,7 @@ $ http-server -c-1
 
 ## Listen for incoming call
 
-When the phone number associated with your Nexmo app receives a call, the application should notify the user `Jamie` so that they can decide whether to answer or reject it.
+When the phone number associated with your Nexmo app receives a call, the application should notify the user `jamie` so that they can decide whether to answer or reject it.
 
 This is done by listening for `member:call` events on the `application` object returned by the `login()` promise.
 
@@ -141,50 +133,49 @@ The listener method takes as a parameter an `member` object that contains inform
 
 ## Answer a call
 
+In order to answer a call, you'll have to use the `answer()` method on the call object that you received when the `member:call` event was triggered.
+
 ```javascript
 application.on("member:call", (member, call) => {
   notification.textContent = `You're receiving a call`;
 
-  document.getElementById("answer").addEventListener(click, () => {
+  document.getElementById("answer").addEventListener("click", () => {
     call.answer();
     notification.textContent = `You're in a call`;
   })
 })
 ```
 
-In order to answer a call, you'll have to use the `answer()` method on the call object that you received when the `member:call` event was triggered.
-
 
 ## Reject a call
+
+In order to reject an incoming call, you'll have to use the `reject()` method on the call object that you received when the `member:call` event was triggered.
 
 ```javascript
 application.on("member:call", (member, call) => {
   notification.textContent = `You're receiving a call`;
   ...
-  document.getElementById("reject").addEventListener(click, () => {
+  document.getElementById("reject").addEventListener("click", () => {
     call.reject();
     notification.textContent = `You rejected the call`;
   })
 })
 ```
 
-In order to reject an incoming call, you'll have to use the `reject()` method on the call object that you received when the `member:call` event was triggered.
-
-
 ## Hangup a call
+
+You can hang up a call after you've answered it by using the `hangUp()` method on the `call` object.
 
 ```javascript
 application.on("member:call", (member, call) => {
   notification.textContent = `You're receiving a call`;
   ...
-  document.getElementById("hangup").addEventListener(click, () => {
+  document.getElementById("hangup").addEventListener("click", () => {
     call.hangUp();
     notification.textContent = "The call has ended";
   })
 })
 ```
-
-You can hang up a call after you've answered it by using the `hangUp()` method on the `call` object.
 
 ## Conclusion
 
