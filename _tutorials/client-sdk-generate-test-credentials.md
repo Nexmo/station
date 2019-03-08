@@ -87,12 +87,15 @@ The user ID is used to perform tasks by the SDK, such as login, starting a call 
 Generate a JWT for the user. Remember to replace `MY_APP_ID` and `MY_USER_NAME` values in the command:
 
 ```bash
-nexmo jwt:generate ./private.key sub=MY_USER_NAME exp=$(($(date +%s)+86400)) acl='/**' application_id=MY_APP_ID
+nexmo jwt:generate ./private.key sub=MY_USER_NAME exp=$(($(date +%s)+86400)) acl='<your_access_control_list>' application_id=MY_APP_ID
 ```
 
-> **NOTE**: The above command sets the expiry of the JWT to one day from now, which is the maximum amount of time. You may change the expiration to a shortened amount of time, or re-grenerate a JWT for the user after the current JWT has expired.
+The above command sets the expiry of the JWT to one day from now, which is the maximum amount of time. You may change the expiration to a shortened amount of time, or re-grenerate a JWT for the user after the current JWT has expired.
 
+Replace `<your_access_control_list>` with an ACL of your choice. You can read more about how to define ACLs in the [ACL documentation](/client-sdk/concepts/jwt-acl).
 
-> **NOTE**: On production apps, it is expected that your backend will expose an endpoint that generates JWT per your client request.
+> **NOTE**: In production apps, it is expected that your backend will expose an endpoint that generates JWT per your client request.
+
+## Further information
 
 You can read more about the JWT and ACL [in this topic](/client-sdk/concepts/jwt-acl).
