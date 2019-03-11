@@ -179,7 +179,7 @@ class StaticController < ApplicationController
         },
       ]
     else
-      return render 'static/404', status: :not_found, formats: [:html]
+      return render_not_found
     end
 
     @building_blocks = @blocks.map do |block|

@@ -19,10 +19,6 @@ class TaskController < ApplicationController
     render layout: 'documentation'
   end
 
-  def not_found
-    render 'static/404', status: :not_found, formats: [:html]
-  end
-
   private
 
   def set_navigation
@@ -33,7 +29,7 @@ class TaskController < ApplicationController
 
   def set_task
     @task_name = params[:task_name]
-    return not_found unless @task_name
+    render_not_found unless @task_name
   end
 
   def set_task_step
