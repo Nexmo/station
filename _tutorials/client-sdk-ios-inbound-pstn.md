@@ -10,27 +10,27 @@ languages:
 
 # How to Receive Phone Calls with the Nexmo Client SDK on iOS
 
-In this guide, you'll learn how to forward an incoming phone call to a Nexmo phone number, to an in-app user by implementing a webhook and linking that to a Nexmo application.
+In this guide, you'll learn how to receive an incoming phone call in a iOS application. 
 
-You will create a simple app to receive a call. The app will automatically log in a user called Jane. After logging in, Jane is able to receive a call and perform actions such as answer, decline or hangup.
+You will create a simple iOS app, that will automatically log in a user called Jane. After logging in, Jane is able to receive a call and perform actions such as answer, reject or hangup.
 
 
 ## Nexmo Concepts
 
-Before proceeding any further, here are couple of concepts that you'll need to understand.
+Before proceeding any further, here are a couple of concepts that you'll need to understand.
 
-A [Nexmo application](https://developer.nexmo.com/concepts/guides/applications) allows you to easily use Nexmo products, in this case the [Voice API](https://developer.nexmo.com/voice/voice-api/overview) to build voice applications in the Cloud.
+A [Nexmo application](/concepts/guides/applications) allows you to easily use Nexmo products, in this case the [Voice API](/voice/voice-api/overview) to build voice applications in the Cloud.
 
 A Nexmo application requires two URLs as parameters:
 
 * `answer_url` - Nexmo will make a request to this URL as soon as the call is answered.
 * `event_url` - Nexmo sends event information asynchronously to this URL when the call status changes; this ultimately defines the flow of the call.
 
-Both URLs need to return JSON and follow the [Nexmo Call Control Object (NCCO)](https://developer.nexmo.com/voice/voice-api/ncco-reference) reference. In the example below, you will define an NCCO that reads a predefined text for an incoming call, using the [Text to Speech](https://developer.nexmo.com/voice/voice-api/guides/text-to-speech) engine.
+Both URLs need to return a JSON and follow the [Nexmo Call Control Object (NCCO)](/voice/voice-api/ncco-reference) reference. In the example below, you will define an NCCO that reads a predefined text for an incoming call, using the [Text to Speech](/voice-api/guides/text-to-speech) engine.
 
-A [Nexmo virtual number](https://developer.nexmo.com/numbers/overview) will be associated with the app and serve as the "entry point" to it - this is the number you'll call to test the application.
+A [Nexmo virtual number](/numbers/overview) will be associated with the app and serve as the "entry point" to it - this is the number you'll call to test the application.
 
-For more information on Nexmo applications please visit the Nexmo [API Reference](https://developer.nexmo.com/api/application).)
+For more information on Nexmo applications please visit the Nexmo [API Reference](/api/application).)
 
 
 ## Prerequisites
@@ -41,20 +41,37 @@ For more information on Nexmo applications please visit the Nexmo [API Reference
 
 ## Application webhook
 
-For your application to connect an incoming phone call to an app user, you'll need to provide a URL as the `Answer URL` webhook - we've created a [gist](https://gist.github.com/NexmoDev/ed91ac99a0b278fbdcbde72ca3599ac7) for you to use.
+For your application to connect an incoming phone call to an app user, you'll need to provide a URL as the [`Answer URL` webhook](/voice/voice-api/webhook-reference#answer-webhook). In other words, this response from this `answer_url` defines the fllow of the call. For this tutorial, a [gist](https://gist.github.com/NexmoDev/ed91ac99a0b278fbdcbde72ca3599ac7) was created for you to use.
 
-To add this URL, go to your [Nexmo dashboard](https://dashboard.nexmo.com), navigate to [applications](https://dashboard.nexmo.com/voice/your-applications), select your application and click the 'Edit' button.
+To add this URL: 
+1. Go to your [Nexmo dashboard](https://dashboard.nexmo.com)
+2. Navigate to [applications](https://dashboard.nexmo.com/voice/your-applications)
+3. Select your application
+4. Click the 'Edit' button.
 
-Now, set the application's `Answer URL` to: 
+5. Now, set the application's `Answer URL` to: 
 
-``https://gist.githubusercontent.com/NexmoDev/ed91ac99a0b278fbdcbde72ca3599ac7/raw/4a134363f8b3bbebae27f04095a57d0cebc5a1be/ncco.json``
+`https://gist.githubusercontent.com/NexmoDev/ed91ac99a0b278fbdcbde72ca3599ac7/raw/da2b2853ebd1798404fa040942eedab1d03fdac3/ncco.json`
 
-and click 'Save changes'.
+* Click 'Save changes'.
 
-NB: This gist is specific to this tutorial and in a real-life scenario, the `answer_url` should be provided by a purposely built web solution that can serve custom NCCO's if required.
+> **NOTE**: This gist is *specific* to this tutorial. In a real-life scenario, the `answer_url` should be provided by your backend, as a purposely built web solution that can serve custom NCCOs as your app's use case requires.
 
 
-## The Starter Project
+## Link a Nexmo Virtual Number
+
+A Nexmo virtual number [Nexmo phone number](/numbers/guides/numbers) is a phone number that you can link to your Nexmo Application. When a user calls that phone number, the `answer_url` that is defined on your Nexmo Application is executed. In this tutorial case, you set up an `answer_url` in the above step, that upon calling connects the call to your app user `Jane`.
+
+To link a Nexmo number to your app:
+
+1. Go to your [Nexmo dashboard](https://dashboard.nexmo.com)
+2. Navigate to [applications](https://dashboard.nexmo.com/voice/your-applications)
+3. Select your application
+4. Click the 'Edit' button.
+
+5. Switch to `Numbers` tab above, search for a number you'd like, and click `Link`, to link.
+
+## The starter project
 
 ```tabbed_content
 source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/inbound-pstn-ios/started-project'
@@ -131,9 +148,9 @@ To read more about the permissions required, [see the setup tutorial](/tutorials
 
 ## Conclusion
 
-You have implemented your first Phone to App Voice application with the Nexmo Client SDK for iOS.
+Congratulations! You have implemented your first Phone to App Voice application with the Nexmo Client SDK for iOS.
 
-Run the app on a simulator and see that you can answer, reject and hangup a call received on the phone number associated with your Nexmo application.
+Run the app on a simulator, and with another device call the nexmo Number you linked. Then, see that you can answer, reject and hangup a call received on the phone number associated with your Nexmo application.
 
-If possible, test on a device using your developer signing and provisioning facility.
+If possible, test the application on a device using your developer signing and provisioning facility.
 
