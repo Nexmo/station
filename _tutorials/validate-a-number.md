@@ -68,13 +68,13 @@ Fetching gem metadata from https://rubygems.org/...
 Resolving dependencies...
 Using bundler 1.16.4
 Using dotenv 2.1.1
-Using jwt 2.1.0 
-Using nexmo 5.4.0 
+Using jwt 2.1.0
+Using nexmo 5.4.0
 Bundle complete! 2 Gemfile dependencies, 4 gems now installed.
 Use `bundle info [gemname]` to see where a bundled gem is installed.
 ```
 
-## Code Walkthrough 
+## Code Walkthrough
 
 The tutorial project is not an application, but a collection of code snippets that show you how to work with the Number Insight API. In this walkthrough you will execute each snippet in turn and learn how it works.
 
@@ -84,10 +84,10 @@ This sample uses the Number Insight Basic API to find out which country a number
 
 #### Run the code
 
-Execute the `snippets/1_countrycode.rb` ruby file:
+Execute the `snippets/1_country_code.rb` ruby file:
 
 ```
-$ ruby snippets/1_countrycode.rb
+$ ruby snippets/1_country_code.rb
 ```
 
 This returns the phone number in international format as well as the name, code and prefix where the number is registered.

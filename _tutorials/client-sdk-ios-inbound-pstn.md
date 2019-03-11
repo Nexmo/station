@@ -10,9 +10,9 @@ languages:
 
 # How to Receive Phone Calls with the Nexmo Client SDK on iOS
 
-In this guide, you'll learn how to forward an incoming phone call to a Nexmo phone number, to an in-app user by implementing a webhook and linking that to a Nexmo application.
+In this guide, you'll learn how to receive an incoming phone call in a iOS application.
 
-You will create a simple app to receive a call. The app will automatically log in a user called Jane. After logging in, Jane is able to receive a call and perform actions such as answer, decline or hangup.
+You will create a simple iOS app, that will automatically log in a user called Jane. After logging in, Jane is able to receive a call and perform actions such as answer, reject or hangup.
 
 
 ## Nexmo Concepts
@@ -36,7 +36,20 @@ source: _partials/client-sdk/voice/inbound-pstn-application-webhook.md
 ```
 
 
-## The Starter Project
+## Link a Nexmo Virtual Number
+
+A Nexmo virtual number [Nexmo phone number](/numbers/guides/numbers) is a phone number that you can link to your Nexmo Application. When a user calls that phone number, the `answer_url` that is defined on your Nexmo Application is executed. In this tutorial case, you set up an `answer_url` in the above step, that upon calling connects the call to your app user `Jane`.
+
+To link a Nexmo number to your app:
+
+1. Go to your [Nexmo dashboard](https://dashboard.nexmo.com)
+2. Navigate to [applications](https://dashboard.nexmo.com/voice/your-applications)
+3. Select your application
+4. Click the 'Edit' button.
+
+5. Switch to `Numbers` tab above, search for a number you'd like, and click `Link`, to link.
+
+## The starter project
 
 ```tabbed_content
 source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/inbound-pstn-ios/started-project'
@@ -113,8 +126,8 @@ To read more about the permissions required, [see the setup tutorial](/tutorials
 
 ## Conclusion
 
-You have implemented your first Phone to App Voice application with the Nexmo Client SDK for iOS.
+Congratulations! You have implemented your first Phone to App Voice application with the Nexmo Client SDK for iOS.
 
-Run the app on a simulator and see that you can answer, reject and hangup a call received on the phone number associated with your Nexmo application.
+Run the app on a simulator, and with another device call the nexmo Number you linked. Then, see that you can answer, reject and hangup a call received on the phone number associated with your Nexmo application.
 
-If possible, test on a device using your developer signing and provisioning facility.
+If possible, test the application on a device using your developer signing and provisioning facility.

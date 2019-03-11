@@ -165,21 +165,22 @@ showConversationHistory(conversation) {
 
 ### 2.4 - Add media:stream:on listeners
 
-With these first parts we're listening and reacting to `member:media` events that occur in the conversation. In order to get access to the video streams, we need to listen to `media:stream:on` events as well. These events don't fire on the Conversation though, they fire on a Member. Now we're going to register a listener on `conversation.me` in order to get our own video feed. Let's add the listener at the end of the `setupConversationEvents` method:
+With these first parts we're listening and reacting to `member:media` events that occur in the conversation. In order to get access to the video streams, we need to listen to `media:stream:on` events as well. These events don't fire on the Conversation though, they fire on a Member. Now we're going to register a listener on `conversation.me` in order to get our own video feed. Let's add a helper method `setupVideoStream` and then use that in the listener at the end of the `setupConversationEvents` method:
 
 ```javascript
+setupVideoStream(video, stream) {
+  if ("srcObject" in video) {
+    video.srcObject = stream;
+  } else {
+    // Avoid using this in new browsers, as it is going away.
+    video.src = window.URL.createObjectURL(stream);
+  }
+}
+
 setupConversationEvents(conversation) {
   ...
 
-  conversation.me.on("media:stream:on", (stream) => {
-    if ("srcObject" in this.selfVideo) {
-      this.selfVideo.srcObject = stream.localStream;
-    } else {
-      // Avoid using this in new browsers, as it is going away.
-      this.selfVideo.src = window.URL.createObjectURL(stream.localStream);
-    }
-  })
-
+  conversation.me.on("media:stream:on", (stream) => this.setupVideoStream(this.selfVideo, stream.stream))
 }
 ```
 
@@ -191,15 +192,7 @@ setupConversationEvents(conversation) {
 
   for (let member of conversation.members.values()) {
     if (member.user.name != conversation.me.user.name) {
-      member.on("media:stream:on", (stream) => {
-          if ("srcObject" in this.conversationVideo) {
-            this.conversationVideo.srcObject = stream.stream;
-          } else {
-            // Avoid using this in new browsers, as it is going away.
-            this.conversationVideo.src = window.URL.createObjectURL(stream.stream);
-          }
-        }
-      )
+      member.on("media:stream:on", (stream) => this.setupVideoStream(this.conversationVideo, stream.stream))
     }
   }
 }

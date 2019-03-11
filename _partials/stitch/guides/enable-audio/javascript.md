@@ -54,7 +54,7 @@ constructor() {
 
 ### 1.2 - Add enable audio handler
 
-We'll then update the `setupUserEvents` method to trigger `conversation.media.enable()` when the user clicks the `Enable Audio` button. The `conversation.media.enable()` returns a promise with a stream object, which we'll use as the source for our `<audio>` element. We'll then add a listener on the `<audio>` element to start playing as soon as the metadata has been loaded. 
+We'll then update the `setupUserEvents` method to trigger `conversation.media.enable()` when the user clicks the `Enable Audio` button. The `conversation.media.enable()` returns a promise with a stream object, which we'll use as the source for our `<audio>` element. We'll then add a listener on the `<audio>` element to start playing as soon as the metadata has been loaded.
 
 ```javascript
 setupUserEvents() {
@@ -79,7 +79,7 @@ setupUserEvents() {
 }
 ```
 
-Note that enabling audio in a conversation establishes an audio leg for a member of the conversation. The audio is only streamed to other members of the conversation who have also enabled audio. 
+Note that enabling audio in a conversation establishes an audio leg for a member of the conversation. The audio is only streamed to other members of the conversation who have also enabled audio.
 
 ### 1.3 - Add disable audio handler
 
@@ -132,7 +132,3 @@ showConversationHistory(conversation) {
 Now run `index.html` in two side-by-side browser windows, making sure to login with the user name `jamie` in one and with `alice` in the other. Enable audio on both and start talking. You'll also see events being logged in the browser console.
 
 That's it! Your page should now look something like [this](https://github.com/Nexmo/stitch-js-quickstart/blob/master/enable-audio/index.html).
-
-## Where next?
-- The [next guide](/client-sdk/in-app-voice/guides/calling-users) covers how to easily call users with the convenience method `call()`. This method offers an easy to use alternative for creating a conversation, inviting users and manually enabling their audio streams.
-

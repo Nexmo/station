@@ -27,7 +27,7 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/*
- * Nexmo Stitch SDK
+ * Nexmo Client SDK
  *  Main wrapper
  *
  * Copyright (c) Nexmo Inc. 2017
@@ -73,12 +73,17 @@ const NexmoClientError = ConversationClientError.NexmoClientError;
  * @param {Boolean} params.debug=false set mode to debug
  * @param {string} params.url=nexmo_ws_url Nexmo Conversation Websocket url
  * @param {string} params.path=/rtc Nexmo Conversation Websocket url path suffix
- * @param {Boolean} params.reconnection=true socket.io reconnection attribute
  * @param {object} params.rtcstats set reporting for stream statistics (Websocket or internal event emit)
  * @param {string} params.rtcstats.ws_url='' endpoint (weboscket) to send rtc stats.
  * @param {Boolean} params.rtcstats.emit_events=false receive rtcstats:report event
- * @param {Boolean} params.forceNew=true socket.io forceNew attribute
- * @param {Boolean} params.autoConnect=true socket.io autoConnect attribute
+
+ * @param {object} params.socket_io configure socket.io
+ * @param {Boolean} params.socket_io.forceNew=true configure socket.io forceNew attribute
+ * @param {Boolean} params.socket_io.autoConnect=true socket.io autoConnect attribute
+ * @param {Boolean} params.socket_io.reconnection=true socket.io reconnection attribute
+ * @param {number} params.socket_io.reconnectionAttempts=5 socket.io reconnectionAttempts attribute
+ * @param {string[]} params.socket_io.transports=['websocket] socket.io transports protocols
+
  * @param {string} params.ips_url=ips_url Nexmo IPS url for image upload
  * @param {string} params.environment='production' development / production environment
  * @param {object} params.iceServers=[{'stun:stun.l.google.com:19302'}] iceServers for RTCPeerConnection
@@ -96,15 +101,19 @@ class ConversationClient {
 		//save an array of instances
 		const options = params || {};
 		const config = this.config = {
-			autoConnect: true,
 			cache: true,
 			debug: false,
 			callstats: { enabled: false, AppID: '', AppSecret: '' },
 			environment: '@@environment',
-			forceNew: true,
 			ips_url: '@@ips_url',
 			path: '/rtc',
-			reconnection: true,
+			socket_io: {
+				reconnection: true,
+				reconnectionAttempts: 5,
+				forceNew: true,
+				autoConnect: true,
+				transports: ['websocket']
+			},
 			repository: '@@repository',
 			screenShareExtensionId: '',
 			SDK_version: '@@SDK_version',
@@ -117,6 +126,7 @@ class ConversationClient {
 				emit_events: false
 			}
 		};
+
 		let connection;
 		this.sessionReady = false;
 		this.requests = {};
@@ -161,13 +171,8 @@ class ConversationClient {
 		}
 
 		// Create the socket.io connection and allow multiple instances
-		connection = socket_io.connect(config.url, {
-			path: config.path,
-			forceNew: config.forceNew,
-			reconnection: config.reconnection,
-			autoConnect: config.autoConnect,
-			transports: ['websocket']
-		});
+		let socket_io_config = Object.assign({ path: config.path }, config.socket_io);
+		connection = socket_io.connect(config.url, socket_io_config);
 
 		this.connection = connection;
 
@@ -237,6 +242,8 @@ class ConversationClient {
 						}).catch((error) => {
 							this.log.error(error);
 						});
+				}).catch((error) => {
+					this.log.error(error);
 				});
 			this.log.info('websocket reconnect');
 		});
@@ -253,7 +260,7 @@ class ConversationClient {
 			this.emit('reconnecting', retry_number);
 			this.log.info('websocket reconnecting');
 		});
-		/**x
+		/**
 		 * Error event.
 		 *
 		 * @event ConversationClient#error
@@ -502,7 +509,7 @@ class ConversationClient {
 	login(token) {
 		// return a promise for the application
 		return new Promise((resolve, reject) => {
-			this.log.info(`Stitch-SDK Version: ${this.config.SDK_version}`);
+			this.log.info(`Client-SDK Version: ${this.config.SDK_version}`);
 			Utils.cleanupToken();
 			this.sendRequest({
 				type: 'session:login',
@@ -660,13 +667,13 @@ module.exports = ConversationClient;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:Stitch-errors">Stitch-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Call.html">Call</a></li><li><a href="Conversation.html">Conversation</a></li><li><a href="ConversationClient.html">ConversationClient</a></li><li><a href="Event.html">Event</a></li><li><a href="ImageEvent.html">ImageEvent</a></li><li><a href="Media.html">Media</a></li><li><a href="Member.html">Member</a></li><li><a href="Recording.html">Recording</a></li><li><a href="TextEvent.html">TextEvent</a></li></ul><h3>Events</h3><ul><li><a href="Application.html#event:call:status:changed">call:status:changed</a></li><li><a href="Application.html#event:NXM-errors">NXM-errors</a></li><li><a href="Application.html#event:member:call">member:call</a></li><li><a href="Application.html#event:member:invited">member:invited</a></li><li><a href="Application.html#event:member:joined">member:joined</a></li><li><a href="Application.html#event:rtcstats:report">rtcstats:report</a></li><li><a href="Application.html#event:sync:progress">sync:progress</a></li><li><a href="Call.html#event:member:call:state">member:call:state</a></li><li><a href="Conversation.html#event:audio:mute:off">audio:mute:off</a></li><li><a href="Conversation.html#event:audio:mute:on">audio:mute:on</a></li><li><a href="Conversation.html#event:event:delete">delete</a></li><li><a href="Conversation.html#event:image">image</a></li><li><a href="Conversation.html#event:text">text</a></li><li><a href="Conversation.html#event:image:seen">image:seen</a></li><li><a href="Conversation.html#event:member:invited">member:invited</a></li><li><a href="Conversation.html#event:member:joined">member:joined</a></li><li><a href="Conversation.html#event:member:left">member:left</a></li><li><a href="Conversation.html#event:member:media">member:media</a></li><li><a href="Conversation.html#event:text:seen">text:seen</a></li><li><a href="Conversation.html#event:text:typing:off">text:typing:off</a></li><li><a href="Conversation.html#event:text:typing:on">text:typing:on</a></li><li><a href="ConversationClient.html#event:connecting">connecting</a></li><li><a href="ConversationClient.html#event:disconnect">disconnect</a></li><li><a href="ConversationClient.html#event:error">error</a></li><li><a href="ConversationClient.html#event:ready">ready</a></li><li><a href="ConversationClient.html#event:reconnect">reconnect</a></li><li><a href="ConversationClient.html#event:reconnecting">reconnecting</a></li><li><a href="Member.html#event:media:stream:on">media:stream:on</a></li></ul><h3>Global</h3><ul><li><a href="global.html#NexmoApiError">NexmoApiError</a></li><li><a href="global.html#NexmoClientError">NexmoClientError</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Nov 14 2018 16:18:45 GMT+0000 (UTC)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Feb 01 2019 11:02:45 GMT+0000 (UTC)
 </footer>
 
 <script> prettyPrint(); </script>
