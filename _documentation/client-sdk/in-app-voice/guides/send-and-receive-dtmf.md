@@ -6,7 +6,7 @@ navigation_weight: 3
 
 # Send and Receive DTMF
 
-> **NOTE**: This fueature is currently supported only on Nexmo Client Android SDK.
+> **NOTE**: This feature is currently supported only on Nexmo Client Android SDK.
 
 ## Overview
 
@@ -21,7 +21,7 @@ With Nexmo Client SDKs you can both collect a DTMF input from your app user, and
 In order to send DTMF tones from your application to the backend, use this method:
 
 ```java
-NexmoCall.sendDTMF(dtmf)
+NexmoCall.sendDTMF(dtmf: String)
 ```
 
 During an ongoing call, where your backend implemented an [NCCO with an Input action](/voice/voice-api/ncco-reference#input), sending a DTMF will trigger the defined `"eventUrl"`.
@@ -39,7 +39,7 @@ For example:
 callEventListener = object : NexmoCallEventListener {
     //…
 
-    override fun onDTMF(digit: String, member: NexmoCallMember) {
+    override fun onDTMF(dtmf: String, member: NexmoCallMember) {
         TODO(“implement DTMF received")
     }
 }
