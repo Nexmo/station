@@ -44,12 +44,12 @@ For more information on Nexmo applications please visit the Nexmo [API Reference
 For your application to connect an incoming phone call to an app user, you'll need to provide a URL as the [`Answer URL` webhook](/voice/voice-api/webhook-reference#answer-webhook). In other words, this response from this `answer_url` defines the fllow of the call. For this tutorial, a [gist](https://gist.github.com/NexmoDev/ed91ac99a0b278fbdcbde72ca3599ac7) was created for you to use.
 
 To add this URL: 
-* Go to your [Nexmo dashboard](https://dashboard.nexmo.com)
-* Navigate to [applications](https://dashboard.nexmo.com/voice/your-applications)
-* Select your application
-* Click the 'Edit' button.
+1. Go to your [Nexmo dashboard](https://dashboard.nexmo.com)
+2. Navigate to [applications](https://dashboard.nexmo.com/voice/your-applications)
+3. Select your application
+4. Click the 'Edit' button.
 
-* Now, set the application's `Answer URL` to: 
+5. Now, set the application's `Answer URL` to: 
 
 `https://gist.githubusercontent.com/NexmoDev/ed91ac99a0b278fbdcbde72ca3599ac7/raw/da2b2853ebd1798404fa040942eedab1d03fdac3/ncco.json`
 
@@ -64,12 +64,12 @@ A Nexmo virtual number [Nexmo phone number](/numbers/guides/numbers) is a phone 
 
 To link a Nexmo number to your app:
 
-* Go to your [Nexmo dashboard](https://dashboard.nexmo.com)
-* Navigate to [applications](https://dashboard.nexmo.com/voice/your-applications)
-* Select your application
-* Click the 'Edit' button.
+1. Go to your [Nexmo dashboard](https://dashboard.nexmo.com)
+2. Navigate to [applications](https://dashboard.nexmo.com/voice/your-applications)
+3. Select your application
+4. Click the 'Edit' button.
 
-* Switch to `Numbers` tab above, search for a number you'd like, and click `Link`, to link.
+5. Switch to `Numbers` tab above, search for a number you'd like, and click `Link`, to link.
 
 ## The starter project
 
