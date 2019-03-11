@@ -37,7 +37,7 @@ source: _partials/client-sdk/voice/inbound-pstn-application-webhook.md
 
 ## Adding the Nexmo Client to your application
 
-We'll start with a blank HTML page with three buttons for answering, declining and hanging up a call. Create a minimal `index.html` file with:
+We'll start with a blank HTML page with three buttons for answering, declining and hanging up a call. Create a minimal `index.html` file, for example:
 
 ```html
 <html>
@@ -85,7 +85,7 @@ This is done by listening for `member:call` events on the `application` object r
 })
 ```
 
-The listener method takes as a parameter an `member` object that contains information about who's calling, and a `call` object, that lets you interact with the call in progress.
+The listener method receives an `member` object that contains information about who's calling, and a `call` object, that lets you interact with the call in progress.
 
 
 ## Answer a call
@@ -123,15 +123,8 @@ application.on("member:call", (member, call) => {
 
 You can hang up a call after you've answered it by using the `hangUp()` method on the `call` object.
 
-```javascript
-application.on("member:call", (member, call) => {
-  notification.textContent = `You're receiving a call`;
-  ...
-  document.getElementById("hangup").addEventListener("click", () => {
-    call.hangUp();
-    notification.textContent = "The call has ended";
-  })
-})
+```partial
+source: _partials/client-sdk/voice/javascript/hangup.md
 ```
 
 ## Conclusion

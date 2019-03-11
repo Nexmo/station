@@ -36,7 +36,7 @@ source: _partials/client-sdk/voice/outbound-pstn-application-webhook.md
 
 ## Adding the Nexmo Client to your application
 
-We'll start with a blank HTML page with two buttons for calling a phone and hanging up a call. Create an `index.html` file with, and initialize it with a boilerplate, for example:
+We'll start with a blank HTML page with two buttons for calling a phone and hanging up a call. Create a minimal `index.html` file, for example:
 
 ```html
 <html>
@@ -96,7 +96,7 @@ When the application makes a call, you can start listening for `member:call` eve
 })
 ```
 
-The listener method receives as a parameter a `member` object that contains information about who's calling, and a `call` object, that lets you interact with the call in progress.
+The listener method receives a `member` object that contains information about who's calling, and a `call` object, that lets you interact with the call in progress.
 
 
 ## Hangup a call
