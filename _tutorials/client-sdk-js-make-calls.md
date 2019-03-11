@@ -16,7 +16,7 @@ You will create a simple app to make a call. The app will automatically log in a
 ## Nexmo Concepts
 
 ```partial
-source: _partials/client-sdk/javascript/pstn-nexmo-concepts.md
+source: _partials/client-sdk/voice/pstn-nexmo-concepts.md
 ```
 
 
