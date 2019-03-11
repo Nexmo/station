@@ -29,10 +29,6 @@ class SearchController < ApplicationController
     Algolia.multiple_queries(parameters)
   end
 
-  def search_error
-    render 'search_error'
-  end
-
   def check_search_is_enabled
     redirect_to root_path unless search_enabled?
   end
