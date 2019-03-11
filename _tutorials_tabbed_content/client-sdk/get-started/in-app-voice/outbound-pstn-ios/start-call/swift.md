@@ -59,5 +59,3 @@ private func startCall() {
     updateInterface()
 }
 ```
-
-**NB:** You can have multiple users in a call (`client?.call` method takes an array as its first argument). However, this tutorial demonstrates a 1-on-1 call.

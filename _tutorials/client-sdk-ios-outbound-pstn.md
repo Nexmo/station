@@ -9,9 +9,9 @@ languages:
 
 # How to Make Phone Calls with the Nexmo Client SDK on iOS
 
-In this guide, we'll learn how to place a phone call from a Nexmo application to a phone device (PSTN) by implementing a webhook and linking that to a Nexmo application.
+In this guide, you'll learn how to place a phone call from a Nexmo application to a phone device (PSTN) by implementing a webhook and linking that to a Nexmo application.
 
-You will create a simple app to place a call. The app will automatically log in a user called `Jane`. After logging in, Jane is able to place a call and perform actions such as cancel or hangup.
+You will create a simple app to place a call. The app will automatically log in a user called `Jane`. After logging in, Jane is able to place and end a call.
 
 
 ## Nexmo Concepts
@@ -41,7 +41,7 @@ For more information on Nexmo applications please visit the Nexmo [API Reference
 
 ## Application webhook
 
-For your application to place a phone call, you'll need to provide a URL as the `Answer URL` webhook. We suggest using a [gist](https://gist.github.com) following the template below:
+For your application to place a phone call, you'll need to provide a URL as the `Answer URL` webhook. For the purpose of this tutorial, you will create a [gist](https://gist.github.com) with the content below:
 
 ```json
 [
@@ -63,9 +63,13 @@ For your application to place a phone call, you'll need to provide a URL as the 
 ]
 ```
 
+> **Do not forget to replace `YOUR_NEXMO_NUMBER` and `CALLEE_PHONE_NUMBER` with the relevant values for your app.**
+
 Once created, add the gist raw URL (make sure you're using the raw version) to your [Nexmo dashboard](https://dashboard.nexmo.com). To do this, navigate to [applications](https://dashboard.nexmo.com/voice/your-applications), select your application and click the 'Edit' button. Set the application's `Answer URL` and click 'Save changes'.
 
-**NB:** You will need to repeat this process every time you're changing the gist as a new revision (with a different raw URL) is being created.
+You will need to repeat this process every time you're changing the gist as a new revision (with a different raw URL) is being created.
+
+> The gist you created is specific to this tutorial. In a real-life scenario, the `Answer URL` should be provided by a purposely built web solution that can serve custom NCCOs and, for this case, receive and validate the phone number dialled from the app.
 
 
 ## The Starter Project
@@ -90,7 +94,7 @@ source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/outbound-
 At this point you should already be able to run the app and see that you can login successfully with the SDK.
 
 
-## Start a Call
+## Start a call
 
 You can now make an App-to-Phone call.
 
@@ -107,8 +111,9 @@ You are expected to replace `CALLEE_PHONE_NUMBER` with the number to be called b
 
 ### Call Type
 
-Note the use of `NXMCallTypeServer` as the `callType` in the `client`'s `call:` method above - this is required for outbound PSTN calls; the other `callType` is `NXMCallTypeInApp`, useful for making simple calls as shown in [this tutorial](/tutorials/client-sdk-ios-in-app-calling).
+Note the use of `NXMCallTypeServer` as the `callType` in the `client`'s `call:` method above; this specifies that the logic of the call is defined by the server - a requirement for outbound PSTN calls.
 
+ The other `callType` is `NXMCallTypeInApp`, useful for making simple calls as shown in [this tutorial](/tutorials/client-sdk-ios-in-app-calling).
 
 ```tabbed_content
 source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/outbound-pstn-ios/call-type'
@@ -148,6 +153,6 @@ To read more about the permissions required, [see the setup tutorial](/tutorials
 
 You have implemented your first App to Phone Voice application with the Nexmo Client SDK for iOS.
 
-Run the app on a simulator and see that you place a call, cancel and hangup that call to a PSTN phone number from the phone number associated with your Nexmo application.
+Run the app on a simulator and see that you can place and hangup a call to a PSTN phone number from the phone number associated with your Nexmo application.
 
 If possible, test on a device using your developer signing and provisioning facility.
