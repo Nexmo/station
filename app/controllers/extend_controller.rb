@@ -1,5 +1,5 @@
 class ExtendController < ApplicationController
-  before_action :set_header
+  before_action :set_navigation
 
   def index
     document_paths = Dir.glob("#{Rails.root}/_extend/**/*.md")
@@ -38,7 +38,7 @@ class ExtendController < ApplicationController
 
   private
 
-  def set_header
+  def set_navigation
     @navigation = :extend
   end
 end
