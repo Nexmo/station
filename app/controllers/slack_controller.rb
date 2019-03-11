@@ -1,5 +1,5 @@
 class SlackController < ApplicationController
-  before_action :set_header
+  before_action :set_navigation
   before_action :set_email, only: [:invite]
   before_action :validate_recapcha, only: [:invite]
   before_action :validate_email, only: [:invite]
@@ -36,7 +36,7 @@ class SlackController < ApplicationController
 
   private
 
-  def set_header
+  def set_navigation
     @navigation = :community
   end
 
