@@ -4,6 +4,7 @@ products: client-sdk
 description: This tutorial shows you how to add the Nexmo Client SDK to your Android application.
 languages:
     - Java
+    - Kotlin
 ---
 
 # How to Add the Nexmo Client SDK to your Android App
@@ -22,39 +23,14 @@ Open your Android project codebase in your IDE.
 
 ### Add dependencies
 
-To add the Nexmo Client SDK dependencies to your project use the following procedure:
+To add the Nexmo Client SDK to your project, add the following dependency in your app level `build.gradle` file (usually `app/build.gradle`):
 
-1. In your app level `build.gradle` file (usually `app/build.gradle`), add the dependency:
+```groovy
+dependencies {
+    implementation 'com.nexmo.android:client-sdk:0.2.66'
+}
 
-    ```groovy
-    dependencies {
-        implementation 'com.nexmo.android:client-sdk:0.7.26'
-    }
-
-    ```
-
-2. In your project level `build.gradle` file, add the Maven repository:
-
-    ```groovy
-
-    buildscript {
-        repositories {
-            maven {
-                url "https://artifactory.ess-dev.com/artifactory/gradle-dev-local"
-            }
-        }
-        //...
-    }
-
-    allprojects {
-        repositories {
-            ...
-            maven {
-                url "https://artifactory.ess-dev.com/artifactory/gradle-dev-local"
-            }
-        }
-    }
-    ```
+```
 
 ### Add permissions
 
@@ -84,7 +60,11 @@ To use the In-App Voice features, add audio permissions using the following proc
 2. For devices running Android version M (API level 23) or higher, you should add a request for the permissions required:
 
     ```java
-    android.Manifest.permission.READ_PHONE_STATE, android.Manifest.permission.RECORD_AUDIO, android.Manifest.permission.PROCESS_OUTGOING_CALLS
+    android.Manifest.permission.READ_PHONE_STATE,
+
+    android.Manifest.permission.RECORD_AUDIO,
+
+    android.Manifest.permission.PROCESS_OUTGOING_CALLS
     ```
 
     Read more about requesting runtime permissions on Android [here]("https://developer.android.com/training/permissions/requesting")
