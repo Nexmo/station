@@ -4,6 +4,7 @@ products: client-sdk
 description: This tutorial shows you how to add the Nexmo Client SDK to your Android application.
 languages:
     - Java
+    - Kotlin
 ---
 
 # How to Add the Nexmo Client SDK to your Android App
@@ -24,12 +25,12 @@ Open your Android project codebase in your IDE.
 
 To add the Nexmo Client SDK to your project, add the following dependency in your app level `build.gradle` file (usually `app/build.gradle`):
 
-    ```groovy
-    dependencies {
-        implementation 'com.nexmo.android:client-sdk:0.2.66'
-    }
+```groovy
+dependencies {
+    implementation 'com.nexmo.android:client-sdk:0.2.66'
+}
 
-    ```
+```
 
 ### Add permissions
 

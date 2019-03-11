@@ -6,7 +6,7 @@ navigation_weight: 3
 
 # Send and Receive DTMF
 
-** This fueature is currently supported on Nexmo Client Android SDK.
+> **NOTE**: This fueature is currently supported only on Nexmo Client Android SDK.
 
 ## Overview
 
@@ -14,15 +14,17 @@ Dual Tone Multi Frequency (DTMF), is a form of signalling used by phone systems 
 
 DTMF is used both for dialing a destination on a landline telephone and also for signalling to the remote end once a call is answered. Typically this is used to implement an Interactive Voice Response (IVR) system, or to enter information like a PIN number or conference call pin.
 
-With Nexmo Client SDKs you can both collect a DTMF input from your app user, and listen to DTMF input that was sent from another memeber.
+With Nexmo Client SDKs you can both collect a DTMF input from your app user, and listen to DTMF input that was sent from another member.
 
 ## Send DTMF
 
-In order to send DTMF sounds from your application to the backend, use this method:
+In order to send DTMF tones from your application to the backend, use this method:
 
 ```java
 NexmoCall.sendDTMF(dtmf)
 ```
+
+During an ongoing call, where your backend implemented an [NCCO with an Input action](/voice/voice-api/ncco-reference#input), sending a DTMF will trigger the defined `"eventUrl"`.
 
 ## Receive DTMF
 
