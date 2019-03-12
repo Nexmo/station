@@ -46,6 +46,7 @@ For iOS:
 2. [Add SDK to your App](/tutorials/client-sdk-ios-add-sdk-to-your-app).
 3. [App to App calls](/tutorials/client-sdk-ios-in-app-calling).
 4. [Phone to App calls](/tutorials/client-sdk-ios-inbound-pstn).
+5. [App to Phone calls](/tutorials/client-sdk-ios-outbound-pstn).
 
 For JavaScript:
 
