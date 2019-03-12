@@ -29,7 +29,7 @@ page:
     - column:
       - type: action_button
         action_button:
-          text: "Sign Up For Free"
+          text: "Sign-up For Free"
           url: "https://dashboard.nexmo.com/sign-up?utm_source=nexmo-developer&utm_medium=hacktheburgh19&utm_campaign=landing"
           center_button: true
 
