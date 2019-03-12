@@ -2,7 +2,7 @@ title: "Build an app with accessibility in mind using the Nexmo Voice API and wi
 
 page:
   - row:
-      column:
+    - column:
       - type: html
         html:
           content: '<img src="/assets/images/hacktheburgh19.png" />'
