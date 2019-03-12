@@ -1,0 +1,174 @@
+title: "Build an app with accessibility in mind using the Nexmo Voice API and win some great prizes!"
+
+page:
+  - row:
+    - column:
+      - type: html
+        html:
+          content: '<img src="/assets/images/hacktheburgh19.png" />'
+
+  - row:
+    - column:
+        - type: line_divider
+  
+  - row:
+    - column:
+      - type: header
+        header:
+          title:
+            text: "Nexmo @ Hack The Burgh 2019"
+            align: center
+          subtitle:
+            text: "Nexmo is sponsoring Hack The Burgh this year, and we have some great prizes to give away. Here are some resources you may find useful."
+            align: center
+          icon:
+            name: "icon-star"
+            color: "yellow"
+
+  - row:
+    - column:
+      - type: action_button
+        action_button:
+          text: "Sign Up For Free"
+          url: "https://dashboard.nexmo.com/sign-up?utm_source=nexmo-developer&utm_medium=hacktheburgh19&utm_campaign=landing"
+          center_button: true
+
+  - row:
+    - column:
+        - type: line_divider
+
+
+  - row:
+    - column:
+      - type: text
+        text:
+          content: "# The Nexmo Hackathon"
+  - row:
+    - column:
+      - type: structured_text
+        structured_text:
+          header: "The Challenge"
+          icon:
+            name: "icon-laptop"
+            color: blue
+          text:
+          - content: Build an application that has a strong approach to accessibility, using the Nexmo Voice API. The Nexmo Voice API supports the ability to get a raw stream of audio from a phone call or conference. Use this and other features from the Voice API to make a feature more accessible in your hack. 
+            type: large
+          - content: A mini challenge with prizes is also running. Build an application to send us a text message using the Nexmo Messages API. Send NUMBER a text message and then come and see us, show us your code and then get a prize.
+            type: large
+
+    - column:
+      - type: structured_text
+        structured_text:
+          header: "Prizes & Judging"
+          icon:
+            name: "icon-thumbs-up"
+            color: blue
+          text:
+          - content: The grand prize is a set of four Nanoleaf Rhythm Kits for the winning team. But, don't worry. We’ll also be giving out prizes for other projects.
+            type: large
+          - content: Each team will be judged based on their **accessibility**, **presentation**, and **use of Nexmo Voice API**.
+            type: large
+
+    - column:
+      - type: structured_text
+        structured_text:
+          header: "The Rules"
+          icon:
+            name: "icon-books"
+            color: blue
+          text:
+          - content: You’ll need to incorporate the <a href="/api/voice">Nexmo Voice API</a> in an attempt to improve accessibility, to be eligible for the main prize, four Nanoleaf Rhythm Kits for the winning team.
+            type: large
+          - content: To enter, <a href="https://docs.google.com/forms/d/e/1FAIpQLSfZ6lfH15AX5HkANMf-Wot4u8IuSB5Leov6Sfr_O595NeNmeg/viewform">submit your project here</a> and be ready to present it at the end of the event.
+            type: large
+
+    - column:
+      - type: structured_text
+        structured_text:
+          header: "The Timeline"
+          icon:
+            name: "icon-clock"
+            color: blue
+          text:
+          - type: large
+            content: |
+              **Saturday**<br />
+
+              * 11:00am - Opening ceremony<br />
+              * 12:00pm - Start hacking!<br />
+          - type: large
+            content: |
+              **Sunday**<br />
+
+              * 12:00pm - Hacking stops!<br />
+              * 15:30pm - Closing ceremony<br />
+
+  - row:
+    - column:
+        - type: line_divider
+
+  - row:
+    - column:
+      - type: action_button
+        action_button:
+          text: "View Nexmo docs"
+          url: "/"
+          center_button: true
+          type: primary
+          large: true
+    - column:
+      - type: action_button
+        action_button:
+          text: "Submit your hack"
+          url: "https://docs.google.com/forms/d/e/1FAIpQLSfZ6lfH15AX5HkANMf-Wot4u8IuSB5Leov6Sfr_O595NeNmeg/viewform "
+          center_button: true
+          type: primary
+          large: true
+
+
+  - row:
+    - column:
+        - type: line_divider
+
+
+  - row:
+    - column:
+      - type: call_to_action
+        call_to_action:
+          title: "Voice"
+          subtitle: "Use the Voice API to make and receive phone calls programmatically. You can broadcast messages by phone, respond to incoming calls and route callers according to their input."
+          icon: 
+            name: "icon-phone"
+            color: "green"
+          url: "/voice"
+
+    - column:
+      - type: call_to_action
+        call_to_action:
+          title: "Messages"
+          subtitle: "With our Messages API (and its sister Dispatch API) your applications can reach users by the messaging platform they prefer. Message not received? No problem, automatically detect that and try another platform."
+          icon: 
+            name: "icon-chat"
+            color: "purple"
+          url: "/messages/overview"
+
+    - column:
+      - type: call_to_action
+        call_to_action:
+          title: "Verify"
+          subtitle: "Ensure that users provide the correct contact details with Verify API. The two-factor authentication (2FA) API reduces fraud and improves contactability for your application's users."
+          icon: 
+            name: "icon-lock"
+            color: "indigo"
+          url: "/verify"
+
+  - row:
+    - column:
+        - type: line_divider
+  - row:
+    - column:
+      - type: join_slack
+  - row:
+    - column:
+        - type: line_divider
