@@ -1,7 +1,6 @@
 title: "Build an app with accessibility in mind using the Nexmo Voice API and win some great prizes!"
 
 page:
-
   - row:
       column:
       - type: html
@@ -55,7 +54,7 @@ page:
           text:
           - content: Build an application that has a strong approach to accessibility, using the Nexmo Voice API. The Nexmo Voice API supports the ability to get a raw stream of audio from a phone call or conference. Use this and other features from the Voice API to make a feature more accessible in your hack. 
             type: large
-          - content: A mini challenge with prizes is also running. Build an application to send us a text message using the Nexmo Messages API. Send [NUMBER] a text message and then come and see us, show us your code and then get a prize.
+          - content: A mini challenge with prizes is also running. Build an application to send us a text message using the Nexmo Messages API. Send NUMBER a text message and then come and see us, show us your code and then get a prize.
             type: large
 
     - column:
@@ -163,19 +162,6 @@ page:
             name: "icon-lock"
             color: "indigo"
           url: "/verify"
-
-  - row:
-    - column:
-      - type: text
-        text:
-          content: |
-            <br />
-            <div class="Vlt-callout Vlt-callout--shoutout">
-            	<i></i>
-            	<div class="Vlt-callout__content">
-                **Pro-tip:** Download the OpenAPI spec from our [API reference pages](/api) and import directly into [Postman](https://getpostman.com) as a collection to quickly explore the APIs.
-            	</div>
-            </div>
 
   - row:
     - column:
