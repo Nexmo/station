@@ -21,13 +21,11 @@ You will create a simple iOS app, that will automatically log in a user called J
 source: _partials/client-sdk/voice/pstn-nexmo-concepts.md
 ```
 
-
 ## Prerequisites
 
 ```partial
 source: _partials/client-sdk/voice/pstn-prerequisites.md
 ```
-
 
 ## Application webhook
 
@@ -35,19 +33,11 @@ source: _partials/client-sdk/voice/pstn-prerequisites.md
 source: _partials/client-sdk/voice/inbound-pstn-application-webhook.md
 ```
 
-
 ## Link a Nexmo Virtual Number
 
-A Nexmo virtual number [Nexmo phone number](/numbers/guides/numbers) is a phone number that you can link to your Nexmo Application. When a user calls that phone number, the `answer_url` that is defined on your Nexmo Application is executed. In this tutorial case, you set up an `answer_url` in the above step, that upon calling connects the call to your app user `Jane`.
-
-To link a Nexmo number to your app:
-
-1. Go to your [Nexmo dashboard](https://dashboard.nexmo.com)
-2. Navigate to [applications](https://dashboard.nexmo.com/voice/your-applications)
-3. Select your application
-4. Click the 'Edit' button.
-
-5. Switch to `Numbers` tab above, search for a number you'd like, and click `Link`, to link.
+```partial
+source: _partials/client-sdk/voice/link-nexmo-number.md
+```
 
 ## The starter project
 
@@ -82,7 +72,6 @@ source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/inbound-p
 
 This method takes as a parameter an `NXMCall` object with which you can answer or reject the call. An alert was implemented for you, to allow the user to choose whether to answer or reject the call.
 
-
 ## Answer a call
 
 ```tabbed_content
@@ -91,7 +80,6 @@ source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/inbound-p
 
 `answer:completionHandler:` accepts an object adopting the `NXMCallDelegate` and a completion block to indicate if an error occurred in the process. You already implemented `NXMCallDelegate` in a previous step.
 
-
 ## Reject a call
 
 ```tabbed_content
@@ -99,7 +87,6 @@ source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/inbound-p
 ```
 
 `reject:` accepts a single `completionHandler` parameter to indicate if an error occurred in the process.
-
 
 ## Call Delegate
 
@@ -116,13 +103,11 @@ The `statusChanged:` method notifies on changes that happens to members on the c
 source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/inbound-pstn-ios/hangup'
 ```
 
-
 ## Handle permissions
 
 For the call to happen, `Audio Permissions` are required. In the `appDelegate` of the sample project, you can find an implementation for the permissions request in `application:didFinishLaunchingWithOptions`.
 
 To read more about the permissions required, [see the setup tutorial](/tutorials/client-sdk-ios-add-sdk-to-your-app#add-permissions).
-
 
 ## Conclusion
 

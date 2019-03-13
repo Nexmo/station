@@ -10,8 +10,7 @@ languages:
 
 In this guide, you'll learn how to forward an incoming phone call from a Nexmo phone number, to an in-app user by implementing a webhook and linking that to a Nexmo application.
 
-You will create a simple app to receive a call. The app will automatically log in a user called Jane. After logging in, Jane is able to receive a call and perform actions such as answer, decline or hangup.
-
+You will create a simple app to receive a call. The app will automatically log in a user called Jane. After logging in, Jane is able to receive a call and perform actions such as answer, reject or hangup.
 
 ## Nexmo Concepts
 
@@ -19,13 +18,11 @@ You will create a simple app to receive a call. The app will automatically log i
 source: _partials/client-sdk/voice/pstn-nexmo-concepts.md
 ```
 
-
 ## Prerequisites
 
 ```partial
 source: _partials/client-sdk/voice/pstn-prerequisites.md
 ```
-
 
 ## Application webhook
 
@@ -33,7 +30,11 @@ source: _partials/client-sdk/voice/pstn-prerequisites.md
 source: _partials/client-sdk/voice/inbound-pstn-application-webhook.md
 ```
 
+## Link a Nexmo Virtual Number
 
+```partial
+source: _partials/client-sdk/voice/link-nexmo-number.md
+```
 
 ## Adding the Nexmo Client to your application
 
@@ -69,7 +70,6 @@ $ npm install nexmo-client --save
 source: _partials/client-sdk/voice/javascript/login.md
 ```
 
-
 ## Listen for incoming call
 
 When the phone number associated with your Nexmo app receives a call, the application should notify the user `Jane` so that they can decide whether to answer or reject it.
@@ -86,7 +86,6 @@ This is done by listening for `member:call` events on the `application` object r
 ```
 
 The listener method receives an `member` object that contains information about who's calling, and a `call` object, that lets you interact with the call in progress.
-
 
 ## Answer a call
 

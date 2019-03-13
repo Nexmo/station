@@ -8,10 +8,9 @@ languages:
 
 # How to Make Phone Calls with the Nexmo Client SDK in JavaScript
 
-In this guide, you'll learn how to make a phone call from a Nexmo user to phone number by implementing a webhook and linking that to a Nexmo application.
-
-You will create a simple app to make a call. The app will automatically log in a user called Jane. After logging in, Jane is able to make a call and hang up a call.
-
+```partial
+source: _partials/client-sdk/voice/phone2app-intro.md
+```
 
 ## Nexmo Concepts
 
@@ -19,20 +18,17 @@ You will create a simple app to make a call. The app will automatically log in a
 source: _partials/client-sdk/voice/pstn-nexmo-concepts.md
 ```
 
-
 ## Prerequisites
 
 ```partial
 source: _partials/client-sdk/voice/pstn-prerequisites.md
 ```
 
-
 ## Application webhook
 
 ```partial
 source: _partials/client-sdk/voice/outbound-pstn-application-webhook.md
 ```
-
 
 ## Adding the Nexmo Client to your application
 
@@ -84,7 +80,6 @@ new ConversationClient()
     .catch(console.log);
 ```
 
-
 ## Listen for call events
 
 When the application makes a call, you can start listening for `member:call` events on the application. That's going to return a `call` object, so you can start interacting with the call later on.
@@ -102,7 +97,6 @@ new ConversationClient()
 ```
 
 The listener method receives a `member` object that contains information about who's calling, and a `call` object, that lets you interact with the call in progress.
-
 
 ## Hangup a call
 

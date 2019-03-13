@@ -9,75 +9,33 @@ languages:
 
 # How to Make Phone Calls with the Nexmo Client SDK on iOS
 
-In this guide, you'll learn how to place a phone call from a Nexmo application to a phone device (PSTN) by implementing a webhook and linking that to a Nexmo application.
-
-You will create a simple app to place a call. The app will automatically log in a user called `Jane`. After logging in, Jane is able to place and end a call.
-
+```partial
+source: _partials/client-sdk/voice/phone2app-intro.md
+```
 
 ## Nexmo Concepts
 
-Before proceeding any further, here are couple of concepts that you'll need to understand.
-
-A [Nexmo application](https://developer.nexmo.com/concepts/guides/applications) allows you to easily use Nexmo products, in this case the [Voice API](https://developer.nexmo.com/voice/voice-api/overview), to build voice applications in the Cloud.
-
-A Nexmo application requires two URLs as parameters:
-
-* `answer_url` - Nexmo will make a request to this URL as soon as the call is answered.
-* `event_url` - Nexmo sends event information asynchronously to this URL when the call status changes; this ultimately defines the flow of the call.
-
-Both URLs need to return JSON and follow the [Nexmo Call Control Object (NCCO)](https://developer.nexmo.com/voice/voice-api/ncco-reference) reference. In the example below, you will define an NCCO that reads a predefined text for an incoming call, using the [Text to Speech](https://developer.nexmo.com/voice/voice-api/guides/text-to-speech) engine, and then initiates the phone call.
-
-A [Nexmo virtual number](https://developer.nexmo.com/numbers/overview) will be associated with the app and serve as the "reference point" to it - this is the number that will be the callee when you'll be testing the application.
-
-For more information on Nexmo applications please visit the Nexmo [API Reference](https://developer.nexmo.com/api/application).
-
+```partial
+source: _partials/client-sdk/voice/pstn-nexmo-concepts.md
+```
 
 ## Prerequisites
 
-- Use an existing Nexmo Application or [create a new one](/tutorials/client-sdk-generate-test-credentials).
-- Have a Nexmo phone number associated with your application or [rent one](/numbers/guides/numbers)
-- Have a user named `Jane` or [create one](/tutorials/client-sdk-generate-test-credentials#create-a-user) for your Nexmo Application, with a [valid JWT](/tutorials/client-sdk-generate-test-credentials).
-
+```partial
+source: _partials/client-sdk/voice/pstn-prerequisites.md
+```
 
 ## Application webhook
 
-For your application to place a phone call, you'll need to provide a URL as the `Answer URL` webhook. For the purpose of this tutorial, you will create a [gist](https://gist.github.com) with the content below:
-
-```json
-[
-    {
-        "action": "talk",
-        "text": "Please wait while we connect you."
-    },
-    {
-        "action": "connect",
-        "timeout": 20,
-        "from": "YOUR_NEXMO_NUMBER",
-        "endpoint": [
-            {
-                "type": "phone",
-                "number": "CALLEE_PHONE_NUMBER"
-            }
-        ]
-    }
-]
+```partial
+source: _partials/client-sdk/voice/outbound-pstn-application-webhook.md
 ```
-
-> **Do not forget to replace `YOUR_NEXMO_NUMBER` and `CALLEE_PHONE_NUMBER` with the relevant values for your app.**
-
-Once created, add the gist raw URL (make sure you're using the raw version) to your [Nexmo dashboard](https://dashboard.nexmo.com). To do this, navigate to [applications](https://dashboard.nexmo.com/voice/your-applications), select your application and click the 'Edit' button. Set the application's `Answer URL` and click 'Save changes'.
-
-You will need to repeat this process every time you're changing the gist as a new revision (with a different raw URL) is being created.
-
-> The gist you created is specific to this tutorial. In a real-life scenario, the `Answer URL` should be provided by a purposely built web solution that can serve custom NCCOs and, for this case, receive and validate the phone number dialled from the app.
-
 
 ## The Starter Project
 
 ```tabbed_content
 source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/outbound-pstn-ios/started-project'
 ```
-
 
 ## Login
 
