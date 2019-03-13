@@ -5,7 +5,7 @@ page:
     - column:
       - type: html
         html:
-          content: '<img src="/assets/images/hacktheburgh19.png" />'
+          content: '<img src="/assets/images/hacktheburgh2019.png" />'
 
   - row:
     - column:
@@ -30,7 +30,7 @@ page:
       - type: action_button
         action_button:
           text: "Sign-up For Free"
-          url: "https://dashboard.nexmo.com/sign-up?utm_source=nexmo-developer&utm_medium=hacktheburgh19&utm_campaign=landing"
+          url: "https://dashboard.nexmo.com/sign-up?utm_source=nexmo-developer&utm_medium=hacktheburgh2019&utm_campaign=landing"
           center_button: true
           type: primary
           large: true
