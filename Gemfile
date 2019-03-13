@@ -8,7 +8,7 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
-gem 'webpacker', '~>3.5.5'
+gem 'webpacker', '~>3.6.0'
 
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
@@ -51,7 +51,7 @@ gem 'rouge', '~> 2.0.7'
 gem 'banzai', '~> 0.1.2'
 
 # ZURB Foundation on Sass/Compass
-gem 'foundation-rails', '6.4.1.2'
+gem 'foundation-rails', '6.5.3'
 
 # Nokogiri (鋸) is an HTML, XML, SAX, and Reader parser. Among Nokogiri's many features is the ability to search documents via XPath or CSS3 selectors.
 gem 'nokogiri', '~> 1.8.5'
