@@ -72,14 +72,16 @@ source: _partials/client-sdk/voice/javascript/login.md
 In order to make a call, you'll have to use the `callPhone()` method on the application object that is returned by the `login()` promise. The method accepts a string as parameter that it passes along to your `answer_url`, but since ours is a static file, we'll leave the method parameter empty.
 
 ```javascript
-.then(application => {
-    notification.textContent = `You've logged in with the user ${application.me.user.name}`;
-
-    document.getElementById("call").addEventListener("click", () => {
-      application.callPhone();
-      notification.textContent = `You're calling a phone number`;
+new ConversationClient()
+    .login(USER_JWT)
+    .then(application => {
+        ...
+        document.getElementById("call").addEventListener("click", () => {
+          application.callPhone();
+          notification.textContent = `You're calling a phone number`;
+        })
     })
-})
+    .catch(console.log);
 ```
 
 
@@ -88,12 +90,15 @@ In order to make a call, you'll have to use the `callPhone()` method on the appl
 When the application makes a call, you can start listening for `member:call` events on the application. That's going to return a `call` object, so you can start interacting with the call later on.
 
 ```javascript
-.then(application => {
-    notification.textContent = `You've logged in with the user ${application.me.user.name}`;
-    application.on("member:call", (member, call) => {
-      notification.textContent = `You're receiving a call`;
+new ConversationClient()
+    .login(USER_JWT)
+    .then(application => {
+        ...
+        application.on("member:call", (member, call) => {
+          notification.textContent = `You're receiving a call`;
+        })
     })
-})
+    .catch(console.log);
 ```
 
 The listener method receives a `member` object that contains information about who's calling, and a `call` object, that lets you interact with the call in progress.
