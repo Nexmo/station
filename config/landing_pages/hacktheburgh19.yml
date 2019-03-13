@@ -144,6 +144,7 @@ page:
         structured_text:
           icon:
             name: "icon-slack-color"
+            color: blue
           text:
           - content: Join **#nexmo** on the **Hack the Burgh 2019** Slack workspace for online support.
             type: large
