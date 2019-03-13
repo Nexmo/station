@@ -10,52 +10,30 @@ languages:
 
 # How to Receive Phone Calls with the Nexmo Client SDK on iOS
 
-In this guide, you'll learn how to receive an incoming phone call in a iOS application. 
+In this guide, you'll learn how to receive an incoming phone call in a iOS application.
 
 You will create a simple iOS app, that will automatically log in a user called Jane. After logging in, Jane is able to receive a call and perform actions such as answer, reject or hangup.
 
 
 ## Nexmo Concepts
 
-Before proceeding any further, here are a couple of concepts that you'll need to understand.
-
-A [Nexmo application](/concepts/guides/applications) allows you to easily use Nexmo products, in this case the [Voice API](/voice/voice-api/overview) to build voice applications in the Cloud.
-
-A Nexmo application requires two URLs as parameters:
-
-* `answer_url` - Nexmo will make a request to this URL as soon as the call is answered.
-* `event_url` - Nexmo sends event information asynchronously to this URL when the call status changes; this ultimately defines the flow of the call.
-
-Both URLs need to return a JSON and follow the [Nexmo Call Control Object (NCCO)](/voice/voice-api/ncco-reference) reference. In the example below, you will define an NCCO that reads a predefined text for an incoming call, using the [Text to Speech](/voice-api/guides/text-to-speech) engine.
-
-A [Nexmo virtual number](/numbers/overview) will be associated with the app and serve as the "entry point" to it - this is the number you'll call to test the application.
-
-For more information on Nexmo applications please visit the Nexmo [API Reference](/api/application).)
+```partial
+source: _partials/client-sdk/voice/pstn-nexmo-concepts.md
+```
 
 
 ## Prerequisites
 
-- Use an existing Nexmo Application or [create a new one](/tutorials/client-sdk-generate-test-credentials).
-- Have a user named `Jane` or [create one](/tutorials/client-sdk-generate-test-credentials#create-a-user) for your Nexmo Application, with a [valid JWT](/tutorials/client-sdk-generate-test-credentials).
+```partial
+source: _partials/client-sdk/voice/pstn-prerequisites.md
+```
 
 
 ## Application webhook
 
-For your application to connect an incoming phone call to an app user, you'll need to provide a URL as the [`Answer URL` webhook](/voice/voice-api/webhook-reference#answer-webhook). In other words, this response from this `answer_url` defines the fllow of the call. For this tutorial, a [gist](https://gist.github.com/NexmoDev/ed91ac99a0b278fbdcbde72ca3599ac7) was created for you to use.
-
-To add this URL: 
-1. Go to your [Nexmo dashboard](https://dashboard.nexmo.com)
-2. Navigate to [applications](https://dashboard.nexmo.com/voice/your-applications)
-3. Select your application
-4. Click the 'Edit' button.
-
-5. Now, set the application's `Answer URL` to: 
-
-`https://gist.githubusercontent.com/NexmoDev/ed91ac99a0b278fbdcbde72ca3599ac7/raw/da2b2853ebd1798404fa040942eedab1d03fdac3/ncco.json`
-
-* Click 'Save changes'.
-
-> **NOTE**: This gist is *specific* to this tutorial. In a real-life scenario, the `answer_url` should be provided by your backend, as a purposely built web solution that can serve custom NCCOs as your app's use case requires.
+```partial
+source: _partials/client-sdk/voice/inbound-pstn-application-webhook.md
+```
 
 
 ## Link a Nexmo Virtual Number
@@ -129,7 +107,7 @@ source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/inbound-p
 source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/inbound-pstn-ios/call-delegate'
 ```
 
-The `statusChanged:` method notifies on changes that happens to members on the call.  
+The `statusChanged:` method notifies on changes that happens to members on the call.
 
 
 ## Hangup a call
@@ -141,7 +119,7 @@ source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/inbound-p
 
 ## Handle permissions
 
-For the call to happen, `Audio Permissions` are required. In the `appDelegate` of the sample project, you can find an implementation for the permissions request in `application:didFinishLaunchingWithOptions`.  
+For the call to happen, `Audio Permissions` are required. In the `appDelegate` of the sample project, you can find an implementation for the permissions request in `application:didFinishLaunchingWithOptions`.
 
 To read more about the permissions required, [see the setup tutorial](/tutorials/client-sdk-ios-add-sdk-to-your-app#add-permissions).
 
@@ -153,4 +131,3 @@ Congratulations! You have implemented your first Phone to App Voice application 
 Run the app on a simulator, and with another device call the nexmo Number you linked. Then, see that you can answer, reject and hangup a call received on the phone number associated with your Nexmo application.
 
 If possible, test the application on a device using your developer signing and provisioning facility.
-
