@@ -137,9 +137,17 @@ page:
   - row:
     - column:
         - type: line_divider
+
   - row:
     - column:
-      - type: join_slack
+      - type: structured_text
+        structured_text:
+          icon:
+            name: "icon-slack-color"
+          text:
+          - content: Join **#nexmo** on the **Hack the Burgh 2019** Slack workspace for online support.
+            type: large
+
   - row:
     - column:
         - type: line_divider
