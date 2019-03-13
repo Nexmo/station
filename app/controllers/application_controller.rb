@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
       redirect_to redirect
     else
       NotFoundNotifier.notify(request)
-      render 'static/404', status: :not_found, formats: [:html]
+      render_not_found
     end
   end
 
@@ -60,5 +60,9 @@ class ApplicationController < ActionController::Base
   def set_feedback_author
     return unless cookies[:feedback_author_id]
     @feedback_author = Feedback::Author.select(:email).find_by(id: cookies[:feedback_author_id])
+  end
+
+  def render_not_found
+    render 'static/404', status: :not_found, formats: [:html]
   end
 end

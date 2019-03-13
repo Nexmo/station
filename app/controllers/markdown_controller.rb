@@ -33,7 +33,7 @@ class MarkdownController < ApplicationController
     if redirect
       redirect_to redirect
     else
-      render 'static/404', status: :not_found, formats: [:html]
+      render_not_found
     end
   end
 
