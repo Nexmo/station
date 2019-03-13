@@ -144,10 +144,14 @@ page:
         html:
           content: >
             <h2 class="Vlt-title--icon" id="join-us-on-slack">
-              <svg class="Vlt-blue">
-                <use xlink:href="/symbol/volta-icons.svg#Brand-icon-slack-color"></use>
+              <svg>
+                <use xlink:href="/symbol/volta-brand-icons.svg#Brand-icon-slack-color"></use>
               </svg>
-              Join <strong>#nexmo</strong> on the <strong>Hack the Burgh 2019</strong> Slack workspace
+              Join 
+              <strong>#nexmo</strong> 
+              on the 
+              <strong>Hack the Burgh 2019</strong> 
+              Slack workspace
             </h2>
 
   - row:
