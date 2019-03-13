@@ -142,6 +142,7 @@ page:
     - column:
       - type: structured_text
         structured_text:
+          header: "Join Slack"
           icon:
             name: "icon-slack-color"
             color: blue
