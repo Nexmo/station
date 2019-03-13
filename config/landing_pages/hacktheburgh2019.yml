@@ -51,12 +51,14 @@ page:
     - column:
       - type: structured_text
         structured_text:
-          header: "The Challenge"
+          header: "Nexmo Challenge"
           icon:
             name: "icon-laptop"
             color: blue
           text:
-          - content: Build an application that has a strong approach to accessibility, using the Nexmo Voice API. The Nexmo Voice API supports the ability to get a raw stream of audio from a phone call or conference.
+          - content: Build an accessible voice application using the [Nexmo Voice API](/voice/voice-api/overview). The Voice API supports the ability to get a raw stream of audio from a phone call or conference. 
+            type: large
+          - content: Use this and other features from the Voice API to make a feature of your hack more accessible.
             type: large
 
     - column:
@@ -64,44 +66,43 @@ page:
         structured_text:
           header: "Mini Challenge"
           icon:
-            name: "icon-laptop"
+            name: "icon-mobile"
             color: blue
           text:
-          - content: A mini challenge with prizes is also running. Build an application to send us a text message using the Nexmo Messages API. Send NUMBER a text message and then come and see us, show us your code and then get a prize.
+          - content: A mini challenge with prizes is also running. Build an application to send us a text message using the [Nexmo Messages API](/messages/overview).
+            type: large
+          - content: Send **NUMBER** a text message and then come and see us, show us your code and then get a prize.
             type: large
 
     - column:
       - type: structured_text
         structured_text:
-          header: "Prizes & Judging"
-          icon:
-            name: "icon-thumbs-up"
-            color: blue
-          text:
-          - content: The grand prize is a set of four Nanoleaf Rhythm Kits for the winning team. But, don't worry. We’ll also be giving out prizes for other projects.
-            type: large
-          - content: Each team will be judged based on their **accessibility**, **presentation**, and **use of Nexmo Voice API**.
-            type: large
-
-    - column:
-      - type: structured_text
-        structured_text:
-          header: "The Rules"
+          header: "Rules & Judging"
           icon:
             name: "icon-books"
             color: blue
           text:
-          - content: You’ll need to incorporate the <a href="/api/voice">Nexmo Voice API</a> in an attempt to improve accessibility, to be eligible for the main prize, four Nanoleaf Rhythm Kits for the winning team.
+          - content: For the main challenge; You must use the [Nexmo Voice API](/voice/voice-api/overview). Hacks will be judged on **accessibility**, **presentation**, and the **use of the Nexmo Voice API**.
+            type: large
+          - content: For the mini challenge; You must use the [Nexmo Messages API](/messages/overview). Hacks will be judged on **use of the Nexmo Messages API**.
+            type: large
+
+    - column:
+      - type: structured_text
+        structured_text:
+          header: "The Prizes"
+          icon:
+            name: "icon-thumbs-up"
+            color: blue
+          text:
+          - content: The grand prize for the Nexmo Challenge winners is a set of four [Nanoleaf Rhythm Kits](https://nanoleaf.me/en-gb/consumer-led-lighting/products/smarter-series/nanoleaf-light-panels-smarter-kit/).
+            type: large
+          - content: The prizes for the mini challenge are [BBC micro:bit](https://microbit.org/) and [Pixl.js](https://shop.espruino.com/pixljs).
             type: large
 
   - row:
     - column:
         - type: line_divider
-
-  - row:
-    - column:
-        - type: line_divider
-
 
   - row:
     - column:
@@ -134,26 +135,52 @@ page:
             color: "indigo"
           url: "/verify"
 
+
   - row:
     - column:
         - type: line_divider
 
   - row:
     - column:
-      - type: html
-        html:
+      - type: section_header
+        section_header:
+          title: "Handy links and further reading"
+          icon:
+            name: "icon-pin-2"
+            color: "blue-dark"
+
+  - row:
+    - column:
+      - type: text
+        text:
           content: >
-            <h2 class="Vlt-title--icon" id="join-us-on-slack">
-              <svg>
-                <use xlink:href="/symbol/volta-brand-icons.svg#Brand-icon-slack-color"></use>
-              </svg>
-              Join 
-              <strong>#nexmo</strong> 
-              on the 
-              <strong>Hack the Burgh 2019</strong> 
-              Slack workspace
-            </h2>
-
+            <div class="Vlt-callout Vlt-callout--warning">
+            	<i></i>
+            	<div class="Vlt-callout__content">
+                <h4>Can't find what you're looking for?</h4>
+                Come and say hello at the Nexmo booth or find us on the Nexmo channel of the Hack the Burgh slack workspace.
+            	</div>
+            </div>
   - row:
     - column:
-        - type: line_divider
+      - type: unordered_list
+        unordered_list:
+            bullet_shape: simple
+            list:
+              - item: "[Voice Applications: Before You Begin](/voice/voice-api/building-blocks/before-you-begin)"
+              - item: "[Nexmo Call Control Objects (NCCOs)](/voice/voice-api/guides/ncco)"
+              - item: "[Interactive Voice Response](/tutorials/interactive-voice-response)"
+              - item: "[Connecting Voice Calls to Amazon Lex Bots](/voice/voice-api/guides/lex-connector)"
+              - item: "[Receive a Phone Call with Voice API and Swift](https://www.nexmo.com/blog/2019/02/07/receive-call-swift-dr/)"
+              - item: "[Forward a Call Via Voice Proxy With Koa.js](https://www.nexmo.com/blog/2019/02/05/forward-call-with-koa-js-dr/)"
+    - column:
+      - type: unordered_list
+        unordered_list:
+            bullet_shape: simple
+            list:
+              - item: "[IBM Watson Speech to Text](/extend/ibm-watson-speech-to-text)"
+              - item: "[Microsoft Azure Speech To Text](/extend/azure-speech-to-text)"
+              - item: "[Google Cloud Speech Transcription](/extend/google-transcription)"
+              - item: "[IBM Watson SMS Sentiment Analysis](/extend/ibm-watson-sms-sentiment-analysis)"
+              - item: "[Build a Family Hotline with the Nexmo Voice API!](https://www.nexmo.com/blog/2018/11/20/build-a-family-hotline-dr/)"
+              - item: "[Build Watson-enhanced Voice Agents on IBM Cloud with Nexmo](https://www.nexmo.com/blog/2019/02/25/build-watson-enhanced-voice-agents-on-ibm-cloud-with-nexmo/)"
