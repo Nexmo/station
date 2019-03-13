@@ -59,7 +59,6 @@ page:
           - content: Build an application that has a strong approach to accessibility, using the Nexmo Voice API. The Nexmo Voice API supports the ability to get a raw stream of audio from a phone call or conference.
             type: large
 
-  - row:
     - column:
       - type: structured_text
         structured_text:
