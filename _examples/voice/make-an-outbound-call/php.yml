@@ -5,11 +5,11 @@ dependencies:
     - nexmo/client
     - 'slim/slim:^3.8'
 code:
-    source: .repos/nexmo-community/nexmo-php-quickstart/voice/text-to-speech-outbound.php
+    source: .repos/nexmo/nexmo-php-code-snippets/voice/text-to-speech-outbound.php
     from_line: 12
     to_line: 22
 client:
-    source: .repos/nexmo-community/nexmo-php-quickstart/initialize/application.php
+    source: .repos/nexmo/nexmo-php-code-snippets/initialize/application.php
     from_line: 3
     to_line: 8
 file_name: index.php

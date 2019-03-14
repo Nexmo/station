@@ -5,11 +5,11 @@ dependencies:
     - nexmo
     - dotenv
 code:
-    source: .repos/nexmo-community/nexmo-node-quickstart/voice/make-call.js
+    source: .repos/nexmo/nexmo-node-code-snippets/voice/make-call.js
     from_line: 20
     to_line: 30
 client:
-    source: .repos/nexmo-community/nexmo-node-quickstart/voice/make-call.js
+    source: .repos/nexmo/nexmo-node-code-snippets/voice/make-call.js
     from_line: 11
     to_line: 18
 file_name: app.js

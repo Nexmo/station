@@ -4,11 +4,11 @@ language: ruby
 dependencies:
     - sinatra
 code:
-    source: .repos/nexmo-community/nexmo-ruby-quickstart/voice/join_a_conference_call.rb
+    source: .repos/nexmo/nexmo-ruby-code-snippets/voice/join_a_conference_call.rb
     from_line: 9
     to_line: 22
 client:
-    source: .repos/nexmo-community/nexmo-ruby-quickstart/voice/join_a_conference_call.rb
+    source: .repos/nexmo/nexmo-ruby-code-snippets/voice/join_a_conference_call.rb
     from_line: 1
     to_line: 7
 file_name: join_a_conference_call.rb

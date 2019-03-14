@@ -4,11 +4,11 @@ language: python
 dependencies:
     - nexmo
 client:
-    source: .repos/nexmo-community/nexmo-python-quickstart/verify/request.py
+    source: .repos/nexmo/nexmo-python-code-snippets/verify/request.py
     from_line: 12
     to_line: 14
 code:
-    source: .repos/nexmo-community/nexmo-python-quickstart/verify/request.py
+    source: .repos/nexmo/nexmo-python-code-snippets/verify/request.py
     from_line: 16
     to_line: 21
 file_name: request.py

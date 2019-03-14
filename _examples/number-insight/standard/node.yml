@@ -4,11 +4,11 @@ language: node
 dependencies:
     - nexmo
 code:
-    source: .repos/nexmo-community/nexmo-node-quickstart/number_insight/ni-standard.js
+    source: .repos/nexmo/nexmo-node-code-snippets/number_insight/ni-standard.js
     from_line: 16
     to_line: 23
 client:
-    source: .repos/nexmo-community/nexmo-node-quickstart/number_insight/ni-standard.js
+    source: .repos/nexmo/nexmo-node-code-snippets/number_insight/ni-standard.js
     from_line: 9
     to_line: 14
 file_name: ni-standard.js

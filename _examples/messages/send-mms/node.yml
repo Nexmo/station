@@ -2,7 +2,7 @@
 title: Node
 language: node
 code:
-    source: .repos/nexmo-community/nexmo-node-quickstart/messages/send-mms.js
+    source: .repos/nexmo/nexmo-node-code-snippets/messages/send-mms.js
     from_line: 20
     to_line: 31
 file_name: app.js

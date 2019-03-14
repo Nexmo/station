@@ -6,7 +6,7 @@ dependencies:
     - sinatra/multi-route
     - json
 code:
-    source: .repos/nexmo-community/nexmo-ruby-quickstart/number-insight/ni-advanced-async.rb
+    source: .repos/nexmo/nexmo-ruby-code-snippets/number-insight/ni-advanced-async.rb
     from_line: 1
     to_line: 21
 file_name: ni-advanced-async.rb
