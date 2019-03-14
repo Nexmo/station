@@ -19,7 +19,7 @@ page:
             text: "Nexmo @ Hack The Burgh 2019"
             align: center
           subtitle:
-            text: "Nexmo is sponsoring Hack The Burgh this year, and we have some great prizes to give away. Here are some resources you may find useful."
+            text: "Nexmo is sponsoring [Hack The Burgh](https://2019.hacktheburgh.com/) 2019. Use one or more of our APIs in your hack to have a chance of winning some great prizes.
             align: center
           icon:
             name: "icon-star"
@@ -56,7 +56,7 @@ page:
             name: "icon-laptop"
             color: blue
           text:
-          - content: Build an accessible voice application using the [Nexmo Voice API](/voice/voice-api/overview). The Voice API supports the ability to get a raw stream of audio from a phone call or conference. 
+          - content: Build an accessible voice application using the [Nexmo Voice API](/voice/voice-api/overview). The Voice API supports the ability to get a raw stream of audio from a phone call or conference over WebSocket. 
             type: large
           - content: Use this and other features from the Voice API to make a feature of your hack more accessible.
             type: large
@@ -69,9 +69,9 @@ page:
             name: "icon-mobile"
             color: blue
           text:
-          - content: A mini challenge with prizes is also running. Build an application to send us a text message using the [Nexmo Messages API](/messages/overview).
+          - content: A mini challenge with prizes is also running. Send us a text message using the [Nexmo Messages API](/messages/overview).
             type: large
-          - content: Send **+447508741510** a text message and then come and see us, show us your code and then get a prize.
+          - content: Send **+447508741510** a text message and then come and see us, show us your code and then get a prize. It's that simple. With 10 prizes to give away we'll give out prizes on a first come first served basis.
             type: large
 
     - column:
@@ -109,7 +109,7 @@ page:
       - type: call_to_action
         call_to_action:
           title: "Voice"
-          subtitle: "Use the Voice API to make and receive phone calls programmatically. You can broadcast messages by phone, respond to incoming calls and route callers according to their input."
+          subtitle: "Use the Voice API to make, receive and control phone calls programmatically. You can broadcast messages by phone, respond to incoming calls, route callers according to their input and more."
           icon: 
             name: "icon-phone"
             color: "green"
