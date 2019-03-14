@@ -19,7 +19,7 @@ page:
             text: "Nexmo @ Hack The Burgh 2019"
             align: center
           subtitle:
-            text: "Nexmo is sponsoring [Hack The Burgh](https://2019.hacktheburgh.com/) 2019. Use one or more of our APIs in your hack to have a chance of winning some great prizes.
+            text: "Nexmo is sponsoring [Hack The Burgh](https://2019.hacktheburgh.com/) 2019. Use one or more of our APIs in your hack to have a chance of winning some great prizes."
             align: center
           icon:
             name: "icon-star"
@@ -56,7 +56,7 @@ page:
             name: "icon-laptop"
             color: blue
           text:
-          - content: Build an accessible voice application using the [Nexmo Voice API](/voice/voice-api/overview). The Voice API supports the ability to get a raw stream of audio from a phone call or conference over WebSocket. 
+          - content: Build an accessible voice application using the [Nexmo Voice API](/voice/voice-api/overview). The Voice API supports the ability to get a raw stream of audio from a phone call or conference over WebSocket.
             type: large
           - content: Use this and other features from the Voice API to make a feature of your hack more accessible.
             type: large
