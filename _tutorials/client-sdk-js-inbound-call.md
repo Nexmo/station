@@ -102,7 +102,6 @@ application.on("member:call", (member, call) => {
 })
 ```
 
-
 ## Reject a call
 
 In order to reject an incoming call, you'll have to use the `reject()` method on the call object that you received when the `member:call` event was triggered.

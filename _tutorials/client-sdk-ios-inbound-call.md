@@ -7,13 +7,11 @@ languages:
     - Swift
 ---
 
-
 # How to Receive Phone Calls with the Nexmo Client SDK on iOS
 
 In this guide, you'll learn how to receive an incoming phone call in a iOS application.
 
 You will create a simple iOS app, that will automatically log in a user called Jane. After logging in, Jane is able to receive a call and perform actions such as answer, reject or hangup.
-
 
 ## Nexmo Concepts
 
