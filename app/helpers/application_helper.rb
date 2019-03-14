@@ -45,7 +45,6 @@ module ApplicationHelper
   def directory_hash(path, name = nil)
     data = { title: (name || path), path: path }
     data[:children] = []
-  
     # Find all markdown files on disk that are children
     Dir.foreach(path) do |entry|
       next if entry.start_with?('.')
