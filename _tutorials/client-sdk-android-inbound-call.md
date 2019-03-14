@@ -50,7 +50,7 @@ You can remove the rest, if you haven't completed their tutorials yet.
 2. Replace the user IDs and tokens:
 
 ```tabbed_content
-source: '_tutorials_tabbed_content/client-sdk/in-app-voice/android/single-user-keys'
+source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/android/single-user-keys'
 frameless: false
 ```
 
@@ -75,14 +75,14 @@ It is done by registering to incoming events, with `NexmoIncomingCallListener` a
 For simplicity in this example, you will accept incoming calls only on `MainActivity`. Open `MainActivity` and create the `NexmoIncomingCallListener` to save the reference to the incoming call on `NexmoHelper`, and start `IncomingCallActivity`:
 
 ```tabbed_content
-source: '_tutorials_tabbed_content/client-sdk/in-app-voice/android/start-incoming-call-activity'
+source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/android/start-incoming-call-activity'
 frameless: false
 ```
 
 You need to register and unregister the listener in `onCreate()` and `onDestroy()`:
 
 ```tabbed_content
-source: '_tutorials_tabbed_content/client-sdk/in-app-voice/android/register-incoming-events'
+source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/android/register-incoming-events'
 frameless: false
 ```
 

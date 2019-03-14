@@ -44,7 +44,7 @@ You can remove the rest, if you haven't completed their tutorials yet.
 2. Replace the user IDs and tokens:
 
 ```tabbed_content
-source: '_tutorials_tabbed_content/client-sdk/in-app-voice/android/single-user-keys'
+source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/android/single-user-keys'
 frameless: false
 ```
 
@@ -67,7 +67,7 @@ You can now make an App-to-Phone call.
 Open `MainActivity` and complete the prepared `onPhoneCallClick()` handler:
 
 ```tabbed_content
-source: '_tutorials_tabbed_content/client-sdk/in-app-voice/android/click-call-phone'
+source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/android/click-call-phone'
 frameless: false
 ```
 

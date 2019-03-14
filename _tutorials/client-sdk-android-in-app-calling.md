@@ -32,7 +32,7 @@ source: _partials/client-sdk/voice/android/clone-repo.md
 2. Replace the user IDs and tokens:
 
 ```tabbed_content
-source: '_tutorials_tabbed_content/client-sdk/in-app-voice/android/two-users-keys'
+source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/android/two-users-keys'
 frameless: false
 ```
 
@@ -55,21 +55,21 @@ You can now make a simple In-App call. If you logged in as Jane, you can call Jo
 Open `MainActivity` and complete the prepared `onInAppCallClick()` handler:
 
 ```tabbed_content
-source: '_tutorials_tabbed_content/client-sdk/in-app-voice/android/click-call-app'
+source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/android/click-call-app'
 frameless: false
 ```
 
 When the call creation is successful, save the `NexmoCall` on `NexmoHelper`, for convenience, and start `OnCallActivity`:
 
 ```tabbed_content
-source: '_tutorials_tabbed_content/client-sdk/in-app-voice/android/start-call-activity'
+source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/android/start-call-activity'
 frameless: false
 ```
 
 You can also start a call with customized logic [using an NCCO](/client-sdk/in-app-voice/concepts/ncco-guide), by choosing `NexmoCallHandler.SERVER` as the `CallHandler`:
 
 ```tabbed_content
-source: '_tutorials_tabbed_content/client-sdk/in-app-voice/android/call-handler-server'
+source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/android/call-handler-server'
 frameless: false
 ```
 
@@ -82,14 +82,14 @@ When Jane calls Joe, Joe should be notified. Joe can then answer the call. Joe s
 For simplicity in this example, you will accept incoming calls only on `MainActivity`. Open `MainActivity` and create the `NexmoIncomingCallListener` to save the reference to the incoming call on `NexmoHelper`, and start `IncomingCallActivity`:
 
 ```tabbed_content
-source: '_tutorials_tabbed_content/client-sdk/in-app-voice/android/start-incoming-call-activity'
+source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/android/start-incoming-call-activity'
 frameless: false
 ```
 
 You need to register and unregister the listener in `onCreate()` and `onDestroy()`:
 
 ```tabbed_content
-source: '_tutorials_tabbed_content/client-sdk/in-app-voice/android/register-incoming-events'
+source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/android/register-incoming-events'
 frameless: false
 ```
 
