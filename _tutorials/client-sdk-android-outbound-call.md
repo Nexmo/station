@@ -44,7 +44,7 @@ You can remove the rest, if you haven't completed their tutorials yet.
 2. Replace the user IDs and tokens:
 
 ```tabbed_content
-source: '_examples/client-sdk/tutorials/voice/in-app-to-in-app/single-user-keys'
+source: '_tutorials_tabbed_content/client-sdk/in-app-voice/android/single-user-keys'
 frameless: false
 ```
 

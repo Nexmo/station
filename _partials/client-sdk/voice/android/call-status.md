@@ -5,6 +5,6 @@ Register to its instance, to address the use cases mentioned previously.
 On both `OnCallActivity` and `IncomingCallActivity`, add:
 
 ```tabbed_content
-source: '_examples/client-sdk/tutorials/voice/in-app-to-in-app/finish-call-listener'
+source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/android/finish-call-listener'
 frameless: false
 ```
