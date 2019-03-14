@@ -9,7 +9,7 @@ NexmoIncomingCallListener incomingCallListener = new NexmoIncomingCallListener()
     public void onIncomingCall(NexmoCall call) {
 
         NexmoHelper.currentCall = call;
-        startActivity(new Intent(CreateCallActivity.this, IncomingCallActivity.class));
+        startActivity(new Intent(MainActivity.this, IncomingCallActivity.class));
     }
 };
 ```

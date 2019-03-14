@@ -14,7 +14,7 @@ fun loginToSdk(token: String) {
             override fun onSuccess(user: NexmoUser) {
                 currentUser = user
 
-                val intent = Intent(baseContext, CreateCallActivity::class.java)
+                val intent = Intent(baseContext, MainActivity::class.java)
                 startActivity(intent)
                 finish()
             }

@@ -25,6 +25,6 @@ For your application to place a phone call, you'll need to provide a URL as the 
 
 Once created, add the gist raw URL (make sure you're using the raw version) to your [Nexmo dashboard](https://dashboard.nexmo.com). To do this, navigate to [applications](https://dashboard.nexmo.com/voice/your-applications), select your application and click the 'Edit' button. Set the application's `Answer URL` and click 'Save changes'.
 
-You will need to repeat this process every time you're changing the gist as a new revision (with a different raw URL) is being created.
+You will need to repeat this process every time you're changing the gist as a new revision (with the new raw URL) is being created.
 
-> The gist you created is specific to this tutorial. In a real-life scenario, the `Answer URL` should be provided by a purposely built web solution that can serve custom NCCOs and, for this case, receive and validate the phone number dialled from the app.
+> The gist you created is specific to this tutorial. In a real-life scenario, the `Answer URL` should be provided by a purposely built web solution. Your backend should provide  that can serve custom NCCOs and, for this case, receive and validate the phone number dialled from the app.

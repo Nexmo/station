@@ -14,7 +14,7 @@ void loginToSdk(String token) {
         public void onSuccess(NexmoUser user) {
             NexmoHelper.user = user;
 
-            Intent intent = new Intent(getBaseContext(), CreateCallActivity.class);
+            Intent intent = new Intent(getBaseContext(), MainActivity.class);
             startActivity(intent);
             finish();
         }

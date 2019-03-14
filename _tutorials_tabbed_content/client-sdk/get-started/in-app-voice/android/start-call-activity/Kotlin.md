@@ -12,7 +12,7 @@ var callListener = object: NexmoRequestListener<NexmoCall> {
     override fun onSuccess(call: NexmoCall) {
         currentCall = call
 
-        val intent = Intent(this@CreateCallActivity, OnCallActivity::class.java)
+        val intent = Intent(this@MainActivity, OnCallActivity::class.java)
         startActivity(intent)
     }
 }

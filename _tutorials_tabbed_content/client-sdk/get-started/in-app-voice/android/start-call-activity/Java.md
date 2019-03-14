@@ -13,7 +13,7 @@ NexmoRequestListener<NexmoCall> callListener = new NexmoRequestListener<NexmoCal
     public void onSuccess(NexmoCall call) {
         NexmoHelper.currentCall = call;
 
-        Intent intent = new Intent(CreateCallActivity.this, OnCallActivity.class);
+        Intent intent = new Intent(MainActivity.this, OnCallActivity.class);
         startActivity(intent);
     }
 };

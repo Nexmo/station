@@ -61,9 +61,9 @@ The `Call` button press is already connected to `ViewController`.
 source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/outbound-pstn-ios/start-call'
 ```
 
-You are expected to replace `CALLEE_PHONE_NUMBER` with the number to be called but, ultimately, the number called is the one supplied in the `Answer URL` webhook. In a real-life environment, you would create a server component to server as the `Answer URL`; this will receive the `CALLEE_PHONE_NUMBER`, validate it and then supply it in the JSON returned.
+You are expected to replace `CALLEE_PHONE_NUMBER` with the number to be called. But, ultimately, the number that is actually called is the one supplied in the `Answer URL` webhook. In a real-life use case, you would create a server component to serve as the `Answer URL`. The app will send to your backend, through the `Answer URL` the `CALLEE_PHONE_NUMBER`, the backend would validate it and then supply it in the JSON returned.
 
-**NB:** Whilst the default HTTP method for the `Answer URL` is `GET`, `POST` can also be used.
+> **Note:** Whilst the default HTTP method for the `Answer URL` is `GET`, `POST` can also be used.
 
 ### Call Type
 
