@@ -38,20 +38,21 @@ Then for Android:
 
 1. [Set up push notifications](/tutorials/client-sdk-android-set-up-push-notifications).
 2. [Add SDK to your App](/tutorials/client-sdk-android-add-sdk-to-your-app).
-3. [Make and receive calls](/tutorials/client-sdk-android-make-receive-calls).
+3. [Make and receive in app calls](/tutorials/client-sdk-android-make-receive-calls).
 
 For iOS:
 
 1. [Set up push notifications](/tutorials/client-sdk-ios-set-up-push-notifications).
 2. [Add SDK to your App](/tutorials/client-sdk-ios-add-sdk-to-your-app).
 3. [App to App calls](/tutorials/client-sdk-ios-in-app-calling).
-4. [Phone to App calls](/tutorials/client-sdk-ios-inbound-pstn).
-5. [App to Phone calls](/tutorials/client-sdk-ios-outbound-pstn).
+4. [Phone to App calls](/tutorials/client-sdk-ios-inbound-call).
+5. [App to Phone calls](/tutorials/client-sdk-ios-outbound-call).
 
 For JavaScript:
 
-1. [Enable audio](/client-sdk/in-app-voice/guides/enable-audio)
-2. [Phone to App calls](/client-sdk/in-app-voice/guides/inbound-pstn)
+1. [Enable audio](/client-sdk/in-app-voice/guides/enable-audio).
+2. [App to Phone calls](/tutorials/client-sdk-js-outbound-call).
+3. [Phone to App calls](/tutorials/client-sdk-js-inbound-call).
 
 ## Concepts
 

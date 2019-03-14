@@ -10,7 +10,7 @@ languages:
 # How to Make Phone Calls with the Nexmo Client SDK on iOS
 
 ```partial
-source: _partials/client-sdk/voice/phone2app-intro.md
+source: _partials/client-sdk/voice/inbound-call-intro.md
 ```
 
 ## Nexmo Concepts
@@ -51,7 +51,6 @@ source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/outbound-
 
 At this point you should already be able to run the app and see that you can login successfully with the SDK.
 
-
 ## Start a call
 
 You can now make an App-to-Phone call.
@@ -66,7 +65,6 @@ You are expected to replace `CALLEE_PHONE_NUMBER` with the number to be called b
 
 **NB:** Whilst the default HTTP method for the `Answer URL` is `GET`, `POST` can also be used.
 
-
 ### Call Type
 
 Note the use of `NXMCallTypeServer` as the `callType` in the `client`'s `call:` method above; this specifies that the logic of the call is defined by the server - a requirement for outbound PSTN calls.
@@ -77,7 +75,6 @@ Note the use of `NXMCallTypeServer` as the `callType` in the `client`'s `call:` 
 source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/outbound-pstn-ios/call-type'
 ```
 
-
 ## Call Delegate
 
 ```tabbed_content
@@ -86,10 +83,9 @@ source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/outbound-
 
 The `statusChanged:` method notifies on changes that happens to members on the call.  
 
-
 ## Hangup a call
 
-Once the "End Call" button is pressed, it is time to hangup the call. 
+Once the "End Call" button is pressed, it is time to hangup the call.
 
 ```tabbed_content
 source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/outbound-pstn-ios/hangup'
@@ -99,13 +95,11 @@ Updates for `callMember` statuses are received in `statusChanged` as part of the
 
 The existing implementation for `statusChanged:` is already handling call hangup.
 
-
 ## Handle permissions
 
 For the call to happen, `Audio Permissions` are required. In the `appDelegate` of the sample project, you can find an implementation for the permissions request in `application:didFinishLaunchingWithOptions`.  
 
 To read more about the permissions required, [see the setup tutorial](/tutorials/client-sdk-ios-add-sdk-to-your-app#add-permissions).
-
 
 ## Conclusion
 
