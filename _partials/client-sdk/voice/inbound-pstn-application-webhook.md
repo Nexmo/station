@@ -8,4 +8,4 @@ Now, set the application's `Answer URL` to:
 
 and click 'Save changes'.
 
-NB: This gist is specific to this tutorial and in a real-life scenario, the `answer_url` should be provided by a purposely built web solution that can serve custom NCCO's if required.
+>NOTE: This gist is specific to this tutorial and in a real-life scenario, the `answer_url` should be provided by a purposely built web solution that can serve custom NCCOs if required.
