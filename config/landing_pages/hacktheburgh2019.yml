@@ -71,7 +71,7 @@ page:
           text:
           - content: A mini challenge with prizes is also running. Build an application to send us a text message using the [Nexmo Messages API](/messages/overview).
             type: large
-          - content: Send **NUMBER** a text message and then come and see us, show us your code and then get a prize.
+          - content: Send **+447508741510** a text message and then come and see us, show us your code and then get a prize.
             type: large
 
     - column:
