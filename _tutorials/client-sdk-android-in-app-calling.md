@@ -1,5 +1,5 @@
 ---
-title: How to Make and Receive Voice calls with the Nexmo Client SDK on Android
+title: How to Make and Receive In App calls with the Nexmo Client SDK on Android
 products: client-sdk
 description: This tutorial shows you how to create a Nexmo Client SDK application that can make and receive voice calls on Android.
 languages:
@@ -7,7 +7,7 @@ languages:
     - Kotlin
 ---
 
-# How to Make and Receive Voice calls with the Nexmo Client SDK on Android
+# How to Make and Receive In App calls with the Nexmo Client SDK on Android
 
 In this tutorial you learn how to use the Nexmo Client SDK for Android, in order to perform an in-app (IP to IP) voice call.
 
@@ -42,11 +42,18 @@ frameless: false
 source: _partials/client-sdk/voice/android/login-intro.md
 ```
 
-Open `LoginActivity`. It already has two button handlers:`onLoginJaneClick(...)` and `onLoginJoeClick(...)`. Each calls the `loginToSdk(...)` method, with a different parameter - the corresponding `jwt`.
+Open `LoginActivity`. It already has two button handlers: `onLoginJaneClick(...)` and `onLoginJoeClick(...)`.  Each calls the ` loginToSdk(...)` method, with a different parameter - the corresponding `jwt`.
 
 ```partial
 source: _partials/client-sdk/voice/android/login-code.md
 ```
+
+```tabbed_content
+source: '_tutorials_tabbed_content/client-sdk/in-app-voice/android/login'
+frameless: false
+```
+
+At this point you should already be able to run the app and see that you can login successfully with the SDK.
 
 ## Start a Call
 
@@ -99,16 +106,31 @@ frameless: false
 source: _partials/client-sdk/voice/android/answer.md
 ```
 
+```tabbed_content
+source: '_tutorials_tabbed_content/client-sdk/in-app-voice/android/on-answer'
+frameless: false
+```
+
 ## Hangup
 
 ```partial
 source: _partials/client-sdk/voice/android/hangup.md
 ```
 
+```tabbed_content
+source: '_tutorials_tabbed_content/client-sdk/in-app-voice/android/on-hangup'
+frameless: false
+```
+
 ## Register to call status
 
 ```partial
 source: _partials/client-sdk/voice/android/call-status.md
+```
+
+```tabbed_content
+source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/android/finish-call-listener'
+frameless: false
 ```
 
 ## Handle permissions

@@ -60,6 +60,13 @@ Open `LoginActivity`. It already has a button handler:`onLoginJaneClick(...)` th
 source: _partials/client-sdk/voice/android/login-code.md
 ```
 
+```tabbed_content
+source: '_tutorials_tabbed_content/client-sdk/in-app-voice/android/login'
+frameless: false
+```
+
+At this point you should already be able to run the app and see that you can login successfully with the SDK.
+
 ## Start a call
 
 You can now make an App-to-Phone call.
@@ -81,16 +88,31 @@ You are expected to replace `CALLEE_PHONE_NUMBER` with the number to be called. 
 source: _partials/client-sdk/voice/android/answer.md
 ```
 
+```tabbed_content
+source: '_tutorials_tabbed_content/client-sdk/in-app-voice/android/on-answer'
+frameless: false
+```
+
 ## Hangup
 
 ```partial
 source: _partials/client-sdk/voice/android/hangup.md
 ```
 
+```tabbed_content
+source: '_tutorials_tabbed_content/client-sdk/in-app-voice/android/on-hangup'
+frameless: false
+```
+
 ## Register to call status
 
 ```partial
 source: _partials/client-sdk/voice/android/call-status.md
+```
+
+```tabbed_content
+source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/android/finish-call-listener'
+frameless: false
 ```
 
 ## Handle permissions

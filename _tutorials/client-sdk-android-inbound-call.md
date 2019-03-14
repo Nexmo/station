@@ -66,6 +66,13 @@ Open `LoginActivity`. It already has a button handler:`onLoginJaneClick(...)` th
 source: _partials/client-sdk/voice/android/login-code.md
 ```
 
+```tabbed_content
+source: '_tutorials_tabbed_content/client-sdk/in-app-voice/android/login'
+frameless: false
+```
+
+At this point you should already be able to run the app and see that you can login successfully with the SDK.
+
 ## Receive incoming call
 
 When the phone number associated with your Nexmo app receives a call, the app should notify the user `Jane` so that she can decide whether to answer or reject it.
@@ -92,16 +99,31 @@ frameless: false
 source: _partials/client-sdk/voice/android/answer.md
 ```
 
+```tabbed_content
+source: '_tutorials_tabbed_content/client-sdk/in-app-voice/android/on-answer'
+frameless: false
+```
+
 ## Hangup
 
 ```partial
 source: _partials/client-sdk/voice/android/hangup.md
 ```
 
+```tabbed_content
+source: '_tutorials_tabbed_content/client-sdk/in-app-voice/android/on-hangup'
+frameless: false
+```
+
 ## Register to call status
 
 ```partial
 source: _partials/client-sdk/voice/android/call-status.md
+```
+
+```tabbed_content
+source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/android/finish-call-listener'
+frameless: false
 ```
 
 ## Handle permissions
