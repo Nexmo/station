@@ -55,7 +55,7 @@ You can now make a simple In-App call. If you logged in as Jane, you can call Jo
 Open `MainActivity` and complete the prepared `onInAppCallClick()` handler:
 
 ```tabbed_content
-source: '_tutorials_tabbed_content/client-sdk/in-app-voice/android/click-call'
+source: '_tutorials_tabbed_content/client-sdk/in-app-voice/android/click-call-app'
 frameless: false
 ```
 

@@ -33,11 +33,9 @@ The Android and iOS Client SDKs additionally offer:
 
 To get quickly up and running with In App Voice, try one of our tutorials:
 
-1. [Generate test credentials (all platforms)](/tutorials/client-sdk-generate-test-credentials).
+For Android:
 
-Then for Android:
-
-1. [Make and receive in app calls](/tutorials/client-sdk-android-make-receive-calls).
+1. [Make and receive in app calls](/tutorials/client-sdk-android-in-app-calling).
 2. [Phone to App calls](/tutorials/client-sdk-android-inbound-call).
 3. [App to Phone calls](/tutorials/client-sdk-android-outbound-call).
 
