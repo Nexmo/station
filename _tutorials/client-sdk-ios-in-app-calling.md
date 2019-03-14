@@ -7,8 +7,7 @@ languages:
     - Objective_C
 ---
 
-
-# How to Make and Receive Voice Calls with the Nexmo Client SDK on iOS
+# How to Make and Receive In-App Voice Calls with the Nexmo Client SDK on iOS
 
 In this tutorial you learn how to use Nexmo Client SDK for iOS, in order to perform an in-app (IP to IP) voice call.
 

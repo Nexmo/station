@@ -9,7 +9,7 @@ languages:
 # How to Make Phone Calls with the Nexmo Client SDK in JavaScript
 
 ```partial
-source: _partials/client-sdk/voice/phone2app-intro.md
+source: _partials/client-sdk/voice/outbound-call-intro.md
 ```
 
 ## Nexmo Concepts
