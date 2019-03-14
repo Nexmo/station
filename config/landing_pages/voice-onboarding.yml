@@ -1,0 +1,77 @@
+title: "Nexmo Voice SDK Onboarding"
+
+page:
+  - row:
+    - column:
+      - type: header
+        header:
+          title:
+            text: "Voice with Nexmo Client SDKs"
+            align: center
+          subtitle:
+            text: "Before you get started with a tutorial or our quickstarts, make sure you generate test credentials."
+            align: center
+          icon:
+            name: "icon-star"
+            color: "yellow"
+  - row:
+    - column:
+      - type: action_button
+        action_button:
+          text: "Generate Test Credentials"
+          url: "/tutorials/client-sdk-generate-test-credentials"
+          center_button: true
+
+  - row:
+    - column:
+        - type: line_divider
+
+  - row:
+    - column:
+      - type: header
+        header:
+          title:
+            text: "JavaScript"
+            align: center
+          icon:
+            name: "icon-code"
+            color: "yellow"
+      - type: unordered_list
+        unordered_list:
+            bullet_shape: simple
+            list:
+              - item: "[Add the Nexmo Client SDK to your JavaScript App](/tutorials/client-sdk-js-add-sdk-to-your-app)"
+              - item: "[Make Phone Calls with the JavaScript SDK](/tutorials/client-sdk-js-make-calls)"
+              - item: "[Receive Phone Calls with the JavaScript SDK](/tutorials/client-sdk-js-receive-calls)"
+    - column:
+      - type: header
+        header:
+          title:
+            text: "Android"
+            align: center
+          icon:
+            name: "icon-code"
+            color: "green"
+      - type: unordered_list
+        unordered_list:
+            bullet_shape: simple
+            list:
+              - item: "[Add the Nexmo Client SDK to your Android App](/tutorials/client-sdk-android-add-sdk-to-your-app)"
+              - item: "[Make and Receive Voice Calls with Android](/tutorials/client-sdk-android-make-receive-calls)"
+    - column:
+      - type: header
+        header:
+          title:
+            text: "iOS"
+            align: center
+          icon:
+            name: "icon-code"
+            color: "blue"
+      - type: unordered_list
+        unordered_list:
+            bullet_shape: simple
+            list:
+              - item: "[Add the Nexmo Client SDK to your iOS App](/tutorials/client-sdk-ios-add-sdk-to-your-app)"
+              - item: "[Make Phone Calls with iOS](/tutorials/client-sdk-ios-outbound-pstn)"
+              - item: "[Receive Phone Calls with iOS](/tutorials/client-sdk-ios-inbound-pstn)"
+              - item: "[Make and Receive Voice Calls with iOS](/tutorials/client-sdk-ios-in-app-calling)"
