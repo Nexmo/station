@@ -49,7 +49,7 @@ source: _partials/client-sdk/voice/android/login-code.md
 ```
 
 ```tabbed_content
-source: '_tutorials_tabbed_content/client-sdk/in-app-voice/android/login'
+source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/android/login'
 frameless: false
 ```
 
@@ -107,7 +107,7 @@ source: _partials/client-sdk/voice/android/answer.md
 ```
 
 ```tabbed_content
-source: '_tutorials_tabbed_content/client-sdk/in-app-voice/android/on-answer'
+source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/android/on-answer'
 frameless: false
 ```
 
@@ -118,7 +118,7 @@ source: _partials/client-sdk/voice/android/hangup.md
 ```
 
 ```tabbed_content
-source: '_tutorials_tabbed_content/client-sdk/in-app-voice/android/on-hangup'
+source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/android/on-hangup'
 frameless: false
 ```
 
