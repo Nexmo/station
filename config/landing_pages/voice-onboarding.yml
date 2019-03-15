@@ -9,7 +9,7 @@ page:
             text: "Nexmo In-App Voice"
             align: center
           subtitle:
-            text: "Nexmo In-App Voice includes all you need to build a feature-rich voice experience."
+            text: "Nexmo In-App Voice includes all you need to build a feature-rich voice experience.<br />If you can't find what you're looking for, you can [explore the Nexmo Client SDK](/client-sdk/overview)."
             align: center
           icon:
             name: "icon-phone"
@@ -33,7 +33,7 @@ page:
         action_button:
           text: "View Nexmo docs"
           url: "/"
-          center_button: 
+          center_button: true
           type: primary
           large: true
     - column:
@@ -70,8 +70,10 @@ page:
         unordered_list:
             bullet_shape: simple
             list:
+              - item: "[Generate Test Credentials](/tutorials/client-sdk-generate-test-credentials)"
               - item: "[Make Phone Calls with the JavaScript SDK](/tutorials/client-sdk-js-make-calls)"
               - item: "[Receive Phone Calls with the JavaScript SDK](/tutorials/client-sdk-js-receive-calls)"
+              - item: "[Build a Full Stack Nexmo App with Express and React](https://www.nexmo.com/blog/2019/03/15/full-stack-nexmo-with-express-react-dr/)"
     - column:
       - type: text
         text:
@@ -84,6 +86,9 @@ page:
         unordered_list:
             bullet_shape: simple
             list:
+              - item: "[Generate Test Credentials](/tutorials/client-sdk-generate-test-credentials)"
+              - item: "[Make Phone Calls with Android](/tutorials/client-sdk-android-outbound-call)"
+              - item: "[Receive Phone Calls with Android](/tutorials/client-sdk-android-inbound-call)"
               - item: "[Make and Receive Voice Calls with Android](/tutorials/client-sdk-android-make-receive-calls)"
     - column:
       - type: text
@@ -97,6 +102,7 @@ page:
         unordered_list:
             bullet_shape: simple
             list:
+              - item: "[Generate Test Credentials](/tutorials/client-sdk-generate-test-credentials)"
               - item: "[Make Phone Calls with iOS](/tutorials/client-sdk-ios-outbound-pstn)"
               - item: "[Receive Phone Calls with iOS](/tutorials/client-sdk-ios-inbound-pstn)"
               - item: "[Make and Receive Voice Calls with iOS](/tutorials/client-sdk-ios-in-app-calling)"
@@ -144,6 +150,7 @@ page:
             bullet_shape: simple
             list:
               - item: "[Add the Nexmo Client SDK to your Android App](/tutorials/client-sdk-android-add-sdk-to-your-app)"
+              - item: "[Set Up Nexmo Push Notifications on Android](/tutorials/client-sdk-android-set-up-push-notifications)"
     - column:
       - type: text
         text:
@@ -157,6 +164,7 @@ page:
             bullet_shape: simple
             list:
               - item: "[Add the Nexmo Client SDK to your iOS App](/tutorials/client-sdk-ios-add-sdk-to-your-app)"
+              - item: "[Set Up Nexmo Push Notifications on iOS](/tutorials/client-sdk-ios-set-up-push-notifications)"
 
   - row:
     - column:
