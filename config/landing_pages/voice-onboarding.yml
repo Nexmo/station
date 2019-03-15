@@ -17,36 +17,6 @@ page:
 
   - row:
     - column:
-      - type: html
-        html:
-          content: '&nbsp;'
-    - column:
-      - type: action_button
-        action_button:
-          text: "Sign-up For Free"
-          url: "https://dashboard.nexmo.com/sign-up?utm_source=nexmo-developer&utm_medium=voice-onboarding&utm_campaign=landing"
-          center_button: true
-          type: primary
-          large: true
-    - column:
-      - type: action_button
-        action_button:
-          text: "View Nexmo docs"
-          url: "/"
-          center_button: true
-          type: primary
-          large: true
-    - column:
-      - type: html
-        html:
-          content: '&nbsp;'
-
-  - row:
-    - column:
-      - type: line_divider
-
-  - row:
-    - column:
       - type: header
         header:
           title:
@@ -57,6 +27,22 @@ page:
           subtitle:
             text: "Use one of our tutorials to create an app from scratch to fit your use case."
 
+
+
+  - row:
+    - column:
+      - type: html
+        html:
+          content: '&nbsp;'
+    - column:
+      - type: tutorial
+        tutorial:
+          name: client-sdk-generate-test-credentials
+    - column:
+      - type: html
+        html:
+          content: '&nbsp;'
+
   - row:
     - column:
       - type: text
@@ -66,14 +52,19 @@ page:
               <svg class="Vlt-icon"><use xlink:href="/symbol/volta-brand-icons.svg#Brand-icon-javascript-color"></use></svg>
               JavaScript
             </h2>
-      - type: unordered_list
-        unordered_list:
-            bullet_shape: simple
-            list:
-              - item: "[Generate Test Credentials](/tutorials/client-sdk-generate-test-credentials)"
-              - item: "[Make Phone Calls with the JavaScript SDK](/tutorials/client-sdk-js-make-calls)"
-              - item: "[Receive Phone Calls with the JavaScript SDK](/tutorials/client-sdk-js-receive-calls)"
-              - item: "[Build a Full Stack Nexmo App with Express and React](https://www.nexmo.com/blog/2019/03/15/full-stack-nexmo-with-express-react-dr/)"
+      - type: tutorial
+        tutorial:
+          name: client-sdk-js-outbound-call
+      - type: tutorial
+        tutorial:
+          name: client-sdk-js-inbound-call
+      - type: html
+        html:
+          content: |
+            <a class="Vlt-card" href="https://www.nexmo.com/blog/2019/03/15/full-stack-nexmo-with-express-react-dr/">
+              <h4 class="Vlt-margin--top2">Build a Full Stack Nexmo App with Express and React</h4>
+              <p>The Nexmo Node and JS Client SDKs along with Express and React can create a full-stack app as a basis for most things you may want from Nexmo in the browser</p>
+            </a>
     - column:
       - type: text
         text:
@@ -82,14 +73,16 @@ page:
               <svg class="Vlt-icon"><use xlink:href="/symbol/volta-brand-icons.svg#Brand-icon-android-color"></use></svg>
               Android
             </h2>
-      - type: unordered_list
-        unordered_list:
-            bullet_shape: simple
-            list:
-              - item: "[Generate Test Credentials](/tutorials/client-sdk-generate-test-credentials)"
-              - item: "[Make Phone Calls with Android](/tutorials/client-sdk-android-outbound-call)"
-              - item: "[Receive Phone Calls with Android](/tutorials/client-sdk-android-inbound-call)"
-              - item: "[Make and Receive Voice Calls with Android](/tutorials/client-sdk-android-make-receive-calls)"
+      - type: tutorial
+        tutorial:
+          name: client-sdk-android-outbound-call
+      - type: tutorial
+        tutorial:
+          name: client-sdk-android-inbound-call
+      - type: tutorial
+        tutorial:
+          name: client-sdk-android-in-app-calling
+
     - column:
       - type: text
         text:
@@ -98,14 +91,15 @@ page:
               <svg class="Vlt-icon"><use xlink:href="/symbol/volta-brand-icons.svg#Brand-icon-apple-color"></use></svg>
               iOS
             </h2>
-      - type: unordered_list
-        unordered_list:
-            bullet_shape: simple
-            list:
-              - item: "[Generate Test Credentials](/tutorials/client-sdk-generate-test-credentials)"
-              - item: "[Make Phone Calls with iOS](/tutorials/client-sdk-ios-outbound-pstn)"
-              - item: "[Receive Phone Calls with iOS](/tutorials/client-sdk-ios-inbound-pstn)"
-              - item: "[Make and Receive Voice Calls with iOS](/tutorials/client-sdk-ios-in-app-calling)"
+      - type: tutorial
+        tutorial:
+          name: client-sdk-ios-outbound-call
+      - type: tutorial
+        tutorial:
+          name: client-sdk-ios-inbound-call
+      - type: tutorial
+        tutorial:
+          name: client-sdk-ios-in-app-calling
 
   - row:
     - column:
@@ -132,11 +126,9 @@ page:
               <svg class="Vlt-icon"><use xlink:href="/symbol/volta-brand-icons.svg#Brand-icon-javascript-color"></use></svg>
               JavaScript
             </h2>
-      - type: unordered_list
-        unordered_list:
-            bullet_shape: simple
-            list:
-              - item: "[Add the Nexmo Client SDK to your JavaScript App](/tutorials/client-sdk-js-add-sdk-to-your-app)"
+      - type: tutorial
+        tutorial:
+          name: client-sdk-js-add-sdk-to-your-app
     - column:
       - type: text
         text:
@@ -145,12 +137,12 @@ page:
               <svg class="Vlt-icon"><use xlink:href="/symbol/volta-brand-icons.svg#Brand-icon-android-color"></use></svg>
               Android
             </h2>
-      - type: unordered_list
-        unordered_list:
-            bullet_shape: simple
-            list:
-              - item: "[Add the Nexmo Client SDK to your Android App](/tutorials/client-sdk-android-add-sdk-to-your-app)"
-              - item: "[Set Up Nexmo Push Notifications on Android](/tutorials/client-sdk-android-set-up-push-notifications)"
+      - type: tutorial
+        tutorial:
+          name: client-sdk-android-add-sdk-to-your-app
+      - type: tutorial
+        tutorial:
+          name: client-sdk-android-set-up-push-notifications
     - column:
       - type: text
         text:
@@ -159,13 +151,39 @@ page:
               <svg class="Vlt-icon"><use xlink:href="/symbol/volta-brand-icons.svg#Brand-icon-apple-color"></use></svg>
               iOS
             </h2>
-      - type: unordered_list
-        unordered_list:
-            bullet_shape: simple
-            list:
-              - item: "[Add the Nexmo Client SDK to your iOS App](/tutorials/client-sdk-ios-add-sdk-to-your-app)"
-              - item: "[Set Up Nexmo Push Notifications on iOS](/tutorials/client-sdk-ios-set-up-push-notifications)"
+      - type: tutorial
+        tutorial:
+          name: client-sdk-ios-add-sdk-to-your-app
+      - type: tutorial
+        tutorial:
+          name: client-sdk-ios-set-up-push-notifications
 
   - row:
     - column:
-        - type: line_divider
+      - type: line_divider
+
+  - row:
+    - column:
+      - type: html
+        html:
+          content: '&nbsp;'
+    - column:
+      - type: action_button
+        action_button:
+          text: "Sign-up For Free"
+          url: "https://dashboard.nexmo.com/sign-up?utm_source=nexmo-developer&utm_medium=voice-onboarding&utm_campaign=landing"
+          center_button: true
+          type: secondary
+          large: true
+    - column:
+      - type: action_button
+        action_button:
+          text: "View Nexmo docs"
+          url: "/"
+          center_button: true
+          type: secondary
+          large: true
+    - column:
+      - type: html
+        html:
+          content: '&nbsp;'
