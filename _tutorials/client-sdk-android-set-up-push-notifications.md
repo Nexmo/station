@@ -109,6 +109,8 @@ For example, in your `MyFirebaseMessagingService`:
     }
 ```
 
+> *Note:* in order to apply any methods on Nexmo Client object (for example answer a call, hangup, and so on) Nexmo Client has to be initialized and the user has to be [logged in]((/client-sdk/getting-started/add-sdk-to-your-app/android)) to it.
+
 ## Conclusion
 
 In this tutorial you have seen how to set up push notifications.

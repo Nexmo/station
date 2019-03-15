@@ -1,13 +1,30 @@
-For your application to connect an app user to a phone call, you'll need to provide a URL as the `Answer URL` webhook - we've created a [gist](https://gist.github.com/NexmoDev/f11d10f21fe426ddac4e30b94c6b28dc) for you to fork and update with your Nexmo phone number and personal phone number.
 
-After you've forked and saved the gist to your account, press the "Raw" button to get a link to the raw json file. We'll need to set this as the answer URL for your Nexmo application.
+For your application to place a phone call, you'll need to provide a URL as the `Answer URL` webhook. For the purpose of this tutorial, you will create a [gist](https://gist.github.com/NexmoDev/f11d10f21fe426ddac4e30b94c6b28dc) with the content below:
 
-To add this URL, go to your [Nexmo dashboard](https://dashboard.nexmo.com), navigate to [applications](https://dashboard.nexmo.com/voice/your-applications), select your application and click the 'Edit' button.
+```json
+[
+    {
+        "action": "talk",
+        "text": "Please wait while we connect you."
+    },
+    {
+        "action": "connect",
+        "timeout": 20,
+        "from": "YOUR_NEXMO_NUMBER",
+        "endpoint": [
+            {
+                "type": "phone",
+                "number": "CALLEE_PHONE_NUMBER"
+            }
+        ]
+    }
+]
+```
 
-Now, set the application's `Answer URL` to your raw gist URL. It should look something like this:
+> **Do not forget to replace `YOUR_NEXMO_NUMBER` and `CALLEE_PHONE_NUMBER` with the relevant values for your app.**
 
-``https://gist.githubusercontent.com/NexmoDev/f11d10f21fe426ddac4e30b94c6b28dc/raw/b14c4087097ab67503b4fdd996269502e107bce6/call-phone.json``
+Once created, add the gist raw URL (make sure you're using the raw version) to your [Nexmo dashboard](https://dashboard.nexmo.com). To do this, navigate to [applications](https://dashboard.nexmo.com/voice/your-applications), select your application and click the 'Edit' button. Set the application's `Answer URL` and click 'Save changes'.
 
-and click 'Save changes'.
+You will need to repeat this process every time you're changing the gist as a new revision (with the new raw URL) is being created.
 
-> NOTE: This gist is specific to this tutorial and in a real-life scenario, the `answer_url` should be provided by a purposely built web solution that can serve custom NCCOs if required.
+> **Note:** The gist you created is specific to this tutorial. In a real-life scenario, the `Answer URL` should be provided by a purposely built web solution. Your backend should provide that can serve custom NCCOs and, for this case, receive and validate the phone number dialled from the app.
