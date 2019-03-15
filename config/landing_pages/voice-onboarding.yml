@@ -12,16 +12,34 @@ page:
             text: "Nexmo In-App Voice includes all you need to build a feature-rich voice experience."
             align: center
           icon:
-            name: "icon-star-full"
-            color: "blue-dark"
+            name: "icon-phone"
+            color: "green"
 
-  # - row:
-  #   - column:
-  #     - type: action_button
-  #       action_button:
-  #         text: "Generate Test Credentials"
-  #         url: "/tutorials/client-sdk-generate-test-credentials"
-  #         center_button: true
+  - row:
+    - column:
+      - type: html
+        html:
+          content: '&nbsp;'
+    - column:
+      - type: action_button
+        action_button:
+          text: "Sign-up For Free"
+          url: "https://dashboard.nexmo.com/sign-up?utm_source=nexmo-developer&utm_medium=voice-onboarding&utm_campaign=landing"
+          center_button: true
+          type: primary
+          large: true
+    - column:
+      - type: action_button
+        action_button:
+          text: "View Nexmo docs"
+          url: "/"
+          center_button: 
+          type: primary
+          large: true
+    - column:
+      - type: html
+        html:
+          content: '&nbsp;'
 
   - row:
     - column:
@@ -139,3 +157,7 @@ page:
             bullet_shape: simple
             list:
               - item: "[Add the Nexmo Client SDK to your iOS App](/tutorials/client-sdk-ios-add-sdk-to-your-app)"
+
+  - row:
+    - column:
+        - type: line_divider
