@@ -27,22 +27,6 @@ page:
           subtitle:
             text: "Use one of our tutorials to create an app from scratch to fit your use case."
 
-
-
-  - row:
-    - column:
-      - type: html
-        html:
-          content: '&nbsp;'
-    - column:
-      - type: tutorial
-        tutorial:
-          name: client-sdk-generate-test-credentials
-    - column:
-      - type: html
-        html:
-          content: '&nbsp;'
-
   - row:
     - column:
       - type: text
@@ -52,12 +36,6 @@ page:
               <svg class="Vlt-icon"><use xlink:href="/symbol/volta-brand-icons.svg#Brand-icon-javascript-color"></use></svg>
               JavaScript
             </h2>
-      - type: tutorial
-        tutorial:
-          name: client-sdk-js-outbound-call
-      - type: tutorial
-        tutorial:
-          name: client-sdk-js-inbound-call
       - type: html
         html:
           content: |
@@ -65,6 +43,12 @@ page:
               <h4 class="Vlt-margin--top2">Build a Full Stack Nexmo App with Express and React</h4>
               <p>The Nexmo Node and JS Client SDKs along with Express and React can create a full-stack app as a basis for most things you may want from Nexmo in the browser</p>
             </a>
+      - type: tutorial
+        tutorial:
+          name: client-sdk-js-outbound-call
+      - type: tutorial
+        tutorial:
+          name: client-sdk-js-inbound-call
     - column:
       - type: text
         text:
@@ -75,13 +59,13 @@ page:
             </h2>
       - type: tutorial
         tutorial:
+          name: client-sdk-android-in-app-calling
+      - type: tutorial
+        tutorial:
           name: client-sdk-android-outbound-call
       - type: tutorial
         tutorial:
           name: client-sdk-android-inbound-call
-      - type: tutorial
-        tutorial:
-          name: client-sdk-android-in-app-calling
 
     - column:
       - type: text
@@ -93,13 +77,13 @@ page:
             </h2>
       - type: tutorial
         tutorial:
+          name: client-sdk-ios-in-app-calling
+      - type: tutorial
+        tutorial:
           name: client-sdk-ios-outbound-call
       - type: tutorial
         tutorial:
           name: client-sdk-ios-inbound-call
-      - type: tutorial
-        tutorial:
-          name: client-sdk-ios-in-app-calling
 
   - row:
     - column:
@@ -187,3 +171,13 @@ page:
       - type: html
         html:
           content: '&nbsp;'
+
+  - row:
+    - column:
+        - type: line_divider
+  - row:
+    - column:
+      - type: join_slack
+  - row:
+    - column:
+        - type: line_divider
