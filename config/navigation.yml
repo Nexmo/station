@@ -9,6 +9,7 @@ navigation_weight:
   Numbers: 98
   Account: 99
 
+  Onboarding: 0
   Overview: 1
   Developer Preview: 2
   Quickstarts: 3
