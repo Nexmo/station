@@ -47,7 +47,7 @@ The **setup steps** are automatically generated from the information in the [per
 
 ### Quickstart code snippets
 
-The [source code](#source-code) is actually snippets of **code in the quickstart repos**. These are external repositories that hold full working examples and we use sections of those examples to demonstrate the code. The source repository, file and range of lines to include are all defined in the [per-language config files](#language-config-files) for each building block language example.
+The [source code](#source-code) is actually snippets of **code in the "code-snippets" repos**. These are external repositories that hold full working examples and we use sections of those examples to demonstrate the code. The source repository, file and range of lines to include are all defined in the [per-language config files](#language-config-files) for each building block language example.
 
 ### Run the code
 
@@ -103,11 +103,11 @@ language: java
 dependencies:
     - 'com.nexmo:client:4.0.0'
 code:
-    source: .repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/voice/TransferCall.java
+    source: .repos/nexmo/nexmo-java-code-snippets/src/main/java/com/nexmo/quickstart/voice/TransferCall.java
     from_line: 42
     to_line: 42
 client:
-    source: .repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/voice/TransferCall.java
+    source: .repos/nexmo/nexmo-java-code-snippets/src/main/java/com/nexmo/quickstart/voice/TransferCall.java
     from_line: 17
     to_line: 22
 run_command: java-ide
