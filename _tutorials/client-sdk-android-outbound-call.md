@@ -1,5 +1,5 @@
 ---
-title: How to Receive Phone Calls with the Nexmo Client SDK on iOS
+title: How to Make Phone Calls with the Nexmo Client SDK on Android
 products: client-sdk
 description: This tutorial shows you how to create a Nexmo Client SDK application that can place phone calls on Android.
 languages:
