@@ -106,6 +106,31 @@ page:
 
   - row:
     - column:
+      - type: header
+        header:
+          title:
+            text: "Nexmo Voice On-boarding"
+            align: center
+          subtitle:
+            text: "Check out our voice onboarding resources. Let us know if you can't find something."
+            align: center
+          icon:
+            name: "icon-phone"
+            color: "green"
+      - type: action_button
+        action_button:
+          text: "View Nexmo Voice On-boarding"
+          url: "/voice-onboarding"
+          center_button: true
+          type: quaternary
+          large: true
+
+  - row:
+    - column:
+        - type: line_divider
+
+  - row:
+    - column:
       - type: call_to_action
         call_to_action:
           title: "Voice"
@@ -134,7 +159,6 @@ page:
             name: "icon-lock"
             color: "indigo"
           url: "/verify"
-
 
   - row:
     - column:
