@@ -9,7 +9,6 @@ Nexmo In-App Voice uses WebRTC and includes all the essentials you need to build
 * 1:1 or Group Calls
 * Audio Controls – Mute, earmuff
 * DTMF Support
-* Audio Stream Quality Statistics
 
 Nexmo In-App Voice integrates with the Nexmo Voice API which amplifies the In-App Voice offering through extra functionality such as:
 
@@ -30,28 +29,45 @@ The Android and iOS Client SDKs additionally offer:
 
 ## Getting started
 
-The suggested order for learning In-App Voice is as follows:
+### Quick start
 
-1. [Generate test credentials (all platforms)](/tutorials/client-sdk-generate-test-credentials).
+To get quickly up and running with In App Voice, try one of our tutorials:
 
-Then for Android:
+For Android:
 
-1. [Set up push notifications](/tutorials/client-sdk-android-set-up-push-notifications).
-2. [Add SDK to your App](/tutorials/client-sdk-android-add-sdk-to-your-app).
-3. [Make and receive calls](/tutorials/client-sdk-android-make-receive-calls).
+1. [Make and receive in app calls](/tutorials/client-sdk-android-in-app-calling).
+2. [Phone to App calls](/tutorials/client-sdk-android-inbound-call).
+3. [App to Phone calls](/tutorials/client-sdk-android-outbound-call).
 
 For iOS:
 
-1. [Set up push notifications](/tutorials/client-sdk-ios-set-up-push-notifications).
-2. [Add SDK to your App](/tutorials/client-sdk-ios-add-sdk-to-your-app).
-3. [App to App calls](/tutorials/client-sdk-ios-in-app-calling).
-4. [Phone to App calls](/tutorials/client-sdk-ios-inbound-pstn).
-5. [App to Phone calls](/tutorials/client-sdk-ios-outbound-pstn).
+1. [App to App calls](/tutorials/client-sdk-ios-in-app-calling).
+2. [Phone to App calls](/tutorials/client-sdk-ios-inbound-call).
+3. [App to Phone calls](/tutorials/client-sdk-ios-outbound-call).
 
 For JavaScript:
 
-1. [Enable audio](/client-sdk/in-app-voice/guides/enable-audio)
-2. [Phone to App calls](/client-sdk/in-app-voice/guides/inbound-pstn)
+1. [App to Phone calls](/tutorials/client-sdk-js-outbound-call).
+2. [Phone to App calls](/tutorials/client-sdk-js-inbound-call).
+3. [Enable audio in a conversation](/client-sdk/in-app-voice/guides/enable-audio).
+
+### Setup in your own app
+
+Check out our setup guides:
+
+For Android:
+
+1. [Add SDK to your App](/tutorials/client-sdk-android-add-sdk-to-your-app).
+2. [Set up push notifications](/tutorials/client-sdk-android-set-up-push-notifications).
+
+For iOS:
+
+1. [Add SDK to your App](/tutorials/client-sdk-ios-add-sdk-to-your-app).
+2. [Set up push notifications](/tutorials/client-sdk-ios-set-up-push-notifications).
+
+For JavaScript:
+
+1. [Add SDK to your App](/tutorials/client-sdk-js-add-sdk-to-your-app).
 
 ## Concepts
 
@@ -77,7 +93,7 @@ product: client-sdk/in-app-voice
 
 ## Tutorials
 
-Nexmo Client SDK tutorials:
+All of Nexmo Client SDK tutorials:
 
 ```tutorials
 product: client-sdk
