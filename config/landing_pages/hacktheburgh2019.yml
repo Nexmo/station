@@ -109,56 +109,59 @@ page:
       - type: header
         header:
           title:
-            text: "Nexmo Voice On-boarding"
+            text: "Voice API"
             align: center
           subtitle:
-            text: "Check out our voice onboarding resources. Let us know if you can't find something."
+            text: "Check out our Voice API resources."
             align: center
           icon:
             name: "icon-phone"
             color: "green"
       - type: action_button
         action_button:
-          text: "View Nexmo Voice On-boarding"
+          text: "Get Started with Nexmo Voice API"
+          url: "/voice/voice-api/overview"
+          center_button: true
+          type: quaternary
+          large: true
+    - column:
+      - type: header
+        header:
+          title:
+            text: "Messages API"
+            align: center
+          subtitle:
+            text: "Check out our Messages API resources."
+            align: center
+          icon:
+            name: "icon-chat"
+            color: "blue-dark"
+      - type: action_button
+        action_button:
+          text: "Get Started with Nexmo Messages API"
+          url: "/messages/overview"
+          center_button: true
+          type: secondary
+          large: true
+    - column:
+      - type: header
+        header:
+          title:
+            text: "In-App Voice"
+            align: center
+          subtitle:
+            text: "Check out our In-App Voice resources."
+            align: center
+          icon:
+            name: "icon-volume"
+            color: "green"
+      - type: action_button
+        action_button:
+          text: "Get Started with Nexmo In-App Voice"
           url: "/voice-onboarding"
           center_button: true
           type: quaternary
           large: true
-
-  - row:
-    - column:
-        - type: line_divider
-
-  - row:
-    - column:
-      - type: call_to_action
-        call_to_action:
-          title: "Voice"
-          subtitle: "Use the Voice API to make, receive and control phone calls programmatically. You can broadcast messages by phone, respond to incoming calls, route callers according to their input and more."
-          icon: 
-            name: "icon-phone"
-            color: "green"
-          url: "/voice"
-
-    - column:
-      - type: call_to_action
-        call_to_action:
-          title: "Messages"
-          subtitle: "With our Messages API (and its sister Dispatch API) your applications can reach users by the messaging platform they prefer. Message not received? No problem, automatically detect that and try another platform."
-          icon: 
-            name: "icon-chat"
-            color: "purple"
-          url: "/messages/overview"
-
-    - column:
-      - type: call_to_action
-        call_to_action:
-          title: "Verify"
-          subtitle: "Ensure that users provide the correct contact details with Verify API. The two-factor authentication (2FA) API reduces fraud and improves contactability for your application's users."
-          icon: 
-            name: "icon-lock"
-            color: "indigo"
-          url: "/verify"
 
   - row:
     - column:
