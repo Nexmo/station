@@ -8,6 +8,13 @@ navigation_weight:
   Dispatch: 6
   Numbers: 98
   Account: 99
+  Vonage Business Cloud: 7
+
+  Number Programmability: 1
+  Getting Started: 2
+  Account API: 3
+  Extension API: 4
+  User API: 5
 
   Onboarding: 0
   Overview: 1
@@ -96,6 +103,10 @@ navigation_overrides:
   conversation:
     svg: 'message'
     svgColor: 'teal'
+    label: 'Developer Preview'
+  vonage-business-cloud:
+    svg: 'telephone'
+    svgColor: 'green'
     label: 'Developer Preview'
   contribute:
     administration:

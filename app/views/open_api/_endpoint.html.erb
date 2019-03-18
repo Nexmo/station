@@ -16,7 +16,7 @@
         </code>
       </div>
 
-       <% if endpoint.jwt? || endpoint.basic_auth? %>
+       <% if endpoint.jwt? || endpoint.basic_auth? || endpoint.oauth? %>
         <h4>Authentication</h4>
 
         <% if endpoint.jwt? && endpoint.basic_auth? %>
@@ -36,6 +36,22 @@
               </tr>
             </thead>
             <tbody>
+            <% if endpoint.oauth? %>
+              <tr>
+                <td>
+                  <b>Authorization</b>
+                </td>
+                <td>
+                    <b>Your OAuth token.</b><br>
+                    <small><%= link_to "Read more about OAuth tokens", "/vonage-business-cloud/vbc-apis/getting-started/authentication" %></small>
+                </td>
+                <td><code>Bearer &lt;access_token&gt;</code></td>
+                <td>
+                    <em>None</em>
+                </td>
+              </tr>
+              <% end %>
+
               <% if endpoint.jwt? %>
               <tr>
                 <td>

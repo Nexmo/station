@@ -11,6 +11,9 @@ OPEN_API_PRODUCTS = %w[
   account/secret-management
   external-accounts
   verify
+  vonage-business-cloud/account
+  vonage-business-cloud/extension
+  vonage-business-cloud/user
   application.v2
 ].freeze
 

@@ -133,4 +133,16 @@ module OasParser
       expand_refs(fragment)
     end
   end
+
+  class Endpoint
+    def oauth?
+      return false unless security
+
+      security_schemes.each do |security_schema|
+        return true if security_schema['bearerFormat'] == 'OAuth'
+      end
+
+      false
+    end
+  end
 end
