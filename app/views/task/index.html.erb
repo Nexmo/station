@@ -25,11 +25,14 @@
      </div>
   </div>
   <div class="Vlt-col Vlt-col--1of4">
-    <h4>In this section</h4>
+    <h4><%= @task.title %></h4>
+    <small><%= @task.description %></small>
+    <hr />
+    <h4>In This Section</h4>    
     <ul>
     <% @task.subtasks.each_with_index do |t, i| %>
-      <li><a href="<%= "/task/#{@task.name}/#{t['path']}" %>"><%= i+1 %>. <%= t['title'] %></a></li>
-    <% end %>
+      <li><a title="<%= t['description'] %>" href="<%= "/task/#{@task.name}/#{t['path']}" %>"><%= i+1 %>. <%= t['title'] %></a></li>
+      <% end %>
     </ul>
   </div>
 </div>
