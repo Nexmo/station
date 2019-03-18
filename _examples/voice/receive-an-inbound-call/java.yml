@@ -5,7 +5,7 @@ dependencies:
     - 'com.nexmo:client:4.0.0'
     - 'com.sparkjava:spark-core:2.7.2'
 code:
-    source: .repos/nexmo-community/nexmo-java-quickstart/src/main/java/com/nexmo/quickstart/voice/InboundCall.java
+    source: .repos/nexmo/nexmo-java-code-snippets/src/main/java/com/nexmo/quickstart/voice/InboundCall.java
     from_line: 31
     to_line: 53
 run_command: java-ide

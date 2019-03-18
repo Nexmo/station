@@ -4,11 +4,11 @@ language: php
 dependencies:
     - nexmo/client
 client:
-    source: .repos/nexmo-community/nexmo-php-quickstart/verify/verify.php
+    source: .repos/nexmo/nexmo-php-code-snippets/verify/verify.php
     from_line: 11
     to_line: 12
 code:
-    source: .repos/nexmo-community/nexmo-php-quickstart/verify/verify.php
+    source: .repos/nexmo/nexmo-php-code-snippets/verify/verify.php
     from_line: 14
     to_line: 15
 file_name: verify.php

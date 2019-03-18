@@ -6,7 +6,7 @@ dependencies:
     - express
     - body-parser
 code:
-    source: .repos/nexmo-community/nexmo-node-quickstart/number_insight/ni-advanced-async-client.js
+    source: .repos/nexmo/nexmo-node-code-snippets/number_insight/ni-advanced-async-client.js
     from_line: 9
     to_line: 27
 file_name: ni-advanced-async-client.js

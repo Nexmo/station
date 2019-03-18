@@ -8,9 +8,9 @@ navigation_weight: 0
 ## What are building blocks?
 
 Building blocks are short pieces of code you can reuse in your own applications.
-The building blocks utilise code from the [Nexmo Node Quickstart](https://github.com/nexmo-community/nexmo-node-quickstart) and [Curl Building Block](https://github.com/Nexmo/curl-building-blocks) repositories.
+The building blocks utilise code from the [Nexmo Node code snippets](https://github.com/nexmo/nexmo-node-code-snippets) and [Curl Building Block](https://github.com/Nexmo/curl-building-blocks) repositories.
 
-Please read this information carefully, so you can best use the building blocks.  
+Please read this information carefully, so you can best use the building blocks.
 
 ```partial
 source: _partials/reusable/prereqs.md

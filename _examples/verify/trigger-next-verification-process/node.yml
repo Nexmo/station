@@ -4,11 +4,11 @@ language: node
 dependencies:
     - nexmo
 client:
-    source: .repos/nexmo-community/nexmo-node-quickstart/verify/next-event.js
+    source: .repos/nexmo/nexmo-node-code-snippets/verify/next-event.js
     from_line: 14
     to_line: 20
 code:
-    source: .repos/nexmo-community/nexmo-node-quickstart/verify/next-event.js
+    source: .repos/nexmo/nexmo-node-code-snippets/verify/next-event.js
     from_line: 22
     to_line: 31
 file_name: next-event.js

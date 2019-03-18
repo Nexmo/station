@@ -4,11 +4,11 @@ language: python
 dependencies:
     - nexmo
 code:
-    source: .repos/nexmo-community/nexmo-python-quickstart/voice/get-recording.py
+    source: .repos/nexmo/nexmo-python-code-snippets/voice/get-recording.py
     from_line: 10
     to_line: 11
 client:
-    source: .repos/nexmo-community/nexmo-python-quickstart/voice/get-recording.py
+    source: .repos/nexmo/nexmo-python-code-snippets/voice/get-recording.py
     from_line: 5
     to_line: 8
 file_name: get-recording.py

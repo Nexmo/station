@@ -5,11 +5,11 @@ dependencies:
     - express
     - body-parser
 code:
-    source: .repos/nexmo-community/nexmo-node-quickstart/voice/dtmf.js
+    source: .repos/nexmo/nexmo-node-code-snippets/voice/dtmf.js
     from_line: 32 
     to_line: 36
 client:
-    source: .repos/nexmo-community/nexmo-node-quickstart/voice/dtmf.js
+    source: .repos/nexmo/nexmo-node-code-snippets/voice/dtmf.js
     from_line: 1
     to_line: 5
 file_name: interesting.js

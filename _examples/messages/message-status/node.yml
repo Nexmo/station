@@ -2,7 +2,7 @@
 title: Node
 language: node
 code:
-    source: .repos/nexmo-community/nexmo-node-quickstart/messages/message-status.js
+    source: .repos/nexmo/nexmo-node-code-snippets/messages/message-status.js
     from_line: 1
     to_line: 14
 file_name: app.js

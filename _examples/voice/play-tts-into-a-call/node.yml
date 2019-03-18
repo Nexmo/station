@@ -5,11 +5,11 @@ dependencies:
     - nexmo
     - dotenv
 code:
-    source: .repos/nexmo-community/nexmo-node-quickstart/voice/play-tts-into-call.js
+    source: .repos/nexmo/nexmo-node-code-snippets/voice/play-tts-into-call.js
     from_line: 19
     to_line: 26
 client:
-    source: .repos/nexmo-community/nexmo-node-quickstart/voice/play-tts-into-call.js
+    source: .repos/nexmo/nexmo-node-code-snippets/voice/play-tts-into-call.js
     from_line: 10
     to_line: 17
 file_name: app.js

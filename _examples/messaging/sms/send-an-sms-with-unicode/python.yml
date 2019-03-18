@@ -4,11 +4,11 @@ language: python
 dependencies:
     - nexmo
 code:
-    source: .repos/nexmo-community/nexmo-python-quickstart/sms/send-an-sms-with-unicode.py
+    source: .repos/nexmo/nexmo-python-code-snippets/sms/send-an-sms-with-unicode.py
     from_line: 16
     to_line: 21
 client:
-    source: .repos/nexmo-community/nexmo-python-quickstart/sms/send-an-sms-with-unicode.py
+    source: .repos/nexmo/nexmo-python-code-snippets/sms/send-an-sms-with-unicode.py
     from_line: 12
     to_line: 14
 file_name: send-an-sms-with-unicode.py

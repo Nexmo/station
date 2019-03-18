@@ -141,7 +141,7 @@ class BuildingBlockFilter < Banzai::Filter
     elsif ['messages', 'dispatch'].include? app['type']
       erb = File.read("#{Rails.root}/app/views/building_blocks/_application_messages_dispatch.html.erb")
     else
-      raise "Invalid application type when creating building block: '#{app['type']}'"
+      raise "Invalid application type when creating code snippet: '#{app['type']}'"
     end
 
     id = SecureRandom.hex
@@ -150,14 +150,14 @@ class BuildingBlockFilter < Banzai::Filter
   end
 
   def generate_source_url(code)
-    # Source example: .repos/nexmo-community/java-quickstart/ExampleClass.java
-    # Direct link on GitHub is in form https://github.com/nexmo-community/java-quickstart/blob/master/ExampleClass.java
+    # Source example: .repos/nexmo/nexmo-java-code-snippets/ExampleClass.java
+    # Direct link on GitHub is in form https://github.com/nexmo/nexmo-java-code-snippets/blob/master/ExampleClass.java
     start_section = 'https://github.com'
 
     # Insert "blob/master" and strip ".repos" - except dotnet that needs "blob/ASPNET" instead
     repo_path = '\\0blob/master/'
     repo_path = '\\0blob/ASPNET/' if code['source'].include?('dotnet')
-    file_section = code['source'].sub('.repos', '').sub(%r{(-quickstart|-building-blocks)/}, repo_path)
+    file_section = code['source'].sub('.repos', '').sub(%r{(-quickstart|-building-blocks|-code-snippets)/}, repo_path)
 
     # Line highlighting
     line_section = ''

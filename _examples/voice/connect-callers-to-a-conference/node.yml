@@ -5,11 +5,11 @@ dependencies:
     - express
     - body-parser
 code:
-    source: .repos/nexmo-community/nexmo-node-quickstart/voice/conference-call.js
+    source: .repos/nexmo/nexmo-node-code-snippets/voice/conference-call.js
     from_line: 6
     to_line: 23
 client:
-    source: .repos/nexmo-community/nexmo-node-quickstart/voice/conference-call.js
+    source: .repos/nexmo/nexmo-node-code-snippets/voice/conference-call.js
     from_line: 1
     to_line: 4
 file_name: app.js

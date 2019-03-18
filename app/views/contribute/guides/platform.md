@@ -211,4 +211,4 @@ another-inique-id:
 
 ## Code Examples
 
-Code examples are often pulled in from quickstart repos, you can find out more about this process in the [Readme - Pulling in code from other repos](https://github.com/nexmo/nexmo-developer#pulling-in-code-from-other-repos).
+Code examples are often pulled in from other repositories using submodules - refer to the project `README` for more information.

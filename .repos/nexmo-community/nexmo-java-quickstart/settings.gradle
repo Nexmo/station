@@ -1,4 +1,0 @@
-// Uncomment the following (and update the path if necessary)
-// to work with a local copy of nexmo-java:
-//include ':client'
-//project(':client').projectDir = new File(settingsDir, '../nexmo-java')

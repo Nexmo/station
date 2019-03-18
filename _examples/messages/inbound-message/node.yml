@@ -2,7 +2,7 @@
 title: Node
 language: node
 code:
-    source: .repos/nexmo-community/nexmo-node-quickstart/messages/inbound-message.js
+    source: .repos/nexmo/nexmo-node-code-snippets/messages/inbound-message.js
     from_line: 1
     to_line: 14
 file_name: app.js
