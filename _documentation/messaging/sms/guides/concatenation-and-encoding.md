@@ -69,7 +69,7 @@ When you set the `type` parameter to `unicode`, **all** characters within the me
 
 ## Maximum number of characters
 
-The maximum length of a single SMS message is 140 bytes, which equates to 160 standard GSM 7-bit characters or 80 UCS-2 16-bit characters. A message longer than that is split into parts.
+The maximum length of a single SMS message is 140 bytes, which equates to 160 standard GSM 7-bit characters or 70 UCS-2 16-bit characters. A message longer than that is split into parts.
 
 > **Note**: Characters from the GSM extended table require two bytes per character to encode.
 
