@@ -10,6 +10,6 @@ client:
 code:
     source: .repos/nexmo/nexmo-php-code-snippets/sms/send-sms.php
     from_line: 8
-    to_line: 12
+    to_line: 23
 file_name: send-sms.php
 run_command: 'php send-sms.php'
