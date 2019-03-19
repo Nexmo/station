@@ -5,11 +5,11 @@ dependencies:
     - nexmo
 code:
     source: .repos/nexmo/nexmo-node-code-snippets/sms/send.js
-    from_line: 14
-    to_line: 18
+    from_line: 15
+    to_line: 29
 client:
     source: .repos/nexmo/nexmo-node-code-snippets/sms/send.js
-    from_line: 7
-    to_line: 12
+    from_line: 8
+    to_line: 13
 file_name: send.js
 run_command: 'node send.js'

@@ -10,6 +10,6 @@ client:
 code:
     source: .repos/nexmo/nexmo-python-code-snippets/sms/send-an-sms.py
     from_line: 16
-    to_line: 20
+    to_line: 27
 file_name: send-an-sms.py
 run_command: 'python send-an-sms.py'
