@@ -108,7 +108,7 @@ gem 'slack-notifier', '2.3.1'
 gem 'activeadmin', '~> 1.0'
 
 # Flexible authentication solution for Rails with Warden
-gem 'devise', '4.4.3'
+gem 'devise', '>= 4.6.0'
 
 # Simple wrapper for the GitHub API
 gem 'octokit', require: false
