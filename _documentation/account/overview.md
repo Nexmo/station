@@ -19,12 +19,11 @@ Within your account you can check your balance, configure the account-level sett
 product: account
 ```
 
-## Building Blocks
+## Code Snippets
 
-Building blocks are code snippets showing how to use the API to perform various tasks.
+Code snippets demonstrate how to use the API to perform various tasks.
 
-```building_block_list
+```code_snippet_list
 product: account
 ```
-
 
