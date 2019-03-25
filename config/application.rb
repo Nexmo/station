@@ -24,6 +24,9 @@ module NexmoDeveloper
     config.autoload_paths += Dir[File.join(Rails.root, 'lib', 'core_ext', '*.rb')].each { |l| require l }
     config.autoload_paths += Dir[File.join(Rails.root, 'lib', 'decorators', '*.rb')].each { |l| require l }
     config.autoload_paths += Dir[File.join(Rails.root, 'app', 'extensions', '**', '*.rb')].each { |l| require l }
+    config.autoload_paths += Dir[File.join(Rails.root, 'app', 'middleware', '**', '*.rb')].each { |l| require l }
+
+    config.middleware.use NexmoDeveloper::BuildingBlockRedirect
 
     config.generators do |g|
       g.orm :active_record, primary_key_type: :uuid
