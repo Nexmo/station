@@ -7,7 +7,7 @@ navigation_weight: 1
 
 You can check the balance of your Nexmo account at any time by making an API request and receiving the balance of your account in the response.
 
-```building_blocks
+```code_snippets
 source: _examples/account/get-balance
 ```
 
