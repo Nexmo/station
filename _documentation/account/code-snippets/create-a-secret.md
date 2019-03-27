@@ -15,6 +15,6 @@ New API secrets must meet the following rules:
 * Minimum 1 upper case character
 * Minimum 1 digit
 
-```building_blocks
+```code_snippets
 source: _examples/account/secret-management/create-a-secret
 ```

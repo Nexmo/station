@@ -15,7 +15,7 @@ Key |	Description
 -- | --
 `SMS_CALLBACK_URL` | The publicly-accessible URL that Nexmo should send information to when your Nexmo number receives an SMS
 
-```building_blocks
+```code_snippets
 source: _examples/account/configure-account
 ```
 

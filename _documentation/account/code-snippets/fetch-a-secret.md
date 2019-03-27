@@ -12,6 +12,6 @@ Key | Description
  -- | --
 `NEXMO_SECRET_ID` | The ID of the secret to delete.
 
-```building_blocks
+```code_snippets
 source: _examples/account/secret-management/fetch-a-secret
 ```
