@@ -22,7 +22,7 @@ SIP is used to connect a call to your own SIP system such as an office PBX or ot
 
 The `uri` should be constructed as a SIP URL in the format `sip:user@example.com` by default Nexmo will connect to port 5060 unless another port is specified in the URI. You can specify TLS for the SIP transport by adding `;transport=tls` to the end of your URI.
 
-Media will be sent via UDP on a port in the range 10000-20000.
+Media will be sent via UDP on all ports.
 
 For more information on the IP addresses used for SIP traffic originating from Nexmo see [What IP addresses should I whitelist in order to receive voice traffic from Nexmo?](https://help.nexmo.com/hc/en-us/articles/115004859247-What-IP-addresses-should-I-whitelist-in-order-to-receive-voice-traffic-from-Nexmo-)
 

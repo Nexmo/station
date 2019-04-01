@@ -53,7 +53,13 @@ The following codecs are supported:
 
 **Media traffic**
 
-The list of IPs/subnets is subject to change. Rather than white-listing specific subnets, open traffic from all IP ranges to port range `10000:20000`.
+Open traffic for all ports for the following IP ranges:
+
+  * 169.50.120.160/28
+  * 169.54.106.32/27
+  * 161.202.24.16/28
+  * 169.48.97.80/28
+  * 169.47.144.176/28
 
 **DTMF**
 
