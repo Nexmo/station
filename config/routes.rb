@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   namespace :admin_api, defaults: { format: 'json' } do
     resources :feedback, only: [:index]
+    resources :code_snippets, only: [:index]
   end
 
   get '/robots.txt', to: 'static#robots'
