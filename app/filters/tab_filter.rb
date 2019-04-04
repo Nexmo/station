@@ -12,9 +12,9 @@ class TabFilter < Banzai::Filter
   private
 
   def create_tabs(content)
-    tab = Nokogiri::XML::Element.new 'li', @document
-    tab['class'] = 'tabs-title'
-    tab['class'] += ' is-active' if content[:active]
+    tab = Nokogiri::XML::Element.new 'div', @document
+    tab['class'] = 'Vlt-tabs__link'
+    tab['class'] += ' Vlt-tabs__link_active' if content[:active]
 
     if content[:language]
       tab['data-language'] = content[:language].key
@@ -29,7 +29,7 @@ class TabFilter < Banzai::Filter
       tab['data-platform-linkable'] = content[:platform].linkable?
     end
 
-    tab_link = Nokogiri::XML::Element.new 'a', @document
+    tab_link = Nokogiri::XML::Element.new 'span', @document
     if content[:language]
       # We don't currently have icons for JSON/XML
       if ['json', 'xml'].include? content[:language].key.downcase
@@ -45,20 +45,22 @@ class TabFilter < Banzai::Filter
       tab_link.content = content[:tab_title]
     end
 
-    tab_link['href'] = "##{content[:id]}"
-
     tab.add_child(tab_link)
     @tabs.add_child(tab)
   end
 
   def create_content(content)
-    element = Nokogiri::XML::Element.new 'div', @document
-    element['id'] = content[:id]
-    element['class'] = 'tabs-panel'
-    element['class'] += ' is-active' if content[:active]
+    tabs_panel = Nokogiri::XML::Element.new 'div', @document
+    tabs_panel['class'] = 'Vlt-tabs__panel'
+    tabs_panel['class'] += ' Vlt-tabs__panel_active' if content[:active]
+
+    element = Nokogiri::XML::Element.new 'p', @document
+    element['aria-labelledby'] = "\"#{content[:id]}\""
+    element['aria-hidden'] = true
     element.inner_html = content[:body]
 
-    @tabs_content.add_child(element)
+    tabs_panel.add_child(element)
+    @tabs_content.add_child(tabs_panel)
   end
 
   def tabbed_code_examples?
@@ -70,28 +72,17 @@ class TabFilter < Banzai::Filter
   end
 
   def html
-    id = SecureRandom.hex
-
     html = <<~HEREDOC
-      <div>
-        <ul class="tabs" data-tabs id="#{id}"></ul>
-        <div class="tabs-content" data-tabs-content="#{id}"></div>
+      <div class="Vlt-tabs">
+        <div class="Vlt-tabs__header Vlt-tabs__header--bordered"></div>
+          <div class="Vlt-tabs__content">
+          </div>
       </div>
     HEREDOC
 
     @document = Nokogiri::HTML::DocumentFragment.parse(html)
-    @tabs = @document.at_css('.tabs')
-    @tabs_content = @document.at_css('.tabs-content')
-
-    if tabbed_code_examples?
-      @tabs['class'] += ' tabs--code'
-      @tabs_content['class'] += ' tabs-content--code'
-    end
-
-    if @config['frameless']
-      @tabs['class'] += ' tabs--frameless'
-      @tabs_content['class'] += ' tabs-content--frameless'
-    end
+    @tabs = @document.at_css('.Vlt-tabs__header')
+    @tabs_content = @document.at_css('.Vlt-tabs__content')
 
     contents.each do |content|
       create_tabs(content)
