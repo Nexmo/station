@@ -71,3 +71,37 @@ $colors: (
 		background-color: $color-variable !important;
 	}
 }
+
+.Vlt-gradient {
+	&--blue {
+		background: linear-gradient(to right, lighten($blue-dark, 5), darken($blue-dark, 10)) !important;
+	}
+
+	&--blue-light {
+		background: linear-gradient(to right, lighten($blue, 5), darken($blue, 10)) !important;
+	}
+
+	&--red {
+		background: linear-gradient(to right, lighten($red, 5), darken($red, 10)) !important;
+	}
+
+	&--orange {
+		background: linear-gradient(to right, lighten($orange, 10), darken($orange, 5)) !important;
+	}
+
+	&--indigo {
+		background: linear-gradient(to right, lighten($indigo, 5), darken($indigo, 10)) !important;
+	}
+
+	&--green {
+		background: linear-gradient(to right, lighten($green, 5), darken($green, 10)) !important;
+	}
+
+	&--purple {
+		background: linear-gradient(to right, lighten($purple, 5), darken($purple, 10)) !important;
+	}
+
+	&--teal {
+		background: linear-gradient(to right, lighten($teal, 5), darken($teal, 10)) !important;
+	}
+}

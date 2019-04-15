@@ -1,13 +1,13 @@
 .Vlt-center {
-	text-align: center;
+	text-align: center !important;
 }
 
 .Vlt-right {
-	text-align: right;
+	text-align: right !important;
 }
 
 .Vlt-left {
-	text-align: left;
+	text-align: left !important;
 }
 
 .Vlt-truncate {
@@ -20,12 +20,6 @@
 	&--inline {
 		display: inline;
 	}
-}
-
-.Vlt-container {
-	margin-left: auto;
-	margin-right: auto;
-	max-width: 1200px;
 }
 
 hr {
@@ -82,6 +76,11 @@ hr {
 		height: 40px;
 		width: 40px;
 	}
+
+	&--largest {
+		height: 48px;
+		width: 48px;
+	}
 }
 
 $devices: (
@@ -92,20 +91,19 @@ $devices: (
 	);
 
 $directions: 'top', 'bottom';
-$units: (0, $unit1, $unit2, $unit3, $unit4);
+$units: ($unitN, $unit1, $unit2, $unit3, $unit4);
 
 @each $direction in $directions {
 	@each $media, $devicePrefix in $devices {
 		@for $i from 1 through 5 {
-			$q: $i - 1;
 
-			.Vlt-margin--#{$devicePrefix}#{$direction}#{$q} {
+			.Vlt-margin--#{$devicePrefix}#{$direction}#{$i - 1} {
 				@if $media != '' {
 					@media #{$media} {
-						margin-#{$direction}: nth($units, $i);
+						margin-#{$direction}: nth($units, $i) !important;
 					}
 				} @else {
-					margin-#{$direction}: nth($units, $i);
+					margin-#{$direction}: nth($units, $i) !important;
 				}
 			}
 		}

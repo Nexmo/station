@@ -416,6 +416,13 @@
 			& + .Vlt-checkbox__icon {
 				@extend .Vlt-form-error-style;
 			}
+
+			&:focus {
+				& + .Vlt-radio__icon,
+				& + .Vlt-checkbox__icon {
+					box-shadow: 0 0 5px rgba($red, 0.5);
+				}
+			}
 		}
 	}
 
