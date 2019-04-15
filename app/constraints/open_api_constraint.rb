@@ -28,6 +28,11 @@ class OpenApiConstraint
     { definition: Regexp.new(OPEN_API_PRODUCTS.join('|')) }
   end
 
+  def self.errors_available
+    all = OPEN_API_PRODUCTS.dup.concat(['application'])
+    { definition: Regexp.new(all.join('|')) }
+  end
+
   def self.products_with_code_language
     products.merge(CodeLanguage.route_constraint)
   end
