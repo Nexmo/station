@@ -318,17 +318,15 @@ $shadow-tertiary: inset 0 0 0px 1px $grey;
 		}
 
 		&--tertiary {
-			&:not(:first-child):not(:last-child):not(:nth-child(2)) {
-				box-shadow: $shadow-standard, inset 0 1px 0px 0 $grey, inset 0 -1px 0px 0 $grey, inset 1px 0 0 0 $grey;
+			&:not(:first-child) {
+				// outer, bottom, top, right (aka, no left)
+				box-shadow: $shadow-standard, inset 0 1px 0px 0 $grey, inset 0 -1px 0px 0 $grey, inset -1px 0 0 0 $grey;
 			}
 
-			&:nth-child(2) {
-				box-shadow: $shadow-standard, inset 0 1px 0px 0 $grey, inset 0 -1px 0px 0 $grey;
-			}
-
+			&:active,
 			&.Vlt-btn_active {
-				&:not(:first-child):not(:last-child) {
-					box-shadow: $shadow-active, $shadow-standard, inset 0 1px 0px 0 $grey, inset 0 -1px 0px 0 $grey;
+				&:not(:first-child) {
+					box-shadow: $shadow-active, $shadow-standard, inset 0 1px 0px 0 $grey, inset 0 -1px 0px 0 $grey, inset -1px 0 0 0 $grey;
 				}
 			}
 		}
@@ -502,4 +500,8 @@ $shadow-tertiary: inset 0 0 0px 1px $grey;
 	color: $grey-dark;
 	font-weight: 400;
 	pointer-events: none;
+
+	svg {
+		fill: $grey-dark;
+	}
 }

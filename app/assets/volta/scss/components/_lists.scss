@@ -167,3 +167,38 @@ ol.Vlt-list--simple {
 		}
 	}
 }
+
+.Vlt-number {
+	align-items: center;
+	background: $green;
+	border-radius: 50px;
+	color: $white;
+	display: inline-flex;
+	font-size: 1.5rem;
+	font-weight: bold;
+	height: 30px;
+	justify-content: center;
+	margin: $unit0;
+	width: 30px;
+
+	&:before {
+		content: attr(data-index);
+	}
+
+	&--dialer {
+		background: $teal-lighter;
+		border-radius: $unit0;
+		color: $black;
+		flex-flow: column;
+		font-weight: 400;
+		height: 36px;
+		line-height: 1;
+		width: 36px;
+
+		small {
+			color: $grey-darker;
+			font-size: 1rem;
+			line-height: 1rem;
+		}
+	}
+}

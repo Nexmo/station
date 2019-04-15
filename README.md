@@ -222,6 +222,15 @@ $ brew info postgresql
 
 Once PostgreSQL is running you'll need to create and migrate the database. See [Setup](#running-locally) for instructions.
 
+## Upgrading Volta
+
+Volta is the Vonage design system, and is used to style Nexmo Developer. To upgrade the version of Volta used:
+
+* Clone Volta on to your local machine
+* Remove the `app/assets/volta/scss` folder in Nexmo Developer
+* Copy the `scss` folder from the Volta repo in to `app/assets/volta`
+* Commit and push. Rails will take care of compilation etc
+
 ## Contributing 
 We :heart: contributions from everyone! It is a good idea to [talk to us](https://nexmo-community-invite.herokuapp.com/) first if you plan to add any new functionality. Otherwise, [bug reports](https://github.com/Nexmo/nexmo-developer/issues/), [bug fixes](https://github.com/Nexmo/nexmo-developer/pulls) and feedback on the library is always appreciated. Look at the [Contributor Guidelines](CONTRIBUTING.md) for more information and please follow the [GitHub Flow](https://guides.github.com/introduction/flow/index.html).
 
