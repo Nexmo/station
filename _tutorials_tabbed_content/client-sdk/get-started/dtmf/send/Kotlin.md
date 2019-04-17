@@ -1,5 +1,5 @@
 ---
-title: Java
+title: Kotlin
 language: java
 menu_weight: 1
 ---
