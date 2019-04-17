@@ -19,7 +19,6 @@ import JsSequenceDiagrams from './JsSequenceDiagrams'
 import Navigation from './Navigation'
 import Scroll from './Scroll'
 import Search from './Search'
-import Modals from './Modals'
 import Notices from './Notices'
 import Feedback from './Feedback'
 import Concatenation from './Concatenation'
@@ -43,7 +42,6 @@ let refresh = () => {
   JsSequenceDiagrams()
   new VoltaTabbedExamples
   new Format
-  Modals()
   APIStatus()
   Scroll()
   Navigation()
@@ -69,7 +67,7 @@ let refresh = () => {
   let rightPane = document.querySelector(".Vlt-main");
   if (rightPane) { rightPane.click(); }
 
-  Volta.init(['accordion', 'tooltip', 'tab'])
+  Volta.init(['accordion', 'tooltip', 'tab', 'modal'])
 
   // Fix for Turbolinks scrolling to in-page anchor when navigating to a new page
   if(window.location.hash){
