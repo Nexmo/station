@@ -6,7 +6,7 @@ menu_weight: 3
 
 The DTMF events will be received in the implementation of the `DTMFReceived:callMember:` optional method for your `NXMCallDelegate`:
 
-```objective-c
+```objective_c
 - (void)DTMFReceived:(nonnull NSString *)dtmf callMember:(nonnull NXMCallMember *)callMember {
     NSLog(@"DTMF received: `%@` from `%@`", dtmf, callMember.user.name);
 }
