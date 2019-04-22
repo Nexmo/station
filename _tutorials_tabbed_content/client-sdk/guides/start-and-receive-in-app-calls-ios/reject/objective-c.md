@@ -12,4 +12,5 @@ menu_weight: 5
         // Handle reject success
     }
 }];
+
 ```

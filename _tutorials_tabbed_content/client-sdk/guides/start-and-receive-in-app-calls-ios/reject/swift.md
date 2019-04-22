@@ -12,4 +12,5 @@ call.reject { error in
         // Handle reject call success
     }
 }
+
 ```

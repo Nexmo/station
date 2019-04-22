@@ -3,6 +3,12 @@ title: Android
 language: android
 ---
 
+## Overview
+
+This guide covers the functionalities in your Nexmo Client application, in order to make and receive in-app voice calls.
+
+Before you begin, make sure you [added the SDK to your app](/setup/add-sdk-to-your-app).
+
 ## Start a call
 
 ### Start an In-App Call

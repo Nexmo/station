@@ -3,6 +3,12 @@ title: JavaScript
 language: javascript
 ---
 
+## Overview
+
+This guide covers the functionalities in your Nexmo Client application, in order to make and receive in-app voice calls.
+
+Before you begin, make sure you [added the SDK to your app](/setup/add-sdk-to-your-app).
+
 ## Start a call
 
 This method allows you to conduct in-app calls as well as phone calls while taking advantage of the rich [Nexmo Voice API features](/voice/voice-api/overview).

@@ -20,7 +20,6 @@ nexmoCall.addIncomingCallListener(incomingCallListener);
 Remove the listener when needed:
 
 ```java
-
 nexmoCall.removeIncomingCallListener(incomingCallListener);
 
 ```

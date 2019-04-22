@@ -10,12 +10,13 @@ val incomingCallListener = NexmoIncomingCallListener { call ->
     startActivity(Intent(this@MainActivity, IncomingCallActivity::class.java))
 }
 
-    NexmoClient.get().addIncomingCallListener(incomingCallListener)
+NexmoClient.get().addIncomingCallListener(incomingCallListener)
+
 ```
 
 Remove the listener when needed:
 
 ```java
-    NexmoClient.get().removeIncomingCallListeners()
+NexmoClient.get().removeIncomingCallListeners()
 
 ```
