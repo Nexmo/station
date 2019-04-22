@@ -4,7 +4,9 @@ description: How to enable call actions on members.
 navigation_weight: 3
 ---
 
-Below are some actions you can enable on member in a call.
+# Call Member Actions
+
+Below are some actions you can enable or disable on members in a call.
 
 ## Mute
 
