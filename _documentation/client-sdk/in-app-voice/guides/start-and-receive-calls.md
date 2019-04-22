@@ -1,6 +1,6 @@
 ---
 title: Start and Receive Calls
-description: How to set up your client app to start and receive in-app calls.
+description: How to set up your app to start and receive in-app calls.
 navigation_weight: 1
 ---
 
