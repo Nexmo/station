@@ -70,7 +70,7 @@ frameless: false
 
 ### Listen For Call Events
 
-To see updates on the state of the call its member, for example, to know if the other member answered or hung up the call, you should listen to Call events.
+To see updates on the state of the call member, for example, to know if the other member answered or hung up the call, you should listen to Call events.
 
 ```tabbed_content
 source: '_tutorials_tabbed_content/client-sdk/guides/start-and-receive-in-app-calls-ios/listen-to-call-events'
