@@ -2,11 +2,12 @@
 title: iOS
 language: ios
 ---
+
 ## Overview
 
 This guide covers the functionalities in your Nexmo Client application, in order to make and receive in-app voice calls.
 
-Before you begin, make sure you [added the SDK to your app](/setup/add-sdk-to-your-app).
+Before you begin, make sure you [added the SDK to your app](/client-sdk/setup/add-sdk-to-your-app).
 
 ## Start a call
 
@@ -25,7 +26,7 @@ The possible voice capabilities are very limited, as this doesn’t utilize [Nex
 
 This method allows you to conduct in-app calls as well as phone calls while taking advantage of the rich [Nexmo Voice API features](/voice/voice-api/overview).
 
-When your client app calls this method, the `answer_url` webhook that is configured for your [Nexmo Application](/concepts/guides/applications) will execute. That defines the [logic and capabilities](https://developer.nexmo.com/voice/voice-api/ncco-reference) of the call.
+When your client app calls this method, the `answer_url` webhook that is configured for your [Nexmo Application](/concepts/guides/applications) will execute. That defines the [logic and capabilities](/voice/voice-api/ncco-reference) of the call.
 
 On the client side, start the call as such:
 
