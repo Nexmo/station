@@ -36,7 +36,7 @@ page:
               color: "blue-dark"
         - type: text
           text:
-            content: "At Nexmo, we love Rails - it's one of our most-loved frameworks by customers and Developer Advocates alike. Start your Nexmo project by installing the Nexmo Rails gem. This will install the `nexmo` client library gem and automatically configure it from your `.env` file:"
+            content: "At Nexmo, we love Rails - it's one of our most-loved frameworks by customers and Developer Advocates alike. Start your Nexmo project by installing the **brand new** Nexmo Rails gem. This will install the `nexmo` Ruby client library gem and automatically configure it:"
         - type: text
           text:
             content: |
@@ -51,6 +51,9 @@ page:
               $ bundle install 
               $ rails generate nexmo_initializer
               ```
+        - type: text
+          text:
+            content: "You can read more about our new Rails gem and what you can do with it on the [Nexmo blog](https://www.nexmo.com/blog/2019/04/30/announcing-the-nexmo-rails-gem-dr/)."
     - column:
         - type: header
           header:
