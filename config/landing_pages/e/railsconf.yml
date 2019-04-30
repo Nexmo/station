@@ -36,7 +36,7 @@ page:
               color: "blue-dark"
         - type: text
           text:
-            content: "At Nexmo, we love Rails - it's one of our most-loved frameworks by customers and Developer Advocates alike. Start your Nexmo project by installing the Nexmo Rails gem. This will install the `nexmo` client library gem and automatically configure it from your `.env` file:"
+            content: "At Nexmo, we love Rails - it's one of our most-loved frameworks by customers and Developer Advocates alike. Start your Nexmo project by installing the **brand new** Nexmo Rails gem. This will install the `nexmo` Ruby client library gem and automatically configure it:"
         - type: text
           text:
             content: |
@@ -51,6 +51,9 @@ page:
               $ bundle install 
               $ rails generate nexmo_initializer
               ```
+        - type: text
+          text:
+            content: "You can read more about our new Rails gem and what you can do with it on the [Nexmo blog](https://www.nexmo.com/blog/2019/04/30/announcing-the-nexmo-rails-gem-dr/)."
     - column:
         - type: header
           header:
@@ -136,9 +139,11 @@ page:
             name: "icon-thumbs-up"
             color: blue
           text:
-          - content: "To win the awesome prize of a LEGO City Passenger Train Building Kit, you'll need to take a creative and fun picture <a href='https://nexmo.dev/tweetrailsconf'>tagging @NexmoDev with the hashtag #RailsConf</a>. Our **highly professional** team of advocates will review all the entrants and choose the one we found most creative utilizing our sophisticated algorithm-based decision making process."
+          - content: "To win the awesome prize of a LEGO City Passenger Train Building Kit, you'll need to take a creative and fun picture with our Nexmo swag that you can grab from our booth and <a href='https://nexmo.dev/tweetrailsconf'>tag @NexmoDev with the hashtag #RailsConf</a>. Our **highly professional** team of advocates will review all the entrants and choose the one we found most creative utilizing our sophisticated algorithm-based decision making process. One entry per person."
             type: large
-          - content: "To win the equally awesome prize of a Nintendo Switch, you just need stop by our booth and have your badge scanned for the giveaway. We will be picking a random entry on day two."
+          - content: "To win the equally awesome prize of a Nintendo Switch, you just need stop by our booth and have your badge scanned for the giveaway. We will be picking a random entry on day two. This too, is one entry per person."
+            type: large
+          - content: "The winner of the Nintendo Switch will be emailed by lunch time on Thursday and can pick it up anytime the rest of the day of the conference. The winner of the LEGO set will be announced on Twitter on Thursday before the 4pm afternoon break and can pick it up starting at the afternoon break until the end of the conference day."
             type: large
 
     - column:
@@ -155,11 +160,12 @@ page:
         unordered_list:
           bullet_shape: square
           list:
-            - item: Have fun.
-            - item: Be creative.
-            - item: Enjoy yourself.
+            - item: Have fun and be creative.
             - item: Visit the Nexmo booth and have your badge scanned.
-            - item: "<a href='https://nexmo.dev/tweetrailsconf'>Take a picture and tag @NexmoDev with #RailsConf on Twitter</a>."
+            - item: "<a href='https://nexmo.dev/tweetrailsconf'>Take a picture with Nexmo swag at the conference that you can get at our booth and tag @NexmoDev with #RailsConf on Twitter</a>."
+            - item: One separate entry for each prize per person.
+            - item: The winner of the Switch will be emailed by lunch time on Thursday and can pick it up anytime the rest of the day of the conference.
+            - item: The winner of the LEGO set will be announced on Twitter before the 4pm Thursday conference break and can pick it up at the afternoon break.
 
   - row:
     - column:
