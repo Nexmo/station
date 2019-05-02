@@ -255,7 +255,8 @@ module ApplicationHelper
 
   def generate_label_classes(label)
     classes = ' '
-    classes += 'Vlt-bg-green' if label.casecmp('beta').zero?
+    classes += 'Vlt-bg-green-lighter Vlt-green' if label.casecmp('beta').zero?
+    classes += 'Vlt-bg-blue-lighter Vlt-blue' if label.casecmp('dev preview').zero?
 
     classes
   end
