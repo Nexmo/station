@@ -136,7 +136,6 @@ navigation_overrides:
   vonage-business-cloud:
     svg: 'telephone'
     svgColor: 'green'
-    label: 'Dev Preview'
   contribute:
     administration:
       navigation_weight: 9999
