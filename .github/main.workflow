@@ -21,3 +21,13 @@ action "branch cleanup" {
   uses = "jessfraz/branch-cleanup-action@master"
   secrets = ["GITHUB_TOKEN"]
 }
+
+workflow "append Heroku logs if requested" {
+  on = "issue_comment"
+  resolves = ["mheap/github-action-heroku-logs@master"]
+}
+
+action "mheap/github-action-heroku-logs@master" {
+  uses = "mheap/github-action-heroku-logs@master"
+  secrets = ["GITHUB_TOKEN", "HEROKU_AUTH_TOKEN"]
+}
