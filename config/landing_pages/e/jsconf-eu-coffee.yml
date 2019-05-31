@@ -88,7 +88,7 @@ page:
             name: "icon-message"
             color: blue
           text:
-          - content: We understand a voice interface is not the best for all situations, so if you want to order your coffee without interupting anyone, just send an SMS to one of the numbers below with your coffee order, for example "Oat Latte".
+          - content: We understand a voice interface is not the best for all situations, so if you want to order your coffee via text, just send an SMS to one of the numbers below with your coffee order, for example "Oat Latte".
             type: large
           - content: 🇩🇪 +4915735995997
             type: small
