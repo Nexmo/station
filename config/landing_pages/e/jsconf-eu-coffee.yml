@@ -39,16 +39,21 @@ page:
               <li>4. Espresso</li>
               <li>5. Filter Coffee</li>
             </ul>
-      - column:
-        - type: text
-          text:
-            content: |
-              <br />
-              <p>Milk options</p>
-              <ul>
-                <li>1. Unskimmed milk</li>
-                <li>2. Oat milk</li>
-              </ul>
+    - column:
+      - type: text
+        text:
+          content: |
+            <br />
+            <p>Milk options</p>
+            <ul>
+              <li>1. Unskimmed milk</li>
+              <li>2. Oat milk</li>
+            </ul>
+
+  - row:
+    - column:
+        - type: line_divider
+
   - row:
     - column:
       - type: structured_text
@@ -61,12 +66,17 @@ page:
           - content: We've built an interactive voice response to help you order your coffee. Call one of the phone numbers below, and navigate the menu to order your coffee.
             type: large
           - content: 🇩🇪 +494082210836
+            type: small
           - content: 🇺🇸 +12019570995
+            type: small
           - content: 🇬🇧 +447418397995
+            type: small
           - content: 🇸🇪 +46769436099
+            type: small
           - content: 🇳🇱 +3197010240995
+            type: small
           - content: 🇩🇰 +4592453399
-
+            type: small
 
     - column:
       - type: structured_text
@@ -79,12 +89,20 @@ page:
           - content: We understand a voice interface is not the best for all situations, so if you want to order your coffee without interupting anyone, just send an SMS to one of the numbers below with your coffee order.
             type: large
           - content: 🇩🇪 +4915735995997
+            type: small
           - content: 🇳🇴 +4759444599
+            type: small
           - content: 🇺🇸 +12019570995
+            type: small
           - content: 🇬🇧 +447418397995
+            type: small
           - content: 🇸🇪 +46769436099
+            type: small
           - content: 🇳🇱 +3197010240995
+            type: small
           - content: 🇩🇰 +4592453399
+            type: small
+
 
   - row:
     - column:
