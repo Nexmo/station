@@ -46,7 +46,7 @@ page:
             <br />
             <p><b>Milk options</b></p>
             <ul>
-              <li>1. Unskimmed milk</li>
+              <li>1. Full-fat milk</li>
               <li>2. Oat milk</li>
             </ul>
 
@@ -88,7 +88,7 @@ page:
             name: "icon-message"
             color: blue
           text:
-          - content: We understand a voice interface is not the best for all situations, so if you want to order your coffee without interupting anyone, just send an SMS to one of the numbers below with your coffee order.
+          - content: We understand a voice interface is not the best for all situations, so if you want to order your coffee without interupting anyone, just send an SMS to one of the numbers below with your coffee order, for example "Oat Latte".
             type: large
           - content: 🇩🇪 +4915735995997
             type: small
@@ -104,7 +104,18 @@ page:
             type: small
           - content: 🇩🇰 +4592453399
             type: small
-
+  - row:
+    - column:
+      - type: text
+        text:
+          content: >
+            <div class="Vlt-callout Vlt-callout--warning">
+            	<i></i>
+            	<div class="Vlt-callout__content">
+                <h4>You can't use any of the phone numbers?</h4>
+                Reach out to <a href="https://twitter.com/lakatos88">Alex</a> on Twitter and ask him to provision a Nexmo phone number for your country.
+            	</div>
+            </div>
   - row:
     - column:
         - type: line_divider
@@ -238,7 +249,7 @@ page:
             	<i></i>
             	<div class="Vlt-callout__content">
                 <h4>Can't find what you're looking for?</h4>
-                Come and say hello at the Nexmo booth! We'd love to hear what you're having issues with to help you out (and improve the docs at the same time!)
+                Find one of our Developer Advocates around the conference. <a href="https://twitter.com/hj_chen">Hui Jing</a>, <a href="https://twitter.com/garannm">Garann</a> and <a href="https://twitter.com/lakatos88">Alex</a> are around all weekend! We'd love to hear what you're having issues with to help you out (and improve the docs at the same time!)
             	</div>
             </div>
   - row:
