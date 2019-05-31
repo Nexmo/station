@@ -6,7 +6,7 @@ page:
       - type: header
         header:
           title:
-            text: "Nexmo ❤️ JSConf EU 💙 Coffee "
+            text: "Nexmo ❤️ JSConf EU 💙 Coffee"
             align: center
           subtitle:
             text: "Hello JavaScripters! We hate queueing for coffee and we wanted to make it as easy as possible for people to get caffeinated during the conference. There are a few ways you can order your coffee and get notified when it's ready for you to pick it up."
@@ -31,7 +31,7 @@ page:
         text:
           content: |
             <br />
-            <p>Coffee options</p>
+            <p><b>Coffee options</b></p>
             <ul>
               <li>1. Cappucino</li>
               <li>2. Flat White</li>
@@ -44,7 +44,7 @@ page:
         text:
           content: |
             <br />
-            <p>Milk options</p>
+            <p><b>Milk options</b></p>
             <ul>
               <li>1. Unskimmed milk</li>
               <li>2. Oat milk</li>
@@ -52,7 +52,9 @@ page:
 
   - row:
     - column:
-        - type: line_divider
+      - type: text
+        text:
+          content: "&nbsp;"
 
   - row:
     - column:
@@ -103,11 +105,15 @@ page:
           - content: 🇩🇰 +4592453399
             type: small
 
-
   - row:
     - column:
         - type: line_divider
 
+  - row:
+    - column:
+      - type: text
+        text:
+          content: "# Find out about Nexmo"
 
   - row:
     - column:
