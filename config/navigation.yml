@@ -41,10 +41,11 @@ navigation_weight:
   API Reference: 50
 
   Overview: 1
-  Concepts: 2
+  Setup: 2
+  Concepts: 3
   In-App Messaging: 4
-  In-App Voice: 3
-  In-App Video: 5
+  In-App Voice: 5
+  In-App Video: 6
 
   Messages API: 1
   Dispatch API: 2
@@ -136,6 +137,18 @@ navigation_overrides:
     svg: 'message'
     svgColor: 'teal'
     label: 'Dev Preview'
+    code-snippets:
+      collapsible: false
+      conversation: 
+        collapsible: true
+      member: 
+        collapsible: true
+      user: 
+        collapsible: true
+      leg: 
+        collapsible: true
+      event: 
+        collapsible: true
   vonage-business-cloud:
     svg: 'telephone'
     svgColor: 'green'
