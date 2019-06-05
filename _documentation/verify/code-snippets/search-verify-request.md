@@ -3,11 +3,9 @@ title: Send verification code
 navigation_weight: 2
 ---
 
-# Send verification code
+# Search for a Verify Request
 
-When you have collected a user's phone number, start the verification process by sending a [verify request](/api/verify#verify-request) to the Verify API.  
-
-The Verify API returns a `request_id`. Use this to identify a specific verification request in subsequent calls to the API, such as when making a [check request](/verify/code-snippets/check-verify-request) to see if the user provided the correct code.
+You can use the search functionality to see the current status or eventual outcome of a Verify request, using the `request_id` returned when the verify code was sent.
 
 Replace the following variables in the sample code with your own values:
 
