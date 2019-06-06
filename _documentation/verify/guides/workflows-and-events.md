@@ -12,8 +12,6 @@ When you send the code and `request_id`, Nexmo will confirm if the code is as ex
 
 The Verify API allows you to select the best workflow for your use case. This might depend on the type of verification taking place, your users' preference or their geographical location. You can specify which workflow to use for each Verify API request by setting the `workflow_id` field to an integer value 1-5. The details of each of these five preset workflows are detailed below.
 
-> **Note**: You are limited to a maximum of one verify request per second.
-
 You can further customise the experience by [setting the timings](/verify/guides/changing-default-timings) when creating a Verify request, and can [trigger the next verification attempt](/verify/code-snippets/trigger-next-verification-process) programmatically if you wish.
 
 ## Workflow 1 (Default Workflow): SMS -> TTS -> TTS
