@@ -80,7 +80,7 @@ class DashboardController < ApplicationController
 
     # Remove non-GA features
     if params[:show_ga_only]
-      params[:ignore_products] = 'conversation,messages,dispatch,audit'
+      params[:ignore_products] = 'conversation,messages,dispatch,audit,vonage-business-cloud'
     end
     params[:ignore_products]&.split(',')&.each do |key|
       @complete_coverage.delete(key)
