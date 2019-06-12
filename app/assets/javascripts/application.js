@@ -17,8 +17,6 @@
 //= require volta/volta.core.js
 //= require volta/components/volta.accordion.js
 //= require volta/components/volta.tab.js
-//= require volta/popper.min.js
-//= require volta/tooltip.min.js
 //= require volta/components/volta.tooltip.js
 //= require volta/components/volta.modal.js
 //= require volta/components/volta.dropdown.js

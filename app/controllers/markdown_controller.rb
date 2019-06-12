@@ -3,6 +3,7 @@ class MarkdownController < ApplicationController
   before_action :set_product
   before_action :set_document
   before_action :set_namespace
+  before_action :set_tracking_cookie
 
   def show
     redirect = Redirector.find(request)
@@ -68,6 +69,10 @@ class MarkdownController < ApplicationController
     @document_path = path
     [params, request.parameters].each { |o| o.delete(:code_language) }
     @code_language = nil
+  end
+
+  def set_tracking_cookie
+    helpers.dashboard_cookie(params[:product])
   end
 
   def document

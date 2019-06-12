@@ -303,4 +303,27 @@ module ApplicationHelper
       c
     end.join(' ')
   end
+
+  def dashboard_cookie(campaign)
+    # This is the first touch time so we only want to set it if it's not already set
+    set_utm_cookie('ft', Time.now.getutc.to_i) unless cookies[:ft]
+
+    # These are the things we'll be tracking through the customer dashboard
+    set_utm_cookie('utm_source', 'developer.nexmo.com')
+    set_utm_cookie('utm_medium', 'referral')
+    set_utm_cookie('utm_campaign', campaign)
+
+    # We don't use term or content as it's not paid, but they may have been set by other things
+    # If they were, delete them so our data isn't tainted
+    cookies.delete('utm_term', domain: :all)
+    cookies.delete('utm_content', domain: :all)
+  end
+
+  def set_utm_cookie(name, value)
+    cookies[name] = {
+      value: value,
+      expires: 1.year.from_now,
+      domain: :all,
+    }
+  end
 end
