@@ -14,6 +14,11 @@
 .file {
     background: orange;
 }
+
+.unsupported {
+  background: grey;
+  color: white;
+}
 </style>
 
 <center>
@@ -28,7 +33,7 @@
                     options_for_select([['All', nil]].concat(DocumentationConstraint.product_list), params[:product]),
                     onchange: "this.form.submit();" %>
                 Show Only: <%= select_tag :only,
-                    options_for_select([['All', nil], 'yaml', 'config', 'file'], params[:only]),
+                    options_for_select([['All', nil], 'yaml', 'file'], params[:only]),
                     onchange: "this.form.submit();" %>
             </div>
         <br>
@@ -40,10 +45,6 @@
         <br>
     <%= link_to 'Reset', '/coverage' %> &nbsp;
     <%= submit_tag 'Update', class: 'button' %>
-    <p>
-    <hr />
-        <strong>Note: This is only partially working due to the location of some Code Snippets</strong>
-    </p>
 <% end %>
     </div>
 </center>
