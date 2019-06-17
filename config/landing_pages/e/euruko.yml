@@ -77,7 +77,7 @@ page:
               })
               ```
               <div class="Vlt-right">
-              <a class="Vlt-btn Vlt-btn--secondary" href="/voice/voice-api/code-snippets/make-an-outbound-call">View the complete code &raquo;</a>
+              <a class="Vlt-btn Vlt-btn--secondary" href="/voice/voice-api/code-snippets/make-an-outbound-call/ruby">View the complete code &raquo;</a>
               </div>
   - row:
     - column:
