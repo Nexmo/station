@@ -78,13 +78,7 @@ Rails.application.routes.draw do
 
   get '/api', to: 'api#index'
 
-  # Show the old /verify/templates page
-  get '/api/*definition/*code_language', to: 'api#show', constraints: lambda { |request|
-    request['definition'] == 'verify' && request['code_language'] == 'templates'
-  }
-
-  get '/api/*definition(/:code_language)', to: 'open_api#show', as: 'open_api', constraints: OpenApiConstraint.products_with_code_language
-  get '/api/*document(/:code_language)', to: 'api#show', constraints: CodeLanguage.route_constraint
+  mount ::Nexmo::OAS::Renderer::API, at: '/api'
 
   get '/(:product)/task/(:task_name)(/*task_step)(/:code_language)', to: 'task#index', constraints: DocumentationConstraint.documentation
   get '/task/(:task_name)(/*task_step)(/:code_language)', to: 'task#index', constraints: CodeLanguage.route_constraint

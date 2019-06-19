@@ -114,7 +114,7 @@ source: '_examples/api/us-short-codes/alerts/response-format'
 The response contains the following keys and values.
 
 ```tabbed_content
-source: '/_examples/api/sms/sending/keys-and-values/'
+source: '_examples/api/sms/sending/keys-and-values/'
 ````
 
 ## Delivery Receipt

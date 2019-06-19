@@ -154,6 +154,10 @@ gem 'lograge'
 # Country picker for ActiveAdmin
 gem 'country_select', '~> 4.0'
 
+# gem 'nexmo-oas-renderer', path: '../nexmo-oas-renderer-sinatra', require: false
+# gem 'nexmo-oas-renderer', github: 'nexmo/nexmo-oas-renderer', require: false
+gem 'nexmo-oas-renderer', '~> 0.2.0', require: false
+
 group :development, :test do
   gem 'awesome_print'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
