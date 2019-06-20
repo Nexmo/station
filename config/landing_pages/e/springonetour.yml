@@ -29,7 +29,7 @@ page:
               text: "We need your help!"
               align: center
             subtitle:
-              text: "Without developers like you, we wouldn't be where we are today. Could you help us out by answering a few survey questions? One lucky survey participant will get a **$100 Amazon Gift Card** as a thank you!"
+              text: "Without developers like you, we wouldn't be where we are today. Could you help us out by answering a few survey questions? One lucky survey participant will get a **$100 Amazon.com Gift Card** as a thank you!"
               align: center
             icon:
               name: "icon-shout"
@@ -39,7 +39,7 @@ page:
       - type: action_button
         action_button:
           text: "Take Me to the Survey!"
-          url: "https://nexmodevrel.typeform.com/to/piQhLx"
+          url: "https://nexmodevrel.typeform.com/to/pRXWdV"
           center_button: true
   - row:
     - column:
@@ -67,7 +67,7 @@ page:
               <dependency>
                 <groupId>com.nexmo</groupId>
                 <artifactId>nexmo-spring-boot-starter</artifactId>
-                <version>1.0.1</version>
+                <version>1.1.0</version>
               </dependency>
               ```
         - type: text
@@ -77,7 +77,7 @@ page:
           text:
             content: |
               ```groovy
-              implementation 'com.nexmo:nexmo-spring-boot-starter:1.0.1'
+              implementation 'com.nexmo:nexmo-spring-boot-starter:1.1.0'
               ```
         - type: text
           text:
@@ -145,7 +145,7 @@ page:
       - type: action_button
         action_button:
           text: "Get the conference schedule"
-          url: "https://springonetour.io/2019/san-francisco"
+          url: "https://springonetour.io/2019/minneapolis"
           center_button: true
           type: primary
           large: true
