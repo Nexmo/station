@@ -10,34 +10,45 @@ navigation_weight: 0
 
 ### Added
 
-- Calls JS and Native SDKs support.
+- Interoperability with the JS and Android SDKs - Calls can now be placed between apps using the iOS, JS or Android SDKs.
 
 ### Changed
 
-- Add member channel and direction data
-```
-NXMCallMember
+- `NXMCallMember` - added member channel with direction data
+
+```swift
+@interface NXMCallMember : NSObject
+...
 @property (nonatomic, readonly, nullable) NXMChannel *channel;
-
-
-NXMChannel channel {
-	NXMDirection from {
-		NXMDirectionType type,
-		NSString Data
-	},
-	NXMDirection to {
-		NXMDirectionType type,
-		NSString Data
-	}
-}
+...
+@end
 ```
 
-Deprecated
+```swift
+@interface NXMChannel : NSObject
+
+@property (nonatomic, readonly, nonnull) NXMDirection *from;
+@property (nonatomic, readonly, nullable) NXMDirection *to;
+
+@end
+
 ```
-NXMCallMember
-@property (nonatomic, copy, nullable) NSString *phoneNumber;
-@property (nonatomic, copy, nonnull) NSString *channelType;
+
+```swift
+@interface NXMDirection : NSObject
+
+@property (nonatomic, assign) NXMDirectionType type;
+@property (nonatomic, copy, nullable) NSString *data;
+
+@end
 ```
+
+### Removed
+
+- `NXMCallMember`'s `phoneNumber` and `channelType` were removed
+
+
+
 
 ## Version 0.2.56 - January 24, 2019
 
