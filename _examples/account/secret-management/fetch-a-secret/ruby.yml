@@ -1,0 +1,13 @@
+---
+title: Ruby
+language: ruby
+code:
+    source: .repos/nexmo/nexmo-ruby-code-snippets/account/secret-management/fetch-a-secret.rb
+    from_line: 16
+    to_line: 19
+client:
+    source: .repos/nexmo/nexmo-ruby-code-snippets/account/secret-management/fetch-a-secret.rb
+    from_line: 11
+    to_line: 14
+file_name: fetch-a-secret.rb
+run_command: ruby fetch-a-secret.rb
