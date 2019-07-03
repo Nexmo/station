@@ -37,6 +37,9 @@
                 <a href="../Classes/NXMCallMember.html">NXMCallMember</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/NXMChannel.html">NXMChannel</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/NXMClient.html">NXMClient</a>
               </li>
               <li class="nav-group-task">
@@ -44,6 +47,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/NXMConversationEventsController.html">NXMConversationEventsController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMDTMFEvent.html">NXMDTMFEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/NXMDirection.html">NXMDirection</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/NXMEvent.html">NXMEvent</a>
@@ -159,8 +168,10 @@
             <h1>NXMCallDelegate</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight objective_c"><code><span class="k">@protocol</span> <span class="nc">NXMCallDelegate</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">statusChanged</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/NXMCallMember.html">NXMCallMember</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">callMember</span><span class="p">;</span>
+                  <pre class="highlight objective_c"><code><span class="k">@protocol</span> <span class="nc">NXMCallDelegate</span> <span class="o">&lt;</span><span class="n">NSObject</span><span class="o">&gt;</span>
+<span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">statusChanged</span><span class="o">:</span><span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/NXMCallMember.html">NXMCallMember</a></span> <span class="o">*</span><span class="p">)</span><span class="n">callMember</span><span class="p">;</span>
+<span class="k">@optional</span>
+<span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">DTMFReceived</span><span class="o">:</span><span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="p">)</span><span class="n">dtmf</span> <span class="n">callMember</span><span class="o">:</span><span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/NXMCallMember.html">NXMCallMember</a></span> <span class="o">*</span><span class="p">)</span><span class="n">callMember</span><span class="p">;</span>
 <span class="k">@end</span></code></pre>
 
                 </div>
@@ -194,9 +205,31 @@
                           <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">statusChanged</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/NXMCallMember.html">NXMCallMember</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">callMember</span><span class="p">;</span></code></pre>
 
                         </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)NXMCallDelegate(im)DTMFReceived:callMember:"></a>
+                    <a name="//apple_ref/objc/Method/-DTMFReceived:callMember:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)NXMCallDelegate(im)DTMFReceived:callMember:">-DTMFReceived:callMember:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
                         <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">statusChanged</span><span class="p">(</span><span class="n">_</span> <span class="nv">callMember</span><span class="p">:</span> <span class="kt"><a href="../Classes/NXMCallMember.html">NXMCallMember</a></span><span class="p">)</span></code></pre>
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">DTMFReceived</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">dtmf</span> <span class="nf">callMember</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/NXMCallMember.html">NXMCallMember</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">callMember</span><span class="p">;</span></code></pre>
 
                         </div>
                       </div>
@@ -208,7 +241,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://developer.nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2019-02-07)</p>
+          <p>&copy; 2019 <a class="link" href="https://developer.nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2019-06-04)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

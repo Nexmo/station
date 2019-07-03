@@ -37,6 +37,9 @@
                 <a href="Classes/NXMCallMember.html">NXMCallMember</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/NXMChannel.html">NXMChannel</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/NXMClient.html">NXMClient</a>
               </li>
               <li class="nav-group-task">
@@ -44,6 +47,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/NXMConversationEventsController.html">NXMConversationEventsController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/NXMDTMFEvent.html">NXMDTMFEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/NXMDirection.html">NXMDirection</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/NXMEvent.html">NXMEvent</a>
@@ -186,11 +195,6 @@
                           <pre class="highlight objective_c"><code><span class="k">typedef</span> <span class="kt">void</span><span class="p">(</span><span class="o">^</span><span class="n">NXMSuccessCallback</span><span class="p">)(</span><span class="kt">void</span><span class="p">)</span></code></pre>
 
                         </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">typealias</span> <span class="kt">NXMSuccessCallback</span> <span class="o">=</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
-
-                        </div>
                       </div>
                     </section>
                   </div>
@@ -216,11 +220,6 @@
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">typedef</span> <span class="kt">void</span><span class="p">(</span><span class="o">^</span><span class="n">NXMSuccessCallbackWithId</span><span class="p">)(</span><span class="n"><a href="Constants.html#/c:@NSString">NSString</a></span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">value</span><span class="p">)</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">typealias</span> <span class="kt">NXMSuccessCallbackWithId</span> <span class="o">=</span> <span class="p">(</span><span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Int32</span><span class="o">&gt;</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
 
                         </div>
                       </div>
@@ -250,11 +249,6 @@
                           <pre class="highlight objective_c"><code><span class="k">typedef</span> <span class="kt">void</span><span class="p">(</span><span class="o">^</span><span class="n">NXMSuccessCallbackWithObject</span><span class="p">)(</span><span class="n">NSObject</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">object</span><span class="p">)</span></code></pre>
 
                         </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">typealias</span> <span class="kt">NXMSuccessCallbackWithObject</span> <span class="o">=</span> <span class="p">(</span><span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Int32</span><span class="o">&gt;</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
-
-                        </div>
                       </div>
                     </section>
                   </div>
@@ -280,11 +274,6 @@
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">typedef</span> <span class="kt">void</span><span class="p">(</span><span class="o">^</span><span class="n">NXMSuccessCallbackWithObjects</span><span class="p">)(</span><span class="n">NSArray</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">objects</span><span class="p">)</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">typealias</span> <span class="kt">NXMSuccessCallbackWithObjects</span> <span class="o">=</span> <span class="p">(</span><span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Int32</span><span class="o">&gt;</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
 
                         </div>
                       </div>
@@ -314,11 +303,6 @@
                           <pre class="highlight objective_c"><code><span class="k">typedef</span> <span class="kt">void</span><span class="p">(</span><span class="o">^</span><span class="n">NXMErrorCallback</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">error</span><span class="p">)</span></code></pre>
 
                         </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">typealias</span> <span class="kt">NXMErrorCallback</span> <span class="o">=</span> <span class="p">(</span><span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Int32</span><span class="o">&gt;</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
-
-                        </div>
                       </div>
                     </section>
                   </div>
@@ -328,7 +312,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://developer.nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2019-02-07)</p>
+          <p>&copy; 2019 <a class="link" href="https://developer.nexmo.com" target="_blank" rel="external">Nexmo</a>. All rights reserved. (Last updated: 2019-06-04)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
