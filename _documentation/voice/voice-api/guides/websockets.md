@@ -8,9 +8,18 @@ navigation_weight: 7
 
 ## Overview
 
-The Nexmo Voice API allows you to connect to a call via a WebSocket. This means that you will have a real-time two-way stream of the raw audio in the call delivered to you over the WebSocket protocol. This allows you to connect the audio to platforms such as sentiment analysis, real-time transcription systems, and artificial intelligence.
+WebSockets is a computer communications [protocol](https://tools.ietf.org/html/rfc6455) that enables two-way communication over a single, persistent TCP connection without the overhead of the HTTP request/response model.
 
-You can also send audio back into the call over this interface.
+Using Nexmo’s Voice API, you can connect phone calls to WebSocket endpoints. This means that any application that hosts a WebSocket server can be a participant in a Nexmo voice conversation. It can receive raw audio from and play audio into the call in real time.
+
+This enables some really innovative use cases, such as:
+
+* Recording, transcribing or otherwise analyzing calls using third party solutions. For example: performing sentiment analysis in call centers to determine customer satisfaction.
+* Automating outbound calls with bots to perform simple tasks like making a restaurant booking or more complex ones, such as requesting information from field experts.
+* Using an "expert" bot that accepts inbound calls and provides tailored advice. For example, a doctor in a remote area can call a medical expert bot and get access to the same medical advice available to specialists in big cities.
+* Including artificial intelligence engines in conference calls to enable better decision making.
+
+## Working with WebSockets
 
 The WebSocket is an endpoint in the same way that a phone or SIP address is. This means it is a participant in your call and not a passive monitor like a recording. If you connect a WebSocket to a conference call, or a third-party in a 1-1 call, the audio it receives is a mix of all the audio in the call. It is not possible to receive a single leg of the conversation via the WebSocket.
 
