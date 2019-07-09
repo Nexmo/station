@@ -50,9 +50,9 @@ source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/in-app-ca
 ```
 
 
-### Call Type
+### Call Handler
   
-Note the second parameter in the `client?.call` method above - while `NXMCallType.inApp` is useful for simple calls, you can also start a call with customized logic [using an NCCO](/client-sdk/in-app-voice/concepts/ncco-guide) ), by choosing `NXMCallType.server` as the `callType`.
+Note the second parameter in the `client?.call` method above - while `NXMCallHandler.inApp` is useful for simple calls, you can also start a call with customized logic [using a NCCO](/client-sdk/in-app-voice/concepts/ncco-guide), by choosing `NXMCallHandler.server` as the `callHandler`.
 
 ```tabbed_content
 source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/in-app-calling-ios/call-type'
@@ -64,7 +64,7 @@ This also allows you to start a PSTN phone call, by adding a phone number to the
 
 ### Call Delegate
 
-As with `NXMClient`, `NXMCall` also receives a delegate supplied as the third argument in the `call:callType:delegate:completion:` method.  
+As with `NXMClient`, `NXMCall` also receives a delegate supplied as the third argument in the `call:callHandler:delegate:completion:` method.  
 
 ```tabbed_content
 source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/in-app-calling-ios/call-delegate'
