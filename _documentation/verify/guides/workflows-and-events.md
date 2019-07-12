@@ -1,6 +1,6 @@
 ---
 title: Workflows and Events
-description: The stages of the verification process and the default timings for each.
+description: The stages and timings of the verification processes
 navigation_weight: 1
 ---
 
@@ -19,12 +19,12 @@ You can further customize the experience by [setting the timings](/verify/guides
 Send a PIN code by text message, follow up with two subsequent voice calls if the request wasn't already verified.
 
 1. Send **SMS** to user with PIN code
-2. Wait for `next_event_wait` seconds (default 300)
+2. Wait for `next_event_wait` seconds *(default wait: 125 seconds)*
 3. Call user and give **TTS** PIN code
-4. Wait for `next_event_wait` seconds (default 300)
+4. Wait for `next_event_wait` seconds *(default wait: 180 seconds)*
 5. (With default timings, PIN will expire and a new one will be generated, control this by setting the `pin_expiry` field)
 6. Call user and give **TTS** PIN code
-7. Wait for `next_event_wait` seconds (default 300)
+7. Wait for `next_event_wait` seconds *(default wait: 300 seconds)*
 8. Request expires
 
 
@@ -33,12 +33,12 @@ Send a PIN code by text message, follow up with two subsequent voice calls if th
 Send a PIN code by text message, follow up with a second text message and finally a voice call if the request has not been verified.
 
 1. Send **SMS** to user with PIN code
-2. Wait for `next_event_wait` seconds (default 300)
+2. Wait for `next_event_wait` seconds *(default wait: 125 seconds)*
 3. Send **SMS** to user with PIN code
-4. Wait for `next_event_wait` seconds (default 300)
+4. Wait for `next_event_wait` seconds *(default wait: 180 seconds)*
 5. (With default timings, PIN will expire and a new one will be generated, control this by setting the `pin_expiry` field)
 6. Call user and give **TTS** PIN code
-7. Wait for `next_event_wait` seconds (default 300)
+7. Wait for `next_event_wait` seconds *(default wait: 300 seconds)*
 8. Request expires
 
 
@@ -47,9 +47,9 @@ Send a PIN code by text message, follow up with a second text message and finall
 Call the user and speak a PIN code, follow up with a second call if the request wasn't already verified.
 
 1. Call user and give **TTS** PIN code
-2. Wait for `next_event_wait` seconds (default 300)
+2. Wait for `next_event_wait` seconds *(default wait: 150 seconds)*
 3. Call user and give **TTS** PIN code
-4. Wait for `next_event_wait` seconds (default 300)
+4. Wait for `next_event_wait` seconds *(default wait: 150 seconds)*
 5. Request expires
 
 
@@ -58,9 +58,9 @@ Call the user and speak a PIN code, follow up with a second call if the request 
 Send a PIN code by text message, follow up with a second text message if the code hasn't been verified.
 
 1. Send **SMS** to user with PIN code
-2. Wait for `next_event_wait` seconds (default 300)
+2. Wait for `next_event_wait` seconds *(default wait: 120 seconds)*
 3. Send **SMS** to user with PIN code
-4. Wait for `next_event_wait` seconds (default 300)
+4. Wait for `next_event_wait` seconds *(default wait: 180 seconds)*
 5. Request expires
 
 
@@ -69,8 +69,8 @@ Send a PIN code by text message, follow up with a second text message if the cod
 Send a PIN code by text message, follow up with a voice call if the code hasn't been verified.
 
 1. Send **SMS** to user with PIN code
-2. Wait for `next_event_wait` seconds (default 300)
+2. Wait for `next_event_wait` seconds *(default wait: 125 seconds)*
 3. Call user and give **TTS** PIN code
-4. Wait for `next_event_wait` seconds (default 300)
+4. Wait for `next_event_wait` seconds *(default wait: 300 seconds)*
 5. Request expires
 
