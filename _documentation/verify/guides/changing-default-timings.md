@@ -11,7 +11,7 @@ You can change the [default timings](/verify/guides/verification-events#timing-o
 * `pin_expiry`:
     * The time after which the code expires
     * Must be an integer value between 60 and 3600 seconds
-    * The default expiry differs between workflows but will be 300 seconds in most cases
+    * The default expiry differs between [workflows](/verify/guides/workflows-and-events) but will be 300 seconds in most cases
 * `next_event_wait`:
     * The time after which Nexmo triggers the next verification attempt
     * The default timing differs for each workflow
