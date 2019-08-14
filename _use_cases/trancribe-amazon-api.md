@@ -572,12 +572,12 @@ If you have more than two numbers, you can add more callers to the conversation.
 
 The following resources will help you learn more:
 
-* **Nexmo Voice API**
+* Nexmo Voice API
   * [Voice API call recording guide](/voice/voice-api/guides/recording)
   * ["Record a call" code snippet](/voice/voice-api/code-snippets/record-a-call)
   * [Voice API reference](/api/voice)
   * [NCCO reference](/voice/voice-api/ncco-reference)
-* **AWS**
+* AWS
   * [AWS node.js SDK reference](https://aws.amazon.com/sdk-for-node-js/)
   * [Amazon Transcribe API features](https://aws.amazon.com/transcribe/)
   * [Amazon Transcribe API reference](https://docs.aws.amazon.com/transcribe/latest/dg/API_Reference.html)
