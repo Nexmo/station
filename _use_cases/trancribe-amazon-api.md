@@ -120,6 +120,7 @@ Run `npm install` in the application directory to install the required dependenc
 * `aws-sdk`: The AWS node.js SDK
 * `body-parser`: node.js body-parsing middleware
 * `express`: A web application framework for node.js
+* `nexmo`: The REST API client library for node.js
 * `serverless`: To deploy your Lambda function
 * `shortid`: Generates random file names for call recordings
 
