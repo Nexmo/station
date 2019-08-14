@@ -61,7 +61,7 @@ Use the CLI to create a Voice API Application that contains configuration detail
 
 > **Note**: Your webhooks must be accessible over the public Internet. Consider using [ngrok](https://www.nexmo.com/blog/2017/07/04/local-development-nexmo-ngrok-tunnel-dr/) for testing purposes. If you do use `ngrok`, run it now on port 3000 using `ngrok http 3000` to get the temporary URLs that ngrok provides and leave it running for the duration of this tutorial to prevent the URLs from changing.
 
-Replace `example.com` in the following command with your own public-facing URL or `ngrok` host name. This returns an application ID and downloads the authentication details in a file called `private.key`.
+Replace `example.com` in the following command with your own public-facing URL or `ngrok` host name. Run it in the root of your application directory. This returns an application ID and downloads the authentication details in a file called `private.key`.
 
 ```sh
 nexmo app:create "Call Transcription" https://example.com/webhooks/answer https://example.com/webhooks/events --keyfile private.key
@@ -322,6 +322,7 @@ app.post('/webhooks/recording', (req, res) => {
 
   nexmo.files.save(req.body.recording_url, audioFileLocalPath, (err, res) => {
     if (err) {
+      console.log("Could not save audio file")
       console.error(err)
     }
     else {
@@ -391,7 +392,6 @@ function transcribeRecording(params) {
   const startTranscriptionJobPromise = transcribeService.startTranscriptionJob(jobParams).promise()
 
   startTranscriptionJobPromise.then((data) => {
-
     console.log(`Started transcription job ${data.TranscriptionJob.TranscriptionJobName}...`)
   })
 }
@@ -423,7 +423,6 @@ app.post('/webhooks/transcription', (req, res) => {
       }
       else {
         console.log("Retrieved transcript")
-        console.log(data)
         downloadFile(data.TranscriptionJob.TranscriptionJobName + '.json')
       }
     })
@@ -434,7 +433,7 @@ app.post('/webhooks/transcription', (req, res) => {
 
 ### Downloading the completed transcript
 
-The `downloadFile()` function downloads the completed transcript file from the S3 bucket to the local `transcripts` folder:
+The `downloadFile` function downloads the completed transcript file from the S3 bucket to the local `transcripts` folder. We want to ensure that the file is available before we attempt to parse its contents, so we wrap the call to `S3.getObject` in a promise before calling the `displayResults` function:
 
 ```javascript
 function downloadFile(key) {
@@ -447,70 +446,20 @@ function downloadFile(key) {
     Key: key
   }
 
-  S3.getObject(params, (err, data) => {
-    if (err) console.error(err)
+  const getObjectPromise = S3.getObject(params).promise()
+  getObjectPromise.then((data) => {
     fs.writeFileSync(filePath, data.Body.toString())
     console.log(`Transcript: ${filePath} has been created.`)
+    let transcriptJson = JSON.parse(fs.readFileSync(filePath, 'utf-8'))
+    displayResults(transcriptJson)
   })
+
 }
 ```
 
-## Try it out
+### Parsing the transcript
 
-### Running the application
-
-1. Launch your application by running the following command in the application's root directory:
-
-    ```sh
-    node index.js
-    ```
-
-2. Call your Nexmo number from one phone. When the call is answered, your second phone should ring. Answer it.
-
-3. Say a few words into each handset and then disconnect both.
-
-4. Watch the transcription job being processed in your console. (**Note**: this can take several minutes):
-
-    ```sh
-    { end_time: '2019-07-10T12:57:38.000Z',
-    uuid: '7db305729a17f5b3cbfb399361500577',
-    network: '23409',
-    duration: '7',
-    start_time: '2019-07-10T12:57:31.000Z',
-    rate: '0.00450000',
-    price: '0.00052500',
-    from: '447700900002',
-    to: '447700900001',
-    conversation_uuid: 'CON-45cdaa6e-5743-4ea9-b60c-bdac68fd8826',
-    status: 'completed',
-    direction: 'inbound',
-    timestamp: '2019-07-10T12:57:38.350Z' }
-    nexmo-9Eeor0OhH.mp3 uploaded to nexmo-transcription-audio bucket
-    Submitting file https://s3-us-east-1.amazonaws.com/nexmo-transcription-audio/nexmo-9Eeor0OhH.mp3 for transcription...
-    Started transcription job transcript-nexmo-9Eeor0OhH.mp3...
-    transcript-nexmo-8im6anhr7.mp3 job successful
-    Getting transcription job: transcript-nexmo-8im6anhr7.mp3
-    Retrieved transcript
-    { TranscriptionJob: 
-      { TranscriptionJobName: 'transcript-nexmo-8im6anhr7.mp3',
-        TranscriptionJobStatus: 'COMPLETED',
-        LanguageCode: 'en-GB',
-        MediaSampleRateHertz: 16000,
-        MediaFormat: 'mp3',
-        Media: 
-          { MediaFileUri: 'https://s3-us-east-1.amazonaws.com/nexmo-transcription-audio/nexmo-8im6anhr7.mp3' },
-        Transcript: 
-          { TranscriptFileUri: 'https://s3.amazonaws.com/nexmo-transcripts/transcript-nexmo-8im6anhr7.mp3.json' },
-        CreationTime: 2019-07-10T12:54:12.378Z,
-        CompletionTime: 2019-07-10T12:57:49.984Z,
-        Settings: { ChannelIdentification: true } } }
-    downloading transcript-nexmo-8im6anhr7.mp3.json
-    Transcript: ./transcripts/transcript-nexmo-8im6anhr7.mp3.json has been created.
-    ```
-
-### Reviewing the completed transcript
-
-You can examine the transcript JSON file in the `transcripts` folder. At the top of the file (`results.transcripts`) is the transcription of all the entire call and in `results.channel_labels` you can drill into the transcription of each channel:
+The resulting transcript JSON file has quite a complex structure. At the top of the file (`results.transcripts`) is the transcription of all the entire call and in `results.channel_labels` you can drill into the transcription for each channel:
 
 ```json
 {
@@ -541,6 +490,79 @@ You can examine the transcript JSON file in the `transcripts` folder. At the top
 					"type": "pronunciation"
 				}, 
         ...
+```
+
+The `displayResults()` function that is called after the transcript has been downloaded retrieves the transcription for each channel and displays it in the console:
+
+
+```javascript
+function displayResults(transcriptJson) {
+  const channels = transcriptJson.results.channel_labels.channels
+
+  channels.forEach((channel) => {
+    console.log(`*** Channel: ${channel.channel_label}`)
+
+    let words = ''
+
+    channel.items.forEach((item) => {
+      words += item.alternatives[0].content + ' '
+    })
+    console.log(words)
+  })
+}
+```
+
+## Try it out
+
+### Running the application
+
+1. Launch your application by running the following command in the application's root directory:
+
+    ```sh
+    node index.js
+    ```
+
+2. Call your Nexmo number from one phone. When the call is answered, your second phone should ring. Answer it.
+
+3. Say a few words into each handset and then disconnect both.
+
+4. Watch the transcription job being processed in your console. (**Note**: this can take several minutes):
+
+```sh
+{ end_time: '2019-08-13T11:33:10.000Z',
+  uuid: 'df52c28f-d167-5319-a7e6-bc9d9c2b23d2',
+  network: 'GB-FIXED',
+  duration: '23',
+  start_time: '2019-08-13T11:32:47.000Z',
+  rate: '0.01200000',
+  price: '0.00460000',
+  from: '447700900002',
+  to: '447700900001',
+  conversation_uuid: 'CON-e01f1887-8a7e-4c6d-82ef-fd9280190e01',
+  status: 'completed',
+  direction: 'outbound',
+  timestamp: '2019-08-13T11:33:09.380Z' }
+recording...
+{ start_time: '2019-08-13T11:32:47Z',
+  recording_url:
+   'https://api.nexmo.com/v1/files/d768cbb4-d68c-4ad0-8984-8222d2ccb6c5',
+  size: 178830,
+  recording_uuid: '01175e1e-f778-4b2a-aa7e-18b6fb493edf',
+  end_time: '2019-08-13T11:33:10Z',
+  conversation_uuid: 'CON-e01f1887-8e7e-4c6d-82ef-fd8950190e01',
+  timestamp: '2019-08-13T11:33:10.449Z' }
+nexmo-srWr3XOmP.mp3 uploaded to nexmo-transcription-audio bucket
+Submitting file https://s3-us-east-1.amazonaws.com/nexmo-transcription-audio/nexmo-srWr3XOmP.mp3 for transcription...
+Started transcription job transcript-nexmo-srWr3XOmP.mp3...
+transcript-nexmo-srWr3XOmP.mp3 job successful
+Getting transcription job: transcript-nexmo-srWr3XOmP.mp3
+Retrieved transcript
+downloading transcript-nexmo-srWr3XOmP.mp3.json
+Transcript: ./transcripts/transcript-nexmo-srWr3XOmP.mp3.json has been created.
+*** Channel: ch_0
+Hello this is channel zero .
+*** Channel: ch_1
+Hello back this is channel one . 
 ```
 
 ### Adding more callers
