@@ -133,7 +133,7 @@ Then, copy `example.env` to `.env` and configure the following settings:
 Setting | Description
 --|--
 `NEXMO_APPLICATION_ID` | The Nexmo Voice Application ID you created earlier
-`NEXMO_PRIVATE_KEY_PATH` | For example: `./private.key`
+`NEXMO_PRIVATE_KEY_FILE` | For example: `private.key`
 `OTHER_PHONE_NUMBER` | Another phone number you can call to create a conversation
 `AWS_KEY` | Your AWS key
 `AWS_SECRET` | Your AWS secret
@@ -248,7 +248,7 @@ const nexmo = new Nexmo({
   apiKey: "not_used", // Voice applications don't use API key or secret
   apiSecret: "not_used",
   applicationId: process.env.NEXMO_APPLICATION_ID,
-  privateKey: process.env.NEXMO_PRIVATE_KEY_PATH
+  privateKey: __dirname + "/" + process.env.NEXMO_PRIVATE_KEY_FILE
 })
 ```
 
