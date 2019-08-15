@@ -90,6 +90,7 @@ current:
   - name: 'Laura Czajkowski'
     email: 'laura.czajkowski@vonage.com'
     twitter: 'Czajkowski'
+    role: 'Developer Relations Manager'
 alumni:
   - name: 'Manik Sachdeva'
     email: 'manik.sachdeva@vonage.com'
