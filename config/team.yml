@@ -87,6 +87,10 @@ current:
     email: 'lauren.lee@vonage.com'
     twitter: 'lolocoding'
     role: 'Developer Educator'
+  - name: 'Laura Czajkowski'
+    email: 'laura.czajkowski@vonage.com'
+    twitter: 'Czajkowski'
+    role: 'Developer Relations Manager'
 alumni:
   - name: 'Manik Sachdeva'
     email: 'manik.sachdeva@vonage.com'
