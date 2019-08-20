@@ -36,9 +36,17 @@ You may implement any backend that you'd like to use for [the required Conversat
 
 However, to help you get started with this guide, you can use our demo sample backend application.
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/nexmo-community/contact-center-rails)
+#### Ruby on Rails Version
 
-You are welcome to explore, fork or contribute to this project, which is open source and available on [GitHub](https://github.com/nexmo-community/contact-center-rails).
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/nexmo-community/contact-center-server-rails)
+
+Fork or contribute to this project, which is open source and available on [GitHub](https://github.com/nexmo-community/contact-center-server-rails).
+
+#### Node.js Version
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/nexmo-community/contact-center-server-node)
+
+Fork or contribute to this project, which is open source and available on [GitHub](https://github.com/nexmo-community/contact-center-server-node).
 
 ### 1.2. Create Nexmo Application
 
@@ -115,11 +123,19 @@ Nexmo Client SDK supports web (JavaScript), iOS and Android.
 
 You may [integrate the SDK](/client-sdk/setup/add-sdk-to-your-app) to your own client-side application and [add in-app voice functionality](/client-sdk/in-app-voice/guides/start-and-receive-calls).
 
-However, to get started you may clone and run one of the demo client-side applications:
+However, to get started you may clone and run one of the demo client-side applications.
 
-* [iOS-Swift](https://github.com/nexmo-community/contact-center-swift)
-* [Android-Kotlin](https://github.com/nexmo-community/contact-center-client-android-kt)
-* [JavaScript](https://github.com/nexmo-community/contact-center-react)
+#### iOS (Swift) Version
+
+Download, fork or contribute to this project, which is open source and available on [GitHub](https://github.com/nexmo-community/contact-center-client-swift).
+
+#### Android (Kotlin) Version
+
+Download, fork or contribute to this project, which is open source and available on [GitHub](https://github.com/nexmo-community/contact-center-client-android-kt).
+
+#### Web (JavaScript/React) Version
+
+Download, fork or contribute to this project, which is open source and available on [GitHub](https://github.com/nexmo-community/contact-center-client-react).
 
 > **Important:**  After cloning, make sure you check the `README` file and update the required client-side app configurations.
 
