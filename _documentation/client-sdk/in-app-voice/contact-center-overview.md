@@ -36,9 +36,17 @@ You may implement any backend that you'd like to use for [the required Conversat
 
 However, to help you get started with this guide, you can use our demo sample backend application.
 
+#### Ruby on Rails Version
+
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/nexmo-community/contact-center-rails)
 
-You are welcome to explore, fork or contribute to this project, which is open source and available on [GitHub](https://github.com/nexmo-community/contact-center-rails).
+Fork or contribute to this project, which is open source and available on [GitHub](https://github.com/nexmo-community/contact-center-rails).
+
+#### Node.js Version
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/nexmo-community/client-sdk-server-express)
+
+Fork or contribute to this project, which is open source and available on [GitHub](https://github.com/nexmo-community/client-sdk-server-express).
 
 ### 1.2. Create Nexmo Application
 
