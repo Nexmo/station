@@ -5,11 +5,12 @@ dependencies:
     - Nexmo.Csharp.Client
 client:
     source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotnetCodeSnippets/Authentication/BasicAuth.cs
-    from_line: 17
-    to_line: 21
+    from_line: 13
+    to_line: 17
 code:
-    source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotnetCodeSnippets/Controllers/NumberInsightsController.cs
-    from_line: 50
-    to_line: 53
+    source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotnetCodeSnippets/Controllers/VerifyController.cs
+    from_line: 75
+    to_line: 78
 run_command: 'Run using your IDE'
-file_name: NumberInsightsController.cs
+file_name: VerifyController.cs
+unindent: true
