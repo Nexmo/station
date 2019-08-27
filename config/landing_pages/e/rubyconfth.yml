@@ -9,7 +9,7 @@ page:
             text: "Nexmo @ RubyConf Thailand 2019"
             align: center
           subtitle:
-            text: "Hello, Rubyists! We love catching up with you at events, and we've put together some resources that we hope you find useful. <br /> Stop by our booth and say hi to our developer advocates, pick up some swag and chat about Ruby! <br /> Let us know you're here by [sending us a tweet](https://nexmo.dev/tweetrubyconfth), we'd love to connect!"
+            text: "Hello, Rubyists! We love catching up with you at events, and we've put together some resources that we hope you find useful. <br /> Stop by our booth and say hi to our developer advocates, fill out our research survey, pick up some swag and chat about Ruby! <br /> Let us know you're here by [sending us a tweet](https://nexmo.dev/tweetrubyconfth), we'd love to connect!"
             align: center
           icon:
             name: "Brand-icon-ruby-color"
@@ -21,6 +21,36 @@ page:
           text: "Sign Up For Free"
           url: "https://dashboard.nexmo.com/sign-up?utm_source=nexmo-developer&utm_medium=rubyconfth&utm_campaign=landing"
           center_button: true
+  - row:
+    - column:
+        - type: line_divider
+  - row:
+    - column:
+        - type: header
+          header:
+            title:
+              text: "🇹🇭 ภาษาไทย 🇹🇭"
+              align: center
+        - type: text
+          text:
+            content: |
+              <img src="https://cdn.glitch.com/fe745277-e3d1-4b2b-9f8d-1319c2eaff77%2Fqr-thai.png?v=1566915210268" alt="QR code to https://nexmo.dev/thai">
+        - type: text
+          text:
+            content: "[https://nexmo.dev/thai](https://nexmo.dev/thai)"
+    - column:
+        - type: header
+          header:
+            title:
+              text: "🇬🇧 English 🇬🇧"
+              align: center
+        - type: text
+          text:
+            content: |
+              <img src="https://cdn.glitch.com/fe745277-e3d1-4b2b-9f8d-1319c2eaff77%2Fqr-english.png?v=1566915203375" alt="QR code to ttps://nexmo.dev/english">
+        - type: text
+          text:
+            content: "[https://nexmo.dev/english](https://nexmo.dev/english)"
   - row:
     - column:
         - type: line_divider
@@ -48,7 +78,7 @@ page:
           text:
             content: |
               ```bash
-              $ bundle install 
+              $ bundle install
               ```
         - type: text
           text:
@@ -70,13 +100,13 @@ page:
             content: |
               ```ruby
               client = Nexmo::Client.new(
-                api_key: 'YOUR-API-KEY', 
+                api_key: 'YOUR-API-KEY',
                 api_secret: 'YOUR-API-SECRET'
               )
 
               response = client.sms.send(
-                from: 'YOUR NUMBER', 
-                to: 'RECIPIENT NUMBER', 
+                from: 'YOUR NUMBER',
+                to: 'RECIPIENT NUMBER',
                 text: 'Hello RubyConf Thailand!'
               )
               ```
@@ -172,7 +202,7 @@ page:
         call_to_action:
           title: "Voice"
           subtitle: "Use the Voice API to make and receive phone calls programmatically. You can broadcast messages by phone, respond to incoming calls and route callers according to their input."
-          icon: 
+          icon:
             name: "icon-phone"
             color: "green"
           url: "/voice"
@@ -182,7 +212,7 @@ page:
         call_to_action:
           title: "Messages"
           subtitle: "With our Messages API (and its accompanying Dispatch API) your applications can reach users by the messaging platform they prefer. Message not received? No problem, automatically detect that and try another platform."
-          icon: 
+          icon:
             name: "icon-chat"
             color: "purple"
           url: "/messages/overview"
@@ -191,7 +221,7 @@ page:
         call_to_action:
           title: "Verify"
           subtitle: "Ensure that users provide the correct contact details with Verify API. The two-factor authentication (2FA) API reduces fraud and improves contactability for your application's users."
-          icon: 
+          icon:
             name: "icon-lock"
             color: "indigo"
           url: "/verify"
