@@ -95,3 +95,7 @@ If you restrict inbound traffic (including delivery receipts), you need to white
 * `169.63.86.160/28`
 * `5.10.112.112/28`
 * `169.50.200.64/28`
+
+## See also
+
+* More information on webhook types and application capabilities can be found in the [Application documentation](/application/overview).

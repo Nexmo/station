@@ -19,6 +19,7 @@ API | API Key and Secret (Query String) | API Key and Secret (Header) | JSON Web
 [Dispatch](/api/dispatch) | ❌ | ✅ | ✅ 
 [Audit](/api/audit) | ❌ | ✅ | ❌ 
 [Redact](/api/redact) | ❌ | ✅ | ❌ 
+[Conversation](/api/conversation) | ❌ | ❌ | ✅ 
 
 ## Contents
 
@@ -119,6 +120,30 @@ Name | Description | Required
 `exp` | The UNIX timestamp at UTC + 0 indicating the moment the JWT is no longer valid. A minimum value of 30 seconds from the time the JWT is generated. A maximum value of 24 hours from the time the JWT is generated. A default value of 15 minutes from the time the JWT is generated. | ❌
 
 If you are not using a Nexmo library you should refer to [RFC 7519](https://tools.ietf.org/html/rfc7519) to implement JWT.
+
+### Using the Nexmo CLI to generate JWTs
+
+The Nexmo CLI provides a command for generating a JWT. The general syntax is:
+
+``` shell
+nexmo jwt:generate [options] <private_key> [claim=value...]
+```
+
+An example of generating a JWT for a Voice API application is as follows:
+
+``` shell
+nexmo jwt:generate path/to/private.key application_id=asdasdas-asdd-2344-2344-asdasdasd345
+```
+
+An example of generating a JWT for a Client SDK application is as follows:
+
+``` shell
+nexmo jwt:generate ./private.key sub=MY_USER_NAME exp=$(($(date +%s)+86400)) acl='{"paths":{"/*/users/**":{},"/*/conversations/**":{},"/*/sessions/**":{},"/*/devices/**":{},"/*/image/**":{},"/*/media/**":{},"/*/applications/**":{},"/*/push/**":{},"/*/knocking/**":{}}}' application_id=MY_APP_ID
+```
+
+More examples of generating JWTs with ACLs can be found in the [Nexmo documentation](/conversation/guides/jwt-acl).
+
+Further information on the Nexmo CLI can be found in its [repository on GitHub](https://github.com/Nexmo/nexmo-cli).
 
 ## References
 
