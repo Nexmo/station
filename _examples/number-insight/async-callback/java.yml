@@ -1,0 +1,8 @@
+---
+dependencies:
+    - 'com.nexmo:client:@latest'
+    - 'com.sparkjava:spark-core:2.7.2'
+code:
+    source: .repos/nexmo/nexmo-java-code-snippets/src/main/java/com/nexmo/quickstart/insight/AsyncInsightTrigger.java
+    from_line: 31
+    to_line: 38
