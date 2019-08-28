@@ -27,6 +27,13 @@ page:
   - row:
     - column:
         - type: header
+        header:
+          title:
+            text: We'd love to hear from you. Please scan the QR code and help us out with a quick survey for a €10 coupon code :)
+            align: center
+  - row:
+    - column:
+        - type: header
           header:
             title:
               text: "🇹🇭 ภาษาไทย 🇹🇭"
@@ -34,10 +41,13 @@ page:
         - type: text
           text:
             content: |
-              <img src="https://cdn.glitch.com/fe745277-e3d1-4b2b-9f8d-1319c2eaff77%2Fqr-thai.png?v=1566915210268" alt="QR code to https://nexmo.dev/thai">
+              <img width="75%" src="https://cdn.glitch.com/fe745277-e3d1-4b2b-9f8d-1319c2eaff77%2Fqr-thai.png?v=1566915210268" alt="QR code to https://nexmo.dev/thai">
+            align: center
         - type: text
           text:
-            content: "[https://nexmo.dev/thai](https://nexmo.dev/thai)"
+            content: |
+              <h2 style="margin-top: 20px;"><a href="https://nexmo.dev/thai">https://nexmo.dev/thai</a></h2>
+            align: center
     - column:
         - type: header
           header:
@@ -47,10 +57,13 @@ page:
         - type: text
           text:
             content: |
-              <img src="https://cdn.glitch.com/fe745277-e3d1-4b2b-9f8d-1319c2eaff77%2Fqr-english.png?v=1566915203375" alt="QR code to ttps://nexmo.dev/english">
+              <img width="75%" src="https://cdn.glitch.com/fe745277-e3d1-4b2b-9f8d-1319c2eaff77%2Fqr-english.png?v=1566915203375" alt="QR code to https://nexmo.dev/english">
+            align: center
         - type: text
           text:
-            content: "[https://nexmo.dev/english](https://nexmo.dev/english)"
+            content: |
+              <h2 style="margin-top: 20px;"><a href="https://nexmo.dev/english">https://nexmo.dev/english</a></h2>
+          align: center
   - row:
     - column:
         - type: line_divider
