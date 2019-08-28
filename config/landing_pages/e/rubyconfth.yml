@@ -45,7 +45,7 @@ page:
         - type: text
           text:
             content: |
-              <a style="display: block; margin: 20px auto; font-size: 3rem; line-height: 3.4rem;" href="https://nexmo.dev/thai">https://nexmo.dev/thai</a>
+              <a style="text-align: center; display: block; margin: 20px auto; font-size: 3rem; line-height: 3.4rem;" href="https://nexmo.dev/thai">https://nexmo.dev/thai</a>
     - column:
         - type: header
           header:
@@ -59,7 +59,7 @@ page:
         - type: text
           text:
             content: |
-              <a style="display: block; margin: 20px auto; font-size: 3rem; line-height: 3.4rem;" href="https://nexmo.dev/english">https://nexmo.dev/english</a>
+              <a style="text-align: center; display: block; margin: 20px auto; font-size: 3rem; line-height: 3.4rem;" href="https://nexmo.dev/english">https://nexmo.dev/english</a>
   - row:
     - column:
         - type: line_divider
