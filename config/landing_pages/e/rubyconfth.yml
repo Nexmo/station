@@ -195,7 +195,7 @@ page:
           text:
           - content: "We released a brand new Nexmo Rails initializer gem at RailsConf 2019. The [Nexmo Rails gem](https://github.com/Nexmo/nexmo-rails) lets you integrate the Nexmo Ruby SDK easily into your Rails application. In the [latest version release](https://github.com/Nexmo/nexmo-rails/blob/master/CHANGES.md) we added support for Rails Credentials, in addition to environment variables."
             type: large
-          - content: "For more details on the gem, you can read the [announcement blog post](https://www.nexmo.com/blog/2019/04/30/announcing-the-nexmo-rails-gem-dr/) we shared at RailsConf!"
+          - content: "For more details on the gem, you can read the [announcement blog post](https://www.nexmo.com/blog/2019/04/30/announcing-the-nexmo-rails-gem-dr/) we shared at RailsConf!<br /><br />"
             type: large
       - type: github_repo
         github_repo:
