@@ -41,13 +41,11 @@ page:
         - type: text
           text:
             content: |
-              <img width="75%" src="https://cdn.glitch.com/fe745277-e3d1-4b2b-9f8d-1319c2eaff77%2Fqr-thai.png?v=1566915210268" alt="QR code to https://nexmo.dev/thai">
-            align: center
+              <img style="margin: auto; display: block;" width="75%" src="https://cdn.glitch.com/fe745277-e3d1-4b2b-9f8d-1319c2eaff77%2Fqr-thai.png?v=1566915210268" alt="QR code to https://nexmo.dev/thai">
         - type: text
           text:
             content: |
-              <h2 style="margin-top: 20px;"><a href="https://nexmo.dev/thai">https://nexmo.dev/thai</a></h2>
-            align: center
+              <h2 style="text-align: center; margin-top: 20px;"><a href="https://nexmo.dev/thai">https://nexmo.dev/thai</a></h2>
     - column:
         - type: header
           header:
@@ -57,13 +55,11 @@ page:
         - type: text
           text:
             content: |
-              <img width="75%" src="https://cdn.glitch.com/fe745277-e3d1-4b2b-9f8d-1319c2eaff77%2Fqr-english.png?v=1566915203375" alt="QR code to https://nexmo.dev/english">
-            align: center
+              <img style="margin: auto; display: block;" width="75%" src="https://cdn.glitch.com/fe745277-e3d1-4b2b-9f8d-1319c2eaff77%2Fqr-english.png?v=1566915203375" alt="QR code to https://nexmo.dev/english">
         - type: text
           text:
             content: |
-              <h2 style="margin-top: 20px;"><a href="https://nexmo.dev/english">https://nexmo.dev/english</a></h2>
-          align: center
+              <h2 style="text-align: center; margin-top: 20px;"><a href="https://nexmo.dev/english">https://nexmo.dev/english</a></h2>
   - row:
     - column:
         - type: line_divider
