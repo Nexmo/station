@@ -27,10 +27,10 @@ page:
   - row:
     - column:
         - type: header
-        header:
-          title:
-            text: We'd love to hear from you. Please scan the QR code and help us out with a quick survey for a €10 coupon code :)
-            align: center
+          header:
+            title:
+              text: We'd love to hear from you. Please scan the QR code and help us out with a quick survey for a €10 coupon code :)
+              align: center
   - row:
     - column:
         - type: header
