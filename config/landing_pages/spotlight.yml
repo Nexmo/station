@@ -9,12 +9,12 @@ page:
     - column:
       - type: header
         header:
-          title: 
+          title:
             text: "Write for Nexmo"
-          subtitle: 
+          subtitle:
             text: "Teach others, grow as a writer, and help us build the next go-to destination for developers in search of [high quality technical content](https://www.nexmo.com/blog/category/developer/) and inspiring development stories."
             type: 'small'
-          icon: 
+          icon:
             name: "icon-rocket"
             color: blue
       - type: action_button
@@ -35,7 +35,7 @@ page:
       - type: section_header
         section_header:
           title: "Examples"
-          icon: 
+          icon:
             name: "icon-app"
             color: yellow
       - type: linked_image
@@ -63,7 +63,7 @@ page:
       - type: structured_text
         structured_text:
           header: "What We're Looking For"
-          icon: 
+          icon:
             name: "icon-search"
             color: blue
           text:
@@ -76,7 +76,7 @@ page:
       - type: structured_text
         structured_text:
           header: "What's in it for You?"
-          icon: 
+          icon:
             name: "icon-user"
             color: blue
           text:
@@ -84,10 +84,14 @@ page:
               type: large
             - content: "We make every effort to amplify the reach of each and every blog post on our site, and yours will be no exception; you'll have the Nexmo marketing and social media teams behind you getting the word out about your work. Your success is our success."
               type: small
+            - content: "And Now Introducing:  [Spotlight for Donations]( https://www.nexmo.com/blog/2019/09/04/nexmo-launches-spotlight-for-donations-program-dr)"
+              type: large
+            - content: "Authors can now choose to pay it forward and donate their $400 to a charity making a difference in the technology industry."
+              type: small
       - type: structured_text
         structured_text:
           header: "The Process"
-          icon: 
+          icon:
             name: "icon-gear"
             color: blue
           text:
@@ -100,7 +104,7 @@ page:
       - type: structured_text
         structured_text:
           header: "Who Owns Your Work?"
-          icon: 
+          icon:
             name: "icon-merge"
             color: blue
           text:
