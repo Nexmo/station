@@ -51,21 +51,21 @@ At this point you should already be able to run the app and see that you can log
 
 You can now make an App-to-Phone call.
 
-The `Call` button press is already connected to `ViewController`.
+The `Call` button press is already connected to `MakePhoneCallViewController`.
 
 ```tabbed_content
 source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/outbound-pstn-ios/start-call'
 ```
 
-You are expected to replace `CALLEE_PHONE_NUMBER` with the number to be called. But, ultimately, the number that is actually called is the one supplied in the `Answer URL` webhook. In a real-life use case, you would create a server component to serve as the `Answer URL`. The app will send to your backend, through the `Answer URL` the `CALLEE_PHONE_NUMBER`, the backend would validate it and then supply it in the JSON returned.
+Even though you are specifying the callee phone number, ultimately, the number that is actually called is the one supplied in the `Answer URL` webhook. In a real-life use case, you would create a server component to serve as the `Answer URL`. The app will send to your backend, through the `Answer URL` the `CALLEE_PHONE_NUMBER`, the backend would validate it and then supply it in the JSON returned.
 
 > **Note:** Whilst the default HTTP method for the `Answer URL` is `GET`, `POST` can also be used.
 
 ### Call Handler
 
-Note the use of `NXMCallHandlerServer` as the `callHandler` in the `client`'s `call:` method above; this specifies that the logic of the call is defined by the server - a requirement for outbound PSTN calls.
+Note the use of `NXMCallHandler.server` as the `callHandler` in the `client`'s `call:` method above; this specifies that the logic of the call is defined by the server - a requirement for outbound PSTN calls.
 
- The other `callHandler` is `NXMCallHandlerInApp`, useful for making simple calls as shown in [this tutorial](/tutorials/client-sdk-ios-in-app-calling).
+ The other `callHandler` is `NXMCallHandler.inApp`, useful for making simple calls as shown in [this tutorial](/tutorials/client-sdk-ios-in-app-calling).
 
 ```tabbed_content
 source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/outbound-pstn-ios/call-type'
@@ -73,11 +73,13 @@ source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/outbound-
 
 ## Call Delegate
 
+Note that, when a call is placed successfully, we're setting `self` as the delegate for it.
+
 ```tabbed_content
 source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/outbound-pstn-ios/call-delegate'
 ```
 
-The `statusChanged:` method notifies on changes that happens to members on the call.  
+The `call(_:didUpdate:with:)` method notifies on changes that happens to members on the call.  
 
 ## Hangup a call
 
@@ -87,15 +89,13 @@ Once the "End Call" button is pressed, it is time to hangup the call.
 source: '_tutorials_tabbed_content/client-sdk/get-started/in-app-voice/outbound-pstn-ios/hangup'
 ```
 
-Updates for `callMember` statuses are received in `statusChanged` as part of the `NXMCallDelegate` as you have seen before.  
-
-The existing implementation for `statusChanged:` is already handling call hangup.
 
 ## Handle permissions
 
 For the call to happen, `Audio Permissions` are required. In the `appDelegate` of the sample project, you can find an implementation for the permissions request in `application:didFinishLaunchingWithOptions`.  
 
 To read more about the permissions required, [see the setup tutorial](/tutorials/client-sdk-ios-add-sdk-to-your-app#add-permissions).
+
 
 ## Conclusion
 
