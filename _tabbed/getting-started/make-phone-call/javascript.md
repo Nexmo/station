@@ -35,7 +35,7 @@ We'll start with a blank HTML page with two buttons for calling a phone and hang
 <html>
   <head>
     <title>Make Phone Calls</title>
-    <script src="./node_modules/nexmo-client/dist/conversationClient.js"></script>
+    <script src="./node_modules/nexmo-client/dist/nexmoClient.js"></script>
   </head>
   <body>
     <p id="notification"></p>
@@ -62,15 +62,17 @@ source: _partials/client-sdk/voice/javascript/login.md
 
 ## Make a call
 
-In order to make a call, you'll have to use the `callPhone()` method on the application object that is returned by the `login()` promise. The method accepts a string as parameter that it passes along to your `answer_url`, but since ours is a static file, we'll leave the method parameter empty.
+In order to make a call, you'll have to use the `callServer()` method on the application object. The application object is returned by the `login()` promise. The method requires a string as parameter that it passes along to your `answer_url`, but since ours is a static file, we'll leave the method parameter empty. 
+
+> In this example, where you're intending to dial a number, the string is the number you wish to call. It must match the number in the static file you've created.
 
 ```javascript
-new ConversationClient()
+new NexmoClient()
     .login(USER_JWT)
     .then(application => {
         ...
         document.getElementById("call").addEventListener("click", () => {
-          application.callPhone();
+          application.callServer(callee);
           notification.textContent = `You're calling a phone number`;
         })
     })
@@ -82,7 +84,7 @@ new ConversationClient()
 When the application makes a call, you can start listening for `member:call` events on the application. That's going to return a `call` object, so you can start interacting with the call later on.
 
 ```javascript
-new ConversationClient()
+new NexmoClient()
     .login(USER_JWT)
     .then(application => {
         ...
