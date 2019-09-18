@@ -1,3 +1,4 @@
+require 'pry'
 class MarkdownController < ApplicationController
   before_action :set_navigation
   before_action :set_product
@@ -9,7 +10,7 @@ class MarkdownController < ApplicationController
     redirect = Redirector.find(request)
     return redirect_to redirect if redirect
 
-    unless check_if_path_is_folder
+    if check_if_path_is_folder == false
       @frontmatter = YAML.safe_load(document)
 
       raise Errno::ENOENT if @frontmatter['redirect']
@@ -76,18 +77,18 @@ class MarkdownController < ApplicationController
   def check_if_path_is_folder
     path = "#{@namespace_path}/#{@document}"
     return false unless File.directory? path
+    @content = MarkdownPipeline.new({
+      code_language: @code_language,
+      current_user: current_user,
+    }).call(path)
+    @frontmatter = YAML.safe_load(File.read("#{path}/.config.yml"))
+    @document_title = @frontmatter['title']
     @document += '/*.md'
     files = Dir["#{@namespace_path}/#{@document}"]
     files.map do |content_path|
       content = File.read(content_path)
 
-      @frontmatter = YAML.safe_load(content)
-
-      raise Errno::ENDENT if @frontmatter['redirect']
-
-      @document_title = @frontmatter['meta_title'] || @frontmatter['title']
-
-      @content = MarkdownPipeline.new({
+      @content += MarkdownPipeline.new({
         code_language: @code_language,
         current_user: current_user,
       }).call(content)
@@ -101,6 +102,6 @@ class MarkdownController < ApplicationController
   def document
     set_document_path_when_file_name_is_the_same_as_a_linkable_code_language
     @document_path ||= "#{@namespace_path}/#{@document}.md" unless File.directory?("#{@namespace_path}/#{@document}")
-    @document = File.read("#{Rails.root}/#{@document_path}") unless File.directory?(@document_path)
+    @document = File.read("#{Rails.root}/#{@document_path}") 
   end
 end
