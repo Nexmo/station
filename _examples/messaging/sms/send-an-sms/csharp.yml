@@ -8,9 +8,9 @@ client:
     from_line: 17
     to_line: 21
 code:
-    source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotnetCodeSnippets/Controllers/SMSController.cs
-    from_line: 40
-    to_line: 45
+    source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotnetCodeSnippets/Senders/SMSSender.cs
+    from_line: 13
+    to_line: 18
 run_command: 'Run using your IDE'
-file_name: SMSController.cs
+file_name: SMSSender.cs
 unindent: true 
