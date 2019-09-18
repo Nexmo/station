@@ -187,7 +187,7 @@ class TabFilter < Banzai::Filter
       content[:language_key] = content[:frontmatter]['language']
       content[:platform_key] = content[:frontmatter]['platform']
       content[:tab_title] = content[:frontmatter]['title']
-      content[:body] = MarkdownPipeline.new(options).call(source) 
+      content[:body] = MarkdownPipeline.new(options).call(source)
 
       content
     end
