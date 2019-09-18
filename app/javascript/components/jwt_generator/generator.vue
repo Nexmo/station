@@ -1,15 +1,15 @@
 <template>
   <div>
     <h1>JWT Generator</h1>
-    <div class="Vlt-callout">
+    <div :class="[computedClass, 'Vlt-callout']">
       <i></i>
-      <div v-show="invalidPrivateKey" class="Vlt-callout__content Vlt-callout--critical">
+      <div v-show="invalidPrivateKey" class="Vlt-callout__content">
         Invalid private key provided
       </div>
-      <div v-show="invalidAcl" class="Vlt-callout__content Vlt-callout--critical">
+      <div v-show="invalidAcl" class="Vlt-callout__content">
         Invalid ACL provided. Must be JSON
       </div>
-      <div v-show="!invalidPrivateKey && !invalidAcl" class="Vlt-callout__content" v-html="callout"/>
+      <div v-show="!invalidPrivateKey && !invalidAcl" v-html="callout" class="Vlt-callout__content"/>
     </div>
     <div class="Vlt-grid">
 
@@ -175,6 +175,14 @@ export default {
         }
       }
       return invalid;
+    },
+    computedClass: function() {
+      if (this.invalidPrivateKey || this.invalidAcl)
+        return 'Vlt-callout--critical';
+      if (this.applicationId || this.privateKey)
+        return 'Vlt-callout--warning';
+      if (!this.applicationId && !this.privateKey)
+        return 'Vlt-callout--tip';
     }
   },
   methods: {
