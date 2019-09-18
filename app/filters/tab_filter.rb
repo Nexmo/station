@@ -103,7 +103,7 @@ class TabFilter < Banzai::Filter
   end
 
   def contents
-    list = content_from_folder if @config['tabbed'] # THIS IS NEW
+    list = content_from_folder if @config['tabbed']
     list = content_from_source if @config['source']
     list = content_from_tabs if @config['tabs']
 
