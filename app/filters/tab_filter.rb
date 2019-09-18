@@ -1,11 +1,19 @@
+require 'pry'
 class TabFilter < Banzai::Filter
   def call(input)
-    input.gsub(/^(\s*)```tabbed_(examples|content)(.+?)```/m) do |_s|
-      @indentation = $1
-      @mode = $2
-      @config = YAML.safe_load($3)
-      validate_config
+    if File.directory?(input) && File.exist?("#{input}/.config.yml")
+      @config = YAML.safe_load(File.read("#{input}/.config.yml"))
+      @path = input
+      validate_folder_config
       html
+    else
+      input.gsub(/^(\s*)```tabbed_(examples|content)(.+?)```/m) do |_s|
+        @indentation = $1
+        @mode = $2
+        @config = YAML.safe_load($3)
+        validate_config
+        html
+      end
     end
   end
 
@@ -95,6 +103,7 @@ class TabFilter < Banzai::Filter
   end
 
   def contents
+    list = content_from_folder if @config['tabbed'] # THIS IS NEW
     list = content_from_source if @config['source']
     list = content_from_tabs if @config['tabs']
 
@@ -119,6 +128,11 @@ class TabFilter < Banzai::Filter
   def validate_config
     return if @config && (@config['source'] || @config['tabs'])
     raise 'Source or tabs must be present in this tabbed_example config'
+  end
+
+  def validate_folder_config
+    return if @config && @config['tabbed']
+    raise 'Tabbed must be set to true or false in this config'
   end
 
   def content_from_source
@@ -149,6 +163,31 @@ class TabFilter < Banzai::Filter
         content[:tab_title] = content[:frontmatter]['title']
         content[:body] = MarkdownPipeline.new(options).call(source)
       end
+
+      content
+    end
+  end
+
+  def content_from_folder
+    source_path = @path
+    source_path += '/*.md'
+
+    files = Dir[source_path]
+    raise "Empty content_from_source file list in #{source_path}" if files.empty?
+    files.map do |content_path|
+      raise "Could not find content_from_source file: #{content_path}" unless File.exist? content_path
+      source = File.read(content_path)
+
+      content = {
+        id: SecureRandom.hex,
+        source: source,
+      }
+
+      content[:frontmatter] = YAML.safe_load(source)
+      content[:language_key] = content[:frontmatter]['language']
+      content[:platform_key] = content[:frontmatter]['platform']
+      content[:tab_title] = content[:frontmatter]['title']
+      content[:body] = MarkdownPipeline.new(options).call(source) 
 
       content
     end
