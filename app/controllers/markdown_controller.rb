@@ -77,12 +77,22 @@ class MarkdownController < ApplicationController
   def check_if_path_is_folder
     path = "#{@namespace_path}/#{@document}"
     return false unless File.directory? path
+    @frontmatter = YAML.safe_load(File.read("#{path}/.config.yml"))
+    @document_title = @frontmatter['title'] || @frontmatter['meta_title']
+
+    # Page title rendering
     @content = MarkdownPipeline.new({
       code_language: @code_language,
       current_user: current_user,
+    }).call(@document_title)
+
+    # Rendering tabs
+    @content += MarkdownPipeline.new({
+      code_language: @code_language,
+      current_user: current_user,
     }).call(path)
-    @frontmatter = YAML.safe_load(File.read("#{path}/.config.yml"))
-    @document_title = @frontmatter['title']
+
+    # Each article content
     @document += '/*.md'
     files = Dir["#{@namespace_path}/#{@document}"]
     files.map do |content_path|
@@ -92,10 +102,6 @@ class MarkdownController < ApplicationController
         code_language: @code_language,
         current_user: current_user,
       }).call(content)
-      @content.prepend(MarkdownPipeline.new({
-        code_language: @code_language,
-        current_user: current_user,
-      }).call(File.read("#{path}/.config.yml")))
     end
   end
 
@@ -106,6 +112,6 @@ class MarkdownController < ApplicationController
   def document
     set_document_path_when_file_name_is_the_same_as_a_linkable_code_language
     @document_path ||= "#{@namespace_path}/#{@document}.md" unless File.directory?("#{@namespace_path}/#{@document}")
-    @document = File.read("#{Rails.root}/#{@document_path}") 
+    @document = File.read("#{Rails.root}/#{@document_path}")
   end
 end
