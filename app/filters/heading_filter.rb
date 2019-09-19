@@ -1,4 +1,3 @@
-require 'pry'
 class HeadingFilter < Banzai::Filter
   def call(input)
     if File.directory?(input) && File.file?("#{input}/.config.yml")

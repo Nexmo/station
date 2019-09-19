@@ -131,8 +131,8 @@ class TabFilter < Banzai::Filter
   end
 
   def validate_folder_config
-    return if @config && @config['tabbed']
-    raise 'Tabbed must be set to true or false in this config'
+    return if @config && @config['tabbed'] == true
+    raise 'Tabbed must be set to true in the folder config YAML file'
   end
 
   def content_from_source

@@ -92,6 +92,10 @@ class MarkdownController < ApplicationController
         code_language: @code_language,
         current_user: current_user,
       }).call(content)
+      @content.prepend(MarkdownPipeline.new({
+        code_language: @code_language,
+        current_user: current_user,
+      }).call(File.read("#{path}/.config.yml")))
     end
   end
 
