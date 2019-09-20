@@ -37,7 +37,7 @@ module ApplicationHelper
         # if its a tabbed folder
         if File.exist?("#{full_path}/.config.yml") && YAML.safe_load(File.read("#{full_path}/.config.yml"))['tabbed'] == true
           config = YAML.safe_load(File.read("#{full_path}/.config.yml"))
-          data[:children] << { sidenav_title: config['sidenav_title'], path: full_path, is_tabbed?: true }
+          data[:children] << { title: config['title'], path: full_path, is_tabbed?: true }
         else
           data[:children] << directory_hash(full_path, entry)
         end
@@ -109,10 +109,8 @@ module ApplicationHelper
   end
 
   def normalised_title(item)
-    if item[:is_task?]
+    if item[:is_task?] || item[:is_tabbed?]
       item[:title]
-    elsif item[:is_tabbed?]
-      item[:sidenav_title]
     elsif item[:is_file?]
       document_meta(item[:path])['navigation'] || document_meta(item[:path])['title']
     else

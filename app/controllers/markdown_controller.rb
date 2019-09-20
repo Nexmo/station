@@ -78,7 +78,7 @@ class MarkdownController < ApplicationController
     path = "#{@namespace_path}/#{@document}"
     return false unless File.directory? path
     @frontmatter = YAML.safe_load(File.read("#{path}/.config.yml"))
-    @document_title = @frontmatter['title'] || @frontmatter['meta_title']
+    @document_title = "<h1>#{@frontmatter['title'] || @frontmatter['meta_title']}</h1>"
 
     # Page title rendering
     @content = MarkdownPipeline.new({
