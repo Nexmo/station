@@ -151,7 +151,7 @@ POST
 
 Note that in this case the messages [capabilities](/Application/overview#capabilities) are displayed.
 
-## Creating applications
+## Creating an application
 
 First create a new directory for your application and change into it. You can then create an application in **interactive mode** using the command:
 
@@ -171,6 +171,30 @@ This creates the `.nexmo-app` file in your project directory containing the Appl
 
 Note that the webhook URLs you are required to set depends on the capabilities you have chosen. This is explained in more detail in the [application webhooks](/application/overview#webhooks) topic.
 
+## Creating an application with your own public/private key pair
+
+You can create an application with your own public key if you have a suitable public/private key pair already.
+
+First you need a suitable public/private key pair. To create one, first enter:
+
+```
+ssh-keygen -t rsa -b 4096 -m PEM -f private.key
+```
+
+Press enter (twice) to not use a passphrase. This generates your private key, `private.key`.
+
+Then enter the following:
+
+```
+openssl rsa -in private.key -pubout -outform PEM -out public.key.pub
+```
+
+This generates `public.key.pub`. This is the public key you use in creating or updating your Nexmo application:
+
+```
+nexmo app:update asdasdas-asdd-2344-2344-asdasd12345 "Application with Public Key" --capabilities=voice,rtc --voice-event-url=http://example.com/webhooks/event --voice-answer-url=http://example.com/webhooks/answer --rtc-event-url=http://example.com/webhooks/rtcevent --public-keyfile=public.key.pub
+```
+
 ## Updating an application
 
 You can update a previously created application with a command similar to:
@@ -180,4 +204,3 @@ nexmo app:update asdasdas-asdd-2344-2344-asdasda12345 "Updated Application" --ca
 ```
 
 You can change the application name, modify any of the webhooks, or add new capabilities.
-
