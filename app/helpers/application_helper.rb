@@ -34,9 +34,15 @@ module ApplicationHelper
       next if IGNORED_PATHS.include? entry
       full_path = File.join(path, entry)
       if File.directory?(full_path)
-        data[:children] << directory_hash(full_path, entry)
+        # if its a tabbed folder
+        if File.exists?("#{full_path}/.config.yml") && YAML.safe_load(File.read("#{full_path}/.config.yml"))['tabbed'] == true
+          config = YAML.safe_load(File.read("#{full_path}/.config.yml"))
+          data[:children] << { sidenav_title: config['sidenav_title'], path: full_path, is_tabbed?: true }
+        else
+          data[:children] << directory_hash(full_path, entry)
+        end
       else
-        data[:children] << { title: entry, path: full_path, is_file?: true }
+          data[:children] << { title: entry, path: full_path, is_file?: true }
       end
     end
 
@@ -105,6 +111,8 @@ module ApplicationHelper
   def normalised_title(item)
     if item[:is_task?]
       item[:title]
+    elsif item[:is_tabbed?]
+      item[:sidenav_title]
     elsif item[:is_file?]
       document_meta(item[:path])['navigation'] || document_meta(item[:path])['title']
     else
@@ -185,7 +193,7 @@ module ApplicationHelper
       ss << "<li class=\"navigation-item--#{title.parameterize} navigation-item\">"
 
       # If it's a file, add a link
-      output = output_link(child, title, options) if child[:is_file?]
+      output = output_link(child, title, options) if child[:is_file?] || child[:is_tabbed?]
 
       # If we've explicitly said not to collapse this section, add a header
       output = output_header_with_children(child, title) if !child[:is_file?] && !options['collapsible'].nil? && !options['collapsible']

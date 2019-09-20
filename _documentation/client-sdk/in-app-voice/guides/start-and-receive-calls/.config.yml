@@ -1,6 +1,7 @@
 ---
   title: <h1>Start and Receive Calls</h1>
   description: How to set up your app to start and receive in-app calls.
+  sidenav_title: Start and Receive Calls
   navigation_weight: 1
   tabbed: true
 ---
