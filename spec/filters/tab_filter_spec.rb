@@ -28,18 +28,18 @@ RSpec.describe TabFilter do
     end
   end
 
-  context 'when input is a directory' do
-    it 'raises an exception if there is no .config.yml file' do
-      expect(File).to receive(:directory?).and_return(true)
-      expect(File).to receive(:exist?).and_return(false)
-      input = 'nil'
-      expect do
-        described_class.new.call(input)
-      end.to raise_error('Tabbed must be set to true in the folder config YAML file')
-    end
+  it 'when content is not a tab filter, nothing happens' do
+    input = 'test content is ignored'
+    actual = described_class.new.call(input)
+    expect(actual).to eq(input)
+  end
 
+  context 'when input is a directory' do
     it 'raises an exception if tabbed parameter is not set to true' do
-      expect(File).to receive(:read).with('/path/to/.config.yml').and_return(config_tabbed_false)
+      expect(File).to receive(:directory?).with('/path/to/a/directory').and_return(true)
+      expect(File).to receive(:exist?).with('/path/to/a/directory/.config.yml').and_return(true)
+      expect(File).to receive(:read).with('/path/to/a/directory/.config.yml').and_return(config_tabbed_false)
+      input = '/path/to/a/directory'
       expect do
         described_class.new.call(input)
       end.to raise_error('Tabbed must be set to true in the folder config YAML file')
@@ -48,6 +48,7 @@ RSpec.describe TabFilter do
 
   def config_tabbed_false
     <<~HEREDOC
+      ---
       tabbed: false
     HEREDOC
   end
