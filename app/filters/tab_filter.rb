@@ -1,5 +1,4 @@
 class TabFilter < Banzai::Filter
-
   def call(input)
     input.gsub(/^(\s*)```tabbed_(examples|content|folder)(.+?)```/m) do |_s|
       @indentation = $1
@@ -15,23 +14,6 @@ class TabFilter < Banzai::Filter
         validate_config
       end
       html
-    end
-  end
-
-  def call2(input)
-    if File.directory?(input) && File.exist?("#{input}/.config.yml")
-      @config = YAML.safe_load(File.read("#{input}/.config.yml"))
-      @path = input
-      validate_folder_config
-      html
-    else
-      input.gsub(/^(\s*)```tabbed_(examples|content|folder)(.+?)```/m) do |_s|
-        @indentation = $1
-        @mode = $2
-        @config = YAML.safe_load($3)
-        validate_config
-        html
-      end
     end
   end
 

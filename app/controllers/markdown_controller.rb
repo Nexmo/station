@@ -94,7 +94,7 @@ class MarkdownController < ApplicationController
       source: #{path}
       ```
     HEREDOC
-    )
+           )
 
     # Each article content
     @document += '/*.md'
