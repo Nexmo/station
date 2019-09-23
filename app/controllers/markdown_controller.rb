@@ -1,4 +1,3 @@
-require 'pry'
 class MarkdownController < ApplicationController
   before_action :set_navigation
   before_action :set_product

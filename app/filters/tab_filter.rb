@@ -1,4 +1,3 @@
-require 'pry'
 class TabFilter < Banzai::Filter
   def call(input)
     if File.directory?(input) && File.exist?("#{input}/.config.yml")
