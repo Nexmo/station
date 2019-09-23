@@ -1,12 +1,31 @@
 class TabFilter < Banzai::Filter
+
   def call(input)
+    input.gsub(/^(\s*)```tabbed_(examples|content|folder)(.+?)```/m) do |_s|
+      @indentation = $1
+      @mode = $2
+      @config = YAML.safe_load($3)
+
+      if @mode == 'folder'
+        raise "#{@config['source']} is not a directory" unless File.directory? @config['source']
+        @tabbed_config = YAML.safe_load(File.read("#{@config['source']}/.config.yml"))
+        @path = @config['source']
+        validate_folder_config
+      else
+        validate_config
+      end
+      html
+    end
+  end
+
+  def call2(input)
     if File.directory?(input) && File.exist?("#{input}/.config.yml")
       @config = YAML.safe_load(File.read("#{input}/.config.yml"))
       @path = input
       validate_folder_config
       html
     else
-      input.gsub(/^(\s*)```tabbed_(examples|content)(.+?)```/m) do |_s|
+      input.gsub(/^(\s*)```tabbed_(examples|content|folder)(.+?)```/m) do |_s|
         @indentation = $1
         @mode = $2
         @config = YAML.safe_load($3)
@@ -102,9 +121,9 @@ class TabFilter < Banzai::Filter
   end
 
   def contents
-    list = content_from_folder if @config['tabbed']
-    list = content_from_source if @config['source']
-    list = content_from_tabs if @config['tabs']
+    list = content_from_folder if @mode == 'folder'
+    list ||= content_from_source if @config['source']
+    list ||= content_from_tabs if @config['tabs']
 
     list ||= []
 
@@ -130,7 +149,7 @@ class TabFilter < Banzai::Filter
   end
 
   def validate_folder_config
-    return if @config && @config['tabbed'] == true
+    return if @tabbed_config && @tabbed_config['tabbed'] == true
     raise 'Tabbed must be set to true in the folder config YAML file'
   end
 
@@ -168,7 +187,7 @@ class TabFilter < Banzai::Filter
   end
 
   def content_from_folder
-    source_path = @path
+    source_path = @config['source']
     source_path += '/*.md'
 
     files = Dir[source_path]

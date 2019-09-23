@@ -89,7 +89,12 @@ class MarkdownController < ApplicationController
     @content += MarkdownPipeline.new({
       code_language: @code_language,
       current_user: current_user,
-    }).call(path)
+    }).call(<<~HEREDOC
+      ```tabbed_folder
+      source: #{path}
+      ```
+    HEREDOC
+    )
 
     # Each article content
     @document += '/*.md'

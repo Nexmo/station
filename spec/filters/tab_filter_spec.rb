@@ -37,9 +37,12 @@ RSpec.describe TabFilter do
   context 'when input is a directory' do
     it 'raises an exception if tabbed parameter is not set to true' do
       expect(File).to receive(:directory?).with('/path/to/a/directory').and_return(true)
-      expect(File).to receive(:exist?).with('/path/to/a/directory/.config.yml').and_return(true)
       expect(File).to receive(:read).with('/path/to/a/directory/.config.yml').and_return(config_tabbed_false)
-      input = '/path/to/a/directory'
+      input = <<~HEREDOC
+        ```tabbed_folder
+        source: /path/to/a/directory
+        ```
+      HEREDOC
       expect do
         described_class.new.call(input)
       end.to raise_error('Tabbed must be set to true in the folder config YAML file')
