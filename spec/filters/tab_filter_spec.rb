@@ -73,6 +73,21 @@ RSpec.describe TabFilter do
         described_class.new.call(input)
       end.to raise_error('Empty content_from_source file list in /path/to/a/directory/*.md')
     end
+
+    it 'does something with one markdown file in input' do
+      expect(File).to receive(:directory?).with('/path/to/a/directory').and_return(true)
+      expect(File).to receive(:read).with('/path/to/a/directory/.config.yml').and_return(config_tabbed_true)
+      expect(Dir).to receive(:glob).with('/path/to/a/directory/*.md').and_return([first_sample_markdown])
+      expect(Dir).to receive(:empty?).with('/path/to/a/directory/*.md').and_return(false)
+      
+      input = <<~HEREDOC
+      ```tabbed_folder
+      source: /path/to/a/directory
+      ```
+      HEREDOC
+
+      puts described_class.new.call(input)
+    end
   end
 
   def config_tabbed_false
@@ -86,6 +101,45 @@ RSpec.describe TabFilter do
     <<~HEREDOC
       ---
       tabbed: true
+    HEREDOC
+  end
+
+  def first_sample_markdown
+    <<~HEREDOC
+    ---
+    title: First Sample Markdown
+    language: javascript
+    ---
+
+    ## Heading
+
+    Sample content
+    HEREDOC
+  end
+
+  def second_sample_markdown
+    <<~HEREDOC
+    ---
+    title: Second Sample Markdown
+    language: javascript
+    ---
+
+    ## Heading
+
+    Sample content
+    HEREDOC
+  end
+
+  def third_sample_markdown
+    <<~HEREDOC
+    ---
+    title: Third Sample Markdown
+    language: javascript
+    ---
+
+    ## Heading
+
+    Sample content
     HEREDOC
   end
 end
