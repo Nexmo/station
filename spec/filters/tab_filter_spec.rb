@@ -77,8 +77,9 @@ RSpec.describe TabFilter do
     it 'does something with one markdown file in input' do
       expect(File).to receive(:directory?).with('/path/to/a/directory').and_return(true)
       expect(File).to receive(:read).with('/path/to/a/directory/.config.yml').and_return(config_tabbed_true)
-      expect(Dir).to receive(:glob).with('/path/to/a/directory/*.md').and_return([first_sample_markdown])
-      expect(Dir).to receive(:empty?).with('/path/to/a/directory/*.md').and_return(false)
+      expect(Dir).to receive(:glob).with('/path/to/a/directory/*.md').and_return(['/path/to/a/directory/javascript.md'])
+      expect(File).to receive(:exist?).with('/path/to/a/directory/javascript.md').and_return(true)
+      expect(File).to receive(:read).with('/path/to/a/directory/javascript.md').and_return(first_sample_markdown)
       
       input = <<~HEREDOC
       ```tabbed_folder
