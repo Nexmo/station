@@ -146,7 +146,7 @@ class TabFilter < Banzai::Filter
       raise "Could not find content_from_source file: #{content_path}" unless File.exist? content_path
       source = File.read(content_path)
 
-      generate_tabbed_code_examples(source, content_path) if tabbed_code_examples?
+      next generate_tabbed_code_examples(source, content_path) if tabbed_code_examples?
 
       generate_tabbed_content(source) if tabbed_content?
     end
