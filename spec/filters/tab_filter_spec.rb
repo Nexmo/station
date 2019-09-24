@@ -59,6 +59,20 @@ RSpec.describe TabFilter do
         described_class.new.call(input)
       end.to raise_error('/path/to/a/directory is not a directory')
     end
+
+    it 'raises an error if there are no files in input directory' do
+      expect(File).to receive(:directory?).with('/path/to/a/directory').and_return(true)
+      expect(File).to receive(:read).with('/path/to/a/directory/.config.yml').and_return(config_tabbed_true)
+
+      input = <<~HEREDOC
+        ```tabbed_folder
+        source: /path/to/a/directory
+        ```
+      HEREDOC
+      expect do
+        described_class.new.call(input)
+      end.to raise_error('Empty content_from_source file list in /path/to/a/directory/*.md')
+    end
   end
 
   def config_tabbed_false
