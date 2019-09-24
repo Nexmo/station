@@ -74,20 +74,61 @@ RSpec.describe TabFilter do
       end.to raise_error('Empty content_from_source file list in /path/to/a/directory/*.md')
     end
 
-    it 'does something with one markdown file in input' do
+    it 'renders content with one markdown file in input' do
       expect(File).to receive(:directory?).with('/path/to/a/directory').and_return(true)
       expect(File).to receive(:read).with('/path/to/a/directory/.config.yml').and_return(config_tabbed_true)
       expect(Dir).to receive(:glob).with('/path/to/a/directory/*.md').and_return(['/path/to/a/directory/javascript.md'])
       expect(File).to receive(:exist?).with('/path/to/a/directory/javascript.md').and_return(true)
       expect(File).to receive(:read).with('/path/to/a/directory/javascript.md').and_return(first_sample_markdown)
-      
-      input = <<~HEREDOC
-      ```tabbed_folder
-      source: /path/to/a/directory
-      ```
-      HEREDOC
+      expect(SecureRandom).to receive(:hex).at_least(:once).and_return('ID123456')
 
-      puts described_class.new.call(input)
+      input = <<~HEREDOC
+        ```tabbed_folder
+        source: /path/to/a/directory
+        ```
+      HEREDOC
+      expected_output = "FREEZESTARTPGRpdiBjbGFzcz0iVmx0LXRhYnMiPgogIDxkaXYgY2xhc3M9IlZsdC10YWJzX19oZWFkZXIgVmx0LXRhYnNfX2hlYWRlci0tYm9yZGVyZWQiIGRhdGEtaGFzLWluaXRpYWwtdGFiPSJmYWxzZSI-PGRpdiBjbGFzcz0iVmx0LXRhYnNfX2xpbmsgVmx0LXRhYnNfX2xpbmtfYWN0aXZlIiBkYXRhLWxhbmd1YWdlPSJqYXZhc2NyaXB0IiBkYXRhLWxhbmd1YWdlLXR5cGU9Imxhbmd1YWdlcyIgZGF0YS1sYW5ndWFnZS1saW5rYWJsZT0idHJ1ZSI-PHNwYW4-PHN2Zz48dXNlIHhsaW5rOmhyZWY9Ii9hc3NldHMvaW1hZ2VzL2JyYW5kcy9qYXZhc2NyaXB0LnN2ZyNqYXZhc2NyaXB0Ij48L3VzZT48L3N2Zz48c3Bhbj5GaXJzdCBTYW1wbGUgTWFya2Rvd248L3NwYW4-PC9zcGFuPjwvZGl2PjwvZGl2PgogICAgPGRpdiBjbGFzcz0iVmx0LXRhYnNfX2NvbnRlbnQiPgogICAgPGRpdiBjbGFzcz0iVmx0LXRhYnNfX3BhbmVsIFZsdC10YWJzX19wYW5lbF9hY3RpdmUiPjxwIGFyaWEtbGFiZWxsZWRieT0nIklEMTIzNDU2IicgYXJpYS1oaWRkZW49InRydWUiPjxoMiBpZD0iaGVhZGluZyIgZGF0YS1pZD0iSUQxMjM0NTYiIGNsYXNzPSIgVmx0LXRpdGxlLS1pY29uIj4KPGEgaHJlZj0iI2hlYWRpbmciIGNsYXNzPSJoZWFkaW5nLXBlcm1hbGluayI-CiAgPHN2ZyBjbGFzcz0iVmx0LWdyZXkiPjx1c2UgeGxpbms6aHJlZj0iL3N5bWJvbC92b2x0YS1pY29ucy5zdmcjVmx0LWljb24tbGluayI-PC91c2U-PC9zdmc-CjwvYT4KSGVhZGluZzwvaDI-CjxwPlNhbXBsZSBjb250ZW50PC9wPjwvcD48L2Rpdj4KPC9kaXY-CjwvZGl2Pgo=FREEZEEND\n"
+      expect(described_class.new.call(input)).to eq(expected_output)
+    end
+
+    it 'renders content with two markdown files in input' do
+      expect(File).to receive(:directory?).with('/path/to/a/directory').and_return(true)
+      expect(File).to receive(:read).with('/path/to/a/directory/.config.yml').and_return(config_tabbed_true)
+      expect(Dir).to receive(:glob).with('/path/to/a/directory/*.md').and_return(['/path/to/a/directory/javascript.md', '/path/to/a/directory/android.md'])
+      expect(File).to receive(:exist?).with('/path/to/a/directory/javascript.md').and_return(true)
+      expect(File).to receive(:exist?).with('/path/to/a/directory/android.md').and_return(true)
+      expect(File).to receive(:read).with('/path/to/a/directory/javascript.md').and_return(first_sample_markdown)
+      expect(File).to receive(:read).with('/path/to/a/directory/android.md').and_return(second_sample_markdown)
+      expect(SecureRandom).to receive(:hex).at_least(:once).and_return('ID123456')
+
+      input = <<~HEREDOC
+        ```tabbed_folder
+        source: /path/to/a/directory
+        ```
+      HEREDOC
+      expected_output = "FREEZESTARTPGRpdiBjbGFzcz0iVmx0LXRhYnMiPgogIDxkaXYgY2xhc3M9IlZsdC10YWJzX19oZWFkZXIgVmx0LXRhYnNfX2hlYWRlci0tYm9yZGVyZWQiIGRhdGEtaGFzLWluaXRpYWwtdGFiPSJmYWxzZSI-CjxkaXYgY2xhc3M9IlZsdC10YWJzX19saW5rIFZsdC10YWJzX19saW5rX2FjdGl2ZSIgZGF0YS1sYW5ndWFnZT0iamF2YXNjcmlwdCIgZGF0YS1sYW5ndWFnZS10eXBlPSJsYW5ndWFnZXMiIGRhdGEtbGFuZ3VhZ2UtbGlua2FibGU9InRydWUiPjxzcGFuPjxzdmc-PHVzZSB4bGluazpocmVmPSIvYXNzZXRzL2ltYWdlcy9icmFuZHMvamF2YXNjcmlwdC5zdmcjamF2YXNjcmlwdCI-PC91c2U-PC9zdmc-PHNwYW4-Rmlyc3QgU2FtcGxlIE1hcmtkb3duPC9zcGFuPjwvc3Bhbj48L2Rpdj4KPGRpdiBjbGFzcz0iVmx0LXRhYnNfX2xpbmsiIGRhdGEtbGFuZ3VhZ2U9ImphdmFzY3JpcHQiIGRhdGEtbGFuZ3VhZ2UtdHlwZT0ibGFuZ3VhZ2VzIiBkYXRhLWxhbmd1YWdlLWxpbmthYmxlPSJ0cnVlIj48c3Bhbj48c3ZnPjx1c2UgeGxpbms6aHJlZj0iL2Fzc2V0cy9pbWFnZXMvYnJhbmRzL2phdmFzY3JpcHQuc3ZnI2phdmFzY3JpcHQiPjwvdXNlPjwvc3ZnPjxzcGFuPlNlY29uZCBTYW1wbGUgTWFya2Rvd248L3NwYW4-PC9zcGFuPjwvZGl2Pgo8L2Rpdj4KICAgIDxkaXYgY2xhc3M9IlZsdC10YWJzX19jb250ZW50Ij4KICAgIDxkaXYgY2xhc3M9IlZsdC10YWJzX19wYW5lbCBWbHQtdGFic19fcGFuZWxfYWN0aXZlIj48cCBhcmlhLWxhYmVsbGVkYnk9JyJJRDEyMzQ1NiInIGFyaWEtaGlkZGVuPSJ0cnVlIj48aDIgaWQ9ImhlYWRpbmciIGRhdGEtaWQ9IklEMTIzNDU2IiBjbGFzcz0iIFZsdC10aXRsZS0taWNvbiI-CjxhIGhyZWY9IiNoZWFkaW5nIiBjbGFzcz0iaGVhZGluZy1wZXJtYWxpbmsiPgogIDxzdmcgY2xhc3M9IlZsdC1ncmV5Ij48dXNlIHhsaW5rOmhyZWY9Ii9zeW1ib2wvdm9sdGEtaWNvbnMuc3ZnI1ZsdC1pY29uLWxpbmsiPjwvdXNlPjwvc3ZnPgo8L2E-CkhlYWRpbmc8L2gyPgo8cD5TYW1wbGUgY29udGVudDwvcD48L3A-PC9kaXY-CjxkaXYgY2xhc3M9IlZsdC10YWJzX19wYW5lbCI-PHAgYXJpYS1sYWJlbGxlZGJ5PSciSUQxMjM0NTYiJyBhcmlhLWhpZGRlbj0idHJ1ZSI-PGgyIGlkPSJoZWFkaW5nIiBkYXRhLWlkPSJJRDEyMzQ1NiIgY2xhc3M9IiBWbHQtdGl0bGUtLWljb24iPgo8YSBocmVmPSIjaGVhZGluZyIgY2xhc3M9ImhlYWRpbmctcGVybWFsaW5rIj4KICA8c3ZnIGNsYXNzPSJWbHQtZ3JleSI-PHVzZSB4bGluazpocmVmPSIvc3ltYm9sL3ZvbHRhLWljb25zLnN2ZyNWbHQtaWNvbi1saW5rIj48L3VzZT48L3N2Zz4KPC9hPgpIZWFkaW5nPC9oMj4KPHA-U2FtcGxlIGNvbnRlbnQ8L3A-PC9wPjwvZGl2Pgo8L2Rpdj4KPC9kaXY-Cg==FREEZEEND\n"
+      expect(described_class.new.call(input)).to eq(expected_output)
+    end
+
+    it 'renders content with three markdown files in input' do
+      expect(File).to receive(:directory?).with('/path/to/a/directory').and_return(true)
+      expect(File).to receive(:read).with('/path/to/a/directory/.config.yml').and_return(config_tabbed_true)
+      expect(Dir).to receive(:glob).with('/path/to/a/directory/*.md').and_return(['/path/to/a/directory/javascript.md', '/path/to/a/directory/android.md', '/path/to/a/directory/ios.md'])
+      expect(File).to receive(:exist?).with('/path/to/a/directory/javascript.md').and_return(true)
+      expect(File).to receive(:exist?).with('/path/to/a/directory/android.md').and_return(true)
+      expect(File).to receive(:exist?).with('/path/to/a/directory/ios.md').and_return(true)
+      expect(File).to receive(:read).with('/path/to/a/directory/javascript.md').and_return(first_sample_markdown)
+      expect(File).to receive(:read).with('/path/to/a/directory/android.md').and_return(second_sample_markdown)
+      expect(File).to receive(:read).with('/path/to/a/directory/ios.md').and_return(third_sample_markdown)
+      expect(SecureRandom).to receive(:hex).at_least(:once).and_return('ID123456')
+
+      input = <<~HEREDOC
+        ```tabbed_folder
+        source: /path/to/a/directory
+        ```
+      HEREDOC
+      expected_output = "FREEZESTARTPGRpdiBjbGFzcz0iVmx0LXRhYnMiPgogIDxkaXYgY2xhc3M9IlZsdC10YWJzX19oZWFkZXIgVmx0LXRhYnNfX2hlYWRlci0tYm9yZGVyZWQiIGRhdGEtaGFzLWluaXRpYWwtdGFiPSJmYWxzZSI-CjxkaXYgY2xhc3M9IlZsdC10YWJzX19saW5rIFZsdC10YWJzX19saW5rX2FjdGl2ZSIgZGF0YS1sYW5ndWFnZT0iamF2YXNjcmlwdCIgZGF0YS1sYW5ndWFnZS10eXBlPSJsYW5ndWFnZXMiIGRhdGEtbGFuZ3VhZ2UtbGlua2FibGU9InRydWUiPjxzcGFuPjxzdmc-PHVzZSB4bGluazpocmVmPSIvYXNzZXRzL2ltYWdlcy9icmFuZHMvamF2YXNjcmlwdC5zdmcjamF2YXNjcmlwdCI-PC91c2U-PC9zdmc-PHNwYW4-Rmlyc3QgU2FtcGxlIE1hcmtkb3duPC9zcGFuPjwvc3Bhbj48L2Rpdj4KPGRpdiBjbGFzcz0iVmx0LXRhYnNfX2xpbmsiIGRhdGEtbGFuZ3VhZ2U9ImphdmFzY3JpcHQiIGRhdGEtbGFuZ3VhZ2UtdHlwZT0ibGFuZ3VhZ2VzIiBkYXRhLWxhbmd1YWdlLWxpbmthYmxlPSJ0cnVlIj48c3Bhbj48c3ZnPjx1c2UgeGxpbms6aHJlZj0iL2Fzc2V0cy9pbWFnZXMvYnJhbmRzL2phdmFzY3JpcHQuc3ZnI2phdmFzY3JpcHQiPjwvdXNlPjwvc3ZnPjxzcGFuPlNlY29uZCBTYW1wbGUgTWFya2Rvd248L3NwYW4-PC9zcGFuPjwvZGl2Pgo8ZGl2IGNsYXNzPSJWbHQtdGFic19fbGluayIgZGF0YS1sYW5ndWFnZT0iamF2YXNjcmlwdCIgZGF0YS1sYW5ndWFnZS10eXBlPSJsYW5ndWFnZXMiIGRhdGEtbGFuZ3VhZ2UtbGlua2FibGU9InRydWUiPjxzcGFuPjxzdmc-PHVzZSB4bGluazpocmVmPSIvYXNzZXRzL2ltYWdlcy9icmFuZHMvamF2YXNjcmlwdC5zdmcjamF2YXNjcmlwdCI-PC91c2U-PC9zdmc-PHNwYW4-VGhpcmQgU2FtcGxlIE1hcmtkb3duPC9zcGFuPjwvc3Bhbj48L2Rpdj4KPC9kaXY-CiAgICA8ZGl2IGNsYXNzPSJWbHQtdGFic19fY29udGVudCI-CiAgICA8ZGl2IGNsYXNzPSJWbHQtdGFic19fcGFuZWwgVmx0LXRhYnNfX3BhbmVsX2FjdGl2ZSI-PHAgYXJpYS1sYWJlbGxlZGJ5PSciSUQxMjM0NTYiJyBhcmlhLWhpZGRlbj0idHJ1ZSI-PGgyIGlkPSJoZWFkaW5nIiBkYXRhLWlkPSJJRDEyMzQ1NiIgY2xhc3M9IiBWbHQtdGl0bGUtLWljb24iPgo8YSBocmVmPSIjaGVhZGluZyIgY2xhc3M9ImhlYWRpbmctcGVybWFsaW5rIj4KICA8c3ZnIGNsYXNzPSJWbHQtZ3JleSI-PHVzZSB4bGluazpocmVmPSIvc3ltYm9sL3ZvbHRhLWljb25zLnN2ZyNWbHQtaWNvbi1saW5rIj48L3VzZT48L3N2Zz4KPC9hPgpIZWFkaW5nPC9oMj4KPHA-U2FtcGxlIGNvbnRlbnQ8L3A-PC9wPjwvZGl2Pgo8ZGl2IGNsYXNzPSJWbHQtdGFic19fcGFuZWwiPjxwIGFyaWEtbGFiZWxsZWRieT0nIklEMTIzNDU2IicgYXJpYS1oaWRkZW49InRydWUiPjxoMiBpZD0iaGVhZGluZyIgZGF0YS1pZD0iSUQxMjM0NTYiIGNsYXNzPSIgVmx0LXRpdGxlLS1pY29uIj4KPGEgaHJlZj0iI2hlYWRpbmciIGNsYXNzPSJoZWFkaW5nLXBlcm1hbGluayI-CiAgPHN2ZyBjbGFzcz0iVmx0LWdyZXkiPjx1c2UgeGxpbms6aHJlZj0iL3N5bWJvbC92b2x0YS1pY29ucy5zdmcjVmx0LWljb24tbGluayI-PC91c2U-PC9zdmc-CjwvYT4KSGVhZGluZzwvaDI-CjxwPlNhbXBsZSBjb250ZW50PC9wPjwvcD48L2Rpdj4KPGRpdiBjbGFzcz0iVmx0LXRhYnNfX3BhbmVsIj48cCBhcmlhLWxhYmVsbGVkYnk9JyJJRDEyMzQ1NiInIGFyaWEtaGlkZGVuPSJ0cnVlIj48aDIgaWQ9ImhlYWRpbmciIGRhdGEtaWQ9IklEMTIzNDU2IiBjbGFzcz0iIFZsdC10aXRsZS0taWNvbiI-CjxhIGhyZWY9IiNoZWFkaW5nIiBjbGFzcz0iaGVhZGluZy1wZXJtYWxpbmsiPgogIDxzdmcgY2xhc3M9IlZsdC1ncmV5Ij48dXNlIHhsaW5rOmhyZWY9Ii9zeW1ib2wvdm9sdGEtaWNvbnMuc3ZnI1ZsdC1pY29uLWxpbmsiPjwvdXNlPjwvc3ZnPgo8L2E-CkhlYWRpbmc8L2gyPgo8cD5TYW1wbGUgY29udGVudDwvcD48L3A-PC9kaXY-CjwvZGl2Pgo8L2Rpdj4KFREEZEEND\n"
+      expect(described_class.new.call(input)).to eq(expected_output)
     end
   end
 
@@ -107,40 +148,34 @@ RSpec.describe TabFilter do
 
   def first_sample_markdown
     <<~HEREDOC
-    ---
-    title: First Sample Markdown
-    language: javascript
-    ---
-
-    ## Heading
-
-    Sample content
+      ---
+      title: First Sample Markdown
+      language: javascript
+      ---
+       ## Heading
+       Sample content
     HEREDOC
   end
 
   def second_sample_markdown
     <<~HEREDOC
-    ---
-    title: Second Sample Markdown
-    language: javascript
-    ---
-
-    ## Heading
-
-    Sample content
+      ---
+      title: Second Sample Markdown
+      language: javascript
+      ---
+       ## Heading
+       Sample content
     HEREDOC
   end
 
   def third_sample_markdown
     <<~HEREDOC
-    ---
-    title: Third Sample Markdown
-    language: javascript
-    ---
-
-    ## Heading
-
-    Sample content
+      ---
+      title: Third Sample Markdown
+      language: javascript
+      ---
+       ## Heading
+       Sample content
     HEREDOC
   end
 end
