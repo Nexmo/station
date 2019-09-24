@@ -153,6 +153,8 @@ Note that in this case the messages [capabilities](/Application/overview#capabil
 
 ## Creating an application
 
+### Interactive mode
+
 First create a new directory for your application and change into it. You can then create an application in **interactive mode** using the command:
 
 ```
@@ -160,6 +162,10 @@ nexmo app:create
 ```
 
 You are prompted to select your required application capabilities. You can select as many as you want for your application. You are then prompted to enter your webhook URLs, based on the capabilities you selected. For example, if you requested `rtc` capabilities then you are prompted for the RTC Event webhook URL.
+
+Note that the command you could use to recreate the application in the future is also displayed as part of the output. This is useful for future reference, for example, if you later wanted to create a similar application using a script.
+
+### Script mode
 
 To create the application without the interactive mode (useful for scripts), use a command such as:
 
@@ -194,6 +200,64 @@ This generates `public.key.pub`. This is the public key you use in creating or u
 ```
 nexmo app:update asdasdas-asdd-2344-2344-asdasd12345 "Application with Public Key" --capabilities=voice,rtc --voice-event-url=http://example.com/webhooks/event --voice-answer-url=http://example.com/webhooks/answer --rtc-event-url=http://example.com/webhooks/rtcevent --public-keyfile=public.key.pub
 ```
+
+## Recreate an application
+
+You can see how an application was created by using the `--recreate` option to `app:show`. For example, the command:
+
+```
+nexmo app:show 9a1089f2-3990-4db2-be67-3e7767bd20c9  --recreate
+```
+
+Would generate the following output:
+
+```
+[id]
+9a1089f2-3990-4db2-be67-3e7767bd20c9
+
+[name]
+APP_NAME
+
+[keys.public_key]
+-----BEGIN PUBLIC KEY-----
+MII...EAAQ==
+-----END PUBLIC KEY-----
+
+
+[capabilities.voice.webhooks.event_url.address]
+http://example.com/event
+
+[capabilities.voice.webhooks.event_url.http_method]
+POST
+
+[capabilities.voice.webhooks.answer_url.address]
+http://example.com/answer
+
+[capabilities.voice.webhooks.answer_url.http_method]
+GET
+
+[capabilities.voice.webhooks.fallback_answer_url.address]
+
+
+[capabilities.voice.webhooks.fallback_answer_url.http_method]
+GET
+
+[capabilities.rtc.webhooks.event_url.address]
+http://example.com/rtcevent
+
+[capabilities.rtc.webhooks.event_url.http_method]
+POST
+
+[_links.self.href]
+/v2/applications/9a1089f2-3990-4db2-be67-3e7767bd20c9
+
+
+Run this command to create a similar application:
+
+nexmo app:create DELETE ME FOREVER --capabilities=voice,rtc --voice-answer-url=http://example.com --voice-fallback-answer-url= --voice-event-url=http://example.com --rtc-event-url=http://example.com 
+```
+
+Note, the command to recreate this application is shown.
 
 ## Updating an application
 
