@@ -146,25 +146,9 @@ class TabFilter < Banzai::Filter
       raise "Could not find content_from_source file: #{content_path}" unless File.exist? content_path
       source = File.read(content_path)
 
-      content = {
-        id: SecureRandom.hex,
-        source: source,
-      }
+      generate_tabbed_code_examples(source, content_path) if tabbed_code_examples?
 
-      if tabbed_code_examples?
-        language_key = File.basename(content_path, '.*').downcase
-        content[:language_key] = language_key
-      end
-
-      if tabbed_content?
-        content[:frontmatter] = YAML.safe_load(source)
-        content[:language_key] = content[:frontmatter]['language']
-        content[:platform_key] = content[:frontmatter]['platform']
-        content[:tab_title] = content[:frontmatter]['title']
-        content[:body] = MarkdownPipeline.new(options).call(source)
-      end
-
-      content
+      generate_tabbed_content(source) if tabbed_content?
     end
   end
 
@@ -178,18 +162,7 @@ class TabFilter < Banzai::Filter
       raise "Could not find content_from_source file: #{content_path}" unless File.exist? content_path
       source = File.read(content_path)
 
-      content = {
-        id: SecureRandom.hex,
-        source: source,
-      }
-
-      content[:frontmatter] = YAML.safe_load(source)
-      content[:language_key] = content[:frontmatter]['language']
-      content[:platform_key] = content[:frontmatter]['platform']
-      content[:tab_title] = content[:frontmatter]['title']
-      content[:body] = MarkdownPipeline.new(options).call(source)
-
-      content
+      generate_tabbed_content(source)
     end
   end
 
@@ -204,6 +177,32 @@ class TabFilter < Banzai::Filter
         language_key: title.dup.downcase,
       })
     end
+  end
+
+  def generate_tabbed_content(source)
+    content = {
+      id: SecureRandom.hex,
+      source: source,
+    }
+
+    content[:frontmatter] = YAML.safe_load(source)
+    content[:language_key] = content[:frontmatter]['language']
+    content[:platform_key] = content[:frontmatter]['platform']
+    content[:tab_title] = content[:frontmatter]['title']
+    content[:body] = MarkdownPipeline.new(options).call(source)
+
+    content
+  end
+
+  def generate_tabbed_code_examples(source, content_path)
+    content = {
+      id: SecureRandom.hex,
+      source: source,
+    }
+    language_key = File.basename(content_path, '.*').downcase
+    content[:language_key] = language_key
+
+    content
   end
 
   def resolve_language(contents)
