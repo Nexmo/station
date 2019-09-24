@@ -140,7 +140,7 @@ class TabFilter < Banzai::Filter
     source_path += '/*' if tabbed_code_examples?
     source_path += '/*.md' if tabbed_content?
 
-    files = Dir[source_path]
+    files = Dir.glob(source_path)
     raise "Empty content_from_source file list in #{source_path}" if files.empty?
     files.map do |content_path|
       raise "Could not find content_from_source file: #{content_path}" unless File.exist? content_path
