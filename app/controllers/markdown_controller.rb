@@ -79,17 +79,13 @@ class MarkdownController < ApplicationController
     @frontmatter = YAML.safe_load(File.read("#{path}/.config.yml"))
     @document_title = "<h1>#{@frontmatter['title'] || @frontmatter['meta_title']}</h1>"
 
-    # Page title rendering
+    # Rendering tabs
     @content = MarkdownPipeline.new({
       code_language: @code_language,
       current_user: current_user,
-    }).call(@document_title)
-
-    # Rendering tabs
-    @content += MarkdownPipeline.new({
-      code_language: @code_language,
-      current_user: current_user,
     }).call(<<~HEREDOC
+      #{@document_title}
+
       ```tabbed_folder
       source: #{path}
       ```

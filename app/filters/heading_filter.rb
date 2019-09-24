@@ -1,10 +1,6 @@
 class HeadingFilter < Banzai::Filter
   def call(input)
-    if File.directory?(input) && File.file?("#{input}/.config.yml")
-      @input = YAML.safe_load(File.read("#{input}/.config.yml"))['title'] || YAML.safe_load(File.read("#{input}/.config.yml"))['meta_title']
-    else
-      @input = input
-    end
+    @input = input
     @headings = []
     heading_tag_list = %w[h1 h2 h3 h4 h5 h6]
     headings = document.children.select do |child|
