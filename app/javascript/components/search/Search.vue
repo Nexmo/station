@@ -3,7 +3,7 @@
     <div>
       <div class="Vlt-composite">
         <div class="Vlt-composite__prepend Vlt-composite__prepend--icon">
-          <svg><use xlinkHref="/symbol/volta-icons.svg#Vlt-icon-search"/></svg>
+          <svg><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-search"/></svg>
         </div>
         <div class="Vlt-input">
           <input
@@ -20,7 +20,7 @@
       </div>
     </div>
 
-    <svg v-show="query" class="Nxd-search__clear"><use xlinkHref="/symbol/volta-icons.svg#Vlt-icon-cross"/></svg>
+    <svg v-show="query" class="Nxd-search__clear"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-cross"/></svg>
 
     <div v-show="showResults" class="Nxd-search">
       <div class="Nxd-search__wrapper">
@@ -74,10 +74,14 @@ export default {
     );
   },
   mounted: function() {
-    document.querySelector('.Nxd-template').addEventListener('click', this.onClickOutside.bind(this));
+    if (document.querySelector('.Nxd-template')) {
+      document.querySelector('.Nxd-template').addEventListener('click', this.onClickOutside.bind(this));
+    }
   },
   onDestroy: function() {
-    document.querySelector('.Nxd-template').removeEventListener('click', this.onClickOutside.bind(this));
+    if (document.querySelector('.Nxd-template')) {
+      document.querySelector('.Nxd-template').removeEventListener('click', this.onClickOutside.bind(this));
+    }
   },
   computed: {
     showResults: function() {

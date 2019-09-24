@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="Vlt-box">
     <h2>Try it out</h2>
 
     <h4>Message</h4>

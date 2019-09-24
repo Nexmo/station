@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="Vlt-card">
     <h1>JWT Generator</h1>
     <div :class="[computedClass, 'Vlt-callout']">
       <i></i>
