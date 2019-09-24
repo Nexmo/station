@@ -21,7 +21,7 @@ import Notices from '../notices'
 import Feedback from '../components/feedback/Feedback.vue'
 import JwtGenerator from '../components/jwt_generator/JwtGenerator.vue'
 import Search from '../components/search/Search.vue'
-import Concatenation from '../components/concatenation/concatenation.vue'
+import Concatenation from '../components/concatenation/Concatenation.vue'
 import APIStatus from '../api_status'
 import CodeSnippetEvents from '../code_snippet_events'
 import Navigation from '../navigation'
@@ -65,7 +65,7 @@ $(document).ready(function() {
   if (document.getElementById('concatenation-app')) {
     new Vue({
       el: '#concatenation-app',
-      template: '<concatenation/>',
+      template: '<Concatenation/>',
       components: { Concatenation }
     })
   }
