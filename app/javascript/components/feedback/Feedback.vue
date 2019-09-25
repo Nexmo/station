@@ -75,35 +75,19 @@
 </template>
 <script>
   export default {
+    props: ['codeLanguage', 'codeLanguageSelectedWhilstOnPage', 'codeLanguageSetByUrl', 'currentUser', 'feedbackAuthor', 'githubUrl', 'recaptcha', 'source'],
     data: function() {
       return {
-        codeLanguage: undefined,
-        codeLanguageSetByUrl: undefined,
-        codeLanguageSelectedWhilstOnPage: undefined,
         comment: '',
-        currentUser: undefined,
         error: false,
-        feedbackAuthor: undefined,
         feedbackComplete: undefined,
-        githubUrl: undefined,
         id: undefined,
         recaptchaToken: undefined,
         sentiment: undefined,
         showExtendedFields: false,
-        source: undefined,
         submittingFeedback: undefined,
         uploadingSentiment: false,
       };
-    },
-    created: function() {
-      this.codeLanguage = window.feedbackProps.code_language || window.initialLanguage;
-      this.codeLanguageSelectedWhilstOnPage = window.feedbackProps.code_language_selected_whilst_on_page || false;
-      this.codeLanguageSetByUrl = window.feedbackProps.code_language_set_by_url;
-      this.currentUser = window.feedbackProps.current_user;
-      this.feedbackAuthor = window.feedbackProps.feedback_author;
-      this.githubUrl = window.feedbackProps.github_url;
-      this.recaptcha = window.feedbackProps.recaptcha;
-      this.source = window.feedbackProps.source;
     },
     mounted: function() {
       document.addEventListener('codeLanguageChange', this.handleCodeLanguageChange.bind(this));
