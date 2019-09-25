@@ -79,8 +79,7 @@ RSpec.describe TabFilter do
       expect(File).to receive(:directory?).with(path).and_return(true)
       expect(File).to receive(:read).with("#{path}/.config.yml").and_return(config_tabbed_true)
       expect(Dir).to receive(:glob).with("#{path}/*.md").and_return(["#{path}/javascript.md"])
-      expect(File).to receive(:exist?).with("#{path}/javascript.md").and_return(true)
-      expect(File).to receive(:read).with("#{path}/javascript.md").and_return(first_sample_markdown)
+      mock_content('javascript', first_sample_markdown)
       expect(SecureRandom).to receive(:hex).at_least(:once).and_return('ID123456')
 
       input = <<~HEREDOC
@@ -96,10 +95,8 @@ RSpec.describe TabFilter do
       expect(File).to receive(:directory?).with(path).and_return(true)
       expect(File).to receive(:read).with("#{path}/.config.yml").and_return(config_tabbed_true)
       expect(Dir).to receive(:glob).with("#{path}/*.md").and_return(["#{path}/javascript.md", "#{path}/android.md"])
-      expect(File).to receive(:exist?).with("#{path}/javascript.md").and_return(true)
-      expect(File).to receive(:exist?).with("#{path}/android.md").and_return(true)
-      expect(File).to receive(:read).with("#{path}/javascript.md").and_return(first_sample_markdown)
-      expect(File).to receive(:read).with("#{path}/android.md").and_return(second_sample_markdown)
+      mock_content('javascript', first_sample_markdown)
+      mock_content('android', second_sample_markdown)
       expect(SecureRandom).to receive(:hex).at_least(:once).and_return('ID123456')
 
       input = <<~HEREDOC
@@ -115,12 +112,9 @@ RSpec.describe TabFilter do
       expect(File).to receive(:directory?).with(path).and_return(true)
       expect(File).to receive(:read).with("#{path}/.config.yml").and_return(config_tabbed_true)
       expect(Dir).to receive(:glob).with("#{path}/*.md").and_return(["#{path}/javascript.md", "#{path}/android.md", "#{path}/ios.md"])
-      expect(File).to receive(:exist?).with("#{path}/javascript.md").and_return(true)
-      expect(File).to receive(:exist?).with("#{path}/android.md").and_return(true)
-      expect(File).to receive(:exist?).with("#{path}/ios.md").and_return(true)
-      expect(File).to receive(:read).with("#{path}/javascript.md").and_return(first_sample_markdown)
-      expect(File).to receive(:read).with("#{path}/android.md").and_return(second_sample_markdown)
-      expect(File).to receive(:read).with("#{path}/ios.md").and_return(third_sample_markdown)
+      mock_content('javascript', first_sample_markdown)
+      mock_content('android', second_sample_markdown)
+      mock_content('ios', third_sample_markdown)
       expect(SecureRandom).to receive(:hex).at_least(:once).and_return('ID123456')
 
       input = <<~HEREDOC
@@ -178,5 +172,10 @@ RSpec.describe TabFilter do
        ## Heading
        Sample content
     HEREDOC
+  end
+
+  def mock_content(name, content)
+    expect(File).to receive(:exist?).with("/path/to/a/directory/#{name}.md").and_return(true)
+    expect(File).to receive(:read).with("/path/to/a/directory/#{name}.md").and_return(content)
   end
 end
