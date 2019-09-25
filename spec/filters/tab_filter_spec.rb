@@ -80,7 +80,7 @@ RSpec.describe TabFilter do
       expect(File).to receive(:read).with("#{path}/.config.yml").and_return(config_tabbed_true)
       expect(Dir).to receive(:glob).with("#{path}/*.md").and_return(["#{path}/javascript.md"])
       mock_content('javascript', first_sample_markdown)
-      expect(SecureRandom).to receive(:hex).at_least(:once).and_return('ID123456')
+      expect(SecureRandom).to receive(:hex).once.and_return('ID123456')
 
       input = <<~HEREDOC
         ```tabbed_folder
@@ -97,7 +97,7 @@ RSpec.describe TabFilter do
       expect(Dir).to receive(:glob).with("#{path}/*.md").and_return(["#{path}/javascript.md", "#{path}/android.md"])
       mock_content('javascript', first_sample_markdown)
       mock_content('android', second_sample_markdown)
-      expect(SecureRandom).to receive(:hex).at_least(:once).and_return('ID123456')
+      expect(SecureRandom).to receive(:hex).twice.and_return('ID123456')
 
       input = <<~HEREDOC
         ```tabbed_folder
@@ -115,7 +115,7 @@ RSpec.describe TabFilter do
       mock_content('javascript', first_sample_markdown)
       mock_content('android', second_sample_markdown)
       mock_content('ios', third_sample_markdown)
-      expect(SecureRandom).to receive(:hex).at_least(:once).and_return('ID123456')
+      expect(SecureRandom).to receive(:hex).exactly(3).times.and_return('ID123456')
 
       input = <<~HEREDOC
         ```tabbed_folder
