@@ -53,6 +53,8 @@
     "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {
+    "@vue/test-utils": "^1.0.0-beta.29",
+    "babel-jest": "^24.9.0",
     "eslint": "^4.9.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-import": "^2.8.0",
@@ -60,6 +62,7 @@
     "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-standard": "^3.0.1",
     "jest": "^24.8.0",
+    "vue-jest": "^3.0.5",
     "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.3.0",
     "webpack-dev-server": "^3.2.1"
@@ -81,6 +84,16 @@
       "node_modules",
       "app/javascript"
     ],
-    "verbose": true
+    "verbose": true,
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "vue"
+    ],
+    "transform": {
+      "^.+\\.js$": "babel-jest",
+      ".*\\.(vue)$": "vue-jest"
+    },
+    "transformIgnorePatterns": ["node_modules/"]
   }
 }
