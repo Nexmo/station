@@ -35,8 +35,12 @@ module ApplicationHelper
       full_path = File.join(path, entry)
       if File.directory?(full_path)
         # if its a tabbed folder
-        if File.exist?("#{full_path}/.config.yml") && YAML.safe_load(File.read("#{full_path}/.config.yml"))['tabbed'] == true
+        config = {}
+        if File.exist?("#{full_path}/.config.yml")
           config = YAML.safe_load(File.read("#{full_path}/.config.yml"))
+        end
+
+        if config['tabbed']
           data[:children] << { title: config['title'], path: full_path, is_tabbed?: true }
         else
           data[:children] << directory_hash(full_path, entry)
