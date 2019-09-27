@@ -9,17 +9,10 @@ class MarkdownController < ApplicationController
     redirect = Redirector.find(request)
     return redirect_to redirect if redirect
 
-    if check_if_path_is_folder == false
-      @frontmatter = YAML.safe_load(document)
-
-      raise Errno::ENOENT if @frontmatter['redirect']
-
-      @document_title = @frontmatter['meta_title'] || @frontmatter['title']
-
-      @content = MarkdownPipeline.new({
-        code_language: @code_language,
-        current_user: current_user,
-      }).call(document)
+    if check_if_path_is_folder
+      content_from_folder
+    else
+      content_from_file
     end
 
     if !Rails.env.development? && @frontmatter['wip']
@@ -74,8 +67,11 @@ class MarkdownController < ApplicationController
   end
 
   def check_if_path_is_folder
+    File.directory? "#{@namespace_path}/#{@document}"
+  end
+
+  def content_from_folder
     path = "#{@namespace_path}/#{@document}"
-    return false unless File.directory? path
     @frontmatter = YAML.safe_load(File.read("#{path}/.config.yml"))
     @document_title = "<h1>#{@frontmatter['title'] || @frontmatter['meta_title']}</h1>"
 
@@ -103,6 +99,21 @@ class MarkdownController < ApplicationController
         current_user: current_user,
       }).call(content)
     end
+    @frontmatter
+  end
+
+  def content_from_file
+    @frontmatter = YAML.safe_load(document)
+
+    raise Errno::ENOENT if @frontmatter['redirect']
+
+    @document_title = @frontmatter['meta_title'] || @frontmatter['title']
+
+    @content = MarkdownPipeline.new({
+      code_language: @code_language,
+      current_user: current_user,
+    }).call(document)
+    @frontmatter
   end
 
   def set_tracking_cookie
