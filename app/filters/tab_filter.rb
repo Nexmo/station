@@ -5,7 +5,7 @@ class TabFilter < Banzai::Filter
       @mode = $2
       @config = YAML.safe_load($3)
 
-      if @mode == 'folder'
+      if tabbed_folder?
         raise "#{@config['source']} is not a directory" unless File.directory? @config['source']
         @tabbed_config = YAML.safe_load(File.read("#{@config['source']}/.config.yml"))
         @path = @config['source']
@@ -79,6 +79,10 @@ class TabFilter < Banzai::Filter
     @mode == 'content'
   end
 
+  def tabbed_folder?
+    @mode == 'folder'
+  end
+
   def html
     html = <<~HEREDOC
       <div class="Vlt-tabs">
@@ -103,7 +107,7 @@ class TabFilter < Banzai::Filter
   end
 
   def contents
-    list = content_from_folder if @mode == 'folder'
+    list = content_from_folder if tabbed_folder?
     list ||= content_from_source if @config['source']
     list ||= content_from_tabs if @config['tabs']
 
