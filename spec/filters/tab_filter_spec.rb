@@ -41,7 +41,7 @@ RSpec.describe TabFilter do
       expect(File).to receive(:read).with("#{path}/.config.yml").and_return(config_tabbed_false)
       input = <<~HEREDOC
         ```tabbed_folder
-        source: /path/to/a/directory
+        source: #{path}
         ```
       HEREDOC
       expect do
