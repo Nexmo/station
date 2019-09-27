@@ -9,10 +9,10 @@ class MarkdownController < ApplicationController
     redirect = Redirector.find(request)
     return redirect_to redirect if redirect
 
-    if check_if_path_is_folder
-      content_from_folder
+    if path_is_folder?
+      @frontmatter, @content = content_from_folder
     else
-      content_from_file
+      @frontmatter, @content = content_from_file
     end
 
     if !Rails.env.development? && @frontmatter['wip']
@@ -66,21 +66,21 @@ class MarkdownController < ApplicationController
     @code_language = nil
   end
 
-  def check_if_path_is_folder
+  def path_is_folder?
     File.directory? "#{@namespace_path}/#{@document}"
   end
 
   def content_from_folder
     path = "#{@namespace_path}/#{@document}"
-    @frontmatter = YAML.safe_load(File.read("#{path}/.config.yml"))
-    @document_title = "<h1>#{@frontmatter['title'] || @frontmatter['meta_title']}</h1>"
+    frontmatter = YAML.safe_load(File.read("#{path}/.config.yml"))
 
-    # Rendering tabs
-    @content = MarkdownPipeline.new({
+    @document_title = frontmatter['meta_title'] || frontmatter['title']
+
+    content = MarkdownPipeline.new({
       code_language: @code_language,
       current_user: current_user,
     }).call(<<~HEREDOC
-      #{@document_title}
+      <h1>#{@document_title}</h1>
 
       ```tabbed_folder
       source: #{path}
@@ -88,32 +88,20 @@ class MarkdownController < ApplicationController
     HEREDOC
            )
 
-    # Each article content
-    @document += '/*.md'
-    files = Dir["#{@namespace_path}/#{@document}"]
-    files.map do |content_path|
-      content = File.read(content_path)
-
-      @content += MarkdownPipeline.new({
-        code_language: @code_language,
-        current_user: current_user,
-      }).call(content)
-    end
-    @frontmatter
+    [frontmatter, content]
   end
 
   def content_from_file
-    @frontmatter = YAML.safe_load(document)
+    frontmatter = YAML.safe_load(document)
 
-    raise Errno::ENOENT if @frontmatter['redirect']
+    raise Errno::ENOENT if frontmatter['redirect']
 
-    @document_title = @frontmatter['meta_title'] || @frontmatter['title']
-
-    @content = MarkdownPipeline.new({
+    content = MarkdownPipeline.new({
       code_language: @code_language,
       current_user: current_user,
     }).call(document)
-    @frontmatter
+
+    [frontmatter, content]
   end
 
   def set_tracking_cookie
