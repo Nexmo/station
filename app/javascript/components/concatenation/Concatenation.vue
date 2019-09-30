@@ -4,7 +4,7 @@
 
     <h4>Message</h4>
     <div class="Vlt-textarea">
-      <textarea v-model='body'/>
+      <textarea v-model="body" />
     </div>
 
     <div class="Vlt-margin--top2" />
@@ -23,12 +23,12 @@
         <div class="Vlt-col Vlt-col--1of3">
           <b>Length</b>
         </div>
-        <div class="Vlt-col Vlt-col--2of3">{{smsComposition}}</div>
+        <div class="Vlt-col Vlt-col--2of3" v-html="smsComposition" id="sms-composition"></div>
       </div>
     </div>
 
     <h4>Parts</h4>
-    <div class="Vlt-box Vlt-box--white Vlt-box--lesspadding">
+    <div class="Vlt-box Vlt-box--white Vlt-box--lesspadding" id="parts">
       <div v-for= "(message, index) in messages" class="Vlt-grid">
         <div class="Vlt-col Vlt-col--1of3"><b>Part {{index + 1}}</b></div>
         <div class="Vlt-col Vlt-col--2of3">
@@ -47,40 +47,40 @@
 </template>
 
 <script>
-  import CharacterCounter from './character_counter'
+import CharacterCounter from './character_counter';
 
-  export default {
-    data: function () {
-      return {
-        body: 'It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way in short, the period was so far like the present period, that some of its noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only.'
-      }
+export default {
+  data: function () {
+    return {
+      body: 'It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way in short, the period was so far like the present period, that some of its noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only.'
+    };
+  },
+  computed: {
+    smsInfo: function() {
+      return new CharacterCounter(this.body).getInfo();
     },
-    computed: {
-      smsInfo: function() {
-        return new CharacterCounter(this.body).getInfo();
-      },
-      messages: function() {
-        return this.smsInfo.messages;
-      },
-      unicodeRequired: function() {
-        return this.smsInfo.unicodeRequired;
-      },
-      smsComposition: function() {
-        let count = this.smsInfo.charactersCount;
-        let characters = this.pluralize('character', count);
-        let messagesLength = this.messages.length;
-        let parts = this.pluralize('part', messagesLength);
+    messages: function() {
+      return this.smsInfo.messages;
+    },
+    unicodeRequired: function() {
+      return this.smsInfo.unicodeRequired;
+    },
+    smsComposition: function() {
+      let count = this.smsInfo.charactersCount;
+      let characters = this.pluralize('character', count);
+      let messagesLength = this.messages.length;
+      let parts = this.pluralize('part', messagesLength);
 
-        return `${count} ${characters} sent in ${messagesLength} message ${parts}`;
-      }
-    },
-    methods: {
-      pluralize: function(singular, count) {
-        if (count === 1) { return singular; }
-        return `${singular}s`;
-      }
+      return `${count} ${characters} sent in ${messagesLength} message ${parts}`;
+    }
+  },
+  methods: {
+    pluralize: function(singular, count) {
+      if (count === 1) { return singular; }
+      return `${singular}s`;
     }
   }
+}
 </script>
 
 <style scoped>

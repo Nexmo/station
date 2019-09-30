@@ -1,15 +1,15 @@
 <template>
   <div class="Vlt-card">
     <h1>JWT Generator</h1>
-    <div :class="[computedClass, 'Vlt-callout']">
+    <div v-show="!jwt" :class="[computedClass, 'Vlt-callout']">
       <i></i>
-      <div v-show="invalidPrivateKey" class="Vlt-callout__content">
-        Invalid private key provided
-      </div>
-      <div v-show="invalidAcl" class="Vlt-callout__content">
+      <div v-if="invalidAcl" class="Vlt-callout__content">
         Invalid ACL provided. Must be JSON
       </div>
-      <div v-show="!invalidPrivateKey && !invalidAcl" v-html="callout" class="Vlt-callout__content"/>
+      <div v-else-if="invalidPrivateKey" class="Vlt-callout__content">
+        Invalid private key provided
+      </div>
+      <div v-if="!invalidPrivateKey && !invalidAcl" v-html="callout" class="Vlt-callout__content"/>
     </div>
     <div class="Vlt-grid">
 
@@ -18,13 +18,13 @@
         <div class="Vlt-form__element">
           <label class="Vlt-label">Private Key</label>
           <div class="Vlt-textarea">
-            <textarea rows="8" cols="50" v-model="privateKey"></textarea>
+            <textarea rows="8" cols="50" v-model="privateKey" id="private-key"></textarea>
           </div>
         </div>
         <div class="Vlt-form__element">
           <label class="Vlt-label">Application ID</label>
           <div class="Vlt-input">
-            <input v-model="applicationId"/>
+            <input v-model="applicationId" id="application-id"/>
           </div>
         </div>
         <div class="Vlt-form__element">
@@ -56,7 +56,7 @@
         <div class="Vlt-form__element">
           <label class="Vlt-label">ACL (optional)</label>
           <div class="Vlt-textarea">
-            <textarea rows="4" cols="50" v-model="acl"></textarea>
+            <textarea rows="4" cols="50" v-model="acl" id="acl"></textarea>
           </div>
         </div>
       </div>
@@ -65,7 +65,7 @@
         <div class="Vlt-form__element">
           <label class="Vlt-label">Your JWT</label>
           <div class="Vlt-textarea">
-            <textarea rows="29" cols="50" v-model="jwt"></textarea>
+            <textarea rows="29" cols="50" v-model="jwt" id="jwt"></textarea>
           </div>
         </div>
       </div>
@@ -179,6 +179,8 @@ export default {
     computedClass: function() {
       if (this.invalidPrivateKey || this.invalidAcl)
         return 'Vlt-callout--critical';
+      if (this.applicationId && this.privateKey)
+        return '';
       if (this.applicationId || this.privateKey)
         return 'Vlt-callout--warning';
       if (!this.applicationId && !this.privateKey)

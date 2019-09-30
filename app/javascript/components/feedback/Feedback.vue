@@ -20,7 +20,7 @@
       </div>
 
       <div class="Vlt-col Vlt-col--right Vlt-col--1of4">
-        <span v-show="githubUrl" id="feedback__improve">
+        <span v-if="githubUrl" id="feedback__improve">
           <svg class="Vlt-icon Vlt-black">
             <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-github" />
           </svg>
@@ -29,14 +29,14 @@
       </div>
     </div>
 
-    <p v-show="error" class="form__error">{{error}}</p>
+    <p v-if="error" class="form__error">{{error}}</p>
 
-    <div v-show="sentiment && !showExtendedFields">
+    <div v-if="sentiment && !showExtendedFields || feedbackComplete">
       <hr/>
       <p>Great! Thanks for the feedback.</p>
     </div>
 
-    <div v-show="showExtendedFields && id && !feedbackComplete">
+    <div v-if="showExtendedFields && id && !feedbackComplete">
       <hr/>
       <p>We see that this page didn’t meet your expectations. We’re really sorry!<br/></p>
       <div class="Vlt-form__element">
@@ -47,25 +47,19 @@
         </div>
       </div>
 
-      <div v-show="!currentUser" class="Vlt-form__element Vlt-form__element--elastic">
+      <div v-if="!currentUser" class="Vlt-form__element Vlt-form__element--elastic">
         <p><strong>Can we let you know when we've solved your issue?</strong></p>
         <label class="Vlt-label">My email: <small class="Vlt-grey-darker">(optional)</small></label>
         <div class="Vlt-input">
-          <input type="email" size="20" value="email"/>
+          <input type="email" size="20" value="email" id="email"/>
         </div>
       </div>
-
 
       <input v-on:click="submitFeedback" v-bind:disabled="isSubmitDisabled" type="submit" class="Vlt-btn Vlt-btn--primary Vlt-btn--app" value="Send Feedback" />
       <p>Your data will be treated in accordance with our <a href="https://www.nexmo.com/privacy-policy">Privacy Policy</a>, which sets out the rights you have in respect of your data.</p>
     </div>
 
-    <div v-show="feedbackComplete">
-      <hr/>
-      <p>Thank you for your feedback</p>
-    </div>
-
-    <p v-show="currentUser">
+    <p v-if="currentUser">
       <br/>
       Logged in as {{ currentUser.email }}.
       <a v-bind:href="currentUser.signout_path">Sign out</a>
@@ -132,8 +126,8 @@
         this.createOrUpdate();
       },
       createOrUpdate: function() {
-        if (this.recaptcha.enabled && !this.recaptcha.skip && this.recaptchaToken == undefined) {
-          const element = $('<div></div>').appendTo('#recaptcha-container')[0]
+        if (this.recaptcha && this.recaptcha.enabled && !this.recaptcha.skip && this.recaptchaToken == undefined) {
+          const element = document.createElement('div').appendTo('#recaptcha-container')[0]
 
           const id = grecaptcha.render(element, {
             sitekey: this.recaptcha.sitekey,
@@ -144,14 +138,12 @@
           return grecaptcha.execute(id)
         }
 
-        let request = new Request('/feedback/feedbacks', {
+        fetch('/feedback/feedbacks', {
           method: 'POST',
           credentials: 'same-origin',
           body: JSON.stringify(this.parameters()),
           headers: { 'Content-Type': 'application/json' }
         })
-
-        fetch(request)
         .then((response) => {
           if (response.ok) { return response.json() }
           return Promise.reject({ message: 'Bad response from server', response })
@@ -170,8 +162,12 @@
 
           if (error.response) {
             error.response.json()
-              .then((payload) => { this.error = payload.error; })
-              .catch(() => { this.error = "Something went wrong! Try again later"; })
+              .then((payload) => {
+                this.error = payload.error;
+              })
+              .catch(() => {
+                this.error = "Something went wrong! Try again later";
+              })
           } else {
             this.error = "Something went wrong! Try again later";
           }

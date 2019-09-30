@@ -9,7 +9,7 @@
 
         <p class='Nxd-search__result__desc'>{{ description }}</p>
         <p class='Nxd-search__result__highlight' v-html='snippet'></p>
-          <span class='Vlt-badge Vlt-badge--grey Nxd-search__badge'>{{ badge }}</span>
+        <span class='Vlt-badge Vlt-badge--grey Nxd-search__badge'>{{ badge }}</span>
       </div>
     </a>
   </div>
