@@ -91,7 +91,7 @@ export default {
   methods: {
     resultTitle: function(name) {
       if (name == 'zendesk_nexmo_articles') {
-        return 'Knowlegebase';
+        return 'Knowledgebase';
       } else if (name.includes('nexmo_developer')) {
         return 'Nexmo Developer';
       }

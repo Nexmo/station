@@ -86,7 +86,8 @@
     ],
     "moduleDirectories": [
       "node_modules",
-      "app/javascript"
+      "app/javascript",
+      "spec"
     ],
     "verbose": true,
     "moduleFileExtensions": [
