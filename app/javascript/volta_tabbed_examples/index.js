@@ -71,7 +71,7 @@ export default class VoltaTabbedExamples {
 
     if (language) {
       if (linkable) {
-        $(document).trigger('codeLanguageChange', { language });
+        document.dispatchEvent(new CustomEvent('codeLanguageChange', { "detail": { "language": language } }));
         if ($(".skip-pushstate").length == 0) {
             const rootPath = $('body').data('push-state-root')
             window.history.pushState({language}, 'language', `${rootPath}/${language}`)

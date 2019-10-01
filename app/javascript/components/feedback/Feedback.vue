@@ -81,6 +81,9 @@
         showExtendedFields: false,
         submittingFeedback: undefined,
         uploadingSentiment: false,
+        programmingLanguage: this.codeLanguage,
+        progammingLanguageSelectedWhilstOnPage: undefined,
+        progammingLanguageSetByUrl: undefined
       };
     },
     mounted: function() {
@@ -114,9 +117,9 @@
             sentiment: this.sentiment,
             comment: this.comment,
             email: this.email,
-            code_language: this.codeLanguage,
-            code_language_selected_whilst_on_page: this.codeLanguageSelectedWhilstOnPage,
-            code_language_set_by_url: this.codeLanguageSetByUrl,
+            code_language: this.programmingLanguage,
+            code_language_selected_whilst_on_page: this.programmingLanguageSelectedWhilstOnPage,
+            code_language_set_by_url: this.programmingLanguageSetByUrl,
             source: this.source,
           }
         };
@@ -177,10 +180,10 @@
         this.submittingFeedback = true;
         this.createOrUpdate();
       },
-      handleCodeLanguageChange: function(event, data) {
-        this.codeLanguage = data.language;
-        this.codeLanguageSelectedWhilstOnPage = true;
-        this.codeLanguageSetByUrl = false;
+      handleCodeLanguageChange: function(event) {
+        this.programmingLanguage = event.detail.language;
+        this.programmingSelectedWhilstOnPage = true;
+        this.programmingSetByUrl = false;
       }
     }
   }
