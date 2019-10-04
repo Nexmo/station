@@ -271,6 +271,18 @@ nexmo app:update asdasdas-asdd-2344-2344-asdasda12345 "Updated Application" --ca
 
 You can change the application name, modify any of the webhooks, or add new capabilities.
 
+## Deleting an application
+
+You can delete an application with the following command:
+
+```
+nexmo app:delete APP_ID
+```
+
+You will be asked to confirm deletion.
+
+> **NOTE:** Deletion cannot be reversed.
+
 ## Reference
 
 * [Nexmo CLI GitHub repository](https://github.com/Nexmo/nexmo-cli)
