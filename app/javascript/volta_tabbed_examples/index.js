@@ -17,11 +17,7 @@ export default class VoltaTabbedExamples {
   }
 
   shouldRestoreTabs() {
-    return !this.context.data('has-initial-tab')
-  }
-
-  doesTabLanguageExist(language) {
-    return $(this.context).find(`[data-language='${language}']`).length > 0
+    return !this.context.find('.Vlt-tabs__header--bordered').data('has-initial-tab');
   }
 
   languages() {
@@ -39,18 +35,21 @@ export default class VoltaTabbedExamples {
   }
 
   restoreTabs() {
-      if (this.shouldRestoreTabs()) {
-        let languages = this.languages()
-        const language = this.userPreference.topMatch(Object.keys(languages))
+    if (this.shouldRestoreTabs()) {
+      let languages = this.languages()
+      const language = this.userPreference.topMatch(Object.keys(languages))
 
-        if (language) {
-          if (languages[language]['platform']) {
-            this.setPlatform(languages[language]['platform'], this.context)
-          } else {
-            this.setLanguage(language, this.context)
-          }
+      if (language) {
+        if (languages[language]['platform']) {
+          this.setPlatform(languages[language]['platform'], this.context)
+        } else {
+          this.setLanguage(language);
         }
       }
+    } else {
+      const selectedLanguage = this.context.find('li.Vlt-tabs__link_active').data('language');
+      this.setLanguage(selectedLanguage);
+    }
   }
 
   setupEvents() {
