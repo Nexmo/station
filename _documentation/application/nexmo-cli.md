@@ -11,15 +11,17 @@ The Nexmo CLI allows you to create and manage your Nexmo applications. To obtain
 
 ## Installation
 
-The Nexmo CLI can be installed with one of the following commands:
+The Nexmo CLI (Beta) can be installed with the following command:
 
 ```
-npm install -g nexmo-cli@alpha
 npm install -g nexmo-cli@beta
-npm install -g nexmo-cli
 ```
 
-The command used depends on which version you want to install.
+The latest Beta includes all the facilities to support Application API V2 on the command line. You can check your installed version with the command:
+
+```
+nexmo --version
+```
 
 ## Listing your applications
 
@@ -252,12 +254,12 @@ POST
 /v2/applications/9a1089f2-3990-4db2-be67-3e7767bd20c9
 
 
-Run this command to create a similar application:
+To recreate a similar application use the following command:
 
 nexmo app:create DELETE ME FOREVER --capabilities=voice,rtc --voice-answer-url=http://example.com --voice-fallback-answer-url= --voice-event-url=http://example.com --rtc-event-url=http://example.com 
 ```
 
-Note, the command to recreate this application is shown.
+Note, the command to _recreate_ this application is shown at the end of the output.
 
 ## Updating an application
 
@@ -268,3 +270,7 @@ nexmo app:update asdasdas-asdd-2344-2344-asdasda12345 "Updated Application" --ca
 ```
 
 You can change the application name, modify any of the webhooks, or add new capabilities.
+
+## Reference
+
+* [Nexmo CLI GitHub repository](https://github.com/Nexmo/nexmo-cli)
