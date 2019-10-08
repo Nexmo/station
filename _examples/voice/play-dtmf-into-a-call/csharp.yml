@@ -8,9 +8,9 @@ client:
     from_line: 17
     to_line: 23
 code:
-    source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotnetCodeSnippets/Controllers/VoiceController.cs
-    from_line: 256
-    to_line: 259
+    source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotnetCodeSnippets/Senders/VoiceSender.cs
+    from_line: 170
+    to_line: 175
 run_command: 'Run using your IDE'
-file_name: VoiceController.cs
+file_name: VoiceSender.cs
 unindent: true

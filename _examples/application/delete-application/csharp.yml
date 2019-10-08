@@ -4,12 +4,12 @@ language: dotnet
 dependencies:
     - Nexmo.Csharp.Client
 code:
-    source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotnetCodeSnippets/Controllers/ApplicationController.cs
-    from_line: 72
-    to_line: 74
+    source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotnetCodeSnippets/Senders/ApplicationSender.cs
+    from_line: 85
+    to_line: 85
 client:
     source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotnetCodeSnippets/Authentication/BasicAuth.cs
     from_line: 17
     to_line: 21
-file_name: ApplicationController.cs
+file_name: ApplicationSender.cs
 run_command: 'Run using your IDE'

@@ -3,14 +3,15 @@ title: .NET
 language: dotnet
 dependencies:
     - Nexmo.Csharp.Client
+    - Nancy
 client:
     source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotnetCodeSnippets/Authentication/FullAuth.cs
     from_line: 17
     to_line: 23
 code:
     source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotnetCodeSnippets/Senders/VoiceSender.cs
-    from_line: 75
-    to_line: 75
+    from_line: 210
+    to_line: 210
 run_command: 'Run using your IDE'
 file_name: VoiceSender.cs
 unindent: true
