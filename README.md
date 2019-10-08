@@ -99,8 +99,8 @@ rbenv install 2.5.5
 rbenv global 2.5.5
 gem install bundle
 bundle install
-nvm install 9
-nvm use 9
+nvm install 12
+nvm use 12
 yarn install
 ```
 
