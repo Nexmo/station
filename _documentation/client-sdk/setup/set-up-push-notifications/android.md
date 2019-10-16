@@ -3,11 +3,11 @@ title: Android
 language: android
 ---
 
-# How to Set Up Nexmo Push Notifications on Android
+# Overview
 
-On incoming events, such as when a user receives a new message, or an incoming call, the user often expects to receive a push notification, if the app is not active.
+On incoming events such as a new message, or an incoming call, the user often expects to receive a push notification, if the app is not active.
 
-This tutorial explains how to configure your Android app to receive push notifications from Nexmo Client SDK.
+This guide explains how to configure your Android app to receive push notifications from the Nexmo Client SDK.
 
 ## Set up Firebase project for your app
 
@@ -19,7 +19,7 @@ In case you have not done that already, more details can be found in the [offici
 
 Obtain a `jwt_dev`, which is a `jwt` without a `sub` claim. More details on how to generate a JWT can be found in the [setup guide](/tutorials/client-sdk-generate-test-credentials#generate-a-user-jwt).
 
-Get your `server_api_key` from Firebase console. Navigate to Firebase console --> project settings --> CloudMessaging Tab --> `Server key`
+Get your `server_api_key` from the Firebase console. Navigate to `Firebase console, Project settings, CloudMessaging, Server key`.
 
 Get your Nexmo Application ID, `app_id`. It can be obtained from [Nexmo Dashboard](https://dashboard.nexmo.com/voice/your-applications).
 
@@ -59,7 +59,7 @@ If you do not have one already, create a service that extends `FirebaseMessaging
 
 ## Enable Nexmo server to send push notifications to your device
 
-In order for Nexmo to be able to send push notification to a device, the Nexmo server has to know the device token, also known as InstanceID.
+In order for Nexmo to be able to send push notifications to a device, the Nexmo server has to know the device token, also known as `InstanceID`.
 
 In your implementation of `FirebaseMessagingService`,  override `onNewToken()` and update the Nexmo servers with it:
 
@@ -110,4 +110,4 @@ For example, in your `MyFirebaseMessagingService`:
 
 ## Conclusion
 
-In this tutorial you have seen how to set up push notifications.
+In this guide you have seen how to set up push notifications.

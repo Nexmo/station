@@ -3,9 +3,9 @@ title: iOS
 language: ios
 ---
 
-# How to Add the Nexmo Client SDK to your iOS App
+# Overview
 
-In this tutorial you learn how to add the Nexmo Client SDK to your iOS app.
+In this guide you learn how to add the Nexmo Client SDK to your iOS app.
 
 ## Prerequisites
 
@@ -16,9 +16,9 @@ To use the Nexmo SDK for iOS, you need to have the following installed:
 
 ## Add the SDK to your iOS Project
 
-Open XCode with your iOS project.
+Open Xcode with your iOS project.
 
-You can either install the Nexmo Client SDK via CocoaPods or directly.
+You can either install the Nexmo Client SDK directly, or via CocoaPods.
 
 ### CocoaPods
 
@@ -50,7 +50,7 @@ You can either install the Nexmo Client SDK via CocoaPods or directly.
 
     Where `Project Dir` is the path to the parent directory of the `PodFile`.
 
-4. Open the `xcworkspace` with XCode and disable `bitcode` for your target.
+4. Open the `xcworkspace` with Xcode and disable `bitcode` for your target.
 
 5. In your code, import the `NexmoClient` library:  
    
@@ -70,7 +70,7 @@ You can either install the Nexmo Client SDK via CocoaPods or directly.
 
 1. Download the Nexmo Client SDK and add it to your project.
 
-2. Open the `xcworkspace` with XCode and disable `bitcode` for your target.
+2. Open the `xcworkspace` with Xcode and disable `bitcode` for your target.
 
 3. In your code, import the NexmoClient library:
 
@@ -124,7 +124,7 @@ To use the in-app voice features, you need to add audio permissions:
 
 `AppDelegate` is the best place to do this.
 
-## Using NXMClient in your app
+## Using `NXMClient` in your app
 
 ### Login
 
@@ -181,4 +181,3 @@ NXMUser *user = client.user;
 ## Conclusion
 
 You added the Nexmo Client SDK to your iOS app, and logged in to a `NXMClient` instance. You can now use the `NXMClient` client in your app, and use the Nexmo Client SDK functionality.
-

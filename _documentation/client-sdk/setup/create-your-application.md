@@ -1,9 +1,10 @@
 ---
-title: How to Generate Test Credentials
+title: Create your application
 description: This topic shows you how to create a Nexmo application, users and tokens.
+navigation_weight: 1
 ---
 
-# How to Generate Test Credentials
+# Create your application, users and tokens
 
 In order to use the Nexmo Client SDK, there are three things you need to set up before getting started:
 
