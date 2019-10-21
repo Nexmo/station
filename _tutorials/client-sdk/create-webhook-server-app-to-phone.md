@@ -7,7 +7,7 @@ description: In this step you learn how to create a suitable webhook server that
 
 Nexmo will make a request to your `answer_url` when an inbound call is received. You need to create a webhook server that is capable of receiving this request and returning an NCCO containing a `connect` action that will forward the call to the PSTN phone number. You do this by extracting the destination number from the `to` query parameter and returning it in your response.
 
-Add the code for the server to the file `server.js`, making sure to change the values in `allowed_numbers` to the phone numbers that you want to allow:
+Create a file named `server.js` and add the code for the server to the file, making sure to change the values in `allowed_numbers` to the phone numbers that you want to allow:
 
 ``` javascript
 'use strict';
@@ -65,5 +65,5 @@ app.listen(port, () => console.log(`Server listening on port ${port}!`));
 The important parts of this code are in the `answer` webhook handler:
 
 1. Extraction of the destination number from the answer webhook query parameters.
-2. Check that the provided number is allowed to be dialled. This is important for preventing fraudulant use of your account
-3. The dynamically built NCCO that forwards the call to the destination phone using a `connect` action.
+2. Check that the provided number is allowed to be dialed. This is important for preventing fraudulent use of your account.
+3. The dynamically built NCCO then forwards the call to the destination phone using a `connect` action.
