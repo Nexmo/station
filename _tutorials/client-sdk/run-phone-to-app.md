@@ -21,4 +21,4 @@ In your web app, you will see the call status updated. Click the `Answer` button
 
 A conversation can now take place between the web app (agent) and the inbound caller.
 
-Hangup on the call using your handset and the call status will be updated again.
+Hang up when you're done and the call status will be updated again.
