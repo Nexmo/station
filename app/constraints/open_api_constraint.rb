@@ -21,6 +21,9 @@ OPEN_API_PRODUCTS = %w[
   vonage-business-cloud/vgis
   application.v2
   application
+  conversion
+  subaccounts
+  developer/messages
 ].freeze
 
 class OpenApiConstraint
@@ -29,7 +32,7 @@ class OpenApiConstraint
   end
 
   def self.products
-    { definition: Regexp.new(OPEN_API_PRODUCTS.join('|')) }
+    { definition: Regexp.new("^(#{OPEN_API_PRODUCTS.join('|')})$") }
   end
 
   def self.errors_available
@@ -56,5 +59,14 @@ class OpenApiConstraint
     end
 
     matches.sort_by { |v| v['version'] }
+  end
+
+  def self.match?(definition, code_language = nil)
+    if code_language.nil?
+      products_with_code_language[:definition].match?(definition)
+    else
+      products_with_code_language[:definition].match?(definition) &&
+        products_with_code_language[:code_language].match?(code_language)
+    end
   end
 end
