@@ -17,20 +17,20 @@
 
 <style>
 .vonage-campus {
-    background-image: url('/assets/campus/banner_background.png');
-    min-height: 100px;
-    margin: 10px 0;
+  background-image: url('/assets/campus/banner_background.png');
+  min-height: 100px;
+  margin: 10px 0;
 }
 
 .vonage-campus .campus-content{
-    color: #fff;
-    font-family: averta,Helvetica,"sans-serif";
-    font-weight: 600;
-    letter-spacing: .86px;
-    line-height: 28px;
-    font-size: 20px;
-    max-width: 600px;
-    margin:auto;
+  color: #fff;
+  font-family: averta,Helvetica,"sans-serif";
+  font-weight: 600;
+  letter-spacing: .86px;
+  line-height: 28px;
+  font-size: 20px;
+  max-width: 600px;
+  margin:auto;
 }
 
 .campus-content a {
@@ -42,22 +42,31 @@
   font-size: 20px;
   text-decoration: underline;
 }
-  .campus-hide-small {
-    display: none !important;
-  }
-    .campus-logo {
-      padding-top: 10px;
-    }
 
-  @media only screen and (min-width: 576px) {
-    .campus-hide-small {
-      display: inline !important;
-    }
-    .campus-logo {
-      padding-top: 00px;
-    }
-  }
+.campus-hide-small {
+  display: inline !important;
+}
 
+.campus-logo {
+  padding-top: 10px;
+}
+
+.mobile-break {
+  clear: both;
+  width: 100%;
+  display: block;
+}
+
+@media only screen and (min-width: 576px) {
+  .campus-logo {
+    padding-top: 0px;
+  }
+  .mobile-break {
+    clear: none;
+    width: auto;
+    display: inline;
+  }
+}
 </style>
 
 <div class="Vlt-grid Vlt-grid--middle vonage-campus Vlt-center">
@@ -66,7 +75,7 @@
   </div>
   <div class="Vlt-col Vlt-col--M-2of4 campus-hide-small">
     <div class="campus-content">
-      At Campus? Got a badge? <a target="_blank" href="https://github.com/nexmo-community/campusbadge/wiki">Get the instructions</a><br />
+      At Campus? Got a badge? <a target="_blank" class="mobile-break"  href="https://github.com/nexmo-community/campusbadge/wiki">Get the instructions</a><br />
       Can't make it? <a target="_blank" href="https://twitter.com/search?q=%23vonagecampus">Follow along on Twitter</a>
     </div>
   </div>
