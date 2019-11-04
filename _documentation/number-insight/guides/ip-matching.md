@@ -14,10 +14,10 @@ You can use Nexmo's Number Insight Advanced API to determine whether a user's IP
 
 Pass the user's IP address in the `ip` parameter when you make the request, as shown in the following `curl` example.
 
-Replace the `NEXMO_API_KEY` and `NEXMO_API_SECRET` placeholder variables with your own API key and secret from the [developer dashboard](https://dashboard.nexmo.com/getting-started-guide).
+Replace the `NEXMO_API_KEY` and `NEXMO_API_SECRET` placeholder variables with your own API key and secret from the [developer dashboard](https://dashboard.nexmo.com/getting-started-guide). Replace `IP_ADDRESS` with the user's IP address.
 
 ```bash
-curl 'https://api.nexmo.com/ni/advanced/json?api_key=NEXMO_API_KEY&api_secret=NEXMO_API_SECRET&number=INSIGHT_NUMBER&ip=&cname=true'
+curl 'https://api.nexmo.com/ni/advanced/json?api_key=NEXMO_API_KEY&api_secret=NEXMO_API_SECRET&number=INSIGHT_NUMBER&ip=IP_ADDRESS&cname=true'
 ```
 
 ## Understanding the response
