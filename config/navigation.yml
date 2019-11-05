@@ -9,7 +9,10 @@ navigation_weight:
   Dispatch: 6
   Numbers: 98
   Account: 99
-  Vonage Business Cloud: 7
+  Audit: 100
+  Redact: 100
+  Reports: 101
+  Vonage Business Cloud: 200
 
   Smart Numbers: 1
   VBC APIs: 2
@@ -123,6 +126,10 @@ navigation_overrides:
     label: 'Beta'
     code-snippets:
       collapsible: false
+  reports:
+    svg: 'report'
+    svgColor: 'orange'
+    label: 'Beta'
   vonage-business-cloud:
     svg: 'telephone'
     svgColor: 'green'

@@ -27,6 +27,7 @@
 "/client-sdk/in-app-voice/contact-center-overview": "/use-cases/contact-center-client-sdk"
 "/concepts": "/concepts/overview"
 "/concepts/guides/applications": "/application/overview"
+"/reports/api-reference": "/api/reports"
 "/contribute/guides/styleguide": "/contribute/guides/markdown-guide"
 "/contribute/guides/write-the-docs": "/contribute/guides/writing-style-guide"
 "/dispatch/api-reference": "/api/dispatch"

@@ -51,6 +51,7 @@ class DocumentationConstraint
       'vonage-business-cloud/vbc-apis/reports-api',
       'vonage-business-cloud/vbc-apis/user-api',
       'account/subaccounts',
+      'reports',
     ]
   end
 

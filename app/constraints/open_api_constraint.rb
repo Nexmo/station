@@ -21,6 +21,7 @@ OPEN_API_PRODUCTS = %w[
   vonage-business-cloud/vgis
   application.v2
   application
+  reports
   conversion
   subaccounts
   developer/messages

@@ -13,6 +13,8 @@ products:
   messages-olympus:
     title: Messages API
     hide_rfc7807_header: true
+  reports:
+    title: Reports API
 
 generic_errors:
   low-balance:
@@ -28,6 +30,10 @@ generic_errors:
     link:
       text: Find out more
       url: /concepts/guides/authentication
+
+  forbidden:
+    description: Your account does not have permission to perform this action
+    resolution: Check that you're using the correct credentials, and that your account has this feature enabled
 
   not-found:
     description: The requested resource does not exist, or you do not have access to it
