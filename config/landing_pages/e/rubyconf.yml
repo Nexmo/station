@@ -21,6 +21,37 @@ page:
           text: "Sign Up For Free"
           url: "https://dashboard.nexmo.com/sign-up?utm_source=nexmo-developer&utm_medium=rubyconf&utm_campaign=landing"
           center_button: true
+                      
+  - row:
+    - column:
+        - type: line_divider
+
+  - row:
+    - column:
+      - type: action_button
+        action_button:
+          text: "View Nexmo docs"
+          url: "/"
+          center_button: true
+          type: primary
+          large: true
+    - column:
+      - type: action_button
+        action_button:
+          text: "Get the conference schedule"
+          url: "https://rubyconf.org/schedule"
+          center_button: true
+          type: primary
+          large: true
+    - column:
+      - type: action_button
+        action_button:
+          text: "Let us know you're here!"
+          url: "https://nexmo.dev/tweetrubyconf"
+          center_button: true
+          type: primary
+          large: true
+
   - row:
     - column:
         - type: line_divider
@@ -75,11 +106,13 @@ page:
             type: large
           - content: "Send your SMS message to one of the following:"
             type: large
-          - content: 🇺🇸 American number goes here
+          - content: 🇺🇸 +16152701740
             type: small
-          - content: 🇬🇧 British number goes here
+          - content: 🇬🇧 +447451279370
             type: small
-          - content: 🇨🇦 Canadian number goes here
+          - content: 🇨🇦 +14166194720
+            type: small
+          - content: "<br/>*Please note we do not save your personal information beyond the purposes of this contest.*"
             type: small
   - row:
     - column:
@@ -156,34 +189,6 @@ page:
               <div class="Vlt-right">
               <a class="Vlt-btn Vlt-btn--secondary" href="/messaging/sms/code-snippets/send-an-sms/ruby">View the complete code &raquo;</a>
               </div>
-  - row:
-    - column:
-        - type: line_divider
-  - row:
-    - column:
-      - type: action_button
-        action_button:
-          text: "View Nexmo docs"
-          url: "/"
-          center_button: true
-          type: primary
-          large: true
-    - column:
-      - type: action_button
-        action_button:
-          text: "Get the conference schedule"
-          url: "https://rubyconf.org/schedule"
-          center_button: true
-          type: primary
-          large: true
-    - column:
-      - type: action_button
-        action_button:
-          text: "Let us know you're here!"
-          url: "https://nexmo.dev/tweetrubyconf"
-          center_button: true
-          type: primary
-          large: true
   - row:
     - column:
         - type: line_divider
