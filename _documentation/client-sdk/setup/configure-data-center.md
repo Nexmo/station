@@ -8,7 +8,7 @@ navigation_weight: 4
 
 You may need to configure the Client SDK to connect to your nearest data center. You can use this guide to help determine your best configuration.
 
-> **NOTE:** This is an advanced optional step. You only need to do this if you determine your network performance needs to be enhanced. For most users this configuration is not required.
+> **NOTE:** This is an advanced optional step. You only need to do this if you determine your network performance needs to be enhanced. For most users this configuration is not required. This step can be done after [adding the SDK to your application](/client-sdk/setup/add-sdk-to-your-app).
 
 ## Why configure your data centers?
 
