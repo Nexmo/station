@@ -8,7 +8,7 @@ navigation_weight: 4
 
 You can verify that a message you sent using Nexmo's SMS API reached your customer by requesting a [delivery receipt](/messaging/sms/guides/delivery-receipts) from the carrier.
 
-> **NOTE:** Not all networks and countries support delivery receipts. You can check our knowledge base for some further information on what you [might receive](https://help.nexmo.com/hc/en-us/articles/204014863) if the network does not support delivery receipts.
+> **NOTE:** Not all networks and countries support delivery receipts. You can check our knowledge base for some further information on what you [might receive](https://help.nexmo.com/hc/en-us/articles/204014863) if your network does not support delivery receipts. For detailed information on delivery receipts see our [documentation](/messaging/sms/guides/delivery-receipts).
 
 To access the delivery receipt, you need to:
 
@@ -51,3 +51,7 @@ image: public/assets/screenshots/smsDLRsettings.png
 ```
 
 > **NOTE:** After you send a message there may be a delay before you receive the delivery receipt.
+
+## More information
+
+* [SMS Delivery Receipt documentation](/messaging/sms/guides/delivery-receipts)
