@@ -1,5 +1,5 @@
 ---
-title: Contact Center Use Case
+title: Contact Center
 products: client-sdk
 description: How to build your own contact center application.
 languages: 
@@ -28,7 +28,7 @@ Make sure you have a Nexmo account, or [sign up](https://dashboard.nexmo.com/) t
 
 ## Set Up Your Backend
 
-To use the Client SDK you must have a backend application that uses [Conversation API.](/conversation/overview). Some functionality, like managing users can only be done through the backend. Other capabilities, such as creating Conversations, can be done by both client and server side.
+To use the Client SDK you must have a backend application that uses [Conversation API](/conversation/overview). Some functionality, like managing users can only be done through the backend. Other capabilities, such as creating Conversations, can be done by both client and server side.
 
 ### Deploy Your Server Side Application
 
@@ -181,7 +181,6 @@ Clicking the `Inbound Call` button will result in an NCCO as follows:
 
 Try this out by executing the following steps:
 
-
 1. Run your client-side app.
 2. Log in as `Jane`.
 3. On another phone, call the Nexmo number assigned to your Nexmo application.
@@ -262,7 +261,6 @@ For this example the NCCO merely connects the caller to the respected agent. The
 
 The NCCO that will be executed to connect to `Joe` is similar, except for the user name.
 
-
 1. Run two different instances of your client-side app, on two emulators, devices or browser tabs.
 2. Log in as `Jane` in one instance, and log in as `Joe` on the other instance.
 3. On another phone, call the Nexmo number assigned to your Nexmo application.
@@ -292,5 +290,5 @@ You have:
 ## Reference
 
 * Explore [Client SDK](/client-sdk/overview)
-* Explore [Voice API](/conversation/overview)
+* Explore [Voice API](/voice/voice-api/overview)
 * Explore [Conversation API](/conversation/overview)
