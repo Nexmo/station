@@ -24,4 +24,27 @@ RSpec.describe I18n::SmartlingConverterFilter do
       FRONTMATTER
     )
   end
+
+  context 'revert some encodings from smartling' do
+    let(:table) do
+      <<~TABLE
+        密钥 \| 说明
+        \-\- \| \-\-
+        `NEXMO_API_KEY` \| 您的 Nexmo API 密钥。
+        `NEXMO_API_SECRET` \| 您的 Nexmo API 密码。
+      TABLE
+    end
+
+    it 'unescapes some special characters' do
+      translated = described_class.call(table)
+      expect(translated).to include(
+        <<~TABLE
+          密钥 | 说明
+          -- | --
+          `NEXMO_API_KEY` | 您的 Nexmo API 密钥。
+          `NEXMO_API_SECRET` | 您的 Nexmo API 密码。
+        TABLE
+      )
+    end
+  end
 end
