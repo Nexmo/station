@@ -1,8 +1,4 @@
 ---
-title: PHP
-language: php
-dependencies:
-    - nexmo/client
 client:
     source: .repos/nexmo/nexmo-php-code-snippets/verify/verify.php
     from_line: 11
