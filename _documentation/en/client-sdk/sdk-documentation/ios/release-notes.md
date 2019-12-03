@@ -6,6 +6,21 @@ navigation_weight: 0
 
 # Release Notes
 
+## 1.2.0 - 2019-12-03
+
+### Added
+`NXMClient`'s `getConversationsPageWithSize:order:completionHandler:` method to get conversations with paging.
+
+`NXMConversationsPage`, which represents the retrieved page, provides the following instance methods
+
+- `hasNextPage` / `hasPreviousPage` to check if forward/backward page retrieval is possible and
+- `nextPage:` / `previousPage:` to asynchronously retrieve the next/previous page.
+
+### Changed
+`NXMClient`'s `getConversationWithUUid:completionHandler:` method's name typo (now called `getConversationWithUuid:completionHandler:`).
+
+---
+
 ## 1.1.1 - 2019-11-21
 
 ### Added
@@ -18,6 +33,8 @@ navigation_weight: 0
 
 `NXMClient setConfiguration` is optional, configuration will set to a default value.
 Note: you most call `setConfiguration` method before using `NXMClient.shared`.
+
+---
 
 ## 1.1.0 - 2019-11-14
 
