@@ -1,79 +1,134 @@
-export default () => {
-  function toggleCareers() {
-    const selectedDepartment = document.getElementById('department-filter').value;
-    const selectedCareer = document.getElementById('location-filter').value;
+export default class Careers {
 
-    document.getElementById('careers').querySelectorAll('.Nxd-department').forEach(function(department) {
-      if (selectedDepartment === '') {
-        department.classList.remove('hide');
-      } else {
-        department.classList.toggle('hide', department.dataset.department !== selectedDepartment);
-      }
-      department.querySelectorAll('.Nxd-career').forEach(function(career) {
-        if (selectedCareer === '') {
-          career.classList.remove('hide');
-        } else {
-          const location = career.getElementsByClassName('Nxd-career__subtitle')[0].innerHTML;
-          career.classList.toggle('hide', !location.includes(selectedCareer));
-        }
-      });
+  constructor() {
+    this.departments = [];
+    this.locations = [];
+    this.setupListeners();
+  }
 
-      if (department.querySelectorAll('.Nxd-career:not(.hide)').length === 0) {
-        department.classList.add('hide');
-      }
-    });
+  showCareer(career) {
+    const department = career.getElementsByClassName('department')[0].dataset.department;
+    const location = career.getElementsByClassName('location')[0].dataset.location;
+
+    return (this.departments.includes(department) || this.departments.length === 0)
+      && (this.locations.some(l => location.includes(l) || l.includes(location)) || this.locations.length === 0);
+  }
+
+  toggleCareers() {
+    Array.from(document.getElementsByClassName('Nxd-career')).forEach(function(career) {
+      career.classList.toggle('hide', !this.showCareer(career));
+    }, this);
 
     document.getElementById('no-results').classList.toggle(
       'hide',
-      document.querySelectorAll('.Nxd-department:not(.hide)').length !== 0
+      document.querySelectorAll('.Nxd-career:not(.hide)').length !== 0
     );
+
+    document.querySelectorAll('.Nxd-career:not(.hide)').forEach(function(career, index) {
+      career.classList.toggle('striped', index % 2 == 0);
+    });
   }
 
-  function updateURL(key, value) {
+  updateURL() {
     let currentUrl = new URL(window.location.href);
-    let params = new URLSearchParams(window.location.search);
-    if (value) {
-      params.set(key, value);
-    } else {
-      params.delete(key);
+    let query = {};
+    if (this.departments.length > 0) {
+      Object.assign(query, { departments: this.departments });
     }
+    if (this.locations.length > 0) {
+      Object.assign(query, { locations: this.locations.map((l) => l.split(',')[0]) });
+    }
+
+    let params = new URLSearchParams(query);
 
     currentUrl.search = params
     window.history.pushState({}, 'Careers', currentUrl);
   }
 
-  function departmentChangeHandler(event) {
-    updateURL('department', event.target.value);
-    toggleCareers();
+  dropdownValue(length, item) {
+    let value;
+    switch(length) {
+      case 0:
+        value = `${item}s`;
+        break;
+      case 1:
+        value = `1 ${item} selected`;
+        break;
+      default:
+        value = `${length} ${item}s selected`;
+    }
+    return value;
   }
 
-  function locationChangeHandler(event) {
-    updateURL('location', event.target.value);
-    toggleCareers();
+  updateDepartmentsDropdown() {
+    let value = this.dropdownValue(this.departments.length, 'Department');
+    document.querySelector('#department-filter button').innerText = value;
   }
 
-  function setFiltersFromURL() {
+  updateLocationsDropdown() {
+    let value = this.dropdownValue(this.locations.length, 'Location');
+    document.querySelector('#location-filter button').innerText = value;
+  }
+
+  departmentChangeHandler(event) {
+    if (event.target.checked) {
+      this.departments.push(event.target.value);
+    } else {
+      this.departments.splice(this.departments.indexOf(event.target.value), 1);
+    }
+    this.updateURL();
+    this.updateDepartmentsDropdown();
+    this.toggleCareers();
+  }
+
+  locationChangeHandler(event) {
+    if (event.target.checked) {
+      this.locations.push(event.target.value);
+    } else {
+      this.locations.splice(this.locations.indexOf(event.target.value), 1);
+    }
+    this.updateURL();
+    this.updateLocationsDropdown();
+    this.toggleCareers();
+  }
+
+  setFiltersFromURL() {
     let params = new URLSearchParams(window.location.search);
-    const departmentFilter = document.getElementById('department-filter');
-    const locationFilter = document.getElementById('location-filter');
+    this.departments = [];
+    this.locations = [];
 
-    departmentFilter.value = params.get('department') || '';
-    locationFilter.value = params.get('location') || '';
+    params.get('departments') && params.get('departments').split(',').forEach(function(department) {
+      this.departments.push(department);
+      document.getElementById(department).checked = true;
+    }, this);
 
-    toggleCareers();
+    params.get('locations') && params.get('locations').split(',').forEach(function(location) {
+      let checkbox = document.querySelector(`[id^='${location}']`);
+      if (checkbox) {
+        this.locations.push(location);
+        checkbox.checked = true;
+      }
+    }, this);
+
+    this.updateDepartmentsDropdown();
+    this.updateLocationsDropdown();
+    this.toggleCareers();
   }
 
-  window.addEventListener('load', function() {
-    if (!document.getElementById('careers')) { return; }
+  setupListeners() {
+    const self = this;
+    window.addEventListener('load', function() {
+      if (!document.getElementById('careers')) { return; }
 
-    toggleCareers();
-    document.getElementById('department-filter').addEventListener('change', departmentChangeHandler);
-    document.getElementById('location-filter').addEventListener('change', locationChangeHandler);
-    setFiltersFromURL();
-  });
+      self.toggleCareers();
+      document.getElementById('department-filter').addEventListener('change', self.departmentChangeHandler.bind(self));
+      document.getElementById('location-filter').addEventListener('change', self.locationChangeHandler.bind(self));
+      self.setFiltersFromURL();
+    });
 
-  window.addEventListener('popstate', function(event) {
-    if (!document.getElementById('careers')) { return; }
-    setFiltersFromURL();
-  });
+    window.addEventListener('popstate', function(event) {
+      if (!document.getElementById('careers')) { return; }
+      self.setFiltersFromURL();
+    });
+  }
 }
