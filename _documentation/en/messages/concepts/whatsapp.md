@@ -57,7 +57,7 @@ The parameters are an array. The first value being `{{1}}` in the MTM.
 
 Below is an example API call:
 
-```
+``` shell
 curl -X POST \
   https://api.nexmo.com/beta/messages \
   -H 'Authorization: Bearer' $JWT \
@@ -94,9 +94,16 @@ curl -X POST \
         "locale": "en-GB"
       }
    }
-}
-'
+}'
 ```
+
+## WhatsApp deterministic language policy
+
+> **NOTE:** From January 2020 the *deterministic* language policy will be the default and the *fallback* language policy will be deprecated.
+
+When a message template is sent with the deterministic language policy, the receiving device will query its cache for a *language pack* for the language and locale specified in the message. If not available in the cache, the device will query the server for the required language pack. With the deterministic language policy the target device language and locale settings are ignored. If the language pack specified for the message is not available an error will be logged.
+
+Further information is available in the [WhatsApp documentation](https://developers.facebook.com/docs/whatsapp/message-templates/sending/#language).
 
 ## Further information
 
@@ -104,6 +111,7 @@ curl -X POST \
 
 WhatsApp developer documentation:
 
+* [WhatsApp Developer documentation](https://developers.facebook.com/docs/whatsapp)
 * [Text Message](https://developers.facebook.com/docs/whatsapp/api/messages/text)
 * [Media Message](https://developers.facebook.com/docs/whatsapp/api/messages/media)
 * [Message Template](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates)
