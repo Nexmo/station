@@ -10,6 +10,7 @@ navigation_weight: 0
 
 ### Added
 - Add filter by `EventType` in `NexmoConversation.getEvents`
+
 ```
     NexmoConversation myConversation
     //Get all text event for a specifc conversation
@@ -40,6 +41,7 @@ navigation_weight: 0
 
 ### Changes
 - Add `iceServerUrls` parameters to `NexmoClient.Builder`
+
 ```
     nexmoClient = new NexmoClient.Builder().iceServerUrls(new String[]{"stun/turn servr url"}).build(context);
 ``` 
