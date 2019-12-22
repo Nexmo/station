@@ -6,6 +6,43 @@ navigation_weight: 0
 
 # Release Notes
 
+## 2.0.0 - 2019-12-22
+
+### Added
+- Add filter by `EventType` in `NexmoConversation.getEvents`
+
+```
+    NexmoConversation myConversation
+    //Get all text event for a specifc conversation
+    myConversation.getEvents(10, NexmoPageOrderDesc, "text", new NexmoRequestListener<NexmoEventsPage> {
+        void onError(@NonNull NexmoApiError error){
+        }
+        
+        void onSuccess(@Nullable NexmoEventsPage result){
+            Collection<NexmoEvent> textEvents =  result.getData()
+        }
+    });
+    //Get all member event for a specifc conversation
+    myConversation.getEvents(10, NexmoPageOrderDesc, "member:*", new NexmoRequestListener<NexmoEventsPage> {
+        void onError(@NonNull NexmoApiError error){
+        }
+        
+        void onSuccess(@Nullable NexmoEventsPage result){
+            Collection<NexmoEvent> memberEvents =  result.getData()
+        }
+    });
+```
+
+### Changed
+- `NexmoDeliveredEvent` remove `InitialEvent` parameter and add `InitialEventId`
+- `NexmoSeenEvent` remove `InitialEvent` parameter and add `InitialEventId`
+
+### Fixed
+- Support for DTLS in WebRTC
+- `NexmoConversationsPage.getPrev()` return the conversations from the right cursor
+
+---
+
 ## 1.2.0 - 2019-12-16 
 
 ### Added
