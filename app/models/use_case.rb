@@ -8,6 +8,7 @@ class UseCase
 
   def path
     return external_link if external_link
+
     path = document_path.relative_path_from(UseCase.origin).sub("#{I18n.locale}/", '')
     "/use-cases/#{path}".gsub('.md', '')
   end
@@ -28,6 +29,7 @@ class UseCase
     return 'Dispatch' if product == 'dispatch'
     return 'Client SDK' if product == 'client-sdk'
     return 'Subaccounts' if product == 'account/subaccounts'
+
     product.camelcase
   end
 

@@ -58,6 +58,7 @@ class OpenApiConstraint
     matches = matches.map do |s|
       m = /\.v(\d+)/.match(s)
       next { 'version' => '1', 'name' => s } unless m
+
       { 'version' => m[1], 'name' => s }
     end
 

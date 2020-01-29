@@ -14,6 +14,7 @@ class ApiError
 
   def link
     return nil unless @link_text && @link_url
+
     OpenStruct.new({
       text: @link_text,
       url: @link_url,
@@ -22,6 +23,7 @@ class ApiError
 
   def self.parse_config(errors)
     return [] if errors.blank?
+
     errors.map do |id, config|
       ApiError.new({ id: id }.merge(config))
     end

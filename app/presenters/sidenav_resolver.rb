@@ -103,6 +103,7 @@ class SidenavResolver
 
   def navigation_weight_from_meta(item)
     return 1000 unless item[:is_file?]
+
     document_meta(item)['navigation_weight'] || 1000
   end
 

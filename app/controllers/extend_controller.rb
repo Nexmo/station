@@ -8,6 +8,7 @@ class ExtendController < ApplicationController
       document = File.read(document_path)
       frontmatter = YAML.safe_load(document)
       next unless frontmatter['published']
+
       title = frontmatter['title']
       description = frontmatter['description']
       tags = frontmatter['tags'] || []

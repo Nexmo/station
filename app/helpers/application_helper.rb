@@ -5,6 +5,7 @@ module ApplicationHelper
 
   def theme
     return unless ENV['THEME']
+
     "theme--#{ENV['THEME']}"
   end
 
@@ -32,6 +33,7 @@ module ApplicationHelper
 
   def canonical_url
     return @canonical_url if @canonical_url
+
     canonical_path.prepend(canonical_base)
   end
 

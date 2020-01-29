@@ -11,6 +11,7 @@ class ApiController < ApplicationController
 
   def set_code_language
     return if request.params[:code_language] == 'templates'
+
     super
   end
 

@@ -16,6 +16,7 @@ class NotFoundNotifier
 
   def self.ignored_format?(format)
     return false unless format
+
     IGNORED_FORMATS.include? format.downcase
   end
 

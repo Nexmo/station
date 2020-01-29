@@ -82,6 +82,7 @@ class CodeSnippetsFilter < Banzai::Filter
 
   def validate_config
     return if @config && @config['source']
+
     raise 'A source key must be present in this building_blocks config'
   end
 

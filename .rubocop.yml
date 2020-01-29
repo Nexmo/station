@@ -1,3 +1,5 @@
+require: rubocop-rails
+
 AllCops:
   Exclude:
     - 'bin/*'
@@ -25,7 +27,7 @@ Rails:
 Style/FrozenStringLiteralComment:
   Enabled: false
 
-Metrics/LineLength:
+Layout/LineLength:
   Enabled: false
 
 Style/TrailingCommaInArrayLiteral:
@@ -37,7 +39,7 @@ Style/TrailingCommaInHashLiteral:
 Style/BlockComments:
   Enabled: false
 
-Layout/AlignParameters:
+Layout/ParameterAlignment:
   Enabled: false
 
 Style/Documentation:
@@ -46,7 +48,7 @@ Style/Documentation:
 Rails/FilePath:
   Enabled: false
 
-Layout/IndentHash:
+Layout/FirstHashElementIndentation:
   Enabled: false
 
 Style/BracesAroundHashParameters:
@@ -64,7 +66,7 @@ Rails/OutputSafety:
 Metrics/AbcSize:
   Enabled: false
 
-Style/UnneededInterpolation:
+Style/RedundantInterpolation:
   Enabled: false
 
 Style/WordArray:
@@ -92,4 +94,16 @@ Style/ConditionalAssignment:
   Enabled: false
 
 Style/DoubleNegation:
+  Enabled: false
+
+Lint/NonDeterministicRequireOrder:
+  Enabled: false
+
+Layout/AccessModifierIndentation:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Rails/HelperInstanceVariable:
   Enabled: false

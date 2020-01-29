@@ -9,11 +9,13 @@ class CodeLanguage
 
   def linkable?
     return true if @linkable.nil?
+
     @linkable
   end
 
   def lexer
     return Rouge::Lexers::PHP.new({ start_inline: true }) if @lexer == 'php'
+
     Rouge::Lexer.find(@lexer) || Rouge::Lexer.find('text')
   end
 
@@ -50,8 +52,10 @@ class CodeLanguage
 
   def self.find(key)
     raise 'Key is missing' unless key
+
     code_language = all.detect { |lang| lang.key == key }
     raise "Language #{key} does not exist." unless code_language
+
     code_language
   end
 
