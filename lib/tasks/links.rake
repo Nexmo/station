@@ -8,6 +8,7 @@ namespace :links do
     table = Terminal::Table.new do |t|
       get_links_on_a_page("#{Rails.root}/_documentation/**/*.md").each do |from, to|
         next if filter && !from.include?(filter)
+
         t << [from.split(%r{(.{25,1000}/)}).join("\n").strip, to.join("\n")]
         t << :separator
       end
@@ -23,6 +24,7 @@ namespace :links do
     table = Terminal::Table.new do |t|
       get_links_to_a_page("#{Rails.root}/_documentation/**/*.md").each do |to, from|
         next if filter && !to.include?(filter)
+
         t << [to, from.join("\n")]
         t << :separator
       end
@@ -54,6 +56,7 @@ namespace :links do
     puts 'digraph {'
     get_links_on_a_page("#{Rails.root}/_documentation/**/*.md").each do |from, to|
       next if filter && !from.include?(filter)
+
       to.each do |l|
         puts "\"#{from}\" -> \"#{l}\""
       end
@@ -74,6 +77,7 @@ namespace :links do
     puts 'digraph {'
     get_links_to_a_page("#{Rails.root}/_documentation/**/*.md").each do |to, from|
       next if filter && !to.include?(filter)
+
       from.each do |l|
         puts "\"#{l}\" -> \"#{to}\""
       end

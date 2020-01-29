@@ -10,6 +10,7 @@ class DynamicContentFilter < Banzai::Filter
 
   def environment_value(key)
     return nil unless ENV['DYNAMIC_CONTENT']
+
     @environment_dynamic_content ||= YAML.safe_load(ENV['DYNAMIC_CONTENT'])
     @environment_dynamic_content ||= YAML.safe_load(temp)
     @environment_dynamic_content[key]

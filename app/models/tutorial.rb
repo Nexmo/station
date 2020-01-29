@@ -5,6 +5,7 @@ class Tutorial
   def content_for(step_name)
     if ['introduction', 'conclusion'].include? step_name
       raise "Invalid step: #{step_name}" unless raw[step_name]
+
       return raw[step_name]['content']
     end
 
@@ -28,6 +29,7 @@ class Tutorial
   def next_step
     current_task_index = subtasks.pluck('path').index(@current_step)
     return nil unless current_task_index
+
     subtasks[current_task_index + 1]
   end
 
@@ -35,6 +37,7 @@ class Tutorial
     current_task_index = subtasks.pluck('path').index(@current_step)
     return nil unless current_task_index
     return nil if current_task_index <= 0
+
     subtasks[current_task_index - 1]
   end
 
@@ -71,6 +74,7 @@ class Tutorial
         language: I18n.locale
       )
       raise "Prerequisite not found: #{t}" unless File.exist? t_path
+
       content = File.read(t_path)
       prereq = YAML.safe_load(content)
       {
@@ -93,6 +97,7 @@ class Tutorial
         language: I18n.locale
       )
       raise "Subtask not found: #{t}" unless File.exist? t_path
+
       subtask_config = YAML.safe_load(File.read(t_path))
       {
         'path' => t,

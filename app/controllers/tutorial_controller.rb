@@ -100,12 +100,14 @@ class TutorialController < ApplicationController
 
   def set_tutorial_step
     return unless params[:tutorial_step]
+
     @tutorial_step = params[:tutorial_step]
   end
 
   def check_tutorial_step
     # If we don't have a current tutorial step, redirect to the first available page
     return if @tutorial_step
+
     redirect_to "/#{@tutorial.current_product}/tutorials/#{@tutorial.name}/#{@tutorial.first_step}"
   end
 end

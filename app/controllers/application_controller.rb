@@ -26,6 +26,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate_admin!
     return redirect_to new_user_session_path unless user_signed_in?
+
     redirect_to root_path unless current_user.admin?
   end
 
@@ -41,6 +42,7 @@ class ApplicationController < ActionController::Base
 
   def set_code_language
     return unless request.params[:code_language]
+
     @code_language = CodeLanguage.find(request.params[:code_language])
   end
 
@@ -50,6 +52,7 @@ class ApplicationController < ActionController::Base
 
   def set_feedback_author
     return unless cookies[:feedback_author_id]
+
     @feedback_author = Feedback::Author.select(:email).find_by(id: cookies[:feedback_author_id])
   end
 

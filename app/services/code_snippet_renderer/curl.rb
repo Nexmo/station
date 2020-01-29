@@ -3,6 +3,7 @@ module CodeSnippetRenderer
     def self.dependencies(deps)
       dependencies = deps.map(&:upcase)
       raise t('.only_permitted_dependency') unless dependencies.include?('JWT')
+
       {
         'text' => t('.text'),
         'code' => 'export JWT=$(nexmo jwt:generate $PATH_TO_PRIVATE_KEY application_id=$NEXMO_APPLICATION_ID)',

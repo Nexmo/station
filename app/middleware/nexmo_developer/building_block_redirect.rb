@@ -11,6 +11,7 @@ module NexmoDeveloper
     def call(env)
       req = Rack::Request.new(env)
       return redirect(req.path.gsub('/building-blocks/', '/code-snippets/')) if req.path.include? '/building-blocks/'
+
       @app.call(env)
     end
   end

@@ -19,6 +19,7 @@ class Concept
     end
 
     raise "Could not find concepts: #{names.join(', ')}" unless names.empty?
+
     matches
   end
 

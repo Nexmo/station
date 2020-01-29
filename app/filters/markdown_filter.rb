@@ -32,6 +32,7 @@ class VoltaRender < HTML
 
   def paragraph(text)
     return text if @options[:skip_paragraph_surround]
+
     "<p>#{text}</p>"
   end
 

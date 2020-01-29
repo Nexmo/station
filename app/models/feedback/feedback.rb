@@ -101,6 +101,7 @@ module Feedback
 
       # And to a separate, comments only channel
       return if comment.blank?
+
       options[:channel] = '#documentation-feedbot-comments'
       notifier.post options
     end
