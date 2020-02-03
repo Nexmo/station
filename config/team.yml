@@ -92,3 +92,6 @@ current:
   - name: 'Nick Iati'
     email: 'nick.iati@vonage.com'
     role: 'Technical Writer'
+  - name: 'Kevin Lewis'
+    email: 'kevin.lewis@vonage.com'
+    role: 'Developer Advocate'
