@@ -66,7 +66,7 @@ class TutorialController < ApplicationController
   end
 
   def single
-    path = "#{Rails.root}/_tutorials/#{I18n.default_locale}/#{params[:tutorial_step]}.md"
+    path = "#{ENV['DOCS_BASE_PATH']}/_tutorials/#{I18n.default_locale}/#{params[:tutorial_step]}.md"
     @content = File.read(path)
     @content = MarkdownPipeline.new({
                                       code_language: @code_language,

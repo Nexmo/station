@@ -139,7 +139,7 @@ class StaticController < ApplicationController
 
     @namespace_path = "_documentation/#{page}"
     @namespace_root = '_documentation'
-    @sidenav_root = "#{Rails.root}/_documentation"
+    @sidenav_root = "#{ENV['DOCS_BASE_PATH']}/_documentation"
     @skip_feedback = true
 
     if page == 'sms'

@@ -144,7 +144,7 @@ class TabFilter < Banzai::Filter
   end
 
   def content_from_source
-    source_path = "#{Rails.root}/#{@config['source']}"
+    source_path = "#{ENV['DOCS_BASE_PATH']}/#{@config['source']}"
     source_path += '/*' if tabbed_code_examples?
     source_path += '/*.md' if tabbed_content?
 

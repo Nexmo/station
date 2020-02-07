@@ -4,18 +4,18 @@ class Diff
   def self.generate(mode:)
     document_paths = {
       documentation: {
-        documents: Dir.glob("#{Rails.root}/_documentation/**/*.md"),
-        origin: Pathname.new("#{Rails.root}/_documentation"),
+        documents: Dir.glob("#{ENV['DOCS_BASE_PATH']}/_documentation/**/*.md"),
+        origin: Pathname.new("#{ENV['DOCS_BASE_PATH']}/_documentation"),
         base_url_path: '',
       },
       api: {
-        documents: Dir.glob("#{Rails.root}/_api/**/*.md"),
-        origin: Pathname.new("#{Rails.root}/_api"),
+        documents: Dir.glob("#{ENV['DOCS_BASE_PATH']}/_api/**/*.md"),
+        origin: Pathname.new("#{ENV['DOCS_BASE_PATH']}/_api"),
         base_url_path: '/api',
       },
       tutorials: {
-        documents: Dir.glob("#{Rails.root}/_use_cases/**/*.md"),
-        origin: Pathname.new("#{Rails.root}/_use_cases"),
+        documents: Dir.glob("#{ENV['DOCS_BASE_PATH']}/_use_cases/**/*.md"),
+        origin: Pathname.new("#{ENV['DOCS_BASE_PATH']}/_use_cases"),
         base_url_path: '/tutorials',
       },
     }

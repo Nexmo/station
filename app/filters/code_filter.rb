@@ -8,8 +8,8 @@ class CodeFilter < Banzai::Filter
         config = config['config'].split('.').inject(configs) { |h, k| h[k] }
       end
 
-      code = File.read("#{Rails.root}/#{config['source']}")
-      language = File.extname("#{Rails.root}/#{config['source']}")[1..-1]
+      code = File.read("#{ENV['DOCS_BASE_PATH']}/#{config['source']}")
+      language = File.extname("#{ENV['DOCS_BASE_PATH']}/#{config['source']}")[1..-1]
       lexer = language_to_lexer(language)
 
       total_lines = code.lines.count
