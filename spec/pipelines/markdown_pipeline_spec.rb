@@ -30,6 +30,9 @@ RSpec.describe MarkdownPipeline do
   end
 
   context 'injected code examples' do
+    before(:each) do
+      expect(ENV).to receive(:[]).with('DOCS_BASE_PATH').and_return('.')
+    end
     it 'highlights PHP examples that begin with <?php' do
       input = <<~HEREDOC
         ```tabbed_examples
