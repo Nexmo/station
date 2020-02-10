@@ -34,6 +34,6 @@ module NexmoDeveloper
       g.orm :active_record, primary_key_type: :uuid
     end
 
-    config.docs_base_path = '../ndp_docs'
+    config.docs_base_path = ENV['DOCS_BASE_PATH']
   end
 end
