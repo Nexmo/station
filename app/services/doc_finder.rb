@@ -100,7 +100,7 @@ class DocFinder
   def self.load_languages
     paths.each do |path|
       Dir.foreach(path).reject { |d| EXCLUSIONS.include? d }.each do |language|
-        Dir.glob("#{path}/#{language}/**/{*.*,.config.yml}").each do |file|
+        Dir.glob("#{Rails.configuration.docs_base_path}/#{path}/#{language}/**/{*.*,.config.yml}").each do |file|
           doc_name = strip_root_and_language(root: path, language: language, document: file)
           key = "#{path}/#{doc_name}"
           dictionary[key][language] = language
