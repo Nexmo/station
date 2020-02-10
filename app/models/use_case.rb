@@ -50,7 +50,7 @@ class UseCase
   end
 
   def self.origin
-    Pathname.new("#{ENV['DOCS_BASE_PATH']}/_use_cases")
+    Pathname.new("#{Rails.configuration.docs_base_path}/_use_cases")
   end
 
   def self.all

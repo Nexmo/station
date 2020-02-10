@@ -62,6 +62,6 @@ class CodeSnippet
   end
 
   def self.origin
-    "#{ENV['DOCS_BASE_PATH']}/_documentation"
+    "#{Rails.configuration.docs_base_path}/_documentation"
   end
 end

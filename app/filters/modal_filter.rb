@@ -9,7 +9,7 @@ class ModalFilter < Banzai::Filter
     end
 
     modals = modals.map do |modal|
-      filename = "#{ENV['DOCS_BASE_PATH']}/#{modal[:document]}"
+      filename = "#{Rails.configuration.docs_base_path}/#{modal[:document]}"
       raise "Could not find modal #{filename}" unless File.exist? filename
 
       document = File.read(filename)
