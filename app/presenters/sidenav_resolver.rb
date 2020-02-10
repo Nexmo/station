@@ -87,7 +87,7 @@ class SidenavResolver
   end
 
   def strip_namespace(path)
-    path = path.gsub('.yml', '').sub('_use_cases/', 'use-cases/')
+    path = path.gsub('.yml', '').sub("#{Rails.configuration.docs_base_path}/_use_cases/", 'use-cases/')
     path = path.gsub('.yml', '').sub('config/tutorials/', '/tutorials/')
     path.sub(%r{\w+\/\w+\/}, '')
   end
