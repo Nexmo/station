@@ -6,7 +6,7 @@ class TutorialList
       'use_cases' => UseCase.by_product(product).map do |t|
                        {
                          root: t.root,
-                         path: t.document_path.to_s.gsub("#{Rails.configuration.docs_base_path}/", ''),
+                         path: t.document_path.to_s,
                          title: t.title,
                          product: product,
                          is_file?: true,
