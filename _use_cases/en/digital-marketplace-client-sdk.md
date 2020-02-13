@@ -1,69 +1,93 @@
 ---
-title: Digital Marketplace Use Case
+title: Digital Marketplace
 products: client-sdk
 description: How to build your own digital marketplace application.
 languages: 
     - Node
 ---
 
-# Build Your Own Digital Marketplace
+# Digital Marketplace
 
-In this use case, you’ll learn how to build a digital marketplace. [View it in action here.](https://green-crowberry.glitch.me/)
+In this use case, you’ll learn how to build a digital marketplace. [View it in action here](https://green-crowberry.glitch.me/).
 
-We built the application using Nexmo with React on the front end and a Node JS / Express backend.
+The example application was built using the following tools and technologies:
 
-What follows is a walkthrough of some of the more interesting parts. We focus particularly on how to use custom events in the Client SDK to alert your application when either a user lists a new item for sale, or a customer purchases an item using Stripe.
+* Nexmo Client SDK
+* React for the front end
+* Node JS / Express for the backend
 
-## Make it your own
+In this use case you use custom events in the Client SDK. Custom events are used here to alert your application when:
 
-If you’d like to build your own version of this project to experiment with, you can [remix the Glitch](https://glitch.com/edit/#!/remix/green-crowberry) or [clone the GitHub repository](https://github.com/nexmo-community/client-sdk-marketplace-use-case) 
+* A user lists a new item for sale
+* A customer purchases an item using Stripe
 
-You also need to do the following:
+## Prerequisites
 
-- [Sign up for a Nexmo Account](https://dashboard.nexmo.com/sign-up) (take note of your API Key and API secret)
+It is assumed you have done the following:
 
-![Nexmo Developer Dashboard screenshot](/assets/screenshots/use-cases/digital-marketplace-client-sdk/api-key-and-secret.png)
+1. Created a [Nexmo Account](https://dashboard.nexmo.com/sign-up).
+2. Made a note of your Nexmo API key and API secret, which are displayed in the [Dashboard](https://dashboard.nexmo.com/getting-started-guide).
 
-- [Create an Application](https://dashboard.nexmo.com/voice/your-applications). An [Application](/application/overview) is a container for your project’s security and configuration details.
+## Steps
 
-![Nexmo Developer Create An Application screenshot](/assets/screenshots/use-cases/digital-marketplace-client-sdk/create-an-application.png)
+The main steps in this use case are as follows:
 
-> **Note**: We will not be using Event URL and Answer URL, so you can enter `https://example.com/event` and `https://example.com/answer` respectively.
+1. [Create a Nexmo application](#create-a-nexmo-application)
+2. [Authenticate your application](#authenticate-your-application)
+3. [Configure your application](#configure-your-application)
+4. [Code walkthrough](#code-walkthrough)
 
-Click “Generate public/private key pair” to generate your public key and download the `private.key` file to your computer.
+## Create a Nexmo application
 
-Take note of your Application ID. 
+You can create a Nexmo Application in the Dashboard. You can do this with the following steps:
 
-### Authenticating your application
+1. In the Dashboard go to [Your Applications](https://dashboard.nexmo.com/applications).
+2. Click **Create a new application**.
+3. Enter a name for your application, such as **Client SDK Marketplace App**.
+4. In the **Authentication** section click **Generate public and private key**. This generates a public/private key pair. The private key file is downloaded to your computer. You will use this file later.
+5. In the **Capabilities** section select RTC.
+6. For RTC capabilities you can enter an Event URL of `https://example.com/event`.
+7. Click **Generate new application**.
+8. Make a note of the generated Application ID.
 
-#### Using GitHub
+You have now created a Nexmo application using the Dashboard.
+
+At this point the important things are the private key file and the Application ID. You will need these for the following sections.
+
+## Code repositories
+
+If you’d like to work with existing code to build your own version of this project to experiment with, you can do one of the following:
+
+* [Remix the Glitch project](https://glitch.com/edit/#!/remix/green-crowberry)
+* [Clone the GitHub repository](https://github.com/nexmo-community/client-sdk-marketplace-use-case)
+
+## Authenticate your application
+
+You need to authenticate your application using the private key file you [previously generated](#create-a-nexmo-application).
+
+### Using Glitch
+
+Open the `private.key` file in a text editor. Then, in your Glitch project, create the file `/.data/private.key` and copy and paste in the contents of the `private.key`:
+
+![Nexmo Application private key location Glitch screenshot](/assets/screenshots/use-cases/digital-marketplace-client-sdk/private-key-location-glitch.png)
+
+### Using GitHub
 
 Move the `private.key` file to the root of your project:
 
 ![Nexmo Application private key location local screenshot](/assets/screenshots/use-cases/digital-marketplace-client-sdk/private-key-location-local.png)
 
-#### Using Glitch
+## Configure your application
 
-Open the `private.key` file in a text editor. Then, in your Glitch project, create the file `/.data/private.key` and copy and paste in the contents of the `private.key`.
+Whether you are remixing the Glitch project, or cloning the GitHub repository, you must configure the application using the `.env` file.
 
-![Nexmo Application private key location Glitch screenshot](/assets/screenshots/use-cases/digital-marketplace-client-sdk/private-key-location-glitch.png)
+Assign each variable with the relevant value you obtained from the preceding steps.
 
-### Configuring your application
+The structure of the `.env` file is slightly different depending on whether you are using Glitch or GitHub. The following sections show you how to edit the `.env` file.
 
-Regardless of whether you are remixing the Glitch or cloning the GitHub repository, you must configure the application using the `.env` file. Fill in each setting using the values you noted in the preceding steps.
+### For Glitch
 
-The structure of the `.env` file is slightly different depending on whether you are using GitHub or Glitch:
-
-#### For GitHub
-
-```
-API_KEY="your-value-here"
-API_SECRET="your-value-here"
-APP_ID="your-value-here"
-PRIVATE_KEY="/private.key"
-```
-
-#### For Glitch
+Modify the `.env` to be as follows, replacing the placeholder text with your values:
 
 ```
 DANGEROUSLY_DISABLE_HOST_CHECK=true
@@ -73,21 +97,36 @@ APP_ID="your-value-here"
 PRIVATE_KEY="/.data/private.key"
 ```
 
-Now we should be ready to go!
+### For GitHub
 
-## Walkthrough
+Modify the `.env` to be as follows, replacing the placeholder text with your values:
+
+```
+API_KEY="your-value-here"
+API_SECRET="your-value-here"
+APP_ID="your-value-here"
+PRIVATE_KEY="/private.key"
+```
+
+This concludes all configuration.
+
+## Code walkthrough
+
+This section provides a walkthrough of the code for the most important pieces of the application.
 
 ### Login
+
+The login screen is shown in the following screenshot:
 
 ![Marketplace App login screenshot](/assets/screenshots/use-cases/digital-marketplace-client-sdk/app-login.png)
 
 The user enters a username and selects either the Seller or Buyer role.
 
-The request body has properties we can use for setting the user name, display name and image URL, but there is no such property for specifying the role. Fortunately, we can add our own properties in `custom_data`, so we'll create `role` in there:
+The `POST` request body has properties that can be used for setting the user name, display name and image URL, but there is no such property for specifying the role. It is possible to add your own properties in `custom_data`, so you can create `role` in there:
 
 *NexmoMarketplaceApp.js*
 
-```jsx
+``` jsx
   const submitUser = async (e) => {
     try{
       const results = await fetch('/createUser', {
@@ -112,47 +151,16 @@ The request body has properties we can use for setting the user name, display na
       console.log('getJWT error: ',err);
     }
   };
-
-  // Get JWT to authenticate user
-  const getJWT = async () => {
-    try{
-      const results = await fetch('/getJWT', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          name: name.split(' ').join('-')
-        })
-      });
-      const data = await results.json();
-      return data.jwt;
-    } catch(err){
-      console.log('getJWT error: ',err);
-    }
-  };
-
-  // Log in the user
-  const login = async () => {
-    try{
-      const userJWT = await getJWT();
-      const app =  await new NexmoClient({ debug: false }).login(userJWT);
-      setNexmoApp(app);
-      await getConversations();
-      setStage('listings');
-    } catch(err){
-      console.log('login error: ',err);
-    }
-  };
 ```
 
-#### Authentication
+### Authentication
 
-The Client SDK authenticates using [JWTs](/concepts/guides/authentication#json-web-tokens-jwt). The application makes a call to the Node Express server to retrieve the JWT and then logs the user in.
+The Client SDK authenticates using [JWTs](/concepts/guides/authentication#json-web-tokens-jwt). The application makes a call to the Node Express server to retrieve the JWT and then logs the user in. The code on the server side is as follows:
 
 *server.js*
 
-```js
+``` js
+...
 // the client calls this endpoint to request a JWT, passing it a username
 app.post('/getJWT', function(req, res) {
     const jwt = nexmo.generateJwt({
@@ -195,13 +203,52 @@ app.post('/createUser', function(req, res) {
 });
 ```
 
-#### Displaying items for sale
-
-When the user is logged in, we retrieve a list of all the items for sale.
+The client app itself has functions for obtaining a JWT and then logging the user in:
 
 *NexmoMarketplaceApp.js*
 
-```jsx
+``` jsx
+...
+  // Get JWT to authenticate user
+  const getJWT = async () => {
+    try{
+      const results = await fetch('/getJWT', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: name.split(' ').join('-')
+        })
+      });
+      const data = await results.json();
+      return data.jwt;
+    } catch(err){
+      console.log('getJWT error: ',err);
+    }
+  };
+
+  // Log in the user
+  const login = async () => {
+    try{
+      const userJWT = await getJWT();
+      const app =  await new NexmoClient({ debug: false }).login(userJWT);
+      setNexmoApp(app);
+      await getConversations();
+      setStage('listings');
+    } catch(err){
+      console.log('login error: ',err);
+    }
+  };
+```
+
+### Displaying items for sale
+
+When the user is logged in, the app retrieves a list of all the items for sale, which is a list of Conversation objects. The client calls the server and the server returns a list of Conversations. The client-side code is as follows:
+
+*NexmoMarketplaceApp.js*
+
+``` jsx
   // Get all conversations, even the ones the user isn't a member of, yet.
   const getConversations = async() => {
     try{
@@ -222,9 +269,11 @@ When the user is logged in, we retrieve a list of all the items for sale.
   };
 ```
 
+The server obtains a list of Conversations and returns it to the client:
+
 *server.js*
 
-```js
+``` js
 app.post('/getConversations', function(req, res) {
     console.log('/getConversations: ',req);
     nexmo.conversations.get({page_size: req.body.page_size},(err, response) => {
@@ -239,17 +288,17 @@ app.post('/getConversations', function(req, res) {
 
 ### Listing a new item for sale
 
-If the role of Seller was selected, the application displays a form that allows the User to add an item for sale:
+If the role of Seller was selected, the application displays a form that allows the User to add an item for sale. This is shown in the following screenshot:
 
 ![Marketplace App listing add item for sale screenshot](/assets/screenshots/use-cases/digital-marketplace-client-sdk/app-listing-item-for-sale.png)
 
-When you fill out the form and press ‘submit’, a call to create a Conversation is made by the Nexmo Client SDK. Once the Conversation has been created, you then join the User to the Conversation as a Member.
+When you fill out the form and press ‘submit’, a call to create a Conversation is made by the Nexmo Client SDK. Once the Conversation is created, you then join the User to the Conversation as a Member.
 
-We can alert the application that a new item has been listed for sale using a custom event called `item_details`, which passes the item details to the handler.
+The application is alerted that a new item has been listed for sale using a custom event called `item_details`, which passes the item details to the handler.
 
 *NexmoMarketplaceApp.js*
 
-```jsx
+``` jsx
   const createConversation = async() => {
     try{
       const conversation = await nexmoApp.newConversation({
@@ -277,19 +326,17 @@ We can alert the application that a new item has been listed for sale using a cu
   };
 ```
 
-With that, we then get an updated list with your item at the top.
-
-Go ahead and click on your item.
+Then application then displays an updated list with your item at the top.
 
 ### The item details page
 
 Clicking on an item calls the Client SDK’s `getConversation` function.  The code checks to see if the current user is a Member of the Conversation. If not, it adds the User as a Member.
 
-Next, we need to load any events (like chat messages) that may have happened prior to the User joining the Conversation.
+Next, events are loaded (such as chat messages) that may have happened prior to the User joining the Conversation.
 
 *NexmoMarketplaceApp.js*
 
-```jsx
+``` jsx
   const getConversation = async (item) => {
     try {
       const conversation = await nexmoApp.getConversation(item.uuid);
@@ -325,15 +372,15 @@ Next, we need to load any events (like chat messages) that may have happened pri
   };
 ```
 
-#### Purchasing items
+### Purchasing items
 
-Let’s say you want to purchase the item. When you click the Pay Now button, we raise another custom event (`stripe_payment`) with the Nexmo Client SDK.
+Let’s say you want to purchase the item. When you click the **Pay Now** button, another custom event, `stripe_payment`, is raised with the Nexmo Client SDK.
 
-> **Note**: In this use case, we simply mock the response from Stripe and leave the implementation of a payment gateway to you.
+> **NOTE:** In this use case, the response from Stripe is mocked. Implementation of a payment gateway is left to you, and depends on your preferred provider.
 
 *NexmoMarketplaceApp.js*
 
-```jsx
+``` jsx
   // Mock a Stripe Payment call. Reference: https://stripe.com/docs/api/charges/create
   const postStripePayment = async() => {
     try{
@@ -359,7 +406,7 @@ Let’s say you want to purchase the item. When you click the Pay Now button, we
 
 *server.js*
 
-```js
+``` js
 // Create a mock Stripe API Response Reference: https://stripe.com/docs/api/charges/create
 app.post('/stripePayment', function(req, res) {
     console.log('/stripePayment: ',req);
@@ -475,11 +522,11 @@ app.post('/stripePayment', function(req, res) {
 });
 ```
 
-We register a handler for the `stripe_payment` event:
+A handler is registered for the `stripe_payment` event:
 
 *NexmoMarketplaceApp.js*
 
-```jsx
+``` jsx
   useEffect(()=>{
     const setStripePayment = async (sender, event) => {
       setChatMessages(chatMessages => [...chatMessages,{sender:{user:{name:'Stripe'}}, message:{body:{text:`${event.body.paymentDetails.description}: ${event.body.paymentDetails.status}`}}, me:''}]);
@@ -498,22 +545,18 @@ We register a handler for the `stripe_payment` event:
   });
 ```
 
-The listener displays the payment notification as a chat message. If the payment was “successful” we update the status of the Item to Sold and update the UI.
+The listener displays the payment notification as a chat message. If the payment `succeeded`, the status of the Item is updated to `Sold`, and the UI refreshed.
 
 ## Conclusion
 
-With this Use Case, we demonstrate how to use the Nexmo Client SDK to send custom events and then listen for those events to update the state of the application.
+In this use case, you learned how to build a digital marketplace, where you could buy and sell items. The use case demonstrated how to build a client application using the Nexmo Client SDK to send custom events, and then listen for those events to update the state of the application. The server code responded to requests from the client app, for example to implement authentication and return a list of Conversations.
 
 ## Where Next?
 
-You will definitely want to add proper authentication if you are using this example as the basis for your production application. 
+You should add more robust authentication if you are using this example as the basis for a production application. You can also add custom events to make the buying and selling experience a better one for your users. For example, you could allow users to add items they are interested in purchasing to a list of favorites. Further, you could enable sellers to edit an item that they have listed for sale.
 
-You might also want to consider adding more custom events to make the buying and selling experience a better one for your users. Perhaps you could allow users to add items they are interested in purchasing to a list of favorites? Or enable sellers to edit an item that they have listed for sale?
-
-## Useful Client SDK links
+## Useful links
 
 * [Overview](/client-sdk/overview)
-
 * [Tutorials](/client-sdk/tutorials)
-
-* [More Use Cases](/client-sdk/use-cases)
+* [Use Cases](/client-sdk/use-cases)
