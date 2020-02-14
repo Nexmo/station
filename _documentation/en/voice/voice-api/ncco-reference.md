@@ -75,7 +75,7 @@ The following example shows the return parameters sent to `eventUrl`:
 ```json
 {
   "start_time": "2020-01-01T12:00:00Z",
-  "recording_url": "https://api.nexmo.com/media/download?id=aaaaaaaa-bbbb-cccc-dddd-0123456789ab",
+  "recording_url": "https://api.nexmo.com/v1/files/aaaaaaaa-bbbb-cccc-dddd-0123456789ab",
   "size": 12345,
   "recording_uuid": "aaaaaaaa-bbbb-cccc-dddd-0123456789ab",
   "end_time": "2020-01-01T12:01:00Z",
