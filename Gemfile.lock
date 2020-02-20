@@ -1,4 +1,17 @@
 GIT
+  remote: https://github.com/Nexmo/nexmo-markdown-renderer
+  revision: 5693ae6fbd346eb616c7f3ce306b108329bd6b53
+  specs:
+    nexmo_markdown_renderer (0.0.1)
+      activemodel (~> 6.0)
+      banzai (~> 0.1.2)
+      i18n (~> 1.7)
+      nokogiri (~> 1.10)
+      octicons_helper (~> 8.2)
+      redcarpet (~> 3.4)
+      rouge (~> 2.0.7)
+
+GIT
   remote: https://github.com/oscardelben/rawler.git
   revision: f2909b135fce7d35167f98026ac481926c94423e
   specs:
@@ -11,18 +24,6 @@ GIT
   specs:
     actionpack-page_caching (1.2.0)
       actionpack (>= 5.0.0)
-
-PATH
-  remote: /Users/bgreenberg2/Documents/dev/nexmo-markdown-renderer
-  specs:
-    nexmo_markdown_renderer (0.0.1)
-      activemodel (~> 6.0)
-      banzai (~> 0.1.2)
-      i18n (~> 1.7)
-      nokogiri (~> 1.10)
-      octicons_helper (~> 8.2)
-      redcarpet (~> 3.4)
-      rouge (~> 2.0.7)
 
 GEM
   remote: https://rubygems.org/

@@ -35,7 +35,7 @@ class SidenavResolver
           data[:children] << directories(full_path, entry)
         end
       else
-        doc_path = DocFinder.find(root: @path, document: full_path, language: @language, strip_root_and_language: true)
+        doc_path = Nexmo::Markdown::DocFinder.find(root: @path, document: full_path, language: @language, strip_root_and_language: true)
         data[:children] << { title: entry, path: doc_path, is_file?: true }
       end
     end
@@ -109,7 +109,7 @@ class SidenavResolver
   end
 
   def document_meta(item)
-    doc = DocFinder.find(root: item[:root] || @path, document: item[:path], language: @language, strip_root_and_language: true)
+    doc = Nexmo::Markdown::DocFinder.find(root: item[:root] || @path, document: item[:path], language: @language, strip_root_and_language: true)
     YAML.load_file(doc)
   end
 

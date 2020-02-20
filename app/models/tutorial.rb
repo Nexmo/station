@@ -9,7 +9,7 @@ class Tutorial
       return raw[step_name]['content']
     end
 
-    path = DocFinder.find(
+    path = Nexmo::Markdown::DocFinder.find(
       root: self.class.task_content_path,
       document: step_name,
       language: ::I18n.locale
@@ -42,7 +42,7 @@ class Tutorial
   end
 
   def self.load(name, current_step, current_product = nil)
-    document_path = DocFinder.find(
+    document_path = Nexmo::Markdown::DocFinder.find(
       root: 'config/tutorials',
       document: name,
       language: ::I18n.default_locale,
@@ -68,7 +68,7 @@ class Tutorial
     return [] unless prerequisites
 
     prerequisites.map do |t|
-      t_path = DocFinder.find(
+      t_path = Nexmo::Markdown::DocFinder.find(
         root: task_content_path,
         document: t,
         language: ::I18n.locale
@@ -91,7 +91,7 @@ class Tutorial
     tasks ||= []
 
     tasks = tasks.map do |t|
-      t_path = DocFinder.find(
+      t_path = Nexmo::Markdown::DocFinder.find(
         root: task_content_path,
         document: t,
         language: ::I18n.locale

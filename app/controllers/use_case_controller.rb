@@ -5,10 +5,10 @@ class UseCaseController < ApplicationController
     @product = params['product']
     @language = params['code_language']
 
-    @use_cases = UseCase.all
+    @use_cases = Nexmo::Markdown::UseCase.all
 
-    @use_cases = UseCase.by_product(@product, @use_cases) if @product
-    @use_cases = UseCase.by_language(@language, @use_cases) if @language
+    @use_cases = Nexmo::Markdown::UseCase.by_product(@product, @use_cases) if @product
+    @use_cases = Nexmo::Markdown::UseCase.by_language(@language, @use_cases) if @language
 
     @document_title = 'Use Cases'
 
@@ -39,7 +39,7 @@ class UseCaseController < ApplicationController
 
   def show
     # Read document
-    @document_path = DocFinder.find(
+    @document_path = Nexmo::Markdown::DocFinder.find(
       root: "#{Rails.configuration.docs_base_path}/_use_cases",
       document: params[:document],
       language: I18n.locale,
