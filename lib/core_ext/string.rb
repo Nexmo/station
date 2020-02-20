@@ -1,6 +1,6 @@
 class String
   def render_markdown(options = {})
-    MarkdownPipeline.new(options).call(self).html_safe
+    Nexmo::Markdown::Renderer.new(options).call(self).html_safe
   end
 
   def unindent

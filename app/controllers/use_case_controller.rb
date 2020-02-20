@@ -15,12 +15,12 @@ class UseCaseController < ApplicationController
     @base_path = request.original_fullpath.chomp('/')
 
     # We have to strip the last section off if it matches any code languages. Hacky, but it works
-    CodeLanguage.linkable.map(&:key).map(&:downcase).each do |lang|
+    Nexmo::Markdown::CodeLanguage.linkable.map(&:key).map(&:downcase).each do |lang|
       @base_path.gsub!(%r{/#{lang}$}, '')
     end
 
     excluded_languages = ['csharp', 'javascript', 'kotlin', 'android', 'swift', 'objective_c']
-    @languages = CodeLanguage.languages.reject { |l| excluded_languages.include?(l.key) }
+    @languages = Nexmo::Markdown::CodeLanguage.languages.reject { |l| excluded_languages.include?(l.key) }
 
     @products = [
       { 'path' => 'messaging/sms', 'icon' => 'message', 'icon_colour' => 'purple', 'name' => 'SMS' },
@@ -53,7 +53,7 @@ class UseCaseController < ApplicationController
     @document_title = @frontmatter['title']
     @product = @frontmatter['products']
 
-    @content = MarkdownPipeline.new({ code_language: @code_language }).call(@document)
+    @content = Nexmo::Markdown::Renderer.new({ code_language: @code_language }).call(@document)
 
     @sidenav = Sidenav.new(
       namespace: params[:namespace],

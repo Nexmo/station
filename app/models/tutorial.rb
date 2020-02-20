@@ -12,7 +12,7 @@ class Tutorial
     path = DocFinder.find(
       root: self.class.task_content_path,
       document: step_name,
-      language: I18n.locale
+      language: ::I18n.locale
     )
 
     File.read(path)
@@ -45,13 +45,13 @@ class Tutorial
     document_path = DocFinder.find(
       root: 'config/tutorials',
       document: name,
-      language: I18n.default_locale,
+      language: ::I18n.default_locale,
       format: 'yml'
     )
     config = YAML.safe_load(File.read(document_path))
     current_product ||= config['products'].first
 
-    Tutorial.new({
+   Tutorial.new({
       raw: config,
       name: name,
       current_step: current_step,
@@ -71,7 +71,7 @@ class Tutorial
       t_path = DocFinder.find(
         root: task_content_path,
         document: t,
-        language: I18n.locale
+        language: ::I18n.locale
       )
       raise "Prerequisite not found: #{t}" unless File.exist? t_path
 
@@ -94,7 +94,7 @@ class Tutorial
       t_path = DocFinder.find(
         root: task_content_path,
         document: t,
-        language: I18n.locale
+        language: ::I18n.locale
       )
       raise "Subtask not found: #{t}" unless File.exist? t_path
 
@@ -141,3 +141,4 @@ class Tutorial
     "#{Rails.configuration.docs_base_path}/_tutorials"
   end
 end
+

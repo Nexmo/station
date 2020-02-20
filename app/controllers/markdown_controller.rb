@@ -97,7 +97,7 @@ class MarkdownController < ApplicationController
 
     @document_title = frontmatter['meta_title'] || frontmatter['title']
 
-    content = MarkdownPipeline.new({
+    content = Nexmo::Markdown::Renderer.new({
       code_language: @code_language,
       current_user: current_user,
     }).call(<<~HEREDOC
@@ -116,8 +116,7 @@ class MarkdownController < ApplicationController
     frontmatter = YAML.safe_load(document)
 
     raise Errno::ENOENT if frontmatter['redirect']
-
-    content = MarkdownPipeline.new({
+    content = Nexmo::Markdown::Renderer.new({
       code_language: @code_language,
       current_user: current_user,
       language: I18n.locale,

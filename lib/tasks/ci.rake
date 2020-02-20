@@ -14,7 +14,7 @@ namespace :ci do
       Dir.glob(path).each do |filename|
         document = File.read(filename)
         begin
-          MarkdownPipeline.new.call(document)
+          Nexmo::Markdown::Renderer.new.call(document)
         rescue StandardError => e
           puts "Error whilst processing #{filename}"
           raise e

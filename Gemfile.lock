@@ -12,6 +12,18 @@ GIT
     actionpack-page_caching (1.2.0)
       actionpack (>= 5.0.0)
 
+PATH
+  remote: /Users/bgreenberg2/Documents/dev/nexmo-markdown-renderer
+  specs:
+    nexmo_markdown_renderer (0.0.1)
+      activemodel (~> 6.0)
+      banzai (~> 0.1.2)
+      i18n (~> 1.7)
+      nokogiri (~> 1.10)
+      octicons_helper (~> 8.2)
+      redcarpet (~> 3.4)
+      rouge (~> 2.0.7)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -184,7 +196,7 @@ GEM
       httmultiparty (~> 0.3.16)
     groupdate (4.3.0)
       activesupport (>= 5)
-    guard (2.15.1)
+    guard (2.16.1)
       formatador (>= 0.2.4)
       listen (>= 2.7, < 4.0)
       lumberjack (>= 1.0.12, < 2.0)
@@ -217,7 +229,7 @@ GEM
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     http_parser.rb (0.6.0)
-    httparty (0.17.1)
+    httparty (0.17.3)
       mime-types (~> 3.0)
       multi_xml (>= 0.5.2)
     httpclient (2.8.3)
@@ -263,20 +275,20 @@ GEM
     loofah (2.4.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
-    lumberjack (1.0.13)
+    lumberjack (1.2.4)
     mail (2.7.1)
       mini_mime (>= 0.1.1)
     marcel (0.3.3)
       mimemagic (~> 0.3.2)
     method_source (0.9.2)
-    mime-types (3.3)
+    mime-types (3.3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2019.1009)
-    mimemagic (0.3.3)
+    mimemagic (0.3.4)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.14.0)
-    msgpack (1.3.1)
+    msgpack (1.3.3)
     multi_json (1.14.1)
     multi_xml (0.6.0)
     multipart-post (2.1.1)
@@ -323,7 +335,7 @@ GEM
     octokit (4.16.0)
       faraday (>= 0.9)
       sawyer (~> 0.8.0, >= 0.5.3)
-    oj (3.7.12)
+    oj (3.10.2)
     orm_adapter (0.5.0)
     parallel (1.19.1)
     parser (2.7.0.2)
@@ -385,7 +397,7 @@ GEM
     redcarpet (3.4.0)
     redis (4.1.3)
     regexp_parser (1.6.0)
-    request_store (1.4.1)
+    request_store (1.5.0)
       rack (>= 1.4)
     responders (3.0.0)
       actionpack (>= 5.0)
@@ -402,12 +414,12 @@ GEM
       rspec-mocks (~> 3.9.0)
     rspec-collection_matchers (1.2.0)
       rspec-expectations (>= 2.99.0.beta1)
-    rspec-core (3.9.0)
-      rspec-support (~> 3.9.0)
+    rspec-core (3.9.1)
+      rspec-support (~> 3.9.1)
     rspec-expectations (3.9.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.9.0)
-    rspec-mocks (3.9.0)
+    rspec-mocks (3.9.1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.9.0)
     rspec-rails (3.9.0)
@@ -420,7 +432,7 @@ GEM
       rspec-support (~> 3.9.0)
     rspec-snapshot (0.1.2)
       rspec (> 3.0.0)
-    rspec-support (3.9.0)
+    rspec-support (3.9.2)
     rubocop (0.79.0)
       jaro_winkler (~> 1.5.1)
       parallel (~> 1.10)
@@ -567,7 +579,8 @@ DEPENDENCIES
   lograge
   neatjson
   newrelic_rpm
-  nexmo-oas-renderer (~> 0.7)
+  nexmo-oas-renderer (~> 0.7.1)
+  nexmo_markdown_renderer!
   nokogiri (~> 1.10.8)
   octicons_helper
   octokit

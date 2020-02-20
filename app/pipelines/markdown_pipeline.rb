@@ -1,4 +1,4 @@
-class MarkdownPipeline < Banzai::Pipeline
+class Nexmo::Markdown::Renderer < Banzai::Pipeline
   def initialize(options = {})
     super(
       # As Markdown
@@ -40,6 +40,3 @@ class MarkdownPipeline < Banzai::Pipeline
     )
   end
 end
-
-# XXX: Workaround until we extract the pipeline into a gem.
-Nexmo::OAS::Renderer::MarkdownPipeline = MarkdownPipeline

@@ -115,7 +115,7 @@ def get_all_links(path)
   Dir.glob(path).first(10000).each do |filename|
     # Generate the resultant HTML
     document = File.read(filename)
-    output = MarkdownPipeline.new.call(document)
+    output = Nexmo::Markdown::Renderer.new.call(document)
 
     # Get our current URL
     current_page = filename.gsub("#{Rails.configuration.docs_base_path}/_documentation", '').gsub(/\.md$/, '')

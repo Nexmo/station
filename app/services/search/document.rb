@@ -31,7 +31,7 @@ module Search
     end
 
     def body
-      @body ||= MarkdownPipeline.new.call(document)
+      @body ||= Nexmo::Markdown::Renderer.new.call(document)
     end
   end
 end
