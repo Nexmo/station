@@ -139,7 +139,7 @@ gem 'lograge'
 gem 'countries'
 gem 'country_select', '~> 4.0'
 
-gem 'nexmo_markdown_renderer', '~> 0.0.2', require: false
+gem 'nexmo_markdown_renderer', '~> 0.0.2'
 
 gem 'nexmo-oas-renderer', require: false, git: 'https://github.com/Nexmo/nexmo-oas-renderer', branch: 'add-markdown-renderer'
 
