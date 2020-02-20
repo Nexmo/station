@@ -51,17 +51,17 @@ class Tutorial
     config = YAML.safe_load(File.read(document_path))
     current_product ||= config['products'].first
 
-   Tutorial.new({
-      raw: config,
-      name: name,
-      current_step: current_step,
-      current_product: current_product,
-      title: config['title'],
-      description: config['description'],
-      products: config['products'],
-      prerequisites: load_prerequisites(config['prerequisites'], current_step),
-      subtasks: load_subtasks(config['introduction'], config['prerequisites'], config['tasks'], config['conclusion'], current_step),
-    })
+    Tutorial.new({
+       raw: config,
+       name: name,
+       current_step: current_step,
+       current_product: current_product,
+       title: config['title'],
+       description: config['description'],
+       products: config['products'],
+       prerequisites: load_prerequisites(config['prerequisites'], current_step),
+       subtasks: load_subtasks(config['introduction'], config['prerequisites'], config['tasks'], config['conclusion'], current_step),
+     })
   end
 
   def self.load_prerequisites(prerequisites, current_step)
@@ -141,4 +141,3 @@ class Tutorial
     "#{Rails.configuration.docs_base_path}/_tutorials"
   end
 end
-

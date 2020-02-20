@@ -116,6 +116,7 @@ class MarkdownController < ApplicationController
     frontmatter = YAML.safe_load(document)
 
     raise Errno::ENOENT if frontmatter['redirect']
+
     content = Nexmo::Markdown::Renderer.new({
       code_language: @code_language,
       current_user: current_user,
