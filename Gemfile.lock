@@ -1,4 +1,18 @@
 GIT
+  remote: https://github.com/Nexmo/nexmo-markdown-renderer
+  revision: ead14832031d5bb88cf24028d4461ef6a0f87941
+  branch: fix-translations
+  specs:
+    nexmo_markdown_renderer (0.0.2)
+      activemodel (~> 6.0)
+      banzai (~> 0.1.2)
+      i18n (~> 1.7)
+      nokogiri (~> 1.10)
+      octicons_helper (~> 8.2)
+      redcarpet (~> 3.4)
+      rouge (~> 2.0.7)
+
+GIT
   remote: https://github.com/Nexmo/nexmo-oas-renderer
   revision: 4bb3f9a99820baf30327400f20857fb2347da0f2
   branch: add-markdown-renderer
@@ -308,14 +322,6 @@ GEM
     nenv (0.3.0)
     netrc (0.11.0)
     newrelic_rpm (6.8.0.360)
-    nexmo_markdown_renderer (0.0.2)
-      activemodel (~> 6.0)
-      banzai (~> 0.1.2)
-      i18n (~> 1.7)
-      nokogiri (~> 1.10)
-      octicons_helper (~> 8.2)
-      redcarpet (~> 3.4)
-      rouge (~> 2.0.7)
     nio4r (2.5.2)
     nokogiri (1.10.8)
       mini_portile2 (~> 2.4.0)
@@ -583,7 +589,7 @@ DEPENDENCIES
   neatjson
   newrelic_rpm
   nexmo-oas-renderer!
-  nexmo_markdown_renderer (~> 0.0.2)
+  nexmo_markdown_renderer!
   nokogiri (~> 1.10.8)
   octicons_helper
   octokit
