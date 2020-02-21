@@ -14,7 +14,7 @@ GIT
 
 GIT
   remote: https://github.com/Nexmo/nexmo-oas-renderer
-  revision: 4bb3f9a99820baf30327400f20857fb2347da0f2
+  revision: 676c36dee84176ea6fb2ff2876ee8194eef9e13e
   branch: add-markdown-renderer
   specs:
     nexmo-oas-renderer (0.7.1)
@@ -23,7 +23,7 @@ GIT
       banzai (~> 0.1.2)
       dotenv (~> 2.7)
       neatjson (~> 0.8)
-      nexmo_markdown_renderer (>= 0.0.1)
+      nexmo_markdown_renderer (>= 0.0.2)
       oas_parser (~> 0.23)
       octicons_helper (~> 8.2)
       redcarpet (= 3.4.0)
