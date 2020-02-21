@@ -53,7 +53,7 @@ conclusion:
     # What's next?
     You can do a lot more with the Dispatch API.
 
-    See [Dispatch API documentation](/en/dispatch/overview) and [a multi-user, multi-channel workflow Dispatch use case](/en/use-cases/dispatch-user-fallback).
+    See [Dispatch API documentation](/dispatch/overview) and [a multi-user, multi-channel workflow Dispatch use case](/use-cases/dispatch-user-fallback).
 
 ```
 
@@ -117,7 +117,7 @@ conclusion:
     # What's next?
     You can do a lot more with the Dispatch API.
 
-    See [Dispatch API documentation](/en/dispatch/overview) and [a multi-user, multi-channel workflow Dispatch use case](/en/use-cases/dispatch-user-fallback).
+    See [Dispatch API documentation](/dispatch/overview) and [a multi-user, multi-channel workflow Dispatch use case](/use-cases/dispatch-user-fallback).
 ```
 
 This content is provided directly in the tutorial configuration file as it is specific to the current tutorial and is not intended to be reused.
