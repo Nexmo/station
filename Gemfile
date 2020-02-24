@@ -131,7 +131,7 @@ gem 'country_select', '~> 4.0'
 
 gem 'nexmo_markdown_renderer', '~> 0.0.3'
 
-gem 'nexmo-oas-renderer', require: false, git: 'https://github.com/Nexmo/nexmo-oas-renderer', branch: 'add-markdown-renderer'
+gem 'nexmo-oas-renderer', '~> 0.8.0', require: false
 
 gem 'smartling'
 
