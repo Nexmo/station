@@ -64,7 +64,7 @@ class StaticController < ApplicationController
 
     @document_title = @frontmatter['title']
 
-    @content = MarkdownPipeline.new.call(document)
+    @content = Nexmo::Markdown::Renderer.new.call(document)
 
     @navigation = :documentation
 
@@ -107,7 +107,7 @@ class StaticController < ApplicationController
     # Parse frontmatter
     @frontmatter = YAML.safe_load(document)
     @document_title = @frontmatter['title']
-    @content = MarkdownPipeline.new.call(document)
+    @content = Nexmo::Markdown::Renderer.new.call(document)
 
     render layout: 'page'
   end

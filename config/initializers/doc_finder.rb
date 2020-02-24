@@ -1,4 +1,4 @@
-DocFinder.configure do |config|
+Nexmo::Markdown::DocFinder.configure do |config|
   config.paths << "#{Rails.configuration.docs_base_path}/_documentation"
   config.paths << "#{Rails.configuration.docs_base_path}/_use_cases"
   config.paths << "#{Rails.configuration.docs_base_path}/_tutorials"

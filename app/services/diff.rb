@@ -30,7 +30,7 @@ class Diff
 
         begin
           document = File.read(document_path)
-          body_html = MarkdownPipeline.new.call(document)
+          body_html = Nexmo::Markdown::Renderer.new.call(document)
           document = Nokogiri::HTML::DocumentFragment.parse(body_html)
 
           ['id', 'data-tabs-content', 'data-id', 'data-open', 'data-collapsible-id'].each do |attribute|

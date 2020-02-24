@@ -54,7 +54,7 @@ class MarkdownController < ApplicationController
   end
 
   def document_path
-    @document_path ||= DocFinder.find(
+    @document_path ||= Nexmo::Markdown::DocFinder.find(
       root: root_folder,
       document: params[:document],
       language: I18n.locale,
@@ -77,12 +77,12 @@ class MarkdownController < ApplicationController
 
   def path_is_folder?
     folder_config_path
-  rescue DocFinder::MissingDoc
+  rescue Nexmo::Markdown::DocFinder::MissingDoc
     false
   end
 
   def folder_config_path
-    DocFinder.find(
+    Nexmo::Markdown::DocFinder.find(
       root: root_folder,
       document: "#{params[:document]}/.config.yml",
       language: I18n.locale,
@@ -97,7 +97,7 @@ class MarkdownController < ApplicationController
 
     @document_title = frontmatter['meta_title'] || frontmatter['title']
 
-    content = MarkdownPipeline.new({
+    content = Nexmo::Markdown::Renderer.new({
       code_language: @code_language,
       current_user: current_user,
     }).call(<<~HEREDOC
@@ -117,7 +117,7 @@ class MarkdownController < ApplicationController
 
     raise Errno::ENOENT if frontmatter['redirect']
 
-    content = MarkdownPipeline.new({
+    content = Nexmo::Markdown::Renderer.new({
       code_language: @code_language,
       current_user: current_user,
       language: I18n.locale,

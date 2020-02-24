@@ -13,7 +13,7 @@
 
   <div class="Vlt-accordion__content">
   <%=
-    MarkdownPipeline.new({
+    Nexmo::Markdown::Renderer.new({
                              code_language: @code_language,
                              current_user: current_user,
                          }).call(p['content']).html_safe
