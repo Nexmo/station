@@ -3,7 +3,6 @@ class DocumentationConstraint
     Nexmo::Markdown::CodeLanguage.route_constraint.merge(product_with_parent)
   end
 
-
   def self.product_with_parent
     { product: Regexp.new(product_with_parent_list.compact.join('|')) }
   end
