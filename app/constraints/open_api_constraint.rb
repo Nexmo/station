@@ -1,35 +1,9 @@
-OPEN_API_PRODUCTS = %w[
-  sms
-  media
-  number-insight
-  conversation
-  conversation.v2
-  messages-olympus
-  dispatch
-  redact
-  audit
-  voice.v2
-  voice
-  account
-  external-accounts
-  numbers
-  verify
-  vonage-business-cloud/account
-  vonage-business-cloud/extension
-  vonage-business-cloud/reports
-  vonage-business-cloud/call-recording
-  vonage-business-cloud/user
-  vonage-business-cloud/vgis
-  application.v2
-  application
-  reports
-  conversion
-  subaccounts
-  developer/messages
-  pricing
-].freeze
-
 class OpenApiConstraint
+
+  OPEN_API_PRODUCTS = Dir.glob("#{Rails.configuration.oas_path}/**/*.yml").map do |dir|
+    dir.gsub("#{Rails.configuration.oas_path}/", '').gsub('.yml', '')
+  end.sort.reject { |d| d.include? 'common/' }
+
   def self.list
     OPEN_API_PRODUCTS
   end
