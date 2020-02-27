@@ -25,42 +25,36 @@
 "/stitch/in-app-voice/guides/2-calling-users/android": "/client-sdk/in-app-voice/guides/make-call/java"
 "/stitch/in-app-voice/guides/2-calling-users/ios": "/client-sdk/in-app-voice/guides/make-call/swift"
 "/stitch/in-app-voice/guides/2-calling-users": "/client-sdk/in-app-voice/guides/make-call"
-
-# ---> Got to here
-
-"/stitch/in-app-voice/guides/3-outbound-pstn/javascript": "/stitch/in-app-voice/guides/outbound-pstn/javascript"
-"/stitch/in-app-voice/guides/3-outbound-pstn/android": "/stitch/in-app-voice/guides/outbound-pstn/android"
-"/stitch/in-app-voice/guides/3-outbound-pstn/ios": "/stitch/in-app-voice/guides/outbound-pstn/ios"
-"/stitch/in-app-voice/guides/3-outbound-pstn": "/stitch/in-app-voice/guides/outbound-pstn"
-
-"/stitch/in-app-video/guides/1-enable-video/javascript": "/stitch/in-app-video/guides/enable-video/javascript"
-"/stitch/in-app-video/guides/1-enable-video": "/stitch/in-app-video/guides/enable-video"
-
-"/stitch/in-app-video/guides/2-enable-screenshare/javascript": "/stitch/in-app-video/guides/enable-screenshare/javascript"
-"/stitch/in-app-video/guides/2-enable-screenshare": "/stitch/in-app-video/guides/enable-screenshare"
-
+"/stitch/in-app-voice/guides/3-outbound-pstn/javascript": "/client-sdk/in-app-voice/guides/make-call/javascript"
+"/stitch/in-app-voice/guides/3-outbound-pstn/android": "/client-sdk/in-app-voice/guides/make-call/java"
+"/stitch/in-app-voice/guides/3-outbound-pstn/ios": "/client-sdk/in-app-voice/guides/make-call/swift"
+"/stitch/in-app-voice/guides/3-outbound-pstn": "/client-sdk/in-app-voice/guides/make-call"
+"/stitch/in-app-video/guides/1-enable-video/javascript": "https://tokbox.com/developer/guides/basics/"
+"/stitch/in-app-video/guides/1-enable-video": "https://tokbox.com/developer/guides/basics/"
+"/stitch/in-app-video/guides/2-enable-screenshare/javascript": "/stitch/in-app-video/guides/1-enable-video/javascript"
+"/stitch/in-app-video/guides/2-enable-screenshare": "/stitch/in-app-video/guides/1-enable-video/javascript"
 "/sdk/stitch/ios": "/sdk/stitch/ios/"
-"/stitch/in-app-voice/ncco-guide": "/stitch/in-app-voice/guides/ncco-guide"
-"/stitch/in-app-voice/inbound-pstn": "/stitch/in-app-voice/guides/inbound-pstn"
+"/stitch/in-app-voice/ncco-guide": "/voice/voice-api/ncco-reference"
+"/stitch/in-app-voice/inbound-pstn": "/client-sdk/in-app-voice/guides/receive-call"
 
 # Client SDK 
 
-"/client-sdk/in-app-messaging/concepts": "/conversation/concepts"
+"/client-sdk/in-app-messaging/concepts": "/client-sdk/in-app-messaging/overview"
 "/client-sdk/in-app-messaging/code-snippets": "/client-sdk/in-app-messaging/overview"
 "/client-sdk/in-app-messaging/tutorials": "/client-sdk/tutorials"
 
-"/client-sdk/in-app-voice/concepts": "/conversation/concepts"
+"/client-sdk/in-app-voice/concepts": "/client-sdk/in-app-voice/overview"
 "/client-sdk/in-app-voice/code-snippets": "/client-sdk/in-app-voice/overview"
 "/client-sdk/in-app-voice/tutorials": "/client-sdk/tutorials"
 
-"/client-sdk/in-app-video/concepts": "/conversation/concepts"
-"/client-sdk/in-app-video/code-snippets": "/client-sdk/in-app-video/overview"
-"/client-sdk/in-app-video/tutorials": "/client-sdk/tutorials"
+"/client-sdk/in-app-video/concepts": "https://tokbox.com/developer/guides/basics/"
+"/client-sdk/in-app-video/code-snippets": "https://tokbox.com/developer/guides/basics/"
+"/client-sdk/in-app-video/tutorials": "https://tokbox.com/developer/guides/basics/"
 
 "/stitch/overview": "/client-sdk/overview"
 "/stitch/in-app-voice/overview": "/client-sdk/in-app-voice/overview"
 
-# Redirect to SDK docs for now
+# Got to here ---> Redirect to SDK docs for now
 
 "/client-sdk/sdk-documentation/android": "/sdk/stitch/android/"
 "/client-sdk/sdk-documentation/ios": "/sdk/stitch/ios/"
