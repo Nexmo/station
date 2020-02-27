@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH.unshift(File.expand_path('../lib/nexmo_developer', __dir__))
+APP_PATH = File.expand_path('../lib/nexmo_developer/config/application', __dir__)
+require 'config/boot'
+require 'rails/command'
+
+Rails::Command.invoke 'server'

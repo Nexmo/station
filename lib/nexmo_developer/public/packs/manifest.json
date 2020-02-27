@@ -1,0 +1,20 @@
+{
+  "application.js": "/packs/js/application-180575daa73f18fdd4db.chunk.js",
+  "application.js.map": "/packs/js/application-180575daa73f18fdd4db.chunk.js.map",
+  "entrypoints": {
+    "application": {
+      "js": [
+        "/packs/js/runtime~application-3605e1e1df64cc4e4f83.js",
+        "/packs/js/0-4a20fcd8a6f220c81c65.chunk.js",
+        "/packs/js/application-180575daa73f18fdd4db.chunk.js"
+      ],
+      "js.map": [
+        "/packs/js/runtime~application-3605e1e1df64cc4e4f83.js.map",
+        "/packs/js/0-4a20fcd8a6f220c81c65.chunk.js.map",
+        "/packs/js/application-180575daa73f18fdd4db.chunk.js.map"
+      ]
+    }
+  },
+  "runtime~application.js": "/packs/js/runtime~application-3605e1e1df64cc4e4f83.js",
+  "runtime~application.js.map": "/packs/js/runtime~application-3605e1e1df64cc4e4f83.js.map"
+}

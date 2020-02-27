@@ -30,22 +30,4 @@ Gem::Specification.new do |spec|
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
-
-  spec.add_runtime_dependency 'sinatra', '~> 2.0'
-  spec.add_runtime_dependency 'shotgun', '~> 0.9'
-  spec.add_runtime_dependency 'rouge', '2.0.7'
-  spec.add_runtime_dependency 'oas_parser', '~> 0.23'
-  spec.add_runtime_dependency 'neatjson', '~> 0.8'
-  spec.add_runtime_dependency 'activesupport', '~> 6.0'
-  spec.add_runtime_dependency 'banzai', '~> 0.1.2'
-  spec.add_runtime_dependency 'octicons_helper', '~> 8.2'
-  spec.add_runtime_dependency 'redcarpet', '3.4.0'
-  spec.add_runtime_dependency 'sass', '~> 3.1'
-  spec.add_runtime_dependency 'activemodel', '~> 6.0'
-  spec.add_runtime_dependency "dotenv", "~> 2.7"
-  spec.add_runtime_dependency 'nexmo_markdown_renderer', '>= 0.0.3'
-
-  spec.add_development_dependency "bundler", "~> 2.0"
-  spec.add_development_dependency "rake", "~> 10.0"
-  spec.add_development_dependency "rspec", "~> 3.8"
 end

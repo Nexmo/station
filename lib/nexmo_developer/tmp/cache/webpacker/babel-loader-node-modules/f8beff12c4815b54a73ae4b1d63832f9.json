@@ -1,0 +1,1 @@
+{"ast":null,"code":"'use strict';\n\nvar AlgoliaSearch = require('../../AlgoliaSearch.js');\n\nvar createAlgoliasearch = require('../createAlgoliasearch.js');\n\nmodule.exports = createAlgoliasearch(AlgoliaSearch, 'Browser');","map":null,"metadata":{},"sourceType":"module"}

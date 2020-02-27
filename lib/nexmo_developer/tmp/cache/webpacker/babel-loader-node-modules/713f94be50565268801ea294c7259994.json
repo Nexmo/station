@@ -1,0 +1,1 @@
+{"ast":null,"code":"module.exports = function omit(obj, test) {\n  var keys = require('object-keys');\n\n  var foreach = require('foreach');\n\n  var filtered = {};\n  foreach(keys(obj), function doFilter(keyName) {\n    if (test(keyName) !== true) {\n      filtered[keyName] = obj[keyName];\n    }\n  });\n  return filtered;\n};","map":null,"metadata":{},"sourceType":"module"}

@@ -1,0 +1,1 @@
+{"ast":null,"code":"// Parse cloud does not supports setTimeout\n// We do not store a setTimeout reference in the client everytime\n// We only fallback to a fake setTimeout when not available\n// setTimeout cannot be override globally sadly\nmodule.exports = function exitPromise(fn, _setTimeout) {\n  _setTimeout(fn, 0);\n};","map":null,"metadata":{},"sourceType":"module"}

@@ -1,0 +1,1 @@
+{"ast":null,"code":"module.exports = function deprecate(fn, message) {\n  var warned = false;\n\n  function deprecated() {\n    if (!warned) {\n      /* eslint no-console:0 */\n      console.warn(message);\n      warned = true;\n    }\n\n    return fn.apply(this, arguments);\n  }\n\n  return deprecated;\n};","map":null,"metadata":{},"sourceType":"module"}
