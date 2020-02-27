@@ -1,1 +1,0 @@
-{"ast":null,"code":"var foreach = require('foreach');\n\nmodule.exports = function map(arr, fn) {\n  var newArr = [];\n  foreach(arr, function (item, itemIndex) {\n    newArr.push(fn(item, itemIndex, arr));\n  });\n  return newArr;\n};","map":null,"metadata":{},"sourceType":"module"}

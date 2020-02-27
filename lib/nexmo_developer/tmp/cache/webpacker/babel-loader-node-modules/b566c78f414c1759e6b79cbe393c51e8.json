@@ -1,1 +1,0 @@
-{"ast":null,"code":"'use strict';\n\nmodule.exports = inlineHeaders;\n\nvar encode = require('querystring-es3/encode');\n\nfunction inlineHeaders(url, headers) {\n  if (/\\?/.test(url)) {\n    url += '&';\n  } else {\n    url += '?';\n  }\n\n  return url + encode(headers);\n}","map":null,"metadata":{},"sourceType":"module"}

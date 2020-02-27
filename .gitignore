@@ -22,6 +22,7 @@ lib/nexmo_developer/public/packs
 lib/nexmo_developer/public/packs-test
 lib/nexmo_developer/config/algolia.yml
 lib/nexmo_developer/tmp/*
+lib/nexmo_developer/tmp
 lib/nexmo_developer/log/*
 .env
 .powder
