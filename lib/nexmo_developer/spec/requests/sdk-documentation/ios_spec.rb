@@ -11,7 +11,7 @@ RSpec.describe 'iOS docs', type: :request do
     it 'renders successsfully' do
       get '/sdk/stitch/ios'
 
-      expect(response).to have_http_status(:ok)
+      expect(response).to have_http_status(:found)
     end
   end
 
