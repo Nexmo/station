@@ -7,6 +7,7 @@ Gem::Specification.new do |spec|
   spec.version       = NexmoDeveloper::VERSION
   spec.authors       = ["Nexmo DevRel"]
   spec.email         = ["devrel@nexmo.com"]
+  spec.executables   << 'nexmo-developer'
 
   spec.summary       = %q{Nexmo Developer Platform}
   spec.homepage      = "https://github.com/Nexmo/nexmo-developer"
@@ -27,7 +28,7 @@ Gem::Specification.new do |spec|
   spec.files         = Dir.chdir(File.expand_path('..', __FILE__)) do
     `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features|_api|_code|_documentation|_examples|_extend|_modals|_open_api|_tutorials|_tutorials_tabbed_content|_use_cases|.repos)/}) }
   end
-  spec.bindir        = "exe"
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  spec.bindir        = "bin"
+  spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 end
