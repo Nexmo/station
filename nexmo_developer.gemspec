@@ -1,6 +1,6 @@
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "lib/nexmo_developer/version"
+require_relative "lib/nexmo_developer/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "nexmo-developer"
