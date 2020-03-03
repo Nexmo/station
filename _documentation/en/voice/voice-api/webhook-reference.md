@@ -289,6 +289,8 @@ This webhook is sent by Nexmo when an NCCO with an action of "input" has finishe
 
 Field | Example | Description
  -- | -- | --
+`from` | `447700900000` | The number the call came from
+`to` | `447700900000` | The number the call was made to
 `dtmf` | `42` | The buttons pressed by the user
 `timed_out` | `true` | Whether the input action timed out: `true` if it did, `false` if not
 `uuid` | `aaaaaaaa-bbbb-cccc-dddd-0123456789ab` | The unique identifier for this call
