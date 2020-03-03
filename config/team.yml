@@ -99,3 +99,6 @@ current:
   - name: 'Kevin Lewis'
     email: 'kevin.lewis@vonage.com'
     role: 'Developer Advocate'
+  - name: 'Benjamin Aronov'
+    email: 'benjamin.aronov@vonage.com'
+    role: 'Online Community Manager'
