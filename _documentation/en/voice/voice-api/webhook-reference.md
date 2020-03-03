@@ -312,7 +312,7 @@ Field | Example | Description
 
 ## Fallback URL
 
-The fallback webhook is accessed when either the answer webhook or the event webhook, when the event is expected to respond with an NCCO, returns an HTTP error status or is unreachable. The data that is returned from the fallback URL is the same as would be received in the original answer URL or event URL, with the addition two new parameters, `reason` and `original_request`:
+The fallback webhook is accessed when either the answer webhook or the event webhook, when the event is expected to respond with an NCCO, returns an HTTP error status or is unreachable. The data that is returned from the fallback URL is the same as would be received in the original answer URL or event URL, with the addition of two new parameters, `reason` and `original_request`:
 
 ```
 {
