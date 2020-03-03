@@ -66,7 +66,7 @@ The webhook URLs you provide when creating an application depend on the applicat
 
 Capability | API used | Webhooks available
 --- | --- | ---
-`voice` | Voice | `answer_url`, `fallback_answer_url`, `event_url`
+`voice` | Voice | `answer_url`, `fallback_url`, `event_url`
 `messages` | Messages and Dispatch | `inbound_url`, `status_url`
 `rtc` | Client SDK | `event_url`
 `vbc` | VBC | None
@@ -78,7 +78,7 @@ The following table describes webhooks available per capability:
 Capability | Webhook | API | Example | Description
 --- | --- | --- | --- | --- |
 `voice` | `answer_url` | [Voice](/voice/voice-api/overview) | https://example.com/webhooks/answer | The URL that Nexmo make a request to when a call is placed/received. Must return an NCCO.
-`voice` | `fallback_answer_url` | [Voice](/voice/voice-api/overview) | https://example.com/webhooks/fallback | If the `fallback_answer_url` is set, Nexmo makes a request to it if the `answer_url` is offline or returns an HTTP error code or the `event_url` is offline or returns an error code and an event is expected to return an NCCO. The `fallback_answer_url` must return an NCCO. If your `fallback_answer_url` fails after two attempts for an initial NCCO, the call is ended. If your `fallback_answer_url` fails after two attempts for a call in progress, the call flow is continued.
+`voice` | `fallback_url` | [Voice](/voice/voice-api/overview) | https://example.com/webhooks/fallback | If the `fallback_url` is set, Nexmo makes a request to it if the `answer_url` is offline or returns an HTTP error code or the `event_url` is offline or returns an error code and an event is expected to return an NCCO. The `fallback_url` must return an NCCO. If your `fallback_url` fails after two attempts for an initial NCCO, the call is ended. If your `fallback_url` fails after two attempts for a call in progress, the call flow is continued.
 `voice` | `event_url` | [Voice](/voice/voice-api/overview) | https://example.com/webhooks/event | Nexmo will send call events (e.g. ringing, answered) to this URL.
 `messages` | `inbound_url` | [Messages](/messages/overview), [Dispatch](/dispatch/overview) | https://example.com/webhooks/inbound | Nexmo will forward inbound messages to this URL.
 `messages` | `status_url` | [Messages](/messages/overview), [Dispatch](/dispatch/overview) | https://example.com/webhooks/status | Nexmo will send message status updates (for example, `delivered`, `seen`) to this URL.
