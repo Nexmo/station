@@ -1,5 +1,6 @@
 ---
 title: Overview
+description: This documentation provides information on using the Nexmo SMS API for sending and receiving text messages.
 meta_title: Send and receive SMS with the SMS API
 ---
 
