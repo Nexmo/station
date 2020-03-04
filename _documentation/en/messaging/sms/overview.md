@@ -18,13 +18,13 @@ Nexmo's SMS API enables you to send and receive text messages to and from users 
 
 This topic contains the following information:
 
-* [Getting Started](#getting-started) - Getting Started
-* [Troubleshooting](#troubleshooting) - Troubleshooting
-* [Concepts](#concepts) - what you need to know
-* [Guides](#guides) - learn how to use the SMS API
-* [Code Snippets](#code-snippets) - code snippets to help with specific tasks
-* [Use Cases](#use-cases) - detailed use cases with code examples
-* [Reference](#reference) - complete API documentation
+* [Getting Started](#getting-started) - Information on how to get started quickly
+* [Troubleshooting](#troubleshooting) - Message object status field and error code information
+* [Concepts](#concepts) - Introductory concepts
+* [Guides](#guides) - Learn how to use the SMS API
+* [Code Snippets](#code-snippets) - Code snippets to help with specific tasks
+* [Use Cases](#use-cases) - Use cases with code examples
+* [Reference](#reference) - REST API documentation
 
 ## Getting Started
 
