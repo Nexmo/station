@@ -13,6 +13,18 @@ Nexmo's SMS API enables you to send and receive text messages to and from users 
 * Scale your applications with familiar web technologies.
 * Pay only for what you use, nothing more.
 
+## Contents
+
+This topic contains the following information:
+
+* [Getting Started](#getting-started) - Getting Started
+* [Troubleshooting](#troubleshooting) - Troubleshooting
+* [Concepts](#concepts) - what you need to know
+* [Guides](#guides) - learn how to use the SMS API
+* [Code Snippets](#code-snippets) - code snippets to help with specific tasks
+* [Use Cases](#use-cases) - detailed use cases with code examples
+* [Reference](#reference) - complete API documentation
+
 ## Getting Started
 
 ### Send an SMS
@@ -32,15 +44,9 @@ Key | Description
 source: '_examples/messaging/sms/send-an-sms'
 ```
 
-## Contents
+## Troubleshooting
 
-The rest of this document contains the following information:
-
-* [Nexmo SMS API Concepts](#concepts) - what you need to know
-* [Guides](#guides) - learn how to use the SMS API
-* [Code Snippets](#code-snippets) - code snippets to help with specific tasks
-* [Use Cases](#use-cases) - detailed use cases with code examples
-* [Reference](#reference) - complete API documentation
+If you have problems when making API calls be sure to check the returned [status field](/messaging/sms/guides/troubleshooting-sms) for specific [error codes](/messaging/sms/guides/troubleshooting-sms#sms-api-error-codes).
 
 ## Concepts
 
@@ -51,7 +57,6 @@ Before using the Nexmo SMS API, familiarize yourself with the following:
 * **[Authentication](/concepts/guides/authentication)** - The SMS API authenticates using your account API key and secret.
 
 * **[Webhooks](/concepts/guides/webhooks)** - The SMS API makes HTTP requests to your application web server so that you can act upon them. For example: inbound SMS and delivery receipts.
-
 
 ## Guides
 
@@ -74,3 +79,5 @@ product: messaging/sms
 ## Reference
 
 * [SMS API Reference](/api/sms)
+* [Response object status field](/messaging/sms/guides/troubleshooting-sms)
+* [Error codes](/messaging/sms/guides/troubleshooting-sms#sms-api-error-codes)
