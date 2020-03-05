@@ -8,7 +8,12 @@ class DocumentationConstraint
   end
 
   def self.product_with_parent_list
-    @product_with_parent_list ||= config.fetch('products', [])
+    byebug
+    if config['products'].nil? || config.fetch('products', []).size.zero?
+      raise ArgumentError, "The 'product' key in config/products.yml must be a list with at least one entry."
+    else
+      @product_with_parent_list ||= config.fetch('products', [])
+    end
   end
 
   def self.config
