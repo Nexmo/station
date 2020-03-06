@@ -1,3 +1,5 @@
+require 'greenhouse_io'
+
 GreenhouseIo.configure do |config|
   config.symbolize_keys = true
   config.organization = 'Vonage'

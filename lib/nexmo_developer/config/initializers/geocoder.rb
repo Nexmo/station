@@ -1,3 +1,5 @@
+require 'geocoder'
+
 Geocoder.configure(
   # Geocoding options
   timeout: 1 # geocoding service timeout (secs)
