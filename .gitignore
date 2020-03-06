@@ -27,7 +27,7 @@ lib/nexmo_developer/log/*
 lib/nexmo_developer/log
 .env
 .powder
-
+*.gem
 .vscode/*
 coverage
 
