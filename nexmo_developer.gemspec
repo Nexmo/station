@@ -31,11 +31,11 @@ Gem::Specification.new do |spec|
   spec.bindir        = "bin"
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
+  spec.add_runtime_dependency('activeadmin', '~> 2.6')
   spec.add_runtime_dependency('rails', '~> 6.0')
   spec.add_runtime_dependency('bootsnap', '~> 1.4.6')
   spec.add_runtime_dependency('nexmo-oas-renderer', '~> 0.8.0')
   spec.add_runtime_dependency('activesupport', '~> 6.0')
-  spec.add_runtime_dependency('activeadmin', '~> 2.6')
   spec.add_runtime_dependency('bugsnag', '~> 6.13')
   spec.add_runtime_dependency('railties', '~> 6.0.2')
   spec.add_runtime_dependency('devise', '~> 4.7')
@@ -46,5 +46,8 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency('split', '~> 3.4')
   spec.add_runtime_dependency('listen', '~> 3.2')
   spec.add_runtime_dependency('inherited_resources', '~> 1.11')
+  spec.add_runtime_dependency('msgpack', '~> 1.3')
+  spec.add_runtime_dependency('pg', '~> 1.2')
+  spec.add_runtime_dependency('coffee-rails', '~> 5.0')
   spec.add_runtime_dependency('byebug')
 end
