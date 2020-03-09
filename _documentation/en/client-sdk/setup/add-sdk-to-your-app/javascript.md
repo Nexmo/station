@@ -75,7 +75,7 @@ let nexmo = new NexmoClient()
   .catch(err => console.log(err));
 ```
 
-> **NOTE:** To provide us with more information to fix bugs and build features, you can opt-in to provide your application's Nexmo Client analytics and usage data. To be clear, this is opt-in only and turned off by default. To enable reporting, please set the log_reporter's enabled parameter to true. Your code would look similar to this 
+> **NOTE:** To provide us with more information to fix bugs and build features, you can opt-in to provide your application's Nexmo Client analytics and usage data. To be clear, this is opt-in only and turned off by default. To enable reporting, please set the `log_reporter`'s enabled parameter to true. Your code would look similar to this 
 >```javascript
 >new NexmoClient({debug:true, log_reporter: {enabled: true}})
 >```
