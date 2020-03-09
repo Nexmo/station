@@ -1,4 +1,4 @@
-ActiveAdmin.register Usage::CodeSnippetEvent do
+ActiveAdmin.register ::Usage::CodeSnippetEvent do
   permit_params :snippet, :language, :section, :action
 
   index do

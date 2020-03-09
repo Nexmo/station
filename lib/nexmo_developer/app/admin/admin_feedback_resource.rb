@@ -1,4 +1,4 @@
-ActiveAdmin.register Feedback::Resource, as: 'Resource' do
+ActiveAdmin.register ::Feedback::Resource, as: 'Resource' do
   menu parent: 'Feedback'
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
