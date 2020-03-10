@@ -49,5 +49,9 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency('msgpack', '~> 1.3')
   spec.add_runtime_dependency('pg', '~> 1.2')
   spec.add_runtime_dependency('coffee-rails', '~> 5.0')
+  spec.add_runtime_dependency('octokit')
+  spec.add_runtime_dependency('icalendar', '~> 2.6')
+  spec.add_runtime_dependency('diffy', '~> 3.3')
+  spec.add_runtime_dependency('webpacker')
   spec.add_runtime_dependency('byebug')
 end
