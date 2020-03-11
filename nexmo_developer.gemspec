@@ -53,5 +53,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency('icalendar', '~> 2.6')
   spec.add_runtime_dependency('diffy', '~> 3.3')
   spec.add_runtime_dependency('webpacker')
+  spec.add_runtime_dependency('clipboard-rails')
+  spec.add_runtime_dependency('gmaps4rails')
   spec.add_runtime_dependency('byebug')
 end

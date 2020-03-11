@@ -40,7 +40,8 @@ require 'pg'
 require 'coffee-rails'
 require 'octokit'
 require 'webpacker'
-
+require 'clipboard/rails'
+require 'gmaps4rails'
 
 require 'config/application'
 require 'rails/command'
