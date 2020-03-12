@@ -11,6 +11,7 @@ products:
   - conversation
   - dispatch
   - messages
+  - messaging
   - messaging/sms
   - messaging/conversion-api
   - messaging/us-short-codes
@@ -19,8 +20,10 @@ products:
   - redact
   - reports
   - verify
+  - voice
   - voice/sip
   - voice/voice-api
+  - vonage-business-cloud
   - vonage-business-cloud/smart-numbers
   - vonage-business-cloud/integration-suite
   - vonage-business-cloud/vbc-apis/account-api
