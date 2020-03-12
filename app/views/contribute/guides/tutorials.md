@@ -36,6 +36,7 @@ config/
         my-tutorial/
           javascript.yml
           python.yml
+          kotlin.yml
 ```
 
 ### Content files
@@ -55,6 +56,8 @@ _tutorials/en/
       step-g/
         python.md
         kotlin.md
+      step-h/
+        javascript.yml
 ```
 
 You may also have steps that are specific to a programming language, such as Python. In this case you would locate language specific steps in a subfolder for that step. In the previous example:
@@ -62,7 +65,8 @@ You may also have steps that are specific to a programming language, such as Pyt
 * Steps `step-a` and `step-b` are shared across all tutorials.
 * Steps `step-c` and `step-d` are shared across all tutorials of the product `product`.
 * Steps `step-e` and `step-f` are specific to `my-tutorial`.
-* Steps `step-g` contains language specific versions of the step, although some steps may only be required for a single language.
+* Steps `step-g` contains language-specific versions of the step, although some steps may only be required for a single language.
+* Step `step-h` is only relevant for JavaScript.
 
 Remember that all steps are referenced from the configuration file in the order they are to be displayed in the rendered tutorial.
 
