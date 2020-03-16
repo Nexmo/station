@@ -54,6 +54,10 @@
     "webpacker": "^4",
     "whatwg-fetch": "^2.0.3"
   },
+  "resolutions": {
+    "acorn": "^6.4.1",
+    "minimist": "^1.2.2"
+  },
   "devDependencies": {
     "@vue/test-utils": "^1.0.0-beta.29",
     "babel-core": "^7.0.0-bridge.0",
