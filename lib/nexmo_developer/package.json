@@ -48,6 +48,7 @@
     "vue-loader": "^15.7.1",
     "vue-template-compiler": "^2.6.10",
     "webpack": "^4.0.0",
+    "webpack-manifest-plugin": "^2.2.0",
     "webpack-merge": "^4.1.0",
     "webpacker": "^4",
     "whatwg-fetch": "^2.0.3"

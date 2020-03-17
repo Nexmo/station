@@ -42,6 +42,7 @@ require 'octokit'
 require 'webpacker'
 require 'clipboard/rails'
 require 'gmaps4rails'
+require 'nexmo_markdown_renderer'
 
 require 'config/application'
 require 'rails/command'
