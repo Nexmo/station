@@ -13,8 +13,6 @@ Rails.application.configure do
   config.consider_all_requests_local = true
 
   config.public_file_server.enabled = true# ENV['RAILS_SERVE_STATIC_FILES'].present?
-  require 'byebug'
-  byebug
 
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
