@@ -16,7 +16,7 @@ Nexmo’s Programmable SIP enables you to integrate your existing SIP Infrastruc
 
 A _Nexmo SIP Domain_ contains configuration you need to connect to Nexmo SIP endpoints and link to your Nexmo application.
 
-To route a SIP call to your Nexmo application, you need to create a unique Nexmo domain, such as `yourcompany`. The domain name will form the SIP URI, for example `sip:number@yourcompany.sip.nexmo.com`, and any calls routed to that SIP URI will be routed to your application NCCO `answer_url`.
+To route a SIP call to your Nexmo application, you need to create a unique Nexmo domain, such as `yourcompany`. The domain name will form the SIP URI, for example `sip:number@yourcompany.sip-us.nexmo.com`, and any calls routed to that SIP URI will be routed to your application NCCO `answer_url`.
 
 The authentication method will be determined within your configuration of the Nexmo domain. Nexmo will authenticate the request and forward it to your application.
 
