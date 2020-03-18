@@ -8,13 +8,10 @@
   <% @extensions.each do |extension| %>
     <div class="Vlt-col Vlt-col--1of4 Vlt-col--M-1of2 Vlt-margin--bottom3">
       <div class="Vlt-card Vlt-card--footer Vlt-card--image Vlt-card--stretch Vlt-card--scrollable">
-      	<div class="Vlt-card__image Vlt-card__image Vlt-card__image--tech Vlt-card__image--indigo">
-          <div class="Vlt-card__image__icon">
+        <div class="Vlt-card__content">
+          <div class="Vlt-icon Vlt-icon--larger">
             <img src='<%= extension[:image] %>' alt='<%= extension[:title]%>' />
           </div>
-        </div>
-        <div class="Vlt-card__content">
-
           <h5 class="Vlt-title--icon">
             <%= extension[:title] %>
           </h5>

@@ -7,8 +7,6 @@ RSpec.describe 'rendering _section_header landing page partial' do
         'title' => 'Here is a title',
     }
 
-    expect(rendered).to include('<svg class="Vlt-blue">')
-    expect(rendered).to include('<use xlink:href="/symbol/volta-icons.svg#Vlt-an-icon">')
     expect(rendered).to include('Here is a title')
   end
 

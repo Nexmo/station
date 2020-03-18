@@ -30,9 +30,7 @@
   </div>
   <div class="Vlt-col Vlt-col--1of4 Nxd-task-step-list">
       <div class="Vlt-card">
-        <div class="Vlt-card__corner Vlt-bg-blue">
-          <svg class="Vlt-icon"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-list"/></svg>
-        </div>
+        <div class="Vlt-card__image Vlt-gradient--purple-to-peach"></div>
         <div class="Vlt-card__content">
           <h4><%= @tutorial.title %></h4>
           <small><%= @tutorial.description %></small>
@@ -43,7 +41,7 @@
             <% @tutorial.subtasks.each_with_index do |t, i| %>
             <div class="Vlt-grid">
               <div class="Vlt-col Vlt-col--1of4">
-              <span class="Vlt-number <%= t['is_active'] ? 'Vlt-bg-blue': 'Vlt-bg-grey' %>" style="margin:0"><%= i+1 %></span>
+              <span class="Nxd-step-number Vlt-number <%= t['is_active'] ? 'Vlt-bg-black': 'Vlt-bg-grey' %>" style="margin:0"><%= i+1 %></span>
                 </div>
               <div class="Vlt-col Vlt-col--3of4 Nxd-step">
                 <a

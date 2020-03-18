@@ -10,10 +10,10 @@
   <% @use_cases.each_with_index do |use_case, index| %>
     <div class="item">
       <div class="Vlt-card Vlt-card--image Nxd-card--tutorials">
-        <div class="Vlt-card__image Vlt-card__image--tech Vlt-card__image--blue">
+        <div class="Vlt-card__image Vlt-card__image--tech Vlt-gradient--blue-to-purple">
           <a
             href="<%= url_for(controller: 'use_case', action: :index, product: use_case.products.join(''), code_language: @language, only_path: true) %>"
-            class="Vlt-badge Vlt-badge--large Nxd-tutorials__product Nxd-tutorials__product--<%= use_case.subtitle %>"
+            class="Vlt-badge Vlt-badge--large Nxd-tutorials__product Vlt-badge--<%= Card::COLOUR.fetch(use_case.subtitle, 'blue') %>"
           >
             <%= use_case.subtitle %>
           </a>
@@ -38,7 +38,7 @@
           <% end %>
 
           <div class="Vlt-card__cta">
-            <a href="<%= url_for(controller: 'use_case', action: :show, document: use_case.relative_path, only_path: true) %>" class="Vlt-btn Vlt-btn--secondary">
+            <a href="<%= url_for(controller: 'use_case', action: :show, document: use_case.relative_path, only_path: true) %>" class="Vlt-btn Vlt-btn--tertiary">
             Read more
             </a>
           </div>

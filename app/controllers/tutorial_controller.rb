@@ -42,7 +42,6 @@ class TutorialController < ApplicationController
       @canonical_url = "#{helpers.canonical_base}/task/#{@tutorial_step}"
     end
 
-    @hide_card_wrapper = true
     render layout: 'documentation'
   end
 

@@ -152,7 +152,7 @@ en:
       run_command: >-
         ## Run your code
           Save this file to your machine and run it:
-            <pre class='highlight bash run-command'><code>%{command}</code></pre>
+            <pre class='Vlt-prism--dark command-line language-bash Vlt-prism--copy-disabled' data-prompt="$"><code>%{command}</code></pre>
 
       curl:
         only_permitted_dependency: The only permitted curl dependency is `jwt`
@@ -173,4 +173,4 @@ en:
 
             Run the following `gradle` command to execute your application, replacing `%{chomped_package}` with the package containing `%{file}`:
 
-            <pre class="highlight bash run-command"><code>gradle run -Pmain=%{main}</code></pre>
+            <pre class="language-bash Vlt-prism--dark command-line Vlt-prism--copy-disabled" data-prompt="$"><code>gradle run -Pmain=%{main}</code></pre>
