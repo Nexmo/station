@@ -91,7 +91,7 @@ There are four main ways to create an application:
 
 1. In the Nexmo [Dashboard](https://dashboard.nexmo.com). Applications are then listed in the [your applications](https://dashboard.nexmo.com/applications) section of the Dashboard.
 2. Using the [Nexmo CLI](/application/nexmo-cli).
-3. Using the [Application API](https://developer.nexmo.com/api/application.v2).
+3. Using the [Application API](/api/application.v2).
 4. Using one of the Nexmo [Server SDKs](/tools).
 
 ## Managing applications using the CLI
