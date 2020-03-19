@@ -8,8 +8,8 @@
          "heroku-postgresql"
       ],
       "scripts": {
-        "test-setup": "rails s -d",
-        "test": "rake test:all"
+        "test-setup": "cd lib/nexmo-developer && rails s -d",
+        "test": "cd lib/nexmo-developer && rake test:all"
       }
     }
   },
