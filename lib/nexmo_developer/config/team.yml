@@ -99,3 +99,10 @@ current:
   - name: 'Kevin Lewis'
     email: 'kevin.lewis@vonage.com'
     role: 'Developer Advocate'
+  - name: 'Benjamin Aronov'
+    email: 'benjamin.aronov@vonage.com'
+    role: 'Online Community Manager'
+  - name: "Diana Rodriguez"
+    email: "diana.rodriguezmanrique@vonage.com"
+    role: "Python Developer Advocate"
+    twitter: "cotufa82"

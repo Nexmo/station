@@ -44,7 +44,7 @@ gem 'gmaps4rails'
 # gem 'capistrano-rails', group: :development
 
 # Nokogiri (鋸) is an HTML, XML, SAX, and Reader parser. Among Nokogiri's many features is the ability to search documents via XPath or CSS3 selectors.
-gem 'nokogiri', '~> 1.10.8'
+gem 'nokogiri', '~> 1.10.9'
 
 # Autoload dotenv in Rails.
 gem 'dotenv-rails', groups: %i[development test]
@@ -129,9 +129,9 @@ gem 'lograge'
 gem 'countries'
 gem 'country_select', '~> 4.0'
 
-gem 'nexmo_markdown_renderer', '~> 0.0.3'
+gem 'nexmo_markdown_renderer', git: 'https://github.com/Nexmo/nexmo-markdown-renderer', branch: 'fix-voice-snippets'
 
-gem 'nexmo-oas-renderer', '~> 0.8.0', require: false
+gem 'nexmo-oas-renderer', '~> 0.9', require: false
 
 gem 'smartling'
 
@@ -158,7 +158,7 @@ group :development, :test do
   gem 'pry', require: false
   gem 'rawler', git: 'https://github.com/oscardelben/rawler.git', require: false
   gem 'rspec-collection_matchers'
-  gem 'rspec-rails', '~> 3.7'
+  gem 'rspec-rails', '~> 3.9'
   gem 'rspec-snapshot', '~> 0.1.2'
   gem 'simplecov', require: false
 end

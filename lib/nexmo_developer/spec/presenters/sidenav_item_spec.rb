@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe SidenavItem do
+  let(:locale) { nil }
   let(:folder) do
     {
       children: [{ title: 'overview.md', path: '_documentation/en/dispatch/overview.md', is_file?: true }],
@@ -12,7 +13,7 @@ RSpec.describe SidenavItem do
   subject do
     described_class.new(
       folder: folder,
-      sidenav: instance_double(Sidenav)
+      sidenav: instance_double(Sidenav, locale: locale)
     )
   end
 
@@ -29,7 +30,7 @@ RSpec.describe SidenavItem do
   end
 
   describe '#svg_color' do
-    it { expect(subject.svg_color).to eq('Vlt-purple') }
+    it { expect(subject.svg_color).to eq('Vlt-gray-darker') }
   end
 
   describe '#label?' do
@@ -49,7 +50,7 @@ RSpec.describe SidenavItem do
   end
 
   describe '#css_classes' do
-    it { expect(subject.css_classes).to eq('Vlt-badge Vlt-badge--margin-left Vlt-bg-green-lighter Vlt-green') }
+    it { expect(subject.css_classes).to eq('Vlt-badge Vlt-badge--margin-left Vlt-badge--small Vlt-bg-green-lighter Vlt-green') }
   end
 
   describe 'link_url' do

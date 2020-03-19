@@ -11,6 +11,10 @@ products:
   - conversation
   - dispatch
   - messages
+<<<<<<< HEAD
+=======
+  - messaging
+>>>>>>> cfba183260cec8e8e824b8325fc77f4412c38d15
   - messaging/sms
   - messaging/conversion-api
   - messaging/us-short-codes
@@ -19,8 +23,15 @@ products:
   - redact
   - reports
   - verify
+<<<<<<< HEAD
   - voice/sip
   - voice/voice-api
+=======
+  - voice
+  - voice/sip
+  - voice/voice-api
+  - vonage-business-cloud
+>>>>>>> cfba183260cec8e8e824b8325fc77f4412c38d15
   - vonage-business-cloud/smart-numbers
   - vonage-business-cloud/integration-suite
   - vonage-business-cloud/vbc-apis/account-api

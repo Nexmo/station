@@ -1,13 +1,5 @@
 <h1>Tutorials</h1>
 
-
-<style>
-  .tutorial-language-link svg {
-    height: 15px;
-    width: 15px;
-  }
-</style>
-
 <strong>Filter: &nbsp;&nbsp;</strong>
 
 <div class="Vlt-dropdown">
@@ -17,8 +9,15 @@
   <div class="Vlt-dropdown__panel">
     <div class="Vlt-dropdown__panel__content">
       <ul>
-        <% @products.each do |product| %>
-          <li><a class="Vlt-dropdown__link" href="/<%= product['path'] %>/tutorials/<%= @code_language %>"><svg style="height: 20px; width: 20px;" class="Vlt-<%= product['icon_colour'] %>"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-<%= product['icon'] %>"></use></svgc><span><%= product['name'] %></span></a></li>
+        <% Product.all.each do |product| %>
+          <li>
+            <a
+              class="Vlt-dropdown__link"
+              href="<%= url_for(controller: :tutorial, action: :list, code_language: @code_language, product: product['path'], only_path: true)%>"
+            >
+              <svg style="height: 20px; width: 20px;" class="Vlt-gray-darker"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-<%= product['icon'] %>"></use></svgc><span><%= product['name'] %></span>
+            </a>
+          </li>
         <% end %>
       </ul>
     </div>
@@ -43,31 +42,39 @@
         if tutorial[:external_link]
           url = tutorial[:external_link]
         else
-          url = "#{@base_path}/#{tutorial[:filename]}"
+          url = url_for(
+            controller: :tutorial,
+            action: :index,
+            product: params[:product],
+            tutorial_name: tutorial[:filename],
+            only_path: true
+          )
         end
       %>
 
-      <div class="item">
-        <div class="Vlt-card Vlt-card--image Nxd-card--tutorials">
-          <div class="Vlt-card__image Vlt-card__image--tech Vlt-card__image--blue">
+    <div class="item">
+      <div class="Vlt-card Vlt-card--image Nxd-card--tutorials">
+        <div class="Vlt-card__image Vlt-card__image--tech Vlt-gradient--blue-to-purple">
+          <% product = Nexmo::Markdown::UseCase.new.normalise_product_title(tutorial[:products].first) %>
+          <a href="/<%= tutorial[:products].join("") %>/tutorials" class="Vlt-badge Vlt-badge--large Nxd-tutorials__product Vlt-badge--<%= Card::COLOUR.fetch(product, 'blue') %>"><%= product %></a>
         </div>
 
-          <a href="<%= url %>">
-            <div class="Vlt-card__content">
-              <h2>
-                <span><%= tutorial[:title] %></span>
-              </h2>
-              <p><%= tutorial[:description] %></p>
+        <a href="<%= url %>">
+          <div class="Vlt-card__content">
+            <h2>
+              <span><%= tutorial[:title] %></span>
+            </h2>
+            <p><%= tutorial[:description] %></p>
+        </a>
+
+        <div class="Vlt-card__cta">
+          <a href="<%= url %>" class="Vlt-btn Vlt-btn--tertiary">
+            Read more
           </a>
-
-          <div class="Vlt-card__cta">
-            <a href="<%= url %>" class="Vlt-btn Vlt-btn--secondary">
-              Read more
-            </a>
-          </div>
         </div>
+          </div>
       </div>
-      </div>
-    <% end %>
     </div>
+  <% end %>
+  </div>
 <% end %>

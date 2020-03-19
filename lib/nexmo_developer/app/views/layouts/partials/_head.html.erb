@@ -69,7 +69,6 @@
 
   <link rel="canonical" href="<%= canonical_url %>">
 
-  <%= stylesheet_link_tag "application", :media => "all" %>
   <%= javascript_include_tag 'application' %>
 
 
@@ -84,6 +83,8 @@
   <% end %>
 
   <%= javascript_packs_with_chunks_tag 'application', defer: true %>
+  <%= stylesheet_pack_tag 'application' %>
+
   <%= javascript_include_tag 'https://www.google.com/recaptcha/api.js', async: true, defer: true %>
 
   <% if ENV['ALLOW_ROBOTS'].nil? || ENV['ALLOW_ROBOTS'] != 'true' %>
@@ -91,8 +92,7 @@
   <% end %>
 
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="any" href="/favicon.ico">
   <link rel="manifest" href="/manifest.json">
   <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
   <meta name="apple-mobile-web-app-title" content="Nexmo Developer">

@@ -18,7 +18,7 @@
         <span class="Vlt-sidemenu__label"><%= sidenav_subitem.title %></span>
       </a>
       <% if sidenav_subitem.children.any? %>
-        <ul class="Vlt-sidemenu__list--compressed">
+        <ul>
           <%= render partial: 'layouts/partials/sidenav_subitem', collection: sidenav_subitem.children %>
         </ul>
       <% end %>
@@ -26,7 +26,7 @@
   <% else %>
     <h5 class="Vlt-sidemenu__title Vlt-sidemenu__title--border"><%= sidenav_subitem.title %></h5>
     <% if sidenav_subitem.children.any? %>
-      <ul class="Vlt-sidemenu__list--compressed">
+      <ul>
         <%= render partial: 'layouts/partials/sidenav_subitem', collection: sidenav_subitem.children %>
       </ul>
     <% end %>

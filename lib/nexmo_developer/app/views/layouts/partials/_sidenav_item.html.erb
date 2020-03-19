@@ -12,7 +12,7 @@
     </span>
   </span>
   <% if sidenav_item.children.any? %>
-    <ul class="Vlt-sidemenu__list--compressed">
+    <ul>
       <%= render partial: 'layouts/partials/sidenav_subitem', collection: sidenav_item.children %>
     </ul>
   <% end %>

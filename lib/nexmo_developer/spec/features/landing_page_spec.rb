@@ -18,9 +18,9 @@ RSpec.feature 'Landing page' do
       expect(page).to have_css('p.p-large', text: 'Everything you need to build connected applications with Nexmo')
     end
 
-    within('.container .columns.small-12') do
+    within('.Nxd-products-list') do
       within('.Vlt-col.Vlt-col--1of3.Vlt-col--M-1of2:nth-of-type(1)') do
-        expect(page).to have_css('small', text: 'Send and receive')
+        expect(page).to have_content('SEND AND RECEIVE')
         expect(page).to have_link('SMS', href: '/messaging/sms/overview')
 
         within('nav') do
@@ -33,7 +33,7 @@ RSpec.feature 'Landing page' do
       end
 
       within('.Vlt-col.Vlt-col--1of3.Vlt-col--M-1of2:nth-of-type(2)') do
-        expect(page).to have_css('small', text: 'Programmable')
+        expect(page).to have_content('PROGRAMMABLE')
         expect(page).to have_link('Voice', href: '/voice/overview')
 
         within('nav') do
@@ -47,7 +47,7 @@ RSpec.feature 'Landing page' do
       end
 
       within('.Vlt-col.Vlt-col--1of3.Vlt-col--M-1of2:nth-of-type(3)') do
-        expect(page).to have_css('small', text: 'Programmable')
+        expect(page).to have_content('PROGRAMMABLE')
         expect(page).to have_link('Video', href: 'https://tokbox.com/developer/')
 
         within('nav') do
@@ -60,7 +60,7 @@ RSpec.feature 'Landing page' do
       end
 
       within('.Vlt-col.Vlt-col--1of3.Vlt-col--M-1of2:nth-of-type(4)') do
-        expect(page).to have_css('small', text: 'User Authentication')
+        expect(page).to have_content('USER AUTHENTICATION')
         expect(page).to have_link('Verify', href: '/verify/overview')
 
         within('nav') do
@@ -73,7 +73,7 @@ RSpec.feature 'Landing page' do
       end
 
       within('.Vlt-col.Vlt-col--1of3.Vlt-col--M-1of2:nth-of-type(5)') do
-        expect(page).to have_css('small', text: 'User Identity')
+        expect(page).to have_content('USER IDENTITY')
         expect(page).to have_link('Number Insight', href: '/number-insight/overview')
 
         within('nav') do
@@ -86,7 +86,7 @@ RSpec.feature 'Landing page' do
       end
 
       within('.Vlt-col.Vlt-col--1of3.Vlt-col--M-1of2:nth-of-type(6)') do
-        expect(page).to have_css('small', text: 'Programmable Conversations')
+        expect(page).to have_content('PROGRAMMABLE CONVERSATIONS')
         expect(page).to have_link('Conversation API', href: '/conversation/overview')
 
         within('nav') do
@@ -99,7 +99,7 @@ RSpec.feature 'Landing page' do
       end
 
       within('.Vlt-col.Vlt-col--1of3.Vlt-col--M-1of2:nth-of-type(7)') do
-        expect(page).to have_css('small', text: 'Configure')
+        expect(page).to have_content('CONFIGURE')
         expect(page).to have_link('Applications', href: '/application/overview')
 
         within('nav') do
@@ -111,7 +111,7 @@ RSpec.feature 'Landing page' do
       end
 
       within('.Vlt-col.Vlt-col--1of3.Vlt-col--M-1of2:nth-of-type(8)') do
-        expect(page).to have_css('small', text: 'Management')
+        expect(page).to have_content('MANAGEMENT')
         expect(page).to have_link('Account', href: '/account/overview')
 
         within('nav') do
@@ -142,7 +142,7 @@ RSpec.feature 'Landing page' do
 
       within('.Vlt-grid.Vlt-grid--center:nth-of-type(3)') do
         within('.Vlt-col--M-1of2:nth-of-type(1)') do
-          expect(page).to have_css('small', text: 'One API, multiple channels')
+          expect(page).to have_content('ONE API, MULTIPLE CHANNELS')
           expect(page).to have_link('Messages', href: '/messages/overview')
 
           within('nav') do
@@ -155,7 +155,7 @@ RSpec.feature 'Landing page' do
         end
 
         within('.Vlt-col--M-1of2:nth-of-type(2)') do
-          expect(page).to have_css('small', text: 'Orchestrate messages with failover')
+          expect(page).to have_content('ORCHESTRATE MESSAGES WITH FAILOVER')
           expect(page).to have_link('Dispatch', href: '/dispatch/overview')
 
           within('nav') do
@@ -175,7 +175,7 @@ RSpec.feature 'Landing page' do
 
       within('.Vlt-grid.Vlt-grid--center:nth-of-type(5)') do
         within('.Vlt-col--M-1of2:nth-of-type(1)') do
-          expect(page).to have_css('small', text: 'Nexmo Client SDK')
+          expect(page).to have_content('NEXMO CLIENT SDK')
           expect(page).to have_link('In-App Voice', href: '/client-sdk/in-app-voice/overview')
 
           within('nav') do
@@ -193,7 +193,7 @@ RSpec.feature 'Landing page' do
         end
 
         within('.Vlt-col--M-1of2:nth-of-type(2)') do
-          expect(page).to have_css('small', text: 'Nexmo Client SDK')
+          expect(page).to have_content('NEXMO CLIENT SDK')
           expect(page).to have_link('In-App Messaging', href: '/client-sdk/in-app-messaging/overview')
 
           within('nav') do
@@ -208,19 +208,19 @@ RSpec.feature 'Landing page' do
           end
         end
       end
+    end
 
-      within('.Vlt-grid:nth-of-type(6)') do
-        within('.Vlt-col--M-1of2:nth-of-type(1)') do
-          expect(page).to have_link('SDKs & Tools', href: '/tools')
-          expect(page).to have_content('The Nexmo libraries allow you to get up and running with')
-          expect(page).to have_content('Nexmo APIs quickly in your language of choice.')
-        end
+    within('.columns > .Vlt-grid') do
+      within('.Vlt-col--M-1of2:nth-of-type(1)') do
+        expect(page).to have_link('SDKs & Tools', href: '/tools')
+        expect(page).to have_content('The Nexmo libraries allow you to get up and running with')
+        expect(page).to have_content('Nexmo APIs quickly in your language of choice.')
+      end
 
-        within('.Vlt-col--M-1of2:nth-of-type(2)') do
-          expect(page).to have_link('Community', href: '/community')
-          expect(page).to have_content('Find out about our talks, community hacks,')
-          expect(page).to have_content('and what events we\'ll be at.')
-        end
+      within('.Vlt-col--M-1of2:nth-of-type(2)') do
+        expect(page).to have_link('Community', href: '/community')
+        expect(page).to have_content('Find out about our talks, community hacks,')
+        expect(page).to have_content('and what events we\'ll be at.')
       end
     end
   end
