@@ -1370,7 +1370,6 @@ Volta.tab = function () {
 
 			this._activeLink.setAttribute('tabindex', '0');
 			this._activeLink.setAttribute('aria-selected', 'true');
-			this._activeLink.focus();
 			if (this._activePanel) {
 				this._activePanel.removeAttribute('hidden');
 			}
