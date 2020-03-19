@@ -85,17 +85,17 @@
     "yarn": ">=0.25.2"
   },
   "scripts": {
-    "bundle:size": "rm -f stats.json report.html 2>/dev/null && RAILS_ENV=production NODE_ENV=production bin/webpack --profile --json > stats.json && webpack-bundle-analyzer stats.json public/packs --mode static --display-chunks --display-modules",
+    "bundle:size": "rm -f stats.json report.html 2>/dev/null && RAILS_ENV=production NODE_ENV=production lib/nexmo-developer/bin/webpack --profile --json > stats.json && webpack-bundle-analyzer stats.json lib/nexmo-developer/public/packs --mode static --display-chunks --display-modules",
     "test": "jest"
   },
   "jest": {
     "roots": [
-      "spec/javascript"
+      "lib/nexmo-developer/spec/javascript"
     ],
     "moduleDirectories": [
-      "node_modules",
-      "app/webpacker/javascript",
-      "spec"
+      "lib/nexmo-developer/node_modules",
+      "lib/nexmo-developer/app/webpacker/javascript",
+      "lib/nexmo-developer/spec"
     ],
     "verbose": true,
     "moduleFileExtensions": [
