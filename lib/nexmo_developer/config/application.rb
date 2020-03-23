@@ -12,6 +12,7 @@ module NexmoDeveloper
     config.load_defaults 6.0
 
     Rails.autoloaders.main.ignore("#{Rails.root}/app/extensions")
+    Rails.autoloaders.main.ignore("#{Rails.root}/app/admin")
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
