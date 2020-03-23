@@ -30,5 +30,6 @@ lib/nexmo_developer/log
 *.gem
 .vscode/*
 coverage
+public/
 
 .DS_Store
