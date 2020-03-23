@@ -28,7 +28,9 @@ Gem::Specification.new do |spec|
   spec.files         = Dir.chdir(File.expand_path('..', __FILE__)) do
     `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features|_api|_code|_documentation|_examples|_extend|_modals|_open_api|_tutorials|_tutorials_tabbed_content|_use_cases|.repos)/}) }
   end
-  spec.files         += Dir['public/packs/**/*', 'app/assets']
+  spec.files         += Dir['./lib/nexmo_developer/app/assets/**/*'] 
+  spec.files         += Dir['./lib/nexmo_developer/public/packs/**/*']
+  spec.files         += Dir['./lib/nexmo_developer/public/assets/**/*']
   spec.bindir        = "bin"
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
