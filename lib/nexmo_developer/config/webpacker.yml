@@ -50,7 +50,7 @@ default: &default
 
 development:
   <<: *default
-  compile: true
+  compile: false
 
   dev_server:
     host: localhost
