@@ -52,6 +52,10 @@ class StaticController < ApplicationController
   end
 
   def landing
+    @document = YAML.load_file("#{Rails.configuration.docs_base_path}/config/landing.yml")
+    @header = @document['header']
+    @products = @document['products']
+
     render layout: 'landing'
   end
 
