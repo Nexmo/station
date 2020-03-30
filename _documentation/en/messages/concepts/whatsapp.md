@@ -6,8 +6,6 @@ description: WhatsApp messaging solution for businesses.
 
 # Understanding WhatsApp messaging
 
-> **IMPORTANT:** Please note WhatsApp will deprecate the "fallback" locale method when sending template messages on January 1st 2020. Please ensure that you are using the "deterministic" option in your requests. Starting April 8, 2020, messages will fail with a 1020 error in your message status webhook if you are not using the deterministic policy.
-
 WhatsApp Business Solution messages can only be sent by businesses that have been approved by WhatsApp. This business profile will also have a green verified label to indicate that it is a legitimate business.
 
 The advantage of WhatsApp is that the identifier of users on the platform is their mobile phone number.
@@ -28,7 +26,7 @@ Message Type | Description
 ---|---
 Text Message | A plain text message. This is the default message type.
 Media Message | A media message. Types are: image, audio, document and video.
-Message Template | Message Templates are created in the WhatsApp Manager. Outside of the Customer Care Window messages sent to a customer must be a Message Template type.
+Message Template | Message Templates are created in the WhatsApp Manager. Outside of the Customer Care Window messages sent to a customer must be a Message Template type. Only templates created in your own namespace will work. Using an template with a namespace outside of your own results in an error code 1022 being returned.
 Media Message Templates | Media message templates expand the content you can send to recipients beyond the standard message template type to include media, headers, and footers using a `components` object.
 Contacts Message | Send a contact list as a message.
 Location Message | Send a location as a message.
@@ -43,7 +41,7 @@ WhatsApp has a core concept of Messages Templates (MTM). These were previously k
 
 The MTM allows a business to send just the template identifier along with the appropriate parameters instead of the full message content.
 
-> **NOTE:** New templates need to be approved by WhatsApp. Please contact your Nexmo Account Manager to submit the templates. Over time Nexmo will also add generic templates that can be used by all businesses.
+> **NOTE:** New templates need to be approved by WhatsApp. Please contact your Nexmo Account Manager to submit the templates. Only templates created in your own namespace are valid. Using an template with a namespace outside of your own results in an error code 1022 being returned.
 
 MTMs are designed to reduce the likelihood of spam to users on WhatsApp.
 
