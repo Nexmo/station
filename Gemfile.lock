@@ -405,6 +405,7 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
+    rexml (3.2.4)
     rouge (2.0.7)
     rspec (3.9.0)
       rspec-core (~> 3.9.0)
@@ -431,11 +432,12 @@ GEM
     rspec-snapshot (0.1.2)
       rspec (> 3.0.0)
     rspec-support (3.9.2)
-    rubocop (0.79.0)
+    rubocop (0.80.1)
       jaro_winkler (~> 1.5.1)
       parallel (~> 1.10)
       parser (>= 2.7.0.1)
       rainbow (>= 2.2.2, < 4.0)
+      rexml
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 1.7)
     rubocop-rails (2.5.0)
@@ -596,7 +598,7 @@ DEPENDENCIES
   rspec-collection_matchers
   rspec-rails (~> 4.0)
   rspec-snapshot (~> 0.1.2)
-  rubocop (~> 0.79.0)
+  rubocop (~> 0.80.0)
   rubocop-rails (~> 2.5)
   ruby-progressbar
   sass-rails (~> 6.0)
