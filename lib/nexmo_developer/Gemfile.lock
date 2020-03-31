@@ -168,7 +168,7 @@ GEM
       railties (>= 4.2.0)
     faker (2.10.2)
       i18n (>= 1.6, < 2)
-    faraday (1.0.0)
+    faraday (1.0.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.12.2)
     formatador (0.2.5)
@@ -330,7 +330,7 @@ GEM
     octicons_helper (8.5.0)
       octicons (= 8.5.0)
       rails
-    octokit (4.17.0)
+    octokit (4.18.0)
       faraday (>= 0.9)
       sawyer (~> 0.8.0, >= 0.5.3)
     oj (3.10.2)
