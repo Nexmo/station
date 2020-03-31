@@ -26,13 +26,13 @@ The steps to use the Messages API Sandbox to send test messages on supported mes
 Only primary users can create sandboxes and send email invitations to them.
 
 1. Navigate to the Messages API Sandbox on the dashboard.
-2. Click the tbd button.
+2. Click **Add to sandbox**.
 3. Configure webhooks.
 4. Invite team members to use a sandbox by selecting their names in the **Select a user** drop-down list.
 
 ## Whitelist your mobile to receive messages
 
-In order to use the Messages API Sandbox to test sending messages on OTT messaging platforms such as Facebook Messenger, Viber, and WhatsApp, you must first whitelist your mobile to receive messages by sending a message with a passphrase to a sandbox account. There are two methods for adding your mobile to a sandbox whitelist:
+In order to use the Messages API Sandbox to test sending messages on messaging platforms such as Facebook Messenger, Viber, and WhatsApp, you must first whitelist your mobile by sending a message with a passphrase to a sandbox account. There are two methods for adding your mobile to a sandbox whitelist:
 
 1. [Whitelist your mobile via the dashboard](#whitelist-your-mobile-via-the-dashboard).
 2. [Whitelist your mobile via an email invitation](#whitelist-your-mobile-via-an-email-invitation).
