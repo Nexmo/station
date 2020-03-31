@@ -120,7 +120,7 @@ Run `npm install` in the application directory to install the required dependenc
 * `aws-sdk`: The AWS node.js SDK
 * `body-parser`: node.js body-parsing middleware
 * `express`: A web application framework for node.js
-* `nexmo`: The REST API client library for node.js
+* `nexmo`: The Nexmo Server SDK for node.js
 * `serverless`: To deploy your Lambda function
 * `shortid`: Generates random file names for call recordings
 
@@ -237,9 +237,9 @@ The application directory also contains the following sub folders:
 * `transcripts`: Contains the completed transcripts, downloaded from S3 when the transcription jobs complete
 * `transcribeReadyService`: Contains the Lambda function and CloudWatch event definition YAML
 
-### Using the Nexmo REST API client library
+### Using the Nexmo Server SDK
 
-The following code in `index.js` instantiates the Nexmo REST API client library, which you will use to save the call recordings later on:
+The following code in `index.js` instantiates the Nexmo Server SDK, which you will use to save the call recordings later on:
 
 ```javascript
 const Nexmo = require("nexmo")

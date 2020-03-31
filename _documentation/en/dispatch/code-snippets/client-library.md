@@ -1,11 +1,11 @@
 ---
-title: Client library
+title: Server SDK
 navigation_weight: 2
-description: Client libraries are used to help you rapidly develop your messaging applications.
+description: Server SDKs are used to help you rapidly develop your messaging applications.
 ---
 
-# Client library
+# Server SDK
 
 ```partial
-source: _partials/reusable/beta-node-client-library-messages-dispatch.md
+source: _partials/reusable/beta-node-server-sdk-messages-dispatch.md
 ```

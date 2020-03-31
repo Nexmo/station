@@ -229,6 +229,6 @@ All the code for this tutorial is available in the [Two-way SMS for customer eng
 
 ## Resources
 
-* [Nexmo Client Library for Ruby](https://github.com/Nexmo/nexmo-ruby)
+* [Nexmo Server SDK for Ruby](https://github.com/Nexmo/nexmo-ruby)
 * [SMS](/sms)
 * [SMS API reference guide](/api/sms)
