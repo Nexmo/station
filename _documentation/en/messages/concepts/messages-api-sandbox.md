@@ -41,7 +41,6 @@ In order to use the Messages API Sandbox to test sending messages on messaging p
 
 1. Navigate to the [Messages API Sandbox](#https://dashboard.nexmo.com/messages/sandbox) on the dashboard.
 2. Either scan the QR code associated with the messaging platform sandbox you wish to use and send the message the passphrase or send a message with the passphrase to the associated number or linked account that is provided.
-3. 
 
 ### Whitelist your mobile via an email invitation
 
