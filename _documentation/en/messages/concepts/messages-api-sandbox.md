@@ -20,10 +20,11 @@ The steps to use the Messages API Sandbox to send test messages on supported mes
 
 1. [Create your sandbox accounts](#create-your-sandbox-accounts).
 2. [Whitelist your mobile to receive messages](#whitelist-your-mobile-to-receive-messages).
+3. [Send a message using the sandbox](#send-a-message-on-a-supported-messaging-service-via-the-messages-api-sandbox)
 
 ## Create your sandbox accounts
 
-Only primary users can create sandboxes and send email invitations to them.
+Only primary account users can create sandboxes and send email invitations to team members to join them.
 
 1. Navigate to the [Messages API Sandbox](#https://dashboard.nexmo.com/messages/sandbox) on the dashboard.
 2. Click the **Add to sandbox** option associated with the messaging platform for which you want to create a sandbox.
@@ -32,7 +33,9 @@ Only primary users can create sandboxes and send email invitations to them.
 
 ## Whitelist your mobile to receive messages
 
-In order to use the Messages API Sandbox to test sending messages on messaging platforms such as Facebook Messenger, Viber, and WhatsApp, you must first whitelist your mobile by sending a message with a passphrase to a sandbox account. There are two methods for adding your mobile to a sandbox whitelist:
+In order to use the Messages API Sandbox to test sending messages on messaging platforms such as Facebook Messenger, Viber, and WhatsApp, you must first whitelist your mobile by sending a message with a passphrase to a sandbox account. You can only be whitelisted in one sandbox at a time. If you add yourself to a whitelist in a different sandbox, you will no longer be whitelisted in the previous sandbox.  
+
+There are two methods for adding your mobile to a sandbox whitelist:
 
 1. [Whitelist your mobile via the dashboard](#whitelist-your-mobile-via-the-dashboard).
 2. [Whitelist your mobile via an email invitation](#whitelist-your-mobile-via-an-email-invitation).
