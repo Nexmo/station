@@ -20,7 +20,8 @@ The steps to use the Messages API Sandbox to send test messages on supported mes
 
 1. [Create your sandbox accounts](#create-your-sandbox-accounts).
 2. [Whitelist your mobile to receive messages](#whitelist-your-mobile-to-receive-messages).
-3. [Send a message using the sandbox](#send-a-message-on-a-supported-messaging-service-via-the-messages-api-sandbox)
+3. [Configure webhooks](#configure-webhooks)
+4. [Send a message using the sandbox](#send-a-message-on-a-supported-messaging-service-via-the-messages-api-sandbox)
 
 ## Create your sandbox accounts
 
@@ -28,8 +29,7 @@ Only primary account users can create sandboxes and send email invitations to te
 
 1. Navigate to the [Messages API Sandbox](#https://dashboard.nexmo.com/messages/sandbox) on the dashboard.
 2. Click the **Add to sandbox** option associated with the messaging platform for which you want to create a sandbox.
-3. Configure and save webhooks. The **Inbound** webhook is the URL to which inbound messages are forwarded. The **Status** webhook is the URL at which you will receive message status updates.
-4. Invite team members to use a sandbox by selecting their names in the **Select a user** drop-down list. You can invite new team members by clicking **Invite a new user to your team** and adding them on the **Team members** page.
+3. Invite team members to use a sandbox by selecting their names in the **Select a user** drop-down list. You can invite new team members by clicking **Invite a new user to your team** and adding them on the **Team members** page.
 
 ## Whitelist your mobile to receive messages
 
@@ -45,12 +45,23 @@ There are two methods for adding your mobile to a sandbox whitelist:
 1. Navigate to the [Messages API Sandbox](#https://dashboard.nexmo.com/messages/sandbox) on the dashboard.
 2. Either scan the QR code associated with the messaging platform sandbox you wish to use and send the message the passphrase or send a message with the passphrase to the associated number or linked account that is provided.
 
+![Whitelist your mobile](/assets/images/messages/sandbox-whitelist.png)
+
 ### Whitelist your mobile via an email invitation
 
 1. Following the instructions in the email invitation specific to your mobile OS, scan the QR code displayed.
 2. Send a message with the passphrase provided in the email invitation.
 
+## Configure webhooks
+
+1. Enter your application's **Inbound** webhook URL. The inbound webhook is the URL to which inbound messages are forwarded. 
+2. Enter your application's **Status** webhook URL. The status webhook is the URL at which you will receive message status updates.
+3. Click the **Save** webhooks button.
+
+![Configure webhooks](/assets/images/messages/config-webhooks.png)
+
 ## Send a message on a supported messaging service via the Messages API Sandbox
+
 Once you are added to the whitelist, you will use a Messages API Sandbox endpoint to send your test messages using the appropriate `from` id or number associated with the specific platform's sandbox. For your sandbox testing purposes, the `from` field is already populated in the code snippets provided below. It is important to note that you will need to replace the value in the `from` field with the number or ID associated with the business account you setup on the external messaging platform.
 
 1. Create a new `sandbox-message.sh` file.
