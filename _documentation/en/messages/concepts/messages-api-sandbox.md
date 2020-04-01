@@ -27,7 +27,7 @@ The steps to use the Messages API Sandbox to send test messages on supported mes
 
 Only primary account users can create sandboxes and send email invitations to team members to join them.
 
-1. Navigate to the [Messages API Sandbox](#https://dashboard.nexmo.com/messages/sandbox) on the dashboard.
+1. Navigate to the [Messages API Sandbox](https://dashboard.nexmo.com/messages/sandbox) on the dashboard.
 2. Click the **Add to sandbox** option associated with the messaging platform for which you want to create a sandbox.
 3. Invite team members to use a sandbox by selecting their names in the **Select a user** drop-down list. You can invite new team members by clicking **Invite a new user to your team** and adding them on the **Team members** page.
 
@@ -62,10 +62,9 @@ There are two methods for adding your mobile to a sandbox whitelist:
 
 ## Send a message on a supported messaging service via the Messages API Sandbox
 
-Once you are added to the whitelist, you will use a Messages API Sandbox endpoint to send your test messages using the appropriate `from` id or number associated with the specific platform's sandbox. For your sandbox testing purposes, the `from` field is already populated in the code snippets provided below. It is important to note that you will need to replace the value in the `from` field with the number or ID associated with the business account you setup on the external messaging platform.
+Once you are added to the whitelist, you will use a Messages API Sandbox endpoint to send your test messages using the appropriate `from` ID or number associated with the specific platform's sandbox. For your sandbox testing purposes, the `from` field is already populated in the code snippets provided in the Dashboard. It is important to note that you will need to replace the value in the `to` field with the number or ID associated with the business account you setup on the external messaging platform.
 
 1. Create a new `sandbox-message.sh` file.
-2. Copy the code snippet for the appropriate messaging platform and paste it in the `sandbox-message.sh` file.
+2. Copy the code snippet for the appropriate messaging platform from the code provided in the Dashboard and paste it into the `sandbox-message.sh` file.
 3. Replace the value in the `to` field with the number or ID associated with your external messaging account that is whitelisted in the sandbox.
 4. Save the file to your machine and run it.
-
