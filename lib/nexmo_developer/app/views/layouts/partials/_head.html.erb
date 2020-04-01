@@ -69,12 +69,10 @@
 
   <link rel="canonical" href="<%= canonical_url %>">
 
-  <%= javascript_include_tag 'application' %>
-
-
+  <%= javascript_packs_with_chunks_tag 'application', defer: true %>
   <% if @additional_scripts %>
     <% @additional_scripts.each do |script| %>
-      <%= javascript_include_tag script %>
+      <%= javascript_pack_tag script %>
     <% end %>
   <% end %>
 
@@ -82,7 +80,6 @@
     <%= ENV['ENVIRONMENT_SCRIPTS'].html_safe %>
   <% end %>
 
-  <%= javascript_packs_with_chunks_tag 'application', defer: true %>
   <%= stylesheet_pack_tag 'application' %>
 
   <%= javascript_include_tag 'https://www.google.com/recaptcha/api.js', async: true, defer: true %>
