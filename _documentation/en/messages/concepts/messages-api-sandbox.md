@@ -29,7 +29,7 @@ Only primary account users can create sandboxes and send email invitations to te
 
 1. Navigate to the [Messages API Sandbox](https://dashboard.nexmo.com/messages/sandbox) on the dashboard.
 2. Click the **Add to sandbox** option associated with the messaging platform for which you want to create a sandbox.
-3. Invite team members to use a sandbox by selecting their names in the **Select a user** drop-down list. You can invite new team members by clicking **Invite a new user to your team** and adding them on the **Team members** page.
+3. Invite team members to use a sandbox by selecting their names in the **Send invite email** drop-down list. You can invite new team members by clicking **Invite a new user to your team** and adding them on the **Team members** page.
 
 ## Whitelist your mobile to receive messages
 
@@ -56,7 +56,7 @@ There are two methods for adding your mobile to a sandbox whitelist:
 
 1. Enter your application's **Inbound** webhook URL. The inbound webhook is the URL to which inbound messages are forwarded. 
 2. Enter your application's **Status** webhook URL. The status webhook is the URL at which you will receive message status updates.
-3. Click the **Save** webhooks button.
+3. Click the **Save webhooks** button.
 
 ![Configure webhooks](/assets/images/messages/config-webhooks.png)
 
