@@ -22,7 +22,7 @@ Depending on your query pattern, you can choose from one of the two versions of 
 
 Feature  | Reports Synchronous (GET endpoint) | Reports Asynchronous (POST endpoint)
 ---- | ---- | ----
- Data retrieval | Returns results immediately in batches of up to 1000 records. Response contains a batch of data records a link to the next batch (if any) | Does not return data immediately. Instead, it records a data request, processes it asynchronously, and creates a file containing all records. When the results file is ready, it returns a link to the file
+ Data retrieval | Returns results immediately in batches of up to 1000 records. Response contains a batch of data records and a link to the next batch (if any) | Does not return data immediately. Instead, it records a data request, processes it asynchronously, and creates a file containing all records. When the results file is ready, it returns a link to the file
  Output format | JSON | CSV
  Compression | Not applicable | CSV file is compressed for faster downloads
  Report TTL | Not applicable | Report files are automatically deleted after 72 hours
