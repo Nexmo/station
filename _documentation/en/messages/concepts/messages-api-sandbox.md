@@ -91,3 +91,11 @@ Once your number or recipient ID is added to the whitelist, you will use a Messa
 2. Copy the code snippet for the appropriate channel from the code provided in the [Dashboard](https://dashboard.nexmo.com/messages/sandbox) and paste it into the file you just created.
 3. Replace the value in the `to` field with your number (WhatsApp or Viber) or Recipient ID (Facebook Messenger) that is whitelisted in the sandbox.
 4. Save the file and run it.
+
+## WhatsApp Templates for use with Sandbox
+
+At the moment the following WhatsApp templates can be used with the Sandbox:
+
+Namespace | Name | Languages
+----|----|----
+`9b6b4fcb_da19_4a26_8fe8_78074a91b584` | `verify` | English, Korean, Japanese, Italian
