@@ -96,7 +96,7 @@ Once you are added to the whitelist, you will use a Messages API Sandbox endpoin
 
 ## WhatsApp Templates for use with Sandbox
 
-At the moment the following templates can be used with the Sandbox:
+At the moment the following WhatsApp templates can be used with the Sandbox:
 
 Namespace | Name | Languages
 ----|----|----
