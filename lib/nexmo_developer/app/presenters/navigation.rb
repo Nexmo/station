@@ -1,6 +1,6 @@
 class Navigation
   IGNORED_PATHS = ['..', '.', '.DS_Store'].freeze
-  NAVIGATION    = YAML.load_file("#{Rails.configuration.docs_base_path}/config/navigation.yml")
+  NAVIGATION    = YAML.load_file("#{Rails.root}/config/navigation.yml")
   WEIGHT        = NAVIGATION['navigation_weight']
   OVERRIDES     = NAVIGATION['navigation_overrides']
 
