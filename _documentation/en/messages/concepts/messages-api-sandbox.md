@@ -32,8 +32,8 @@ Setup up your sandbox channels and invite team members to use them to send test 
 1. Navigate to the [Messages API Sandbox](https://dashboard.nexmo.com/messages/sandbox) on the Dashboard.
 2. If you have multiple API keys available in the **API Key** drop-down list, select the API key to associate with the sandbox you are setting up.
 3. Click the **Add to sandbox** link associated with the channel you want to setup.
-4. Invite team members to whitelist their mobile devices on any of the three supported sandbox channels by selecting their names in the **Send invite email** drop-down list. You can invite new team members by clicking **Invite a new user to your team** and adding them on the **Team members** page.
-5. [Whitelist your mobile device](#whitelist-your-mobile-device) on any of the three supported sandbox channels.
+4. Invite team members to whitelist their numbers or recipient IDs on any of the three supported sandbox channels by selecting their names in the **Send invite email** drop-down list. You can invite new team members by clicking **Invite a new user to your team** and adding them on the **Team members** page.
+5. [Whitelist yourself](#whitelist-yourself) on any of the three supported sandbox channels.
 
 ## Whitelist yourself
 
