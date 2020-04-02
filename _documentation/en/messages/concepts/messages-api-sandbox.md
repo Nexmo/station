@@ -12,40 +12,38 @@ The Messages API Sandbox provides a quick and easy method for sending test messa
 * Viber
 * Facebook Messenger
 
-You can setup multiple sandboxes, however, each sandbox must be associated with a different API key. In order to use the sandbox to send test messages on any of the supported channels, you must whitelist your number (WhatsApp and Viber) or ID (Facebook Messenger) on each of the sandbox channels you want to test. Your number or ID can only be whitelisted in one sandbox at a time. If you whitelist yourself in a different sandbox, you will no longer be whitelisted in the previous sandbox.
+You can setup multiple sandboxes, however, each sandbox must be associated with a different API key. In order to use the sandbox to send test messages on any of the supported channels, you must whitelist your number (WhatsApp and Viber) or Recipient ID (Facebook Messenger) on each of the sandbox channels you want to test. Your number or ID can only be whitelisted in one sandbox at a time. If you whitelist yourself in a different sandbox, you will no longer be whitelisted in the previous sandbox.
 
-The Messages API Sandbox is accessible via the dashboard. You can use it to test your integration prior to sending production traffic. Sandbox Messages API requests are sent to a different endpoint than production requests and the Vonage sandbox external account number or ID is used as the `from` the value in the request.
+The Messages API Sandbox is accessible via the [Dashboard](https://dashboard.nexmo.com/messages/sandbox). You can use it to test your integration prior to sending production traffic. Sandbox Messages API requests are sent to a different endpoint than production requests and the Vonage sandbox external account number or ID is used as the `from` value in the request.
 
 ## The steps
 
 The steps to use the Messages API Sandbox to send test messages on supported messaging platforms are as follows:
 
-1. [Setup your sandbox](#setup-your-sandbox).
-2. [Whitelist your mobile device](#whitelist-your-mobile-device).
+1. [Setup your sandbox](#setup-your-sandbox)
+2. [Whitelist your mobile device](#whitelist-yourself)
 3. [Configure webhooks](#configure-webhooks)
-4. [Send a message using the sandbox](#send-a-message-on-a-supported-messaging-service-via-the-messages-api-sandbox)
+4. [Send a message using the sandbox](#send-a-test-message-via-the-messages-api-sandbox)
 
 ## Setup your sandbox
 
 Setup up your sandbox channels and invite team members to use them to send test messages on them using the Vonage Messages API.
 
-1. Navigate to the [Messages API Sandbox](https://dashboard.nexmo.com/messages/sandbox) on the dashboard.
-2. If you have multiple API keys available in the API Key drop-down list, select the API key to associate with the sandbox you are setting up.
-3. Click the **Add to sandbox** option associated with the channel you want to setup.
+1. Navigate to the [Messages API Sandbox](https://dashboard.nexmo.com/messages/sandbox) on the Dashboard.
+2. If you have multiple API keys available in the **API Key** drop-down list, select the API key to associate with the sandbox you are setting up.
+3. Click the **Add to sandbox** link associated with the channel you want to setup.
 4. Invite team members to whitelist their mobile devices on any of the three supported sandbox channels by selecting their names in the **Send invite email** drop-down list. You can invite new team members by clicking **Invite a new user to your team** and adding them on the **Team members** page.
 5. [Whitelist your mobile device](#whitelist-your-mobile-device) on any of the three supported sandbox channels.
 
-## Whitelist your mobile device
+## Whitelist yourself
 
 In order to use the Messages API Sandbox to test sending messages on messaging platforms such as Facebook Messenger, Viber, and WhatsApp, you must first whitelist your number (WhatsApp and Viber) or Recipient ID (Facebook Messenger) by sending a message with a passphrase to a sandbox external account.
 
 The procedure for whitelisting yourself differs slightly depending on the sandbox channel:
 
-1. [Whitelist your WhatsApp number](#whitelist-your-whatsapp-number).
-2. [Whitelist your Viber number](#whitelist-your-viber-number).
-3. [Whitelist your Facebook Messenger recipient ID](#whitelist-your-facebook-messenger-recipient-id).
-
-![Whitelist your mobile](/assets/images/messages/sandbox-whitelist.png)
+* [Whitelist your WhatsApp number](#whitelist-your-whatsapp-number)
+* [Whitelist your Viber number](#whitelist-your-viber-number)
+* [Whitelist your Facebook Messenger recipient ID](#whitelist-your-facebook-messenger-recipient-id)
 
 ### Whitelist your WhatsApp number
 
@@ -87,9 +85,9 @@ The procedure for whitelisting yourself differs slightly depending on the sandbo
 
 ## Send a test message via the Messages API Sandbox
 
-Once you are added to the whitelist, you will use a Messages API Sandbox endpoint to send your test messages. The `from` value in the request should be the ID or number associated with the specific Vonage Sandbox external account. For your testing purposes, the value in the `from` field is already populated in the code snippets provided in the Dashboard. It is important to note that you will need to replace the value in the `to` field with your number or Recipient ID that is whitelisted on the specific Vonage Sandbox external account.
+Once your number or recipient ID is added to the whitelist, you will use a Messages API Sandbox endpoint to send your test messages. The `from` value in the request should be the ID or number associated with the specific Vonage Sandbox external account. For your testing purposes, the value in the `from` field is already populated in the code snippets provided in the [Dashboard](https://dashboard.nexmo.com/messages/sandbox). It is important to note that you will need to replace the value in the `to` field with your number or Recipient ID that is whitelisted on the specific Vonage Sandbox external account.
 
-1. Create a new `sandbox-message.sh` file for each of the sandbox channels on which you want to send and receive messages. For instance `whatsapp-sandbox-message.sh`.
-2. Copy the code snippet for the appropriate channel from the code provided in the Dashboard and paste it into the `sandbox-message.sh` file.
+1. Create a new file for each of the sandbox channels on which you want to send and receive messages. For instance `whatsapp-sandbox-message.sh`.
+2. Copy the code snippet for the appropriate channel from the code provided in the [Dashboard](https://dashboard.nexmo.com/messages/sandbox) and paste it into the file you just created.
 3. Replace the value in the `to` field with your number (WhatsApp or Viber) or Recipient ID (Facebook Messenger) that is whitelisted in the sandbox.
-4. Save the file to your machine and run it.
+4. Save the file and run it.
