@@ -12,7 +12,7 @@ The Messages API Sandbox provides a quick and easy method for sending test messa
 * Viber
 * Facebook Messenger
 
-You can setup multiple sandboxes, however, each sandbox must be associated with a different API key. In order to use the sandbox to send test messages on any of the supported channels, you must whitelist your number (WhatsApp and Viber) or Recipient ID (Facebook Messenger) on each of the sandbox channels you want to test. Your number or ID can only be whitelisted in one sandbox at a time. If you whitelist yourself in a different sandbox, you will no longer be whitelisted in the previous sandbox.
+You can setup multiple sandboxes, however, each sandbox must be associated with a different API key. In order to use the sandbox to send test messages on any of the supported channels, you must whitelist your number (WhatsApp and Viber) or recipient ID (Facebook Messenger) on each of the sandbox channels you want to test. Your number or ID can only be whitelisted in one sandbox at a time. If you whitelist yourself in a different sandbox, you will no longer be whitelisted in the previous sandbox.
 
 The Messages API Sandbox is accessible via the [Dashboard](https://dashboard.nexmo.com/messages/sandbox). You can use it to test your integration prior to sending production traffic. Sandbox Messages API requests are sent to a different endpoint than production requests and the Vonage sandbox external account number or ID is used as the `from` value in the request.
 
@@ -21,7 +21,7 @@ The Messages API Sandbox is accessible via the [Dashboard](https://dashboard.nex
 The steps to use the Messages API Sandbox to send test messages on supported messaging platforms are as follows:
 
 1. [Setup your sandbox](#setup-your-sandbox)
-2. [Whitelist your mobile device](#whitelist-yourself)
+2. [Whitelist yourself](#whitelist-yourself)
 3. [Configure webhooks](#configure-webhooks)
 4. [Send a message using the sandbox](#send-a-test-message-via-the-messages-api-sandbox)
 
