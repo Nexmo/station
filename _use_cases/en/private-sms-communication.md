@@ -35,7 +35,7 @@ To complete this tutorial, you need:
 
 ## Create the basic web application
 
-This application uses the [Express](https://expressjs.com/) framework for routing and the [Nexmo Node.js Server SDK](https://github.com/Nexmo/nexmo-node) for sending and receiving SMS. We use `dotenv` so that we can configure the application in a `.env` text file.
+This application uses the [Express](https://expressjs.com/) framework for routing and the [Node Server SDK](https://github.com/Nexmo/nexmo-node) for sending and receiving SMS. We use `dotenv` so that we can configure the application in a `.env` text file.
 
 In `server.js` we initialize the application's dependencies and start the web server. We provide a route handler for the application's home page (`/`) so that you can test that the server is running by visiting `http://localhost:3000`:
 
