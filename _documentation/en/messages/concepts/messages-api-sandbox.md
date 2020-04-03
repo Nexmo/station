@@ -92,9 +92,9 @@ Once your number or recipient ID is added to the whitelist, you will use a Messa
 3. Replace the value in the `to` field with your number (WhatsApp or Viber) or Recipient ID (Facebook Messenger) that is whitelisted in the sandbox.
 4. Save the file and run it.
 
-## WhatsApp Templates for use with Sandbox
+## WhatsApp Templates for use with the Messages API Sandbox
 
-At the moment the following WhatsApp templates can be used with the Sandbox:
+At the moment the following WhatsApp templates can be used with the Messages API Sandbox:
 
 Namespace | Name | Languages
 ----|----|----
