@@ -19,7 +19,7 @@ The Number Insight API has three product levels:
 > Find out more about the [basic, standard and advanced APIs](/number-insight/overview#basic-standard-and-advanced-apis).
 > **Note**: Requests to the Number Insight Basic API are free. The other API levels incur costs. See the [API reference](/api/number-insight) for more information.
 
-The [Nexmo Ruby](http://github.com/nexmo/nexmo-ruby) Server SDK makes it easy to access the Number Insight API. It also enables you to work with the other APIs, such as the Pricing API. This means that as well as validating and sanitizing a phone number, you can confirm the cost of sending text messages and voice calls to it, as we demonstrate in the [calculate the cost](#calculate-the-cost) section of this tutorial.
+The [Ruby Server SDK](http://github.com/nexmo/nexmo-ruby) makes it easy to access the Number Insight API. It also enables you to work with the other APIs, such as the Pricing API. This means that as well as validating and sanitizing a phone number, you can confirm the cost of sending text messages and voice calls to it, as we demonstrate in the [calculate the cost](#calculate-the-cost) section of this tutorial.
 
 ## In this tutorial
 
