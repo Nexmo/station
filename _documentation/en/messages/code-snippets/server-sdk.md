@@ -1,6 +1,6 @@
 ---
-title: Server SDK
-navigation_weight: 2
+title: Install Server SDK
+navigation_weight: 3
 description: Server SDKs are used to help you rapidly develop your messaging applications.
 ---
 
