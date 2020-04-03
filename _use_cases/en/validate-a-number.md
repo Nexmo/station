@@ -23,11 +23,11 @@ The [Ruby Server SDK](http://github.com/nexmo/nexmo-ruby) makes it easy to acces
 
 ## In this tutorial
 
-You learn how to sanitize and validate phone numbers using the Nexmo Server SDK for Ruby.
+You learn how to sanitize and validate phone numbers using the Ruby Server SDK.
 
 * [Before you begin](#before-you-begin) make sure that you have what you need to complete this tutorial
 * [Create the project](#create-the-project) by cloning the tutorial source code on GitHub and configuring it with your Nexmo account details
-* [Install the dependencies](#install-the-dependencies) including the Nexmo Server SDK for Ruby
+* [Install the dependencies](#install-the-dependencies) including the Ruby Server SDK
 * [Code walkthrough](#code-walkthrough) to learn how the code works
 
 ## Before you begin
