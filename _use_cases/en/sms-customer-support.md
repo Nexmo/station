@@ -157,7 +157,7 @@ gem 'nexmo'
 gem 'dotenv-rails'
 ```
 
-> *Note*: To initialize the Nexmo Server SDK you will need to pass it your [API key and secret](https://dashboard.nexmo.com/settings). We highly recommend that you do not store your API credentials in your code but to use environment variables instead.
+> *Note*: To initialize the Server SDK you will need to pass it your [API key and secret](https://dashboard.nexmo.com/settings). We highly recommend that you do not store your API credentials in your code but to use environment variables instead.
 
 With the library initialized the application can now [send an SMS](/api/sms#send-an-sms). Only send a response if this was the first message on this ticket.
 
