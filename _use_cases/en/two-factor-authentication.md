@@ -235,7 +235,7 @@ before_action :ensure_verified
 
 ## Send a verification request
 
-To send the verification request, add the [Nexmo REST API client for Ruby](https://github.com/Nexmo/nexmo-ruby) to the project:
+To send the verification request, add the [Ruby Server SDK](https://github.com/Nexmo/nexmo-ruby) to the project:
 
 **Gemfile**
 
@@ -243,7 +243,7 @@ To send the verification request, add the [Nexmo REST API client for Ruby](https
 gem 'nexmo'
 ```
 
-To initialize the Nexmo Server SDK you pass it your [API key and secret](https://dashboard.nexmo.com/settings). Best practice is to store your API credentials in your environment variables rather than your code.
+To initialize the Server SDK you pass it your [API key and secret](https://dashboard.nexmo.com/settings). Best practice is to store your API credentials in your environment variables rather than your code.
 
 Send a verification code to an unverified user:
 
