@@ -344,6 +344,6 @@ That's it. You can now log a user into your Web app using two-factor authenticat
 ## Resources
 
 * [Two-factor authentication with Nexmo Verify](https://github.com/Nexmo/ruby-2fa)
-* [Nexmo Server SDK for Ruby](https://github.com/Nexmo/nexmo-ruby)
+* [Ruby Server SDK](https://github.com/Nexmo/nexmo-ruby)
 * [Verify API](/verify)
 * [Verify API reference guide](/api/verify)
