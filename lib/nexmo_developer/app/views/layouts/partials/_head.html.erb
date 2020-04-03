@@ -69,7 +69,8 @@
 
   <link rel="canonical" href="<%= canonical_url %>">
 
-  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application' %>
+
   <%= javascript_packs_with_chunks_tag 'application', defer: true %>
   <% if @additional_scripts %>
     <% @additional_scripts.each do |script| %>
