@@ -14,7 +14,7 @@ For example, if you are operating a taxi booking service, then you want your cus
 
 ## In this tutorial
 
-This tutorial is based on the [private SMS use case](https://www.nexmo.com/use-cases/private-sms-communication). It teaches you how to build an SMS proxy system using Node.js and the Nexmo Node.js Server SDK, using a virtual phone number to mask the real numbers of the participants.
+This tutorial is based on the [private SMS use case](https://www.nexmo.com/use-cases/private-sms-communication). It teaches you how to build an SMS proxy system using Node.js and the Node Server SDK, using a virtual phone number to mask the real numbers of the participants.
 
 To build the application, you perform the following steps:
 
@@ -60,7 +60,7 @@ app.get('/', (req, res) => {
 })
 ```
 
-Note that we are instantiating an object of the `SmsProxy` class to handle the routing of messages sent to your virtual number to the intended recipient's real number. We cover the actual proxying process in [proxy the SMS](#proxy-the-sms), but for now just be aware that this class initializes the `nexmo` Server SDK using the API key and secret that you will configure in the next step. This enables your application to send and receive SMS:
+Note that we are instantiating an object of the `SmsProxy` class to handle the routing of messages sent to your virtual number to the intended recipient's real number. We cover the actual proxying process in [proxy the SMS](#proxy-the-sms), but for now just be aware that this class initializes `nexmo` using the API key and secret that you will configure in the next step. This enables your application to send and receive SMS:
 
 ```javascript
 const Nexmo = require('nexmo');
