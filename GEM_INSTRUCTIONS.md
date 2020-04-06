@@ -67,9 +67,9 @@ The following ERB files can be provided to override the default views:
 
 Customized landing pages is a powerful feature of the `nexmo-developer` gem that provides the ability to create unique content using only YAML files. 
 
-All custom landing page YAML files should be placed inside `/custom/views/landing_pages`. 
+All custom landing page YAML files should be placed inside `/custom/landing_pages`. 
 
-The URL path is defined by the file path. For example, a file placed inside `/custom/views/landing_pages/tools.yml` would be viewed at `https://[YOUR WEBSITE URL]/tools`. 
+The URL path is defined by the file path. For example, a file placed inside `/custom/landing_pages/tools.yml` would be viewed at `https://[YOUR WEBSITE URL]/tools`. 
 
 Instructions for creating custom landing pages can be found [here](https://developer.nexmo.com/contribute/guides/landing-pages).
 
