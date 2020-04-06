@@ -24,7 +24,7 @@ Then, run `bundle install` from the command line. If this is your first time ins
 This section will cover:
 
 * [Documentation Organization](#documentation-organization)
-* [Configuration Files](#configuration-files)
+* [Configuration and Customization](#configuration-and-customization)
 * [Running the Gem](#running-the-gem)
 
 ### Documentation Organization
@@ -40,11 +40,17 @@ The gem expects the documentation to be markdown files within the following fold
 +-- _tutorials
 ```
 
-### Configuration Files
+### Configuration and Customization
 
-Customization for the documentation portal is inside the `/config` folder. 
+[Configuration Files](#configuration-files) for the documentation portal are inside the `/config` folder. 
 
-#### Custom Views
+[Custom Views](#custom-views) can be provided inside the `/custom/views` folder.
+
+[Custom Landing Pages](#custom-landing-pages) can be provided inside the `/custom/landing_pages` folder.
+
+##### Configuration Files
+
+##### Custom Views
 
 All `nexmo-developer` static views can be redefined inside `/config/views` by providing custom ERB files.
 
@@ -57,7 +63,7 @@ The following ERB files can be provided to override the default views:
 * `/config/views/layout/partials/_header.html.erb`: The header
 * `/config/views/layout/partials/_head.html.erb`: The head file (meta tags, Google analytics info, and more)
 
-#### Custom Landing Pages
+##### Custom Landing Pages
 
 Customized landing pages is a powerful feature of the `nexmo-developer` gem that provides the ability to create unique content using only YAML files. 
 
