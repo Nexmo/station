@@ -52,24 +52,24 @@ The gem expects the documentation to be markdown files within the following fold
 
 ##### Custom Views
 
-All `nexmo-developer` static views can be redefined inside `/config/views` by providing custom ERB files.
+All `nexmo-developer` static views can be redefined inside `/custom/views` by providing custom ERB files.
 
 _ERB, or embedded Ruby, are HTML files that combine Ruby to produce dynamic content._
 
 The following ERB files can be provided to override the default views:
 
-* `/config/views/static/landing.html.erb`: The default home page
-* `/config/views/layout/partials/_footer.html.erb`: The footer
-* `/config/views/layout/partials/_header.html.erb`: The header
-* `/config/views/layout/partials/_head.html.erb`: The head file (meta tags, Google analytics info, and more)
+* `/custom/views/static/landing.html.erb`: The default home page
+* `/custom/views/layout/partials/_footer.html.erb`: The footer
+* `/custom/views/layout/partials/_header.html.erb`: The header
+* `/custom/views/layout/partials/_head.html.erb`: The head file (meta tags, Google analytics info, and more)
 
 ##### Custom Landing Pages
 
 Customized landing pages is a powerful feature of the `nexmo-developer` gem that provides the ability to create unique content using only YAML files. 
 
-All custom landing page YAML files should be placed inside `/config/views/landing_pages`. 
+All custom landing page YAML files should be placed inside `/custom/views/landing_pages`. 
 
-The URL path is defined by the file path. For example, a file placed inside `/config/views/landing_pages/tools.yml` would be viewed at `https://[YOUR WEBSITE URL]/tools`. 
+The URL path is defined by the file path. For example, a file placed inside `/custom/views/landing_pages/tools.yml` would be viewed at `https://[YOUR WEBSITE URL]/tools`. 
 
 Instructions for creating custom landing pages can be found [here](https://developer.nexmo.com/contribute/guides/landing-pages).
 
