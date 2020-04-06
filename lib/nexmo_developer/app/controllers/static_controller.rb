@@ -4,7 +4,11 @@ class StaticController < ApplicationController
   def default_landing
     yaml_name = request[:landing_page]
 
-    @landing_config = YAML.load_file("#{Rails.root}/config/landing_pages/#{yaml_name}.yml")
+    if Dir.exist?("#{Rails.configuration.docs_base_path}/custom/landing_pages")
+      @landing_config = YAML.load_file("#{Rails.configuration.docs_base_path}/custom/landing_pages/#{yaml_name}.yml")
+    else
+      @landing_config = YAML.load_file("#{Rails.root}/config/landing_pages/#{yaml_name}.yml")
+    end
 
     @landing_config['page'].each do |row|
       some_columns_have_widths = row['row'].select { |c| c['width'] }.count.positive?
