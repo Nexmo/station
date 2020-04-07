@@ -49,6 +49,9 @@ The gem expects the documentation to be markdown files within the following fold
 
 ##### Configuration Files
 
+1. Top navigation bar
+  * The links in the navigation bar can be customized through providing a `top_navigation.yml` configuration file inside the `/config` folder. In this file each navigation item should be provided on its own line in the following format: `Name: /url`. For example, `Documentation: /documentation`, is a valid entry. If a custom YAML file is not provided, the gem's default navigation bar will be rendered.
+
 ##### Custom Views
 
 All `nexmo-developer` static views can be redefined inside `/custom/views` by providing custom ERB files.
