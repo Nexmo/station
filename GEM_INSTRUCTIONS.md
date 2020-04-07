@@ -42,11 +42,10 @@ The gem expects the documentation to be markdown files within the following fold
 
 ### Configuration and Customization
 
-[Configuration Files](#configuration-files) for the documentation portal are inside the `/config` folder. 
-
-[Custom Views](#custom-views) can be provided inside the `/custom/views` folder.
-
-[Custom Landing Pages](#custom-landing-pages) can be provided inside the `/custom/landing_pages` folder.
+* [Configuration Files](#configuration-files) for the documentation portal are inside the `/config` folder. 
+* [Custom Views](#custom-views) can be provided inside the `/custom/views` folder.
+* [Custom Landing Pages](#custom-landing-pages) can be provided inside the `/custom/landing_pages` folder.
+* [Custom Public Assets](#custom-public-folder) can be provided inside the `/custom/public` folder.
 
 ##### Configuration Files
 
@@ -72,6 +71,14 @@ All custom landing page YAML files should be placed inside `/custom/landing_page
 The URL path is defined by the file path. For example, a file placed inside `/custom/landing_pages/tools.yml` would be viewed at `https://[YOUR WEBSITE URL]/tools`. 
 
 Instructions for creating custom landing pages can be found [here](https://developer.nexmo.com/contribute/guides/landing-pages).
+
+##### Custom Public Path
+
+Custom assets, such as images and icons, can be provided in the `/custom/public` folder. They then can be referenced inside [custom views](#custom-views). For example, if the following image is added inside `/custom/public/assets/media/logos/sample_image.png` then it could be referenced using ERB syntax as follows:
+
+```ruby
+<%= image_tag('/assets/media/logos/sample_image.png') %>
+```
 
 ### Running The Gem
 
