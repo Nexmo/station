@@ -6,6 +6,19 @@ navigation_weight: 0
 
 # Release Notes
 
+## 2.1.8 - 2020-04-02
+
+### Added
+
+- Add `useFirstIceCandidate` parameters to `NXMClientConfig`
+
+```
+NXMClientConfig *config = [[NXMClientConfig alloc] initWithApiUrl:restUrl
+                                                     websocketUrl:wsUrl
+                                                           ipsUrl:ipsUrl
+                                             useFirstIceCandidate:NO];
+```
+
 ## 2.1.5 - 2020-03-18
 
 ### Internal
@@ -400,7 +413,7 @@ NXMClient myClient = ...;
 @end
 ```
 
-```objective-c
+```objective_c
 @interface NXMDirection : NSObject
 
 @property (nonatomic, assign) NXMDirectionType type;
