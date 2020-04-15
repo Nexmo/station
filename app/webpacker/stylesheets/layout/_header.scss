@@ -60,6 +60,7 @@
     flex-direction: column;
 
     h4 {
+      line-height: 2rem;
       margin-bottom: 0px;
     }
   }
@@ -67,7 +68,7 @@
   .Nxd-product__separator {
     height: 35px;
     flex: 0;
-    margin: 0 24px;
+    margin: 0 21px;
     border-left: 1px solid $black;
   }
 
@@ -172,5 +173,5 @@
 
 .Nxd-main-header__link {
   font-weight: 600;
-  padding-top: 3px;
+  padding-top: 2px;
 }
