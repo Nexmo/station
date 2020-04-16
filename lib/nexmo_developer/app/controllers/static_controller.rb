@@ -225,7 +225,7 @@ class StaticController < ApplicationController
   end
 
   def team
-    if Pathname.exist?("#{Rails.configuration.docs_base_path}/config/team.yml")
+    if File.exist?("#{Rails.configuration.docs_base_path}/config/team.yml")
       @team ||= YAML.load_file("#{Rails.configuration.docs_base_path}/config/team.yml")
     else
       @team ||= YAML.load_file("#{Rails.root}/config/team.yml")

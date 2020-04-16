@@ -1,6 +1,6 @@
 class Navigation
   IGNORED_PATHS = ['..', '.', '.DS_Store'].freeze
-  if Pathname.exist?("#{Rails.configuration.docs_base_path}/config/navigation.yml")
+  if File.exist?("#{Rails.configuration.docs_base_path}/config/navigation.yml")
     NAVIGATION = YAML.load_file("#{Rails.configuration.docs_base_path}/config/navigation.yml")
   else
     NAVIGATION = YAML.load_file("#{Rails.root}/config/navigation.yml")

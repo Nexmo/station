@@ -48,7 +48,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_notices
-    if Pathname.exist?("#{Rails.configuration.docs_base_path}/config/notices.yml")
+    if File.exist?("#{Rails.configuration.docs_base_path}/config/notices.yml")
       @notices ||= YAML.load_file("#{Rails.configuration.docs_base_path}/config/notices.yml")
     else
       @notices ||= YAML.load_file("#{Rails.root}/config/notices.yml")
