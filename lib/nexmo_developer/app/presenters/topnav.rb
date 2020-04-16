@@ -65,12 +65,12 @@ class Topnav
 
   def navbar_items_default
     @items ||= [
-      ['Documentation', '/documentation'],
-      ['Use Cases', '/use-cases'],
-      ['API', '/api'],
-      ['Tools', '/tools'],
-      ['Community', '/community'],
-      ['Extend', '/extend']
+      {:name=>"Documentation", :url=>"/documentation", :navigation=>"documentation"},
+      {:name=>"Use Cases", :url=>"/use-cases", :navigation=>"use_cases"},
+      {:name=>"Tools", :url=>"/tools", :navigation=>"tools"},
+      {:name=>"Community", :url=>"/community", :navigation=>"community"},
+      {:name=>"Extend", :url=>"/extend", :navigation=>"extend"},
+      {:name=>"Team", :url=>"/team", :navigation=>"team"}
     ]
   end
 
