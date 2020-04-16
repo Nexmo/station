@@ -36,21 +36,7 @@
     <div class="Nxd-header__sub__menu">
       <% @links = Topnav.new %>
       <% @links.items.each do |item| %>
-        <% if item[0].downcase == 'documentation' %>
-          <a href=<%= documentation_path(locale: params[:locale]) %> class="Vlt-tabs__link <%= @navigation == :documentation ? 'Vlt-tabs__link_active' : '' %>"><%= t('.documentation') %></a>
-        <% elsif item[0].downcase == 'use cases' %>
-          <a href=<%= use_cases_path %> class="Vlt-tabs__link <%= @navigation == :use_case ? 'Vlt-tabs__link_active' : '' %>"><%= t('.use-cases') %></a>
-        <% elsif item[0].downcase == 'api' %>
-          <a href=<%= api_path %> class="Vlt-tabs__link <%= @navigation == :api ? 'Vlt-tabs__link_active' : '' %>"><%= t('.api-reference') %></a>
-        <% elsif item[0].downcase == 'tools' %>
-          <a href=<%= api_path %> class="Vlt-tabs__link <%= @navigation == :api ? 'Vlt-tabs__link_active' : '' %>"><%= t('.api-reference') %></a>
-        <% elsif item[0].downcase == 'community' %>
-          <a href=<%= static_path('community')%> class="Vlt-tabs__link <%= @navigation == :community ? 'Vlt-tabs__link_active' : '' %>"><%= t('.community') %></a>
-        <% elsif item[0].downcase == 'extend' %>
-          <a href=<%= extend_path %> class="Vlt-tabs__link <%= @navigation == :extend ? 'Vlt-tabs__link_active' : '' %>"><%= t('.extend') %></a>
-        <% else %>
-          <a href=<%= item[1] %> class='Vlt-tabs__link'><%= item[0] %></a>
-        <% end %>
+        <a href=<%= item[:url] %> class="Vlt-tabs__link <%= @navigation == item[:navigation] ? 'Vlt-tabs__link_active' : '' %>"><%= item[:name] %></a>
       <% end %>
     </div>
 

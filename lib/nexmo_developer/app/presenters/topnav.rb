@@ -11,11 +11,56 @@ class Topnav
 
   def navbar_items_from_config(config)
     config = YAML::load(File.open(config))
-    @items ||= config.map do |item|
-      name = item[0],
-      url = item[1]
+    @items ||= config.map do |name, url_path| {
+      name: configure_item_name(name),
+      url: configure_item_url_path(url_path), 
+      navigation: configure_item_navigation(name)
+    }
     end
     return @items
+  end
+
+  def configure_item_name(name)
+    name_comparison = name.downcase
+    case name_comparison
+    when 'documentation'
+      I18n.t('.documentation')
+    when 'use-cases'
+      I18n.t('.use-cases')
+    when 'api'
+      I18n.t('.api-reference')
+    when 'community'
+      I18n.t('.community')
+    when 'extend'
+      I18n.t('.extend')
+    when 'tools'
+      I18n.t('.sdks-and-tools')
+    else
+      name
+    end
+  end
+
+  def configure_item_url_path(url_path)
+    case url_path
+    when 'documentation'
+      documentation_path(locale: I18n.locale)
+    when 'use-cases'
+      use_cases_path
+    when 'api'
+      api_path
+    when 'community'
+      static_path('community')
+    when 'extend'
+      extend_path
+    when 'tools'
+      tools_path
+    else
+      url_path
+    end
+  end
+
+  def configure_item_navigation(name)
+    name.parameterize.underscore
   end
 
   def navbar_items_default
