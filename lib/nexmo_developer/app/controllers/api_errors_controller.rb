@@ -63,7 +63,11 @@ class ApiErrorsController < ApplicationController
   end
 
   def error_config
-    @error_config ||= YAML.load_file("#{Rails.root}/config/api-errors.yml")
+    if Pathname.exist?("#{Rails.configuration.docs_base_path}/config/api-errors.yml")
+      @error_config ||= YAML.load_file("#{Rails.configuration.docs_base_path}/config/api-errors.yml")
+    else
+      @error_config ||= YAML.load_file("#{Rails.root}/config/api-errors.yml")
+    end
   end
 
   def validate_subapi

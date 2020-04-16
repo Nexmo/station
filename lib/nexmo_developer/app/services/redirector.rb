@@ -1,4 +1,10 @@
-CORE_REDIRECTS = YAML.load_file("#{Rails.root}/config/redirects.yml") || {}
+if Pathname.exist?("#{Rails.configuration.docs_base_path}/config/redirects.yml")
+  CORE_REDIRECTS = YAML.load_file("#{Rails.configuration.docs_base_path}/config/redirects.yml")
+elsif Pathname.exist?("#{Rails.root}/config/redirects.yml")
+  CORE_REDIRECTS = YAML.load_file("#{Rails.root}/config/redirects.yml")
+else
+  CORE_REDIRECTS = {}
+end
 STITCH_REDIRECTS = YAML.load_file("#{Rails.root}/config/stitch-redirects.yml") || {}
 AUTOMATED_REDIRECTS = YAML.load_file("#{Rails.root}/config/automatic-redirects.yml") || {}
 
