@@ -18,6 +18,7 @@ products:
   - numbers
   - redact
   - reports
+  - tools
   - verify
   - voice/sip
   - voice/voice-api

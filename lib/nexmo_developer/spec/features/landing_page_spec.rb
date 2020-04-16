@@ -5,7 +5,7 @@ RSpec.feature 'Landing page' do
     visit '/'
 
     within('#subnav') do
-      expect(page).to have_link('Documentation', href: '/documentation')
+      expect(page).to have_link('Documentation', href: '/en/documentation')
       expect(page).to have_link('Use Cases', href: '/use-cases')
       expect(page).to have_link('API Reference', href: '/api')
       expect(page).to have_link('SDKs & Tools', href: '/tools')
@@ -125,13 +125,11 @@ RSpec.feature 'Landing page' do
       within('.Vlt-col.Vlt-col--1of3.Vlt-col--M-1of2:nth-of-type(9)') do
         expect(page).to have_css('h2', text: 'Management APIs')
         within('nav:nth-of-type(1)') do
-          expect(page).to have_link('Message Search', href: '/api/developer/messages')
           expect(page).to have_link('Numbers', href: '/api/developer/numbers')
           expect(page).to have_link('Pricing', href: '/api/developer/pricing')
           expect(page).to have_link('Conversion', href: '/api/conversion')
           expect(page).to have_link('Media', href: '/api/media')
           expect(page).to have_link('Redact', href: '/api/redact')
-          expect(page).to have_link('Secret Management', href: '/api/account/secret-management')
         end
       end
 

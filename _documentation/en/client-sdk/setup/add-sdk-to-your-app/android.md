@@ -23,7 +23,7 @@ To add the Nexmo Client SDK to your project, add the following dependency in you
 
 ```groovy
 dependencies {
-    implementation 'com.nexmo.android:client-sdk:1.0.0'
+    implementation 'com.nexmo.android:client-sdk:2.5.0'
 }
 ```
 
@@ -31,38 +31,29 @@ dependencies {
 
 To use the In-App Voice features, add audio permissions using the following procedure:
 
-1. On your `AndroidManifest.xml` add the required permissions:
+1. Add required permissions to `AndroidManifest.xml` file:
 
     ```xml
     <manifest ...>
-
         <uses-permission android:name="android.permission.INTERNET" />
         <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
         <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
         <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-
         <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
         <uses-permission android:name="android.permission.RECORD_AUDIO" />
-        <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
-        <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-
-        <application>
-
-        </>
-    </>
+    </manifest>
     ```
 
-2. For devices running Android version M (API level 23) or higher, you should add a request for the permissions required:
+2. For devices running Android version M (API level 23) or higher, you should request for the `RECORD_AUDIO` permission at runtime:
 
     ```java
-    android.Manifest.permission.READ_PHONE_STATE,
-
-    android.Manifest.permission.RECORD_AUDIO,
-
-    android.Manifest.permission.PROCESS_OUTGOING_CALLS
+    // Here, thisActivity is the current activity
+    if (ContextCompat.checkSelfPermission(thisActivity, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+        ActivityCompat.requestPermissions(thisActivity, new String[]{Manifest.permission.RECORD_AUDIO}, "123");
+    }
     ```
 
-    Read more about requesting runtime permissions on Android [here](https://developer.android.com/training/permissions/requesting)
+    Read more about requesting runtime permissions on Android [here](https://developer.android.com/training/permissions/requesting). 
 
 ## Using `NexmoClient` in your App
 
