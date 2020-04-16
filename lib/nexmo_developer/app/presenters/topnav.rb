@@ -1,23 +1,21 @@
 class Topnav
   attr_reader :items
-
-  # rubocop:disable Metrics/ParameterLists
   def initialize(items: nil)
     @items = items
 
     after_initialize!
   end
-  # rubocop:enable Metrics/ParameterLists
 
   def navbar_items_from_config(config)
-    config = YAML::load(File.open(config))
-    @items ||= config.map do |name, url_path| {
+    config = YAML.safe_load(File.open(config))
+    @items ||= config.map do |name, url_path|
+      {
       name: configure_item_name(name),
-      url: configure_item_url_path(url_path), 
-      navigation: configure_item_navigation(name)
+      url: configure_item_url_path(url_path),
+      navigation: configure_item_navigation(name),
     }
     end
-    return @items
+    @items
   end
 
   def configure_item_name(name)
@@ -63,24 +61,11 @@ class Topnav
     name.parameterize.underscore
   end
 
-  def navbar_items_default
-    @items ||= [
-      {:name=>"Documentation", :url=>"/documentation", :navigation=>"documentation"},
-      {:name=>"Use Cases", :url=>"/use-cases", :navigation=>"use_cases"},
-      {:name=>"Tools", :url=>"/tools", :navigation=>"tools"},
-      {:name=>"Community", :url=>"/community", :navigation=>"community"},
-      {:name=>"Extend", :url=>"/extend", :navigation=>"extend"},
-      {:name=>"Team", :url=>"/team", :navigation=>"team"}
-    ]
-  end
-
   private
 
   def after_initialize!
-    if File.exist?("#{Rails.configuration.docs_base_path}/config/top_navigation.yml")
-      @items = navbar_items_from_config("#{Rails.configuration.docs_base_path}/config/top_navigation.yml")
-    else
-      @items = navbar_items_default
-    end
+    raise 'You must provide a config/top_navigation.yml file in your documentation path.' unless File.exist?("#{Rails.configuration.docs_base_path}/config/top_navigation.yml")
+
+    @items = navbar_items_from_config("#{Rails.configuration.docs_base_path}/config/top_navigation.yml")
   end
 end

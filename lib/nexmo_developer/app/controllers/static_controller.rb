@@ -225,11 +225,7 @@ class StaticController < ApplicationController
   end
 
   def team
-    if File.exist?("#{Rails.configuration.docs_base_path}/config/team.yml")
-      @team ||= YAML.load_file("#{Rails.configuration.docs_base_path}/config/team.yml")
-    else
-      @team ||= YAML.load_file("#{Rails.root}/config/team.yml")
-    end
+    @team ||= LoadConfig.load_file('config/team.yml')
     @careers = Greenhouse.devrel_careers
 
     render layout: 'page'

@@ -48,11 +48,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_notices
-    if File.exist?("#{Rails.configuration.docs_base_path}/config/notices.yml")
-      @notices ||= YAML.load_file("#{Rails.configuration.docs_base_path}/config/notices.yml")
-    else
-      @notices ||= YAML.load_file("#{Rails.root}/config/notices.yml")
-    end
+    @notices ||= LoadConfig.load_file('config/notices.yml')
   end
 
   def set_feedback_author
