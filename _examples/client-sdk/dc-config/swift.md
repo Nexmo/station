@@ -1,6 +1,6 @@
 ---
-title: iOS
-menu_weight: 3
+title: Swift
+language: swift
 ---
 
 ``` swift

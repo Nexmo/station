@@ -1,6 +1,6 @@
 ---
 title: JavaScript
-menu_weight: 1
+language: javascript
 ---
 
 ``` javascript
