@@ -57,7 +57,7 @@ Visit [the Nexmo Knowledge Base](https://help.nexmo.com/hc/en-us/articles/115004
 
 **DTMF**
 
-Nexmo supports out-of-band DTMF. For more information, see [RFC2833](https://www.ietf.org/rfc/rfc2833.txt).
+Nexmo supports out-of-band DTMF. For more information, see [RFC4733](https://www.ietf.org/rfc/rfc4733.txt).
 
 **Health checks**
 
