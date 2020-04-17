@@ -6,6 +6,12 @@ navigation_weight: 0
 
 # Release Notes
 
+## 2.1.9 - 2020-04-14
+
+### Fixed
+
+- `NXMClientConfig` convenience initializer implementations.
+
 ## 2.1.8 - 2020-04-02
 
 ### Added
