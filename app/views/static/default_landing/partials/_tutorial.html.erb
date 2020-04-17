@@ -1,11 +1,11 @@
 <% raise "Missing 'name' key in tutorial landing page block" unless local_assigns['name'] %>
 
 <%
-  path = DocFinder.find(
+  path = Nexmo::Markdown::DocFinder.find(
     root: 'config/tutorials',
     document: "#{local_assigns['name']}.yml",
     language: @language,
-  )
+  ).path
 
   raise "Unable to read file: #{path}" unless File.exist? path
   file = File.read(path)

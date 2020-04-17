@@ -6,6 +6,55 @@ navigation_weight: 0
 
 # Release Notes
 
+## Version 2.5.0 - March 25, 2020
+
+### Added
+
+- Add `useFirstIceCandidate` parameters to `NexmoClient.Builder`
+
+```
+    nexmoClient = new NexmoClient.Builder().useFirstIceCandidate(true/false).build(context);    
+```
+
+---
+
+## Version 2.4.0 - March 3 , 2020
+
+### Added
+
+- Add filter by state to `getConversationsPage`  in `NexmoClient`.
+
+```
+NexmoClient.get().getConversationsPage(50, NexmoPageOrderDesc, "JOINED", new NexmoRequestListener<NexmoConversationsPage>(){
+   void onError(@NonNull NexmoApiError error){
+
+   }
+   void onSuccess(@Nullable NexmoConversationsPage result){
+        //Get the current page conversations -Sync
+        Collection<NexmoConversation> conversations = result.getData()
+        //Get the next page -Async
+        result.getNext(new NexmoRequestListener<NexmoConversationsPage>(){
+        void onError(@NonNull NexmoApiError error){
+
+           }
+           void onSuccess(@Nullable NexmoConversationsPage result){
+
+           }
+        })
+
+        //Get the previous page -Async
+        result.getPrev(new NexmoRequestListener<NexmoConversationsPage>(){
+        void onError(@NonNull NexmoApiError error){
+
+           }
+           void onSuccess(@Nullable NexmoConversationsPage result){
+
+           }
+        })
+   }
+});
+```
+
 ## Version 2.3.0 - February 11, 2020
 
 ### Added
@@ -26,11 +75,11 @@ to update event locally after `markAsSeen` or `markAsDelivered` has been success
 
 ### Fixed
 
-- fix `markAsSeen` and `markAsDelivered` for `NexmoTextEvent` and `NexmoAttachmentEvent`
+- Fix `markAsSeen` and `markAsDelivered` for `NexmoTextEvent` and `NexmoAttachmentEvent`
 
 ### Changed
 
-- upgrade dependency libraries please add to your build Gradle
+- Upgrade dependency libraries please add to your build Gradle
 
 ```groovy
 android {
@@ -44,68 +93,13 @@ android {
 }
 ``` 
 
+---
+
 ## Version 2.2.0 - January 31, 2020
 
 ### Added
 
-- Add support for Custom Push Notifications, using `processNexmoPush()` (`processPushNotification()` is deprecated)
-
-```
-if (NexmoClient.isNexmoPushNotification(message!!.data)) {
-    val pushListener = object : NexmoPushEventListener {
-            override fun onIncomingCall(nexmoCall: NexmoCall?) {
-                Log.d(TestAppMessagingService.TAG, "$TAG:TestAppMessagingService:onIncomingCall() with: $nexmoCall")
-            }
-            override fun onError(nexmoError: NexmoApiError?) {
-                Log.d(TestAppMessagingService.TAG, "$TAG:TestAppMessagingService:onError() with: $nexmoError")
-            }
-            override fun onNewEvent(event: NexmoEvent?) {
-                Log.d(TestAppMessagingService.TAG, "$TAG:TestAppMessagingService:onNewEvent() with: $event")
-            }
-        }
-    NexmoPushPayload nexmoPushPayload = nexmoClient.processNexmoPush(message!!.data, pushListener)
-    when(nexmoPushPayload.pushTemplate){
-        Default ->
-            // you can use nexmoPushPayload.eventData if needed
-        Custom ->
-            // got nexmo custom push. 😀
-            // you should parse nexmoPushEvent.customData your backend had defined.
-    }
-}
-
-```
-
-- Add `markAsDelivered` method to `NexmoTextEvent` and `NexmoAttachmentEvent`
-
-```
-  NexmoTextEvent.markAsDelivered(object: NexmoRequestListener<Any>{
-       override fun onSuccess(result: Any?) {
-       Log.d(TAG, TAG + "onTextEvent.markAsDelivered():onSuccess with: " + result.toString())
-       }
-       override fun onError(error: NexmoApiError) {
-       Log.d(TAG, TAG + "onTextEvent.markAsDelivered():onError with: " + error)
-        }
-   })
-   ```
-   
- - add `markAsSeen` method to `NexmoTextEvent` and `NexmoAttachmentEvent`
- 
- ```
-  NexmoAttachmentEvent.markAsSeen(object: NexmoRequestListener<Any>{
-       override fun onSuccess(result: Any?) {
-       Log.d(TAG, TAG + "onAttachmentEvent.markAsSeen():onSuccess with: " + result.toString())
-       }
-       override fun onError(error: NexmoApiError) {
-       Log.d(TAG, TAG + "onAttachmentEvent.markAsSeen():onError with: " + error)
-        }
-   })
-   ```
-   
-## Version 2.2.0 - January 31, 2020
-
-### Added
-
-- Add support for Custom Push Notifications, using `processNexmoPush()` (`processPushNotification()` is deprecated)
+- Add support for Custom Push Notifications, using `processNexmoPush()` ,`processPushNotification()` is deprecated
 
 ```
 if (NexmoClient.isNexmoPushNotification(message!!.data)) {
@@ -157,10 +151,12 @@ if (NexmoClient.isNexmoPushNotification(message!!.data)) {
    })
 ```
 
+---
+
 ## Version 2.1.2 - January 12, 2020
 
 ### Added
-- add annotation of `PermissionRequired` for function that start media: `NexmoClient.call` , `NexmoCall.answer` , `NexmoConvesation.enableMedia`
+- Add annotation of `PermissionRequired` for function that start media: `NexmoClient.call` , `NexmoCall.answer` , `NexmoConvesation.enableMedia`
 
 ```
     class MyActivity MakeCallActivity extends Activity {
@@ -185,8 +181,8 @@ if (NexmoClient.isNexmoPushNotification(message!!.data)) {
 ```
 
 ### Removed
-- remove require for permission `PROCESS_OUTGOING_CALLS` 
-- remove require for permission `READ_PHONE_STATE`
+- Remove require for permission `PROCESS_OUTGOING_CALLS` 
+- Remove require for permission `READ_PHONE_STATE`
 
 ---
 

@@ -51,9 +51,6 @@ Rails/FilePath:
 Layout/FirstHashElementIndentation:
   Enabled: false
 
-Style/BracesAroundHashParameters:
-  Enabled: false
-
 Style/NumericLiterals:
   Enabled: false
 
@@ -107,3 +104,15 @@ Style/IfUnlessModifier:
 
 Rails/HelperInstanceVariable:
   Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/HashEachMethods:
+  Enabled: true
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true

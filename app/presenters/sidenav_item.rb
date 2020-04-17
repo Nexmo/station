@@ -1,6 +1,8 @@
 class SidenavItem
+  include Rails.application.routes.url_helpers
+
   delegate :request_path, :navigation, :product, :documentation?,
-           :namespace, :code_language, to: :@sidenav
+           :namespace, :code_language, :locale, to: :@sidenav
 
   def initialize(folder:, sidenav:)
     @folder  = folder
@@ -17,7 +19,7 @@ class SidenavItem
   end
 
   def svg_color
-    @options['svgColor'] && "Vlt-#{@options['svgColor']}"
+    'Vlt-gray-darker'
   end
 
   def label?
@@ -35,7 +37,7 @@ class SidenavItem
   end
 
   def css_classes
-    classes = ['Vlt-badge Vlt-badge--margin-left']
+    classes = ['Vlt-badge Vlt-badge--margin-left Vlt-badge--small']
     classes << 'Vlt-bg-green-lighter Vlt-green' if label.casecmp('beta').zero?
     classes << 'Vlt-bg-blue-lighter Vlt-blue' if label.casecmp('dev preview').zero?
 

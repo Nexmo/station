@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   include ApplicationHelper
 
   rescue_from Errno::ENOENT, with: :not_found
-  rescue_from DocFinder::MissingDoc, with: :not_found
+  rescue_from Nexmo::Markdown::DocFinder::MissingDoc, with: :not_found
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
   protect_from_forgery with: :exception
 
@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
   before_action :set_notices
   before_action :set_code_language
   before_action :set_feedback_author
+  before_action :set_locale
 
   def not_found
     redirect = Redirector.find(request)
@@ -43,7 +44,7 @@ class ApplicationController < ActionController::Base
   def set_code_language
     return unless request.params[:code_language]
 
-    @code_language = CodeLanguage.find(request.params[:code_language])
+    @code_language = Nexmo::Markdown::CodeLanguage.find(request.params[:code_language])
   end
 
   def set_notices
@@ -71,5 +72,19 @@ class ApplicationController < ActionController::Base
 
   def render_not_found
     render 'static/404', status: :not_found, formats: [:html]
+  end
+
+  def set_locale
+    I18n.locale = params[:locale] || session[:locale] || locale_from_domain
+  rescue I18n::InvalidLocale
+    I18n.locale = I18n.default_locale
+  end
+
+  def locale_from_domain
+    if Rails.env.production?
+      request.host == 'developer.nexmocn.com' ? 'cn' : 'en'
+    else
+      I18n.default_locale
+    end
   end
 end

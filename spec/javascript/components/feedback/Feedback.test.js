@@ -16,7 +16,7 @@ describe('Feedback', function() {
 
   it('renders a link to improve the page if a githubUrl is provided', function() {
     const wrapperWithUrl = shallowMount(Feedback, { propsData: { githubUrl: githubUrl } });
-    expect(wrapperWithUrl.find('#feedback__improve a').html()).toEqual(`<a href="${githubUrl}" target="_blank"> Improve this page</a>`);
+    expect(wrapperWithUrl.find('#feedback__improve a').html()).toEqual(`<a href="${githubUrl}" target="_blank" class="Vlt-text-link Vlt-black"> Improve this page</a>`);
 
     const wrapperWithoutUrl = shallowMount(Feedback);
     expect(wrapperWithoutUrl.find('#feedback__improve').exists()).toBeFalsy();
@@ -35,9 +35,9 @@ describe('Feedback', function() {
   it('allows the user to provide feedback', function() {
     const wrapper = shallowMount(Feedback, { propsData: { currentUser: currentUser, githubUrl: githubUrl }});
 
-    expect(wrapper.find('h5').text()).toEqual('Was this documentation helpful?');
-    expect(wrapper.find('.Vlt-green')).toBeTruthy();
-    expect(wrapper.find('.Vlt-red')).toBeTruthy();
+    expect(wrapper.find('h4').text()).toEqual('Was this documentation helpful?');
+    expect(wrapper.find('.Vlt-bg-green')).toBeTruthy();
+    expect(wrapper.find('.Vlt-bg-red')).toBeTruthy();
   });
 
   describe('Providing positive feedback', function() {
@@ -62,10 +62,10 @@ describe('Feedback', function() {
       )
       const wrapper = shallowMount(Feedback, { propsData: { currentUser: currentUser, githubUrl: githubUrl, source: source }});
 
-      wrapper.find('.Vlt-green').trigger('click');
+      wrapper.find('.Vlt-bg-green').trigger('click');
 
       expect(wrapper.find('.Vlt-spinner')).toBeTruthy();
-      expect(wrapper.find('.Vlt-btn_active .Vlt-green')).toBeTruthy();
+      expect(wrapper.find('.Vlt-btn_active .Vlt-bg-green')).toBeTruthy();
       expect(wrapper.text()).toContain('Great! Thanks for the feedback.');
     });
 
@@ -82,11 +82,11 @@ describe('Feedback', function() {
         }
       );
 
-      wrapper.find('.Vlt-green').trigger('click');
+      wrapper.find('.Vlt-bg-green').trigger('click');
 
       await flushPromises();
       expect(wrapper.find('.Vlt-spinner')).toBeTruthy();
-      expect(wrapper.find('.Vlt-btn_active .Vlt-green')).toBeTruthy();
+      expect(wrapper.find('.Vlt-btn_active .Vlt-bg-green')).toBeTruthy();
       expect(wrapper.find('.form__error').text()).toEqual('There was an error');
     });
   });
@@ -128,12 +128,12 @@ describe('Feedback', function() {
         )
         const wrapper = shallowMount(Feedback, { propsData: { currentUser: currentUser, githubUrl: githubUrl }});
 
-        wrapper.find('.Vlt-red').trigger('click');
+        wrapper.find('.Vlt-bg-red').trigger('click');
 
         await flushPromises();
 
         expect(wrapper.find('.Vlt-spinner')).toBeTruthy();
-        expect(wrapper.find('.Vlt-btn_active .Vlt-red')).toBeTruthy();
+        expect(wrapper.find('.Vlt-btn_active .Vlt-bg-red')).toBeTruthy();
 
         expect(wrapper.vm.id).toEqual('123');
 
@@ -199,12 +199,12 @@ describe('Feedback', function() {
         )
         const wrapper = shallowMount(Feedback, { propsData: { githubUrl: githubUrl }});
 
-        wrapper.find('.Vlt-red').trigger('click');
+        wrapper.find('.Vlt-bg-red').trigger('click');
 
         await flushPromises();
 
         expect(wrapper.find('.Vlt-spinner')).toBeTruthy();
-        expect(wrapper.find('.Vlt-btn_active .Vlt-red')).toBeTruthy();
+        expect(wrapper.find('.Vlt-btn_active .Vlt-bg-red')).toBeTruthy();
 
         expect(wrapper.vm.id).toEqual('123');
 
@@ -249,7 +249,7 @@ describe('Feedback', function() {
         };
 
         const wrapper = shallowMount(Feedback, { attachToDocument: true, propsData: { recaptcha: { enabled: true } }});
-        wrapper.find('.Vlt-red').trigger('click');
+        wrapper.find('.Vlt-bg-red').trigger('click');
 
         expect(global.grecaptcha.render).toBeCalled();
         expect(global.grecaptcha.execute).toBeCalled();
@@ -257,7 +257,7 @@ describe('Feedback', function() {
         await flushPromises();
 
         expect(wrapper.find('.Vlt-spinner')).toBeTruthy();
-        expect(wrapper.find('.Vlt-btn_active .Vlt-red')).toBeTruthy();
+        expect(wrapper.find('.Vlt-btn_active .Vlt-bg-red')).toBeTruthy();
 
         wrapper.destroy();
       });

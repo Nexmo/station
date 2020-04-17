@@ -14,7 +14,7 @@ namespace :ci do
       Dir.glob(path).each do |filename|
         document = File.read(filename)
         begin
-          MarkdownPipeline.new.call(document)
+          Nexmo::Markdown::Renderer.new.call(document)
         rescue StandardError => e
           puts "Error whilst processing #{filename}"
           raise e
@@ -117,7 +117,7 @@ namespace :ci do
   task 'check_word_blocklist': :environment do
     markdown_files =
       [
-        "#{Rails.configuration.docs_base_path}/_documentation/**/*.md",
+        "#{Rails.configuration.docs_base_path}/_documentation/en/**/*.md",
         "#{Rails.configuration.docs_base_path}/_api/**/*.md",
         "#{Rails.configuration.docs_base_path}/_tutorials/**/*.md",
         "#{Rails.configuration.docs_base_path}/_partials/*.md",

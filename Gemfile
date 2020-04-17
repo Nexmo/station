@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.5.7'
+ruby '2.5.8'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
@@ -7,7 +7,7 @@ git_source(:github) do |repo_name|
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.0.0'
+gem 'rails', '~> 6.0.2'
 gem 'webpacker'
 
 # Use postgresql as the database for Active Record
@@ -27,8 +27,7 @@ gem 'coffee-rails', '~> 5.0'
 gem 'jquery-rails'
 # Add clipboard for copying content
 gem 'clipboard-rails'
-# Icons!
-gem 'octicons_helper'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.10.0'
 # Use Redis adapter to run Action Cable in production
@@ -44,17 +43,8 @@ gem 'gmaps4rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-# A fast, safe and extensible Markdown to (X)HTML parser
-gem 'redcarpet', '~> 3.4.0'
-
-# Rouge aims to a be a simple, easy-to-extend drop-in replacement for pygments.
-gem 'rouge', '~> 2.0.7'
-
-# Toolkit for processing input using filters and pipelines
-gem 'banzai', '~> 0.1.2'
-
 # Nokogiri (鋸) is an HTML, XML, SAX, and Reader parser. Among Nokogiri's many features is the ability to search documents via XPath or CSS3 selectors.
-gem 'nokogiri', '~> 1.10.8'
+gem 'nokogiri', '~> 1.10.9'
 
 # Autoload dotenv in Rails.
 gem 'dotenv-rails', groups: %i[development test]
@@ -84,7 +74,7 @@ gem 'icalendar', require: false
 gem 'neatjson'
 
 # Faker, a port of Data::Faker from Perl, is used to easily generate fake data: names, addresses, phone numbers, etc.
-gem 'faker', '2.10.2', require: false
+gem 'faker', '2.11.0', require: false
 
 # factory_girl_rails provides integration between factory_girl and rails 3 or newer (currently just automatic factory definition loading)
 gem 'factory_bot_rails', '5.1.1', require: false
@@ -93,7 +83,7 @@ gem 'factory_bot_rails', '5.1.1', require: false
 gem 'slack-notifier', '2.3.2'
 
 # The administration framework for Ruby on Rails.
-gem 'activeadmin', '~> 2.6'
+gem 'activeadmin', '~> 2.7'
 
 # Flexible authentication solution for Rails with Warden
 gem 'devise', '>= 4.6.0'
@@ -108,7 +98,7 @@ gem 'woothee'
 gem 'chartkick', '3.3.1'
 
 # The simplest way to group temporal data
-gem 'groupdate', '4.3.0'
+gem 'groupdate', '5.0.0'
 
 # A configurable and documented Rails view helper for adding gravatars into your Rails application.
 gem 'gravatar_image_tag', '1.2.0'
@@ -120,8 +110,8 @@ gem 'bootsnap', require: false
 gem 'diffy', require: false
 
 # Automatic Ruby code style checking tool. Aims to enforce the community-driven Ruby Style Guide.
-gem 'rubocop', '~> 0.79.0', require: false
-gem 'rubocop-rails', '~> 2.4', require: false
+gem 'rubocop', '~> 0.81.0', require: false
+gem 'rubocop-rails', '~> 2.5', require: false
 
 # Volta needs a CSS autoprefixer
 gem 'autoprefixer-rails'
@@ -139,7 +129,9 @@ gem 'lograge'
 gem 'countries'
 gem 'country_select', '~> 4.0'
 
-gem 'nexmo-oas-renderer', '~> 0.7', require: false
+gem 'nexmo_markdown_renderer', '~> 0.3'
+
+gem 'nexmo-oas-renderer', '~> 0.9', require: false
 
 gem 'smartling'
 
@@ -166,7 +158,7 @@ group :development, :test do
   gem 'pry', require: false
   gem 'rawler', git: 'https://github.com/oscardelben/rawler.git', require: false
   gem 'rspec-collection_matchers'
-  gem 'rspec-rails', '~> 3.7'
+  gem 'rspec-rails', '~> 4.0'
   gem 'rspec-snapshot', '~> 0.1.2'
   gem 'simplecov', require: false
 end

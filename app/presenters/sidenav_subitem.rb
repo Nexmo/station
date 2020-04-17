@@ -3,6 +3,9 @@ class SidenavSubitem < SidenavItem
 
   def title
     @title ||= TitleNormalizer.call(@folder)
+    raise "Missing 'title' in frontmatter for #{@folder[:path]}" unless @title
+
+    @title
   end
 
   def show_link?
@@ -33,8 +36,26 @@ class SidenavSubitem < SidenavItem
         action: :show,
         only_path: true
       )
+    elsif @folder[:path].starts_with?('app/views')
+      navigation = Navigation.new(@folder)
+      url_for(
+        controller: :markdown,
+        action: :show,
+        document: navigation.document,
+        namespace: namespace,
+        only_path: true,
+        locale: locale
+      )
     else
-      "/#{Navigation.new(@folder).path_to_url}"
+      navigation = Navigation.new(@folder)
+      url_for(
+        controller: :markdown,
+        action: :show,
+        document: navigation.document,
+        product: navigation.product,
+        only_path: true,
+        locale: locale
+      )
     end
   end
 
