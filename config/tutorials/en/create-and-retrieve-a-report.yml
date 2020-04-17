@@ -1,6 +1,6 @@
 ---
-title: Create a report using the command line
-description: Create a report using the command line tool, curl.
+title: Create a CSV report using the command line
+description: Create a CSV report using the command line tool, curl.
 products:
   - reports
 

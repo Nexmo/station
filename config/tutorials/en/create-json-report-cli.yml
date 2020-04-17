@@ -1,6 +1,6 @@
 ---
-title: Get JSON records using the command line
-description: Create a report using the command line tool, curl.
+title: Create a JSON report using the command line
+description: Create a JSON report using the command line tool, curl.
 products:
   - reports
 

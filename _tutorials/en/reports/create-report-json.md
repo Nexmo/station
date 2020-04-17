@@ -1,6 +1,6 @@
 ---
-title: Create a report using command line
-description: In this step you learn how to create a report using the command line tool, curl.
+title: Create a JSON report using command line
+description: In this step you learn how to create a JSON report using the command line tool, curl.
 ---
 
 To create a report, send a `GET` request to `https://api.nexmo.com/v2/reports/records`.
