@@ -34,8 +34,7 @@
     <a id="Vlt-sidenav-mobile-trigger"><svg><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-menu"></use></svg></a>
 
     <div class="Nxd-header__sub__menu">
-      <% @links = Topnav.new %>
-      <% @links.items.each do |item| %>
+      <% Topnav.new.items.each do |item| %>
         <a href=<%= item[:url] %> class="Vlt-tabs__link <%= @navigation == item[:navigation] ? 'Vlt-tabs__link_active' : '' %>"><%= item[:name] %></a>
       <% end %>
     </div>
