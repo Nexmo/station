@@ -58,4 +58,5 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency('clipboard-rails')
   spec.add_runtime_dependency('gmaps4rails')
   spec.add_runtime_dependency('byebug')
+  spec.add_runtime_dependency('truncato')
 end
