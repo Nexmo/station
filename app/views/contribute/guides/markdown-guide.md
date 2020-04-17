@@ -141,7 +141,7 @@ source: '/_examples/styleguide/tabbed-content'
 
 Tabbed folders provide a convenient method for automatically tabbing a collection of content contained in a folder.
 
-You can create tabbed content using a tabbed folder configuration file, along with the content to be tabbed, all organized in the same folder. You would create a configuration file, `.config.yml`, in the folder, and then create the markdown documents to be tabbed in the same folder. 
+You can create tabbed content using a tabbed folder configuration file, along with the content to be tabbed, all organized in the same folder. You would create a configuration file, `.config.yml`, in the folder, and then create the markdown documents to be tabbed in the same folder.
 
 You can see an example of what this looks like [here](/client-sdk/setup/add-sdk-to-your-app).
 
@@ -158,12 +158,14 @@ tabbed: true
 
 Note that `tabbed` is set to `true` for tabbed folder content.
 
-Example can be found in `/client-sdk/setup/add-sdk-to-your-app`:
+Example files can be found in the folder `_documentation/en/client-sdk/setup/add-sdk-to-your-app`:
 
 * `.config.yml`
 * `android.md`
 * `ios.md`
 * `javascript.md`
+
+The rendered output can be found [here](/client-sdk/setup/add-sdk-to-your-app/javascript).
 
 ## Mermaid (custom plugin)
 

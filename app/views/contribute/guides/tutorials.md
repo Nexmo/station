@@ -72,7 +72,7 @@ You may also have steps that are specific to a programming language, such as Pyt
 
 Remember that all steps are referenced from the configuration file in the step-order they are to be displayed in the rendered tutorial.
 
-## Tutorial Config File
+## Tutorial config file
 
 Tutorial configuration files are located in `config/tutorials` and the name of the file is used as the name of the tutorial in the URL.
 
@@ -152,7 +152,7 @@ description: In this step you learn how to create a Nexmo Application.
 ...
 ```
 
-## Content Reuse
+## Content reuse
 
 The idea behind having standalone step files is that you can define each task once, such as for create application, and then reference it in every tutorial that requires it.
 
@@ -197,3 +197,8 @@ conclusion:
 ```
 
 This content is provided directly in the tutorial configuration file as it is specific to the current tutorial and is not intended to be reused. Remember if you have language-specifc tutorials there will be one configuration file for each supported language.
+
+## Further information
+
+* See [Sending a Facebook message with Failover](/dispatch/tutorials/sending-facebook-message-with-failover/introduction) for an example of a single-language tutorial.
+* See [Creating a chat app](/client-sdk/tutorials/in-app-messaging/introduction) for an example of a multi-language tutorial.
