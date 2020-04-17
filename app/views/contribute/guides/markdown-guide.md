@@ -137,9 +137,39 @@ Each file becomes a tab, as you can see:
 source: '/_examples/styleguide/tabbed-content'
 ```
 
+## Tabbed folder (custom plugin)
+
+Tabbed folders provide a convenient method for automatically tabbing a collection of content contained in a folder.
+
+You can create tabbed content using a tabbed folder configuration file, along with the content to be tabbed, all organized in the same folder. You would create a configuration file, `.config.yml`, in the folder, and then create the markdown documents to be tabbed in the same folder.
+
+You can see an example of what this looks like [here](/client-sdk/setup/add-sdk-to-your-app).
+
+Config file, `.config.yml`, would contain metadata such as the following:
+
+```
+---
+title: Add Client SDK to your application
+description: How to add the Client SDK to your application.
+navigation_weight: 2
+tabbed: true
+---
+```
+
+Note that `tabbed` is set to `true` for tabbed folder content.
+
+Example files can be found in the folder `_documentation/en/client-sdk/setup/add-sdk-to-your-app`:
+
+* `.config.yml`
+* `android.md`
+* `ios.md`
+* `javascript.md`
+
+The rendered output can be found [here](/client-sdk/setup/add-sdk-to-your-app/javascript).
+
 ## Mermaid (custom plugin)
 
-You can use any [Mermaid](https://mermaidjs.github.io/) diagram using the `mermaid` filter. 
+You can use any [Mermaid](https://mermaidjs.github.io/) diagram using the `mermaid` filter.
 
 ````
 ```mermaid
@@ -152,7 +182,6 @@ graph TD;
 ````
 
 Creates a diagram like this:
-
 
 ```mermaid
 graph TD;
