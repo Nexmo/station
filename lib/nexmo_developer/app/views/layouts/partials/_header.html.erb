@@ -35,19 +35,9 @@
     <a id="Vlt-sidenav-mobile-trigger"><svg><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-menu"></use></svg></a>
 
     <div class="Nxd-header__sub__menu">
-<<<<<<< HEAD:lib/nexmo_developer/app/views/layouts/partials/_header.html.erb
-      <% @links = Topnav.new %>
-      <% @links.items.each do |item| %>
+      <% Topnav.new.items.each do |item| %>
         <a href=<%= item[:url] %> class="Vlt-tabs__link <%= @navigation == item[:navigation] ? 'Vlt-tabs__link_active' : '' %>"><%= item[:name] %></a>
       <% end %>
-=======
-      <a href=<%= documentation_path(locale: I18n.locale) %> class="Vlt-tabs__link <%= @navigation == :documentation ? 'Vlt-tabs__link_active' : '' %>"><%= t('.documentation') %></a>
-      <a href=<%= use_cases_path %> class="Vlt-tabs__link <%= @navigation == :use_case ? 'Vlt-tabs__link_active' : '' %>"><%= t('.use-cases') %></a>
-      <a href=<%= api_path %> class="Vlt-tabs__link <%= @navigation == :api ? 'Vlt-tabs__link_active' : '' %>"><%= t('.api-reference') %></a>
-      <a href=<%= tools_path %> class="Vlt-tabs__link <%= @navigation == :tools ? 'Vlt-tabs__link_active' : '' %>"><%= t('.sdks-and-tools') %></a>
-      <a href=<%= static_path('community')%> class="Vlt-tabs__link <%= @navigation == :community ? 'Vlt-tabs__link_active' : '' %>"><%= t('.community') %></a>
-      <a href=<%= extend_path %> class="Vlt-tabs__link <%= @navigation == :extend ? 'Vlt-tabs__link_active' : '' %>"><%= t('.extend') %></a>
->>>>>>> master:app/views/layouts/partials/_header.html.erb
     </div>
 
     <% if search_enabled? %>

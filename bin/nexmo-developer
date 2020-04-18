@@ -43,6 +43,7 @@ require 'webpacker'
 require 'clipboard/rails'
 require 'gmaps4rails'
 require 'nexmo_markdown_renderer'
+require 'truncato'
 
 require 'config/application'
 require 'rails/command'

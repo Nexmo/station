@@ -7,7 +7,7 @@ git_source(:github) do |repo_name|
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.0.2'
+gem 'rails', '~> 6.0.0'
 gem 'webpacker'
 
 # Use postgresql as the database for Active Record
@@ -74,7 +74,7 @@ gem 'icalendar', require: false
 gem 'neatjson'
 
 # Faker, a port of Data::Faker from Perl, is used to easily generate fake data: names, addresses, phone numbers, etc.
-gem 'faker', '2.11.0', require: false
+gem 'faker', '2.10.2', require: false
 
 # factory_girl_rails provides integration between factory_girl and rails 3 or newer (currently just automatic factory definition loading)
 gem 'factory_bot_rails', '5.1.1', require: false
@@ -83,7 +83,7 @@ gem 'factory_bot_rails', '5.1.1', require: false
 gem 'slack-notifier', '2.3.2'
 
 # The administration framework for Ruby on Rails.
-gem 'activeadmin', '~> 2.7'
+gem 'activeadmin', '~> 2.6'
 
 # Flexible authentication solution for Rails with Warden
 gem 'devise', '>= 4.6.0'
@@ -110,8 +110,8 @@ gem 'bootsnap', require: false
 gem 'diffy', require: false
 
 # Automatic Ruby code style checking tool. Aims to enforce the community-driven Ruby Style Guide.
-gem 'rubocop', '~> 0.81.0', require: false
-gem 'rubocop-rails', '~> 2.5', require: false
+gem 'rubocop', '~> 0.79.0', require: false
+gem 'rubocop-rails', '~> 2.4', require: false
 
 # Volta needs a CSS autoprefixer
 gem 'autoprefixer-rails'
@@ -129,11 +129,7 @@ gem 'lograge'
 gem 'countries'
 gem 'country_select', '~> 4.0'
 
-<<<<<<< HEAD:lib/nexmo_developer/Gemfile
-gem 'nexmo_markdown_renderer', '~> 0.2.0'
-=======
-gem 'nexmo_markdown_renderer', '~> 0.2'
->>>>>>> master:Gemfile
+gem 'nexmo_markdown_renderer', github: 'nexmo/nexmo-markdown-renderer', branch: 'code-languages-refactor'
 
 gem 'nexmo-oas-renderer', '~> 0.9', require: false
 
@@ -162,7 +158,7 @@ group :development, :test do
   gem 'pry', require: false
   gem 'rawler', git: 'https://github.com/oscardelben/rawler.git', require: false
   gem 'rspec-collection_matchers'
-  gem 'rspec-rails', '~> 4.0'
+  gem 'rspec-rails', '~> 3.9'
   gem 'rspec-snapshot', '~> 0.1.2'
   gem 'simplecov', require: false
 end
