@@ -9,11 +9,11 @@ navigation_weight: 2
 
 ## Overview
 
-This guide covers inviting users to a conversation, listening for invites to join a conversation as well as new members joining.
+This guide covers inviting users to a conversation (members), listening for invites to join a conversation as well as new members joining.
 
 Before you begin, make sure you [added the SDK to your app](/client-sdk/setup/add-sdk-to-your-app) and you are able to [create a simple conversation](/client-sdk/in-app-messaging/guides/simple-conversation).
 
-> **NOTE:** A step-by-step tutorial to building a web-based chat application is also available for [JavaScript](/client-sdk/tutorials/in-app-messaging) and [iOS](/client-sdk/tutorials/ios-in-app-messaging-chat).
+> **NOTE:** A step-by-step tutorial to building a web-based chat application is also available for [JavaScript](/client-sdk/tutorials/in-app-messaging) and iOS ([Swift](https://developer.nexmo.com/client-sdk/tutorials/in-app-messaging/introduction/swift), [Objective-C](https://developer.nexmo.com/client-sdk/tutorials/in-app-messaging/introduction/objective_c)).
 
 
 This guide will introduce you to the following concepts.
