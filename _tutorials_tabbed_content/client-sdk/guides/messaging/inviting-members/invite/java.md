@@ -13,6 +13,6 @@ conversation.invite(userName, new NexmoRequestListener<String>() {
     @Override
     public void onError(@NonNull NexmoApiError apiError) {
         Timber.d("Error: Unable to invite user " + apiError.getMessage());
-    }
+    }   
 });
 ```
