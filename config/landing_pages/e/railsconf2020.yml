@@ -137,6 +137,25 @@ page:
         - type: line_divider
   - row:
     - column:
+      - type: text
+        text:
+          content: "# Looking for more talks to watch?"
+  - row:
+    - column:
+      - type: section_header
+        section_header:
+          title: "Vonage Video Resources"
+          icon:
+            name: icon-small-video
+            color: blue
+  - row:
+    - column:
+      - type: sessions
+  - row:
+    - column:
+      - type: line_divider
+  - row:
+    - column:
       - type: call_to_action
         call_to_action:
           title: "Voice"
