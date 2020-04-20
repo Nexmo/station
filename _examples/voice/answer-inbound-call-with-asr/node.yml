@@ -10,4 +10,3 @@ client:
     source: .repos/nexmo/nexmo-node-code-snippets/voice/asr.js
     from_line: 1
     to_line: 4
-    
