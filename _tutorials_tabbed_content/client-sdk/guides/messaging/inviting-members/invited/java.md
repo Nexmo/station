@@ -7,6 +7,8 @@ language: java
 NexmoMemberEventListener memberEventListener = new NexmoMemberEventListener() {
     @Override
     public void onMemberInvited(@NonNull NexmoMemberEvent memberEvent) {
+        Log.d("TAG", "Member " + memberEvent.member.user.name + " invited to the conversation");
+
         // Join user to the conversation (accept the invitation)
         conversation.join(memberEvent.getMember().getUser().getName(), joinConversationListener);
     }

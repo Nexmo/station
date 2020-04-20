@@ -6,6 +6,8 @@ language: kotlin
 ```kotlin
 private val memberEventListener = object : NexmoMemberEventListener {
     override fun onMemberInvited(memberEvent: NexmoMemberEvent) {
+        Timber.d("Member ${memberEvent.member.user.name} invited to the conversation")
+        
         // Join user to the conversation (accept the invitation)
         conversation?.join(memberEvent.member.user.name, joinConversationListener)
     }

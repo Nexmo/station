@@ -7,12 +7,12 @@ language: java
 conversation.invite(userName, new NexmoRequestListener<String>() {
     @Override
     public void onSuccess(@Nullable String result) {
-        Timber.d("User invited " + result);
+        Log.d("TAG", "User invited " + result);
     }
 
     @Override
     public void onError(@NonNull NexmoApiError apiError) {
-        Timber.d("Error: Unable to invite user " + apiError.getMessage());
+        Log.d("TAG", "Error: Unable to invite user " + apiError.getMessage());
     }   
 });
 ```
