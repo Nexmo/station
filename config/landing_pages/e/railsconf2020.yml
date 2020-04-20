@@ -124,7 +124,7 @@ page:
             name: "icon-wallet"
             color: blue
           text:
-          - content: "Want to explore building apps with SMS, Voice or Chatbot integrations? Get started today with €10 complimentary credit!<br /><br />Coupon code <strong>CODE HERE</strong> is valid to redeeem until <strong>DATE HERE</strong>."
+          - content: "Want to explore building apps with SMS, Voice or Chatbot integrations? Get started today with €10 complimentary credit!<br /><br />Coupon code <strong>RAILS2C86</strong> is valid to redeeem until <strong>June 7th, 2020</strong>."
             type: large
       - type: action_button
         action_button:
