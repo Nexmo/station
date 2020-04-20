@@ -20,7 +20,7 @@ The Android and iOS Client SDKs also offer:
 
 * Push Notifications
 
-## Getting started
+## Getting started  
 
 For JavaScript:
 
