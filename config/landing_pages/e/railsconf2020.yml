@@ -134,25 +134,6 @@ page:
           center_button: true
   - row:
     - column:
-        - type: line_divider
-  - row:
-    - column:
-      - type: text
-        text:
-          content: "# Looking for more talks to watch?"
-  - row:
-    - column:
-      - type: section_header
-        section_header:
-          title: "Vonage Video Resources"
-          icon:
-            name: icon-small-video
-            color: blue
-  - row:
-    - column:
-      - type: sessions
-  - row:
-    - column:
       - type: line_divider
   - row:
     - column:
@@ -239,6 +220,25 @@ page:
               - item: "[Forward a Call via Voice Proxy with Ruby on Rails](https://www.nexmo.com/blog/2019/04/16/forward-a-call-via-voice-proxy-with-ruby-on-rails-dr/)"
               - item: "[Connect Callers into a Conference](/voice/voice-api/code-snippets/connect-callers-into-a-conference/ruby)"
               - item: "[Transfer a Call](/voice/voice-api/code-snippets/transfer-a-call/ruby)"
+  - row:
+    - column:
+        - type: line_divider
+  - row:
+    - column:
+      - type: text
+        text:
+          content: "# Looking for more talks to watch?"
+  - row:
+    - column:
+      - type: section_header
+        section_header:
+          title: "Vonage Video Resources"
+          icon:
+            name: icon-small-video
+            color: blue
+  - row:
+    - column:
+      - type: sessions
   - row:
     - column:
         - type: line_divider
