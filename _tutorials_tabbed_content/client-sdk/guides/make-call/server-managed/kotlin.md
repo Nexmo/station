@@ -7,7 +7,7 @@ menu_weight: 4
 ```kotlin
 val callListener = object: NexmoRequestListener<NexmoCall> {
     override fun onSuccess(nexmoCall: NexmoCall?) {
-        Log.d("TAG", "Call started: " + nexmoCall.toString())
+        Log.d("TAG", "Call started: ${nexmoCall.toString()}")
     }
 
     override fun onError(apiError: NexmoApiError) {
