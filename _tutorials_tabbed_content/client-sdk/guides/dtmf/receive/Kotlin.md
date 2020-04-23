@@ -1,21 +1,41 @@
 ---
 title: Kotlin
-language: android
-menu_weight: 1
+language: kotlin
 ---
 
 The DTMF events will be received in your implementation of `NexmoCallEventListener.onDTMF()` method, on the `NexmoCallEventListener` that is attached to the `NexmoCall`.
 
-```java
+```kotlin
+val callListener = object : NexmoRequestListener<NexmoCall> {
+    override fun onSuccess(nexmoCall: NexmoCall?) {
+        Log.d("TAG", "Call started: " + nexmoCall.toString())
 
-callEventListener = object : NexmoCallEventListener {
-    //…
+        nexmoCall?.addCallEventListener(callEventListener)
+    }
 
-    override fun onDTMF(dtmf: String, member: NexmoCallMember) {
-        TODO("implement DTMF received")
+    override fun onError(apiError: NexmoApiError) {
+        Timber.d("Error: Unable to start a call ${apiError.message}")
     }
 }
 
-currentCall?.addCallEventListener(callEventListener)
+val callEventListener = object : NexmoCallEventListener {
+    override fun onDTMF(digit: String?, callMember: NexmoCallMember?) {
+        Timber.d("v: digit: $digit, callMember: $callMember")
+    }
 
+    override fun onMemberStatusUpdated(memberStatus: NexmoCallMemberStatus?, callMember: NexmoCallMember?) {
+        Timber.d("onMemberStatusUpdated: status: $memberStatus, callMember: $callMember")
+    }
+
+    override fun onMuteChanged(muteState: NexmoMediaActionState?, callMember: NexmoCallMember?) {
+        Timber.d("onMuteChanged: muteState: $muteState, callMember: $callMember")
+    }
+
+    override fun onEarmuffChanged(earmuffState: NexmoMediaActionState?, callMember: NexmoCallMember?) {
+        Timber.d("onEarmuffChanged: earmuffState: $earmuffState, callMember: $callMember")
+    }
+}
+
+
+nexmoClient.call("123456", NexmoCallHandler.SERVER, callListener)
 ```
