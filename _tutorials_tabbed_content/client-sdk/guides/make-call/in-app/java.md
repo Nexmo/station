@@ -15,4 +15,6 @@ NexmoRequestListener<NexmoCall> callListener = new NexmoRequestListener<NexmoCal
         Log.d("TAG", "Error: Unable to start a call " + apiError.getMessage());
     }
 };
+
+client.call("123456", NexmoCallHandler.IN_APP, callListener)
 ```
