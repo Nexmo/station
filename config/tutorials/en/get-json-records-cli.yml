@@ -1,12 +1,12 @@
 ---
-title: Create a JSON report using the command line
-description: Create a JSON report using the command line tool, curl.
+title: Get JSON records using the command line
+description: Get JSON records using the command line tool, `curl`.
 products:
   - reports
 
 introduction:
   title: Introduction
-  description: Learn how to retrieve records using the command line
+  description: Learn how to retrieve JSON records using the command line
   content: |
     # Introduction
 
@@ -16,5 +16,5 @@ introduction:
 
     > **A note on performance:** Synchronous version is optimized for frequent and periodic retrievals of small batches of data records, that is from one record to tens of thousand per query.
 tasks:
-  - reports/create-report-json
+  - reports/get-json-records
   - reports/reports-whats-next

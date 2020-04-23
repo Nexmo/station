@@ -1,5 +1,6 @@
 ---
 title: Check report status
+description: Check on the progress of your report
 ---
 
 # Check report status
