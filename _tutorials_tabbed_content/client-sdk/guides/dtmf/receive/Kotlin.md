@@ -14,25 +14,25 @@ val callListener = object : NexmoRequestListener<NexmoCall> {
     }
 
     override fun onError(apiError: NexmoApiError) {
-        Timber.d("Error: Unable to start a call ${apiError.message}")
+        Log.d("TAG", "Error: Unable to start a call ${apiError.message}")
     }
 }
 
 val callEventListener = object : NexmoCallEventListener {
     override fun onDTMF(digit: String?, callMember: NexmoCallMember?) {
-        Timber.d("v: digit: $digit, callMember: $callMember")
+        Log.d("TAG", "v: digit: $digit, callMember: $callMember")
     }
 
     override fun onMemberStatusUpdated(memberStatus: NexmoCallMemberStatus?, callMember: NexmoCallMember?) {
-        Timber.d("onMemberStatusUpdated: status: $memberStatus, callMember: $callMember")
+        Log.d("TAG", "onMemberStatusUpdated: status: $memberStatus, callMember: $callMember")
     }
 
     override fun onMuteChanged(muteState: NexmoMediaActionState?, callMember: NexmoCallMember?) {
-        Timber.d("onMuteChanged: muteState: $muteState, callMember: $callMember")
+        Log.d("TAG", "onMuteChanged: muteState: $muteState, callMember: $callMember")
     }
 
     override fun onEarmuffChanged(earmuffState: NexmoMediaActionState?, callMember: NexmoCallMember?) {
-        Timber.d("onEarmuffChanged: earmuffState: $earmuffState, callMember: $callMember")
+        Log.d("TAG", "onEarmuffChanged: earmuffState: $earmuffState, callMember: $callMember")
     }
 }
 

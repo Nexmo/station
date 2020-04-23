@@ -12,7 +12,7 @@ val callListener = object : NexmoRequestListener<NexmoCall> {
     }
 
     override fun onError(apiError: NexmoApiError) {
-        Timber.d("Error: Unable to start a call ${apiError.message}")
+        Log.d("TAG", "Error: Unable to start a call ${apiError.message}")
     }
 }
 
