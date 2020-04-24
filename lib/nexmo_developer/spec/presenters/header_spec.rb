@@ -6,13 +6,13 @@ RSpec.describe Header do
     {
       'name' => 'Sample Name',
       'subtitle' => 'Sample Subtitle',
-      'header' => [
-        'assets' => [
-          'logo' => [ 
-            'path' => '/images/logos/sample-logo.png',
-            'alt' => 'Sample Alt'
-          ],
+      'assets' => [
+        'logo' => [
+          'path' => '/images/logos/sample-logo.png',
+          'alt' => 'Sample Alt'
         ],
+      ],
+      'header' => [
         'links' => [
           'sign-up' => [
             'path' => 'https://path/to/site',
@@ -63,11 +63,11 @@ RSpec.describe Header do
     <<~HEREDOC
     name: Sample Name
     subtitle: Sample Subtitle
+    assets:
+    logo: 
+      path: '/images/logos/sample-logo.png'
+      alt: 'Sample Alt'
     header:
-      assets:
-        logo: 
-          path: '/images/logos/sample-logo.png'
-          alt: 'Sample Alt'
       links:
         sign-up:
           path:  https://path/to/site
