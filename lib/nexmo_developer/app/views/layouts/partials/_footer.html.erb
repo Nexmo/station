@@ -42,11 +42,7 @@
       <div id="footer-support">
         <h5>Support</h5>
         <% item[:support_links].each do |name, url| %>
-          <% if name.include?('@') %>
-            <a href="mailto:<%= url %>" target="_blank"><%= name.titleize %></a>
-          <% else %>
-            <a href="<%= url %>" target="_blank"><%= name.titleize %></a>
-          <% end %>
+          <a href=<%= Footer.support_link(url) %> target="_blank"><%= Footer.support_link_text(name) %></a>
         <% end %>
       </div>
     </div>

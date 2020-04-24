@@ -42,6 +42,18 @@ class Footer
     link.keys.join(' ').titleize
   end
 
+  def self.support_link(link)
+    if link.include?('@')
+      "mailto:#{link}"
+    else
+      link
+    end
+  end
+
+  def self.support_link_text(link)
+    link.titleize
+  end
+
   def open_config(config)
     File.open(config)
   end
