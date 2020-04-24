@@ -34,7 +34,7 @@
         <div>
           <h5><%= Footer.navigation_category_titleize(topic_arr[0]) %></h5>
           <% topic_arr[1].each do |link| %>
-            <a href="<%= link.values.join(' ') %>"><%= link.keys.join(' ').titleize %></a>
+            <a href="<%= Footer.navigation_link(link) %>"><%= Footer.navigation_link_text(link) %></a>
           <% end %>
         </div>
       <% end %>

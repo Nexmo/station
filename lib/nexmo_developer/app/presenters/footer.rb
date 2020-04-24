@@ -34,6 +34,14 @@ class Footer
     title
   end
 
+  def self.navigation_link(link)
+    link.values.join(' ')
+  end
+
+  def self.navigation_link_text(link)
+    link.keys.join(' ').titleize
+  end
+
   def open_config(config)
     File.open(config)
   end
