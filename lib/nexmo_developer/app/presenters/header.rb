@@ -9,7 +9,7 @@ class Header
   end
 
   def header_from_config(config)
-    config = YAML.safe_load(File.open(config))
+    config = YAML.safe_load(open_config(config))
     @items = [
       {
         name: config['name'],
@@ -22,10 +22,18 @@ class Header
     ]
   end
 
+  def open_config(config)
+    File.open(config)
+  end
+
+  def config_exist?(path)
+    File.exist?(path)
+  end
+
   private
 
   def after_initialize!
-    raise 'You must provide a config/business_info.yml file in your documentation path.' unless File.exist?("#{Rails.configuration.docs_base_path}/config/business_info.yml")
+    raise 'You must provide a config/business_info.yml file in your documentation path.' unless config_exist?("#{Rails.configuration.docs_base_path}/config/business_info.yml")
 
     @items = header_from_config("#{Rails.configuration.docs_base_path}/config/business_info.yml")
   end
