@@ -1,11 +1,12 @@
 ---
 title: Java
 language: java
-menu_weight: 2
 ---
 
 ```java
-NexmoCallEventListener callEventListener = ... ;
+NexmoCallEventListener callEventListener = new NexmoCallEventListener() {
+   // ...
+}
 
 nexmoCall.addCallEventListener(callEventListener);
 ```
