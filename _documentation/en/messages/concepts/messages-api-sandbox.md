@@ -16,6 +16,10 @@ You can setup multiple sandboxes, however, each sandbox must be associated with 
 
 The Messages API Sandbox is accessible via the [Dashboard](https://dashboard.nexmo.com/messages/sandbox). You can use it to test your integration prior to sending production traffic. Sandbox Messages API requests are sent to a different endpoint than production requests and the Vonage sandbox external account number or ID is used as the `from` value in the request.
 
+## Messages API Sandbox Pricing
+
+The Messages API Sandbox is currently free to use.
+
 ## The steps
 
 The steps to use the Messages API Sandbox to send test messages on supported messaging platforms are as follows:
