@@ -1,23 +1,22 @@
 ---
 title: Java
 language: java
-menu_weight: 2
 ---
 
 ```java
 NexmoIncomingCallListener incomingCallListener = new NexmoIncomingCallListener() {
     @Override
     public void onIncomingCall(NexmoCall call) {
-        ...
+        Log.d("TAG", "Incoming call " + call);
     }
 };
 
-nexmoCall.addIncomingCallListener(incomingCallListener);
+val client = NexmoClient.get()
+client.addIncomingCallListener(incomingCallListener);
 ```
 
 Remove the listener when needed:
 
 ```java
-nexmoCall.removeIncomingCallListener(incomingCallListener);
-
+client.removeIncomingCallListeners();
 ```

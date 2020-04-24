@@ -1,22 +1,20 @@
 ---
 title: Kotlin
-language: android
-menu_weight: 1
+language: kotlin
 ---
 
-```java
-val incomingCallListener = NexmoIncomingCallListener { call ->
-    currentCall = call
-    startActivity(Intent(this@MainActivity, IncomingCallActivity::class.java))
+```kotlin
+val incomingCallListener = NexmoIncomingCallListener {
+    Log.d("TAG", "Incoming call $it")
 }
 
-NexmoClient.get().addIncomingCallListener(incomingCallListener)
+val client = NexmoClient.get()
+client.addIncomingCallListener(incomingCallListener)
 
 ```
 
 Remove the listener when needed:
 
-```java
-NexmoClient.get().removeIncomingCallListeners()
-
+```kotlin
+client.removeIncomingCallListeners()
 ```

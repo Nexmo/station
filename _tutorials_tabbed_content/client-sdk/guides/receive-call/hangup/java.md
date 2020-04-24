@@ -1,9 +1,20 @@
 ---
 title: Java
 language: java
-menu_weight: 2
 ---
 
 ```java
-nexmoCall.hangup(new NexmoRequestListener<NexmoCall>(){...})
+NexmoRequestListener<NexmoCall> hangupCallListener = new NexmoRequestListener<NexmoCall>() {
+    @Override
+    public void onSuccess(@Nullable NexmoCall nexmoCall) {
+        Log.d("TAG", "Call hangup: " + nexmoCall);
+    }
+
+    @Override
+    public void onError(@NonNull NexmoApiError apiError) {
+        Log.d("TAG", "Error: Unable to hangup call " + apiError.getMessage());
+    }
+};
+
+nexmoCall.hangup(hangupCallListener);
 ```
