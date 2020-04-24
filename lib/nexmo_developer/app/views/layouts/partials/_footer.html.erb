@@ -15,16 +15,20 @@
         </div>
       </div>
 
-        <a href=<%= item[:status_link_path] %> target="_blank" class="Vlt-badge-combined">
-          <span class="Vlt-badge Vlt-white Nxd-api-badge"><%= item[:status_link_text] %></span><span class="Vlt-badge Vlt-badge--purple Nxd-api-status">Loading</span>
-        </a>
+        <% if item[:status] %>
+          <a href=<%= item[:status]['path'] %> target="_blank" class="Vlt-badge-combined">
+            <span class="Vlt-badge Vlt-white Nxd-api-badge"><%= item[:status]['text'] %></span><span class="Vlt-badge Vlt-badge--purple Nxd-api-status">Loading</span>
+          </a>
+        <% end %>
 
-        <div id="footer-social-links">
-          <% item[:social_links].each do |target, url| %>
-            <a href=<%= url %> class="footer-link" target="_blank"><i class="icon icon-<%= target %>"></i></a>
-          <% end %>
+        <% if item[:social_links] %>
+          <div id="footer-social-links">
+            <% item[:social_links].each do |target, url| %>
+              <a href=<%= url %> class="footer-link" target="_blank"><i class="icon icon-<%= target %>"></i></a>
+            <% end %>
+          </div>
+        <% end %>
         </div>
-      </div>
 
       <% item[:navigation_links].each do |topic_arr| %>
         <div>

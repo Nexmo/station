@@ -14,8 +14,7 @@ class Footer
         subtitle: config['subtitle'],
         logo_path: config['assets']['logo']['path'],
         logo_alt: config['assets']['logo']['alt'],
-        status_link_path: config['footer']['links']['status']['path'],
-        status_link_text: config['footer']['links']['status']['text'],
+        status: config['footer']['links']['status'],
         social_links: config['footer']['links']['social'],
         navigation_links: config['footer']['links']['navigation'],
         support_links: config['footer']['links']['support']
