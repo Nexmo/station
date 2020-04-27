@@ -45,8 +45,9 @@ Feature  | Reports Synchronous (GET endpoint) | Reports Asynchronous (POST endpo
 
 ## Tutorials
 
-* [Create a report using the command line](/reports/tutorials/create-and-retrieve-a-report/)
-* [Create a report using a graphical tool](/reports/tutorials/create-report-using-graphical-tools)
+* [Create a CSV report using the command line](/reports/tutorials/create-and-retrieve-a-report)
+* [Create a CSV report using a graphical tool](/reports/tutorials/create-report-using-graphical-tools)
+* [Get JSON records using the command line](/reports/tutorials/get-json-records-cli)
 
 ## API Reference
 
