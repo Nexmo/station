@@ -8,18 +8,16 @@ class Footer
 
   def footer_from_config(config)
     config = YAML.safe_load(open_config(config))
-    @items = [
-      {
-        name: config['name'],
-        subtitle: config['subtitle'],
-        logo_path: config['assets']['logo']['path'],
-        logo_alt: config['assets']['logo']['alt'],
-        status: config['footer']['links']['status'],
-        social_links: config['footer']['links']['social'],
-        navigation_links: config['footer']['links']['navigation'],
-        support_links: config['footer']['links']['support']
-      }
-    ]
+    {
+      name: config['name'],
+      subtitle: config['subtitle'],
+      logo_path: config['assets']['logo']['path'],
+      logo_alt: config['assets']['logo']['alt'],
+      status: config['footer']['links']['status'],
+      social_links: config['footer']['links']['social'],
+      navigation_links: config['footer']['links']['navigation'],
+      support_links: config['footer']['links']['support']
+    }
   end
 
   def self.navigation_category_titleize(title)
