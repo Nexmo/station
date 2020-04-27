@@ -1,6 +1,6 @@
 ---
-title: Create a report using the command line
-description: Create a report using the command line tool, curl.
+title: Create a CSV report using the command line
+description: Create a CSV report using the command line tool, curl.
 products:
   - reports
 
@@ -10,13 +10,13 @@ introduction:
   content: |
     # Introduction
 
-    This tutorial shows you how to create and retrieve report using the Reports API.
+    This tutorial shows you how to create and retrieve reports using the asynchronous version of the Reports API.
 
-    The Reports API is an asynchronous API. To generate a report, you submit a report generation request and wait for it to be processed.
+    To generate a report, you submit a report generation request to the ASYNC endpoint and wait for it to be processed.
 
     The Reports API checks whether the format of the request is correct, then places it in the processing queue. It responds with a link that enables you to check the current status of the report. The Reports API can also send a callback to notify your application when the report has been generated.
 
-    > **A note on performance**: Even though the Reports API is fast and can deal with enormous amounts of data, it may becomer slower when trying to download data for realtime analytics. Using sensible filters can speed up processing considerably.
+    > **A note on performance**: Even though the Reports API is fast and can deal with enormous amounts of data, it may becomer slower when trying to download data for realtime analytics. Using sensible filters can speed up processing considerably. Also, for frequent and periodic retrievals of small batches of data records please consider using a synchronous version of the Reports API.
 tasks:
   - reports/create-report
   - reports/check-report-status

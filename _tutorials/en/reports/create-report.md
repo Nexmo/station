@@ -1,6 +1,6 @@
 ---
-title: Create a report using command line
-description: In this step you learn how to create a report using the command line tool, curl.
+title: Create a CSV report using the command line
+description: In this step you learn how to create a report using the command line tool, `curl`.
 ---
 
 # Create a Report

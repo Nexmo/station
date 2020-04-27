@@ -1,9 +1,9 @@
 ---
-title: Request a report
-description: Submit the initial request to create a report
+title: Create a CSV report using Postman
+description: Creates a CSV format report using the Postman tool
 ---
 
-# Request a report
+# Create a CSV report using Postman
 
 In the Postman workspace, set the HTTP method to `POST` and enter the following URL: `https://api.nexmo.com/v2/reports/`
 
