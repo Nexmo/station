@@ -1,25 +1,27 @@
 ---
 title: Java
 language: java
-menu_weight: 3
 ---
 
 ```java
-NexmoRequestListener<CallMember> listener = new NexmoRequestListener<>() {
-        @Override
-        public void onError(NexmoApiError nexmoApiError) {
-            //Handle error
-        }
+NexmoRequestListener<NexmoCallMember> muteListener = new NexmoRequestListener<NexmoCallMember>() {
+    @Override
+    public void onSuccess(NexmoCallMember callMember) {
+        Timber.d("Member muted " + callMember);
+    }
 
-        @Override
-        public void onSuccess(CallMember member) {
-            //Handle success
-        }
+    @Override
+    public void onError(NexmoApiError apiError) {
+        Timber.d("Error: Mute member " + apiError.getMessage());
+    }
 };
 
-member.mute(ActionStatus.ON, listener);
+// Mute member
+callMember.mute(true, muteListener);
 
-//Mute my Member
-call.mute(ActionStatus.ON, listener);
+// Mute my member
+call.getMyCallMember().mute(true, muteListener);
 
+// Mute whole call
+call.mute(true);
 ```
