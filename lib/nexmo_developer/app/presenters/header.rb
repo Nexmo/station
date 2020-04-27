@@ -8,16 +8,14 @@ class Header
 
   def header_from_config(config)
     config = YAML.safe_load(open_config(config))
-    @items = [
-      {
-        name: config['name'],
-        subtitle: config['subtitle'],
-        logo_path: config['assets']['logo']['path'],
-        logo_alt: config['assets']['logo']['alt'],
-        sign_up_path: config['header']['links']['sign-up']['path'],
-        sign_up_text_arr: config['header']['links']['sign-up']['text']
-      }
-    ]
+    {
+      name: config['name'],
+      subtitle: config['subtitle'],
+      logo_path: config['assets']['logo']['path'],
+      logo_alt: config['assets']['logo']['alt'],
+      sign_up_path: config['header']['links']['sign-up']['path'],
+      sign_up_text_arr: config['header']['links']['sign-up']['text']
+    }
   end
 
   def open_config(config)
