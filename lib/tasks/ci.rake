@@ -144,4 +144,26 @@ namespace :ci do
       raise "Blocked words found:\n\n#{errors.join("\n")}"
     end
   end
+
+  task 'check_ruby_version': :environment do
+    # We treat .ruby-version as the canonical source
+    ruby_version = File.read('.ruby-version').strip
+
+    # Does our Gemfile match
+    gemfile = File.read('Gemfile.lock')
+    gemfile_version = gemfile.match(/RUBY VERSION.*ruby (\d+\.\d+\.\d+).*BUNDLED WITH/m)[1].strip
+
+    # How about Docker?
+    docker = File.read('Dockerfile')
+    docker_version = docker.match(/FROM ruby:(\d+\.\d+\.\d+).*/)[1].strip
+
+    errors = []
+
+    errors.push("Gemfile.lock (#{gemfile_version}) does not match .ruby-version (#{ruby_version})") if gemfile_version != ruby_version
+    errors.push("Dockerfile (#{docker_version}) does not match .ruby-version (#{ruby_version})") if docker_version != ruby_version
+
+    if errors.length.positive?
+      abort("Ruby version mismatch found:\n\n#{errors.join("\n")}")
+    end
+  end
 end
