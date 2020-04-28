@@ -49,22 +49,49 @@ The gem expects the documentation to be markdown files within the following fold
 
 ##### Configuration Files
 
-1. Business Information, **including header**:
+1. Business Information, **including header and footer**:
   * Business information, including content for the header, can be customized through providing a `business_info.yml` configuration file inside the `/config` folder. The following is a sample `business_info.yml` configuration:
-  ```yaml
-  name: Business Communications Developer Center
-  subtitle: Integrate voice, call recordings and call events into your business workflows.
-  header:
-    assets:
-      logo: 
-        path: '/images/logos/vbc-logo.png'
-        alt: 'VBC Logo'
-    links:
-      sign-up:
-        path:  https://developer.vonage.com
-        text:
-          - 'Log In'
-          - 'Try Me'
+
+```yaml
+name: VBC
+subtitle: Business for Developers
+assets:
+  logo:
+    path: '/images/logos/vbc-logo.png'
+    alt: 'VBC Logo'
+header:
+  links:
+    sign-up:
+      path: https://developer.vonage.com
+      text:
+        - 'Log In'
+        - 'Try Me'
+footer:
+  links:
+    status:
+      path: https://developer.vonage.com
+      text: 'VBC Status' 
+    navigation:
+      documentation:
+        - call-recording: 'https://vbc-developer.herokuapp.com/call-recording/overview'
+        - provisioning: 'https://vbc-developer.herokuapp.com/provisioning/overview'
+        - telephony: 'https://vbc-developer.herokuapp.com/telephony/overview'
+        - reports: 'https://vbc-developer.herokuapp.com/reports/overview'
+        - vonage-integration-platform: 'https://vbc-developer.herokuapp.com/vonage-integration-platform/overview'
+        - smart-numbers: 'https://vbc-developer.herokuapp.com/smart-numbers/overview'
+      api-reference:
+        - call-recording: 'https://vbc-developer.herokuapp.com/api/call-recording'
+        - provisioning: 'https://vbc-developer.herokuapp.com/api/provisioning'
+        - telephony: 'https://vbc-developer.herokuapp.com/api/telephony'
+        - reports: 'https://vbc-developer.herokuapp.com/api/reports'
+        - vonage-integration-platform: 'https://vbc-developer.herokuapp.com/api/vonage-integration-platform'
+      get-to-know-us:
+        - vonage-business-communications: 'https://www.vonage.com/unified-communications/'
+        - careers: 'https://www.vonage.com/corporate/careers/'
+        - press: 'https://www.vonage.com/corporate'
+    support:
+      business-support: 'https://businesssupport.vonage.com/'
+      developer-support: 'devsupport@vonage.com'
   ```
 2. Top navigation bar:
   * The links in the navigation bar can be customized through providing a `top_navigation.yml` configuration file inside the `/config` folder. In this file each navigation item should be provided on its own line in the following format: `Name: /url`. For example, `Documentation: /documentation`, is a valid entry. If a custom YAML file is not provided, the gem's default navigation bar will be rendered.
