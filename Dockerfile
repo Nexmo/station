@@ -1,5 +1,5 @@
 # Base image:
-FROM ruby:2.5.7
+FROM ruby:2.5.8
 
 # Install dependencies
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev lsof
