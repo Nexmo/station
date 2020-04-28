@@ -145,49 +145,25 @@ namespace :ci do
     end
   end
 
-  task 'duplicate_navigation_weight': :environment do
-    markdown_files =
-      [
-        "#{Rails.configuration.docs_base_path}/_documentation/en/**/*.md",
-        "#{Rails.configuration.docs_base_path}/_api/**/*.md",
-        "#{Rails.configuration.docs_base_path}/_tutorials/**/*.md",
-        "#{Rails.configuration.docs_base_path}/_use_cases/**/*.md",
-      ]
+  task 'check_ruby_version': :environment do
+    # We treat .ruby-version as the canonical source
+    ruby_version = File.read('.ruby-version').strip
 
-    paths = {}
-    markdown_files.each do |path|
-      Dir.glob(path).each do |filename|
-        weight = YAML.load_file(filename)['navigation_weight']
-        next unless weight
+    # Does our Gemfile match
+    gemfile = File.read('Gemfile.lock')
+    gemfile_version = gemfile.match(/RUBY VERSION.*ruby (\d+\.\d+\.\d+).*BUNDLED WITH/m)[1].strip
 
-        dir = File.dirname(filename)
-        paths[dir] ||= {}
-        paths[dir][weight] ||= []
-        paths[dir][weight].push(filename)
-      end
-    end
+    # How about Docker?
+    docker = File.read('Dockerfile')
+    docker_version = docker.match(/FROM ruby:(\d+\.\d+\.\d+).*/)[1].strip
 
-    # Loop through everything!
     errors = []
-    paths.each do |path, weights|
-      weights.each do |weight, items|
-        next if items.size <= 1
 
-        errors.push({
-          'path' => path,
-          'weight' => weight,
-          'items' => items.map { |i| i.gsub("#{path}/", '') },
-        })
-      end
-    end
+    errors.push("Gemfile.lock (#{gemfile_version}) does not match .ruby-version (#{ruby_version})") if gemfile_version != ruby_version
+    errors.push("Dockerfile (#{docker_version}) does not match .ruby-version (#{ruby_version})") if docker_version != ruby_version
 
     if errors.length.positive?
-      error = "Duplicate weights found:\n\n"
-      errors.each do |err|
-        error += "#{err['path']} (Weight: #{err['weight']})\n#{err['items'].join("\n")}"
-        error += "\n------------------------------\n"
-      end
-      abort(error)
+      abort("Ruby version mismatch found:\n\n#{errors.join("\n")}")
     end
   end
 end
