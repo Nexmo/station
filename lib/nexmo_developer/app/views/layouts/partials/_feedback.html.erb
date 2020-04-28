@@ -16,7 +16,7 @@
       },
 
       <% if @document_path %>
-        github_url: '<%= "https://github.com/Nexmo/nexmo-developer/blob/#{ ENV['branch'] || 'master' }/#{@document_path}" %>',
+        github_url: '<%= @github_url %>',
       <% end %>
     }
   </script>
