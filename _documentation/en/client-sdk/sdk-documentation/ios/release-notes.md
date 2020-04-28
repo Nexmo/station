@@ -6,6 +6,20 @@ navigation_weight: 0
 
 # Release Notes
 
+## 2.2.0 - 2020-04-22
+
+### Added
+
+- Added `isConnected` method to `NXMClient` to show current connection state.
+
+```objective_c
+[NXNClient.shared isConnected]
+```
+
+### Fixed
+
+- API Event `client_ref` handling.
+
 ## 2.1.10 - 2020-04-16
 
 ### Internal
@@ -459,4 +473,5 @@ NXMClient myClient = ...;
 
 - Please refer to list of features and usage: <https://developer.nexmo.com/>
 - **Cocoapods**: <https://cocoapods.org/pods/nexmoclient>
+
 
