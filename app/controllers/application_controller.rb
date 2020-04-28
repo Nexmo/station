@@ -14,12 +14,12 @@ class ApplicationController < ActionController::Base
   before_action :set_feedback_author
   before_action :set_locale
 
-  def not_found
+  def not_found(exception = nil)
     redirect = Redirector.find(request)
     if redirect
       redirect_to redirect
     else
-      NotFoundNotifier.notify(request)
+      NotFoundNotifier.notify(request, exception)
       not_found_search_results if search_enabled?
       render_not_found
     end
