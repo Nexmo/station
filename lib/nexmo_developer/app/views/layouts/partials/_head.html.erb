@@ -1,13 +1,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <%= info = Head.new.items %>
+  <title><%= info[:title] %></title>
 
-  <title><%= title %></title>
-
-  <% if @frontmatter && @frontmatter['description'] %>
-    <meta name="description" content="<%= @frontmatter['description'] %>">
-  <% end %>
-  <meta name="google-site-verification" content="_DNZpugW9Fl4BUMbPsepvc_2McwbRvNBHHuI99MZH7c" />
+  <meta name="description" content="<%= info[:description] %>">
+  <meta name="google-site-verification" content=<%= info[:google_site_verification] %> />
 
   <%
     # Note: We use a different API Key for fontend since Bugsnag gives different project options
@@ -95,25 +93,21 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="manifest" href="/manifest.json">
   <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-  <meta name="apple-mobile-web-app-title" content="Nexmo Developer">
-  <meta name="application-name" content="Nexmo Developer">
+  <meta name="apple-mobile-web-app-title" content=<%= info[:title] %>>
+  <meta name="application-name" content=<%= info[:application_name] %>>
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="msapplication-TileImage" content="/mstile-144x144.png">
   <meta name="theme-color" content="#ffffff">
 
   <meta property="og:url" content="<%= request.base_url + request.fullpath %>" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="<%= title %>" />
+  <meta property="og:title" content="<%= info[:title] %>" />
 
-  <meta property="og:image" content="<%= request.base_url %>/assets/images/nexmo-developer-card.png" />
-  <meta property="og:image:width" content="835" />
-  <meta property="og:image:height" content="437" />
+  <meta property="og:image" content="<%= request.base_url %>/<%= info[:og_image] %>" />
+  <meta property="og:image:width" content=<%= info[:og_image_width] %> />
+  <meta property="og:image:height" content=<%= info[:og_image_height] %> />
+  <meta property="og:description" content=<%= info[:description] %> />
 
-  <% if @frontmatter && @frontmatter['description'] %>
-    <meta property="og:description" content="<%= @frontmatter['description'] %>" />
-  <% else %>
-    <meta property="og:description" content="Everything you need to build connected applications with Nexmo" />
-  <% end %>
 
   <meta name="basic_auth_username" content="<%= ENV['USERNAME'] %>" />
   <meta name="basic_auth_password" content="<%= ENV['PASSWORD'] %>" />
@@ -130,7 +124,7 @@
     <% end %>
   <% end %>
 
-  <meta name="copyright" content="<%= Time.current.year %> Nexmo, The Vonage API Platform" />
+  <meta name="copyright" content="<%= Time.current.year %> <%= info[:application_name] %>" />
 
   <%= csrf_meta_tags %>
 
