@@ -5,7 +5,10 @@
   <title><%= info[:title] %></title>
 
   <meta name="description" content="<%= info[:description] %>">
-  <meta name="google-site-verification" content=<%= info[:google_site_verification] %> />
+  
+  <% if info[:google_site_verification] %>
+    <meta name="google-site-verification" content=<%= info[:google_site_verification] %> />
+  <% end %>
 
   <%
     # Note: We use a different API Key for fontend since Bugsnag gives different project options

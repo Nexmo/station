@@ -11,7 +11,7 @@ class Head
     {
       title: set_title(config),
       description: set_description(config),
-      google_site_verification: config['google-site-verification'],
+      google_site_verification: config['google-site-verification'] || '',
       application_name: config['application-name'],
       og_image: set_og_image(config),
       og_image_width: config['og-image-width'] || 835,
@@ -51,11 +51,5 @@ class Head
     raise "You must provide an 'og-image' parameter in header_meta.yml" if config['og-image'].blank?
 
     config['og-image']    
-  end
-
-  def set_google_site_verification(config)
-    raise "You must provide a 'google-site-verification' parameter in header_meta.yml" if config['google-site-verification'].blank?
-
-    config['google-site-verification']
   end
 end

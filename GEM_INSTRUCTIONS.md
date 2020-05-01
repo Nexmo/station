@@ -96,6 +96,19 @@ footer:
 2. Top navigation bar:
   * The links in the navigation bar can be customized through providing a `top_navigation.yml` configuration file inside the `/config` folder. In this file each navigation item should be provided on its own line in the following format: `Name: /url`. For example, `Documentation: /documentation`, is a valid entry. If a custom YAML file is not provided, the gem's default navigation bar will be rendered.
 
+3. Header Meta Information:
+  * Meta-tags for the site must be provided inside a `/config/meta_info.yml` file. If the entries are not provided in this file, the site will not execute:
+
+  ```yaml
+  title: # Title of your site for title bar
+  description: # Description of site for search engines
+  google-site-verification: # Verification code of site ownership for Google Search Console. *Will skip if not provided*
+  application-name: # Name of application that the site represents
+  og-image: # Path to image to represent site in search engines, i.e. 'images/sample-card.png'
+  og-image-width: # Width of image, if not provided defaults to 835
+  og-image-height: # Height of image, if not provided defaults to 437
+```
+
 
 ##### Custom Views
 
