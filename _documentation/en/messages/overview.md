@@ -27,6 +27,7 @@ The following diagram illustrates the relationship between the Messages API and 
 * [Getting started](#getting-started)
 * [Concepts](#concepts)
 * [Code Snippets](#code-snippets)
+* [Tutorials](#tutorials)
 * [Use Cases](#use-cases)
 * [Reference](#reference)
 
@@ -107,6 +108,13 @@ product: messages
 ```code_snippet_list
 product: messages
 ```
+
+## Tutorials
+
+* [How to send an SMS message](/messages/tutorials/send-sms-with-messages/introduction)
+* [How to send a Viber message](/messages/tutorials/send-viber-message/introduction)
+* [How to send a WhatsApp message](/messages/tutorials/send-whatsapp-message/introduction)
+* [How to send a Facebook Messenger message](/messages/tutorials/send-fbm-message/introduction)
 
 ## Use Cases
 
