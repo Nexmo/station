@@ -37,14 +37,14 @@ RSpec.describe Header do
       items = @header.items
 
       expect(items).to eq(
-        [{
+        {
           :logo_alt=>"Sample Alt",
           :logo_path=>"/images/logos/sample-logo.png",
           :name=>"Sample Name",
           :sign_up_path=>"https://path/to/site",
           :sign_up_text_arr=>["Log In", "Try Me"],
           :subtitle=>"Sample Subtitle"
-        }]
+        }
       )
     end
   end
@@ -64,9 +64,9 @@ RSpec.describe Header do
     name: Sample Name
     subtitle: Sample Subtitle
     assets:
-    logo: 
-      path: '/images/logos/sample-logo.png'
-      alt: 'Sample Alt'
+      logo: 
+        path: '/images/logos/sample-logo.png'
+        alt: 'Sample Alt'
     header:
       links:
         sign-up:

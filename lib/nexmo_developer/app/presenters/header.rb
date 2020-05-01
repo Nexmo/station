@@ -8,6 +8,7 @@ class Header
 
   def header_from_config(config)
     config = YAML.safe_load(open_config(config))
+    
     {
       name: config['name'],
       subtitle: config['subtitle'],

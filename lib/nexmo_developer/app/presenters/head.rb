@@ -6,7 +6,7 @@ class Head
     after_initialize!
   end
 
-  def header_from_config(config)
+  def head_from_config(config)
     config = YAML.safe_load(open_config(config))
     {
       title: set_title(config),
@@ -30,9 +30,9 @@ class Head
   private
 
   def after_initialize!
-    raise 'You must provide a config/business_info.yml file in your documentation path.' unless config_exist?("#{Rails.configuration.docs_base_path}/config/header_meta.yml")
+    raise 'You must provide a config/header_meta.yml file in your documentation path.' unless config_exist?("#{Rails.configuration.docs_base_path}/config/header_meta.yml")
 
-    @items = header_from_config("#{Rails.configuration.docs_base_path}/config/header_meta.yml")
+    @items = head_from_config("#{Rails.configuration.docs_base_path}/config/header_meta.yml")
   end
 
   def set_title(config)
@@ -51,5 +51,11 @@ class Head
     raise "You must provide an 'og-image' parameter in header_meta.yml" if config['og-image'].blank?
 
     config['og-image']    
+  end
+
+  def set_google_site_verification(config)
+    raise "You must provide a 'google-site-verification' parameter in header_meta.yml" if config['google-site-verification'].blank?
+
+    config['google-site-verification']
   end
 end
