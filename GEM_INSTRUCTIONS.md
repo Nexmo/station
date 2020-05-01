@@ -99,16 +99,53 @@ footer:
 3. Header Meta Information:
   * Meta-tags for the site must be provided inside a `/config/meta_info.yml` file. If the entries are not provided in this file, the site will not execute:
 
-  ```yaml
+```yaml
   title: # Title of your site for title bar
   description: # Description of site for search engines
   google-site-verification: # Verification code of site ownership for Google Search Console. *Will skip if not provided*
   application-name: # Name of application that the site represents
-  og-image: # Path to image to represent site in search engines, i.e. 'images/sample-card.png'
-  og-image-width: # Width of image, if not provided defaults to 835
-  og-image-height: # Height of image, if not provided defaults to 437
 ```
 
+  * The site expects the following meta icons and files to be placed inside the `/public/meta` folder. If they are not there, the site will raise an exception and not run (for examples of all of these files you can visit https://developer.nexmo.com/#{name of the file} to see an example):
+
+```bash
+  og.png
+  apple-touch-icon.png
+  favicon.ico
+  favicon-32x32.png
+  manifest.json
+  safari-pinned-tab.svg
+  mstile-144x144.png
+```
+
+#### Environment Variables
+
+Within your runtime production environment you can specify the following environment variables related to Google Analytics:
+
+```env
+SEGMENT_WRITE_KEY
+GOOGLE_ANALYTICS_TRACKING_ID
+GOOGLE_TAG_MANAGER_ID
+SEARCH_URL
+```
+
+You can also specify the following environment variable related to Hotjar analytics:
+
+```env
+HOTJAR_ID
+```
+
+The following can be specified for Bugsnag analytics:
+
+```env
+BUGSNAG_JS_API_KEY
+```
+
+For Algolia search specify the following environment variable:
+
+```env
+ALGOLIA_APPLICATION_ID
+```
 
 ##### Custom Views
 
