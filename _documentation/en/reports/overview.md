@@ -13,9 +13,9 @@ You can use the Reports API in a wide variety of use cases, including:
 * Invoice reconciliation - Compare your usage data with the invoice you have received.
 * Monitoring and analytics - Add CDR data to your business intelligence or analytics system to correlate it with other events.
 
-> The Reports API Beta is available free of charge for all customers until the 1st of June 2020. After that date, charges will be applied if the number of requests exceeds the Free Usage Tier. Please use [this form](https://info.nexmo.com/ReportsAPI.html) to request the API pricing.
-
 ## Pricing (subject to change)
+
+> The Reports API Beta is available free of charge for all customers until the 1st of June 2020. After that date, charges will be applied if the number of requests exceeds the Free Usage Tier. Please use [this form](https://info.nexmo.com/ReportsAPI.html) to request the API pricing.
 
 As part of the Free Usage Tier, you can create ten reports per month per account (API key) for free. Generated reports are not limited in size and can fetch up to thirteen months of data (maximum retention period for CDRs).
 
