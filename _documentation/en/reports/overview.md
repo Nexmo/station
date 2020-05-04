@@ -13,11 +13,10 @@ You can use the Reports API in a wide variety of use cases, including:
 * Invoice reconciliation - Compare your usage data with the invoice you have received.
 * Monitoring and analytics - Add CDR data to your business intelligence or analytics system to correlate it with other events.
 
-> The Reports API Beta is available free of charge for all customers until the 1st of May 2020. After that date, charges will be applied if the number of requests exceeds the Free Usage Tier. Please use [this form](https://info.nexmo.com/ReportsAPI.html) to request the API pricing.
-
 ## Features
 
 You can query your CDRs using a wide range of filters. Data records are kept for thirteen months (maximum retention period). Records older than 13 months cannot be obtained because they are automatically deleted from the system.
+
 Depending on your query pattern, you can choose from one of the two versions of Reports API: asynchronous and synchronous. Asynchronous version is optimized for infrequent and large data queries (from several records to tens of millions). Synchronous version is optimized for frequent and periodic retrievals of small batches of data records (from one record to tens of thousand per query).
 
 Feature  | Reports Synchronous (GET endpoint) | Reports Asynchronous (POST endpoint)
@@ -42,6 +41,44 @@ Feature  | Reports Synchronous (GET endpoint) | Reports Asynchronous (POST endpo
 * Conversations API
 * Verify API
 * Number Insight
+
+## Pricing (subject to change)
+
+> The Reports API Beta is available free of charge for all customers until the 1st of June 2020. After that date, charges will be applied if the number of requests exceeds the Free Usage Tier. Free Usage Tier applies only to create CSV report `POST` requests. **Please use [this form](https://info.nexmo.com/ReportsAPI.html) to request the Reports API pricing.**
+
+As part of the Free Usage Tier, you can create ten reports per month per account (API key) for free. Generated reports are not limited in size and can fetch up to thirteen months of data (maximum retention period for CDRs).
+
+Charges are applied based on the quantity of requests and the volume of data retrieved as listed in the following table:
+
+Resource | Price
+---- | ----
+`POST` requests (create CSV report, unbounded) | 0.04€ per request
+`GET` requests  (create and get JSON report, bounded) | 0.0006€ per request
+Report generation | 0.00003€ per CDR
+All other Requests | Free
+Data Returned | Free
+
+### Pricing example (`POST` requests)
+
+Assume you create an SMS report to retrieve one day of data and this report contains 10,000 CDRs. If you still have some free reports left (for example, you created six reports this calendar month so you can only create four more reports for free), then you will not be charged for this report. If you have already used your free monthly reports, then the total charge for this report will be the following:
+
+```
+Charge = 0.04€ + 10,000 * 0.00003€ = 0.04€ + 0.3€ = 0.34€
+```
+
+Even if the requested time period contains zero data records, the per request charge of 0.04€ is still applied, that is, a report containing zero CDRs will still cost you 0.04€.
+
+### Pricing example (`GET` requests)
+
+Assume you want to retrieve SMS records for the last one minute, and it turns out that there are 300 records in this time period. The total charge for this report will be the following:
+
+```
+Charge = 0.0006€ + 300 * 0.00003€ = 0.0006€  + 0.009€ = 0.0096€
+```
+
+`GET` Requests (create and get JSON report) can return records either by ID or by a time period they belong to. Search by ID is not time-bounded. Time period search supports ranges of up to 60 minutes.
+
+> Pricing information documented here is provisional and is subject to change.
 
 ## Tutorials
 
