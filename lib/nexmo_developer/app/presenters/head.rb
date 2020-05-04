@@ -13,15 +13,15 @@ class Head
       description: set_description(config),
       google_site_verification: config['google-site-verification'] || '',
       application_name: config['application-name'],
-      og_image: set_og_image,
+      og_image: set_file('og.png'),
       og_image_width: 835,
       og_image_height: 437,
-      apple_touch_icon: set_apple_touch_icon,
-      favicon: set_favicon,
-      favicon_32_squared: set_favicon_squared,
-      manifest: set_manifest,
-      safari_pinned_tab: set_safari_pinned_tab,
-      mstile_144_squared: set_mstile_144_squared,
+      apple_touch_icon: set_file('apple-touch-icon.png'),
+      favicon: set_file('favicon.ico'),
+      favicon_32_squared: set_file('favicon-32x32.png'),
+      manifest: set_file('manifest.json'),
+      safari_pinned_tab: set_file('safari-pinned-tab.svg'),
+      mstile_144_squared: set_file('mstile-144x144.png'),
     }
   end
 
@@ -57,45 +57,9 @@ class Head
     config['description']
   end
 
-  def set_og_image
-    raise "You must provide an 'og.png' file inside the public/meta directory" if file_does_not_exist?("#{Rails.configuration.docs_base_path}/public/meta/og.png")
+  def set_file(file_name)
+    raise "You must provide an #{file_name} file inside the public/meta directory" if file_does_not_exist?("#{Rails.configuration.docs_base_path}/public/meta/#{file_name}")
 
-    'meta/og.png'   
-  end
-
-  def set_apple_touch_icon
-    raise "You must provide an 'apple-touch-icon.png' file inside the public/meta directory" if file_does_not_exist?("#{Rails.configuration.docs_base_path}/public/meta/apple-touch-icon.png")
-
-    'meta/apple-touch-icon.png'   
-  end
-
-  def set_favicon
-    raise "You must provide an 'favicon.ico' file inside the public/meta directory" if file_does_not_exist?("#{Rails.configuration.docs_base_path}/public/meta/favicon.ico")
-
-    'meta/favicon.ico'   
-  end
-
-  def set_favicon_squared
-    raise "You must provide an 'favicon-32x32.png' file inside the public/meta directory" if file_does_not_exist?("#{Rails.configuration.docs_base_path}/public/meta/favicon-32x32.png")
-
-    'meta/favicon-32x32.png'   
-  end
-
-  def set_manifest
-    raise "You must provide an 'manifest.json' file inside the public/meta directory" if file_does_not_exist?("#{Rails.configuration.docs_base_path}/public/meta/manifest.json")
-
-    'meta/manifest.json'   
-  end
-
-  def set_safari_pinned_tab
-    raise "You must provide an 'safari-pinned-tab.svg' file inside the public/meta directory" if file_does_not_exist?("#{Rails.configuration.docs_base_path}/public/meta/safari-pinned-tab.svg")
-
-    'meta/safari-pinned-tab.svg'   
-  end
-
-  def set_mstile_144_squared
-    raise "You must provide an 'mstile-144x144.png' file inside the public/meta directory" if file_does_not_exist?("#{Rails.configuration.docs_base_path}/public/meta/mstile-144x144.png")
-
-    'meta/mstile-144x144.png'   
+    "meta/#{file_name}"
   end
 end
