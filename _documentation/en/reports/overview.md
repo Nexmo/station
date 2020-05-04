@@ -13,13 +13,40 @@ You can use the Reports API in a wide variety of use cases, including:
 * Invoice reconciliation - Compare your usage data with the invoice you have received.
 * Monitoring and analytics - Add CDR data to your business intelligence or analytics system to correlate it with other events.
 
+## Features
+
+You can query your CDRs using a wide range of filters. Data records are kept for thirteen months (maximum retention period). Records older than 13 months cannot be obtained because they are automatically deleted from the system.
+
+Depending on your query pattern, you can choose from one of the two versions of Reports API: asynchronous and synchronous. Asynchronous version is optimized for infrequent and large data queries (from several records to tens of millions). Synchronous version is optimized for frequent and periodic retrievals of small batches of data records (from one record to tens of thousand per query).
+
+Feature  | Reports Synchronous (GET endpoint) | Reports Asynchronous (POST endpoint)
+---- | ---- | ----
+ Data retrieval | Returns results immediately in batches of up to 1000 records. Response contains a batch of data records and a link to the next batch (if any) | Does not return data immediately. Instead, it records a data request, processes it asynchronously, and creates a file containing all records. When the results file is ready, it returns a link to the file
+ Output format | JSON | CSV
+ Compression | Not applicable | CSV file is compressed for faster downloads
+ Report TTL | Not applicable | Report files are automatically deleted after 72 hours
+ Time filter  | Can fetch up to 1 hour of data in one query | Can fetch up to 13 months (maximum retention period) of data in one query
+ ID filter  | Can fetch one data record by its ID | Does not support ID filtering
+ Message body  | Can fetch message body | Can fetch message body
+ Subaccounts  | Requires a separate request for each subaccount | Requires one report request. It automatically groups data records belonging to subaccounts into one report
+ Callbacks | Not applicable | An HTTP(S) POST callback can be generated to notify when report is completed
+
+> **A note on performance**: Even though the Reports API is fast and can deal with enormous amounts of data, it may become slower when trying to download data for realtime analytics. Using sensible filters can speed up processing considerably.
+
+## Supported products
+
+* SMS API
+* Messages API
+* Voice API
+* Conversations API
+* Verify API
+* Number Insight
+
 ## Pricing (subject to change)
 
-> The Reports API Beta is available free of charge for all customers until the 1st of June 2020. After that date, charges will be applied if the number of requests exceeds the Free Usage Tier. Please use [this form](https://info.nexmo.com/ReportsAPI.html) to request the API pricing.
+> The Reports API Beta is available free of charge for all customers until the 1st of June 2020. After that date, charges will be applied if the number of requests exceeds the Free Usage Tier. Free Usage Tier applies only to create CSV report `POST` requests. **Please use [this form](https://info.nexmo.com/ReportsAPI.html) to request the Reports API pricing.**
 
 As part of the Free Usage Tier, you can create ten reports per month per account (API key) for free. Generated reports are not limited in size and can fetch up to thirteen months of data (maximum retention period for CDRs).
-
-> Free Usage Tier applies only to create CSV report `POST` requests.
 
 Charges are applied based on the quantity of requests and the volume of data retrieved as listed in the following table:
 
@@ -51,34 +78,7 @@ Charge = 0.0006€ + 300 * 0.00003€ = 0.0006€  + 0.009€ = 0.0096€
 
 `GET` Requests (create and get JSON report) can return records either by ID or by a time period they belong to. Search by ID is not time-bounded. Time period search supports ranges of up to 60 minutes.
 
-## Features
-
-You can query your CDRs using a wide range of filters. Data records are kept for thirteen months (maximum retention period). Records older than 13 months cannot be obtained because they are automatically deleted from the system.
-
-Depending on your query pattern, you can choose from one of the two versions of Reports API: asynchronous and synchronous. Asynchronous version is optimized for infrequent and large data queries (from several records to tens of millions). Synchronous version is optimized for frequent and periodic retrievals of small batches of data records (from one record to tens of thousand per query).
-
-Feature  | Reports Synchronous (GET endpoint) | Reports Asynchronous (POST endpoint)
----- | ---- | ----
- Data retrieval | Returns results immediately in batches of up to 1000 records. Response contains a batch of data records and a link to the next batch (if any) | Does not return data immediately. Instead, it records a data request, processes it asynchronously, and creates a file containing all records. When the results file is ready, it returns a link to the file
- Output format | JSON | CSV
- Compression | Not applicable | CSV file is compressed for faster downloads
- Report TTL | Not applicable | Report files are automatically deleted after 72 hours
- Time filter  | Can fetch up to 1 hour of data in one query | Can fetch up to 13 months (maximum retention period) of data in one query
- ID filter  | Can fetch one data record by its ID | Does not support ID filtering
- Message body  | Can fetch message body | Can fetch message body
- Subaccounts  | Requires a separate request for each subaccount | Requires one report request. It automatically groups data records belonging to subaccounts into one report
- Callbacks | Not applicable | An HTTP(S) POST callback can be generated to notify when report is completed
-
-> **A note on performance**: Even though the Reports API is fast and can deal with enormous amounts of data, it may become slower when trying to download data for realtime analytics. Using sensible filters can speed up processing considerably.
-
-## Supported products
-
-* SMS API
-* Messages API
-* Voice API
-* Conversations API
-* Verify API
-* Number Insight
+> Pricing information documented here is provisional and is subject to change.
 
 ## Tutorials
 
