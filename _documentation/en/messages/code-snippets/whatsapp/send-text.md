@@ -7,7 +7,7 @@ meta_title: Send an text message on WhatsApp using the Messages API
 
 In this code snippet you learn how to send a WhatsApp message using the Messages API. For WhatsApp the maximum text size is 4096 characters, including Unicode.
 
-For a step-by-step guide to this topic, you can read our tutorial [Sending WhatsApp messages with the Messages API](/tutorials/sending-whatsapp-messages-with-messages-api).
+For a step-by-step guide to this topic, you can read our tutorial [Sending a WhatsApp message](/tutorials/messages-dispatch/send-whatsapp-message).
 
 > **IMPORTANT:** If a customer has not messaged you first, then the first time you send a message to a user, WhatsApp requires that the message contains a template. This is explained in more detail in the [Understanding WhatsApp topic](/messages/concepts/whatsapp).
 
