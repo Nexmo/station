@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/nexmo/nexmo-markdown-renderer.git
-  revision: 0f26ec3d2195fd3a0b0a2c02cff6905125c1e82a
+  revision: 34bc81d6196a9be988059a09db45bbeee0893ef0
   branch: fix-kotlin-icon
   specs:
     nexmo_markdown_renderer (0.3.1)
@@ -286,7 +286,7 @@ GEM
     mime-types (3.3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2019.1009)
-    mimemagic (0.3.4)
+    mimemagic (0.3.5)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.14.0)
