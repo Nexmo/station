@@ -1,15 +1,38 @@
 class Product
+  # TODO: return instances
   def self.all
-    [
-      { 'path' => 'messaging/sms', 'icon' => 'message', 'icon_colour' => 'purple', 'name' => 'SMS' },
-      { 'path' => 'voice/voice-api', 'icon' => 'phone', 'icon_colour' => 'green', 'name' => 'Voice' },
-      { 'path' => 'verify', 'icon' => 'lock', 'icon_colour' => 'purple-dark', 'name' => 'Verify' },
-      { 'path' => 'messages', 'icon' => 'chat', 'icon_colour' => 'blue', 'name' => 'Messages' },
-      { 'path' => 'dispatch', 'icon' => 'flow', 'icon_colour' => 'blue', 'name' => 'Dispatch' },
-      { 'path' => 'number-insight', 'icon' => 'file-search', 'icon_colour' => 'orange', 'name' => 'Number Insight' },
-      { 'path' => 'conversation', 'icon' => 'message', 'icon_colour' => 'blue', 'name' => 'Conversation' },
-      { 'path' => 'client-sdk', 'icon' => 'queue', 'icon_colour' => 'blue', 'name' => 'Client SDK' },
-      { 'path' => 'account/subaccounts', 'icon' => 'user', 'icon_colour' => 'blue', 'name' => 'Subaccounts' },
-    ]
+    raise "Application requires 'products.yml' inside /config folder in documentation path" unless "#{Rails.configuration.docs_base_path}/config/products.yml"
+
+    config = YAML.safe_load(File.open("#{Rails.configuration.docs_base_path}/config/products.yml"))
+
+    config['products']
+  end
+
+  def self.normalize_title(product)
+    return 'SMS' if product == 'messaging/sms'
+    return 'Voice' if product == 'voice/voice-api'
+    return 'Number Insight' if product == 'number-insight'
+    return 'Messages' if product == 'messages'
+    return 'Dispatch' if product == 'dispatch'
+    return 'Client SDK' if product == 'client-sdk'
+    return 'Subaccounts' if product == 'account/subaccounts'
+
+    product.camelcase
+  end
+
+  def self.filter_products(use_cases)
+    products = all
+    products_mapped = []
+
+    products.each do |p|
+      use_cases.each do |u|
+        if u.products.include?(p['path'])
+          products_mapped << p
+        end
+        products_mapped
+      end
+    end
+
+    products_mapped
   end
 end

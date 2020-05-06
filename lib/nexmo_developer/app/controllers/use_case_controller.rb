@@ -4,7 +4,6 @@ class UseCaseController < ApplicationController
   def index
     @product = params['product']
     @language = params['code_language']
-
     @use_cases = Nexmo::Markdown::UseCase.all
 
     @use_cases = Nexmo::Markdown::UseCase.by_product(@product, @use_cases) if @product
