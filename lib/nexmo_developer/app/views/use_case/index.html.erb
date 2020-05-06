@@ -32,7 +32,7 @@
     <div class="Vlt-dropdown__panel">
       <div class="Vlt-dropdown__panel__content">
         <ul>
-          <% products = Product.filter_products(@use_cases) %>
+          <% products = Product.filter_products_for_dropdown(@use_cases) %>
           <% products.each do |product| %>
               <li>
                 <a

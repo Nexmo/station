@@ -14,7 +14,7 @@ class DocumentationConstraint
   def self.product_with_parent_list
     raise ArgumentError, "The 'product' key in config/products.yml must be a list with at least one entry." if config.fetch('products', []).size.zero?
 
-    @product_with_parent_list ||= config.fetch('products', [])
+    @product_with_parent_list ||= config.fetch('products', []).map{|product| product['path']}
   end
 
   def self.config

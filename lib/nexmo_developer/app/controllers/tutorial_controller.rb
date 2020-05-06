@@ -14,11 +14,9 @@ class TutorialController < ApplicationController
     else
       @tutorials = TutorialList.all
     end
+    @tutorials = @tutorials.select { |t| t.languages.include?(@code_language) } if @code_language
 
     @document_title = 'Tutorials'
-
-    excluded_languages = ['csharp', 'javascript', 'kotlin', 'android', 'swift', 'objective_c']
-    @languages = Nexmo::Markdown::CodeLanguage.languages.reject { |l| excluded_languages.include?(l.key) }
 
     render layout: 'page'
   end
@@ -75,7 +73,12 @@ class TutorialController < ApplicationController
   def set_tutorial
     @tutorial_name = params[:tutorial_name]
     render_not_found unless @tutorial_name
-    @tutorial = Nexmo::Markdown::Tutorial.load(@tutorial_name, @tutorial_step, params[:product])
+    @tutorial = Nexmo::Markdown::Tutorial.load(
+      @tutorial_name,
+      @tutorial_step,
+      params[:product],
+      params[:code_language]
+    )
   end
 
   def set_tutorial_step
@@ -93,7 +96,8 @@ class TutorialController < ApplicationController
       action: action_name,
       product: @tutorial.current_product,
       tutorial_name: @tutorial.name,
-      tutorial_step: @tutorial.first_step
+      tutorial_step: @tutorial.first_step,
+      code_language: @tutorial.code_language
     )
   end
 end

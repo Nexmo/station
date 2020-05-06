@@ -9,7 +9,7 @@
         <% if @tutorial.previous_step %>
           <a
             class="Vlt-btn Vlt-btn--secondary"
-            href="<%= url_for(product: @tutorial.current_product, tutorial_name: @tutorial.name, tutorial_step: @tutorial.previous_step['path'], only_path: true, controller: :tutorial, action: :index) %>"
+            href="<%= url_for(product: @tutorial.current_product, tutorial_name: @tutorial.name, tutorial_step: @tutorial.previous_step.name, only_path: true, controller: :tutorial, action: :index) %>"
           >
             &laquo; Previous
           </a>
@@ -19,7 +19,7 @@
         <% if @tutorial.next_step %>
           <a
             class="Vlt-btn Vlt-btn--secondary"
-            href="<%= url_for(product: @tutorial.current_product, tutorial_name: @tutorial.name, tutorial_step: @tutorial.next_step['path'], only_path: true, controller: :tutorial, action: :index) %>"
+            href="<%= url_for(product: @tutorial.current_product, tutorial_name: @tutorial.name, tutorial_step: @tutorial.next_step.name, only_path: true, controller: :tutorial, action: :index) %>"
           >
             Next &raquo;
           </a>
@@ -41,14 +41,14 @@
             <% @tutorial.subtasks.each_with_index do |t, i| %>
             <div class="Vlt-grid">
               <div class="Vlt-col Vlt-col--1of4">
-              <span class="Nxd-step-number Vlt-number <%= t['is_active'] ? 'Vlt-bg-black': 'Vlt-bg-grey' %>" style="margin:0"><%= i+1 %></span>
+              <span class="Nxd-step-number Vlt-number <%= t.active? ? 'Vlt-bg-black': 'Vlt-bg-grey' %>" style="margin:0"><%= i+1 %></span>
                 </div>
               <div class="Vlt-col Vlt-col--3of4 Nxd-step">
                 <a
-                  title="<%= t['description'] %>"
-                  href="<%= url_for(controller: :tutorial, action: :index, product: @tutorial.current_product, tutorial_name: @tutorial.name, tutorial_step: t['path']) %>"
+                  title="<%= t.title %>"
+                  href="<%= url_for(controller: :tutorial, action: :index, product: @tutorial.current_product, tutorial_name: @tutorial.name, tutorial_step: t.name) %>"
                 >
-                  <%= t['title'] %>
+                  <%= t.title %>
                 </a>
               </div>
             </div>

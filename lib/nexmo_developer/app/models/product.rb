@@ -20,13 +20,13 @@ class Product
     product.camelcase
   end
 
-  def self.filter_products(use_cases)
-    products = all
+  def self.filter_products_for_dropdown(item_list) # use_cases || tutorials
+    products = all.select{|p| p['dropdown'] == true}
     products_mapped = []
 
     products.each do |p|
-      use_cases.each do |u|
-        if u.products.include?(p['path'])
+      item_list.each do |i|
+        if i.products.include?(p['path'])
           products_mapped << p
         end
         products_mapped
