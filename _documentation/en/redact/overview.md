@@ -50,7 +50,7 @@ The Redact API provides Nexmo customers with an endpoint to programmatically req
 
 To use the Redact API, you have to provide transaction (message/call) IDs returned in the responses to the API requests sent by you to the Nexmo communication APIs. For each ID, you need to make a request to the [Nexmo Redact API](/api/redact).
 
-It is not possible to make the redaction API request immediately after receiving the transaction ID because it takes time (up to several minutes) for the CDRs to propogate to the long-term storage that Redact API redacts from. Thus, you either have to save in your database the returned transaction (CDR) IDs for later reference or use the Reports API to retrieve the CDRs along with their IDs for your account.
+It is not possible to make the redaction API request immediately after receiving the transaction ID because it takes time (up to several minutes) for the CDRs to propagate to the long-term storage that Redact API redacts from. Thus, you either have to save in your database the returned transaction (CDR) IDs for later reference or use the Reports API to retrieve the CDRs along with their IDs for your account.
 
 The scope of redaction of the Redact API depends on what Nexmo communication APIs you were using. The detailed description is provided below.
 
@@ -77,7 +77,7 @@ To learn more about the Redact API please refer to the [Redact API Reference](/a
   </tr>
   <tr>
     <th>PII</th>
-    <td>PII includes the message content and the receiver phone number for outbound messages and sender phone number for inbound messages.<br> The SMS API uses a data pipeline software to transport CDRs to various databases. The data pipeline keeps CDRs along with receiver/sender phone number for 7 days. Thus, besides server logs and the long-term storage of CDRs, PII is also stored in the data pipeline logs</td>
+    <td>PII includes the message content and the receiver phone number for outbound messages and the sender phone number for inbound messages.<br> The SMS API uses a data pipeline software to transport CDRs to various databases. The data pipeline keeps CDRs along with the receiver/sender phone number for 7 days. Thus, besides server logs and the long-term storage of CDRs, PII is also stored in the data pipeline logs</td>
   </tr>
   <tr>
     <th>Supported Auto-redact type</th>
@@ -85,7 +85,7 @@ To learn more about the Redact API please refer to the [Redact API Reference](/a
   </tr>
   <tr>
     <th>Auto-redact details</th>
-    <td>Advanced Auto-redact for SMS redacts server logs, CDRs, and the data pipeline logs. The scope of auto-redaction is configurable and can include the following options:<br><ul><li>message content redaction only</li><li>phone number redaction only</li><li>phone number encryption only</li><li>message content redaction together with redaction or encryption of the phone number </li></ul>When immediate message content redaction is configured, message content is not written at all, not even to the server logs.<br> When number redaction is configured, the phone number gets encrypted by the SMS API before it gets written to the server logs and the data pipeline logs. The moment CDRs get propagated to the long-term storage of CDRs, the encrypted number field gets automatically redacted. The logs containing encrypted numbers expire on their own.<br> Neither Support nor any other personel have access to decryption keys</td>
+    <td>Advanced Auto-redact for SMS redacts server logs, CDRs, and the data pipeline logs. The scope of auto-redaction is configurable and can include the following options:<br><ul><li>message content redaction only</li><li>phone number redaction only</li><li>phone number encryption only</li><li>message content redaction together with redaction or encryption of the phone number </li></ul>When immediate message content redaction is configured, message content is not written at all, not even to the server logs or the data pipeline logs.<br> When number redaction is configured, the phone number gets encrypted by the SMS API before it gets written to the server logs and the data pipeline logs. When CDRs get propagated to the long-term storage of CDRs, the encrypted number field gets automatically redacted. The logs containing encrypted numbers expire on their own.<br> Neither Support nor any other personel have access to decryption keys</td>
   </tr>
   <tr>
     <th>Redact API details</th>
@@ -101,7 +101,7 @@ To learn more about the Redact API please refer to the [Redact API Reference](/a
   </tr>
   <tr>
     <th>PII</th>
-    <td>PII includes the phone number and the phone number owner's details: first name, last name, caller name, and subscriber Id.<br> The NI API uses the data pipeline software to transport CDRs to various databases. The data pipeline keeps logs with PII in them for 7 days. Thus, besides server logs and the long-term storage of CDRs, PII is also stored in the data pipeline logs</td>
+    <td>PII includes the phone number and the phone number owner's details: first name, last name, caller name, and subscriber Id.<br> The NI API uses the data pipeline software to transport CDRs to various databases. The data pipeline keeps logs with PII in them for 7 days. Thus, besides the server logs and the long-term storage of CDRs, PII is also stored in the data pipeline logs</td>
   </tr>
   <tr>
     <th>Supported Auto-redact type</th>
@@ -109,7 +109,7 @@ To learn more about the Redact API please refer to the [Redact API Reference](/a
   </tr>
   <tr>
     <th>Auto-redact details</th>
-    <td>Advanced Auto-redact for NI redacts server logs, CDRs, and the data pipeline logs. The scope of auto-redaction is configurable and can include the following options:<br><ul><li>phone number owner details only</li><li>phone number redaction only</li><li>phone number encryption only</li><li>redaction of phone number owner's details together with redaction or encryption of the phone number</li></ul>When redaction is configured, the content of the redacted fields is not written at all, not even to the server logs. Everything gets redacted immediatly (if redaction delay is set to zero).</td>
+    <td>Advanced Auto-redact for NI redacts server logs, CDRs, and the data pipeline logs. The scope of auto-redaction is configurable and can include the following options:<br><ul><li>phone number owner details only</li><li>phone number redaction only</li><li>phone number encryption only</li><li>redaction of phone number owner's details together with redaction or encryption of the phone number</li></ul>When redaction is configured, the content of the redacted fields is not written at all, not even to the server logs. Everything gets redacted immediately (if redaction delay is set to zero).</td>
   </tr>
   <tr>
     <th>Redact API details</th>
@@ -153,7 +153,7 @@ To determine the identifiers of the leg resources, use the [GET method](/api/con
 
 Once the identifiers are known, each leg resource can be deleted with the [DELETE method](/api/conversation#deleteLeg).
 
-For voice applications where a call recording is made, e.g. using the [record action](/voice/voice-api/ncco-reference#record) of an NCCO, a media resource will be created which holds the recording. This can be deleted using the `DELETE` method of the [Media API](/api/media#delete-a-media-item).
+For voice applications with call recordings enabled, e.g. using the [record action](/voice/voice-api/ncco-reference#record) of an NCCO, a media resource will be created which holds the recording. This can be deleted using the `DELETE` method of the [Media API](/api/media#delete-a-media-item).
 
 <table>
   <tr>
