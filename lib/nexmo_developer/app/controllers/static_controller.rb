@@ -51,10 +51,6 @@ class StaticController < ApplicationController
     end
   end
 
-  def jwt
-    render layout: 'landing'
-  end
-
   def landing
     render layout: 'landing'
   end
