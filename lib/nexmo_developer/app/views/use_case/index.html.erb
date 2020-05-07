@@ -2,28 +2,8 @@
 
 <div class="Nxd-use-cases--filters">
   <strong>Filter: &nbsp;&nbsp;</strong>
-  <div class="Vlt-dropdown">
-    <button class="Vlt-dropdown__btn">
-      Choose a language
-    </button>
-    <div class="Vlt-dropdown__panel">
-      <div class="Vlt-dropdown__panel__content">
-        <ul>
-          <% @languages.each do |lang| %>
-          <li>
-            <a
-              class="Vlt-dropdown__link"
-              href="<%= url_for(controller: :use_case, action: :index, product: params[:product], code_language: lang.key)%>"
-            >
-              <svg class="Vlt-dropdown__link__icon" style="height: 20px; width: 20px;" ><use xlink:href="/assets/images/brands/<%= lang.icon %>.svg#<%= lang.icon %>"></use></svg><span><%= lang.label %></span>
-            </a>
-          </li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
-  </div>
 
+<%= render partial: 'layouts/partials/programming_languages_dropdown', controller_name: :tutorial, action_name: :list, locals: {item_list: @use_cases } %>
 
   <div class="Vlt-dropdown">
     <button class="Vlt-dropdown__btn">
@@ -34,14 +14,14 @@
         <ul>
           <% products = Product.filter_products_for_dropdown(@use_cases) %>
           <% products.each do |product| %>
-              <li>
-                <a
-                  class="Vlt-dropdown__link"
-                  href="<%= url_for(controller: :use_case, action: :index, product: product['path'], code_language: @language)%>"
-                  >
-                  <svg style="height: 20px; width: 20px;" class="Vlt-gray-darker Vlt-dropdown__link__icon"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-<%= product['icon'] %>"></use></svgc><span><%= product['name'] %></span>
-                </a>
-              </li>
+            <li>
+              <a
+                class="Vlt-dropdown__link"
+                href="<%= url_for(controller: :use_case, action: :index, product: product['path'], code_language: @language)%>"
+                >
+                <svg style="height: 20px; width: 20px;" class="Vlt-gray-darker Vlt-dropdown__link__icon"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-<%= product['icon'] %>"></use></svgc><span><%= product['name'] %></span>
+              </a>
+            </li>
           <% end %>
         </ul>
       </div>
