@@ -13,6 +13,7 @@ class UseCaseController < ApplicationController
 
     excluded_languages = ['csharp', 'javascript', 'kotlin', 'android', 'swift', 'objective_c']
     @languages = Nexmo::Markdown::CodeLanguage.languages.reject { |l| excluded_languages.include?(l.key) }
+    @languages = Nexmo::Markdown::CodeLanguage.filter_languages_for_dropdown(@languages, @use_cases)
 
     render layout: 'page'
   end
