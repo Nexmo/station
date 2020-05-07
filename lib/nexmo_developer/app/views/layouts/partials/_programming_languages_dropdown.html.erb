@@ -5,7 +5,8 @@
   <div class="Vlt-dropdown__panel">
     <div class="Vlt-dropdown__panel__content">
       <ul>
-        <% Nexmo::Markdown::CodeLanguage.languages.reject { |l| l.key == 'dotnet' }.each do |lang| %>
+        <% languages = Nexmo::Markdown::CodeLanguage.languages.reject { |l| l.key == 'dotnet' } %>
+        <% languages = Nexmo::Markdown::CodeLanguage.filter_languages_for_dropdown(languages, item_list).each do |lang| %>
           <li>
             <a
               class="Vlt-dropdown__link"
