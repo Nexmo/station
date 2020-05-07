@@ -25,6 +25,7 @@ title: Landing Pages
     - [Structured Text](#structured-text)
     - [Submit your Idea Form](#submit-your-idea-form)
     - [Table](#table)
+    - [Team Members](#team-members)
     - [Text](#text)
     - [Tutorial](#tutorial)
     - [Unordered List](#unordered-list)
@@ -363,6 +364,16 @@ It requires the following parameters:
  ```
 
  You can specify as many header `content` and body row `column` blocks as you would like.
+
+### Team Members
+
+The `team_members` content block provides you with a graphical representation of all the team members inside the `config/team.yml` file.
+
+```yaml
+
+- type: team_members
+
+```
 
 ### Text
 
