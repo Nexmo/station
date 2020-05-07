@@ -29,6 +29,7 @@ title: Landing Pages
     - [Text](#text)
     - [Tutorial](#tutorial)
     - [Unordered List](#unordered-list)
+    - [Write for Nexmo](#write-for-nexmo)
 
 ## Introduction
 
@@ -426,5 +427,15 @@ As mentioned, you can also specify the shape of the bullet symbol with the `bull
 ```yaml
 
 bullet_shape: # Shape of bullet, if not defined it will default to a circle (i.e square)
+
+```
+
+### Write for Nexmo
+
+The `write_for_nexmo` content block will provide a call to action element to Write for Nexmo with a Developer Spotlight graphic on the left-hand side and text advertising the Write for Nexmo program on the left-hand side.
+
+```yaml
+
+- type: write_for_nexmo
 
 ```
