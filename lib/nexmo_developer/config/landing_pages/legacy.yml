@@ -1,0 +1,58 @@
+page:
+  - row:
+    - column:
+      - type: html
+        html:
+          content: "<center>"
+  - row:
+    - column:
+      - type: html
+        html:
+          content: "<img src='/assets/images/lost.svg' alt='' width='120'>"
+  - row:
+    - column:
+      - type: html
+        html:
+          content: "<h1>Legacy Documentation</h1>"
+  - row:
+    - column:
+      - type: line_divider
+  - row:
+    - column:
+      - type: html
+        html:
+          content: "</center>"
+  - row:
+    - column:
+      - type: html
+        html:
+          content: "<h1>Deprecated Number Insight API</h1>"
+  - row:
+    - column:
+      - type: warning_callout
+        warning_callout:
+          content: "Note: This is a deprecated API, you should use the <a href='/number-insight'>updated Number Insight API</a>."
+  - row:
+    - column:
+      - type: table
+        table:
+          head:
+            - content: Title
+            - content: Link
+          body:
+            - row:
+              content:
+                - column: Number Insight Basic API
+                - column: https://docs.nexmo.com/number-insight/ni_legacy/basic
+            - row:
+              content: 
+                - column: Number Insight Standard API
+                - column: https://docs.nexmo.com/number-insight/ni_legacy/standard
+            - row:
+              content: 
+                - column: Number Insight Advanced API
+                - column: https://docs.nexmo.com/number-insight/ni_legacy/advanced
+            - row:
+              content: 
+                - column: Number Insight Advanced Async API
+                - column: https://docs.nexmo.com/number-insight/advanced-async/api-reference

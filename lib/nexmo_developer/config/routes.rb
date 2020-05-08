@@ -57,8 +57,6 @@ Rails.application.routes.draw do
 
   get '/migrate/tropo/(/*guide)', to: 'static#migrate_details'
 
-  get '/legacy', to: 'static#legacy'
-
   get '/community/slack', to: 'slack#join'
   post '/community/slack', to: 'slack#invite'
 
