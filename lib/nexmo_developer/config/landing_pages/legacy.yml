@@ -41,18 +41,14 @@ page:
             - content: Link
           body:
             - row:
-              content:
-                - column: Number Insight Basic API
-                - column: https://docs.nexmo.com/number-insight/ni_legacy/basic
-            - row:
-              content: 
-                - column: Number Insight Standard API
-                - column: https://docs.nexmo.com/number-insight/ni_legacy/standard
-            - row:
-              content: 
-                - column: Number Insight Advanced API
-                - column: https://docs.nexmo.com/number-insight/ni_legacy/advanced
-            - row:
-              content: 
-                - column: Number Insight Advanced Async API
-                - column: https://docs.nexmo.com/number-insight/advanced-async/api-reference
+              - column: Number Insight Basic API
+              - column: <a href='https://docs.nexmo.com/number-insight/ni_legacy/basic'>https://docs.nexmo.com/number-insight/ni_legacy/basic</a>
+            - row: 
+              - column: Number Insight Standard API
+              - column: <a href='https://docs.nexmo.com/number-insight/ni_legacy/standard'>https://docs.nexmo.com/number-insight/ni_legacy/standard</a>
+            - row: 
+              - column: Number Insight Advanced API
+              - column: <a href='https://docs.nexmo.com/number-insight/ni_legacy/advanced'>https://docs.nexmo.com/number-insight/ni_legacy/advanced</a>
+            - row: 
+              - column: Number Insight Advanced Async API
+              - column: <a href='https://docs.nexmo.com/number-insight/advanced-async/api-reference'>https://docs.nexmo.com/number-insight/advanced-async/api-reference</a>

@@ -391,13 +391,11 @@ It requires the following parameters:
       - content: # Second column header
     body:
       - row:
-        content:
-          - column: # First row, first column text
-          - column: # First row, second column text
+        - column: # First row, first column text
+        - column: # First row, second column text
       - row:
-        content: 
-          - column: # Second row, first column text
-          - column: # Second row, second column text
+        - column: # Second row, first column text
+        - column: # Second row, second column text
  ```
 
  You can specify as many header `content` and body row `column` blocks as you would like.
