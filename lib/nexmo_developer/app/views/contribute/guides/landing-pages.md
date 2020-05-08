@@ -190,6 +190,19 @@ The `github_repo` content block lets you reference a GitHub repository on your l
 
 ```
 
+Optionally, you can also provide a `badge_url` to link to the Version Badge of the library. The parameter can be provided in the following manner:
+
+```yaml
+
+- type: github_repo
+  github_repo:
+    repo_url:
+    badge_url: # Example: //badge.fury.io/gh/nexmo%2Fnexmo-java.svg
+    github_repo_title:
+    language:
+
+```
+
 ### Header
 
 <img src="/assets/images/contributing/landing_page_screenshots/header.png" width=200>

@@ -7,6 +7,10 @@
     <a class="Vlt-card Nxd-github-card Vlt-left" href="<%= local_assigns['repo_url'] %>" data-github="Nexmo/<%= local_assigns['repo_url'].split('/').last %>">
       <h3 class="Vlt-blue-dark"><%= local_assigns['repo_url'].split('/').last %></h3>
       <p><%= local_assigns['github_repo_title'] %></p>
+      <% if local_assigns['badge_url'] %>
+        <img src="<%= local_assigns['badge_url'] %>" class="Nxd-github-card__badge" height="18">
+        <p>
+      <% end %>
       <p><small class="Nxd-github-card__meta">
         <span>
           <span class="Vlt-blue-dark">●</span> <%= local_assigns['language'] %>
