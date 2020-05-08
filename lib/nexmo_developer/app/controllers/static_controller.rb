@@ -33,6 +33,11 @@ class StaticController < ApplicationController
       end
     end
 
+    if request.path.delete('/') == 'team'
+      @team ||= LoadConfig.load_file('config/team.yml')
+      @careers = Greenhouse.devrel_careers
+    end
+
     render layout: 'landing'
   end
 
