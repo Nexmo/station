@@ -30,6 +30,7 @@ title: Landing Pages
     - [Text](#text)
     - [Tutorial](#tutorial)
     - [Unordered List](#unordered-list)
+    - [Warning Callout](#warning-callout)
     - [Write for Nexmo](#write-for-nexmo)
 
 ## Introduction
@@ -381,6 +382,7 @@ It requires the following parameters:
 <img src="/assets/images/contributing/landing_page_screenshots/table_partial.png" width=400>
 
  The `table` content block provides you with the ability to insert a table into your landing page, including with markdown formatting for the data in the table body. It is structured as follows:
+
  ```yaml
  - type: table
   table:
@@ -461,6 +463,18 @@ As mentioned, you can also specify the shape of the bullet symbol with the `bull
 ```yaml
 
 bullet_shape: # Shape of bullet, if not defined it will default to a circle (i.e square)
+
+```
+
+### Warning Callout
+
+The `warning_callout` content block provides an element to render a warning message. The block consists of a bordered message with an "i" information icon on the left-hand side and the warning text provided in the `content` parameter:
+
+```yaml
+
+- type: warning_callout
+  warning_callout:
+    content: # Warning message goes here
 
 ```
 
