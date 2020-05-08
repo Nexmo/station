@@ -11,6 +11,7 @@ title: Landing Pages
 * [Content Types](#content-types)
     - [Action Button](#action-button)
     - [Call to Action](#call-to-action)
+    - [Client SDK Card](#client-sdk-card)
     - [Contact Support](#contact-support)
     - [Events](#events)
     - [GitHub Repo](#github-repo)
@@ -128,6 +129,26 @@ In addition, you can also specify an optional `subtitle` parameter that gives yo
 subtitle: "The Nexmo libraries allow you to get up and running with<br> Nexmo APIs quickly in your language of choice."`
 
 ```
+
+### Client SDK Card
+
+The `client_sdk_card` content block provides a Client SDK card to display client SDK information. The content block renders a title, icon and text and link to SDK documentation. All content types are required. 
+
+```yaml
+
+- type: client_sdk_card
+  client_sdk_card:
+    name:
+      content:
+      color:
+    icon:
+      name:
+    text:
+      content:
+    documentation_url:
+
+```
+   
 
 ### Contact Support
 

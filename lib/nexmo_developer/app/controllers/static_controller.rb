@@ -90,12 +90,6 @@ class StaticController < ApplicationController
     render layout: 'documentation'
   end
 
-  def tools
-    @navigation = :tools
-    @document_title = 'SDKs & Tools'
-    render layout: 'page'
-  end
-
   def community
     @navigation = :community
     @document_title = 'Community'
