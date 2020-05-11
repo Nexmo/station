@@ -12,8 +12,8 @@ class Header
     {
       name: config['name'],
       subtitle: config['subtitle'],
-      logo_path: config['assets']['logo']['path'],
-      logo_alt: config['assets']['logo']['alt'],
+      logo_path: config['assets']['header_logo']['path'],
+      logo_alt: config['assets']['header_logo']['alt'],
       sign_up_path: config['header']['links']['sign-up']['path'],
       sign_up_text_arr: config['header']['links']['sign-up']['text']
     }

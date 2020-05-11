@@ -56,9 +56,12 @@ The gem expects the documentation to be markdown files within the following fold
 name: VBC
 subtitle: Business for Developers
 assets:
-  logo:
+  header_logo:
     path: '/images/logos/vbc-logo.png'
     alt: 'VBC Logo'
+  footer_logo:
+    path: '/images/logos/footer-logo.png'
+    alt: 'VBC Footer Logo'
 header:
   links:
     sign-up:
