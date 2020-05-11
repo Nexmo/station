@@ -55,8 +55,6 @@ Rails.application.routes.draw do
 
   get '(/:locale)/documentation', to: 'static#documentation', constraints: LocaleConstraint.new, as: :documentation
 
-  get '/migrate/tropo/(/*guide)', to: 'static#migrate_details'
-
   get '/community/slack', to: 'slack#join'
   post '/community/slack', to: 'slack#invite'
 

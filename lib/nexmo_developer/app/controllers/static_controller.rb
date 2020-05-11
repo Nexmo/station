@@ -38,6 +38,12 @@ class StaticController < ApplicationController
       @careers = Greenhouse.devrel_careers
     end
 
+    if request.path.sub!('/', '') == 'migrate/tropo/sms'
+      migrate_tropo('sms')
+    elsif request.path.sub!('/', '') == 'migrate/tropo/voice'
+      migrate_tropo('voice')
+    end
+
     render layout: 'landing'
   end
 
@@ -128,73 +134,26 @@ class StaticController < ApplicationController
     render layout: 'landing'
   end
 
-  def migrate_details
-    page = params[:guide].split('/')[0]
+  def team
+    @team ||= LoadConfig.load_file('config/team.yml')
+    @careers = Greenhouse.devrel_careers
 
-    @namespace_path = "_documentation/#{page}"
-    @namespace_root = '_documentation'
-    @sidenav_root = "#{Rails.configuration.docs_base_path}/_documentation"
-    @skip_feedback = true
+    render layout: 'page'
+  end
 
-    if page == 'sms'
-      @active_path = '/messaging/sms/overview'
-      @active_title = 'Migrate from Tropo'
-      @product = 'SMS'
-      @product_list = 'messaging/sms'
-      content = <<~TEXT
-        Sending an SMS with Nexmo couldn't be easier! Tell us who the message is from, who to send it
-        to and the text that you'd like to send and we'll take care of the rest.
+  private
 
-        With support for [six different languages](/tools) and a simple [REST API](/api/sms), you can
-        get started with the Nexmo SMS API in under 10 minutes!
-      TEXT
-      @blocks = [
-        {
-          'title' => 'Send an SMS',
-          'nexmo' => '_examples/migrate/tropo/send-an-sms/nexmo',
-          'tropo' => '_examples/migrate/tropo/send-an-sms/tropo',
-          'content' => content,
-        },
-      ]
-    elsif page == 'voice'
-      @active_path = '/voice/voice-api/overview'
-      @active_title = 'Migrate from Tropo'
-      @product = 'Voice'
-      @product_list = 'voice/voice-api'
-      content = <<~TEXT
-        When making a voice call with Tropo you provide the words to be spoken directly in your application.
-        On the Nexmo platform, calls are controlled using an [NCCO](/voice/voice-api/ncco-reference), which is a JSON file that tells the Nexmo voice API how to interact with the call.
+  def canonical_redirect
+    return if params[:locale] != I18n.default_locale.to_s
 
-        In the example below, we use a static JSON file that returns a single `talk` action containing text which will be spoken in to the call.
+    redirect_to documentation_path(locale: nil)
+  end
 
-        ```json
-        [
-          {
-            "action": "talk",
-            "voiceName": "Russell",
-            "text": "You are listening to a test text-to-speech call made with Nexmo Voice API"
-          }
-        ]
-        ```
+  def migrate_tropo(product)
+    @active_title = 'Migrate from Tropo'
+    @config = YAML.load_file("#{Rails.configuration.docs_base_path}/custom/landing_pages/migrate/tropo/#{product}.yml")
 
-        Text-to-speech is just one of the many actions you can perform with the Nexmo voice API. You can [record calls](/voice/voice-api/ncco-reference#record),
-        [stream audio](/voice/voice-api/ncco-reference#stream), [build interactive menus](/voice/voice-api/ncco-reference#input) and more! Take
-        a look at our [NCCO documentation](/voice/voice-api/ncco-reference) for more information
-
-      TEXT
-      @blocks = [
-        {
-          'title' => 'Make an outbound call',
-          'nexmo' => '_examples/migrate/tropo/make-an-outbound-call/nexmo',
-          'tropo' => '_examples/migrate/tropo/make-an-outbound-call/tropo',
-          'content' => content,
-        },
-      ]
-    else
-      return render_not_found
-    end
-
-    @building_blocks = @blocks.map do |block|
+    @building_blocks = @config['page'][0]['row'][0]['column'][0]['migrate_details']['blocks'].map do |block|
       block['nexmo'] = "<h2>Nexmo</h2>
         ```code_snippets
           code_only: true
@@ -209,21 +168,5 @@ class StaticController < ApplicationController
 
       block
     end
-    render layout: 'landing'
-  end
-
-  def team
-    @team ||= LoadConfig.load_file('config/team.yml')
-    @careers = Greenhouse.devrel_careers
-
-    render layout: 'page'
-  end
-
-  private
-
-  def canonical_redirect
-    return if params[:locale] != I18n.default_locale.to_s
-
-    redirect_to documentation_path(locale: nil)
   end
 end

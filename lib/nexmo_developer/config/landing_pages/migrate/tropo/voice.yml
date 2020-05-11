@@ -1,0 +1,28 @@
+page:
+  - row:
+    - column:
+      - type: migrate_details
+        migrate_details:
+          product: 'Voice'
+          product_list: 'voice/voice-api'
+          blocks:
+            - title: 'Make an outbound call'
+              nexmo: '_examples/migrate/tropo/make-an-outbound-call/nexmo'
+              tropo: '_examples/migrate/tropo/make-an-outbound-call/tropo'
+              content: |
+                When making a voice call with Tropo you provide the words to be spoken directly in your application. On the Nexmo platform, calls are controlled using an [NCCO](/voice/voice-api/ncco-reference), which is a JSON file that tells the Nexmo voice API how to interact with the call.
+                
+                In the example below, we use a static JSON file that returns a single `talk` action containing text which will be spoken in to the call.
+  
+                ```json
+                [
+                  {
+                    "action": "talk",
+                    "voiceName": "Russell",
+                    "text": "You are listening to a test text-to-speech call made with Nexmo Voice API"
+                  }
+                ]
+                ```
+                
+                Text-to-speech is just one of the many actions you can perform with the Nexmo voice API. You can [record calls](/voice/voice-api/ncco-reference#record), [stream audio](/voice/voice-api/ncco-reference#stream), [build interactive menus](/voice/voice-api/ncco-reference#input) and more! Take a look at our [NCCO documentation](/voice/voice-api/ncco-reference) for more information.
+

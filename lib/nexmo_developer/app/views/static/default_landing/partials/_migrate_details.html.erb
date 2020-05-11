@@ -1,10 +1,10 @@
 <div class="center spacious">
-  <h1>Convert your <%= @product %> code from Tropo to Nexmo</h1>
+  <h1>Convert your <%= local_assigns['product'] %> code from Tropo to Nexmo</h1>
   <small><a href="/migrate/tropo">&laquo; Back to overview</a></small>
   <br />
   <br />
   <p>
-    Keep reading to see a comparison of how Nexmo and Tropo compare for working with <%= @product %> messages. <br />
+    Keep reading to see a comparison of how Nexmo and Tropo compare for working with <%= local_assigns['product'] %> messages. <br />
     Bear in mind that with Nexmo the code runs on your own server, whilst with Tropo you store your code on a Tropo platform.
   </p>
   <p>
@@ -15,7 +15,7 @@
 </div>
 <div class="container skip-pushstate" id="primary-content">
   <% @building_blocks.each do |block| %>
-  <h2><%= block['title'] %></h2>
+    <h2><%= block['title'] %></h2>
     <p><%= block['content'].render_markdown %></p>
     <h2>Example code</h2>
     <br />
@@ -40,7 +40,7 @@ Ready to get started? Here's some further reading to help you get started with t
 Work through some in depth use_case, covering common use cases
 
 ```use_case
-product: #{@product_list}
+product: #{local_assigns['product_list']}
 ```
 
 ## Code Snippets
@@ -48,7 +48,7 @@ product: #{@product_list}
 Want to dive in to code? Take a look at our library of code snippets to get started quickly
 
 ```code_snippet_list
-product: #{@product_list}
+product: #{local_assigns['product_list']}
 ```
     MD
 
