@@ -34,13 +34,13 @@ The purpose of the metadata is to provide useful information in the following ar
 
 The meta data items that can be used are described in the following table:
 
-Metadata | Description
-----|----
-`title` | This is the title for the topic that will be displayed in the navbar. This main be different to that display at the top of the topic. It is displayed in the Algolia search results when you search NDP.
-`description` | This is the short description for the topic. It is displayed in the Algolia search results when you search NDP. It should indicate the nature of the content of the topic.
-`meta_title` | Used in external search engine results. This should be more descriptive than the `title` to provide additional context in the absence of the navbar.
-`meta_description` | Used in external search engine results. Provides SEO. Should be no more than 160 characters.
-`navigation_weight` | A hint to position the topic in the navbar where a particular position is preferred. The lower the number used the higher in the navbar the item will appear. Overrides information defined in `config/navigation.yml`. In most cases you only need to add a `navigation_weight` item if your topic is not automatically displayed in your preferred position in the navbar.
+Metadata | HTML generated | Description
+----|----|----
+`title` | N/A | This is the title for the topic that will be displayed in the navbar. This main be different to that display at the top of the topic. It is displayed in the Algolia search results when you search NDP.
+`description` | N/A | This is the short description for the topic. It is displayed in the Algolia search results when you search NDP. It should indicate the nature of the content of the topic.
+`meta_title` | `<head><title>The title</title>...</head>` | Used for SEO in external search engine results. This should be more descriptive than the `title` to provide additional context in the absence of the navbar. [Further reading](https://moz.com/learn/seo/title-tag).
+`meta_description` | `<head><meta name="description" content="The description">...</head>` | Used in external search engine results. Provides SEO. Should be no more than 160 characters. [Further reading](https://moz.com/learn/seo/meta-description).
+`navigation_weight` | N/A | A hint to position the topic in the navbar where a particular position is preferred. The lower the number used the higher in the navbar the item will appear. Overrides information defined in `config/navigation.yml`. In most cases you only need to add a `navigation_weight` item if your topic is not automatically displayed in your preferred position in the navbar.
 
 ### Example
 
@@ -78,7 +78,7 @@ To provide greater context in external search results a corresponding `meta_titl
 
 ### Writing an effective `meta_title`
 
-This appears in external search engine results. While navbar titles such as "Overview" might be fine for the navbar (as the navbar provides positional context) this would not be very information in search engine results. `meta_title` could then be set to something that clearly indicates the content of the topic in the external search engine context.
+This appears in external search engine results. While navbar titles such as "Overview" might be fine for the navbar (as the navbar provides positional context) this would not be very information in search engine results. `meta_title` could then be set to something that clearly indicates the content of the topic in the external search engine context. You can read more information about how `meta_title` is leveraged by search engines on [this page](https://moz.com/learn/seo/meta-title).
 
 ### Writing an effective `meta_description`
 
