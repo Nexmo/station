@@ -1,7 +1,7 @@
 class Product
   # TODO: return instances
   def self.all
-    raise "Application requires 'products.yml' inside /config folder in documentation path" unless "#{Rails.configuration.docs_base_path}/config/products.yml"
+    raise "Application requires 'products.yml' inside /config folder in documentation path" unless defined?("#{Rails.configuration.docs_base_path}/config/products.yml")
 
     config = YAML.safe_load(File.open("#{Rails.configuration.docs_base_path}/config/products.yml"))
 
