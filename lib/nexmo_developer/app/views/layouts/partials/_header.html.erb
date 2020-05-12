@@ -16,9 +16,11 @@
       <a href="/" id="logo" class="Nxd-logo__image Vlt-S-only">
         <%= image_tag info[:logo_path], alt: info[:logo_alt] %>
       </a>
-      <a href=<%= careers_path %> class="Vlt-M-plus Vlt-badge Vlt-badge--purple Vlt-badge--transparent Vlt-badge--small Nxd-product__hiring">
-        <span id="header-hiring"><%= t('.hiring') %></span>
-      </a>
+      <% if info[:show_hiring_link] == true %>
+        <a href=<%= careers_path %> class="Vlt-M-plus Vlt-badge Vlt-badge--purple Vlt-badge--transparent Vlt-badge--small Nxd-product__hiring">
+          <span id="header-hiring"><%= t('.hiring') %></span>
+        </a>
+      <% end %>
     </div>
 
     <nav class="Nxd-header__nav">

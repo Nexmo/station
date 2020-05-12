@@ -46,6 +46,7 @@ The gem expects the documentation to be markdown files within the following fold
 * [Custom Views](#custom-views) can be provided inside the `/custom/views` folder.
 * [Custom Landing Pages](#custom-landing-pages) can be provided inside the `/custom/landing_pages` folder.
 * [Custom Public Assets](#custom-public-folder) can be provided inside the `/public` folder.
+* [Custom Locale Settings](#custom-locale-settings) can be provided inside the `/custom/locales` folder
 
 ##### Configuration Files
 
@@ -69,6 +70,8 @@ header:
       text:
         - 'Log In'
         - 'Try Me'
+  hiring:
+    display: true # or false
 footer:
   links:
     status:
@@ -179,6 +182,41 @@ Custom assets, such as images and icons, can be provided in the `/public` folder
 
 ```ruby
 <%= image_tag('/assets/media/logos/sample_image.png') %>
+```
+
+#### Custom Locale Settings
+
+Customized text to display for the menu and different display layouts can be provided inside the custom locale files. They are placed inside the `/custom/locales` folder in the documentation path. Each file is a YAML file named with the 2-letter abbreviation for the language, for example, English locale settings are placed inside `/custom/locales/en.yml`. The following is an example `en.yml` file showing custom text for the menu and for the site header:
+
+```yaml
+en:
+  menu:
+    call-recording: Call Recording
+    provisioning: Provisioning
+    reports: Reports
+    telephony: Telephony
+    vonage-integration-platform: Vonage Integration Platform
+    node-red: Node-RED
+    zapier: Zapier
+    extension: Extension
+    user: User
+    call: Call
+    concepts: Concepts
+    getting-started: Getting Started
+    call_leg: Call Leg
+    device_registration: Device Registration
+    export-job: Export Job
+    download: Download
+    company-call-recording: Company Call Recording
+    on-demand-call-recording: On-Demand Call Recording
+    webhook: Webhook
+    app-center: App Center
+  layouts:
+    partials:
+      header:
+        team: Team
+        use-cases: Use Cases
+        hiring: We're hiring
 ```
 
 ### Running The Gem
