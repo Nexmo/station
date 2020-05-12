@@ -18,7 +18,10 @@ RSpec.describe Header do
             'path' => 'https://path/to/site',
             'text' => ['Log In', 'Try Me']
           ],
-        ]
+        ],
+        'hiring' => [
+          'display' => true
+        ],
       ]
     }
   end
@@ -43,7 +46,8 @@ RSpec.describe Header do
           :name=>"Sample Name",
           :sign_up_path=>"https://path/to/site",
           :sign_up_text_arr=>["Log In", "Try Me"],
-          :subtitle=>"Sample Subtitle"
+          :subtitle=>"Sample Subtitle",
+          :show_hiring_link=>true
         }
       )
     end
@@ -74,6 +78,8 @@ RSpec.describe Header do
           text:
             - 'Log In'
             - 'Try Me'
+      hiring:
+        display: true
     HEREDOC
   end
 end
