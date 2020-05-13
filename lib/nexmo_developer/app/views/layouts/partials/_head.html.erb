@@ -6,6 +6,7 @@
 
   <% if info[:google_site_verification] %>
     <meta name="google-site-verification" content=<%= info[:google_site_verification] %> />
+  <% end %>
   <title><%= page_title %></title>
 
   <% if @frontmatter && (@frontmatter['meta_description'] || @frontmatter['description']) %>

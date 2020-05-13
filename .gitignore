@@ -25,6 +25,13 @@ lib/nexmo_developer/tmp/*
 lib/nexmo_developer/tmp
 lib/nexmo_developer/log/*
 lib/nexmo_developer/log
+lib/nexmo_developer/public/assets
+!lib/nexmo_developer/public/assets/archives
+!lib/nexmo_developer/public/assets/fonts
+!lib/nexmo_developer/public/assets/images
+!lib/nexmo_developer/public/assets/pdf
+!lib/nexmo_developer/public/assets/screenshots
+!lib/nexmo_developer/public/assets/symbol
 .env
 .powder
 *.gem
