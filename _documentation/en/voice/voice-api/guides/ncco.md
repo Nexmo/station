@@ -15,7 +15,7 @@ This section describes:
 
 - [About Nexmo Call Control Objects](#about-nexmo-call-control-objects)
 - [Creating a custom Call or Conversation for each user](#creating-a-custom-call-or-conversation-for-each-user)
-- [Connecting to endpoints that don't generate a calling tone](#ringback-tone)
+- [Connecting to endpoints that don't generate a ring back tone](#ringback-tone)
 - [Executing an NCCO when a call is answered](#on-answer)
 
 ## About Nexmo Call Control Objects
@@ -88,9 +88,9 @@ source: '_examples/voice/ncco/creating-a-custom-call-or-conversation-for-each-us
 
 ⚓ ringback-tone
 
-## Connecting to endpoints that don't generate a calling tone
+## Connecting to endpoints that don't generate a ring back tone
 
-Sometimes you will connect to an endpoint that does not have a call tone provided by the carrier. If calling a phone endpoint, you will usually hear a dial tone provided by the carrier, but if one is not provided for that endpoint the caller will experience silence and may be unsure if they are being connected or not. This may result in them hanging up the call. To get around this potential problem, you can use `ringbackTone` in your NCCO to provide a calling tone. For example:
+Sometimes you will connect to an endpoint that does not have a ring back tone provided by the carrier. If calling a phone endpoint, you will usually hear a ring back tone provided by the carrier, but if one is not provided for that endpoint the caller will experience silence and may be unsure if they are being connected or not. This may result in them hanging up the call. To get around this potential problem, you can use `ringbackTone` in your NCCO to provide a ring back tone. For example:
 
 ```json
 [
@@ -140,7 +140,7 @@ In some use cases you might want to execute an NCCO when a call is answered. For
 ]
 ```
 
-You can also use `onAnswer` in conjunction with `ringbackTone` so that the caller can hear a tone between when the callee answers the call, and when the callee is fully connected into the call:
+You can also use `onAnswer` in conjunction with `ringbackTone` so that the caller can hear a ring back tone between when the callee answers the call, and when the callee is fully connected into the call:
 
 ```json
 [
