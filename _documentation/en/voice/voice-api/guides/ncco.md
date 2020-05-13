@@ -50,7 +50,7 @@ The elements of an NCCO instruction are:
 - `option` - how to customize an _action_.
 - `type` - describes an _option_. For example, `type=phone` for an endpoint option.
 
-The order of actions in the NCCO controls the flow of the call. This is called the stack. The order of instructions on the stack matters: the actions are executed in order. Unless explicitly halted NCCO are executed on a FIFO basis. When an action is completed, the next action in the stack is executed. Actions that have to complete before the next action can be executed are _synchronous_. Other actions are _asynchronous_. That is, they are supposed to continue over the following actions until a condition is met. For example, a _record_ action terminates when the _endOnSilence_ option is met. When all the actions in the NCCO are complete, the voice call ends.
+The order of actions in the NCCO controls the flow of the call. This is called the stack. The order of instructions on the stack matters: the actions are executed in order. Unless explicitly halted NCCO are executed on a FIFO basis. When an action is completed, the next action in the stack is executed. Actions that have to complete before the next action can be executed are _synchronous_. Other actions are _asynchronous_. That is, they are supposed to continue over the following actions until a condition is met. For example, a `record` action terminates when the `endOnSilence` option is met. When all the actions in the NCCO are complete, the voice call ends.
 
 Some actions and options are:
 
@@ -71,7 +71,7 @@ The actions you can use in an NCCO are:
 
 ## Creating a custom call or conversation for each user
 
-When you make an outbound call or accept an inbound call, Nexmo makes a request to your webhook endpoint at _answer_url_ and retrieves your NCCO. This request contains the following parameters:
+When you make an outbound call or accept an inbound call, Nexmo makes a request to your webhook endpoint at `answer_url` and retrieves your NCCO. This request contains the following parameters:
 
 Name                | Description
 ------------------- | ------------------------------------
