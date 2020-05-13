@@ -124,6 +124,81 @@ footer:
   mstile-144x144.png
 ```
 
+4. Products Listing
+
+Products are listed inside `/config/products.yml`. Each product must be listed with:
+
+* `icon`, which is the name of the Volta icon to use, for example `phone`.
+* `icon_colour`, the colour of the icon.
+* `path`, which is the folder name inside the documentation where the product is listed. For example, `call-recording` for Call Recording.
+* `dropdown` of either `true` or `false`, specifying if the product should be listed in the product dropdown menu listings inside Use Cases and Tutorials.
+
+An example `products.yml` file:
+
+```yaml
+products:
+  - 
+    name: 'Call Recording'
+    icon: 'phone'
+    icon_colour: 'blue'
+    path: 'call-recording'
+    dropdown: true
+  - 
+    name: 'Node RED'
+    icon: 'flow'
+    icon_colour: 'red'
+    path: 'node-red'
+    dropdown: true
+  - 
+    name: 'Provisioning'
+    icon: 'phone'
+    icon_colour: 'green'
+    path: 'provisioning'
+    dropdown: true
+  - 
+    name: 'Reports'
+    icon: 'file-search'
+    icon_colour: 'purple-dark'
+    path: 'reports'
+    dropdown: true
+  - 
+    name: 'Smart Numbers'
+    icon: 'queue'
+    icon_colour: 'yellow'
+    path: 'smart-numbers'
+    dropdown: true
+  - 
+    name: 'Telephony'
+    icon: 'phone'
+    icon_colour: 'black'
+    path: 'telephony'
+    dropdown: true
+  - 
+    name: 'Vonage Integration Platform'
+    icon: 'chat'
+    icon_colour: 'blue'
+    path: 'vonage-integration-platform'
+    dropdown: true
+  - 
+    name: 'Zapier'
+    icon: 'lock'
+    icon_colour: 'blue'
+    path: 'zapier'
+    dropdown: true
+  - 
+    name: 'Concepts'
+    icon: 'message'
+    icon_colour: 'green'
+    path: 'concepts'
+    dropdown: true
+  - 
+    name: 'App Center'
+    icon: 'file-search'
+    icon_colour: 'purple'
+    path: 'app-center'
+    dropdown: true
+```
+
 #### Environment Variables
 
 Within your runtime production environment you can specify the following environment variables related to Google Analytics:
