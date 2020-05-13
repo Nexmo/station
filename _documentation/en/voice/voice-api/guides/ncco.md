@@ -2,7 +2,7 @@
 title: Nexmo Call Control Objects
 navigation_weight: 2
 description: >-
-  To tell Nexmo how to handle a phone call, you must provide Nexmo an Nexmo Call
+  To tell Vonage how to handle a phone call, you must provide a Nexmo Call
   Control Objects (NCCO) when a call is placed or answered. There are various
   actions available, such as `talk`, `input` and `record`.
 ---
@@ -20,7 +20,7 @@ This section describes:
 
 ## About Nexmo Call Control Objects
 
-The Call event model is asynchronous. A static or dynamically created NCCO script provides the business logic for your Call. When a Call is placed to your number, Nexmo makes a synchronous request to the webhook endpoint you set as the `answer_url` for your number and retrieves the NCCO object that controls the Call.
+The Call event model is asynchronous. A static or dynamically created NCCO script provides the business logic for your Call. When a Call is placed to your number, Vonage makes a synchronous request to the webhook endpoint you set as the `answer_url` for your number and retrieves the NCCO object that controls the Call.
 
 The general schema of an NCCO is:
 
@@ -71,7 +71,7 @@ The actions you can use in an NCCO are:
 
 ## Creating a custom call or conversation for each user
 
-When you make an outbound call or accept an inbound call, Nexmo makes a request to your webhook endpoint at `answer_url` and retrieves your NCCO. This request contains the following parameters:
+When you make an outbound call or accept an inbound call, Vonage makes a request to your webhook endpoint at `answer_url` and retrieves your NCCO. This request contains the following parameters:
 
 Name                | Description
 ------------------- | ------------------------------------
@@ -80,7 +80,7 @@ Name                | Description
 `conversation_uuid` | The unique ID for this Conversation.
 `uuid`              | The unique ID for this Call.
 
-You can use these parameters to customize the NCCO you return to Nexmo. The following code examples show how to provide the NCCO that controls your call or conversation:
+You can use these parameters to customize the NCCO you return to Vonage. The following code examples show how to provide the NCCO that controls your call or conversation:
 
 ```tabbed_examples
 source: '_examples/voice/ncco/creating-a-custom-call-or-conversation-for-each-user'
