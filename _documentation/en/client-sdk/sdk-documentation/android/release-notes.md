@@ -6,6 +6,44 @@ navigation_weight: 0
 
 # Release Notes
 
+## Version 2.6.3 - May 4, 2020
+
+### Fixed
+
+- Changed visibility of `Nexmo.page.isPrevPageExist()` to `public`.
+
+## Version 2.6.2 - April 29, 2020
+
+### Fixed
+
+- Potential `NullPointerException` when processing push notifications during client login.
+
+## Version 2.6.1 - April 22, 2020
+
+### Added
+
+- Expose the interface `NexmoDTMFEventListener` to subscribe for DTMF events on `NexmoConversation`.
+
+## Version 2.6.0 - April 20, 2020
+
+### Added
+
+- Expose connection status `isConnected` in `NexmoClient`.
+
+```
+    NexmoClient.get().isConnected()
+```
+
+### Fixed
+
+- Avoid invoking `login` multiple times when the user is already connected.
+
+## Version 2.5.1 - April 20, 2020
+
+### Internal
+
+- Improved single ICE candidate gathering implementation.
+
 ## Version 2.5.0 - March 25, 2020
 
 ### Added

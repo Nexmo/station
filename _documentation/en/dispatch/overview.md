@@ -23,6 +23,7 @@ The following diagram illustrates the relationship between the Dispatch API and 
 * [Getting started](#getting-started)
 * [Concepts](#concepts)
 * [Code Snippets](#code-snippets)
+* [Tutorials](#tutorials)
 * [Use Cases](#use-cases)
 * [Reference](#reference)
 
@@ -79,6 +80,10 @@ product: dispatch
 ```code_snippet_list
 product: dispatch
 ```
+
+## Tutorials
+
+* [Send Facebook Messenger message with failover](/dispatch/tutorials/send-facebook-message-with-failover/introduction)
 
 ## Use Cases
 

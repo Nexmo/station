@@ -1,9 +1,11 @@
 class ApplicationController < ActionController::Base
   include ApplicationHelper
 
-  # rescue_from Errno::ENOENT, with: :not_found
-  # rescue_from Nexmo::Markdown::DocFinder::MissingDoc, with: :not_found
-  # rescue_from ActiveRecord::RecordNotFound, with: :not_found
+  helper_method :page_title
+
+  rescue_from Errno::ENOENT, with: :not_found
+  rescue_from Nexmo::Markdown::DocFinder::MissingDoc, with: :not_found
+  rescue_from ActiveRecord::RecordNotFound, with: :not_found
   protect_from_forgery with: :exception
 
   http_basic_authenticate_with name: ENV['USERNAME'], password: ENV['PASSWORD'], if: :requires_authentication?
@@ -14,12 +16,12 @@ class ApplicationController < ActionController::Base
   before_action :set_feedback_author
   before_action :set_locale
 
-  def not_found
+  def not_found(exception = nil)
     redirect = Redirector.find(request)
     if redirect
       redirect_to redirect
     else
-      NotFoundNotifier.notify(request)
+      NotFoundNotifier.notify(request, exception)
       not_found_search_results if search_enabled?
       render_not_found
     end
@@ -86,5 +88,9 @@ class ApplicationController < ActionController::Base
     else
       I18n.default_locale
     end
+  end
+
+  def page_title
+    @page_title ||= PageTitle.new(@product, @document_title).title
   end
 end

@@ -4,10 +4,12 @@
   <% info = Head.new.items %>
   <title><%= info[:title] %></title>
 
-  <meta name="description" content="<%= info[:description] %>">
-
   <% if info[:google_site_verification] %>
     <meta name="google-site-verification" content=<%= info[:google_site_verification] %> />
+  <title><%= page_title %></title>
+
+  <% if @frontmatter && (@frontmatter['meta_description'] || @frontmatter['description']) %>
+    <meta name="description" content="<%= @frontmatter['meta_description'] || @frontmatter['description'] %>">
   <% end %>
 
   <%
@@ -104,12 +106,12 @@
 
   <meta property="og:url" content="<%= request.base_url + request.fullpath %>" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="<%= info[:title] %>" />
   <meta property="og:image" content="<%= request.base_url %>/<%= info[:og_image] %>" />
   <meta property="og:image:width" content=<%= info[:og_image_width] %> />
   <meta property="og:image:height" content=<%= info[:og_image_height] %> />
   <meta property="og:description" content=<%= info[:description] %> />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta property="og:title" content="<%= page_title %>" />
 
 
   <meta name="basic_auth_username" content="<%= ENV['USERNAME'] %>" />

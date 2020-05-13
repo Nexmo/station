@@ -25,4 +25,12 @@ RSpec.describe NotFoundNotifier do
       expect(NotFoundNotifier.ignored_format?('foobar')).to eq(false)
     end
   end
+
+  context '#notification_name' do
+    it { expect(described_class.notification_name(ActiveRecord::RecordNotFound.new)).to eq('404 - Not Found') }
+
+    it { expect(described_class.notification_name(Errno::ENOENT.new)).to eq('404 - Not Found') }
+
+    it { expect(described_class.notification_name(Nexmo::Markdown::DocFinder::MissingDoc.new)).to eq('Missing Document') }
+  end
 end

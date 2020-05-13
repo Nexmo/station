@@ -16,6 +16,10 @@ You can setup multiple sandboxes, however, each sandbox must be associated with 
 
 The Messages API Sandbox is accessible via the [Dashboard](https://dashboard.nexmo.com/messages/sandbox). You can use it to test your integration prior to sending production traffic. Sandbox Messages API requests are sent to a different endpoint than production requests and the Vonage sandbox external account number or ID is used as the `from` value in the request.
 
+## Messages API Sandbox Pricing
+
+The Messages API Sandbox is currently free to use.
+
 ## The steps
 
 The steps to use the Messages API Sandbox to send test messages on supported messaging platforms are as follows:
@@ -82,6 +86,10 @@ The procedure for whitelisting yourself differs slightly depending on the sandbo
 3. Click the **Save webhooks** button.
 
 ![Configure webhooks](/assets/images/messages/config-webhooks.png)
+
+### Webhook Retries
+
+Inbound and Status webhooks are retried on a per-notification basis in the Messages API Sandbox. Any non 200 response to a webhook will prompt Vonage to retry periodically at intervals of increasing length: 5, 10, 20, 40, 80, 160, 320, 640, and then every 900 seconds for 24 hours.
 
 ## Send a test message via the Messages API Sandbox
 

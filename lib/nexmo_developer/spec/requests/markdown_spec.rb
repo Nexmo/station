@@ -71,6 +71,17 @@ RSpec.describe 'Markdown', type: :request do
         expect(response).to redirect_to('/messaging/sms/overview')
       end
     end
+
+    context 'requesting a missing doc' do
+      it 'notifies bugsnag about the exception' do
+        expect(Nexmo::Markdown::DocFinder).to receive(:find).and_raise(Nexmo::Markdown::DocFinder::MissingDoc).twice
+        expect(NotFoundNotifier).to receive(:notify).with(kind_of(ActionDispatch::Request), Nexmo::Markdown::DocFinder::MissingDoc)
+
+        get '/messages/overview'
+
+        expect(response).to have_http_status(:not_found)
+      end
+    end
   end
 
   describe '#api' do

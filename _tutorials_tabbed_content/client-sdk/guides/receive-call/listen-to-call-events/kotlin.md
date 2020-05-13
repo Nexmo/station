@@ -1,17 +1,18 @@
 ---
 title: Kotlin
-language: android
-menu_weight: 1
+language: kotlin
 ---
 
-```java
-var callEventListener = NexmoCallEventListener(...)
+```kotlin
+val callEventListener = object : NexmoCallEventListener {
+    // ...
+}
 
-nexmoCall?.addCallEventListener(callEventListener)
+nexmoCall.addCallEventListener(callEventListener)
 ```
 
 Remove the listener when needed:
 
-```java
+```kotlin
 nexmoCall?.removeCallEventListener(callEventListener)
 ```

@@ -141,14 +141,6 @@ class StaticController < ApplicationController
     render layout: 'page'
   end
 
-  private
-
-  def canonical_redirect
-    return if params[:locale] != I18n.default_locale.to_s
-
-    redirect_to documentation_path(locale: nil)
-  end
-
   def migrate_tropo(product)
     @active_title = 'Migrate from Tropo'
     @config = YAML.load_file("#{Rails.configuration.docs_base_path}/custom/landing_pages/migrate/tropo/#{product}.yml")
@@ -168,5 +160,27 @@ class StaticController < ApplicationController
 
       block
     end
+    render layout: 'landing'
+  end
+
+  def spotlight
+    response = RestClient.post(
+      'https://hooks.zapier.com/hooks/catch/1936493/oyzjr4i/',
+      params.permit(:name, :email_address, :background, :outline, :previous_content).to_h
+    )
+
+    if response.code == 200
+      head :ok
+    else
+      head :unprocessable_entity
+    end
+  end
+
+  private
+
+  def canonical_redirect
+    return if params[:locale] != I18n.default_locale.to_s
+
+    redirect_to documentation_path(locale: nil)
   end
 end

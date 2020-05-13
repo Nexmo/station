@@ -1,23 +1,15 @@
 ---
 title: Kotlin
-language: android
-menu_weight: 2
+language: kotlin
 ---
 
-```java
-val listener = object : NexmoRequestListener<CallMember> {
-    override fun onError(nexmoApiError: NexmoApiError) {
-            TODO("Handle error")
-        }
+```kotlin
+// Unmute member
+callMember.mute(false, muteListener)
 
-        override fun onSuccess(callMember: CallMember) {
-            TODO("Handle success")
-        }
-    }
+// Unmute my member
+call?.myCallMember?.mute(false, muteListener)
 
-member.mute(ActionStatus.OFF, listener)
-
-//Mute my Member
-call.mute(ActionStatus.OFF, listener)
-
+// Unmute whole call
+call?.mute(false)
 ```

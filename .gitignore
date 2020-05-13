@@ -28,8 +28,7 @@ lib/nexmo_developer/log
 .env
 .powder
 *.gem
+.history
 .vscode/*
 coverage
-public/
-node_modules/
 .DS_Store
