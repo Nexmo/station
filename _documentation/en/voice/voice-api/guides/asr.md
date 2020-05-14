@@ -57,7 +57,7 @@ The expected language of user speech should be specified as the `language` param
 
 ### Context
 
-Some hints might be provided using the `context` array parameter to improve recognition quality. The values set might be the words or phrases expected from the user, for example, `[“one”, “two”, “three”]` or `[“support”, “order starship”]`.
+Some hints might be provided using the `context` array parameter to improve recognition quality. The values set might be the words or phrases expected from the user, for example, `['one', 'two', 'three']` or `['support', 'order starship']`.
 
 ### Barge In
 
