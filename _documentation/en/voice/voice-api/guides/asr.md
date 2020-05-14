@@ -53,7 +53,7 @@ ASR action (`input` with `speech`) cannot be executed for the whole conversation
 
 ### Language
 
-The expected language of user speech should be specified as the `language` param (`en-US` by default).
+The expected language of user speech should be specified as the `language` parameter (`en-US` by default).
 
 ### Context
 
