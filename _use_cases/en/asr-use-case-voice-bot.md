@@ -334,15 +334,15 @@ node index.js
 
 In this tutorial, you created an application that uses the Voice API to interact with caller by asking and answering with voice messages.
 
-The bot you created was pretty simple, but it was able to listen to the caller and respond with some relevant information. You may use it as a basis for your IVR or some customer self-service app just by adding appropriate business logic relevant to your case and the services you are using.
+The bot you created was simple, but it was able to listen to the caller and respond with some relevant information. You may use it as a basis for your IVR or some customer self-service app just by adding appropriate business logic relevant to your case and the services you are using.
 
-As you see, speech recognition (ASR) is an effortless way to implement dialogue-style voice bot or IVR/IVA quickly. If you need more flexibility or almost real-time interaction, take a look at and try our [WebSockets](https://developer.nexmo.com/voice/voice-api/guides/websockets) feature, which is extremely powerful and can empower some very sophisticated use cases, such as artificial intelligence, analysis and transcription of call audio.
+As you see, speech recognition (ASR) is an effortless way to implement dialogue-style voice bot or IVR/IVA quickly. If you need more flexibility or almost real-time interaction, try our [WebSockets](/voice/voice-api/guides/websockets) feature, which is extremely powerful and can empower some very sophisticated use cases, such as artificial intelligence, analysis and transcription of call audio.
 
 
 ## Where Next?
 
 Here are a few more suggestions of resources that you might enjoy as the next step after this tutorial:
 
-* Learn more about [speech recognition](https://developer.nexmo.com/voice/voice-api/guides/speech-recognition) feature;
-* Make the bot sound more natural by [customizing text-to-speech](https://developer.nexmo.com/voice/voice-api/guides/customizing-tts) messages with SSML;
-* Find out how to get and send back the raw media through [WebSocket](https://developer.nexmo.com/use-cases/voice-call-websocket-node) connection.
+* Learn more about [speech recognition](/voice/voice-api/guides/speech-recognition) feature.
+* Make the bot sound more natural by [customizing text-to-speech](/voice/voice-api/guides/customizing-tts) messages with SSML.
+* Find out how to get and send back the raw media through [WebSocket](/use-cases/voice-call-websocket-node) connection.

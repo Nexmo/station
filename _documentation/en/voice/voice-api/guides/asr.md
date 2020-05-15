@@ -14,7 +14,7 @@ Automatic Speech Recognition (ASR) enables apps to support voice input for such 
 
 ![ASR Flow](https://app.lucidchart.com/publicSegments/view/7840753c-7db0-4ec4-bab1-1e453d950762/image.png)
 
-Typically, ASR is used in pair with some audio message playing to the user. The message might be an [audio file](https://developer.nexmo.com/voice/voice-api/code-snippets/play-an-audio-stream-into-a-call) or [Text-to-Speech](https://developer.nexmo.com/voice/voice-api/guides/text-to-speech), or a combination of both played sequentially. To activate the ASR, NCCO should contain `input` action with speech parameters specified.
+Typically, ASR is used in conjunction with an audio message playing to the user. The message might be an [audio file](/voice/voice-api/code-snippets/play-an-audio-stream-into-a-call) or [Text-to-Speech](/voice/voice-api/guides/text-to-speech), or a combination of both played sequentially. To activate the ASR, NCCO should contain an `input` action with speech parameters specified.
 
 ### NCCO Example
 
@@ -61,11 +61,11 @@ Some hints might be provided using the `context` array parameter to improve reco
 
 ### Barge In
 
-If the user is calling not for the first time, she or he may already know the question to be asked, so the user may start speaking even before the audio message finishes. In order to support that, `bargeIn` parameter of the TTS (or `stream` - whatever action is used for the message) should be activated.
+If the user is calling not for the first time, they may already know the question to be asked, so the user may start speaking even before the audio message finishes. In order to support that, `bargeIn` parameter of the TTS (or `stream` - whatever action is used for the message) should be activated.
 
 ### Event Payload Example
 
-Once the input is finished, the input callback will be sent similar to DTMF input action:
+Once the NCCO `input` action is completed, the input callback will be sent similar to DTMF input action:
 
 ```json
 {
