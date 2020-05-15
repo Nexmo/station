@@ -59,4 +59,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency('gmaps4rails')
   spec.add_runtime_dependency('byebug')
   spec.add_runtime_dependency('truncato')
+  spec.add_runtime_dependency('puma', '~> 4.3')
+  spec.add_runtime_dependency('barnes', '0.0.8')
+  spec.add_runtime_dependency('woothee', '~> 1.11')
 end
