@@ -2,11 +2,6 @@ class ApiController < ApplicationController
   before_action :set_document
   before_action :set_navigation
 
-  def index
-    @document_title = 'API Reference'
-    render layout: 'application'
-  end
-
   private
 
   def set_code_language
