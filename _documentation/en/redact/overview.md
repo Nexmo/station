@@ -28,7 +28,7 @@ Each of these options has a different use case and an interaction model.
 
 When you use Nexmo communication APIs, we create server logs and transactional records of the activity, which we call a `CDRs` (short for `call detail record`, a telecommunication industry term). Server logs are retained for ~15 days (at most one month) but the CDRs are stored for 13 months. Both server logs and CDRs can be viewed by our support staff for various purposes, including testing and debugging, diagnosing user issues, and reconciling CDRs against customer's transaction records.
 
-The Auto-redact service and the Redact API can be used to remove Personal Identifiable Information (PII) stored in the Nexmo platform. PII held in the platform generally includes the receiver phone number for outbound messages/calls and sender phone number for inbound messages/calls. For messages, PII also icludes the message content. In terms of PII, server logs and CDRs are identical, i.e. they contain exactly the same PII.
+The Auto-redact service and the Redact API can be used to remove Personal Identifiable Information (PII) stored in the Nexmo platform. PII held in the platform generally includes the receiver phone number for outbound messages/calls and sender phone number for inbound messages/calls. For messages, PII also includes the message content. In terms of PII, server logs and CDRs are identical, i.e. they contain exactly the same PII.
 
 Upon redaction, the real PII content in the redacted fields is overwritten with the string "REDACTED". Redaction of the receiver/sender phone number is subject to applicable data retention regulations, which are country-specific. Details are provided in the following sections.
 
@@ -41,7 +41,7 @@ Nexmo provides the Auto-redact service that automatically redacts PII from the N
 
 Please find a relevant pricing for the auto-redact service here: [Nexmo Prices](https://www.vonage.com/communications-apis/pricing/)
 
-To request enablement of the Auto-redact service for your account, please visit [this page](https://info.nexmo.com/RedactAPI.html).
+To request activation of the Auto-redact service for your account, please visit [this page](https://info.nexmo.com/RedactAPI.html).
 
 
 ### Redact API
