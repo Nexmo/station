@@ -10,6 +10,7 @@ title: Landing Pages
 * [Defining the Layout of the Config File](#defining-the-layout-of-the-config-file)
 * [Content Types](#content-types)
     - [Action Button](#action-button)
+    - [API List](#api-list)
     - [Call to Action](#call-to-action)
     - [Client SDK Card](#client-sdk-card)
     - [Contact Support](#contact-support)
@@ -105,6 +106,42 @@ type: # "secondary" or "primary", with "primary" being the default.
 large: # true or false, with false being the default.
 center_button: # true or false, with false being the default.
 
+```
+
+### API List
+
+The `api_list` content block allows you to render a list of APIs you wish to show. It is suitable for an index type view of a collection of APIs.
+
+The content block takes the following required parameters:
+
+```yaml
+- type: api_list
+  api_list:
+    header:
+      title: # Header title for the view
+    num_of_columns: # The number of columns you wish to split the API listings into (i.e. 2 or 3)
+    categories:
+      - new_column:
+        - title: # The category title for a collection of APIs, (i.e. 'Messaging')
+          icon:
+            color: # The color of the icon to represent the category (i.e. purple)
+            name: # The name of the Volta icon (i.e. 'Vlt-icon-message')
+          apis: # A list of the APIs wto show in this category collection
+            - title: # Name of the API (i.e. 'Messages API')
+              path: # The relative path to the API documentation (i.e. 'api/messages-olympus')
+              description: # A body of text to describe the API
+```
+
+Additionally, you can optionally add a badge next to the name of each API representing a special status like "Beta" or "Developer Preview", You do so by adding two more keys in the API category:
+
+```yaml
+apis:
+  - title:
+    path:
+    description:
+    badge:
+      name: Beta
+      color: green
 ```
 
 ### Call To Action
