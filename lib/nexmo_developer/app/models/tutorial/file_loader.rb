@@ -9,13 +9,13 @@ class Tutorial::FileLoader
   end
 
   def path
-    @path ||= DocFinder.find(
+    @path ||= Nexmo::Markdown::DocFinder.find(
       root: root,
       document: doc_name,
-      language: I18n.locale,
+      language: ::I18n.locale,
       code_language: code_language,
       format: format
-    )
+    ).path
   end
 
   def content

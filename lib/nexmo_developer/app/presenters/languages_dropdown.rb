@@ -1,16 +1,8 @@
-require 'byebug'
 class LanguagesDropdown
   def self.filter_languages_for_dropdown(item_list)
-    languages_mapped = []
     languages = Nexmo::Markdown::CodeLanguage.languages.reject { |l| l.key == 'dotnet' }
+    available_languages = item_list.map(&:languages).flatten.uniq.map(&:downcase)
 
-    languages.each do |l|
-      item_list.each do |i|
-        if i.languages.map(&:downcase).include?(l.label.downcase)
-          languages_mapped << l
-        end
-      end
-    end
-    languages_mapped
+    languages.select { |l| available_languages.include? l.key }
   end
 end

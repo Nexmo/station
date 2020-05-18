@@ -6,7 +6,7 @@ class TutorialListItem
   end
 
   def tutorial
-    @tutorial ||= Nexmo::Markdown::Tutorial.load(File.basename(@path, '.yml'), nil)
+    @tutorial ||= Tutorial.load(File.basename(@path, '.yml'), nil)
   end
 
   def subtitle
@@ -21,11 +21,11 @@ class TutorialListItem
   end
 
   def root
-    'config/tutorials'
+    "#{Rails.configuration.docs_base_path}/config/tutorials"
   end
 
   def path
-    @path.gsub("#{Rails.configuration.docs_base_path}/", '')
+    @path
   end
 
   def filename
