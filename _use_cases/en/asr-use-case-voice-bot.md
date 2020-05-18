@@ -336,7 +336,7 @@ In this tutorial, you created an application that uses the Voice API to interact
 
 The bot you created was simple, but it was able to listen to the caller and respond with some relevant information. You may use it as a basis for your IVR or some customer self-service app just by adding appropriate business logic relevant to your case and the services you are using.
 
-As you see, speech recognition (ASR) is an effortless way to implement dialogue-style voice bot or IVR/IVA quickly. If you need more flexibility or almost real-time interaction, try our [WebSockets](/voice/voice-api/guides/websockets) feature, which is extremely powerful and can empower some very sophisticated use cases, such as artificial intelligence, analysis and transcription of call audio.
+As you see, automatic speech recognition (ASR) is an effortless way to implement dialogue-style voice bot or IVR (Interactive Voice Response)/IVA (Interactive Voice Assistant) quickly. If you need more flexibility or almost real-time interaction, try our [WebSockets](/voice/voice-api/guides/websockets) feature, which is extremely powerful and can empower some very sophisticated use cases, such as artificial intelligence, analysis and transcription of call audio.
 
 
 ## Where Next?
