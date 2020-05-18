@@ -22,7 +22,7 @@ Action | Description | Synchronous
 [connect](#connect) | To a connectable endpoint such as a phone number or VBC extension. | Yes
 [talk](#talk) | Send synthesized speech to a Conversation. | Yes, unless *bargeIn=true*
 [stream](#stream) | Send audio files to a Conversation. | Yes, unless *bargeIn=true*
-[input](#input) | Collect digits from the person you are calling. | Yes
+[input](#input) | Collect digits or capture speech input from the person you are calling. | Yes
 [notify](#notify) | Send a request to your application to track progress through an NCCO | Yes
 
 > **Note**: [Connect an inbound call](/voice/voice-api/code-snippets/connect-an-inbound-call) provides an example of how to serve your NCCOs to Nexmo after a Call or Conference is initiated
@@ -229,7 +229,7 @@ The audio stream referred to should be a file in MP3 or WAV format. If you have 
 
 ## Input
 
-You can use the `input` action to collect digits input by the person you are calling. This action is synchronous, Nexmo processes the input and forwards it in the [parameters](#input-return-parameters) sent to the `eventUrl` webhook endpoint you configure in your request. Your webhook endpoint should return another NCCO that replaces the existing NCCO and controls the Call based on the user input. You could use this functionality to create an Interactive Voice Response (IVR). For example, if your user presses *4*, you return a [connect](#connect) NCCO that forwards the call to your sales department.
+You can use the `input` action to collect digits or speech input by the person you are calling. This action is synchronous, Nexmo processes the input and forwards it in the [parameters](#input-return-parameters) sent to the `eventUrl` webhook endpoint you configure in your request. Your webhook endpoint should return another NCCO that replaces the existing NCCO and controls the Call based on the user input. You could use this functionality to create an Interactive Voice Response (IVR). For example, if your user presses *4* or says "Sales", you return a [connect](#connect) NCCO that forwards the call to your sales department.
 
 The following NCCO example shows how to configure an IVR endpoint:
 
@@ -237,11 +237,19 @@ The following NCCO example shows how to configure an IVR endpoint:
 [
   {
     "action": "talk",
-    "text": "Please enter a digit"
+    "text": "Please enter a digit or say something"
   },
   {
     "action": "input",
-    "eventUrl": ["https://example.com/ivr"]
+    "eventUrl": [
+      "https://example.com/ivr"
+    ],
+    "dtmf": {
+      "maxDigits": 1
+    },
+    "speech": {
+      "uuid": "aaaaaaaa-bbbb-cccc-dddd-0123456789ab"
+    }
   }
 ]
 ```
@@ -252,12 +260,20 @@ The following NCCO example shows how to use `bargeIn` to allow a user to interru
 [
   {
     "action": "talk",
-    "text": "Please enter a digit",
+    "text": "Please enter a digit or say something",
     "bargeIn": true
   },
   {
     "action": "input",
-    "eventUrl": ["https://example.com/ivr"]
+    "eventUrl": [
+      "https://example.com/ivr"
+    ],
+    "dtmf": {
+      "maxDigits": 1
+    },
+    "speech": {
+      "uuid": "aaaaaaaa-bbbb-cccc-dddd-0123456789ab"
+    }
   }
 ]
 ```
@@ -266,33 +282,106 @@ The following options can be used to control an `input` action:
 
 Option | Description | Required
 -- | -- | --
+`dtmf` | [DTMF settings](#dtmf-input-settings). Should be specified to enable DTMF input. If all the DTMF input settings will have default values, it should be specified as empty object: `dtmf: { }`. | No
+`speech` | [Speech recognition settings](#speech-recognition-settings). Should be specified to enable speech input. | No
+`eventUrl` | Nexmo sends the digits pressed by the callee to this URL 1) after `timeOut` pause in activity or when *#* is pressed for DTMF or 2) after user stops speaking or `30` seconds of speech for speech input.  | No
+`eventMethod` | The HTTP method used to send event information to `event_url` The default value is `POST`.| No
+
+#### DTMF Input Settings
+
+Option | Description | Required
+-- | -- | --
 `timeOut` | The result of the callee's activity is sent to the `eventUrl` webhook endpoint `timeOut` seconds after the last action. The default value is *3*. Max is 10.| No
 `maxDigits` | The number of digits the user can press. The maximum value is `20`, the default is `4` digits. | No
 `submitOnHash` | Set to `true` so the callee's activity is sent to your webhook endpoint at `eventUrl` after they press *#*. If *#* is not pressed the result is submitted after `timeOut` seconds. The default value is `false`. That is, the result is sent to your webhook endpoint after `timeOut` seconds. | No
-`eventUrl` | Nexmo sends the digits pressed by the callee to this URL after `timeOut` pause in activity or when *#* is pressed.  | No
-`eventMethod` | The HTTP method used to send event information to `event_url` The default value is POST.| No
 
-The following example shows the parameters sent to `eventUrl`:
+#### Speech Recognition Settings
+
+Option | Description | Required
+-- | -- | --
+`uuid` | The unique ID of the Call leg for the user to capture the speech of. | Yes
+`endOnSilence` | Controls how long the system will wait after user stops speaking to decide the input is completed. The default value is `2` (seconds). The range of possible values is between 1 second and 10 seconds. | No
+`language` | Expected language of the user's speech. Format: BCP-47. Default: `en-US`. [List of supported languages](TBD). | No
+`context` | Array of hints (strings) to improve recognition quality if certain words are expected from the user. | No
+
+The following example shows the parameters sent to `eventUrl` for DTMF input:
 
 ```json
 {
+  "speech": { },
+  "dtmf": {
+    "digits": "1234",
+    "timed_out": false
+  },
   "uuid": "aaaaaaaa-bbbb-cccc-dddd-0123456789ab",
   "conversation_uuid": "bbbbbbbb-cccc-dddd-eeee-0123456789ab",
-  "timed_out": true,
-  "dtmf": "1234",
   "timestamp": "2020-01-01T14:00:00.000Z"
 }
 ```
 
-#### Input Return Parameters
+The following example shows the parameters sent back to the `eventUrl` webhook for speech input:
+
+```json
+{
+  "speech": {
+    "timeout_reason": "end_on_silence_timeout",
+    "results": [
+      {
+        "confidence": "0.9405097",
+        "text": "Sales"
+      },
+      {
+        "confidence": "0.70543784",
+        "text": "Sails"
+      },
+      {
+        "confidence": "0.5949854",
+        "text": "Sale"
+      }
+    ]
+  },
+  "dtmf": {
+    "digits": null,
+    "timed_out": false
+  },
+  "uuid": "aaaaaaaa-bbbb-cccc-dddd-0123456789ab",
+  "conversation_uuid": "bbbbbbbb-cccc-dddd-eeee-0123456789ab",
+  "timestamp": "2020-01-01T14:00:00.000Z"
+}
+```
+
+### Input Return Parameters
+
 Input parameters which are returned to the `eventUrl` are:
 
 Name | Description
 -- | --
 `uuid` | The unique ID of the Call leg for the user initiating the input.
 `conversation_uuid` | The unique ID for this conversation.
+`dtmf` | [DTMF capturing output](#dtmf-input-return-parameters)
+`speech` | [Speech recognition output](#speech-input-return-parameters)
+
+#### DTMF Input Return Parameters
+
+Name | Description
+-- | --
 `timed_out` | Returns `true` if this input timed out based on the value of `timeOut`.
-`dtmf` | The numbers input by your callee, in order.
+`digits` | The numbers input by your callee, in order.
+
+#### Speech Input Return Parameters
+
+Name | Description
+-- | --
+`timeout_reason` | Indicates if the input ended when user stopped speaking (`end_on_silence_timeout`) or by max duration timeout (`?`)
+`results` | Array of [speech recognition results](#speech-recognition-results)
+
+##### Speech Recognition Results
+
+Name | Description
+-- | --
+`text` | Transcript text representing the words that the user spoke.
+`confidence` | The confidence estimate between 0.0 and 1.0. A higher number indicates an estimated greater likelihood that the recognized words are correct.
+
 
 ## Notify
 
