@@ -6,7 +6,7 @@ languages:
     - Node
 ---
 
-# Voice Bot / Interactive Voice Assitant
+# Voice Bot / Interactive Voice Assistant
 
 In this tutorial, you will create a simple bot answering an inbound phone call. The bot will ask for your location and share your actual weather conditions in response. You will implement this using the express web application framework, Weatherstack API and Vonage Automatic Speech Recognition (ASR) feature.
 

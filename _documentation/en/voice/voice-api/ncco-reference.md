@@ -294,6 +294,7 @@ Option | Description | Required
 `timeOut` | The result of the callee's activity is sent to the `eventUrl` webhook endpoint `timeOut` seconds after the last action. The default value is *3*. Max is 10.| No
 `maxDigits` | The number of digits the user can press. The maximum value is `20`, the default is `4` digits. | No
 `submitOnHash` | Set to `true` so the callee's activity is sent to your webhook endpoint at `eventUrl` after they press *#*. If *#* is not pressed the result is submitted after `timeOut` seconds. The default value is `false`. That is, the result is sent to your webhook endpoint after `timeOut` seconds. | No
+`startTimeout` | Controls how long the system will wait for the user to start speaking. The default value is 5 (seconds). The range of possible values is between 1 second and 10 seconds. | No
 
 #### Speech Recognition Settings
 
