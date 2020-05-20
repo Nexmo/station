@@ -65,8 +65,8 @@ jobs:
     - name: Run Tests
       env:
         POSTGRES_USERNAME: postgres
-        DOCS_BASE_PATH: "."
-        OAS_PATH: "_open_api/api_specs/definitions"
+        DOCS_BASE_PATH: ./spec/fixtures
+        OAS_PATH: ./spec/fixtures/api_specs/definitions
         FORCE_COLOR: true
       run: |
         bundle exec rails db:create
@@ -82,3 +82,4 @@ jobs:
         RAILS_ENV=test bundle exec rake webpacker:compile
         ./node_modules/.bin/mdspell -r -n -a --en-us '_documentation/en/**/*.md' '_partials/*.md' '_partials/**/*.md' '_modals/**/*.md' '_tutorials/**.md'
         yarn test
+      working-directory: ./lib/nexmo_developer
