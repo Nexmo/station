@@ -54,7 +54,126 @@ ASR action (`input` with `speech`) cannot be executed for the whole conversation
 ### Language
 
 The expected language of user speech should be specified as the `language` parameter (`en-US` by default).
-
+| #### Supported languages:
+| 
+| Language | Code
+| -- | -- 
+| Afrikaans (South Africa) | `af-ZA`
+| Albanian (Albania) | `sq-AL`
+| Amharic (Ethiopia) | `am-ET`
+| Arabic (Algeria) | `ar-DZ`
+| Arabic (Bahrain) | `ar-BH`
+| Arabic (Egypt) | `ar-EG`
+| Arabic (Iraq) | `ar-IQ`
+| Arabic (Israel) | `ar-IL`
+| Arabic (Jordan) | `ar-JO`
+| Arabic (Kuwait) | `ar-KW`
+| Arabic (Lebanon) | `ar-LB`
+| Arabic (Morocco) | `ar-MA`
+| Arabic (Oman) | `ar-OM`
+| Arabic (Qatar) | `ar-QA`
+| Arabic (Saudi Arabia) | `ar-SA`
+| Arabic (State of Palestine) | `ar-PS`
+| Arabic (Tunisia) | `ar-TN`
+| Arabic (United Arab Emirates) | `ar-AE`
+| Armenian (Armenia) | `hy-AM`
+| Azerbaijani (Azerbaijan) | `az-AZ`
+| Basque (Spain) | `eu-ES`
+| Bengali (Bangladesh) | `bn-BD`
+| Bengali (India) | `bn-IN`
+| Bulgarian (Bulgaria) | `bg-BG`
+| Catalan (Spain) | `ca-ES`
+| Chinese, Mandarin (Simplified, China) | `zh` (`cmn-hans-cn`)
+| Croatian (Croatia) | `hr-HR`
+| Czech (Czech Republic) | `cs-CZ`
+| Danish (Denmark) | `da-DK`
+| Dutch (Netherlands) | `nl-NL`
+| English (Australia) | `en-AU`
+| English (Canada) | `en-CA`
+| English (Ghana) | `en-GH`
+| English (India) | `en-IN`
+| English (Ireland) | `en-IE`
+| English (Kenya) | `en-KE`
+| English (New Zealand) | `en-NZ`
+| English (Nigeria) | `en-NG`
+| English (Philippines) | `en-PH`
+| English (South Africa) | `en-ZA`
+| English (Tanzania) | `en-TZ`
+| English (United Kingdom) | `en-GB`
+| English (United States) | `en-US`
+| Finnish (Finland) | `fi-FI`
+| French (Canada) | `fr-CA`
+| French (France) | `fr-FR`
+| Galician (Spain) | `gl-ES`
+| Georgian (Georgia) | `ka-GE`
+| German (Germany) | `de-DE`
+| Greek (Greece) | `el-GR`
+| Gujarati (India) | `gu-IN`
+| Hebrew (Israel) | `he-IL`
+| Hindi (India) | `hi-IN`
+| Hungarian (Hungary) | `hu-HU`
+| Icelandic (Iceland) | `is-IS`
+| Indonesian (Indonesia) | `id-ID`
+| Italian (Italy) | `it-IT`
+| Japanese (Japan) | `ja-JP`
+| Javanese (Indonesia) | `jv-ID`
+| Kannada (India) | `kn-IN`
+| Khmer (Cambodia) | `km-KH`
+| Korean (South Korea) | `ko-KR`
+| Lao (Laos) | `lo-LA`
+| Latvian (Latvia) | `lv-LV`
+| Lithuanian (Lithuania) | `lt-LT`
+| Malay (Malaysia) | `ms-MY`
+| Malayalam (India) | `ml-IN`
+| Marathi (India) | `mr-IN`
+| Nepali (Nepal) | `ne-NP`
+| Norwegian Bokmål (Norway) | `nb-NO`
+| Persian (Iran) | `fa-IR`
+| Polish (Poland) | `pl-PL`
+| Portuguese (Brazil) | `pt-BR`
+| Portuguese (Portugal) | `pt-PT`
+| Romanian (Romania) | `ro-RO`
+| Russian (Russia) | `ru-RU`
+| Serbian (Serbia) | `sr-RS`
+| Sinhala (Sri Lanka) | `si-LK`
+| Slovak (Slovakia) | `sk-SK`
+| Slovenian (Slovenia) | `sl-SI`
+| Spanish (Argentina) | `es-AR`
+| Spanish (Bolivia) | `es-BO`
+| Spanish (Chile) | `es-CL`
+| Spanish (Colombia) | `es-CO`
+| Spanish (Costa Rica) | `es-CR`
+| Spanish (Dominican Republic) | `es-DO`
+| Spanish (Ecuador) | `es-EC`
+| Spanish (El Salvador) | `es-SV`
+| Spanish (Guatemala) | `es-GT`
+| Spanish (Honduras) | `es-HN`
+| Spanish (Mexico) | `es-MX`
+| Spanish (Nicaragua) | `es-NI`
+| Spanish (Panama) | `es-PA`
+| Spanish (Paraguay) | `es-PY`
+| Spanish (Peru) | `es-PE`
+| Spanish (Puerto Rico) | `es-PR`
+| Spanish (Spain) | `es-ES`
+| Spanish (United States) | `es-US`
+| Spanish (Uruguay) | `es-UY`
+| Spanish (Venezuela) | `es-VE`
+| Sundanese (Indonesia) | `su-ID`
+| Swahili (Kenya) | `sw-KE`
+| Swahili (Tanzania) | `sw-TZ`
+| Swedish (Sweden) | `sv-SE`
+| Tamil (India) | `ta-IN`
+| Tamil (Malaysia) | `ta-MY`
+| Tamil (Singapore) | `ta-SG`
+| Tamil (Sri Lanka) | `ta-LK`
+| Telugu (India) | `te-IN`
+| Thai (Thailand) | `th-TH`
+| Turkish (Turkey) | `tr-TR`
+| Ukrainian (Ukraine) | `uk-UA`
+| Urdu (India) | `ur-IN`
+| Urdu (Pakistan) | `ur-PK`
+| Vietnamese (Vietnam) | `vi-VN`
+| Zulu (South Africa) | `zu-ZA`
 ### Context
 
 Some hints might be provided using the `context` array parameter to improve recognition quality. The values set might be the words or phrases expected from the user, for example, `['one', 'two', 'three']` or `['support', 'order starship']`.
