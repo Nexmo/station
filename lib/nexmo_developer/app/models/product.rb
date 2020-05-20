@@ -20,8 +20,8 @@ class Product
     product.camelcase
   end
 
-  def self.filter_products_for_dropdown(item_list) # use_cases || tutorials
-    products = all.select{|p| p['dropdown'] == true}
+  def self.filter_products_for_dropdown(item_list)
+    products = all.select { |p| p['dropdown'] == true }
     products_mapped = []
 
     products.each do |p|
@@ -29,7 +29,6 @@ class Product
         if i.products.include?(p['path'])
           products_mapped << p
         end
-        products_mapped
       end
     end
 

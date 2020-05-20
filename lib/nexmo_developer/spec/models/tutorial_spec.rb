@@ -71,32 +71,38 @@ RSpec.describe Tutorial, type: :model do
     it 'returns a tutorial with an introduction' do
       tutorial = described_class.load('with_intro', current_step)
 
-      expect(tutorial.subtasks).to eq([
-        introduction_subtask,
-        application_subtask,
-        outbound_call_subtask,
-      ])
+      expect(tutorial.subtasks).to eq(
+        [
+          introduction_subtask,
+          application_subtask,
+          outbound_call_subtask,
+        ]
+      )
     end
 
     it 'returns a tutorial with a conclusion' do
       tutorial = described_class.load('with_conclusion', current_step)
 
-      expect(tutorial.subtasks).to eq([
-        application_subtask,
-        outbound_call_subtask,
-        conclusion_subtask,
-      ])
+      expect(tutorial.subtasks).to eq(
+        [
+          application_subtask,
+          outbound_call_subtask,
+          conclusion_subtask,
+        ]
+      )
     end
 
     it 'returns a tutorial with an introduction and a conclusion' do
       tutorial = described_class.load('with_intro_and_conclusion', current_step)
 
-      expect(tutorial.subtasks).to eq([
-        introduction_subtask,
-        application_subtask,
-        outbound_call_subtask,
-        conclusion_subtask,
-      ])
+      expect(tutorial.subtasks).to eq(
+        [
+          introduction_subtask,
+          application_subtask,
+          outbound_call_subtask,
+          conclusion_subtask,
+        ]
+      )
     end
 
     it 'returns a tutorial without tasks' do
@@ -285,6 +291,7 @@ RSpec.describe Tutorial, type: :model do
     end
 
     context 'dynamic step' do
+      # rubocop:disable Layout/ClosingHeredocIndentation
       it 'returns content if it exists' do
         tutorial = described_class.load('example_tutorial', current_step)
 
@@ -298,6 +305,7 @@ RSpec.describe Tutorial, type: :model do
                                                                        HEREDOC
           .strip + "\n")
       end
+      # rubocop:enable Layout/ClosingHeredocIndentation
 
       it 'raises if it does not exist' do
         tutorial = described_class.load('example_tutorial', current_step)

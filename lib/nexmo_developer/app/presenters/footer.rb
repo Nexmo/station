@@ -1,5 +1,6 @@
 class Footer
   attr_reader :items
+
   def initialize(items: nil)
     @items = items
 
@@ -16,7 +17,7 @@ class Footer
       status: config['footer']['links']['status'],
       social_links: config['footer']['links']['social'],
       navigation_links: config['footer']['links']['navigation'],
-      support_links: config['footer']['links']['support']
+      support_links: config['footer']['links']['support'],
     }
   end
 

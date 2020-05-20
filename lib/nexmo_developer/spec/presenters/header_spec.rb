@@ -10,39 +10,39 @@ RSpec.describe Header do
       'assets' => [
         'logo' => [
           'path' => '/images/logos/sample-logo.png',
-          'alt' => 'Sample Alt'
+          'alt' => 'Sample Alt',
         ],
       ],
       'header' => [
         'links' => [
           'sign-up' => [
             'path' => 'https://path/to/site',
-            'text' => ['Log In', 'Try Me']
+            'text' => ['Log In', 'Try Me'],
           ],
         ],
         'hiring' => [
-          'display' => true
+          'display' => true,
         ],
-      ]
+      ],
     }
   end
   let(:yaml) do
     <<~HEREDOC
-    name: Sample Name
-    subtitle: Sample Subtitle
-    assets:
-      logo:
-        path: '/images/logos/sample-logo.png'
-        alt: 'Sample Alt'
-    header:
-      links:
-        sign-up:
-          path:  https://path/to/site
-          text:
-            - 'Log In'
-            - 'Try Me'
-      hiring:
-        display: true
+      name: Sample Name
+      subtitle: Sample Subtitle
+      assets:
+        logo:
+          path: '/images/logos/sample-logo.png'
+          alt: 'Sample Alt'
+      header:
+        links:
+          sign-up:
+            path:  https://path/to/site
+            text:
+              - 'Log In'
+              - 'Try Me'
+        hiring:
+          display: true
     HEREDOC
   end
 
@@ -56,13 +56,13 @@ RSpec.describe Header do
 
       expect(items).to eq(
         {
-          :logo_alt => "Sample Alt",
-          :logo_path => "/images/logos/sample-logo.png",
-          :name => "Sample Name",
-          :sign_up_path => "https://path/to/site",
-          :sign_up_text_arr => ["Log In", "Try Me"],
-          :subtitle => "Sample Subtitle",
-          :show_hiring_link => true
+          logo_alt: 'Sample Alt',
+          logo_path: '/images/logos/sample-logo.png',
+          name: 'Sample Name',
+          sign_up_path: 'https://path/to/site',
+          sign_up_text_arr: ['Log In', 'Try Me'],
+          subtitle: 'Sample Subtitle',
+          show_hiring_link: true,
         }
       )
     end

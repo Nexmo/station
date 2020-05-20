@@ -2,6 +2,7 @@ class Tutorial
   include ActiveModel::Model
 
   attr_reader :name, :current_step
+
   delegate :path, :yaml, to: :@file_loader
   delegate :available_code_languages, to: :metadata
 

@@ -1,5 +1,6 @@
 class Topnav
   attr_reader :items
+
   def initialize(items: nil)
     @items = items
 
@@ -8,7 +9,7 @@ class Topnav
 
   def navbar_items_from_config(config)
     config = YAML.safe_load(open_config(config))
-    @items ||= config.map do |name, url_path|
+    config.map do |name, url_path|
       {
         name: I18n.t("layouts.partials.header.#{name.downcase}"),
         url: url_path,

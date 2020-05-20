@@ -4,7 +4,7 @@ RSpec.describe Topnav do
   let(:items) { nil }
   let(:config) do
     {
-      'documentation' => '/documentation'
+      'documentation' => '/documentation',
     }
   end
 
@@ -23,15 +23,15 @@ RSpec.describe Topnav do
 
       expect(items).to eq(
         [{
-          :name => 'Documentation',
-          :navigation => 'documentation',
-          :url => '/documentation'
+          name: 'Documentation',
+          navigation: 'documentation',
+          url: '/documentation',
         }]
       )
     end
   end
 
-  describe '#navbar_items_from_config with no config file' do    
+  describe '#navbar_items_from_config with no config file' do
     it 'raises an exception' do
       path = "#{Rails.configuration.docs_base_path}/config/top_navigation.yml"
       allow_any_instance_of(described_class).to receive(:config_exist?).with(path).and_return(false)

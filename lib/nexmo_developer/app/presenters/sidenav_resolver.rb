@@ -46,7 +46,6 @@ class SidenavResolver
     if DocumentationConstraint.products_for_routes.include? product
       tasks = TutorialList.by_product(product)
 
-
       # If we have use cases and tutorials, output them
       if tasks['tutorials'].any?
         data[:children] << { title: 'tutorials', path: "/#{product}/tutorials", children: tasks['tutorials'].map(&:as_json) }

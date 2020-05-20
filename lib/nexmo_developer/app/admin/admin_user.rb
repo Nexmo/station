@@ -1,6 +1,6 @@
 ActiveAdmin.register ::User do
   permit_params :email, :password, :password_confirmation, :admin, :api_key, :api_secret
-  
+
   controller do
     require 'inherited_resources'
   end

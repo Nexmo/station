@@ -49,9 +49,11 @@ class ApplicationController < ActionController::Base
     @code_language = Nexmo::Markdown::CodeLanguage.find(request.params[:code_language])
   end
 
+  # rubocop:disable Naming/MemoizedInstanceVariableName
   def set_notices
     @notices ||= LoadConfig.load_file('config/notices.yml')
   end
+  # rubocop:enable Naming/MemoizedInstanceVariableName
 
   def set_feedback_author
     return unless cookies[:feedback_author_id]

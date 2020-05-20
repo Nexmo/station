@@ -1,5 +1,6 @@
 class TutorialListItem
   attr_accessor :product
+  attr_reader :path
 
   def initialize(path)
     @path = path
@@ -22,10 +23,6 @@ class TutorialListItem
 
   def root
     "#{Rails.configuration.docs_base_path}/config/tutorials"
-  end
-
-  def path
-    @path
   end
 
   def filename

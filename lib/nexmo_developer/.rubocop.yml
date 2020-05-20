@@ -134,3 +134,7 @@ Layout/EmptyLinesAroundAttributeAccessor:
 
 Style/SlicingWithRange:
   Enabled: true
+
+Naming/FileName:
+  Exclude:
+    - 'public/assets/**/*'

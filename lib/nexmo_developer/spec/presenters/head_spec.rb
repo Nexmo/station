@@ -9,7 +9,7 @@ RSpec.describe Head do
       'title' => 'Vonage',
       'description' => 'A Description',
       'google-site-verification' => '123456',
-      'application-name' => 'Vonage Business Cloud'
+      'application-name' => 'Vonage Business Cloud',
     }
   end
   let(:yml) do
@@ -41,7 +41,7 @@ RSpec.describe Head do
           mstile_144_squared: 'meta/mstile-144x144.png',
           safari_pinned_tab: 'meta/safari-pinned-tab.svg',
           favicon: 'meta/favicon.ico',
-          favicon_32_squared: 'meta/favicon-32x32.png'
+          favicon_32_squared: 'meta/favicon-32x32.png',
         }
       )
     end
