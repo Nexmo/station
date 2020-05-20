@@ -80,6 +80,10 @@ jobs:
         bundle exec rake ci:verify_error_urls_resolve
         bundle exec rake ci:check_word_blocklist
         bundle exec rake ci:check_ruby_version
-        ./node_modules/.bin/mdspell -r -n -a --en-us '_documentation/en/**/*.md' '_partials/*.md' '_partials/**/*.md' '_modals/**/*.md' '_tutorials/**.md'
         yarn test
       working-directory: ./lib/nexmo_developer
+    - name: Spell checker
+      env:
+        FORCE_COLOR: true
+      run: |
+        ./node_modules/.bin/mdspell -r -n -a --en-us '_documentation/en/**/*.md' '_partials/*.md' '_partials/**/*.md' '_modals/**/*.md' '_tutorials/**.md'
