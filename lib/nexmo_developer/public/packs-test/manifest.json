@@ -1,0 +1,79 @@
+{
+  "application.css": "/packs-test/css/application-e1c20980.chunk.css",
+  "application.css.map": "/packs-test/css/application-e1c20980.chunk.css.map",
+  "application.js": "/packs-test/js/application-c35db67035ef7b8944b1.chunk.js",
+  "application.js.map": "/packs-test/js/application-c35db67035ef7b8944b1.chunk.js.map",
+  "entrypoints": {
+    "application": {
+      "js": [
+        "/packs-test/js/runtime~application-1c11a8c601900ade80b6.js",
+        "/packs-test/js/0-8d184e50f360d7e7dd21.chunk.js",
+        "/packs-test/js/application-c35db67035ef7b8944b1.chunk.js"
+      ],
+      "js.map": [
+        "/packs-test/js/runtime~application-1c11a8c601900ade80b6.js.map",
+        "/packs-test/js/0-8d184e50f360d7e7dd21.chunk.js.map",
+        "/packs-test/js/application-c35db67035ef7b8944b1.chunk.js.map"
+      ],
+      "css": [
+        "/packs-test/css/application-e1c20980.chunk.css"
+      ],
+      "css.map": [
+        "/packs-test/css/application-e1c20980.chunk.css.map"
+      ]
+    }
+  },
+  "media/fonts/Spezia-Regular.eot": "/packs-test/media/fonts/Spezia-Regular-6e003e4d.eot",
+  "media/fonts/Spezia-Regular.ttf": "/packs-test/media/fonts/Spezia-Regular-bcd17a35.ttf",
+  "media/fonts/Spezia-Regular.woff": "/packs-test/media/fonts/Spezia-Regular-5ce2654f.woff",
+  "media/fonts/Spezia-Regular.woff2": "/packs-test/media/fonts/Spezia-Regular-b2cdf034.woff2",
+  "media/fonts/Spezia-SemiBold.eot": "/packs-test/media/fonts/Spezia-SemiBold-f70cbb6c.eot",
+  "media/fonts/Spezia-SemiBold.ttf": "/packs-test/media/fonts/Spezia-SemiBold-2baad163.ttf",
+  "media/fonts/Spezia-SemiBold.woff": "/packs-test/media/fonts/Spezia-SemiBold-95268b19.woff",
+  "media/fonts/Spezia-SemiBold.woff2": "/packs-test/media/fonts/Spezia-SemiBold-bda9b0e2.woff2",
+  "media/fonts/Spezia-WideMedium.eot": "/packs-test/media/fonts/Spezia-WideMedium-358bb999.eot",
+  "media/fonts/Spezia-WideMedium.ttf": "/packs-test/media/fonts/Spezia-WideMedium-7be11cc1.ttf",
+  "media/fonts/Spezia-WideMedium.woff": "/packs-test/media/fonts/Spezia-WideMedium-69321d62.woff",
+  "media/fonts/Spezia-WideMedium.woff2": "/packs-test/media/fonts/Spezia-WideMedium-07c7b07d.woff2",
+  "media/logos/Volta-logo.svg": "/packs-test/media/logos/Volta-logo-e41ce0a2.svg",
+  "media/logos/Vonage-api--white.svg": "/packs-test/media/logos/Vonage-api--white-918dc20b.svg",
+  "media/logos/Vonage-api-changelog--white.svg": "/packs-test/media/logos/Vonage-api-changelog--white-699b4762.svg",
+  "media/logos/Vonage-api-changelog.svg": "/packs-test/media/logos/Vonage-api-changelog-06554869.svg",
+  "media/logos/Vonage-api-dashboard-vert--white.svg": "/packs-test/media/logos/Vonage-api-dashboard-vert--white-d2c89f36.svg",
+  "media/logos/Vonage-api-dashboard-vert.svg": "/packs-test/media/logos/Vonage-api-dashboard-vert-d22b2904.svg",
+  "media/logos/Vonage-api-developer--white.svg": "/packs-test/media/logos/Vonage-api-developer--white-57b68e07.svg",
+  "media/logos/Vonage-api-developer.svg": "/packs-test/media/logos/Vonage-api-developer-cc9f8064.svg",
+  "media/logos/Vonage-api-support--white.svg": "/packs-test/media/logos/Vonage-api-support--white-efa391e3.svg",
+  "media/logos/Vonage-api-support.svg": "/packs-test/media/logos/Vonage-api-support-c3c210d6.svg",
+  "media/logos/Vonage-api.svg": "/packs-test/media/logos/Vonage-api-ef82d899.svg",
+  "media/logos/Vonage-apis--white.svg": "/packs-test/media/logos/Vonage-apis--white-aab8d80f.svg",
+  "media/logos/Vonage-apis.svg": "/packs-test/media/logos/Vonage-apis-b9c5aba4.svg",
+  "media/logos/Vonage-developer--white.svg": "/packs-test/media/logos/Vonage-developer--white-4a5bcdb5.svg",
+  "media/logos/Vonage-developer.svg": "/packs-test/media/logos/Vonage-developer-5fb31a57.svg",
+  "media/logos/Vonage-lettermark--white.svg": "/packs-test/media/logos/Vonage-lettermark--white-178dd155.svg",
+  "media/logos/Vonage-lettermark.svg": "/packs-test/media/logos/Vonage-lettermark-9b707677.svg",
+  "media/logos/Vonage-logo-collapsed.svg": "/packs-test/media/logos/Vonage-logo-collapsed-1becff9c.svg",
+  "media/logos/Vonage-logo.svg": "/packs-test/media/logos/Vonage-logo-4346a777.svg",
+  "media/logos/Vonage-nexmo--white.svg": "/packs-test/media/logos/Vonage-nexmo--white-7229584c.svg",
+  "media/logos/Vonage-nexmo-vert--white.svg": "/packs-test/media/logos/Vonage-nexmo-vert--white-b3f1e555.svg",
+  "media/logos/Vonage-nexmo-vert.svg": "/packs-test/media/logos/Vonage-nexmo-vert-d10a09ba.svg",
+  "media/logos/Vonage-nexmo.svg": "/packs-test/media/logos/Vonage-nexmo-259a91a5.svg",
+  "media/logos/Vonage-tokbox--white.svg": "/packs-test/media/logos/Vonage-tokbox--white-f387d287.svg",
+  "media/logos/Vonage-tokbox-vert--white.svg": "/packs-test/media/logos/Vonage-tokbox-vert--white-51e60e19.svg",
+  "media/logos/Vonage-tokbox-vert.svg": "/packs-test/media/logos/Vonage-tokbox-vert-74a93484.svg",
+  "media/logos/Vonage-tokbox.svg": "/packs-test/media/logos/Vonage-tokbox-09eff8d3.svg",
+  "media/logos/Vonage-video-api--white.svg": "/packs-test/media/logos/Vonage-video-api--white-541a5c19.svg",
+  "media/logos/Vonage-video-api-stacked--white.svg": "/packs-test/media/logos/Vonage-video-api-stacked--white-3f51d6b3.svg",
+  "media/logos/Vonage-video-api-stacked.svg": "/packs-test/media/logos/Vonage-video-api-stacked-f5cf2113.svg",
+  "media/logos/Vonage-video-api.svg": "/packs-test/media/logos/Vonage-video-api-34d5d85c.svg",
+  "media/logos/Vonage-wordmark--white.svg": "/packs-test/media/logos/Vonage-wordmark--white-89ae1caf.svg",
+  "media/logos/Vonage-wordmark.svg": "/packs-test/media/logos/Vonage-wordmark-b6fa258d.svg",
+  "media/logos/favicon.ico": "/packs-test/media/logos/favicon-011cbe9d.ico",
+  "media/logos/vonage-logo--white.svg": "/packs-test/media/logos/vonage-logo--white-eb626fbe.svg",
+  "media/logos/vonage-logo-collapsed--white.svg": "/packs-test/media/logos/vonage-logo-collapsed--white-626c0522.svg",
+  "media/symbol/volta-brand-icons.svg": "/packs-test/media/symbol/volta-brand-icons-d8a6b41b.svg",
+  "media/symbol/volta-flag-icons.svg": "/packs-test/media/symbol/volta-flag-icons-933f8333.svg",
+  "media/symbol/volta-icons.svg": "/packs-test/media/symbol/volta-icons-7e9f755c.svg",
+  "runtime~application.js": "/packs-test/js/runtime~application-1c11a8c601900ade80b6.js",
+  "runtime~application.js.map": "/packs-test/js/runtime~application-1c11a8c601900ade80b6.js.map"
+}
