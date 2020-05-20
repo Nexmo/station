@@ -7,7 +7,7 @@ RSpec.describe LanguagesDropdown do
 
       languages = LanguagesDropdown.filter_languages_for_dropdown(items_list)
 
-      expect languages[0].label.downcase == items_list[0].languages.join(' ').downcase
+      expect(languages.map(&:key)).to eq(items_list.map(&:languages).flatten.map(&:downcase))
     end
   end
 end

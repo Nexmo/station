@@ -5,7 +5,7 @@ RSpec.describe TitleNormalizer do
     context 'with a file' do
       context 'without :navigation in its frontmatter' do
         let(:path) do
-          "#{Rails.configuration.docs_base_path}/_documentation/en/messages/external-accounts/overview.md"
+          "#{Rails.configuration.docs_base_path}/_documentation/en/messaging/sms/overview.md"
         end
 
         it 'returns the :title defined in the frontmatter' do

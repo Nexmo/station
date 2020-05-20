@@ -14,7 +14,7 @@ RSpec.describe 'Smoke Tests', type: :request do
 
   it '/use-cases contains the expected text' do
     get '/use-cases'
-    expect(response.body).to include('Get started with Nexmo with tutorials that will walk you through building a variety of practical applications')
+    expect(response.body).to include('Get started with tutorials that will walk you through building a variety of practical applications')
   end
 
   it '/api contains the expected text' do
@@ -32,9 +32,9 @@ RSpec.describe 'Smoke Tests', type: :request do
     expect(response.body).to include('The Vonage API Extend Team develops productized integrations so builders everywhere can create better communication experiences for their users.')
   end
 
-  it '/extend/ibm-watson-sms-sentiment-analysis contains the expected text' do
-    get '/extend/ibm-watson-sms-sentiment-analysis'
-    expect(response.body).to include('This is an application that will return the sentiment of a incoming SMS using Watson')
+  it '/extend/amazon-lex-connector contains the expected text' do
+    get '/extend/amazon-lex-connector'
+    expect(response.body).to include('The Lex connector is a middleware component which sits between the')
   end
 
   it '/community contains the expected text' do

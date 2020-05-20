@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe SmartlingAPI do
-  let(:file)     { '_documentation/en/messages/overview.md' }
+  let(:file)     { '_documentation/en/messaging/sms/overview.md' }
   let(:file_api) { instance_spy(Smartling::File) }
-  let(:file_uri) { 'messages/overview.md' }
+  let(:file_uri) { 'messaging/sms/overview.md' }
   let(:locale)   { 'cn' }
 
   before do
@@ -66,7 +66,7 @@ RSpec.describe SmartlingAPI do
     context 'documents' do
       it 'downloads the file in the provided locale' do
         expect(File).to receive(:open)
-          .with("#{Rails.configuration.docs_base_path}/_documentation/cn/messages/overview.md", 'w+')
+          .with("#{Rails.configuration.docs_base_path}/_documentation/cn/messaging/sms/overview.md", 'w+')
           .and_return('')
         smartling_api.download_translated(filename: file, locale: locale)
 

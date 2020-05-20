@@ -67,8 +67,8 @@ RSpec.describe SidenavSubitem do
     context 'for a tutorial' do
       let(:folder) do
         {
-          root: 'config/tutorials',
-          path: 'config/tutorials/en/phone-to-app.yml',
+          root: "#{Rails.configuration.docs_base_path}/config/tutorials",
+          path: "#{Rails.configuration.docs_base_path}/config/tutorials/en/phone-to-app.yml",
           filename: 'phone-to-app',
           external_link: nil,
           title: 'Receiving an in-app voice call',
