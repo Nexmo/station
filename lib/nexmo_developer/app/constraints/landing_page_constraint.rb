@@ -4,7 +4,7 @@ class LandingPageConstraint
   end
 
   def self.list
-    root = "#{Rails.root}/config/landing_pages/"
+    root = "#{Rails.configuration.docs_base_path}/config/landing_pages/"
     Dir["#{root}/**/*.yml"].map do |filename|
       name = File.join(File.dirname(filename), File.basename(filename, '.yml')).gsub(root, '')
       name[0] = '' if name[0] == '/' # Remove leading slash for subdirectories
