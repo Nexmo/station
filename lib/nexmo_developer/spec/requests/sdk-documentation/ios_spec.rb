@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'iOS docs', type: :request do
+RSpec.xdescribe 'iOS docs', type: :request do
   context 'SDK reference' do
     it 'redirects to the proper path' do
       get '/client-sdk/sdk-documentation/ios/ios'

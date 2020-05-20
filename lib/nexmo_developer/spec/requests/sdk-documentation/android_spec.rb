@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Android docs', type: :request do
+RSpec.xdescribe 'Android docs', type: :request do
   context 'SDK reference' do
     it 'redirects to the proper path' do
       get '/client-sdk/sdk-documentation/android/android'
