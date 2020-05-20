@@ -29,6 +29,9 @@ Gem::Specification.new do |spec|
     `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features|_api|_code|_documentation|_examples|_extend|_modals|_open_api|_tutorials|_tutorials_tabbed_content|_use_cases|.repos)/}) }
   end
   spec.files         += Dir.glob('./lib/nexmo_developer/public/**/*', File::FNM_DOTMATCH)
+  spec.files.reject! { |fn| fn.include? 'spec' }
+  spec.files.reject! { |fn| fn.include? 'log' }
+  spec.files.reject! { |fn| fn.include? '.github' }
   spec.bindir        = "bin"
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
@@ -54,11 +57,10 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency('octokit', '~> 4.18')
   spec.add_runtime_dependency('icalendar', '~> 2.6')
   spec.add_runtime_dependency('diffy', '~> 3.3')
-  spec.add_runtime_dependency('webpacker')
-  spec.add_runtime_dependency('clipboard-rails')
-  spec.add_runtime_dependency('gmaps4rails')
-  spec.add_runtime_dependency('byebug')
-  spec.add_runtime_dependency('truncato')
+  spec.add_runtime_dependency('webpacker', '~> 5.1')
+  spec.add_runtime_dependency('clipboard-rails', '~> 1.7')
+  spec.add_runtime_dependency('gmaps4rails', '~> 2.1')
+  spec.add_runtime_dependency('truncato', '~> 0.7.11')
   spec.add_runtime_dependency('puma', '~> 4.3')
   spec.add_runtime_dependency('barnes', '0.0.8')
   spec.add_runtime_dependency('woothee', '~> 1.11')
