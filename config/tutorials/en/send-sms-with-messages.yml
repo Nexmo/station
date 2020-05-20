@@ -8,7 +8,9 @@ introduction:
   description: This tutorial shows you how to send an SMS message with Messages API.
   content: |
     # Introduction
-    The Messages API allows you to send an SMS message. In this tutorial you learn how to send an SMS message.
+    The Messages API allows you to send an SMS message. In this tutorial you learn how to send an SMS message. 
+    
+    This tutorial provides a step-by-step guide to installing the required tools, building your application, writing the code and testing. The message sent is plain text.
 
     > **NOTE:** Please carefully review the prerequisites.
 
