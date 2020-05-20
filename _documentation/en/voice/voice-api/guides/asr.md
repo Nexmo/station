@@ -54,10 +54,11 @@ ASR action (`input` with `speech`) cannot be executed for the whole conversation
 ### Language
 
 The expected language of user speech should be specified as the `language` parameter (`en-US` by default).
-| #### Supported languages:
-| 
+
+| #### Supported languages
+|
 | Language | Code
-| -- | -- 
+| ---- | ----
 | Afrikaans (South Africa) | `af-ZA`
 | Albanian (Albania) | `sq-AL`
 | Amharic (Ethiopia) | `am-ET`
@@ -174,6 +175,7 @@ The expected language of user speech should be specified as the `language` param
 | Urdu (Pakistan) | `ur-PK`
 | Vietnamese (Vietnam) | `vi-VN`
 | Zulu (South Africa) | `zu-ZA`
+
 ### Context
 
 Some hints might be provided using the `context` array parameter to improve recognition quality. The values set might be the words or phrases expected from the user, for example, `['one', 'two', 'three']` or `['support', 'order starship']`.
