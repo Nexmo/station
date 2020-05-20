@@ -80,8 +80,10 @@ jobs:
         bundle exec rake ci:verify_error_urls_resolve
         bundle exec rake ci:check_word_blocklist
         bundle exec rake ci:check_ruby_version
-        yarn test
       working-directory: ./lib/nexmo_developer
+    - name: Run Javascript Tests
+      run: |
+        yarn test
     - name: Spell checker
       env:
         FORCE_COLOR: true
