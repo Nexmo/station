@@ -38,7 +38,7 @@ RSpec.feature 'Community' do
         expect(page).to have_content(euruko.description)
       end
 
-      expect(page).to have_css('h2#video-resources', text: 'Video Resources')
+      expect(page).to have_css('h2', text: 'Video Resources')
 
       expect(page).to have_css('h4', text: video_session.title)
       expect(page).to have_xpath('.//iframe[@src="https://www.youtube.com/embed/i7EZDYYfFmc?showinfo=0"]')
@@ -52,7 +52,7 @@ RSpec.feature 'Community' do
       expect(page).to have_link('Privacy Policy', href: 'https://www.nexmo.com/privacy-policy')
       expect(page).to have_content(', which sets out the rights you have in respect of your data')
 
-      expect(page).to have_css('h2#vonagedev-on-twitter', text: '@VonageDev on Twitter')
+      expect(page).to have_css('h2', text: '@VonageDev on Twitter')
 
       expect(page).to have_content('Join the Vonage Developer Community Slack')
       expect(page).to have_link('Vonage Developer Community Slack', href: '/community/slack')

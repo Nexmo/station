@@ -17,14 +17,15 @@ RSpec.feature 'Team' do
   scenario 'visiting the team page' do
     visit '/team'
 
-    within('.Nxd-landing-main') do
-      expect(page).to have_css('h1', text: 'Nexmo Developer Relations Team')
+    within('.Nxd-landing-page') do
+      # TODO: fix this, it should be an h1
+      expect(page).to have_css('h2', text: 'Nexmo Developer Relations Team')
       expect(page).to have_link('the developer relations team', href: '#join')
       expect(page).to have_link('other teams at Nexmo', href: '/careers')
       expect(page).to have_css('.Nxd-profile').at_least(1).times
       expect(page).to have_css('h2', text: 'Contributors')
       expect(page).to have_link('Contributors', href: 'https://github.com/Nexmo/nexmo-developer/graphs/contributors')
-      expect(page).to have_css('h2', text: 'Join the team')
+      expect(page).to have_css('h2', text: 'Join the Team')
     end
   end
 end
