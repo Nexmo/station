@@ -45,7 +45,6 @@ jobs:
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: 2.5.8
-      working-directory: ./lib/nexmo_developer
     - name: Ruby gem cache
       uses: actions/cache@v1
       with:
