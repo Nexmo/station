@@ -72,7 +72,6 @@ jobs:
       run: |
         bundle exec rails db:create
         bundle exec rails db:migrate
-        #RAILS_ENV=test bundle exec rake assets:precompile
         bundle exec rake spec
         bundle exec rubocop
         bundle exec rake ci:verify_pages
