@@ -32,6 +32,7 @@ Gem::Specification.new do |spec|
   spec.files.reject! { |fn| fn.include? 'spec' }
   spec.files.reject! { |fn| fn.include? 'log' }
   spec.files.reject! { |fn| fn.include? '.github' }
+  spec.files.reject! { |fn| fn.include? 'lib/nexmo_developer/public/sdk' }
   spec.bindir        = "bin"
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
