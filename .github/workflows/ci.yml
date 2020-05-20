@@ -72,6 +72,7 @@ jobs:
       run: |
         bundle exec rails db:create
         bundle exec rails db:migrate
+        RAILS_ENV=test bundle exec rake webpacker:compile
         bundle exec rake spec
         bundle exec rubocop
         bundle exec rake ci:verify_pages
@@ -80,7 +81,6 @@ jobs:
         bundle exec rake ci:verify_error_urls_resolve
         bundle exec rake ci:check_word_blocklist
         bundle exec rake ci:check_ruby_version
-        RAILS_ENV=test bundle exec rake webpacker:compile
         ./node_modules/.bin/mdspell -r -n -a --en-us '_documentation/en/**/*.md' '_partials/*.md' '_partials/**/*.md' '_modals/**/*.md' '_tutorials/**.md'
         yarn test
       working-directory: ./lib/nexmo_developer
