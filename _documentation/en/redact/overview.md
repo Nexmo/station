@@ -9,9 +9,17 @@ Vonage provides two solutions to cover your compliance and privacy needs. The Au
 
 ## Contents
 
-In this topic you will learn about:
-
 * [Redact Concepts](#concepts)
+   * [Stored data](#stored-data-and-redaction)
+   * [Auto-redact service](#auto-redact-service)
+   * [Redact API](#redact-api)
+   * [Auto-redact vs Redact API](#auto-redact-vs-redact-api)
+* [Detailed description of redaction scopes](#detailed-description-of-redaction-scope-per-api)
+   * [SMS API](#sms-api)
+   * [Number Insight API](#number-insight-api)
+   * [Messages API](#messages-api)
+   * [Voice API](#voice-api)
+   * [Conversations API](#conversations-api)
 * [Right to erasure requests](#right-to-erasure-requests)
 * [Subject Access Requests](#subject-access-requests)
 * [Technical Support Impact](#technical-support-impact)
@@ -69,36 +77,36 @@ To learn more about the Redact API please refer to the [Redact API Reference](/a
 | Provisioning | Required | Required | Required |
 | Price | Free | Paid | Paid |
 
-### Detailed description of redaction scope per API
+## Detailed description of redaction scope per API
 
-#### SMS API
+### SMS API
 
 Feature | Description
 ----|----
 PII | PII includes the message content and the receiver phone number for outbound messages and the sender phone number for inbound messages. The SMS API uses a data pipeline software to transport CDRs to various databases. The data pipeline keeps CDRs along with the receiver/sender phone number for 7 days. Thus, besides server logs and the long-term storage of CDRs, PII is also stored in the data pipeline logs.
-Supported Auto-redact type | Advanced
-Auto-redact details | Advanced Auto-redact for SMS redacts server logs, CDRs, and the data pipeline logs. The scope of auto-redaction is configurable and can include the following options:<p>1. Message content redaction only.<br/> 2. Phone number redaction only.<br/> 3. Phone number encryption only.<br/> 4. Message content redaction together with redaction or encryption of the phone number.</p>When immediate message content redaction is configured, message content is not written at all, not even to the server logs or the data pipeline logs. When number redaction is configured, the phone number gets encrypted by the SMS API before it gets written to the server logs and the data pipeline logs. When CDRs get propagated to the long-term storage of CDRs, the encrypted number field gets automatically redacted. The logs containing encrypted numbers expire on their own. **Neither Support or any other Vonage personnel have access to decryption keys.**
+Supported Auto&#8209;redact type | Advanced
+Auto&#8209;redact details | Advanced Auto-redact for SMS redacts server logs, CDRs, and the data pipeline logs. The scope of auto-redaction is configurable and can include the following options:<p>1. Message content redaction only.<br/> 2. Phone number redaction only.<br/> 3. Phone number encryption only.<br/> 4. Message content redaction together with redaction or encryption of the phone number.</p>When immediate message content redaction is configured, message content is not written at all, not even to the server logs or the data pipeline logs. When number redaction is configured, the phone number gets encrypted by the SMS API before it gets written to the server logs and the data pipeline logs. When CDRs get propagated to the long-term storage of CDRs, the encrypted number field gets automatically redacted. The logs containing encrypted numbers expire on their own. **Neither Support or any other Vonage personnel have access to decryption keys.**
 Redact API details | Redact API redacts only the CDRs in the long-term storage of CDRs. The scope of redaction is not configurable and includes message content together with the phone number.
 
-#### Number Insight API
+### Number Insight API
 
 Feature | Description
 ---- | ----
 PII | PII includes the phone number and the phone number owner's details: first name, last name, caller name, and subscriber Id. The NI API uses the data pipeline software to transport CDRs to various databases. The data pipeline keeps logs with PII in them for 7 days. Thus, besides the server logs and the long-term storage of CDRs, PII is also stored in the data pipeline logs.
-Supported Auto-redact type | Advanced
-Auto-redact details | Advanced Auto-redact for NI redacts server logs, CDRs, and the data pipeline logs. The scope of auto-redaction is configurable and can include the following options:<p>1. Phone number owner details only.<br/>2. Phone number redaction only.<br/>3. Phone number encryption only.<br/>4. Redaction of phone number owner's details together with redaction or encryption of the phone number.</p>When redaction is configured, the content of the redacted fields is not written at all, not even to the server logs. Everything gets redacted immediately (if redaction delay is set to zero).
+Supported Auto&#8209;redact type | Advanced
+Auto&#8209;redact details | Advanced Auto-redact for NI redacts server logs, CDRs, and the data pipeline logs. The scope of auto-redaction is configurable and can include the following options:<p>1. Phone number owner details only.<br/>2. Phone number redaction only.<br/>3. Phone number encryption only.<br/>4. Redaction of phone number owner's details together with redaction or encryption of the phone number.</p>When redaction is configured, the content of the redacted fields is not written at all, not even to the server logs. Everything gets redacted immediately (if redaction delay is set to zero).
 Redact API details | Redact API redacts only the CDRs in the long-term storage of CDRs. The scope of redaction is not configurable and includes the phone number and the phone number owner's details.
 
-#### Messages API
+### Messages API
 
 Feature | Description
 ---- | ----
 PII | PII includes the message content and the receiver phone number for outbound messages and sender phone number for inbound messages. The Messages API uses a data pipeline software to transport CDRs to various databases. The data pipeline keeps CDRs along with receiver/sender phone number for 7 days. Thus, besides server logs and the long-term storage of CDRs, PII is also stored in the data pipeline logs.
-Supported Auto-redact type | Standard
-Auto-redact details | Standard Auto-redact for the Messages API redacts only CDRs in the long-term storage of CDRs. The scope of auto-redaction is configurable and can include the following options:<p>1. Message content redaction only.<br/>2. Phone number redaction only.<br/>3. Message content and phone number redaction.</li></p>
+Supported Auto&#8209;redact type | Standard
+Auto&#8209;redact details | Standard Auto-redact for the Messages API redacts only CDRs in the long-term storage of CDRs. The scope of auto-redaction is configurable and can include the following options:<p>1. Message content redaction only.<br/>2. Phone number redaction only.<br/>3. Message content and phone number redaction.</li></p>
 Redact API details | Redact API redacts only CDRs in the long-term storage of CDRs. The scope of redaction is not configurable and includes the phone number and the phone number owner's details.
 
-#### Voice API
+### Voice API
 
 When you use the Voice API to make calls, one or more call resources will be created, as well as call detail records (CDRs). While you can use the Auto-redact service or the Redact API to remove personal data (in this case, the phone number) from the CDR, the call resources themselves will continue to exist.
 
@@ -113,11 +121,11 @@ For voice applications with call recordings enabled, for example, using the [rec
 Feature | Description
 ---- | ----
 PII | PII includes the receiver phone number for outbound calls and the sender phone number for inbound calls. If the phone recording functionality is used, the recorded audio files are also consider as PII.
-Supported Auto-redact type | Standard
-Auto-redact details | Standard Auto-redact for the Voice API redacts only CDRs in the long-term storage of CDRs. The scope of redaction is not configurable and includes only the phone number.
+Supported Auto&#8209;redact type | Standard
+Auto&#8209;redact details | Standard Auto-redact for the Voice API redacts only CDRs in the long-term storage of CDRs. The scope of redaction is not configurable and includes only the phone number.
 Redact API details | Redact API redacts only CDRs in the long-term storage of CDRs. The scope of redaction is not configurable and includes only the phone number.
 
-#### Conversations API
+### Conversations API
 
 For the multi-channel communications APIs of Conversation, a developer might decide to use personal data (such as a personal phone number) as a user handle. In that case, the [[PUT] method](/api/conversation#updateUser) of the User resource could be used to replace the personal data in the resource, or the [[DELETE] method](/api/conversation#deleteUser) could be used to simply delete the resource completely.
 
