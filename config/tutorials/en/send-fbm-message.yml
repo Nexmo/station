@@ -8,7 +8,11 @@ introduction:
   description: This tutorial shows you how to send a Facebook Messenger message with Messages API.
   content: |
     # Introduction
-    The Messages API allows you to send a Facebook Messenger message. In this tutorial you learn how to receive a Messenger message and then return a message.
+    The [Messages API](/messages/overview) allows you to send a Facebook Messenger message. In this tutorial you learn how to receive a Messenger message and then return a message.
+
+    This tutorial provides a step-by-step guide to installing the required tools, building your application, writing the code and testing. The message sent is plain text.
+
+    For further background information on WhatsApp messaging see our [supporting documentation](/messages/concepts/facebook).
 
     > **NOTE:** This task assumes you have already created a Facebook Profile and a Facebook Page.
 
