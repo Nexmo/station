@@ -186,7 +186,7 @@ If the user is calling not for the first time, they may already know the questio
 
 ### Event Payload Example
 
-Once the NCCO `input` action is completed, the input callback will be sent similar to DTMF input action:
+Once the NCCO `input` action is completed, the input callback will be sent:
 
 ```json
 {
@@ -217,4 +217,4 @@ Once the NCCO `input` action is completed, the input callback will be sent simil
 }
 ```
 
-In the response body, new NCCO is expected, containing next call flow actions based on application logic and user input (`speech.results.text`).
+In the response body, a new NCCO is expected, containing next call flow actions based on application logic and user input (`speech.results.text`).
