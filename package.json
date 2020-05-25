@@ -92,12 +92,12 @@
   },
   "jest": {
     "roots": [
-      "lib/nexmo-developer/spec/javascript"
+      "lib/nexmo_developer/spec/javascript"
     ],
     "moduleDirectories": [
-      "lib/nexmo-developer/node_modules",
-      "lib/nexmo-developer/app/webpacker/javascript",
-      "lib/nexmo-developer/spec"
+      "node_modules",
+      "lib/nexmo_developer/app/webpacker/javascript",
+      "lib/nexmo_developer/spec"
     ],
     "verbose": true,
     "moduleFileExtensions": [
