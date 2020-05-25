@@ -82,10 +82,8 @@ jobs:
         bundle exec rake ci:check_ruby_version
       working-directory: ./lib/nexmo_developer
     - name: Run Javascript Tests
-      env:
-        NODE_ENV: test
       run: |
-        yarn test
+        NODE_ENV=test yarn test
     - name: Spell checker
       env:
         FORCE_COLOR: true
