@@ -1,0 +1,11 @@
+---
+dependencies:
+    - jsonwebtoken
+code:
+    source: .repos/nexmo/nexmo-node-code-snippets/messages/signed-webhooks/verify-signed-webhook.js
+    from_line: 4
+    to_line: 7
+client:
+    source: .repos/nexmo/nexmo-node-code-snippets/messages/signed-webhooks/verify-signed-webhook.js
+    from_line: 1
+    to_line: 2
