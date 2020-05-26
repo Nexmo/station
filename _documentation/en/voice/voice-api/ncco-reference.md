@@ -294,7 +294,6 @@ Option | Description | Required
 `timeOut` | The result of the callee's activity is sent to the `eventUrl` webhook endpoint `timeOut` seconds after the last action. The default value is *3*. Max is 10.| No
 `maxDigits` | The number of digits the user can press. The maximum value is `20`, the default is `4` digits. | No
 `submitOnHash` | Set to `true` so the callee's activity is sent to your webhook endpoint at `eventUrl` after they press *#*. If *#* is not pressed the result is submitted after `timeOut` seconds. The default value is `false`. That is, the result is sent to your webhook endpoint after `timeOut` seconds. | No
-`startTimeout` | Controls how long the system will wait for the user to start speaking. The default value is 5 (seconds). The range of possible values is between 1 second and 10 seconds. | No
 
 #### Speech Recognition Settings
 
@@ -304,6 +303,9 @@ Option | Description | Required
 `endOnSilence` | Controls how long the system will wait after user stops speaking to decide the input is completed. The default value is `2` (seconds). The range of possible values is between 1 second and 10 seconds. | No
 `language` | Expected language of the user's speech. Format: BCP-47. Default: `en-US`. [List of supported languages](TBD). | No
 `context` | Array of hints (strings) to improve recognition quality if certain words are expected from the user. | No
+`startTimeout` | Controls how long the system will wait for the user to start speaking. The range of possible values is between 1 second and 10 seconds. | No
+`maxDuration` | Controls maximum speech duration (from the moment user starts speaking). The default value is 60 (seconds). The range of possible values is between 1 and 60 seconds. | No
+
 
 The following example shows the parameters sent to `eventUrl` for DTMF input:
 

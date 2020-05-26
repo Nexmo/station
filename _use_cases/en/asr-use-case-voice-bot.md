@@ -8,7 +8,7 @@ languages:
 
 # Voice Bot / Interactive Voice Assistant
 
-In this tutorial, you will create a simple bot answering an inbound phone call. The bot will ask for your location and share your actual weather conditions in response. You will implement this using the express web application framework, Weatherstack API and Vonage Automatic Speech Recognition (ASR) feature.
+In this tutorial, you will create a simple bot answering an inbound phone call. The bot will ask for your location and share your actual weather conditions in response. You will implement this using the [express](https://expressjs.com/) web application framework, [Weatherstack](https://weatherstack.com/) API and Vonage Automatic Speech Recognition (ASR) feature.
 
 ## Prerequisites
 
@@ -48,7 +48,7 @@ nexmo number:buy 447700900001
 
 Use the CLI to create a Voice API application with the webhooks that will be responsible for answering a call on your Nexmo number (`/webhooks/answer`) and logging call events (`/webhooks/events`), respectively.
 
-These webhooks need to be accessible by Nexmo's servers, so in this tutorial you will use `ngrok` to expose your local development environment to the public Internet. [This blog post](https://www.nexmo.com/blog/2017/07/04/local-development-nexmo-ngrok-tunnel-dr/) explains how to install and run `ngrok`.
+These webhooks need to be accessible by Nexmo's servers, so in this tutorial you will use `ngrok` to expose your local development environment to the public Internet. [This article](/tools/ngrok) explains how to install and run `ngrok`.
 
 Run `ngrok` using the following command:
 
@@ -59,10 +59,10 @@ ngrok http 3000
 Make a note of the temporary host name that `ngrok` provides and use it in place of `example.com` in the following command:
 
 ```sh
-nexmo app:create "My Echo Server" https://example.com/webhooks/answer https://example.com/webhooks/events
+nexmo app:create "Weather Bot" https://example.com/webhooks/answer https://example.com/webhooks/events
 ```
 
-The command returns an application ID (which you should make a note of) and your public key information (which you can safely ignore for the purposes of this tutorial).
+The command returns an application ID (which you should make a note of) and your private key information (which you can safely ignore for the purposes of this tutorial).
 
 ## Link your number
 
@@ -77,7 +77,7 @@ You're now ready to write your application code.
 
 ## Sign up Weatherstack account
 
-In this tutorial, we use Weatherstack API to get weather info. To make a request, you have to [sign up](https://weatherstack.com/signup/free) for a free account to get the API key.
+In this tutorial, you will use Weatherstack API to get weather info. To make a request, you have to [sign up](https://weatherstack.com/signup/free) for a free account to get the API key.
 
 ## Create the project
 
@@ -138,7 +138,7 @@ app.get('/webhooks/answer', (request, response) => {
 })
 ```
 
-Speech recognition requires specifying the call leg identifier, in order to do that we use the `uuid` we get in the callback request: `request.query.uuid`, which is the identifier of the inbound PSTN leg we want to listen to.
+Speech recognition requires specifying the call leg identifier, in order to do that, use the `uuid` you get in the callback request: `request.query.uuid`, which is the identifier of the inbound PSTN leg you want to listen to.
 
 ## Write your event webhook
 
@@ -155,7 +155,7 @@ Nexmo makes a `POST` request to this endpoint every time the call status changes
 
 ## Write your ASR webhook
 
-Speech recognition results will be sent to the specific URL we set in the input action: `/webhooks/asr`. Let’s add a webhook to process the result and add some user interaction.
+Speech recognition results will be sent to the specific URL you set in the input action: `/webhooks/asr`. Add a webhook to process the result and add some user interaction.
 
 In case of a successful recognition, the request payload will look as follows:
 
@@ -182,57 +182,61 @@ In case of a successful recognition, the request payload will look as follows:
 }
 ```
 
-So we should use the first element of the `speech.results` array for further analysis. To get the weather conditions data, you should make an HTTP `GET` request to the following URL:
+So you should use the first element of the `speech.results` array for further analysis. To get the weather conditions data, you should make an HTTP `GET` request to the following URL:
 
-`http://api.weatherstack.com/current?access_key=<key>&query=<location>`
+```http
+GET http://api.weatherstack.com/current?access_key=<key>&query=<location>
+```
 
-where `access_key` is your Weatherstack API key and `query` is what the user said (or at least what we expected them to say). Weatherstack provides a lot of interesting data in the response body:
+In the previous code block, `access_key` is your Weatherstack API key and `query` is what the user said (or at least what is expected them to say). Weatherstack provides a lot of interesting data in the response body:
 
 ```json
 {
-  request: {
-    type: 'City',
-    query: 'New York, United States of America',
-    language: 'en',
-    unit: 'm'
+  "request": {
+    "type": "City",
+    "query": "New York, United States of America",
+    "language": "en",
+    "unit": "m"
   },
-  location: {
-    name: 'New York',
-    country: 'United States of America',
-    region: 'New York',
-    lat: '40.714',
-    lon: '-74.006',
-    timezone_id: 'America/New_York',
-    localtime: '2020-04-17 13:33',
-    localtime_epoch: 1587130380,
-    utc_offset: '-4.0'
+  "location": {
+    "name": "New York",
+    "country": "United States of America",
+    "region": "New York",
+    "lat": "40.714",
+    "lon": "-74.006",
+    "timezone_id": "America/New_York",
+    "localtime": "2020-04-17 13:33",
+    "localtime_epoch": 1587130380,
+    "utc_offset": "-4.0"
   },
-  current: {
-    observation_time: '05:33 PM',
-    temperature: 9,
-    weather_code: 113,
-    weather_icons: [
-      'http://cdn.worldweatheronline.com/images/wsymbols01_png_64/wsymbol_0001_sunny.png'
+  "current": {
+    "observation_time": "05:33 PM",
+    "temperature": 9,
+    "weather_code": 113,
+    "weather_icons": [
+      "http://cdn.worldweatheronline.com/images/wsymbols01_png_64/wsymbol_0001_sunny.png"
     ],
-    weather_descriptions: [ 'Sunny' ],
-    wind_speed: 15,
-    wind_degree: 250,
-    wind_dir: 'WSW',
-    pressure: 1024,
-    precip: 0,
-    humidity: 28,
-    cloudcover: 0,
-    feelslike: 7,
-    uv_index: 5,
-    visibility: 16,
-    is_day: 'yes'
+    "weather_descriptions": [
+      "Sunny"
+    ],
+    "wind_speed": 15,
+    "wind_degree": 250,
+    "wind_dir": "WSW",
+    "pressure": 1024,
+    "precip": 0,
+    "humidity": 28,
+    "cloudcover": 0,
+    "feelslike": 7,
+    "uv_index": 5,
+    "visibility": 16,
+    "is_day": "yes"
   }
 }
 ```
 
-In our app, we will use just the very simple parameters like `description` (“Sunny”) and `temperature`. It’d be nice to get weather forecast rather than the actual temperature, however since the free Weatherstack account allows us to get only `current` conditions - that’s what we will use.
+In the app, you will use just the very simple parameters like `description` (“Sunny”) and `temperature`. It’d be nice to get weather forecast rather than the actual temperature, however since the free Weatherstack account allows to get only `current` conditions - that’s what you will use.
 
-Once we received the response from Weatherstack, we will return a new NCCO with the talk action to say “Today in New York: it’s sunny, 9 degrees Celcius”.
+Once you received the response from Weatherstack, you will return a new NCCO with the talk action to say “Today in New York: it’s sunny, 9 degrees Celsius”.
 
 Finally, add the code to handle the ASR callback:
 
@@ -301,6 +305,7 @@ if (weather.location.country == 'United States of America') {
   temperature = temperature + '°C'
 }
 ```
+
 and don't forget to remove degrees symbol from the message text since it’s now included to the `temperature` variable value:
 
 ```js
