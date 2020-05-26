@@ -62,7 +62,7 @@ Make a note of the temporary host name that `ngrok` provides and use it in place
 nexmo app:create "Weather Bot" https://example.com/webhooks/answer https://example.com/webhooks/events
 ```
 
-The command returns an application ID (which you should make a note of) and your public key information (which you can safely ignore for the purposes of this tutorial).
+The command returns an application ID (which you should make a note of) and your private key information (which you can safely ignore for the purposes of this tutorial).
 
 ## Link your number
 
