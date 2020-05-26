@@ -83,7 +83,7 @@ jobs:
       working-directory: ./lib/nexmo_developer
     - name: Run Javascript Tests
       run: |
-        NODE_ENV=test yarn test
+        yarn test
     - name: Spell checker
       env:
         FORCE_COLOR: true
