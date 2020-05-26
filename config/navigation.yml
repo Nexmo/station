@@ -84,6 +84,8 @@ navigation_overrides:
       guides:
         websockets:
           label: 'Beta'
+        asr:
+          label: 'Beta'
   verify:
     svg: 'lock'
     svgColor: 'indigo'
