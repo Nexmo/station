@@ -138,3 +138,6 @@ Style/SlicingWithRange:
 Naming/FileName:
   Exclude:
     - 'public/assets/**/*'
+
+Lint/DeprecatedOpenSSLConstant:
+  Enabled: true

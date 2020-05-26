@@ -38,8 +38,8 @@ page:
                     path: 'api/conversation'
                     description: 'Add text messaging (and voice, and video) features to your web and mobile applications. Conversation API allows you to create real-time communications channels to use in your apps.'
                     badge:
-                      name: Developer Preview
-                      color: blue
+                      name: Beta
+                      color: green
                   - title: 'Alerts API - Subscription'
                     path: 'api/sms/us-short-codes/alerts/subscription'
                     description: 'For subscribing users to event-based alerts with US Short Codes'
@@ -60,9 +60,15 @@ page:
                   - title: 'Conversation API'
                     path: 'api/conversation'
                     description: 'Create real-time communications channels for text, voice and video.'
+                    badge:
+                      name: Beta
+                      color: green
                   - title: 'Reports API'
                     path: 'api/reports'
                     description: 'Retrieve and search message, call, and conversation records in JSON format, by ID, or by time period. Request a CSV report of activity for your account.'
+                    badge:
+                      name: Beta
+                      color: green
               - title: 'Account'
                 icon:
                   color: purple
@@ -105,8 +111,8 @@ page:
                     path: 'api/conversation'
                     description: 'Add voice communication (and video, and text messaging) features to your web and mobile applications, connecting users anywhere in the world.'
                     badge:
-                      name: Developer Preview
-                      color: blue
+                      name: Beta
+                      color: green
               - title: 'Numbers'
                 icon:
                   color: purple

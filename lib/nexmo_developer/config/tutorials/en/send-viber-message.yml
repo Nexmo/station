@@ -8,7 +8,11 @@ introduction:
   description: This tutorial shows you how to send a Viber message with Messages API.
   content: |
     # Introduction
-    The Messages API allows you to send a Viber message. In this tutorial you learn how to send a Viber message.
+    The [Messages API](/messages/overview) allows you to send a Viber message. In this tutorial you learn how to send a Viber message. 
+    
+    This tutorial provides a step-by-step guide to installing the required tools, building your application, writing the code and testing. The message sent is plain text.
+
+    For further background information on Viber messaging see our [supporting documentation](/messages/concepts/viber).
 
     > **NOTE:** Please carefully review the prerequisites.
 

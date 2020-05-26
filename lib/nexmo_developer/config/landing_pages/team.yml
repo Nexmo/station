@@ -69,7 +69,7 @@ page:
           content: "<h2><b>Join the Team</b></h2>"
       - type: html
         html:
-          content: "<p>If what we are building sounds interesting to you please see our open positions and get in touch with us at <a href='mailto:devrel@nexmo.com'>devrel@nexmo.com</a>.</p>"
+          content: "<p>If what we are building sounds interesting to you please see our open positions and get in touch with us at <a href='mailto:devrel@vonage.com'>devrel@vonage.com</a>.</p>"
       - type: career
       - type: html
         html:
