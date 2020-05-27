@@ -29,8 +29,7 @@ Gem::Specification.new do |spec|
     `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features|_api|_code|_documentation|_examples|_extend|_modals|_open_api|_tutorials|_tutorials_tabbed_content|_use_cases|.repos)/}) }
   end
   spec.files         += Dir.glob('./lib/nexmo_developer/public/**/*', File::FNM_DOTMATCH)
-  spec.files.reject! { |fn| fn.include? 'spec' }
-  spec.files.reject! { |fn| fn.include? 'log' }
+  spec.files.reject! { |fn| fn.include? 'lib/nexmo_developer/spec' }
   spec.files.reject! { |fn| fn.include? '.github' }
   spec.files.reject! { |fn| fn.include? 'lib/nexmo_developer/public/sdk' }
   spec.bindir        = "bin"
