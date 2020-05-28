@@ -337,3 +337,9 @@ initializer
 IPv6
 on-answer
 ringback-tone
+sha256
+a1b2c3d
+appId1
+sha_256
+payload_hash
+apikey
