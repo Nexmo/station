@@ -4,7 +4,7 @@ class StaticController < ApplicationController
   def default_landing
     yaml_name = request[:landing_page]
 
-    if Dir.exist?("#{Rails.configuration.docs_base_path}/custom/landing_pages")
+    if File.exist?("#{Rails.configuration.docs_base_path}/custom/landing_pages/#{yaml_name}.yml")
       @landing_config = YAML.load_file("#{Rails.configuration.docs_base_path}/custom/landing_pages/#{yaml_name}.yml")
     else
       @landing_config = YAML.load_file("#{Rails.root}/config/landing_pages/#{yaml_name}.yml")
