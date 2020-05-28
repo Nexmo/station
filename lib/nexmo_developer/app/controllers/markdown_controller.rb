@@ -29,6 +29,8 @@ class MarkdownController < ApplicationController
       @show_feedback = false
       render 'wip', layout: 'documentation'
     else
+      business_info = YAML.safe_load(File.open("#{Rails.configuration.docs_base_path}/config/business_info.yml"))
+      @github_url = "https://github.com/#{business_info['docs_repo']}/blob/master#{request.path}.md"
       render layout: 'documentation'
     end
   end
