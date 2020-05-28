@@ -7,7 +7,7 @@ meta_title: Send an Audio message with Facebook Messenger
 
 In this code snippet you learn how to send an Audio message through Facebook Messenger using the Messages API.
 
-For a step-by-step guide to this topic, you can read our tutorial [Sending a Facebook Messenger message](/tutorials/messages-dispatch/send-fbm-message).
+For a step-by-step guide to this topic, you can read our tutorial [Sending Facebook Messenger messages with the Messages API](/tutorials/sending-facebook-messenger-messages-with-messages-api).
 
 ## Example
 
