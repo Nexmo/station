@@ -8,7 +8,11 @@ introduction:
   description: This task shows you how to use the failover functionality of the Dispatch API.
   content: |
     # Introduction
-    The Dispatch API features workflows with automatic failover. In this task you see how to send a Facebook Messenger message with automatic failover to SMS.
+    The [Dispatch API](/dispatch/overview) features workflows with automatic failover. In this tutorial you see how to send a Facebook Messenger message with automatic failover to SMS.
+
+    This tutorial provides a step-by-step guide to installing the required tools, building your application, writing the code and testing. The message sent is plain text.
+
+    For further background information on Facebook messaging see our [supporting documentation](/messages/concepts/facebook).
 
     > **NOTE:** This task assumes you have already created a Facebook Profile and a Facebook Page.
 

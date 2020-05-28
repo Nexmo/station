@@ -60,6 +60,7 @@ Rails.application.routes.draw do
 
   get '/legacy', to: 'static#legacy'
   get '/team', to: 'static#team'
+  post '/spotlight', to: 'static#spotlight'
 
   get '/community/slack', to: 'slack#join'
   post '/community/slack', to: 'slack#invite'
@@ -104,6 +105,8 @@ Rails.application.routes.draw do
   get '(/:locale)/:namespace/*document(/:code_language)', to: 'markdown#show', constraints: DocumentationConstraint.documentation.merge(namespace: 'contribute', locale: LocaleConstraint.available_locales)
 
   get '(/:locale)/*product/*document(/:code_language)', to: 'markdown#show', constraints: DocumentationConstraint.documentation.merge(locale: LocaleConstraint.available_locales)
+
+  get '/ed', to: 'static#blog_cookie'
 
   get '*unmatched_route', to: 'application#not_found'
 
