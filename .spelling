@@ -343,3 +343,4 @@ appId1
 sha_256
 payload_hash
 apikey
+sha256(textOrJsonBody)
