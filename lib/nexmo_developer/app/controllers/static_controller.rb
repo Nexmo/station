@@ -88,11 +88,6 @@ class StaticController < ApplicationController
       locale: params[:locale]
     )
 
-    if @show_feedback == true
-      business_info = YAML.safe_load(File.open("#{Rails.configuration.docs_base_path}/config/business_info.yml"))
-      @github_url = "https://github.com/#{business_info['docs_repo']}/blob/#{ENV['branch'] || 'master'}#{@document_path}"
-    end
-
     render layout: 'documentation'
   end
 

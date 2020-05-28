@@ -1,28 +1,29 @@
 <% if @show_feedback %>
+  <% feedback = FeedbackPresenter.new(params, request, session, @document_path) %>
   <br>
   <hr>
   <br>
 
   <script>
     window.feedbackProps = {
-      code_language_set_by_url: <%= params[:code_language].present? %>,
-      code_language: '<%= request.parameters['code_language'] %>',
+      code_language_set_by_url: <%= feedback.code_language? %>,
+      code_language: '<%= feedback.code_language %>',
       source: '<%= canonical_url %>',
 
       recaptcha: {
-        enabled: <%= ENV['RECAPTCHA_ENABLED'] || false %>,
-        skip: <%= session[:user_passed_invisible_captcha] || false %>,
-        sitekey: '<%= ENV['RECAPTCHA_INVISIBLE_SITE_KEY'] %>',
+        enabled: <%= feedback.captcha_enabled? %>,
+        skip: <%= feedback.passed_invisible_captcha? %>,
+        sitekey: '<%= feedback.captcha_key %>',
       },
 
-      <% if @document_path %>
-        github_url: '<%= @github_url %>',
+      <% if feedback.show_github_link? %>
+        github_url: '<%= feedback.github_url %>'
       <% end %>
     }
   </script>
 
-  <% if ENV['RECAPTCHA_ENABLED'] %>
-    <% unless session[:user_passed_invisible_captcha] %>
+  <% if feedback.captcha_enabled? %>
+    <% unless feedback.passed_invisible_captcha? %>
       <div id="recaptcha-container"></div>
     <% end %>
   <% end %>
