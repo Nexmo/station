@@ -6,7 +6,7 @@ navigation_weight: 4
 
 # Signing webhooks
 
-Signed webhooks provide a method for your application to verify a request is coming from Vonage and its payload has not been tampered with during transit. When receiving a request, the incoming webhook will include a JWT token in the authorization header which is signed with your signature secret. The secret used to sign the request corresponds to the signature secret associated with the `api_key` included in the JWT claims.
+Signed webhooks provide a method for your application to verify a request is coming from Vonage and its payload has not been tampered with during transit. When receiving a request, the incoming webhook will include a JWT token in the authorization header which is signed with your signature secret. The secret used to sign the request corresponds to the signature secret associated with the `api_key` included in the JWT claims. You can find your **API Secret** on the [Dasboard](https://dashboard.nexmo.com/).
 
 You use a signature to:
 
