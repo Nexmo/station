@@ -14,18 +14,17 @@ In this tutorial, you will create a simple bot answering an inbound phone call. 
 
 To complete this tutorial, you need:
 
-* A [Nexmo account](https://dashboard.nexmo.com/sign-up) - for your API key and secret
+* A [Nexmo account](https://dashboard.nexmo.com/sign-up)
+* The [Nexmo CLI](https://github.com/nexmo/nexmo-cli) installed and set up
 * [ngrok](https://ngrok.com/) - to make your development web server accessible to Nexmo's servers over the Internet
+* [Node.JS](https://nodejs.org/en/download/) installed
 
-## Install the Nexmo CLI
+## Install the dependencies
 
-You'll need a Nexmo virtual number to receive inbound calls. If you don't already have one, you can either purchase and configure numbers in the [Developer Dashboard](https://dashboard.nexmo.com) or use the [Nexmo CLI](https://github.com/Nexmo/nexmo-cli). This tutorial uses the CLI.
-
-Run the following at a terminal prompt to install the CLI and configure it with your API key and secret, which you will find in the [Developer Dashboard](https://dashboard.nexmo.com):
+Install the [express](https://expressjs.com) web application framework and [body-parser](https://www.npmjs.com/package/body-parser) packages:
 
 ```sh
-npm install -g nexmo-cli
-nexmo setup NEXMO_API_KEY NEXMO_API_SECRET
+$ npm install express body-parser
 ```
 
 ## Purchase a Nexmo number
@@ -59,7 +58,7 @@ ngrok http 3000
 Make a note of the temporary host name that `ngrok` provides and use it in place of `example.com` in the following command:
 
 ```sh
-nexmo app:create "Weather Bot" https://example.com/webhooks/answer https://example.com/webhooks/events
+nexmo app:create "Weather Bot" --capabilities=voice --voice-event-url=https://example.com/webhooks/event --voice-answer-url=https://example.com/webhooks/answer --keyfile=private.key
 ```
 
 The command returns an application ID (which you should make a note of) and your private key information (which you can safely ignore for the purposes of this tutorial).
@@ -79,23 +78,6 @@ You're now ready to write your application code.
 
 In this tutorial, you will use Weatherstack API to get weather info. To make a request, you have to [sign up](https://weatherstack.com/signup/free) for a free account to get the API key.
 
-## Create the project
-
-Make a directory for your application, `cd` into the directory and then use the Node.js package manager `npm` to create a `package.json` file for your application's dependencies:
-
-```sh
-$ mkdir myapp
-$ cd myapp
-$ npm init
-```
-
-Press [Enter] to accept each of the defaults.
-
-Then, install the [express](https://expressjs.com) web application framework and [body-parser](https://www.npmjs.com/package/body-parser) packages:
-
-```sh
-$ npm install express body-parser
-```
 
 ## Write your answer webhook
 
