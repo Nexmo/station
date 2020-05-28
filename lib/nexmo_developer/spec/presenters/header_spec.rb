@@ -75,4 +75,26 @@ RSpec.describe Header do
       expect { described_class.new }.to raise_error(RuntimeError, 'You must provide a config/business_info.yml file in your documentation path.')
     end
   end
+
+  describe '#hiring_display' do
+    subject { described_class.new.hiring_display(config) }
+
+    context 'when set to true' do
+      let('config') { { 'header' => { 'hiring' => { 'display' => true } } } }
+
+      it { expect(subject).to eq(true) }
+    end
+
+    context 'when set to false' do
+      let('config') { { 'header' => { 'hiring' => { 'display' => false } } } }
+
+      it { expect(subject).to eq(false) }
+    end
+
+    context 'when key is missing' do
+      let('config') { { 'header' => { 'hiring' => {} } } }
+
+      it { expect { subject }.to raise_error(RuntimeError, 'You must provide a true or false value for the hiring display parameter inside the header section of the config/business_info.yml file') }
+    end
+  end
 end
