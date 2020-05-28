@@ -4,9 +4,9 @@ description: Verify the source of incoming requests via the Messages API.
 navigation_weight: 4
 ---
 
-# Signing webhooks
+# Signed webhooks
 
-Signed webhooks provide a method for your application to verify a request is coming from Vonage and its payload has not been tampered with during transit. When receiving a request, the incoming webhook will include a JWT token in the authorization header which is signed with your signature secret. The secret used to sign the request corresponds to the signature secret associated with the `api_key` included in the JWT claims. You can find your **API Secret** on the [Dasboard](https://dashboard.nexmo.com/).
+Signed webhooks are supported by both the Messages and Dispatch APIs. They provide a method for your application to verify a request is coming from Vonage and its payload has not been tampered with during transit. When receiving a request, the incoming webhook will include a JWT token in the authorization header which is signed with your signature secret.
 
 You use a signature to:
 
@@ -14,13 +14,24 @@ You use a signature to:
 * Ensure that the message has not been tampered with en-route
 * Defend against interception and later replay
 
-## Validate the signature on incoming messages
+## Validating signed webhooks
 
-Webhooks for both inbound messages and message status will include a JWT in the authorization header. Use the API key included in the JWT claims to identify which of your signature secrets has been used to sign the request. Once you have verified the authenticity of the request, you can verify the request payload has not been tampered with by comparing a SHA-256 hash of the payload to the `payload_hash` field found in the JWT claims. If they do not match, then the payload has been tampered with during transit.
+There is two parts to validating signed webhooks:
 
-In the rare case of an Internal Error, it is possible that the Callback Service will send an unsigned callback. By returning an HTTP 5xx response, a retry will be triggered giving the system time to resolve the error and sign future callbacks.
+1. Verify the request
+2. Verify the payload (optional)
 
-The code example below shows how to verify a webhook signature. We recommend using HTTPS protocol as it ensures that the request and response are encrypted on the both (client and server) the ends.
+### Verify the request
+
+Webhooks for both inbound messages and message status will include a JWT in the authorization header. Use the API key included in the JWT claims to identify which of your signature secrets has been used to sign the request. The secret used to sign the request corresponds to the signature secret associated with the `api_key` included in the JWT claims. You can find your signature secret on the [Dashboard](https://dashboard.nexmo.com/settings).
+
+### Verify the payload has not been tampered with in transit
+
+Once you have verified the authenticity of the request, you may optionally verify the request payload has not been tampered with by comparing a SHA-256 hash of the payload to the `payload_hash` field found in the JWT claims. If they do not match, then the payload has been tampered with during transit.
+
+> **NOTE:** In the rare case of an internal error, it is possible that the callback service will send an unsigned callback. By returning an HTTP 5xx response, a retry will be triggered giving the system time to resolve the error and sign future callbacks.
+
+The code example below shows how to verify a webhook signature. It is recommended you use HTTPS protocol as it ensures that the request and response are encrypted on both the client and server ends.
 
 ```code_snippets
 source: '_examples/messages/signed-webhooks'
@@ -29,11 +40,12 @@ source: '_examples/messages/signed-webhooks'
 ## Sample Signed JWT
 
 ```json
+// header
 {
   "alg": "HS256",
   "typ": "JWT",
 }
-// body
+// payload
 {
   "iat": 1587494962,
   "jti": "c5ba8f24-1a14-4c10-bfdf-3fbe8ce511b5",
@@ -44,14 +56,18 @@ source: '_examples/messages/signed-webhooks'
 }
 ```
 
-### Header
+### Signed JWT Header
+
+The contents of the signed JWT header are described in the table below.
 
 Header | Value
 -- | --
 `alg` | HS256
 `typ` | JWT
 
-### Payload
+### Signed JWT Payload
+
+The contents of the signed JWT payload are described in the table below using the values included in the sample signed JWT provided above.
 
 Field | Example Value | Description
 --- | --- | ---
