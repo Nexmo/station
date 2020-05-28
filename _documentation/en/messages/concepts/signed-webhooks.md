@@ -58,6 +58,6 @@ Field | Value | Description
 `iat` |  Unix timestamp in SECONDS | The time at which the JWT was issued.
 `jti` | Newly generated UUID | A unique id for the JWT.
 `iss` | Vonage | The issuer of the JWT. This will always be 'Vonage'.
-`payload_hash` | sha256(textOrJsonBody) | A sha256 hash of the request payload. Can be compared to the request payload to ensure it has not been tampered with during transit.
+`payload_hash` | sha256 text or JSON body | A sha256 hash of the request payload. Can be compared to the request payload to ensure it has not been tampered with during transit.
 `api_key` | a1b2c3d | The API key associated with the account that made the original request.
 `application_id` | appId1 | (Optional) The id of the application that made the original request if an application was used.
