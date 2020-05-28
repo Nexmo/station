@@ -15,7 +15,7 @@ In this tutorial, you will create a simple bot answering an inbound phone call. 
 To complete this tutorial, you need:
 
 * A [Nexmo account](https://dashboard.nexmo.com/sign-up)
-* The [Nexmo CLI](https://github.com/nexmo/nexmo-cli) installed and set up
+* The [Nexmo CLI](/application/nexmo-cli) installed and set up
 * [ngrok](https://ngrok.com/) - to make your development web server accessible to Nexmo's servers over the Internet
 * [Node.JS](https://nodejs.org/en/download/) installed
 
