@@ -8,11 +8,13 @@ If you are planning to use JavaScript to develop your application, you'll need t
 Create a new project directory and change into it.
 
 To create a blank project, run this command:
+
 ``` bash
 npm init -y
 ```
 
 The following command will install the Client SDK into the `node_modules` directory within your project folder:
+
 ``` bash
 npm install nexmo-client --save
 ```
