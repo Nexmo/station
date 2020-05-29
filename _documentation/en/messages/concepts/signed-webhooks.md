@@ -6,7 +6,7 @@ navigation_weight: 4
 
 # Signed webhooks
 
-Signed webhooks are supported by both the Messages and Dispatch APIs. They provide a method for your application to verify a request is coming from Vonage and its payload has not been tampered with during transit. When receiving a request, the incoming webhook will include a JWT token in the authorization header which is signed with your signature secret.
+Signed webhooks are supported by both the Messages and Dispatch APIs and are enabled by default for Messages API traffic. They provide a method for your application to verify a request is coming from Vonage and its payload has not been tampered with during transit. When receiving a request, the incoming webhook will include a JWT token in the authorization header which is signed with your signature secret.
 
 You use a signature to:
 
