@@ -24,6 +24,8 @@ class SidenavResolver
       next if IGNORED_PATHS.include? entry
 
       full_path = File.join(path, entry)
+      next if documentation_index?(full_path)
+
       if File.directory?(full_path)
         config = if tabbed_folder?(full_path)
                    YAML.safe_load(File.read("#{full_path}/.config.yml"))
@@ -115,6 +117,10 @@ class SidenavResolver
   end
 
   private
+
+  def documentation_index?(path)
+    path == "#{Rails.configuration.docs_base_path}/_documentation/#{@language}/index.md"
+  end
 
   def tabbed_folder?(full_path)
     File.exist?("#{full_path}/.config.yml")

@@ -67,17 +67,20 @@ class StaticController < ApplicationController
   end
 
   def documentation
-    @document_path = '/app/views/static/documentation.md'
+    document ||= Nexmo::Markdown::DocFinder.find(
+      root: "#{Rails.configuration.docs_base_path}/_documentation",
+      document: 'index',
+      language: params[:locale],
+    )
 
-    # Read document
-    document = File.read("#{Rails.root}/#{@document_path}")
+    @document_path = document.path
 
     # Parse frontmatter
-    @frontmatter = YAML.safe_load(document)
+    @frontmatter = YAML.safe_load(document.path)
 
     @document_title = @frontmatter['title']
 
-    @content = Nexmo::Markdown::Renderer.new(locale: params[:locale]).call(document)
+    @content = Nexmo::Markdown::Renderer.new(locale: params[:locale]).call(File.read(document.path))
 
     @navigation = :documentation
 
