@@ -70,7 +70,7 @@ class StaticController < ApplicationController
     document ||= Nexmo::Markdown::DocFinder.find(
       root: "#{Rails.configuration.docs_base_path}/_documentation",
       document: 'index',
-      language: params[:locale],
+      language: params[:locale]
     )
 
     @document_path = document.path
