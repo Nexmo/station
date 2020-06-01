@@ -375,7 +375,7 @@ Name | Description
 
 Name | Description
 -- | --
-`timeout_reason` | Indicates if the input ended when user stopped speaking (`end_on_silence_timeout`) or by max duration timeout (`?`)
+`timeout_reason` | Indicates if the input ended when user stopped speaking (`end_on_silence_timeout`), by max duration timeout (`max_duration`) or if the user didn't say anything (`start_timeout`)
 `results` | Array of [speech recognition results](#speech-recognition-results)
 
 ##### Speech Recognition Results
