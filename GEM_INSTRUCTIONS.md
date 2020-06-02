@@ -29,11 +29,11 @@ Then, run `bundle install` from the command line. If this is your first time ins
 
 This section will cover:
 
-* [Documentation Organization](#documentation-organization)
+* [File Organization](#file-organization)
 * [Configuration and Customization](#configuration-and-customization)
 * [Running the Gem](#running-the-gem)
 
-### Documentation Organization
+### File Organization
 
 First, it is important that your documentation is organized in the way the gem expects.
 
@@ -45,6 +45,18 @@ The gem expects the documentation to be markdown files within the following fold
 +-- _documentation
 +-- _tutorials
 ```
+
+In addition, the gem expects there to be **two top-level required folders** with configuration content, and a third top-level optional folder for public assets:
+
+```sh
++-- config
++-- custom
++-- public
+```
+
+* The [Configuration Files](#configuration-files) section will document the files required inside the `/config` folder.
+* The [Custom Views](#custom-views), [Custom Landing Pages](custom-landing-pages) and [Custom Locale Settings](#custom-locale-settings) sections will document the files required inside the `/custom` folder.
+* The [Custom Public Assets](#custom-public-folder) section will document the files that can be included inside the `/public` folder.
 
 ### Configuration and Customization
 
