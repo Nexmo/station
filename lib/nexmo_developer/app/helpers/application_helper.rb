@@ -1,4 +1,6 @@
 module ApplicationHelper
+  CONFIG = YAML.load_file("#{Rails.configuration.docs_base_path}/config/business_info.yml")
+
   def search_enabled?
     defined?(ALGOLIA_CONFIG) && ENV['ALGOLIA_SEARCH_KEY']
   end
@@ -28,7 +30,7 @@ module ApplicationHelper
   end
 
   def canonical_base
-    canonical_base_config_defined || request.base_url
+    canonical_base_from_config || request.base_url
   end
 
   def dashboard_cookie(campaign)
@@ -54,12 +56,7 @@ module ApplicationHelper
     }
   end
 
-  def canonical_base_config_defined
-    config = YAML.safe_load("#{Rails.configuration.docs_base_path}/config/business_info.yml")
-    if defined?(config['base_url'])
-      config['base_url']
-    else
-      false
-    end
+  def canonical_base_from_config
+    CONFIG['base_url']
   end
 end
