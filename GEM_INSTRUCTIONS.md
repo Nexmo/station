@@ -56,6 +56,7 @@ The gem expects the documentation to be markdown files within the following fold
 ```yaml
 name: VBC
 subtitle: Business for Developers
+base_url: https://developer.vonage.com
 assets:
   header_logo:
     path: '/images/logos/vbc-logo.png'
