@@ -28,7 +28,7 @@ module ApplicationHelper
   end
 
   def canonical_base
-    Rails.env.production? ? 'https://developer.nexmo.com' : request.base_url
+    canonical_base_config_defined ? canonical_base_config_defined : request.base_url
   end
 
   def dashboard_cookie(campaign)
@@ -52,5 +52,14 @@ module ApplicationHelper
       expires: 1.year.from_now,
       domain: :all,
     }
+  end
+
+  def canonical_base_config_defined
+    config = YAML.safe_load("#{Rails.configuration.docs_base_path}/config/business_info.yml")
+    if defined?(config['base_url'])
+      config['base_url']
+    else
+      false
+    end
   end
 end
