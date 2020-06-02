@@ -1,9 +1,15 @@
 # Nexmo Developer Gem
 
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
+![Actions Status](https://github.com/nexmo/nexmo-developer/workflows/CI/badge.svg)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.txt)
+
 The `nexmo-developer` gem provides a documentation platform ready to use with your custom documentation. This document will cover installation and usage instructions.
 
 * [Installation](#installation)
 * [Usage](#usage)
+* [Contributing](#contributing)
+* [License](#license)
 
 ## Installation
 
@@ -310,3 +316,16 @@ For example, if your documentation is at `/Users/sample_user/Documents/sample_do
 ```sh
 $ OAS_PATH=/Users/sample_user/Documents/sample_docs/_open_api RAILS_SERVE_STATIC_FILES=true DISABLE_SSL=1 RACK_ENV=production RAILS_ENV=production bundle exec nexmo-developer --docs=/Users/sample_user/Documents/sample_docs
 ```
+
+## Contributing
+
+We :heart: contributions from everyone! It is a good idea to [talk to us](https://nexmo-community-invite.herokuapp.com/) first if you plan to add any new functionality. Otherwise, [bug reports](https://github.com/Nexmo/nexmo-developer/issues/), [bug fixes](https://github.com/Nexmo/nexmo-developer/pulls) and feedback on the library is always appreciated. Look at the [Contributor Guidelines](CONTRIBUTING.md) for more information and please follow the [GitHub Flow](https://guides.github.com/introduction/flow/index.html).
+
+## [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues) [![GitHub contributors](https://img.shields.io/github/contributors/Nexmo/nexmo-developer.svg)](https://GitHub.com/Nexmo/nexmo-developer/graphs/contributors/)
+
+## License
+
+This library is released under the [MIT License][LICENSE]
+
+[signup]: https://dashboard.nexmo.com/sign-up?utm_source=DEV_REL&utm_medium=github&utm_campaign=nexmo-developer
+[license]: LICENSE.txt
