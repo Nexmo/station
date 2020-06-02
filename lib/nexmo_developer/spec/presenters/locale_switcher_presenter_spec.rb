@@ -47,5 +47,17 @@ RSpec.describe LocaleSwitcherPresenter do
       expect(locales.map(&:data)).to match_array(['en', 'cn'])
       expect(locales.map(&:value)).to match_array(['English', '简体中文'])
     end
+
+    context 'with a reduced set of locales' do
+      it 'returns the available locales' do
+        expect(Dir).to receive(:[]).and_return(["#{Rails.configuration.docs_base_path}/_documentation/en"])
+
+        locales = subject.locales
+
+        expect(locales.size).to eq(1)
+        expect(locales.map(&:data)).to match_array(['en'])
+        expect(locales.map(&:value)).to match_array(['English'])
+      end
+    end
   end
 end

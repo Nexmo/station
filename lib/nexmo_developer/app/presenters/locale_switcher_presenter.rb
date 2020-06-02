@@ -17,8 +17,15 @@ class LocaleSwitcherPresenter
   end
 
   def locales
-    @locales ||= LOCALES.map do |k, v|
-      OpenStruct.new(data: k, value: v)
+    @locales ||= available_locales.map do |l|
+      OpenStruct.new(data: l, value: LOCALES[l])
+    end
+  end
+
+  def available_locales
+    @available_locales ||= begin
+      root = "#{Rails.configuration.docs_base_path}/_documentation"
+      Dir["#{root}/*"].map { |path| path.gsub("#{root}/", '') }
     end
   end
 end
