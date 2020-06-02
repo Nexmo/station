@@ -9,27 +9,24 @@ introduction:
   content: |
     # Introduction
     In this tutorial, you will learn how to create a Client SDK application and then write the code to make a
-    phone call from your web app to a <abbr title="Public Switched Telephone Network">PSTN</abbr> phone.
+    phone call from your web app to a phone.
 
     To achieve this, you will need:
 
-    * A web application that will make the voice call using the Client SDK
-    * An <abbr title="Nexmo Call Control Object">NCCO</abbr> to forward the inbound voice call to the destination phone
-
-    When the call is triggered from your application, Nexmo will get the NCCO from Glitch and forward the call to the destination phone number.
-
+    * A web application that will make the voice call using the Client SDK.
+    * A publicly accessible URL that serves instructions on how to handle the call. You will use a GitHub Gist to accomplish this. <a href="https://gist.github.com/" target="_blank">GitHub Gists</a> are a simple way to share code snippets with others.
 
 prerequisites:
 - create-nexmo-account
 - install-nodejs
-- install-node-client-sdk
+- client-sdk/app-to-phone/install-node-client-sdk
 - install-nexmo-cli-beta
 
 tasks:
 - client-sdk/app-to-phone/modify-ncco
 - client-sdk/app-to-phone/create-application
 - client-sdk/create-user
-- client-sdk/generate-jwt
+- client-sdk/app-to-phone/generate-jwt
 - client-sdk/app-to-phone/code
 - client-sdk/app-to-phone/run
 
