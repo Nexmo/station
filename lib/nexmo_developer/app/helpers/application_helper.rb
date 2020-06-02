@@ -57,11 +57,7 @@ module ApplicationHelper
   end
 
   def canonical_base_config_defined?
-    if defined?(CONFIG['base_url'])
-      true
-    else
-      false
-    end
+    defined?(CONFIG['base_url']) ? true : false
   end
 
   def canonical_base_from_config
