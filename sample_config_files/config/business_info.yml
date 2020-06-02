@@ -1,0 +1,50 @@
+name: Business Communications APIs
+subtitle: Developer Center
+base_url: 'https://developer.vonage.com'
+assets:
+  header_logo:
+    path: '/images/logos/vbc-logo.svg'
+    alt: 'VBC Logo'
+  footer_logo:
+    path: '/images/logos/vbc-logo-white.svg'
+    alt: 'VBC Footer Logo'
+docs_repo: 'VonageGarage/VDP'
+oas_repo: 'vonage/api-specification'
+header:
+  links:
+    sign-up:
+      path: https://developer.vonage.com
+      text:
+        - 'Log In'
+        - 'Try Me'
+  hiring:
+    display: false
+footer:
+  links:
+    status:
+      path: https://developer.vonage.com
+      text: 'VBC Status' 
+    navigation:
+      documentation:
+        - call-recording: 'https://vbc-developer.herokuapp.com/call-recording/overview'
+        - provisioning: 'https://vbc-developer.herokuapp.com/provisioning/overview'
+        - telephony: 'https://vbc-developer.herokuapp.com/telephony/overview'
+        - reports: 'https://vbc-developer.herokuapp.com/reports/overview'
+        - vonage-integration-platform: 'https://vbc-developer.herokuapp.com/vonage-integration-platform/overview'
+        - smart-numbers: 'https://vbc-developer.herokuapp.com/smart-numbers/overview'
+      api-reference:
+        - call-recording: 'https://vbc-developer.herokuapp.com/api/call-recording'
+        - provisioning: 'https://vbc-developer.herokuapp.com/api/provisioning'
+        - telephony: 'https://vbc-developer.herokuapp.com/api/telephony'
+        - reports: 'https://vbc-developer.herokuapp.com/api/reports'
+        - vonage-integration-platform: 'https://vbc-developer.herokuapp.com/api/vonage-integration-platform'
+      get-to-know-us:
+        - vonage-business-communications: 'https://www.vonage.com/unified-communications/'
+        - careers: 'https://www.vonage.com/corporate/careers/'
+        - press: 'https://www.vonage.com/corporate'
+    support:
+      business-support: 'https://businesssupport.vonage.com/'
+      developer-support: 'devsupport@vonage.com'
+    social:
+      linkedin: 'https://www.linkedin.com/company/vonage/'
+      twitter: 'https://twitter.com/vonage'

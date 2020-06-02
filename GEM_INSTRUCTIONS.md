@@ -58,6 +58,7 @@ In addition, the gem expects there to be **two top-level required folders** with
 * The [Custom Views](#custom-views), [Custom Landing Pages](custom-landing-pages) and [Custom Locale Settings](#custom-locale-settings) sections will document the files required inside the `/custom` folder.
 * The [Custom Public Assets](#custom-public-folder) section will document the files that can be included inside the `/public` folder.
 
+
 ### Configuration and Customization
 
 * [Configuration Files](#configuration-files) for the documentation portal are inside the `/config` folder. 
@@ -67,6 +68,8 @@ In addition, the gem expects there to be **two top-level required folders** with
 * [Custom Locale Settings](#custom-locale-settings) can be provided inside the `/custom/locales` folder
 
 ##### Configuration Files
+
+**Sample configuration files can be found inside the [sample_config_files](sample_config_files/config) folder in this repository.**
 
 1. Business Information, **including header and footer**:
   * Business information, including content for the header, can be customized through providing a `business_info.yml` configuration file inside the `/config` folder. The following is a sample `business_info.yml` configuration:
@@ -220,6 +223,8 @@ products:
 
 #### Environment Variables
 
+**An example [.env](.env.example) file can be found in this repository**
+
 Within your runtime production environment you can specify the following environment variables related to Google Analytics:
 
 ```env
@@ -249,6 +254,8 @@ ALGOLIA_APPLICATION_ID
 
 ##### Custom Views
 
+**A sample [custom views folder](sample_config_files/custom/views) can be found in this repository**
+
 All `nexmo-developer` static views can be redefined inside `/custom/views` by providing custom ERB files.
 
 _ERB, or embedded Ruby, are HTML files that combine Ruby to produce dynamic content._
@@ -261,6 +268,8 @@ The following ERB files can be provided to override the default views:
 * `/custom/views/layout/partials/_head.html.erb`: The head file (meta tags, Google analytics info, and more)
 
 ##### Custom Landing Pages
+
+**A sample [custom landing pages folder](sample_config_files/custom/landing_pages) can be found in this repository**
 
 Customized landing pages is a powerful feature of the `nexmo-developer` gem that provides the ability to create unique content using only YAML files. 
 
@@ -279,6 +288,8 @@ Custom assets, such as images and icons, can be provided in the `/public` folder
 ```
 
 #### Custom Locale Settings
+
+**A sample [custom locales folder](sample_config_files/config/locales) can be found in this repository**
 
 Customized text to display for the menu and different display layouts can be provided inside the custom locale files. They are placed inside the `/custom/locales` folder in the documentation path. Each file is a YAML file named with the 2-letter abbreviation for the language, for example, English locale settings are placed inside `/custom/locales/en.yml`. The following is an example `en.yml` file showing custom text for the menu and for the site header:
 
