@@ -28,7 +28,7 @@ module ApplicationHelper
   end
 
   def canonical_base
-    canonical_base_config_defined ? canonical_base_config_defined : request.base_url
+    canonical_base_config_defined || request.base_url
   end
 
   def dashboard_cookie(campaign)
