@@ -6,24 +6,24 @@ navigation_weight: 4
 
 # Signed webhooks
 
-Signed webhooks are supported by both the Messages and Dispatch APIs and are enabled by default for Messages API traffic. They provide a method for your application to verify a request is coming from Vonage and its payload has not been tampered with during transit. When receiving a request, the incoming webhook will include a JWT token in the authorization header which is signed with your signature secret.
+Signed webhooks are supported by both the Messages and Dispatch APIs and are enabled by default. They provide a method for your application to verify a request is coming from Vonage and its payload has not been tampered with during transit. When receiving a request, the incoming webhook will include a JWT token in the authorization header which is signed with your signature secret.
 
-You use a signature to:
+Validating signed webhooks provides a number of security benefits, including:
 
-* Verify that a request originates from a trusted source
-* Ensure that the message has not been tampered with en-route
-* Defend against interception and later replay
+* Ability to verify a request originates from Vonage
+* Ensures that the message has not been tampered with while in transit
+* Defends against interception and later replay
 
 ## Validating signed webhooks
 
-There is two parts to validating signed webhooks:
+There are two parts to validating signed webhooks:
 
 1. Verify the request
 2. Verify the payload (optional)
 
 ### Verify the request
 
-Webhooks for both inbound messages and message status will include a JWT in the authorization header. Use the API key included in the JWT claims to identify which of your signature secrets has been used to sign the request. The secret used to sign the request corresponds to the signature secret associated with the `api_key` included in the JWT claims. You can find your signature secret on the [Dashboard](https://dashboard.nexmo.com/settings).
+Webhooks for both inbound messages and message status will include a JWT in the authorization header. Use the API key included in the JWT claims to identify which of your signature secrets has been used to sign the request. The secret used to sign the request corresponds to the signature secret associated with the `api_key` included in the JWT claims. You can identify your signature secret on the [Dashboard](https://dashboard.nexmo.com/settings).
 
 ### Verify the payload has not been tampered with in transit
 
@@ -58,7 +58,7 @@ source: '_examples/messages/signed-webhooks'
 
 ### Signed JWT Header
 
-The contents of the signed JWT header are described in the table below.
+The contents of the signed JWT header are described in the following table:
 
 Header | Value
 -- | --
@@ -67,7 +67,7 @@ Header | Value
 
 ### Signed JWT Payload
 
-The contents of the signed JWT payload are described in the table below using the values included in the sample signed JWT provided above.
+The contents of the signed JWT payload are described in the following table, using the values included in the sample signed JWT shown previously:
 
 Field | Example Value | Description
 --- | --- | ---
