@@ -248,7 +248,7 @@ The following NCCO example shows how to configure an IVR endpoint:
       "maxDigits": 1
     },
     "speech": {
-      "uuid": "aaaaaaaa-bbbb-cccc-dddd-0123456789ab"
+      "uuid": ["aaaaaaaa-bbbb-cccc-dddd-0123456789ab"]
     }
   }
 ]
