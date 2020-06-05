@@ -28,9 +28,15 @@ module NexmoDeveloper
     config.autoload_paths += Dir[File.join(Rails.root, 'app', 'middleware', '**', '*.rb')].each { |l| require l }
 
     config.middleware.use NexmoDeveloper::BuildingBlockRedirect
+    config.middleware.use NexmoDeveloper::VisitorId
 
     config.generators do |g|
       g.orm :active_record, primary_key_type: :uuid
     end
+
+    config.docs_base_path = ENV.fetch('DOCS_BASE_PATH', '.')
+    config.oas_path = ENV.fetch('OAS_PATH', './_open_api/api_specs/definitions')
+
+    config.i18n.load_path += Dir[Pathname.new(config.docs_base_path).join('config', 'locales', '**', '*.yml')]
   end
 end

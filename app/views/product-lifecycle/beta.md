@@ -1,5 +1,6 @@
 ---
 title: Beta
+navigation_weight: 2
 ---
 
 # Beta
@@ -10,7 +11,7 @@ Breaking changes at this stage in the lifecycle are **extremely** rare and only 
 
 ## Support
 
-If you encounter an issue with a Beta product you can email [support@nexmo.com](mailto:support@nexmo.com) as usual. Normal support SLAs do not apply.
+If you encounter an issue with a Beta product you can email [api.support@vonage.com](mailto:api.support@vonage.com) as usual. Normal support SLAs do not apply.
 
 At this stage we may not be aware of all possible issues and some investigation may be needed in conjunction with the engineering team.
 
@@ -25,3 +26,6 @@ Client libraries are available in Java, JavaScript, .NET, PHP, Python and Ruby<s
 <small>* *Excluded products*: Conversation API</small>
 
 
+## Deprecation
+
+We will provide a minimum of 30 days notice of any deprecated features during the Beta period. Deprecated products may continue to function after the deprecation date, but we make no promises that they will work indefinitely.

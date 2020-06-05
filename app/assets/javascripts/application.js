@@ -11,15 +11,7 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
 //= require jquery-scrolltofixed
-//= require volta/volta.core.js
-//= require volta/components/volta.accordion.js
-//= require volta/components/volta.tab.js
-//= require volta/components/volta.tooltip.js
-//= require volta/components/volta.modal.js
-//= require volta/components/volta.dropdown.js
-//= require volta/components/volta.flash.js
 //= require clipboard
 //= require underscore
 //= require gmaps/google

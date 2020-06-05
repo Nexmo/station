@@ -47,12 +47,14 @@ class SlackController < ApplicationController
   def validate_recapcha
     return unless ENV['RECAPTCHA_ENABLED']
     return if verify_recaptcha
+
     @notice = 'Are you a robot? It looks like you failed our reCAPTCHA. Try again.'
     render 'join'
   end
 
   def validate_email
     return if EmailValidator.valid?(@email)
+
     @notice = 'Invalid email, try again.'
     render 'join'
   end

@@ -3,9 +3,10 @@ class TutorialList
     {
       'tutorials' => tasks_for_product(product),
 
-      'use_cases' => UseCase.by_product(product).map do |t|
+      'use_cases' => Nexmo::Markdown::UseCase.by_product(product).map do |t|
                        {
-                         path: t.document_path,
+                         root: t.root,
+                         path: t.document_path.to_s,
                          title: t.title,
                          product: product,
                          is_file?: true,
@@ -18,8 +19,9 @@ class TutorialList
   def self.tasks_for_product(product)
     tasks = Hash.new { |h, k| h[k] = [] }
     all.each do |t|
-      t[:products].each do |p|
-        tasks[p].push(t.merge({ product: p }))
+      t.products.each do |p|
+        t.product = p
+        tasks[p].push(t)
       end
     end
 
@@ -28,19 +30,10 @@ class TutorialList
 
   def self.all
     tasks = []
-    Dir.glob("#{Rails.root}/config/tutorials/*.yml") do |filename|
-      t = YAML.load_file(filename)
-      tasks.push({
-                   path: filename,
-                   external_link: t['external_link'],
-                   title: t['title'],
-                   description: t['description'],
-                   products: t['products'],
-                   is_file?: true,
-                   is_task?: true,
-                 })
+    # TODO: make this work with I18n fallback
+    Dir.glob("#{Rails.configuration.docs_base_path}/config/tutorials/#{I18n.default_locale}/*.yml") do |path|
+      tasks.push(TutorialListItem.new(path))
     end
-
     tasks
   end
 end

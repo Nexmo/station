@@ -1,4 +1,6 @@
 class StaticController < ApplicationController
+  before_action :canonical_redirect, only: :documentation
+
   def default_landing
     yaml_name = request[:landing_page]
 
@@ -19,7 +21,7 @@ class StaticController < ApplicationController
       @upcoming_events = Event.upcoming
       @past_events_count = Event.past.count
 
-      @hash = Gmaps4rails.build_markers(@upcoming_events) do |event, marker|
+      @hash = Gmaps4rails.build_markers(@upcoming_events.reject(&:remote?)) do |event, marker|
         event.geocode
         marker.lat event.latitude
         marker.lng event.longitude
@@ -33,7 +35,7 @@ class StaticController < ApplicationController
   def event_search
     @events = Event.search(params[:query]) if params[:query]
 
-    @hash = Gmaps4rails.build_markers(@events) do |event, marker|
+    @hash = Gmaps4rails.build_markers(@events.reject(&:remote?)) do |event, marker|
       event.geocode
       marker.lat event.latitude
       marker.lng event.longitude
@@ -54,8 +56,6 @@ class StaticController < ApplicationController
   end
 
   def documentation
-    @navigation = :documentation
-
     @document_path = '/app/views/static/documentation.md'
 
     # Read document
@@ -66,11 +66,16 @@ class StaticController < ApplicationController
 
     @document_title = @frontmatter['title']
 
-    @content = MarkdownPipeline.new.call(document)
+    @content = Nexmo::Markdown::Renderer.new(locale: params[:locale]).call(document)
 
-    @namespace_path = "_documentation/#{@product}"
-    @namespace_root = '_documentation'
-    @sidenav_root = "#{Rails.root}/_documentation"
+    @navigation = :documentation
+
+    @sidenav = Sidenav.new(
+      request_path: request.path,
+      navigation: @navigation,
+      product: @product,
+      locale: params[:locale]
+    )
 
     render layout: 'documentation'
   end
@@ -86,7 +91,7 @@ class StaticController < ApplicationController
     @document_title = 'Community'
     @upcoming_events = Event.upcoming
     @past_events_count = Event.past.count
-    @sessions = Session.visible_to(current_user)
+    @sessions = Session.visible_to(current_user).order(created_at: :desc)
     render layout: 'page'
   end
 
@@ -97,20 +102,6 @@ class StaticController < ApplicationController
     render layout: 'page'
   end
 
-  def contribute
-    # Read document
-    document = File.read("#{Rails.root}/app/views/static/contribute.md")
-
-    # Parse frontmatter
-    @frontmatter = YAML.safe_load(document)
-
-    @document_title = @frontmatter['title']
-
-    @content = MarkdownPipeline.new.call(document)
-
-    render layout: 'static'
-  end
-
   def legacy
     # Read document
     document = File.read("#{Rails.root}/app/views/static/legacy.md")
@@ -118,7 +109,7 @@ class StaticController < ApplicationController
     # Parse frontmatter
     @frontmatter = YAML.safe_load(document)
     @document_title = @frontmatter['title']
-    @content = MarkdownPipeline.new.call(document)
+    @content = Nexmo::Markdown::Renderer.new.call(document)
 
     render layout: 'page'
   end
@@ -150,7 +141,7 @@ class StaticController < ApplicationController
 
     @namespace_path = "_documentation/#{page}"
     @namespace_root = '_documentation'
-    @sidenav_root = "#{Rails.root}/_documentation"
+    @sidenav_root = "#{Rails.configuration.docs_base_path}/_documentation"
     @skip_feedback = true
 
     if page == 'sms'
@@ -158,18 +149,19 @@ class StaticController < ApplicationController
       @active_title = 'Migrate from Tropo'
       @product = 'SMS'
       @product_list = 'messaging/sms'
+      content = <<~TEXT
+        Sending an SMS with Nexmo couldn't be easier! Tell us who the message is from, who to send it
+        to and the text that you'd like to send and we'll take care of the rest.
+
+        With support for [six different languages](/tools) and a simple [REST API](/api/sms), you can
+        get started with the Nexmo SMS API in under 10 minutes!
+      TEXT
       @blocks = [
         {
           'title' => 'Send an SMS',
           'nexmo' => '_examples/migrate/tropo/send-an-sms/nexmo',
           'tropo' => '_examples/migrate/tropo/send-an-sms/tropo',
-          'content' => <<~TEXT
-            Sending an SMS with Nexmo couldn't be easier! Tell us who the message is from, who to send it
-            to and the text that you'd like to send and we'll take care of the rest.
-
-            With support for [six different languages](/tools) and a simple [REST API](/api/sms), you can
-            get started with the Nexmo SMS API in under 10 minutes!
-          TEXT
+          'content' => content,
         },
       ]
     elsif page == 'voice'
@@ -177,32 +169,33 @@ class StaticController < ApplicationController
       @active_title = 'Migrate from Tropo'
       @product = 'Voice'
       @product_list = 'voice/voice-api'
+      content = <<~TEXT
+        When making a voice call with Tropo you provide the words to be spoken directly in your application.
+        On the Nexmo platform, calls are controlled using an [NCCO](/voice/voice-api/ncco-reference), which is a JSON file that tells the Nexmo voice API how to interact with the call.
+
+        In the example below, we use a static JSON file that returns a single `talk` action containing text which will be spoken in to the call.
+
+        ```json
+        [
+          {
+            "action": "talk",
+            "voiceName": "Russell",
+            "text": "You are listening to a test text-to-speech call made with Nexmo Voice API"
+          }
+        ]
+        ```
+
+        Text-to-speech is just one of the many actions you can perform with the Nexmo voice API. You can [record calls](/voice/voice-api/ncco-reference#record),
+        [stream audio](/voice/voice-api/ncco-reference#stream), [build interactive menus](/voice/voice-api/ncco-reference#input) and more! Take
+        a look at our [NCCO documentation](/voice/voice-api/ncco-reference) for more information
+
+      TEXT
       @blocks = [
         {
           'title' => 'Make an outbound call',
           'nexmo' => '_examples/migrate/tropo/make-an-outbound-call/nexmo',
           'tropo' => '_examples/migrate/tropo/make-an-outbound-call/tropo',
-          'content' => <<~TEXT
-            When making a voice call with Tropo you provide the words to be spoken directly in your application.
-            On the Nexmo platform, calls are controlled using an [NCCO](/voice/voice-api/ncco-reference), which is a JSON file that tells the Nexmo voice API how to interact with the call.
-
-            In the example below, we use a static JSON file that returns a single `talk` action containing text which will be spoken in to the call.
-
-            ```json
-            [
-              {
-                "action": "talk",
-                "voiceName": "Russell",
-                "text": "You are listening to a test text-to-speech call made with Nexmo Voice API"
-              }
-            ]
-            ```
-
-            Text-to-speech is just one of the many actions you can perform with the Nexmo voice API. You can [record calls](/voice/voice-api/ncco-reference#record),
-            [stream audio](/voice/voice-api/ncco-reference#stream), [build interactive menus](/voice/voice-api/ncco-reference#input) and more! Take
-            a look at our [NCCO documentation](/voice/voice-api/ncco-reference) for more information
-
-          TEXT
+          'content' => content,
         },
       ]
     else
@@ -230,8 +223,48 @@ class StaticController < ApplicationController
   def team
     @team = YAML.load_file("#{Rails.root}/config/team.yml")
 
-    @careers = Greenhouse.careers
+    @careers = Greenhouse.devrel_careers
 
     render layout: 'page'
+  end
+
+  def spotlight
+    response = RestClient.post(
+      'https://hooks.zapier.com/hooks/catch/1936493/oyzjr4i/',
+      params.permit(:name, :email_address, :background, :outline, :previous_content).to_h
+    )
+
+    if response.code == 200
+      head :ok
+    else
+      head :unprocessable_entity
+    end
+  end
+
+  def blog_cookie
+    # This is the first touch time so we only want to set it if it's not already set
+    set_utm_cookie('ft', Time.now.getutc.to_i) unless cookies[:ft]
+
+    # Clear out old values that might not be set
+    cookies.delete('utm_campaign', domain: :all)
+    cookies.delete('utm_term', domain: :all)
+    cookies.delete('utm_content', domain: :all)
+
+    # These are the things we'll be tracking through the customer dashboard
+    set_utm_cookie('utm_medium', 'dev_education')
+    set_utm_cookie('utm_source', 'blog')
+    set_utm_cookie('utm_campaign', params['c']) if params['c']
+    set_utm_cookie('utm_content', params['ct']) if params['ct']
+    set_utm_cookie('utm_term', params['t']) if params['t']
+
+    redirect_to 'https://dashboard.nexmo.com/sign-up'
+  end
+
+  private
+
+  def canonical_redirect
+    return if params[:locale] != I18n.default_locale.to_s
+
+    redirect_to documentation_path(locale: nil)
   end
 end

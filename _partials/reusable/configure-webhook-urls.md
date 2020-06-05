@@ -13,18 +13,18 @@ When an inbound message is received, a callback with message payload is invoked 
 
 ### To configure the webhook URLs
 
-From [Nexmo Dashboard](https://dashboard.nexmo.com) go to [Messages and Dispatch](https://dashboard.nexmo.com/messages/create-application).
+1. If you have already [created an application](/messages/code-snippets/create-an-application), but not yet configured your webhooks, go to [Your Applications](https://dashboard.nexmo.com/applications) and select the application to configure.
 
-> **TIP:** If the Webhook URLs for messages in your Nexmo Account are already in production use and you would like a second one for using the Messages API, please email [support@nexmo.com](mailto:support@nexmo.com) and ask for a sub API Key.
+2. Click **Edit** to modify the application's webhook URLs.
 
-Enter your Webhook URLs in the fields labeled **Status URL** and **Inbound URL**.
+3. In the Messages capabilities section, enter your webhook URLs in the fields labeled **Status URL** and **Inbound URL**.
 
-The values you enter for webhook URLs depends on where your webhook server is located. If your server was running on port 3000 on `example.com` your webhook URLs might be:
+The values you enter for webhook URLs depends on where your webhook server is located. For example:
 
 Webhook | URL
 ---|---
-Status URL | `https://www.example.com:3000/webhooks/message-status`
-Inbound URL | `https://www.example.com:3000/webhooks/inbound-message`
+Status URL | `https://www.example.com/webhooks/message-status`
+Inbound URL | `https://www.example.com/webhooks/inbound-message`
 
 > **NOTE:** The default method of `POST` should be used for both of the webhook URLs.
 
@@ -36,15 +36,19 @@ Messages API does not support inbound SMS message and SMS delivery receipt callb
 
 If you want to test your application locally you can use Ngrok.
 
-See our information on [Using Ngrok for local development](/concepts/guides/webhooks#using-ngrok-for-local-development)
+See our information on [Using Ngrok for local development](/tools/ngrok)
 
 If using Ngrok in this manner you would use the Ngrok URLs for your webhook URLs:
 
-* `https://abcdef1.ngrok.io:3000/webhooks/inbound-message`
-* `https://abcdef1.ngrok.io:3000/webhooks/message-status`
+* `https://abcdef1.ngrok.io/webhooks/inbound-message`
+* `https://abcdef1.ngrok.io/webhooks/message-status`
 
 ### Callback queue
 
 Please note that callbacks emanating from Nexmo, such as those on your Message Status webhook URL and Inbound Message URL, are queued by Nexmo on a per-account basis, **not** a per-application basis.
 
-To avoid callbacks stalling the callback queue, please ensure that all applications acknowledge callbacks with a 200 response. Further, it is advisable to cease activity on a test application 24 hours before deleting it, or removing webhook configuration, otherwise it could potentially leave callbacks in your callback queue that will not be acknowledged, and therefore result in delays on callbacks destined for your production applications.
+**NOTE:** To avoid callbacks stalling the callback queue, please ensure that all applications acknowledge callbacks with a 200 response. Further, it is advisable to cease activity on a test application 24 hours before deleting it, or removing webhook configuration, otherwise it could potentially leave callbacks in your callback queue that will not be acknowledged, and therefore result in delays on callbacks destined for your production applications.
+
+### Webhooks in production use
+
+If the Webhook URLs for messages in your Nexmo Account are already in production use and you would like a second one for using the Messages API, please email [api.support@vonage.com](mailto:api.support@vonage.com) and ask for a sub API Key.

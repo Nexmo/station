@@ -18,7 +18,7 @@ module Feedback
     end
 
     def score_value
-      ((feedbacks.positive.count.to_f / feedbacks.count.to_f) * 100.to_f)
+      ((feedbacks.positive.count / feedbacks.count.to_f) * 100.to_f)
     end
 
     def relative_link

@@ -8,6 +8,7 @@ module Feedback
     belongs_to :owner, polymorphic: true
 
     attr_accessor :email, :source
+
     before_validation :set_resource
 
     validates :sentiment, presence: true
@@ -96,6 +97,13 @@ module Feedback
         }
       end
 
+      # Send all comments to #documentation-feedbot
+      notifier.post options
+
+      # And to a separate, comments only channel
+      return if comment.blank?
+
+      options[:channel] = '#documentation-feedbot-comments'
       notifier.post options
     end
   end

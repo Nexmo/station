@@ -10,6 +10,7 @@ class DashboardController < ApplicationController
 
   def stats_summary
     return unless created_after || created_before
+
     @feedbacks = Feedback::Feedback.created_between(created_after, created_before).joins(:resource)
 
     grouped_results = @feedbacks.group(["DATE_TRUNC('month', feedback_feedbacks.created_at)", 'feedback_resources.product', 'feedback_feedbacks.sentiment']).count(:id)
@@ -21,6 +22,7 @@ class DashboardController < ApplicationController
       prod = meta[1] # Can't call it product due to the method defined in this class
       sentiment = meta[2]
       next unless prod # We have some feedback from non-product pages. Let's ignore that for now
+
       @summary[prod] = @summary[prod] || {}
       @summary[prod][month] = @summary[prod][month] || {}
       @summary[prod][month][sentiment] = count
@@ -108,11 +110,13 @@ class DashboardController < ApplicationController
 
   def ignore_languages
     return params[:ignore].split(',') if params[:ignore].present?
+
     []
   end
 
   def only
     return params[:only] if params[:only].present?
+
     'all'
   end
 
@@ -133,8 +137,8 @@ class DashboardController < ApplicationController
   end
 
   def coverage_from_unsupported
-    Dir.glob("#{Rails.root}/_examples/**/.unsupported.yml").each do |e|
-      relative_path = e.gsub("#{Rails.root}/_examples/", '')
+    Dir.glob("#{Rails.configuration.docs_base_path}/_examples/**/.unsupported.yml").each do |e|
+      relative_path = e.gsub("#{Rails.configuration.docs_base_path}/_examples/", '')
       parts = relative_path.split('/')
       parts.insert(1, 'top-level') if parts.count < 4
       parts = parts[0..-2]
@@ -156,8 +160,8 @@ class DashboardController < ApplicationController
   end
 
   def coverage_from_yaml
-    Dir.glob("#{Rails.root}/_examples/**/*.yml").each do |e|
-      relative_path = e.gsub("#{Rails.root}/_examples/", '')
+    Dir.glob("#{Rails.configuration.docs_base_path}/_examples/**/*.yml").each do |e|
+      relative_path = e.gsub("#{Rails.configuration.docs_base_path}/_examples/", '')
       source_path = "_examples/#{relative_path}"
       parts = relative_path.split('/')
       parts.insert(1, 'top-level') if parts.count < 4
@@ -173,16 +177,16 @@ class DashboardController < ApplicationController
 
       language = source.gsub('.yml', '').downcase
       x[language] = {
-          'source' =>  '_examples/' + relative_path,
-          'source_path' => source_path,
-          'type' => 'yaml',
+        'source' => "_examples/#{relative_path}",
+        'source_path' => source_path,
+        'type' => 'yaml',
       }
     end
   end
 
   def coverage_from_files
-    Dir.glob("#{Rails.root}/_examples/**/*").each do |e|
-      relative_path = e.gsub("#{Rails.root}/_examples/", '')
+    Dir.glob("#{Rails.configuration.docs_base_path}/_examples/**/*").each do |e|
+      relative_path = e.gsub("#{Rails.configuration.docs_base_path}/_examples/", '')
       next unless File.file?(e)
       next if File.extname(e) == '.md' # Markdown files are handled by the config coverage
       next if File.extname(e) == '.yml' # Yaml files are handled by yaml coverage
@@ -203,9 +207,9 @@ class DashboardController < ApplicationController
       end
 
       x[language.downcase] = {
-          'source' =>  '_examples/' + relative_path,
-          'source_path' =>  source_path,
-          'type' => 'file',
+        'source' => "_examples/#{relative_path}",
+        'source_path' => source_path,
+        'type' => 'file',
       }
     end
   end

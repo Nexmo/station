@@ -19,7 +19,9 @@ class Repo
   def namespace
     return @namespace if @namespace
     return @repo if @repo
+
     raise 'You must provide github or url' unless @url
+
     extract_namespace_from_url
   end
 
@@ -33,6 +35,7 @@ class Repo
 
   def url
     return @url if @url
+
     case protocol
     when 'git' then "git://#{host}/#{repo}.git"
     when 'https' then "https://#{host}/#{repo}.git"

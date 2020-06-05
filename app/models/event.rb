@@ -18,11 +18,9 @@ class Event < ApplicationRecord
     key = "%#{search}%"
     columns = %w[title description city country]
     @events = Event.where(
-      columns
-        .map { |c| "#{c} ilike :search" }
-        .join(' OR '),
-    search: key
-  ).upcoming
+      columns.map { |c| "#{c} ilike :search" }.join(' OR '),
+      search: key
+    ).upcoming
   end
 
   private

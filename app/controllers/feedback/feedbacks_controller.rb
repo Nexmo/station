@@ -19,6 +19,7 @@ module Feedback
       set_cookies
 
       return render json: @feedback if @feedback.save
+
       head 422
     end
 
@@ -40,6 +41,7 @@ module Feedback
 
     def set_cookies
       return unless @feedback.owner.class == ::Feedback::Author
+
       cookies[:feedback_author_id] = {
         value: @feedback.owner.id,
         expires: 20.years.from_now,
@@ -90,6 +92,7 @@ module Feedback
     def set_email
       return if @feedback.owner.class == User
       return if params['feedback_feedback']['email'].blank?
+
       @feedback.owner.email = params['feedback_feedback']['email']
     end
   end

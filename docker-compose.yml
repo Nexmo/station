@@ -2,6 +2,8 @@ version: '3'
 services:
   db:
     image: postgres
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
   web:
     image: nexmodeveloper_app
     build: .
@@ -17,6 +19,7 @@ services:
       - db
     environment:
       - OAS_PATH=_open_api/api_specs/definitions
+      - DOCS_BASE_PATH=.
       - POSTGRES_HOST=db
       - POSTGRES_USERNAME=postgres
       - RAILS_ENV=development

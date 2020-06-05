@@ -5,16 +5,16 @@ namespace :ci do
   task 'verify_pages': :environment do
     document_paths =
       [
-        "#{Rails.root}/_documentation/**/*.md",
-        "#{Rails.root}/_api/**/*.md",
-        "#{Rails.root}/_tutorials/**/*.md",
+        "#{Rails.configuration.docs_base_path}/_documentation/en/**/*.md",
+        "#{Rails.configuration.docs_base_path}/_api/**/*.md",
+        "#{Rails.configuration.docs_base_path}/_tutorials/**/*.md",
       ]
 
     document_paths.each do |path|
       Dir.glob(path).each do |filename|
         document = File.read(filename)
         begin
-          MarkdownPipeline.new.call(document)
+          Nexmo::Markdown::Renderer.new.call(document)
         rescue StandardError => e
           puts "Error whilst processing #{filename}"
           raise e
@@ -117,12 +117,12 @@ namespace :ci do
   task 'check_word_blocklist': :environment do
     markdown_files =
       [
-        "#{Rails.root}/_documentation/**/*.md",
-        "#{Rails.root}/_api/**/*.md",
-        "#{Rails.root}/_tutorials/**/*.md",
-        "#{Rails.root}/_partials/*.md",
-        "#{Rails.root}/_partials/**/*.md",
-        "#{Rails.root}/_modals/**/*.md",
+        "#{Rails.configuration.docs_base_path}/_documentation/en/**/*.md",
+        "#{Rails.configuration.docs_base_path}/_api/**/*.md",
+        "#{Rails.configuration.docs_base_path}/_tutorials/**/*.md",
+        "#{Rails.configuration.docs_base_path}/_partials/*.md",
+        "#{Rails.configuration.docs_base_path}/_partials/**/*.md",
+        "#{Rails.configuration.docs_base_path}/_modals/**/*.md",
       ]
 
     block_list = File.read('.disallowed_words').split("\n")
@@ -134,7 +134,7 @@ namespace :ci do
           word = word.downcase
           document = File.read(filename).downcase
           if document.include? word
-            errors.push("#{word} found in #{filename.gsub("#{Rails.root}/", '')}")
+            errors.push("#{word} found in #{filename.gsub("#{Rails.configuration.docs_base_path}/", '')}")
           end
         end
       end
@@ -142,6 +142,28 @@ namespace :ci do
 
     if errors.length.positive?
       raise "Blocked words found:\n\n#{errors.join("\n")}"
+    end
+  end
+
+  task 'check_ruby_version': :environment do
+    # We treat .ruby-version as the canonical source
+    ruby_version = File.read('.ruby-version').strip
+
+    # Does our Gemfile match
+    gemfile = File.read('Gemfile.lock')
+    gemfile_version = gemfile.match(/RUBY VERSION.*ruby (\d+\.\d+\.\d+).*BUNDLED WITH/m)[1].strip
+
+    # How about Docker?
+    docker = File.read('Dockerfile')
+    docker_version = docker.match(/FROM ruby:(\d+\.\d+\.\d+).*/)[1].strip
+
+    errors = []
+
+    errors.push("Gemfile.lock (#{gemfile_version}) does not match .ruby-version (#{ruby_version})") if gemfile_version != ruby_version
+    errors.push("Dockerfile (#{docker_version}) does not match .ruby-version (#{ruby_version})") if docker_version != ruby_version
+
+    if errors.length.positive?
+      abort("Ruby version mismatch found:\n\n#{errors.join("\n")}")
     end
   end
 end

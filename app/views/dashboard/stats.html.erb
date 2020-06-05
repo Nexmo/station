@@ -107,7 +107,7 @@
   <div class="Vlt-col">
     <div>
       <center><h3>Worst Performing Content</h3></center>
-      <div class="Vlt-table Vlt-table--data">
+      <div class="Vlt-table">
         <%= render 'performance_table', resources: Feedback::Resource.worst_performing.first(5) %>
       </div>
     </div>
@@ -115,7 +115,7 @@
   <div class="Vlt-col">
     <div>
       <center><h3>Best Performing Content</h3></center>
-      <div class="Vlt-table Vlt-table--data">
+      <div class="Vlt-table">
         <%= render 'performance_table', resources: Feedback::Resource.best_performing.first(5) %>
       </div>
     </div>
