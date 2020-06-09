@@ -6,7 +6,7 @@ dependencies:
 import_dependencies:
     source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotnetCodeSnippets/Authentication/FullAuth.cs
     from_line: 1
-    to_line: 5
+    to_line: 1
 client:
     source: .repos/nexmo/nexmo-dotnet-code-snippets/NexmoDotnetCodeSnippets/Authentication/FullAuth.cs
     from_line: 17
