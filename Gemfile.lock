@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/nexmo/nexmo-markdown-renderer.git
-  revision: 34bc81d6196a9be988059a09db45bbeee0893ef0
-  branch: fix-kotlin-icon
+  revision: d22cc4ea1646d47240df9566255b67b5d2cdb3b1
+  branch: import-dependencies
   specs:
     nexmo_markdown_renderer (0.3.1)
       activemodel (~> 6.0)

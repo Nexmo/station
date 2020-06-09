@@ -129,7 +129,7 @@ gem 'lograge'
 gem 'countries'
 gem 'country_select', '~> 4.0'
 
-gem 'nexmo_markdown_renderer', github: 'nexmo/nexmo-markdown-renderer', branch: 'fix-kotlin-icon'
+gem 'nexmo_markdown_renderer', github: 'nexmo/nexmo-markdown-renderer', branch: 'import-dependencies'
 
 gem 'nexmo-oas-renderer', '~> 0.11', require: false
 
