@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/nexmo/nexmo-markdown-renderer.git
-  revision: d22cc4ea1646d47240df9566255b67b5d2cdb3b1
+  revision: fc5ea768fd62acb498929bb3163675028a1086cb
   branch: import-dependencies
   specs:
     nexmo_markdown_renderer (0.3.1)
