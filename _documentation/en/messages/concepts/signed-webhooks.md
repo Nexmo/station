@@ -27,7 +27,7 @@ Webhooks for both inbound messages and message status will include a JWT in the 
 
 ### Verify the payload has not been tampered with in transit
 
-Once you have verified the authenticity of the request, you may optionally verify the request payload has not been tampered with by comparing a SHA-256 hash of the payload to the `payload_hash` field found in the JWT claims. If they do not match, then the payload has been tampered with during transit.
+Once you have verified the authenticity of the request, you may optionally verify the request payload has not been tampered with by comparing a SHA-256 hash of the payload to the `payload_hash` field found in the JWT claims. If they do not match, then the payload has been tampered with during transit. You only need to verify the payload if you are using HTTP rather than HTTPS, as Transport Layer Security (TLS) prevents [MITM attacks](https://en.wikipedia.org/wiki/Man-in-the-middle_attack).
 
 > **NOTE:** In the rare case of an internal error, it is possible that the callback service will send an unsigned callback. By returning an HTTP 5xx response, a retry will be triggered giving the system time to resolve the error and sign future callbacks.
 
