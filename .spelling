@@ -337,6 +337,8 @@ initializer
 IPv6
 on-answer
 ringback-tone
+SHA-256
+JSON
 BCP-47
 Bokmål
 Sinhala
