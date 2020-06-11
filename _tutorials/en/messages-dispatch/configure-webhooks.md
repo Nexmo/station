@@ -12,7 +12,7 @@ When messages status updates are generated, such as `delivered`, `rejected` or `
 
 When an inbound message is received, a callback with message payload is invoked on the _Inbound Message_ webhook URL.
 
-> **IMPORTANT:** Both webhook URLs should be configured. At the very least your webhook handlers should return 200 responses for both Inbound Message and Message Status callbacks. This ensures potential [callback queuing](#callback-queue) issues are avoided.
+> **IMPORTANT:** Both webhook URLs should be configured. At the very least your webhook handlers should return 200 responses for both Inbound Message and Message Status callbacks.
 
 ### To configure the webhook URLs
 
@@ -35,8 +35,12 @@ Inbound URL | `https://www.example.com/webhooks/inbound-message`
 
 Messages API does not support inbound SMS message and SMS delivery receipt callbacks via the application-specific webhooks described in the previous section. In order to receive callbacks for SMS message and SMS delivery receipts you need to set the [account-level webhooks for SMS](https://dashboard.nexmo.com/settings).
 
-### Callback queue
+### Webhook queue
 
-Please note that callbacks emanating from Nexmo, such as those on your Message Status webhook URL and Inbound Message URL, are queued by Nexmo on a per-account basis, **not** a per-application basis.
+Please note that webhooks emanating from Nexmo, such as those on your Message Status webhook URL and Inbound Message URL, are queued by Nexmo on a per-message basis.
 
-To avoid callbacks stalling the callback queue, please ensure that all applications acknowledge callbacks with a 200 response. Further, it is advisable to cease activity on a test application 24 hours before deleting it, or removing webhook configuration, otherwise it could potentially leave callbacks in your callback queue that will not be acknowledged, and therefore result in delays on callbacks destined for your production applications.
+Please ensure that all applications acknowledge webhooks with a 200 response.
+
+### Signed webhooks
+
+In order to validate the origin of your webhooks, you can validate the signature of the webhooks, see instructions [here](https://developer.nexmo.com/messages/concepts/signed-webhooks)
