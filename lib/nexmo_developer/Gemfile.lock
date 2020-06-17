@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/nexmo/nexmo-markdown-renderer.git
-  revision: 34bc81d6196a9be988059a09db45bbeee0893ef0
+  revision: bf904a7f51eaef37a8e52b99033fb5d571b7bc3a
   branch: fix-kotlin-icon
   specs:
     nexmo_markdown_renderer (0.3.1)
@@ -184,7 +184,7 @@ GEM
       i18n (>= 1.6, < 2)
     faraday (1.0.1)
       multipart-post (>= 1.2, < 3)
-    ffi (1.13.0)
+    ffi (1.13.1)
     formatador (0.2.5)
     formtastic (3.1.5)
       actionpack (>= 3.2.13)
@@ -235,7 +235,7 @@ GEM
       mime-types (~> 3.0)
       multi_xml (>= 0.5.2)
     httpclient (2.8.3)
-    i18n (1.8.2)
+    i18n (1.8.3)
       concurrent-ruby (~> 1.0)
     i18n_data (0.10.0)
     icalendar (2.6.1)
@@ -273,7 +273,7 @@ GEM
       activesupport (>= 4)
       railties (>= 4)
       request_store (~> 1.0)
-    loofah (2.5.0)
+    loofah (2.6.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     lumberjack (1.2.4)
@@ -302,7 +302,7 @@ GEM
     nenv (0.3.0)
     netrc (0.11.0)
     newrelic_rpm (6.10.0.364)
-    nexmo-oas-renderer (0.11.2)
+    nexmo-oas-renderer (0.11.3)
       activemodel (~> 6.0)
       activesupport (~> 6.0)
       banzai (~> 0.1.2)
@@ -352,7 +352,7 @@ GEM
     public_suffix (4.0.5)
     puma (4.3.5)
       nio4r (~> 2.0)
-    rack (2.2.2)
+    rack (2.2.3)
     rack-protection (2.0.8.1)
       rack
     rack-proxy (0.6.5)
@@ -496,7 +496,7 @@ GEM
       redis (>= 2.1)
       simple-random (>= 0.9.3)
       sinatra (>= 1.2.6)
-    sprockets (4.0.0)
+    sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
     sprockets-rails (3.2.1)
@@ -536,7 +536,7 @@ GEM
       semantic_range (>= 2.3.0)
     websocket-driver (0.7.2)
       websocket-extensions (>= 0.1.0)
-    websocket-extensions (0.1.4)
+    websocket-extensions (0.1.5)
     woothee (1.11.1)
     xpath (3.2.0)
       nokogiri (~> 1.8)
