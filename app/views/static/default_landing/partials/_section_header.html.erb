@@ -1,9 +1,0 @@
-<%
-    raise "Missing 'title' key in section_header landing page block" unless local_assigns['title']
-    raise "Missing icon 'color' key in section_header landing page block" unless local_assigns['icon']['color']
-    raise "Missing icon 'name' key in section_header landing page block" unless local_assigns['icon']['name']
-%>
-
-<h2 id="<%= local_assigns['title'].parameterize %>">
-    <%= local_assigns['title'] %>
-</h2>

@@ -1,305 +1,354 @@
-# Nexmo Developer
+# Station: The Nexmo Developer Gem
 
-[![Build Status](https://api.travis-ci.org/Nexmo/nexmo-developer.svg?branch=master)](https://travis-ci.org/Nexmo/nexmo-developer/)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
+![Actions Status](https://github.com/nexmo/nexmo-developer/workflows/CI/badge.svg)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.txt)
 
-This repository is the code and content for <https://developer.nexmo.com>, which includes the Nexmo documentation, API reference, SDKs, Tools & Community content. To get a Nexmo account, sign up [for free at nexmo.com][signup].
+The `nexmo-developer` gem provides a documentation platform ready to use with your custom documentation. This document will cover installation and usage instructions.
 
-### [Testing](#testing) &middot; [Running Locally](#running-locally) &middot; [Admin Dashboard](#admin-dashboard) &middot; [Troubleshooting](#troubleshooting) &middot; [Contributing](#contributing) &middot; [License](#license)
+* [Installation](#installation)
+* [Usage](#usage)
+* [Contributing](#contributing)
+* [License](#license)
 
+## Installation
 
+You can use this gem from within your documentation. 
 
-
-## Testing
-
-We use [rspec](http://rspec.info/) to test Nexmo Developer.
-
-To run all tests:
-
-```bash
-bundle exec rspec
-```
-
-To generate code coverage, set the `COVERAGE` environment variable when running the tests.
-
-```bash
-COVERAGE=1 bundle exec rspec
-```
-
-This will create a folder named `coverage`. Open `index.html` in this folder to view coverage statistics.
-
-### Spell Checking
-
-We write the docs in US English and enforce this at build time with a CI check. You can run the check locally using the following command:
-
-```
-./node_modules/.bin/mdspell -r -n -a --en-us '_documentation/en/**/*.md' '_partials/*.md' '_partials/**/*.md' '_modals/**/*.md' '_tutorials/**.md'
-```
-
-Or if you're using Docker:
-
-```
-docker-compose exec web ./node_modules/.bin/mdspell -r -n -a --en-us '_documentation/en/**/*.md' '_partials/*.md' '_partials/**/*.md' '_modals/**/*.md' '_tutorials/**.md'
-```
-
-If there is a word that isn't in the dictionary but is correct to use, add it to the `.spelling` file (there's a lot of exceptions in there, including `Nexmo`!)
-
-## Running locally
-
-The project can be run on your laptop, either directly or using Docker. These instructions have been tested for Mac.
-
-### Setup for running directly on your laptop
-
-Before you start, you need to make sure that you have:
-
-- [Ruby 2.5.7](https://www.ruby-lang.org/en/downloads/) + [bundler](https://bundler.io/)
-- [PostgreSQL](https://www.postgresql.org/download/)
-- [Yarn](https://yarnpkg.com/en/docs/install)
-
-#### System Setup (OSX)
-
-Install Homebrew
-
-```
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-```
-
-Install required packages, create database and configure `git`.
-
-Note: A default database is created for you when you run the `db:setup` script. If you'd like to create and
-use a different database or user, use `createdb database_name_here` or `createuser username_here` and make sure your
-`.env` file is updated accordingly (See [.env.example](https://github.com/Nexmo/nexmo-developer/blob/master/.env.example)).
-
-```
-brew install postgres rbenv git yarn nvm redis
-brew services start postgresql
-brew services start redis
-
-
-git config --global user.name "NAME"
-git config --global user.email "user.name@vonage.com"
-```
-
-Generate an SSH key for authentication
-
-```
-ssh-keygen -t rsa
-cat .ssh/id_rsa.pub # Add to Github
-```
-
-Clone NDP to your local machine
-
-```
-git clone git@github.com:Nexmo/nexmo-developer.git
-cd nexmo-developer
-cp .env.example .env
-```
-
-Add to `~/.bash_profile` (or equivalent file on your system):
-
-```
-eval "$(rbenv init -)"
-export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
-```
-
-Install the correct versions of ruby and node
-```
-rbenv install 2.5.7
-rbenv global 2.5.7
-gem install bundle
-bundle install
-nvm install 12
-nvm use 12
-
-yarn install
-```
-
-Edit the `.env` file as appropriate for your platform.  Then, run the following:
-
-Install project dependencies, run database migrations and start the server
-
-```
-bundle install
-bin/rails db:setup
-bin/yarn install
-bin/rails s
-```
-
-You should now be able to see the site on http://localhost:3000/
-
-### Setting up with Docker
-
-If you don't want to install Ruby & PostgreSQL then you can use docker to sandbox Nexmo Developer into its own containers. After you [Install Docker](https://docs.docker.com/engine/installation/) run the following:
-
-```
-$ git clone git@github.com:Nexmo/nexmo-developer.git
-$ cd nexmo-developer
-$ cp .env.example .env
-```
-
-Edit the `.env` file as appropriate for your platform.  Then, start the web server with this command:
-
-```
-$ docker-compose up
-```
-
-At this point, open your browser to http://localhost:3000/ ... and wait (it takes about 30 seconds for the first load).
-
-To stop the server cleanly run:
-
-```
-$ docker-compose down
-```
-
-## Admin dashboard
-
-You can access the admin dashboard by visiting `/admin`. If you've populated data via `rake db:seed` you will have an admin user with the username of `api.admin@vonage.com` and password of `development`.
-
-The following is an example if you are running Nexmo Developer within a Docker container:
-
-```sh
-docker exec -it <container_id> rake db:seed
-```
-
-New admin users can be created by visiting `/admin/users` or by accessing the rails console and creating a new User like so:
+To install the gem, create a `Gemfile` in the root folder of your documentation files and add the following inside it:
 
 ```ruby
-User.create!(email: 'example@example.com', password: 'password', admin: true)
+source "https://rubygems.pkg.github.com/nexmo" do
+  gem "nexmo-developer"
+end
 ```
 
-## Working with submodules
+Then, run `bundle install` from the command line. If this is your first time installing a gem from the GitHub Package Registry, follow these [setup instructions](https://help.github.com/en/packages/using-github-packages-with-your-projects-ecosystem/configuring-rubygems-for-use-with-github-packages).
 
-Some of the contents of NDP are brought in via git submodules, such as the OpenAPI Specification (OAS) documents. A submodule is a separate repository used within the main repository (in this case NDP) as a dependency. The main repository holds information about the location of the remote repository and **which commit to reference**. So to make a change within a submodule, you need to commit to the submodule and the main repository and crucially remember to push both sets of changes to GitHub.
+## Usage 
 
-Here are some tips for working with submodules:
+This section will cover:
 
-### When cloning the repo or starting to work with submodules
+* [File Organization](#file-organization)
+* [Configuration and Customization](#configuration-and-customization)
+* [Running the Gem](#running-the-gem)
 
-```
-git submodule init
-git submodule update
-```
+### File Organization
 
-### When pulling in changes to a branch e.g. updating master
+First, it is important that your documentation is organized in the way the gem expects.
 
-```
-git pull
-git submodule update
-```
+The gem expects the documentation to be markdown files within the following folders:
 
-### When making changes inside the submodule within NDP
-
-Make sure you are _inside_ the directory that is a submodule.
-
-- make your changes
-- commit your changes
-- _push your changes from here_ (this is the bit that normally trips us up)
-- open a pull request on the submodule's repository - we can't open the PR on the main repo until this is merged
-
-You are not done, keep reading! A second pull request is needed to update the main repo, including any other changes to that repo _and_ an update to the submodule pointing to the new (merged) commit to use.
-
-- open your PR for this change including any changes to the main project (so we don't lose it) but label it "don't merge" and add the URL of the submodule PR we're waiting for
-- once the submodule has the change you need on its master branch, change into the subdirectory and `git pull`
-- change directory back up to the root of the project
-- commit the submodules changes
-- _push these changes too_
-- Now we can review your PR
-
-
-### Bringing submodule changes into NDP
-
-If you made changes on the repo outside of NDP, then you will need to come and make a commit on NDP to update which commit in the submodule the NDP repository is pointing to.
-
-Make a branch, change into the submodule directory and `git pull` or do whatever you need to do to get `HEAD` pointing to the correct commit. In the top level of the project, add the change to the submodules file and commit and push. Then open the pull request as you would with any other changes.
-
-### Further advice and resources for successful submodule usage
-
-Never `git add .` this is lazy practice anyway but will make bad things happen with submodules.  Try `git add -p` instead. You're welcome.
-
-If you're not sure what to do, ask for help. It's easier to lend a hand along the way than to rescue it later!
-
-Git docs for submodules: <https://git-scm.com/book/en/v2/Git-Tools-Submodules>
-
-A flow chart on surviving submodules from @lornajane: <https://lornajane.net/posts/2016/surviving-git-submodules>
-
-## Troubleshooting
-
-#### I'm having issues with my Docker container
-
-The image may have changed, try rebuilding it with the following command:
-
-```
-$ docker-compose up --build
+```sh
++-- _open_api
++-- _use_cases
++-- _documentation
++-- _tutorials
 ```
 
-#### I get an exception `PG::ConnectionBad - could not connect to server: Connection refused` when I try to run the app.
+In addition, the gem expects there to be **two top-level required folders** with configuration content, and a third top-level optional folder for public assets:
 
-This error indicates that PostgreSQL is not running. If you installed PostgreSQL using `brew` you can get information about how to start it by running:
-
+```sh
++-- config
++-- custom
++-- public
 ```
-$ brew info postgresql
+
+* The [Configuration Files](#configuration-files) section will document the files required inside the `/config` folder.
+* The [Custom Views](#custom-views), [Custom Landing Pages](custom-landing-pages) and [Custom Locale Settings](#custom-locale-settings) sections will document the files required inside the `/custom` folder.
+* The [Custom Public Assets](#custom-public-folder) section will document the files that can be included inside the `/public` folder.
+
+
+### Configuration and Customization
+
+* [Configuration Files](#configuration-files) for the documentation portal are inside the `/config` folder. 
+* [Custom Views](#custom-views) can be provided inside the `/custom/views` folder.
+* [Custom Landing Pages](#custom-landing-pages) can be provided inside the `/custom/landing_pages` folder.
+* [Custom Public Assets](#custom-public-folder) can be provided inside the `/public` folder.
+* [Custom Locale Settings](#custom-locale-settings) can be provided inside the `/custom/locales` folder
+
+##### Configuration Files
+
+**Sample configuration files can be found inside the [sample_config_files](sample_config_files/config) folder in this repository.**
+
+1. Business Information, **including header and footer**:
+  * Business information, including content for the header, can be customized through providing a `business_info.yml` configuration file inside the `/config` folder. The following is a sample `business_info.yml` configuration:
+
+```yaml
+name: VBC
+subtitle: Business for Developers
+base_url: https://developer.vonage.com
+assets:
+  header_logo:
+    path: '/images/logos/vbc-logo.png'
+    alt: 'VBC Logo'
+  footer_logo:
+    path: '/images/logos/footer-logo.png'
+    alt: 'VBC Footer Logo'
+header:
+  links:
+    sign-up:
+      path: https://developer.vonage.com
+      text:
+        - 'Log In'
+        - 'Try Me'
+  hiring:
+    display: true # or false
+footer:
+  links:
+    status:
+      path: https://developer.vonage.com
+      text: 'VBC Status' 
+    navigation:
+      documentation:
+        - call-recording: 'https://vbc-developer.herokuapp.com/call-recording/overview'
+        - provisioning: 'https://vbc-developer.herokuapp.com/provisioning/overview'
+        - telephony: 'https://vbc-developer.herokuapp.com/telephony/overview'
+        - reports: 'https://vbc-developer.herokuapp.com/reports/overview'
+        - vonage-integration-platform: 'https://vbc-developer.herokuapp.com/vonage-integration-platform/overview'
+        - smart-numbers: 'https://vbc-developer.herokuapp.com/smart-numbers/overview'
+      api-reference:
+        - call-recording: 'https://vbc-developer.herokuapp.com/api/call-recording'
+        - provisioning: 'https://vbc-developer.herokuapp.com/api/provisioning'
+        - telephony: 'https://vbc-developer.herokuapp.com/api/telephony'
+        - reports: 'https://vbc-developer.herokuapp.com/api/reports'
+        - vonage-integration-platform: 'https://vbc-developer.herokuapp.com/api/vonage-integration-platform'
+      get-to-know-us:
+        - vonage-business-communications: 'https://www.vonage.com/unified-communications/'
+        - careers: 'https://www.vonage.com/corporate/careers/'
+        - press: 'https://www.vonage.com/corporate'
+    support:
+      business-support: 'https://businesssupport.vonage.com/'
+      developer-support: 'devsupport@vonage.com'
+  ```
+2. Top navigation bar:
+  * The links in the navigation bar can be customized through providing a `top_navigation.yml` configuration file inside the `/config` folder. In this file each navigation item should be provided on its own line in the following format: `Name: /url`. For example, `Documentation: /documentation`, is a valid entry. If a custom YAML file is not provided, the gem's default navigation bar will be rendered.
+
+3. Header Meta Information:
+  * Meta-tags for the site must be provided inside a `/config/meta_info.yml` file. If the entries are not provided in this file, the site will not execute:
+
+```yaml
+  title: # Title of your site for title bar
+  description: # Description of site for search engines
+  google-site-verification: # Verification code of site ownership for Google Search Console. *Will skip if not provided*
+  application-name: # Name of application that the site represents
 ```
 
-Once PostgreSQL is running you'll need to create and migrate the database. See [Setup](#running-locally) for instructions.
+  * The site expects the following meta icons and files to be placed inside the `/public/meta` folder. If they are not there, the site will raise an exception and not run (for examples of all of these files you can visit https://developer.nexmo.com/#{name of the file} to see an example):
 
-## Upgrading Volta
+```bash
+  og.png
+  apple-touch-icon.png
+  favicon.ico
+  favicon-32x32.png
+  manifest.json
+  safari-pinned-tab.svg
+  mstile-144x144.png
+```
 
-Volta is the Vonage design system, and is used to style Nexmo Developer. To upgrade the version of Volta used:
+4. Products Listing
 
-* Clone Volta on to your local machine
-* Remove the `app/assets/volta/scss` folder in Nexmo Developer
-* Copy the `scss` folder from the Volta repo in to `app/assets/volta`
-* Commit and push. Rails will take care of compilation etc
+Products are listed inside `/config/products.yml`. Each product must be listed with:
+
+* `icon`, which is the name of the Volta icon to use, for example `phone`.
+* `icon_colour`, the colour of the icon.
+* `path`, which is the folder name inside the documentation where the product is listed. For example, `call-recording` for Call Recording.
+* `dropdown` of either `true` or `false`, specifying if the product should be listed in the product dropdown menu listings inside Use Cases and Tutorials.
+
+An example `products.yml` file:
+
+```yaml
+products:
+  - 
+    name: 'Call Recording'
+    icon: 'phone'
+    icon_colour: 'blue'
+    path: 'call-recording'
+    dropdown: true
+  - 
+    name: 'Node RED'
+    icon: 'flow'
+    icon_colour: 'red'
+    path: 'node-red'
+    dropdown: true
+  - 
+    name: 'Provisioning'
+    icon: 'phone'
+    icon_colour: 'green'
+    path: 'provisioning'
+    dropdown: true
+  - 
+    name: 'Reports'
+    icon: 'file-search'
+    icon_colour: 'purple-dark'
+    path: 'reports'
+    dropdown: true
+  - 
+    name: 'Smart Numbers'
+    icon: 'queue'
+    icon_colour: 'yellow'
+    path: 'smart-numbers'
+    dropdown: true
+  - 
+    name: 'Telephony'
+    icon: 'phone'
+    icon_colour: 'black'
+    path: 'telephony'
+    dropdown: true
+  - 
+    name: 'Vonage Integration Platform'
+    icon: 'chat'
+    icon_colour: 'blue'
+    path: 'vonage-integration-platform'
+    dropdown: true
+  - 
+    name: 'Zapier'
+    icon: 'lock'
+    icon_colour: 'blue'
+    path: 'zapier'
+    dropdown: true
+  - 
+    name: 'Concepts'
+    icon: 'message'
+    icon_colour: 'green'
+    path: 'concepts'
+    dropdown: true
+  - 
+    name: 'App Center'
+    icon: 'file-search'
+    icon_colour: 'purple'
+    path: 'app-center'
+    dropdown: true
+```
+
+#### Environment Variables
+
+**An example [.env](.env.example) file can be found in this repository**
+
+Within your runtime production environment you can specify the following environment variables related to Google Analytics:
+
+```env
+SEGMENT_WRITE_KEY
+GOOGLE_ANALYTICS_TRACKING_ID
+GOOGLE_TAG_MANAGER_ID
+SEARCH_URL
+```
+
+You can also specify the following environment variable related to Hotjar analytics:
+
+```env
+HOTJAR_ID
+```
+
+The following can be specified for Bugsnag analytics:
+
+```env
+BUGSNAG_JS_API_KEY
+```
+
+For Algolia search specify the following environment variable:
+
+```env
+ALGOLIA_APPLICATION_ID
+```
+
+##### Custom Views
+
+**A sample [custom views folder](sample_config_files/custom/views) can be found in this repository**
+
+All `nexmo-developer` static views can be redefined inside `/custom/views` by providing custom ERB files.
+
+_ERB, or embedded Ruby, are HTML files that combine Ruby to produce dynamic content._
+
+The following ERB files can be provided to override the default views:
+
+* `/custom/views/static/landing.html.erb`: The default home page
+* `/custom/views/layout/partials/_footer.html.erb`: The footer
+* `/custom/views/layout/partials/_header.html.erb`: The header
+* `/custom/views/layout/partials/_head.html.erb`: The head file (meta tags, Google analytics info, and more)
+
+##### Custom Landing Pages
+
+**A sample [custom landing pages folder](sample_config_files/custom/landing_pages) can be found in this repository**
+
+Customized landing pages is a powerful feature of the `nexmo-developer` gem that provides the ability to create unique content using only YAML files. 
+
+All custom landing page YAML files should be placed inside `/custom/landing_pages`. 
+
+The URL path is defined by the file path. For example, a file placed inside `/custom/landing_pages/tools.yml` would be viewed at `https://[YOUR WEBSITE URL]/tools`. 
+
+Instructions for creating custom landing pages can be found [here](https://developer.nexmo.com/contribute/guides/landing-pages).
+
+##### Custom Public Path
+
+Custom assets, such as images and icons, can be provided in the `/public` folder. They then can be referenced inside [custom views](#custom-views). For example, if the following image is added inside `/public/assets/media/logos/sample_image.png` then it could be referenced using ERB syntax as follows:
+
+```ruby
+<%= image_tag('/assets/media/logos/sample_image.png') %>
+```
+
+#### Custom Locale Settings
+
+**A sample [custom locales folder](sample_config_files/config/locales) can be found in this repository**
+
+Customized text to display for the menu and different display layouts can be provided inside the custom locale files. They are placed inside the `/custom/locales` folder in the documentation path. Each file is a YAML file named with the 2-letter abbreviation for the language, for example, English locale settings are placed inside `/custom/locales/en.yml`. The following is an example `en.yml` file showing custom text for the menu and for the site header:
+
+```yaml
+en:
+  menu:
+    call-recording: Call Recording
+    provisioning: Provisioning
+    reports: Reports
+    telephony: Telephony
+    vonage-integration-platform: Vonage Integration Platform
+    node-red: Node-RED
+    zapier: Zapier
+    extension: Extension
+    user: User
+    call: Call
+    concepts: Concepts
+    getting-started: Getting Started
+    call_leg: Call Leg
+    device_registration: Device Registration
+    export-job: Export Job
+    download: Download
+    company-call-recording: Company Call Recording
+    on-demand-call-recording: On-Demand Call Recording
+    webhook: Webhook
+    app-center: App Center
+  layouts:
+    partials:
+      header:
+        team: Team
+        use-cases: Use Cases
+        hiring: We're hiring
+```
+
+### Running The Gem
+
+Once you have installed the gem and ran through the configurations, you can start it. 
+
+To start the gem run the following from the command line:
+
+```sh
+$ OAS_PATH=[PATH TO _open_api folder] RAILS_SERVE_STATIC_FILES=true DISABLE_SSL=1 RACK_ENV=production RAILS_ENV=production bundle exec nexmo-developer --docs=[PATH TO DOCUMENTATION]
+```
+
+For example, if your documentation is at `/Users/sample_user/Documents/sample_docs` and your `_open_api` folder is at `/Users/sample_user/Documents/sample_docs/_open_api` then you would start `nexmo-developer` with the following command:
+
+```sh
+$ OAS_PATH=/Users/sample_user/Documents/sample_docs/_open_api RAILS_SERVE_STATIC_FILES=true DISABLE_SSL=1 RACK_ENV=production RAILS_ENV=production bundle exec nexmo-developer --docs=/Users/sample_user/Documents/sample_docs
+```
 
 ## Contributing
+
 We :heart: contributions from everyone! It is a good idea to [talk to us](https://nexmo-community-invite.herokuapp.com/) first if you plan to add any new functionality. Otherwise, [bug reports](https://github.com/Nexmo/nexmo-developer/issues/), [bug fixes](https://github.com/Nexmo/nexmo-developer/pulls) and feedback on the library is always appreciated. Look at the [Contributor Guidelines](CONTRIBUTING.md) for more information and please follow the [GitHub Flow](https://guides.github.com/introduction/flow/index.html).
 
 ## [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues) [![GitHub contributors](https://img.shields.io/github/contributors/Nexmo/nexmo-developer.svg)](https://GitHub.com/Nexmo/nexmo-developer/graphs/contributors/)
 
-## Content Updates
-
-Follow these instructions to make updates to any content in the Nexmo Developer repository.
-
-Checkout a new branch, naming it appropriately:
-
-```
-git checkout -b your-branch-name
-```
-
-Locate the file containing the content you wish to update in `_documentation/en` and open it in your preferred editor. The URL on the documentation site translates to the file path in `_documentation/en`.
-
-Make and save the necessary updates in the file.
-
-Add your changes:
-
-```
-git add -p
-```
-
-Commit the changes in your branch. Include a commit message adequately describing the update(s):
-
-```
-git commit -m “Add a commit message”
-```
-
-Push your branch in order to raise a pull request:
-
-```
-git push origin your-branch-name
-```
-
-Create a pull request in GitHub:
-
-1. In the `nexmo-developer` repository, click the Pull requests tab.
-2. Click the Compare and new pull request button next to your branch in the list. 
-3. Review the changes between your branch and master.
-4. Add a Description of the changes.
-5. Click the Create pull request button.
-
 ## License
 
-This library is released under the [MIT License][license]
+This library is released under the [MIT License][LICENSE]
 
 [signup]: https://dashboard.nexmo.com/sign-up?utm_source=DEV_REL&utm_medium=github&utm_campaign=nexmo-developer
 [license]: LICENSE.txt

@@ -1,0 +1,28 @@
+en:
+  menu:
+    call-recording: Call Recording
+    provisioning: Provisioning
+    reports: Reports
+    telephony: Telephony
+    vonage-integration-platform: Vonage Integration Platform
+    node-red: Node-RED
+    zapier: Zapier
+    extension: Extension
+    user: User
+    call: Call
+    concepts: Concepts
+    getting-started: Getting Started
+    call_leg: Call Leg
+    device_registration: Device Registration
+    export-job: Export Job
+    download: Download
+    company-call-recording: Company Call Recording
+    on-demand-call-recording: On-Demand Call Recording
+    webhook: Webhook
+    app-center: App Center
+  layouts:
+    partials:
+      header:
+        team: Team
+        use-cases: Use Cases
+        hiring: We're hiring

@@ -1,0 +1,163 @@
+page:
+  - row:
+    - column:
+      - type: html
+        html:
+          content: "<h1>SDKs and Tools</h1>"
+  - row:
+    - column:
+      - type: html
+        html:
+          content: "<h2>Client SDKs</h2>"
+  - row:
+    - column:
+      - type: html
+        html:
+          content: "<p>The <a href='https://developer.nexmo.com/client-sdk/overview'>Nexmo Client SDKs</a> allows you to build in-app messaging and voice solutions. Android, iOS and JavaScript are supported.</p>"
+  - row:
+    - column:
+      - type: client_sdk_card
+        client_sdk_card:
+          name:
+            content: Android SDK
+            color: blue-dark
+          icon:
+            name: Brand-icon-android-color
+          text:
+            content: Develop voice and message applications using the Nexmo Client SDK for Android.
+          documentation_url: https://developer.nexmo.com/client-sdk/sdk-documentation/android
+    - column:
+      - type: client_sdk_card
+        client_sdk_card:
+          name:
+            content: iOS SDK
+            color: blue-dark
+          icon:
+            name: Brand-icon-apple-color
+          text:
+            content: Develop voice and message applications using the Nexmo Client SDK for iOS.
+          documentation_url: https://developer.nexmo.com/client-sdk/sdk-documentation/ios
+    - column:
+      - type: client_sdk_card
+        client_sdk_card:
+          name:
+            content: JavaScript SDK
+            color: blue-dark
+          icon:
+            name: Brand-icon-javascript-color
+          text:
+            content: Develop voice and message applications using the Nexmo Client SDK for JavaScript.
+          documentation_url: https://developer.nexmo.com/client-sdk/sdk-documentation/javascript
+  - row:
+    - column:
+      - type: html
+        html:
+          content: "<h2>Server SDKs</h2>"
+  - row:
+    - column:
+      - type: html
+        html:
+          content: "<p>The Nexmo Server SDKs allow you to get up an running with Nexmo API quickly in your language of choice.</p>"
+  - row:
+    - column:
+      - type: github_repo
+        github_repo:
+          repo_url: https://github.com/Nexmo/nexmo-ruby
+          badge_url: //badge.fury.io/rb/nexmo.svg
+          github_repo_title: "Nexmo REST API client for Ruby"
+          language: "Ruby"
+      - type: github_repo
+        github_repo:
+          repo_url: https://github.com/Nexmo/nexmo-php
+          badge_url: //badge.fury.io/ph/nexmo%2Fclient.svg
+          github_repo_title: "Nexmo REST API client for PHP"
+          language: "PHP"
+      - type: github_repo
+        github_repo:
+          repo_url: https://github.com/Nexmo/nexmo-python
+          badge_url: //badge.fury.io/py/nexmo.svg
+          github_repo_title: "Nexmo REST API client for Python"
+          language: "Python"
+    - column:
+      - type: github_repo
+        github_repo:
+          repo_url: https://github.com/Nexmo/nexmo-dotnet
+          badge_url: //badge.fury.io/nu/nexmo.svg
+          github_repo_title: "Nexmo REST API client for .NET"
+          language: "C#"
+      - type: github_repo
+        github_repo:
+          repo_url: https://github.com/Nexmo/nexmo-node
+          badge_url: //badge.fury.io/js/nexmo.svg
+          github_repo_title: "Nexmo REST API client for Node.js"
+          language: "JavaScript"
+      - type: github_repo
+        github_repo:
+          repo_url: https://github.com/Nexmo/nexmo-java
+          badge_url: //badge.fury.io/gh/nexmo%2Fnexmo-java.svg
+          github_repo_title: "Nexmo REST API client for Java"
+          language: "Java"
+  - row:
+    - column:
+      - type: line_divider
+  - row:
+    - column:
+      - type: html
+        html:
+          content: "<h2>Nexmo CLI</h2>"
+  - row:
+    - column:
+      - type: html
+        html:
+          content: "<p>You use the Nexmo Command Line Interface (CLI) to manage your Nexmo account and use Nexmo products from the command line.</p>"
+  - row:
+    - column:
+      - type: github_repo
+        github_repo:
+          repo_url: https://github.com/Nexmo/nexmo-cli
+          badge_url: //badge.fury.io/js/nexmo-cli.svg
+          github_repo_title: Nexmo CLI (Command Line Interface)
+          language: "JavaScript"
+    - column:
+        - type: html
+          html:
+            content: "<span></span>"
+    - column:
+        - type: html
+          html:
+            content: "<span></span>"
+  - row:
+    - column:
+      - type: line_divider
+  - row:
+    - column:
+      - type: html
+        html:
+          content: "<h2>Framework Libraries</h2>"
+  - row:
+    - column:
+      - type: html
+        html:
+          content: "<p>The Nexmo framework libraries can get you up and running with the Nexmo APIs quickly and easily in your framework of choice.</p>"
+  - row:
+    - column:
+      - type: github_repo
+        github_repo:
+          repo_url: https://github.com/Nexmo/nexmo-laravel
+          badge_url: //badge.fury.io/ph/nexmo%2Flaravel.svg
+          github_repo_title: "Nexmo framework library for Laravel"
+          language: "PHP"
+    - column:
+      - type: github_repo
+        github_repo:
+          repo_url: https://github.com/Nexmo/nexmo-rails
+          badge_url: //badge.fury.io/rb/nexmo_rails.svg
+          github_repo_title: "Nexmo framework library for Rails"
+          language: "Ruby"
+    - column:
+      - type: github_repo
+        github_repo:
+          repo_url: https://github.com/Nexmo/nexmo-spring-boot-starter
+          badge_url: //badge.fury.io/gh/nexmo%2Fnexmo-spring-boot-starter.svg
+          github_repo_title: "Nexmo starter and auto configuration for Spring Boot"
+          language: "Java"

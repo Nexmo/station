@@ -1,0 +1,57 @@
+name: Sample Name
+subtitle: Sample Subtitle
+assets:
+  header_logo:
+    path: '/images/logos/sample-logo.png'
+    alt: 'Sample Alt'
+  footer_logo:
+    path: '/images/logos/Vonage-wordmark--white.svg'
+    alt: 'Vonage Logo'
+docs_repo: 'nexmo/nexmo-docs'
+oas_repo: 'vonage/api-specification'
+header:
+  links:
+    sign-up:
+      path: https://path/to/site
+      text:
+        - 'Log In'
+        - 'Try Me'
+  hiring:
+    display: true
+footer:
+  links:
+    status:
+      path: https://developer.vonage.com
+      text: 'API Status'
+    navigation:
+      documentation:
+        - sms: https://developer.nexmo.com/messaging/sms/overview
+        - voice: https://developer.nexmo.com/voice/voice-api/overview
+        - verify: https://developer.nexmo.com/verify/overview
+        - number-insight: https://developer.nexmo.com/number-insight/overview
+        - account: https://developer.nexmo.com/account/overview
+      api-reference:
+        - sms: https://developer.nexmo.com/api/sms
+        - voice: https://developer.nexmo.com/api/voice
+        - verify: https://developer.nexmo.com/api/verify
+        - number-insight: https://developer.nexmo.com/api/number-insight
+        - all-apis: https://developer.nexmo.com/api
+      vonage-api-developer:
+        - community: https://developer.nexmo.com/community
+        - contribute: https://developer.nexmo.com/contribute
+        - legacy-documentation: https://developer.nexmo.com/legacy
+        - team: https://developer.nexmo.com/api/team
+        - careers: https://developer.nexmo.com/careers
+      get-to-know-us:
+        - vonage-api-platform: https://www.vonage.com/communications-apis
+        - careers: https://www.vonage.com/corporate/careers
+        - press: https://www.vonage.com/corporate
+    support:
+      knowledgebase: https://help.nexmo.com
+      known-issues: https://help.nexmo.com/hc/en-us/sections/115004147507
+    social:
+      linkedin: https://www.linkedin.com/company/vonage/
+      slack: /slack
+      twitter: https://twitter.com/vonage
+      github: https://github.com/nexmo
+      stack-overflow: http://stackoverflow.com/questions/tagged/nexmo

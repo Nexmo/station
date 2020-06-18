@@ -1,0 +1,4 @@
+current:
+  - name: 'Jane Doe'
+    email: 'jane.doe@example.com'
+    twitter: 'TwitterHandle'

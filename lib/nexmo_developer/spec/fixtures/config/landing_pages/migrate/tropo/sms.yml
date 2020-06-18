@@ -1,0 +1,8 @@
+page:
+  - row:
+    - column:
+      - type: migrate_details
+        migrate_details:
+          product: 'SMS'
+          product_list: 'messaging/sms'
+          blocks: []

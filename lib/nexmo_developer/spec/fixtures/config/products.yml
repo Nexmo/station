@@ -1,0 +1,59 @@
+products:
+  -
+    path: account
+  -
+    path: account/subaccounts
+  -
+    path: application
+  -
+    path: audit
+  -
+    path: client-sdk
+  -
+    path: client-sdk/in-app-voice
+  -
+    path: client-sdk/in-app-video
+  -
+    path: client-sdk/in-app-messaging
+  -
+    path: concepts
+  -
+    path: conversation
+  -
+    path: dispatch
+  -
+    path: messages
+  -
+    path: messaging/sms
+  -
+    path: messaging/conversion-api
+  -
+    path: messaging/us-short-codes
+  -
+    path: number-insight
+  -
+    path: numbers
+  -
+    path: redact
+  -
+    path: reports
+  -
+    path: tools
+  -
+    path: verify
+  -
+    path: voice/sip
+  -
+    path: voice/voice-api
+  -
+    path: vonage-business-cloud/smart-numbers
+  -
+    path: vonage-business-cloud/integration-suite
+  -
+    path: vonage-business-cloud/vbc-apis/account-api
+  -
+    path: vonage-business-cloud/vbc-apis/extension-api
+  -
+    path: vonage-business-cloud/vbc-apis/reports-api
+  -
+    path: vonage-business-cloud/vbc-apis/user-api

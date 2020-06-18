@@ -1,0 +1,24 @@
+navigation_weight:
+  concepts: 1
+  call-recording: 3
+  provisioning: 2
+  telephony: 4
+  reports: 5
+  vonage-integration-platform: 6
+  smart-numbers: 7
+
+navigation_overrides:
+  concepts: 
+    svg: 'mind-map'
+  call-recording:
+    svg: 'voicemail-2'
+  provisioning:
+    svg: 'address-book'
+  reports:
+    svg: 'report'
+  smart-numbers:
+    svg: 'brain'
+  telephony:
+    svg: 'telephone'
+  vonage-integration-platform:
+    svg: 'plug'

@@ -1,0 +1,103 @@
+# Hanselminutes Landing Page Config
+
+title: "Nexmo APIs provide all you need to get up and running with your .NET applications"
+meta_title: ".NET Tutorials, SDK, code samples and more for a full suite of cloud communications APIs"
+
+page:
+  - row:
+    - column: 
+      - type: header
+        header:
+          title: 
+            text: "Thanks, Scott. We'll take it from here!"
+            align: center
+          subtitle:
+            text: "Welcome, Hanselminutes listeners. Here is everything you need to build your connected applications."
+            align: center
+            type: large
+          icon: 
+            name: "icon-star"
+            color: "yellow"
+      - type: action_button
+        action_button:
+          text: "Try it Free"
+          url: "sign-up?#ref=hansel-dr"
+          type: "secondary"
+          large: true
+          center_button: true
+  - row:
+    - column:
+        - type: line_divider
+  - row:
+    - width: 2
+      column:
+      - type: call_to_action
+        call_to_action:
+          title: "SDKs & Tools"
+          subtitle: "The Nexmo libraries allow you to get up and running with<br> Nexmo APIs quickly in your language of choice."
+          icon: 
+            name: "icon-design-tools"
+            color: "blue-dark"
+          url: "/tools"
+    - width: 2
+      column:
+      - type: call_to_action
+        call_to_action:
+          title: "Community"
+          subtitle: "Find out about our talks, community hacks,<br> and what events we'll be at."
+          icon: 
+            name: "icon-group"
+            color: "blue-dark"
+          url: "/community"
+  - row:
+    - column:
+        - type: line_divider
+  - row:
+    - column:
+      - type: join_slack
+  - row:
+    - column:
+        - type: line_divider
+  - row:
+    - column:
+      - type: call_to_action
+        call_to_action:
+          title: "Nexmo & .NET in action"
+          subtitle: "The Nexmo libraries allow you to get up and running with<br>Nexmo APIs quickly in your language of choice.<br><br>"
+          text: 
+            - content: "Examples and inspiration in .NET form"
+              type: large
+          icon: 
+            name: "Brand-icon-dotnet"
+            color: "blue-dark"
+          url: "https://www.nexmo.com/blog/category/developer?ref=hansel-dr"
+  - row:
+    - width: 2
+      column:
+      - type: tutorial
+        tutorial:
+          name: two-factor-authentication-dotnet-verify-api
+    - width: 2
+      column:
+      - type: tutorial
+        tutorial:
+          name: number-insight-api-aspnet
+  - row: 
+    - column:
+      - type: github_repo
+        github_repo:
+          repo_url: https://github.com/Nexmo/nexmo-dotnet
+          github_repo_title: "Nexmo REST API client for .NET"
+          language: "C#"
+  - row:
+    - column:
+      - type: line_divider
+  - row:
+    - column:
+      - type: products
+  - row:
+    - column: 
+      - type: line_divider
+  - row:
+    - column:
+      - type: contact_support
