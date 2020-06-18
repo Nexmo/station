@@ -1,5 +1,0 @@
----
-code:
-    source: .repos/nexmo/nexmo-php-code-snippets/number-insights/advanced-async-callback/index.php
-    from_line: 9
-    to_line: 17

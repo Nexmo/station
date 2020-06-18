@@ -1,9 +1,0 @@
----
-code:
-    source: .repos/nexmo/nexmo-node-code-snippets/voice/transfer-call.js
-    from_line: 21
-    to_line: 35
-client:
-    source: .repos/nexmo/nexmo-node-code-snippets/voice/transfer-call.js
-    from_line: 12
-    to_line: 19

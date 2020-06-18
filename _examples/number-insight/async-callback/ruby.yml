@@ -1,9 +1,0 @@
----
-dependencies:
-    - sinatra
-    - sinatra/multi-route
-    - json
-code:
-    source: .repos/nexmo/nexmo-ruby-code-snippets/number-insight/ni-advanced-async.rb
-    from_line: 1
-    to_line: 21
