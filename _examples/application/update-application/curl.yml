@@ -1,9 +1,0 @@
----
-title: Curl
-language: curl
-code:
-    source: .repos/nexmo/nexmo-curl-code-snippets/application/update-application.sh
-    from_line: 5
-    to_line: 46
-file_name: update-application.sh
-run_command: './update-application.sh'

@@ -1,7 +1,0 @@
----
-dependencies:
-    - nexmo@beta
-code:
-    source: .repos/nexmo/nexmo-node-code-snippets/dispatch/send-failover-facebook-sms.js
-    from_line: 14
-    to_line: 58
