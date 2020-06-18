@@ -94,20 +94,20 @@
     <meta name="robots" content="noindex,nofollow">
   <% end %>
 
-  <link rel="apple-touch-icon" sizes="180x180" href="<%= request.base_url %>/<%= info[:apple_touch_icon] %>">
-  <link rel="icon" type="image/png" sizes="any" href="<%= request.base_url %>/<%= info[:favicon] %>">
-  <link rel="icon" type="image/png" sizes="32x32" href="<%= request.base_url %>/<%= info[:favicon_32_squared] %>">
-  <link rel="manifest" href="<%= request.base_url %>/<%= info[:manifest] %>">
-  <link rel="mask-icon" href="<%= request.base_url %>/<%= info[:safari_pinned_tab] %>" color="#5bbad5">
+  <link rel="apple-touch-icon" sizes="180x180" href="<%= canonical_base %>/<%= info[:apple_touch_icon] %>">
+  <link rel="icon" type="image/png" sizes="any" href="<%= canonical_base %>/<%= info[:favicon] %>">
+  <link rel="icon" type="image/png" sizes="32x32" href="<%= canonical_base %>/<%= info[:favicon_32_squared] %>">
+  <link rel="manifest" href="<%= canonical_base %>/<%= info[:manifest] %>">
+  <link rel="mask-icon" href="<%= canonical_base %>/<%= info[:safari_pinned_tab] %>" color="#5bbad5">
   <meta name="apple-mobile-web-app-title" content=<%= info[:title] %>>
   <meta name="application-name" content=<%= info[:application_name] %>>
   <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="msapplication-TileImage" content="<%= request.base_url %>/<%= info[:mstile_144_squared] %>">
+  <meta name="msapplication-TileImage" content="<%= canonical_base %>/<%= info[:mstile_144_squared] %>">
   <meta name="theme-color" content="#ffffff">
 
-  <meta property="og:url" content="<%= request.base_url + request.fullpath %>" />
+  <meta property="og:url" content="<%= canonical_base + request.fullpath %>" />
   <meta property="og:type" content="article" />
-  <meta property="og:image" content="<%= request.base_url %>/<%= info[:og_image] %>" />
+  <meta property="og:image" content="<%= canonical_base %>/<%= info[:og_image] %>" />
   <meta property="og:image:width" content=<%= info[:og_image_width] %> />
   <meta property="og:image:height" content=<%= info[:og_image_height] %> />
   <meta property="og:description" content=<%= info[:description] %> />
