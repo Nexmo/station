@@ -44,7 +44,7 @@ class Footer
         if word == 'api'
           word.upcase
         elsif word == 'apis'
-          word = 'APIs'
+          'APIs'
         else
           word.titleize
         end
