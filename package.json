@@ -28,6 +28,7 @@
     "foundation-sites": "^6.5.3",
     "glob": "^7.1.2",
     "gsap": "^1.20.2",
+    "https-proxy-agent": "^2.2.3",
     "jquery": "^3.5.0",
     "js-yaml": "3.13.1",
     "jsrsasign": "^8.0.12",
