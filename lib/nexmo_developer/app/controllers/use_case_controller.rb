@@ -50,6 +50,6 @@ class UseCaseController < ApplicationController
   private
 
   def set_navigation
-    @navigation = :use_case
+    @navigation = 'use-cases'
   end
 end

@@ -24,6 +24,7 @@ class StaticController < ApplicationController
     if request.path.delete('/') == 'community'
       @upcoming_events = Event.upcoming
       @past_events_count = Event.past.count
+      @navigation = :community
 
       @hash = Gmaps4rails.build_markers(@upcoming_events.reject(&:remote?)) do |event, marker|
         event.geocode
