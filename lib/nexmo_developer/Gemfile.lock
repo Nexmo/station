@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/nexmo/nexmo-markdown-renderer.git
-  revision: 8577d35b928874fbcb7c60c72e3889444a717aa5
+  revision: 34da006a09381be18ee745a49805701451b12629
   branch: consider-rails-root-for-views
   specs:
     nexmo_markdown_renderer (0.4.0)
