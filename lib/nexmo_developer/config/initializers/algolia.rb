@@ -4,7 +4,7 @@ begin
   if ENV['ALGOLIA_CONFIG']
     ALGOLIA_CONFIG = YAML.safe_load(ENV['ALGOLIA_CONFIG'])
   else
-    ALGOLIA_CONFIG = YAML.load_file("#{Rails.root}/config/algolia.yml")
+    ALGOLIA_CONFIG = YAML.load_file("#{Rails.configuration.docs_base_path}/config/algolia.yml")
   end
 rescue Errno::ENOENT
   Rails.logger.info('No Algolia config found. Search is now disabled')
