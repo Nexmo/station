@@ -1,3 +1,0 @@
-- type: html
-  html:
-      content: "<div id='hello'><jwt-generator></jwt-generator></div>"
