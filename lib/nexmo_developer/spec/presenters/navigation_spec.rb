@@ -8,7 +8,7 @@ RSpec.describe Navigation do
       options = described_class.new(folder).options
 
       expect(options.keys.size).to eq(3)
-      expect(options['navigation_weight']).to eq(0)
+      expect(options['navigation_weight']).to eq(1)
       expect(options['svg']).to eq('mind-map')
       expect(options['svgColor']).to eq('red')
     end
