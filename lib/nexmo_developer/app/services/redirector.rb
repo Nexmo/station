@@ -1,8 +1,7 @@
 CORE_REDIRECTS = LoadConfig.load_file('config/redirects.yml') || {}
 STITCH_REDIRECTS = LoadConfig.load_file('config/stitch-redirects.yml') || {}
-AUTOMATED_REDIRECTS = YAML.load_file("#{Rails.root}/config/automatic-redirects.yml") || {}
 
-REDIRECTS = CORE_REDIRECTS.merge(STITCH_REDIRECTS).merge(AUTOMATED_REDIRECTS)
+REDIRECTS = CORE_REDIRECTS.merge(STITCH_REDIRECTS)
 
 ENVIRONMENT_REDIRECTS = YAML.safe_load(ENV['ENVIRONMENT_REDIRECTS'] || '')
 
