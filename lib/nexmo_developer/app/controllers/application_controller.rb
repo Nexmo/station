@@ -51,7 +51,7 @@ class ApplicationController < ActionController::Base
 
   # rubocop:disable Naming/MemoizedInstanceVariableName
   def set_notices
-    @notices ||= LoadConfig.load_file('config/notices.yml')
+    @notices ||= LoadConfig.load_file('config/notices.yml') || {}
   end
   # rubocop:enable Naming/MemoizedInstanceVariableName
 
