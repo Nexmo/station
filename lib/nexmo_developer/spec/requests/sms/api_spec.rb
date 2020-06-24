@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.xdescribe 'SMS API docs', type: :request do
+RSpec.describe 'SMS API docs', type: :request, ndp: true do
   context 'external-accounts' do
     it 'renders successfully' do
       get '/api/external-accounts'
