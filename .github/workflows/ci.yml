@@ -95,6 +95,7 @@ jobs:
         FORCE_COLOR: true
       run: |
         bundle exec rake spec --tag ndp
+      working-directory: ./lib/nexmo_developer
     - name: Run Javascript Tests
       run: |
         yarn test
