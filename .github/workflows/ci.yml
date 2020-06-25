@@ -63,7 +63,13 @@ jobs:
         bundle config path vendor/bundle
         bundle install --jobs 4 --retry 3
       working-directory: ./lib/nexmo_developer
-    - name: Run Tests
+    - name: Fetch NDP
+      uses: actions/checkout@v2
+      with:
+        repository: nexmo/nexmo-developer
+        token: ${{ secrets.GitHub_PAT }}
+        path: ndp
+    - name: Run Platform Tests
       env:
         POSTGRES_USERNAME: postgres
         DOCS_BASE_PATH: ./spec/fixtures
@@ -81,6 +87,14 @@ jobs:
         bundle exec rake ci:check_word_blocklist
         bundle exec rake ci:check_ruby_version
       working-directory: ./lib/nexmo_developer
+    - name: Run NDP Tests
+      env:
+        POSTGRES_USERNAME: postgres
+        DOCS_BASE_PATH: ./ndp
+        OAS_PATH: ./ndp/api_specs/definitions
+        FORCE_COLOR: true
+      run: |
+        bundle exec rake spec --tag ndp
     - name: Run Javascript Tests
       run: |
         yarn test
