@@ -94,7 +94,7 @@ jobs:
         OAS_PATH: ./ndp/api_specs/definitions
         FORCE_COLOR: true
       run: |
-        bundle exec rake spec --tag ndp
+        bundle exec rspec --tag ndp
       working-directory: ./lib/nexmo_developer
     - name: Run Javascript Tests
       run: |
