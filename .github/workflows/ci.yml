@@ -66,9 +66,11 @@ jobs:
     - name: Fetch NDP
       uses: actions/checkout@master
       with:
+        ref: remove-code
         repository: nexmo/nexmo-developer
         token: ${{ secrets.GITHUB_TOKEN }}
         path: ndp
+        submodules: true
     - name: Run Platform Tests
       env:
         POSTGRES_USERNAME: postgres
@@ -90,8 +92,8 @@ jobs:
     - name: Run NDP Tests
       env:
         POSTGRES_USERNAME: postgres
-        DOCS_BASE_PATH: ./ndp
-        OAS_PATH: ./ndp/api_specs/definitions
+        DOCS_BASE_PATH: ${{ github.workspace }}/ndp
+        OAS_PATH: ${{ github.workspace }}/ndp/api_specs/definitions
         FORCE_COLOR: true
       run: |
         bundle exec rspec --tag ndp
