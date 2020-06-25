@@ -64,10 +64,10 @@ jobs:
         bundle install --jobs 4 --retry 3
       working-directory: ./lib/nexmo_developer
     - name: Fetch NDP
-      uses: actions/checkout@v2
+      uses: actions/checkout@master
       with:
         repository: nexmo/nexmo-developer
-        token: ${{ secrets.GitHub_PAT }}
+        token: ${{ secrets.GITHUB_TOKEN }}
         path: ndp
     - name: Run Platform Tests
       env:
