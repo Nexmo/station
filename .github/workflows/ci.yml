@@ -93,7 +93,7 @@ jobs:
       env:
         POSTGRES_USERNAME: postgres
         DOCS_BASE_PATH: ${{ github.workspace }}/ndp
-        OAS_PATH: ${{ github.workspace }}/ndp/api_specs/definitions
+        OAS_PATH: ${{ github.workspace }}/ndp/_open_api/api_specs/definitions
         FORCE_COLOR: true
       run: |
         bundle exec rspec --tag ndp
