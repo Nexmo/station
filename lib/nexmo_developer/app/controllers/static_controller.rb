@@ -40,9 +40,9 @@ class StaticController < ApplicationController
     end
 
     if request.path.sub!('/', '') == 'migrate/tropo/sms'
-      migrate_tropo('sms')
+      migrate_tropo
     elsif request.path.sub!('/', '') == 'migrate/tropo/voice'
-      migrate_tropo('voice')
+      migrate_tropo
     end
 
     render layout: 'landing'
@@ -140,11 +140,10 @@ class StaticController < ApplicationController
     render layout: 'page'
   end
 
-  def migrate_tropo(product)
+  def migrate_tropo
     @active_title = 'Migrate from Tropo'
-    @config = YAML.load_file("#{Rails.configuration.docs_base_path}/config/landing_pages/migrate/tropo/#{product}.yml")
 
-    @building_blocks = @config['page'][0]['row'][0]['column'][0]['migrate_details']['blocks'].map do |block|
+    @building_blocks = @landing_config['page'][0]['row'][0]['column'][0]['migrate_details']['blocks'].map do |block|
       block['nexmo'] = "<h2>Nexmo</h2>
         ```code_snippets
           code_only: true

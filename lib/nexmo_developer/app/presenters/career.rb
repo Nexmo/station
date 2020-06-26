@@ -1,6 +1,6 @@
 class Career
   HEADING_TAG_LIST = %w[h1 h2 h3 h4 h5 h6].freeze
-  DEPARTMENTS = YAML.safe_load(File.read('config/greenhouse_departments.yml'))
+  DEPARTMENTS = YAML.safe_load(File.read("#{Rails.configuration.docs_base_path}/config/greenhouse_departments.yml"))
 
   def initialize(career)
     @career = career

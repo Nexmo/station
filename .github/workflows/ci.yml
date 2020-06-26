@@ -63,7 +63,23 @@ jobs:
         bundle config path vendor/bundle
         bundle install --jobs 4 --retry 3
       working-directory: ./lib/nexmo_developer
-    - name: Run Tests
+    - name: Fetch NDP
+      uses: actions/checkout@master
+      with:
+        ref: remove-code
+        repository: nexmo/nexmo-developer
+        token: ${{ secrets.GITHUB_TOKEN }}
+        path: ndp
+        submodules: true
+    - name: Fetch VDP
+      uses: actions/checkout@master
+      with:
+        ref: master
+        repository: VonageGarage/VDP
+        token: ${{ secrets.GITHUB_TOKEN }}
+        path: vdp
+        submodules: true
+    - name: Run Platform Tests
       env:
         POSTGRES_USERNAME: postgres
         DOCS_BASE_PATH: ./spec/fixtures
@@ -74,10 +90,32 @@ jobs:
         bundle exec rails db:migrate
         bundle exec rake spec
         bundle exec rubocop
+      working-directory: ./lib/nexmo_developer
+    - name: Run NDP Tests
+      env:
+        POSTGRES_USERNAME: postgres
+        DOCS_BASE_PATH: ${{ github.workspace }}/ndp
+        OAS_PATH: ${{ github.workspace }}/ndp/_open_api/api_specs/definitions
+        FORCE_COLOR: true
+      run: |
+        bundle exec rspec --tag ndp
         bundle exec rake ci:verify_pages
         bundle exec rake ci:verify_navigation
         bundle exec rake ci:verify_oas_reference
-        bundle exec rake ci:verify_error_urls_resolve
+        RAILS_ENV=test bundle exec rake ci:verify_error_urls_resolve
+        bundle exec rake ci:check_word_blocklist
+        bundle exec rake ci:check_ruby_version
+      working-directory: ./lib/nexmo_developer
+    - name: Run VDP Tests
+      env:
+        POSTGRES_USERNAME: postgres
+        DOCS_BASE_PATH: ${{ github.workspace }}/vdp
+        OAS_PATH: ${{ github.workspace }}/vdp/_open_api/definitions
+        FORCE_COLOR: true
+      run: |
+        bundle exec rake ci:verify_pages
+        bundle exec rake ci:verify_navigation
+        bundle exec rake ci:verify_oas_reference
         bundle exec rake ci:check_word_blocklist
         bundle exec rake ci:check_ruby_version
       working-directory: ./lib/nexmo_developer

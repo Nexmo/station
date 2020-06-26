@@ -1,0 +1,157 @@
+navigation_weight:
+  application: 0
+  messaging: 1
+  messages: 1
+  voice: 3
+  verify: 3
+  number-insight: 4
+  dispatch: 2
+  numbers: 98
+  account: 99
+  audit: 100
+  redact: 100
+  reports: 101
+  vonage-business-cloud: 200
+
+  smart-numbers: 1
+  vbc-apis: 2
+  getting-started: 1
+  account-api: 2
+  extension-api: 3
+  reports-api: 4
+  user-api: 5
+  integration-suite: 3
+
+  onboarding: 0
+  developer-preview: 2
+  tasks: 3
+  quickstarts: 3
+  guides: 4
+  code-snippets: 5
+
+  tutorials: 6
+  use-cases: 6
+  troubleshooting: 7
+  api-reference: 7
+  conversation: 8
+
+  voice-api: 1
+  sip: 2
+
+  client-sdk: 30
+  ncco-eference: 40
+  sdk-documentation: 40
+  api-reference: 50
+
+  overview: 1
+  setup: 2
+  configuration: 3
+  concepts: 3
+  in-app-messaging: 4
+  in-app-voice: 5
+  in-app-video: 6
+
+  secret-management: 30
+
+navigation_overrides:
+  application:
+    svg: 'flow'
+    svgColor: 'blue'
+  getting-started:
+    navigation_weight: 0
+    svg: 'mind-map'
+    svgColor: 'red'
+  concepts:
+    navigation_weight: 1
+    svg: 'mind-map'
+    svgColor: 'red'
+  messaging:
+    svg: 'message'
+    svgColor: 'purple'
+    sms:
+      navigation_weight: 0
+    us-short-codes:
+      navigation_weight: 1
+      guides:
+        2fa:
+          navigation_weight: 0
+        campaign-subscription-management:
+          navigation_weight: 1
+        alerts:
+          navigation_weight: 2
+    conversion-api:
+      navigation_weight: 2
+  voice:
+    svg: 'phone'
+    svgColor: 'green'
+    voice-api:
+      guides:
+        websockets:
+          label: 'Beta'
+        asr:
+          label: 'Beta'
+  verify:
+    svg: 'lock'
+    svgColor: 'indigo'
+  number-insight:
+    svg: 'file-search'
+    svgColor: 'orange'
+  account:
+    svg: 'user'
+    svgColor: 'blue'
+    subaccounts:
+      label: 'Beta'
+  redact:
+    label: 'Dev Preview'
+    svg: 'lock'
+    svgColor: 'red'
+  client-sdk:
+    svg: 'queue'
+    svgColor: 'teal'
+    label: 'Beta'
+    overview:
+      navigation_weight: 1
+    setup:
+      navigation_weight: 2
+    configuration:
+      navigation_weight: 3  
+    custom-events:
+      navigation_weight: 4
+    sdk-documentation:
+      link: false
+      collapsible: false
+  numbers:
+    svg: 'phone-number'
+    svgColor: 'red'
+  audit:
+    svg: 'file-search'
+    svgColor: 'green'
+    label: 'Beta'
+  messages:
+    svg: 'chat'
+    svgColor: 'purple'
+    label: 'Beta'
+    code-snippets:
+      collapsible: false
+  dispatch:
+    svg: 'flow'
+    svgColor: 'purple'
+    label: 'Beta'
+  conversation:
+    svg: 'message'
+    svgColor: 'teal'
+    label: 'Beta'
+    code-snippets:
+      collapsible: false
+  reports:
+    svg: 'report'
+    svgColor: 'orange'
+    label: 'Beta'
+  vonage-business-cloud:
+    svg: 'telephone'
+    svgColor: 'green'
+  tools:
+    svg: 'tool'
+  contribute:
+    administration:
+      navigation_weight: 9999

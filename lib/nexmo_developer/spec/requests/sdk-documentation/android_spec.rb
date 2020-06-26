@@ -1,15 +1,15 @@
 require 'rails_helper'
 
-RSpec.xdescribe 'Android docs', type: :request do
+RSpec.describe 'Android docs', type: :request, ndp: true do
   context 'SDK reference' do
     it 'redirects to the proper path' do
       get '/client-sdk/sdk-documentation/android/android'
 
-      expect(response).to redirect_to('/sdk/stitch/android/')
+      expect(response).to redirect_to('/sdk/stitch/android/index')
     end
 
     it 'renders successsfully' do
-      get '/sdk/stitch/android'
+      get '/sdk/stitch/android/index'
 
       expect(response).to have_http_status(:ok)
     end
