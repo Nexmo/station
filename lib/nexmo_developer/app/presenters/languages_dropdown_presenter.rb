@@ -9,16 +9,8 @@ class LanguagesDropdownPresenter
     end
   end
 
-  def initialize(scope)
-    @scope = scope
-  end
-
   def options
-    @options ||= languages.select { |l| scoped_languages.include? l.key }.map { |l| Option.new(l) }
-  end
-
-  def scoped_languages
-    @scoped_languages ||= @scope.map(&:languages).flatten.uniq.map(&:downcase)
+    @options ||= languages.map { |l| Option.new(l) }
   end
 
   def languages
