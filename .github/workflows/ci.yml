@@ -82,12 +82,6 @@ jobs:
         bundle exec rails db:migrate
         bundle exec rake spec
         bundle exec rubocop
-        bundle exec rake ci:verify_pages
-        bundle exec rake ci:verify_navigation
-        bundle exec rake ci:verify_oas_reference
-        bundle exec rake ci:verify_error_urls_resolve
-        bundle exec rake ci:check_word_blocklist
-        bundle exec rake ci:check_ruby_version
       working-directory: ./lib/nexmo_developer
     - name: Run NDP Tests
       env:
@@ -97,6 +91,12 @@ jobs:
         FORCE_COLOR: true
       run: |
         bundle exec rspec --tag ndp
+        bundle exec rake ci:verify_pages
+        bundle exec rake ci:verify_navigation
+        bundle exec rake ci:verify_oas_reference
+        bundle exec rake ci:verify_error_urls_resolve
+        bundle exec rake ci:check_word_blocklist
+        bundle exec rake ci:check_ruby_version
       working-directory: ./lib/nexmo_developer
     - name: Run Javascript Tests
       run: |
