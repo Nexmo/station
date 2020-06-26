@@ -12,14 +12,16 @@
     <div class="Vlt-dropdown__panel">
       <div class="Vlt-dropdown__panel__content">
         <ul>
-          <% products = Product.filter_products_for_dropdown(@use_cases) %>
-          <% products.each do |product| %>
+          <% ProductDropdownPresenter.new(@use_cases).options.each do |option| %>
             <li>
               <a
                 class="Vlt-dropdown__link"
-                href="<%= url_for(controller: :use_case, action: :index, product: product['path'], code_language: @language)%>"
+                href="<%= url_for(controller: :use_case, action: :index, product: option.path, code_language: @language)%>"
                 >
-                <svg style="height: 20px; width: 20px;" class="Vlt-gray-darker Vlt-dropdown__link__icon"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-<%= product['icon'] %>"></use></svgc><span><%= product['name'] %></span>
+                <svg style="height: 20px; width: 20px;" class="Vlt-gray-darker Vlt-dropdown__link__icon">
+                  <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-<%= option.icon %>"></use>
+                </svg>
+                <span><%= option.name %></span>
               </a>
             </li>
           <% end %>

@@ -5,13 +5,13 @@
   <div class="Vlt-dropdown__panel">
     <div class="Vlt-dropdown__panel__content">
       <ul>
-        <% languages = LanguagesDropdown.filter_languages_for_dropdown(item_list).each do |lang| %>
+        <% LanguagesDropdownPresenter.new(item_list).options.each do |option| %>
           <li>
             <a
               class="Vlt-dropdown__link"
-              href="<%= url_for(controller: controller_name, action: action_name, product: params[:product], code_language: lang.key)%>"
+              href="<%= url_for(controller: controller_name, action: action_name, product: params[:product], code_language: option.code_language)%>"
               >
-              <svg class="Vlt-dropdown__link__icon" style="height: 20px; width: 20px;" ><use xlink:href="/assets/images/brands/<%= lang.icon %>.svg#<%= lang.icon %>"></use></svg><span><%= lang.label %></span>
+              <%= render 'code_languages/icon', code_language: option.code_language %>
             </a>
           </li>
         <% end %>
