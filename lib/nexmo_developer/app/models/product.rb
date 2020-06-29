@@ -19,19 +19,4 @@ class Product
 
     product.camelcase
   end
-
-  def self.filter_products_for_dropdown(item_list)
-    products = all.select { |p| p['dropdown'] == true }
-    products_mapped = []
-
-    products.each do |p|
-      item_list.each do |i|
-        if i.products.include?(p['path'])
-          products_mapped << p
-        end
-      end
-    end
-
-    products_mapped
-  end
 end
