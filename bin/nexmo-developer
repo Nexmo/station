@@ -2,6 +2,7 @@
 require 'optparse'
 
 clear_cache = false
+rake_ci = false
 
 options = {}
 docs_path = OptionParser.new do |opts|
@@ -22,6 +23,9 @@ docs_path = OptionParser.new do |opts|
   end
   opts.on("--clear-cache", "Clear Rails cache") do
     clear_cache = true
+  end
+  opts.on("--rake-ci", "Runs ci tasks") do
+    rake_ci = true
   end
 end.parse!
 
@@ -70,6 +74,7 @@ require 'country_select'
 require 'smartling'
 require 'newrelic_rpm'
 require 'redis'
+require 'rake'
 
 require 'config/application'
 require 'rails/command'
@@ -78,4 +83,10 @@ if clear_cache
   puts "Clearing Rails cache..."
   Rails::Command.invoke 'runner', ['Rails.cache.clear']
 end
-Rails::Command.invoke 'server'
+
+if rake_ci
+  Rails.application.load_tasks
+  Rails::Command.invoke 'runner', ["Rake::Task['ci:all'].invoke"]
+else
+  Rails::Command.invoke 'server'
+end
