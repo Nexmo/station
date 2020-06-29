@@ -12,7 +12,7 @@ namespace :test do
     task.options << '--display-cop-names'
 
     # Run extra Rails cops
-    task.options << '--rails'
+    task.requires << 'rubocop-rails'
 
     # Abort on failures (fix your code first)
     task.fail_on_error = false
