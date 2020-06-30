@@ -36,7 +36,7 @@ Gem::Specification.new do |spec|
   spec.bindir        = "bin"
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
-  spec.add_runtime_dependency('activeadmin', '~> 2.6')
+  spec.add_runtime_dependency('activeadmin', '~> 2.7')
   spec.add_runtime_dependency('rails', '~> 6.0')
   spec.add_runtime_dependency('bootsnap', '~> 1.4')
   spec.add_runtime_dependency('nexmo-oas-renderer', '~> 0.11')
@@ -88,6 +88,6 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency('newrelic_rpm', '6.10.0.364')
   spec.add_runtime_dependency('redis', '4.1.4')
 
-  spec.add_development_dependency('rubocop', '~> 0.85.0')
-  spec.add_development_dependency('rubocop-rails', '~> 2.5')
+  spec.add_development_dependency('rubocop', '~> 0.86.0')
+  spec.add_development_dependency('rubocop-rails', '~> 2.6')
 end
