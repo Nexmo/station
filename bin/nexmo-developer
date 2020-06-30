@@ -85,6 +85,7 @@ if clear_cache
 end
 
 if rake_ci
+  puts 'Running Rake tasks...'
   Rails.application.load_tasks
   Rails::Command.invoke 'runner', ["Rake::Task['ci:all'].invoke"]
 else
