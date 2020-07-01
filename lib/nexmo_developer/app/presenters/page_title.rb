@@ -1,6 +1,4 @@
 class PageTitle
-  CONFIG = YAML.safe_load(File.open("#{Rails.configuration.docs_base_path}/config/header_meta.yml"))
-
   def initialize(product, document_title)
     @product        = product
     @document_title = document_title
