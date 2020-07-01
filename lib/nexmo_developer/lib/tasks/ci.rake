@@ -1,4 +1,4 @@
-require './lib/common_errors.rb'
+require_relative '../common_errors'
 
 namespace :ci do
   desc 'Verify all pages to make sure that no exceptions are thrown'
@@ -166,4 +166,6 @@ namespace :ci do
       abort("Ruby version mismatch found:\n\n#{errors.join("\n")}")
     end
   end
+
+  task all: %i[verify_pages verify_navigation verify_oas_reference verify_error_urls_resolve check_word_blocklist]
 end
