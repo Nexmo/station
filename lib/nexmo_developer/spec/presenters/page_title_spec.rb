@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe PageTitle, type: :model do
   let(:product) { nil }
 
-  subject { described_class.new(product, title, 'Vonage API Developer') }
+  subject { described_class.new(product, title) }
 
   describe '#title' do
     context 'with title' do
