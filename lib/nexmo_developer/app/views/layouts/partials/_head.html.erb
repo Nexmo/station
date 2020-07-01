@@ -1,9 +1,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <% info = Head.new.items %>
 
-  <% if @header_data[:google_site_verification] %>
-    <meta name="google-site-verification" content=<%= @header_data[:google_site_verification] %> />
+  <% if info[:google_site_verification] %>
+    <meta name="google-site-verification" content=<%= info[:google_site_verification] %> />
   <% end %>
   <title><%= page_title %></title>
 
@@ -92,23 +93,23 @@
     <meta name="robots" content="noindex,nofollow">
   <% end %>
 
-  <link rel="apple-touch-icon" sizes="180x180" href="<%= canonical_base %>/<%= @header_data[:apple_touch_icon] %>">
-  <link rel="icon" type="image/png" sizes="any" href="<%= canonical_base %>/<%= @header_data[:favicon] %>">
-  <link rel="icon" type="image/png" sizes="32x32" href="<%= canonical_base %>/<%= @header_data[:favicon_32_squared] %>">
-  <link rel="manifest" href="<%= canonical_base %>/<%= @header_data[:manifest] %>">
-  <link rel="mask-icon" href="<%= canonical_base %>/<%= @header_data[:safari_pinned_tab] %>" color="#5bbad5">
-  <meta name="apple-mobile-web-app-title" content=<%= @header_data[:title] %>>
-  <meta name="application-name" content=<%= @header_data[:application_name] %>>
+  <link rel="apple-touch-icon" sizes="180x180" href="<%= canonical_base %>/<%= info[:apple_touch_icon] %>">
+  <link rel="icon" type="image/png" sizes="any" href="<%= canonical_base %>/<%= info[:favicon] %>">
+  <link rel="icon" type="image/png" sizes="32x32" href="<%= canonical_base %>/<%= info[:favicon_32_squared] %>">
+  <link rel="manifest" href="<%= canonical_base %>/<%= info[:manifest] %>">
+  <link rel="mask-icon" href="<%= canonical_base %>/<%= info[:safari_pinned_tab] %>" color="#5bbad5">
+  <meta name="apple-mobile-web-app-title" content=<%= info[:title] %>>
+  <meta name="application-name" content=<%= info[:application_name] %>>
   <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="msapplication-TileImage" content="<%= canonical_base %>/<%= @header_data[:mstile_144_squared] %>">
+  <meta name="msapplication-TileImage" content="<%= canonical_base %>/<%= info[:mstile_144_squared] %>">
   <meta name="theme-color" content="#ffffff">
 
   <meta property="og:url" content="<%= canonical_base + request.fullpath %>" />
   <meta property="og:type" content="article" />
-  <meta property="og:image" content="<%= canonical_base %>/<%= @header_data[:og_image] %>" />
-  <meta property="og:image:width" content=<%= @header_data[:og_image_width] %> />
-  <meta property="og:image:height" content=<%= @header_data[:og_image_height] %> />
-  <meta property="og:description" content=<%= @header_data[:description] %> />
+  <meta property="og:image" content="<%= canonical_base %>/<%= info[:og_image] %>" />
+  <meta property="og:image:width" content=<%= info[:og_image_width] %> />
+  <meta property="og:image:height" content=<%= info[:og_image_height] %> />
+  <meta property="og:description" content=<%= info[:description] %> />
   <meta name="twitter:card" content="summary_large_image" />
   <meta property="og:title" content="<%= page_title %>" />
 
@@ -128,7 +129,7 @@
     <% end %>
   <% end %>
 
-  <meta name="copyright" content="<%= Time.current.year %> <%= @header_data[:application_name] %>" />
+  <meta name="copyright" content="<%= Time.current.year %> <%= info[:application_name] %>" />
 
   <%= csrf_meta_tags %>
 
