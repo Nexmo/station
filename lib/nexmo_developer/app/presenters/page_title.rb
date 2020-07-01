@@ -1,6 +1,4 @@
 class PageTitle
-  DEFAULT = 'Vonage API Developer'.freeze
-
   def initialize(product, document_title)
     @product        = product
     @document_title = document_title
@@ -8,11 +6,11 @@ class PageTitle
 
   def title
     if @product && @document_title
-      "#{@product.titleize} > #{@document_title} | #{DEFAULT}"
+      "#{@product.titleize} > #{@document_title}"
     elsif @document_title
-      "#{@document_title} | #{DEFAULT}"
+      "#{@document_title}"
     else
-      DEFAULT
+      'Vonage'
     end
   end
 end

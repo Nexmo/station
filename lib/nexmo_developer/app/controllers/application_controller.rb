@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
 
   http_basic_authenticate_with name: ENV['USERNAME'], password: ENV['PASSWORD'], if: :requires_authentication?
 
+  before_action :set_header_data
   before_action :set_show_feedback
   before_action :set_notices
   before_action :set_code_language
@@ -37,6 +38,10 @@ class ApplicationController < ActionController::Base
 
   def requires_authentication?
     ENV['USERNAME'] && ENV['PASSWORD']
+  end
+
+  def set_header_data
+    @header_data = Head.new.items
   end
 
   def set_show_feedback
@@ -93,6 +98,6 @@ class ApplicationController < ActionController::Base
   end
 
   def page_title
-    @page_title ||= PageTitle.new(@product, @document_title).title
+    @page_title ||= PageTitle.new(@product, @header_data[:title]).title
   end
 end
