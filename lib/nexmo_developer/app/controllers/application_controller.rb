@@ -98,6 +98,6 @@ class ApplicationController < ActionController::Base
   end
 
   def page_title
-    @page_title ||= PageTitle.new(@product, @header_data[:title]).title
+    @page_title ||= PageTitle.new(@product, @document_title, @header_data[:title]).title
   end
 end
