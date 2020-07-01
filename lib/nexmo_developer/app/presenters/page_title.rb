@@ -15,7 +15,9 @@ class PageTitle
   end
 
   def default_title
-    config = YAML.safe_load(File.open("#{Rails.configuration.docs_base_path}/config/header_meta.yml"))
-    config['title']
+    @default_title ||= begin
+      config = YAML.safe_load(File.open("#{Rails.configuration.docs_base_path}/config/header_meta.yml"))
+      config['title']
+    end
   end
 end
