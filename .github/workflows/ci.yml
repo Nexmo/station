@@ -126,4 +126,4 @@ jobs:
       env:
         FORCE_COLOR: true
       run: |
-        ./node_modules/.bin/mdspell -r -n -a --en-us '_documentation/en/**/*.md' '_partials/*.md' '_partials/**/*.md' '_modals/**/*.md' '_tutorials/**.md'
+        ./node_modules/.bin/mdspell -r -n -a --en-us '_documentation/en/**/*.md' '_partials/*.md' '_partials/**/*.md' '_modals/**/*.md' '_tutorials/**/*.md'

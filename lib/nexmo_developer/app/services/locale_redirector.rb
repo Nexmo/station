@@ -18,6 +18,7 @@ class LocaleRedirector
       .sub(@request.protocol, '')
       .sub(@request.host_with_port, '')
       .sub(%r{/\w{2}/}, '/')
+      .gsub(/\?.*/, '')
   end
 
   def add_locale?
