@@ -202,3 +202,4 @@ This content is provided directly in the tutorial configuration file as it is sp
 
 * See [Sending a Facebook message with Failover](/dispatch/tutorials/send-facebook-message-with-failover/introduction) for an example of a single-language tutorial.
 * See [Creating a chat app](/client-sdk/tutorials/in-app-messaging/introduction) for an example of a multi-language tutorial.
+* See also [Use Cases](/contribute/guides/use-cases).
