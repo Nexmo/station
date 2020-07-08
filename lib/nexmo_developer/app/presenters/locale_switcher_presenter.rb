@@ -2,6 +2,7 @@ class LocaleSwitcherPresenter
   LOCALES = {
     'cn' => '简体中文',
     'en' => 'English',
+    'ja' => '日本語',
   }.freeze
 
   def initialize(request)

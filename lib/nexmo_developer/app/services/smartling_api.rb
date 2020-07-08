@@ -53,7 +53,7 @@ class SmartlingAPI
       folder = storage_folder(filename, locale)
       FileUtils.mkdir_p(folder) unless File.exist?(folder)
       File.open(file_path(filename, locale), 'w+') do |file|
-        file.write(Nexmo::Markdown::I18n::SmartlingConverterFilter.call(response))
+        file.write(Nexmo::Markdown::SmartlingPipeline.call(response))
       end
     end
   end
@@ -71,7 +71,14 @@ class SmartlingAPI
   end
 
   def locale_without_region(locale)
-    ['zh-CN', 'cn'].include?(locale) ? :cn : :en
+    case locale
+    when 'zh-CN', 'cn'
+      :cn
+    when 'ja', 'ja-JP'
+      :ja
+    else
+      :en
+    end
   end
 
   def storage_folder(filename, locale)
