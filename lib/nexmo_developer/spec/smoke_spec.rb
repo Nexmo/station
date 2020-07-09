@@ -27,6 +27,11 @@ RSpec.describe 'Smoke Tests', type: :request, ndp: true do
     expect(response.body).to include('The Nexmo Server SDKs allow you to get up an running with Nexmo API quickly in your language of choice.')
   end
 
+  it '/jwt contains the expected text' do
+    get '/jwt'
+    expect(response.body).to include('The JWT is generated on the client-side so your private key never leaves your browser.')
+  end
+
   it '/extend contains the expected text' do
     get '/extend'
     expect(response.body).to include('The Vonage API Extend Team develops productized integrations so builders everywhere can create better communication experiences for their users.')
