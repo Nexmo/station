@@ -30,11 +30,7 @@
         <%= form_tag({}, {:method => :get}) do %>
             <div>
                 Product: <%= select_tag :product,
-<<<<<<< HEAD:lib/nexmo_developer/app/views/dashboard/coverage.html.erb
-                    options_for_select([['All', nil]].concat(DocumentationConstraint..product_with_parent_list.map { |s| s.split('/').first }.uniq), params[:product]),
-=======
-                    options_for_select([['All', nil]].concat(DocumentationConstraint.product_with_parent_list.map { |s| s.split('/').first }.uniq), params[:product]),
->>>>>>> cfba183260cec8e8e824b8325fc77f4412c38d15:app/views/dashboard/coverage.html.erb
+                    options_for_select([['All', nil]].concat(DocumentationConstraint.product_with_parent_list), params[:product]),
                     onchange: "this.form.submit();" %>
                 Show Only: <%= select_tag :only,
                     options_for_select([['All', nil], 'yaml', 'file'], params[:only]),
