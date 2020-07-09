@@ -30,7 +30,7 @@ RSpec.describe 'Smoke Tests', type: :request, ndp: true do
   it '/jwt contains the expected text' do
     get '/jwt'
     expect(response).to have_http_status(:ok)
-    expect(response.body).to include('<div id="jwt-generator-app">')
+    expect(response.body).to include("<div id='jwt-generator-app'>")
   end
 
   it '/extend contains the expected text' do
