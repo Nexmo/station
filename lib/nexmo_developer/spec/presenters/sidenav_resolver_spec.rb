@@ -27,6 +27,14 @@ RSpec.describe SidenavResolver do
         expect(subject.items.size).to eq(3)
       end
     end
+
+    context 'it should exclude `documentation` for other languages' do
+      let(:language) { 'ja' }
+
+      it 'returns the files under the path' do
+        expect(subject.items.size).to eq(3)
+      end
+    end
   end
 
   describe '#directories' do
