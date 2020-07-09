@@ -12,7 +12,7 @@
     <div class="Vlt-dropdown__panel">
       <div class="Vlt-dropdown__panel__content">
         <ul>
-          <% ProductDropdownPresenter.new(@tutorials).options.each do |option| %>
+          <% ProductDropdownPresenter.new(TutorialList.all).options.each do |option| %>
             <li>
               <a
                 class="Vlt-dropdown__link"
