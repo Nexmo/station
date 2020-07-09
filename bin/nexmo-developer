@@ -87,6 +87,7 @@ end
 if rake_ci
   puts 'Running Rake tasks...'
   Rails.application.load_tasks
+  Rails::Command.invoke 'runner', ["Rake::Task['db:setup'].invoke"]
   Rails::Command.invoke 'runner', ["Rake::Task['ci:all'].invoke"]
 else
   Rails::Command.invoke 'server'
