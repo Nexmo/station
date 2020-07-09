@@ -10,10 +10,11 @@ RSpec.describe PageTitle, type: :model do
       let(:title) { 'Metadata Example Title' }
 
       context 'with product' do
-        let(:product) { 'Example Product' }
+        let(:product) { 'example/example-api' }
 
         it 'returns the product and title with the default appended' do
-          expect(subject.title).to eq('Example Product > Metadata Example Title | Vonage API Developer')
+          allow_any_instance_of(PageTitle).to receive(:load_config).and_return(sample_config)
+          expect(subject.title).to eq('Example API > Metadata Example Title | Vonage API Developer')
         end
       end
 
@@ -31,5 +32,19 @@ RSpec.describe PageTitle, type: :model do
         expect(subject.title).to eq('Vonage API Developer')
       end
     end
+  end
+
+  def sample_config
+    {
+      'products' => [
+        {
+          'name' => 'Example API',
+          'icon' => 'user',
+          'icon_colour' => 'purple-dark',
+          'path' => 'example/example-api',
+          'dropdown' => true,
+        },
+      ],
+    }
   end
 end
