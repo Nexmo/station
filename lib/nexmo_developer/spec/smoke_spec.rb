@@ -29,7 +29,8 @@ RSpec.describe 'Smoke Tests', type: :request, ndp: true do
 
   it '/jwt contains the expected text' do
     get '/jwt'
-    expect(response.body).to include('The JWT is generated on the client-side so your private key never leaves your browser.')
+    expect(response).to have_http_status(:ok)
+    expect(response).to include('<div id="jwt-generator-app">')
   end
 
   it '/extend contains the expected text' do
