@@ -40,7 +40,7 @@
     "postcss-cssnext": "^3.0.2",
     "postcss-loader": "^3.0.0",
     "postcss-smart-import": "^0.7.5",
-    "precss": "^2.0.0",
+    "precss": "^4.0.0",
     "prop-types": "^15.7.2",
     "puppeteer": "^1.13.0",
     "rails-erb-loader": "^5.1.0",
