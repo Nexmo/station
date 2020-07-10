@@ -1,4 +1,4 @@
-ActiveAdmin.register ::Feedback, as: 'Feedback' do
+ActiveAdmin.register ::Feedback::Feedback, as: 'Feedback' do
   menu parent: 'Feedback', priority: 1
 
   permit_params :resolved
