@@ -75,7 +75,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency('uglifier', '4.2.0')
   spec.add_runtime_dependency('jquery-rails', '4.4.0')
   spec.add_runtime_dependency('jbuilder', '2.10.0')
-  spec.add_runtime_dependency('nokogiri', '1.10.9')
+  spec.add_runtime_dependency('nokogiri', '1.10.10')
   spec.add_runtime_dependency('ruby-progressbar', '1.10.1')
   spec.add_runtime_dependency('colorize', '0.8.1')
   spec.add_runtime_dependency('neatjson', '0.9')
