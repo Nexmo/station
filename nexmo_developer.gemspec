@@ -85,7 +85,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency('countries', '3.0.1')
   spec.add_runtime_dependency('country_select', '4.0.0')
   spec.add_runtime_dependency('smartling', '2.0.3')
-  spec.add_runtime_dependency('newrelic_rpm', '6.10.0.364')
+  spec.add_runtime_dependency('newrelic_rpm', '6.11.0.365')
   spec.add_runtime_dependency('redis', '4.1.4')
 
   spec.add_development_dependency('rubocop', '~> 0.87.1')
