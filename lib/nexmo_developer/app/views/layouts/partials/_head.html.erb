@@ -77,7 +77,7 @@
   <%= javascript_packs_with_chunks_tag 'application', defer: true %>
   <% if @additional_scripts %>
     <% @additional_scripts.each do |script| %>
-      <%= javascript_pack_tag script %>
+      <%= javascript_include_tag script %>
     <% end %>
   <% end %>
 

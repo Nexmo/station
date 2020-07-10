@@ -119,7 +119,7 @@ class SidenavResolver
   private
 
   def documentation_index?(path)
-    path == "#{Rails.configuration.docs_base_path}/_documentation/#{@language}/index.md"
+    path == "#{Rails.configuration.docs_base_path}/_documentation/#{I18n.default_locale}/index.md"
   end
 
   def tabbed_folder?(full_path)
