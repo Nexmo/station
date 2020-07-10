@@ -1,0 +1,30 @@
+version: 2
+updates:
+- package-ecosystem: bundler
+  directory: "/lib/nexmo_developer"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  reviewers:
+  - fabianrbz
+  - benhayehudi
+  labels:
+  - rails-app-updates
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  reviewers:
+  - fabianrbz
+  - benhayehudi
+- package-ecosystem: bundler
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  reviewers:
+  - fabianrbz
+  - benhayehudi
+  labels:
+  - gemspec-updates
