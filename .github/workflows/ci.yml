@@ -61,7 +61,7 @@ jobs:
         gem update --system 3.0.3 -N
         gem install --no-document bundler
         bundle config path vendor/bundle
-        bundle install --jobs 4 --retry 3
+        bundle install --jobs 4 --retry 3 --deployment
       working-directory: ./lib/nexmo_developer
     - name: Fetch NDP
       uses: actions/checkout@master
