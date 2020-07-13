@@ -1,14 +1,12 @@
 <h1>Use Cases</h1>
 
-<div class="Nxd-use-cases--filters">
-  <strong>Filter: &nbsp;&nbsp;</strong>
+<p>Get started with tutorials that will walk you through building a variety of practical applications</p>
 
+<div class="Nxd-use-cases--filters">
 <%= render partial: 'layouts/partials/programming_languages_dropdown', controller_name: :tutorial, action_name: :list, locals: {item_list: @use_cases } %>
 
   <div class="Vlt-dropdown">
-    <button class="Vlt-dropdown__btn">
-      Choose a product
-    </button>
+    <button class="Vlt-dropdown__btn Vlt-btn--app"><%= t('any_product') %></button>
     <div class="Vlt-dropdown__panel">
       <div class="Vlt-dropdown__panel__content">
         <ul>
@@ -32,7 +30,5 @@
 </div>
 
 <br><br>
-
-<p>Get started with tutorials that will walk you through building a variety of practical applications</p>
 
 <%= render 'index' %>
