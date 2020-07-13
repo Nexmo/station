@@ -1,7 +1,11 @@
 <div class="Vlt-dropdown">
   <div class="Vlt-dropdown__trigger Vlt-dropdown__trigger--btn">
     <button class="Vlt-dropdown__btn Vlt-btn--app">
-      <span class="Vlt-dropdown__selection"><%= params[:code_language] && Nexmo::Markdown::CodeLanguage.find(params[:code_language]).label || t('any_language') %></span>
+      <% if params[:code_language] %>
+        <%= render 'code_languages/icon', code_language: params[:code_language], css_classes: 'Vlt-dropdown__link__icon' %>
+      <% else %>
+        <span class="Vlt-dropdown__selection"><%= t('any_language') %></span>
+      <% end %>
     </button>
   </div>
   <div class="Vlt-dropdown__panel">
