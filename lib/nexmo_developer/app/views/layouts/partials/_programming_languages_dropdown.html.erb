@@ -10,10 +10,16 @@
   </div>
   <div class="Vlt-dropdown__panel">
     <div class="Vlt-dropdown__panel__content">
-      <a class="Vlt-dropdown__link" href="<%= url_for(controller: controller_name, action: action_name, product: params[:product], code_language: nil) %>"><%= t('any_language') %></a>
+      <a class="Vlt-dropdown__link <%= !params[:code_language] && 'Vlt-dropdown__link--selected' || '' %>"
+         href="<%= url_for(controller: controller_name, action: action_name, product: params[:product], code_language: nil) %>"
+      >
+        <%= t('any_language') %>
+      </a>
       <hr class="hr--short"></hr>
       <% LanguagesDropdownPresenter.new.options.each do |option| %>
-        <a class="Vlt-dropdown__link" href="<%= url_for(controller: controller_name, action: action_name, product: params[:product], code_language: option.code_language) %>">
+        <a class="Vlt-dropdown__link <%= params[:code_language] && params[:code_language] == option.code_language && 'Vlt-dropdown__link--selected' || '' %>"
+           href="<%= url_for(controller: controller_name, action: action_name, product: params[:product], code_language: option.code_language) %>"
+        >
           <%= render 'code_languages/icon', code_language: option.code_language, css_classes: 'Vlt-dropdown__link__icon' %>
         </a>
         <hr class="hr--short"></hr>
