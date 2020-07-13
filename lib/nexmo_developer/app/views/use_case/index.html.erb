@@ -8,7 +8,13 @@
   <div class="Vlt-dropdown">
     <div class="Vlt-dropdown__trigger Vlt-dropdown__trigger--btn">
       <button class="Vlt-dropdown__btn Vlt-btn--app">
-        <span class="Vlt-dropdown__selection"><%= params[:product] && Product.normalize_title(params[:product]) || t('any_product') %></span>
+        <% if params[:product] %>
+          <% product = Product.all.detect { |p| p['path'] == params[:product] } %>
+          <svg style="height: 20px; width: 20px;" class="Vlt-gray-darker Vlt-dropdown__link__icon"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-<%= product['icon'] %>"></use></svg>
+          <span class="Vlt-dropdown__selection"><%= product['name'] %></span>
+        <% else %>
+          <span class="Vlt-dropdown__selection"><%= t('any_product') %></span>
+        <% end %>
       </button>
     </div>
     <div class="Vlt-dropdown__panel">
