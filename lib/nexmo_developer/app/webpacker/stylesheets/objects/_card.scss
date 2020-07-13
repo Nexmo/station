@@ -2,17 +2,6 @@
   margin-bottom: $unit2;
   margin-top: $unit1; // Prevents masonry from cutting top on hover
 
-  .Vlt-badge {
-    bottom: -10px;
-    left: 10px;
-    position: absolute;
-    z-index: 1;
-
-    + span {
-      display: block;
-    }
-  }
-
   .Nxd-tutorials {
     &__language {
       margin-right: 10px;
