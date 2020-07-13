@@ -18,14 +18,20 @@ Exceptions can be made to break consistency where it makes sense, particularly i
 
 Nexmo Developer is structured by context and by product. The four main sections of Nexmo Developer are:
 
+1. Documentation
+2. API References
+3. SDKs and Tools
+4. Community
+
 ### Documentation
 
 This section hosts the bulk of the written content for the NDP. The content is structured by products each of which have the following four sections:
 
   * **[Overviews](/contribute/structure/guides/overviews)** - The first pages you reach when you select a product.
   * **[Guides](/contribute/structure/guides/guides)** - Provide key concepts in more depth than the overview.
-  * **[Code Snippets](/contribute/structure/guides/code-snippets)** - Used as a quick reference of how to so something specific.
-  * **[Tutorials](/contribute/structure/guides/tutorials)** - A complete example of how to build something practical.
+  * **[Code Snippets](/contribute/structure/guides/code-snippets)** - Used as a quick reference of how to do something specific.
+  * **[Tutorials](/contribute/structure/guides/tutorials)** - Step-by-step guide on how to do something. There is also a detailed [guide to tutorials](/contribute/guides/tutorials) available.
+  * **[Use Cases](/contribute/structure/guides/use-cases)** - Multi-product scenarios using Vonage APIs and those of other providers.
 
 ### API Reference
 
