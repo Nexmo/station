@@ -33,13 +33,13 @@
             </div>
 
             <div class="Vlt-card__content">
-              <a href="<%= tutorial.url %>">
+              <a href="<%= tutorial.url %>/<%= params[:code_language] %>">
                 <p class="p-large"><b><%= tutorial.title %></b></p>
               </a>
 
               <p><%= tutorial.description %></p>
 
-              <a href="<%= tutorial.url %>" class="Vlt-<%= Card::COLOUR.fetch(tutorial.subtitle, 'blue') %>-dark Nxd-card__cta">
+              <a href="<%= tutorial.url %>/<%= params[:code_language] %>" class="Vlt-<%= Card::COLOUR.fetch(tutorial.subtitle, 'blue') %>-dark Nxd-card__cta">
                 <%= t('read_more') %>
                 <svg class="Vlt-icon Vlt-icon--smaller">
                   <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-arrow-thin-right" />
