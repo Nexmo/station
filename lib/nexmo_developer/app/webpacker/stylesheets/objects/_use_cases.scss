@@ -16,12 +16,15 @@
 
 .Nxd-use-cases {
   .Vlt-card {
+    border: 1px solid #efefef;
+    box-shadow: none;
     transition: box-shadow ease-in 0.25s;
+
     &:hover {
       transform: none;
       box-shadow: 0 10px 30px rgba(19, 20, 21, 0.1);
       cursor: pointer;
-      border: #efefef 1px solid;
+      transform: none;
     }
   }
 }
