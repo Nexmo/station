@@ -28,7 +28,7 @@
               <p><%= use_case.description %></p>
 
               <a href="<%= url_for(controller: 'use_case', action: :show, document: use_case.relative_path, only_path: true) %>" class="Vlt-<%= Card::COLOUR.fetch(use_case.subtitle, 'blue') %>-dark">
-                Read more
+                <%= t('read_more') %>
                 <svg class="Vlt-icon Vlt-icon--smaller">
                   <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-arrow-thin-right" />
                 </svg>
