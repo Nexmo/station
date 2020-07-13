@@ -17,6 +17,7 @@ title: Landing Pages
     - [Events](#events)
     - [GitHub Repo](#github-repo)
     - [Header](#header)
+    - [Headshot](#headshot)
     - [HTML](#html)
     - [Join Slack](#join-slack)
     - [Line Divider](#line-divider)
@@ -276,6 +277,33 @@ subtitle:
 ```
 
 Lastly, like the `call_to_action` subtitle, the text in the `header` subtitle is also capable of rendering markdown content.
+
+### Headshot
+
+<img src="/assets/images/contributing/landing_page_screenshots/headshot.png" width=200>
+
+The `headshot` block provides a way of rendering a headshot on your landing page. The content consists of an image, an external url which the image is linked to, a name and a short description.  You can specify the required parameters with the following:
+
+```yaml
+
+- type: headshot
+  headshot:
+    name: # Name of the person in the image
+    url: # Link to url
+    img_src: # Link to image
+    intro: # Short text rendered below the image
+
+```
+
+The `headshot` supports the following optional parameters:
+
+```yaml
+
+twitter: # twitter handle
+github: # github handle
+location: # where the person is based
+
+```
 
 ### HTML
 
