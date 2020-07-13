@@ -16,4 +16,10 @@ RSpec.describe 'Admin pages', type: :feature do
 
     expect(page).to have_css('h1', text: 'Code Snippet Stats')
   end
+
+  it 'can access the feedback page' do
+    visit '/admin/feedbacks'
+
+    expect(page).to have_css('h2', text: 'Feedbacks')
+  end
 end
