@@ -50,7 +50,9 @@
                 <hr class="hr--short"></hr>
 
                 <% tutorial.available_languages.each do |language| %>
-                  <a href="<%= language.url %>"><small class="Vlt-grey-darker Nxd-tutorials__language Nxd-tutorials__language--<%= language.language %>"><span>●</span> <%= language.label %></small></a>
+                  <a href="<%= url_for(controller: :tutorial, action: :list, product: @product, code_language: language.label.downcase, only_path: true) %>">
+                    <small class="Vlt-grey-darker Nxd-tutorials__language Nxd-tutorials__language--<%= language.language %>"><span>●</span> <%= language.label %></small>
+                  </a>
                 <% end %>
               <% end %>
             </div>
