@@ -14,7 +14,7 @@
     <div class="Vlt-dropdown__panel">
       <div class="Vlt-dropdown__panel__content">
         <a class="Vlt-dropdown__link" href="<%= url_for(controller: :use_case, action: :index, product: nil, code_language: @language)%>">
-          <span class="Vlt-dropdown__label"><%= t('.any_product') %></span>
+          <span class="Vlt-dropdown__label"><%= t('any_product') %></span>
         </a>
         <hr class="hr--short"></hr>
         <% Product.all.each do |product| %>
