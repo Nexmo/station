@@ -7,23 +7,23 @@ RSpec.describe Header do
     {
       'name' => 'Sample Name',
       'subtitle' => 'Sample Subtitle',
-      'assets' => [
-        'logo' => [
+      'assets' => [{
+        'logo' => [{
           'path' => '/images/logos/sample-logo.png',
           'alt' => 'Sample Alt',
-        ],
-      ],
-      'header' => [
-        'links' => [
-          'sign-up' => [
+        }],
+      }],
+      'header' => [{
+        'links' => [{
+          'sign-up' => [{
             'path' => 'https://path/to/site',
             'text' => ['Log In', 'Try Me'],
-          ],
-        ],
-        'hiring' => [
+          }],
+        }],
+        'hiring' => [{
           'display' => true,
-        ],
-      ],
+        }],
+      }],
     }
   end
   let(:yaml) do
