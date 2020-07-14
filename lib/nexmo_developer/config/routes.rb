@@ -1,3 +1,5 @@
+return unless ENV['DOCS_BASE_PATH']
+
 Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
