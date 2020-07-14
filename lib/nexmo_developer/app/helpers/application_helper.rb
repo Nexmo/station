@@ -1,5 +1,9 @@
 module ApplicationHelper
-  CONFIG = YAML.load_file("#{Rails.configuration.docs_base_path}/config/business_info.yml")
+  if ENV['DOCS_BASE_PATH']
+    CONFIG = YAML.load_file("#{Rails.configuration.docs_base_path}/config/business_info.yml")
+  else
+    CONFIG = {}.freeze
+  end
 
   def search_enabled?
     defined?(ALGOLIA_CONFIG) && ENV['ALGOLIA_SEARCH_KEY']
