@@ -7,13 +7,13 @@ RSpec.describe 'rendering _table landing page partial' do
           { 'content' => 'Header 1' },
           { 'content' => 'Header 2' },
         ],
-        'body' => [
+        'body' => [{
           'row' =>
           [
             { 'column' => 'Row 1 Text 1' },
             { 'column' => 'Row 1 Text 2' },
           ],
-        ],
+        }],
     }
 
     expect(rendered).to include("<div class=\"Vlt-table\">\n")
@@ -24,13 +24,13 @@ RSpec.describe 'rendering _table landing page partial' do
   it 'raises an error if the head key is not provided' do
     expect do
       render partial: '/static/default_landing/partials/table.html.erb', locals: {
-        'body' => [
+        'body' => [{
           'row' =>
           [
             { 'column' => 'Row 1 Text 1' },
             { 'column' => 'Row 1 Text 2' },
           ],
-        ],
+        }],
       }
     end.to raise_error("Missing 'head' key in table landing page block")
   end
