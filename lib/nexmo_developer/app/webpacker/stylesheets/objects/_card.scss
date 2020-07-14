@@ -1,5 +1,7 @@
 .Nxd-card--products {
-  min-width: 300px;
+  @media not #{$S-only} {
+    min-width: 300px;
+  }
   height: 91%;
 
   nav a {
