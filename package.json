@@ -24,7 +24,7 @@
     "compression-webpack-plugin": "^1.0.0",
     "css-loader": "^3.5.3",
     "dotenv": "^8.2.0",
-    "file-loader": "^1.1.11",
+    "file-loader": "^6.0.0",
     "foundation-sites": "^6.5.3",
     "glob": "^7.1.2",
     "gsap": "^3.4.0",
