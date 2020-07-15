@@ -1,0 +1,20 @@
+name: Publish Docker
+on:
+  push:
+    branches:
+      - master
+    tags:
+      - "*"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Publish to Registry
+        uses: docker/build-push-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          repository: nexmodev/station
+          add_git_labels: true
+          tag_with_ref: true
