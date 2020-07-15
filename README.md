@@ -340,6 +340,39 @@ For example, if your documentation is at `/Users/sample_user/Documents/sample_do
 $ OAS_PATH=/Users/sample_user/Documents/sample_docs/_open_api RAILS_SERVE_STATIC_FILES=true RAILS_LOG_TO_STDOUT=true DISABLE_SSL=1 RACK_ENV=production RAILS_ENV=production bundle exec nexmo-developer --docs=/Users/sample_user/Documents/sample_docs
 ```
 
+## Docker
+
+Station is available as a Docker image at `nemxodev/station`. You can run it from your documentation directory using the following command:
+
+```
+docker run -p 3000:3000 -v /path/to/docs:/docs -t nexmodev/station
+```
+
+Any functionality requiring a database (such as redirects or feedback) will not work using this method. For a docker-based setup that includes a database add the following `docker-compose.yml` file to your project:
+
+```
+version: "3"
+services:
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
+      - POSTGRES_USER=nexmo_developer
+      - POSTGRES_DB=nexmo_developer_production
+  web:
+    image: nexmodev/station:latest
+    volumes:
+      - .:/docs
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    environment:
+      - POSTGRES_HOST=db
+```
+
+After running `docker-compose up`, you will need to run `docker-compose run web bundle exec rake db:migrate` to initialise the database.
+
 ## Contributing
 
 We :heart: contributions from everyone! It is a good idea to [talk to us](https://nexmo-community-invite.herokuapp.com/) first if you plan to add any new functionality. Otherwise, [bug reports](https://github.com/Nexmo/nexmo-developer/issues/), [bug fixes](https://github.com/Nexmo/nexmo-developer/pulls) and feedback on the library is always appreciated. Look at the [Contributor Guidelines](CONTRIBUTING.md) for more information and please follow the [GitHub Flow](https://guides.github.com/introduction/flow/index.html).
