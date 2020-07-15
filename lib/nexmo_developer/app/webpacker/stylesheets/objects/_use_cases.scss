@@ -6,5 +6,24 @@
 .Nxd-use-cases--filters {
   .Vlt-dropdown {
     margin-right: 16px;
+
+    .hr--short {
+      width: 65%;
+      margin-left: 40px;
+    }
+  }
+}
+
+.Nxd-use-cases {
+  .Vlt-card {
+    border: 1px solid #efefef;
+    box-shadow: none;
+    transition: box-shadow ease-in 0.25s;
+
+    &:hover {
+      transform: none;
+      box-shadow: 0 10px 30px rgba(19, 20, 21, 0.1);
+      transform: none;
+    }
   }
 }

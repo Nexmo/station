@@ -1,38 +1,12 @@
 <h1>Use Cases</h1>
 
+<p>Get started with tutorials that will walk you through building a variety of practical applications</p>
+
 <div class="Nxd-use-cases--filters">
-  <strong>Filter: &nbsp;&nbsp;</strong>
-
-<%= render partial: 'layouts/partials/programming_languages_dropdown', controller_name: :tutorial, action_name: :list, locals: {item_list: @use_cases } %>
-
-  <div class="Vlt-dropdown">
-    <button class="Vlt-dropdown__btn">
-      Choose a product
-    </button>
-    <div class="Vlt-dropdown__panel">
-      <div class="Vlt-dropdown__panel__content">
-        <ul>
-          <% ProductDropdownPresenter.new(Nexmo::Markdown::UseCase.all).options.each do |option| %>
-            <li>
-              <a
-                class="Vlt-dropdown__link"
-                href="<%= url_for(controller: :use_case, action: :index, product: option.path, code_language: @language)%>"
-                >
-                <svg style="height: 20px; width: 20px;" class="Vlt-gray-darker Vlt-dropdown__link__icon">
-                  <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-<%= option.icon %>"></use>
-                </svg>
-                <span><%= option.name %></span>
-              </a>
-            </li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
-  </div>
+  <%= render partial: 'layouts/partials/programming_languages_dropdown', controller_name: :use_case, action_name: :index %>
+  <%= render partial: 'layouts/partials/product_dropdown', controller_name: :use_case, action_name: :index %>
 </div>
 
 <br><br>
-
-<p>Get started with tutorials that will walk you through building a variety of practical applications</p>
 
 <%= render 'index' %>
