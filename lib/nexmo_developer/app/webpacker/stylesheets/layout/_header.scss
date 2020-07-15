@@ -102,7 +102,7 @@
   }
 
   @media #{$S-only} {
-    text-align: right
+    text-align: right;
   }
 }
 
@@ -158,10 +158,22 @@
 }
 
 #locale-switcher {
+  margin-right: 24px;
+
+  @media only screen and (max-width: 320px) {
+    margin-right: 0px;
+  }
+
   .Vlt-btn {
-    margin-right: 24px;
+    @media #{$S-only} {
+      width: 100%;
+      padding: 1px 6px;
+    }
 
     .Vlt-dropdown__link__icon {
+      @media only screen and (max-width: 320px) {
+        display: none;
+      }
       margin-top: -4px;
     }
   }

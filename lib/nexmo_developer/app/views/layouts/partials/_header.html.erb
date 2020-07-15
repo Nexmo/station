@@ -1,22 +1,22 @@
+<% header = Header.new %>
 <%= render partial: 'layouts/partials/post-body-tags' %>
 
 <div class="Nxd-header">
-  <% info = Header.new.items %>
   <header id="header" class="Nxd-header__main">
     <div class="Nxd-logo">
       <a href="/" id="logo" class="Nxd-logo__image Vlt-M-plus">
-        <%= image_tag info[:logo_path], alt: info[:logo_alt] %>
+        <%= image_tag header.logo_path, alt: header.logo_alt %>
 
         <hr class="Nxd-product__separator">
         <div class="Nxd-product__title Vlt-black">
-          <h4><%= info[:name] %></h4>
-          <small><%= info[:subtitle] %></small>
+          <h4><%= header.name %></h4>
+          <small><%= header.subtitle %></small>
         </div>
       </a>
       <a href="/" id="logo" class="Nxd-logo__image Vlt-S-only">
-        <%= image_tag info[:logo_path], alt: info[:logo_alt] %>
+        <%= image_tag header.small_logo_path, alt: header.logo_alt %>
       </a>
-      <% if info[:show_hiring_link] == true %>
+      <% if header.hiring_link? %>
         <a href=<%= careers_path %> class="Vlt-M-plus Vlt-badge Vlt-badge--purple Vlt-badge--transparent Vlt-badge--small Nxd-product__hiring">
           <span id="header-hiring"><%= t('.hiring') %></span>
         </a>
@@ -26,11 +26,12 @@
     <nav class="Nxd-header__nav">
       <a class="Nxd-main-header__link Vlt-M-plus Vlt-black" href="https://vonage.com/communications-apis">Vonage.com</a>
       <%= render partial: 'layouts/partials/locale_switcher' %>
-      <a href=<%= info[:sign_up_path] %> class="Vlt-btn Vlt-btn--secondary Vlt-btn--app" data-ab="try_button_v2"><b>
-          <% ab_test(:try_button_v2, info[:sign_up_text_arr].map { |s| ["{ #{s} }", "< #{s} />"] }.flatten) do |s| %>
-            <%= t(".#{s}") %>
+      <a href=<%= header.sign_up_path %> class="Vlt-btn Vlt-btn--secondary Vlt-btn--app" data-ab="try_button_v2"><b>
+          <% ab_test(:try_button_v2, header.sign_up_text.map { |s| ["{ #{t(".#{s}")} }", "< #{t(".#{s}")} />"] }.flatten) do |s| %>
+            <%= s %>
           <% end %>
-        </b></a>
+        </b>
+      </a>
     </nav>
   </header>
 
