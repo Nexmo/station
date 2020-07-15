@@ -171,6 +171,9 @@
     }
 
     .Vlt-dropdown__link__icon {
+      @media only screen and (max-width: 320px) {
+        display: none;
+      }
       margin-top: -4px;
     }
   }
