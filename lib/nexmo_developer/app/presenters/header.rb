@@ -1,45 +1,56 @@
 class Header
-  attr_reader :items
-
-  def initialize(items: nil)
-    @items = items
-
+  def initialize
     after_initialize!
   end
 
-  def header_from_config(config)
-    config = YAML.safe_load(open_config(config))
-
-    {
-      name: config['name'],
-      subtitle: config['subtitle'],
-      logo_path: config['assets']['header_logo']['path'],
-      logo_alt: config['assets']['header_logo']['alt'],
-      sign_up_path: config['header']['links']['sign-up']['path'],
-      sign_up_text_arr: config['header']['links']['sign-up']['text'],
-      show_hiring_link: hiring_display(config),
-    }
+  def logo_path
+    @logo_path ||= config['assets']['header_logo']['path']
   end
 
-  def open_config(config)
-    File.open(config)
+  def small_logo_path
+    @small_logo_path ||= config['assets']['header_logo']['small_path'] ||
+                         config['assets']['header_logo']['path']
   end
 
-  def config_exist?(path)
-    File.exist?(path)
+  def logo_alt
+    @logo_alt ||= config['assets']['header_logo']['alt']
   end
 
-  def hiring_display(config)
-    raise 'You must provide a true or false value for the hiring display parameter inside the header section of the config/business_info.yml file' unless config['header']['hiring'].try(:has_key?, 'display')
+  def name
+    @name ||= config['name']
+  end
 
-    config['header']['hiring']['display']
+  def subtitle
+    @subtitle ||= config['subtitle']
+  end
+
+  def hiring_link?
+    hiring_display
+  end
+
+  def sign_up_path
+    @sign_up_path ||= config['header']['links']['sign-up']['path']
+  end
+
+  def sign_up_text
+    @sign_up_text ||= config['header']['links']['sign-up']['text']
   end
 
   private
 
   def after_initialize!
-    raise 'You must provide a config/business_info.yml file in your documentation path.' unless config_exist?("#{Rails.configuration.docs_base_path}/config/business_info.yml")
+    raise 'You must provide a config/business_info.yml file in your documentation path.' unless File.exist?("#{Rails.configuration.docs_base_path}/config/business_info.yml")
+  end
 
-    @items = header_from_config("#{Rails.configuration.docs_base_path}/config/business_info.yml")
+  def config
+    @config ||= YAML.safe_load(
+      File.open("#{Rails.configuration.docs_base_path}/config/business_info.yml")
+    )
+  end
+
+  def hiring_display
+    raise 'You must provide a true or false value for the hiring display parameter inside the header section of the config/business_info.yml file' unless config['header']['hiring'].try(:has_key?, 'display')
+
+    config['header']['hiring']['display']
   end
 end

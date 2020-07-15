@@ -1,100 +1,78 @@
 require 'rails_helper'
 
 RSpec.describe Header do
-  let(:items) { nil }
-  let(:path) { "#{Rails.configuration.docs_base_path}/config/business_info.yml" }
-  let(:config) do
-    {
-      'name' => 'Sample Name',
-      'subtitle' => 'Sample Subtitle',
-      'assets' => [{
-        'logo' => [{
-          'path' => '/images/logos/sample-logo.png',
-          'alt' => 'Sample Alt',
-        }],
-      }],
-      'header' => [{
-        'links' => [{
-          'sign-up' => [{
-            'path' => 'https://path/to/site',
-            'text' => ['Log In', 'Try Me'],
-          }],
-        }],
-        'hiring' => [{
-          'display' => true,
-        }],
-      }],
-    }
-  end
-  let(:yaml) do
-    <<~HEREDOC
-      name: Sample Name
-      subtitle: Sample Subtitle
-      assets:
-        logo:
-          path: '/images/logos/sample-logo.png'
-          alt: 'Sample Alt'
-      header:
-        links:
-          sign-up:
-            path:  https://path/to/site
-            text:
-              - 'Log In'
-              - 'Try Me'
-        hiring:
-          display: true
-    HEREDOC
-  end
-
-  describe '#header_from_config with correct config' do
-    before do
-      @header = described_class.new(items: items)
+  describe '#initialize' do
+    it 'instantiates the presenter if the config file is present' do
+      expect { described_class.new }.not_to raise_error
     end
 
-    it 'returns an object with data from the config file' do
-      items = @header.items
-
-      expect(items).to eq(
-        {
-          logo_alt: 'Sample Alt',
-          logo_path: '/images/logos/sample-logo.png',
-          name: 'Sample Name',
-          sign_up_path: 'https://path/to/site',
-          sign_up_text_arr: ['Log In', 'Try Me'],
-          subtitle: 'Sample Subtitle',
-          show_hiring_link: true,
-        }
-      )
+    it 'raises if the config file is not present' do
+      allow(Rails.configuration).to receive(:docs_base_path).and_return('~/invalid_path/')
+      expect { described_class.new }
+        .to raise_error(RuntimeError, 'You must provide a config/business_info.yml file in your documentation path.')
     end
   end
 
-  describe '#header_from_config with no config file' do
-    it 'raises an exception' do
-      allow_any_instance_of(described_class).to receive(:config_exist?).with(path).and_return(false)
+  describe '#logo_path' do
+    subject { described_class.new.logo_path }
 
-      expect { described_class.new }.to raise_error(RuntimeError, 'You must provide a config/business_info.yml file in your documentation path.')
+    it { expect(subject).to eq('/images/logos/sample-logo.png') }
+  end
+
+  describe '#small_logo_path' do
+    subject { described_class.new.small_logo_path }
+
+    it { expect(subject).to eq('/images/logos/Vonage-lettermark.svg') }
+  end
+
+  describe '#logo_alt' do
+    subject { described_class.new.logo_alt }
+
+    it { expect(subject).to eq('Sample Alt') }
+  end
+
+  describe '#name' do
+    subject { described_class.new.name }
+
+    it { expect(subject).to eq('Sample Name') }
+  end
+
+  describe '#subtitle' do
+    subject { described_class.new.subtitle }
+
+    it { expect(subject).to eq('Sample Subtitle') }
+  end
+
+  describe '#hiring_link?' do
+    subject { described_class.new.hiring_link? }
+
+    it { expect(subject).to eq(true) }
+
+    context 'when hiring.display is missing' do
+      let(:yaml) do
+        <<~HEREDOC
+          header:
+            hiring:
+        HEREDOC
+      end
+
+      it 'raises' do
+        allow(File).to receive(:open).and_call_original
+        allow(File).to receive(:open).and_return(yaml)
+        expect { subject }.to raise_error(RuntimeError, 'You must provide a true or false value for the hiring display parameter inside the header section of the config/business_info.yml file')
+      end
     end
   end
 
-  describe '#hiring_display' do
-    subject { described_class.new.hiring_display(config) }
+  describe '#sign_up_path' do
+    subject { described_class.new.sign_up_path }
 
-    context 'when set to true' do
-      let('config') { { 'header' => { 'hiring' => { 'display' => true } } } }
+    it { expect(subject).to eq('https://path/to/site') }
+  end
 
-      it { expect(subject).to eq(true) }
-    end
+  describe '#sign_up_text' do
+    subject { described_class.new.sign_up_text }
 
-    context 'when set to false' do
-      let('config') { { 'header' => { 'hiring' => { 'display' => false } } } }
-
-      it { expect(subject).to eq(false) }
-    end
-
-    context 'when key is missing' do
-      let('config') { { 'header' => { 'hiring' => {} } } }
-
-      it { expect { subject }.to raise_error(RuntimeError, 'You must provide a true or false value for the hiring display parameter inside the header section of the config/business_info.yml file') }
-    end
+    it { expect(subject).to eq(['Log In', 'Try Me']) }
   end
 end

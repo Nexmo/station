@@ -3,6 +3,7 @@ subtitle: Sample Subtitle
 assets:
   header_logo:
     path: '/images/logos/sample-logo.png'
+    small_path: '/images/logos/Vonage-lettermark.svg'
     alt: 'Sample Alt'
   footer_logo:
     path: '/images/logos/Vonage-wordmark--white.svg'
