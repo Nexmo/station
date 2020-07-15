@@ -27,8 +27,8 @@
       <a class="Nxd-main-header__link Vlt-M-plus Vlt-black" href="https://vonage.com/communications-apis">Vonage.com</a>
       <%= render partial: 'layouts/partials/locale_switcher' %>
       <a href=<%= info[:sign_up_path] %> class="Vlt-btn Vlt-btn--secondary Vlt-btn--app" data-ab="try_button_v2"><b>
-          <% ab_test(:try_button_v2, info[:sign_up_text_arr].each { |msg| " #{t(msg.parameterize)} " } ) do |s| %>
-            <%= s %>
+          <% ab_test(:try_button_v2, info[:sign_up_text_arr].map { |s| ["{ #{s} }", "< #{s} />"] }.flatten) do |s| %>
+            <%= t(".#{s}") %>
           <% end %>
         </b></a>
     </nav>
