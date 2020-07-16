@@ -51,7 +51,7 @@
         <p><strong>Can we let you know when we've solved your issue?</strong></p>
         <label class="Vlt-label">My email: <small class="Vlt-grey-darker">(optional)</small></label>
         <div class="Vlt-input">
-          <input type="email" size="20" value="email" id="email"/>
+          <input type="email" size="20" placeholder="email" id="email" v-model="emailInput"/>
         </div>
       </div>
 
@@ -73,6 +73,7 @@
     data: function() {
       return {
         comment: '',
+        emailInput: '',
         error: false,
         feedbackComplete: undefined,
         id: undefined,
@@ -95,7 +96,7 @@
     computed: {
       email: function() {
         return this.feedbackAuthor && this.feedbackAuthor.email ||
-          this.currentUser && this.currentUser.email;
+          this.currentUser && this.currentUser.email || this.emailInput;
       },
       isSubmitDisabled: function() {
         return this.submittingFeedback || this.comment === '';
