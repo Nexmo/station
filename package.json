@@ -79,7 +79,7 @@
     "flush-promises": "^1.0.2",
     "jest": "^24.8.0",
     "node-fetch": "^2.6.0",
-    "vue-jest": "^3.0.5",
+    "vue-jest": "^3.0.6",
     "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.3.0",
     "webpack-dev-server": "^3.11.0"
