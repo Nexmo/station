@@ -34,7 +34,7 @@ page:
       - type: call_to_action
         call_to_action:
           title: "SDKs & Tools"
-          subtitle: "The Server SDKs allow you to get up and running with<br> Vonage APIs in your language of choice."
+          subtitle: "The Server SDKs allow you to get up and running with<br> the Vonage APIs in your language of choice."
           icon: 
             name: "icon-design-tools"
             color: "blue-dark"
@@ -63,7 +63,7 @@ page:
       - type: call_to_action
         call_to_action:
           title: "Nexmo & .NET in action"
-          subtitle: "The Server SDKs allow you to get up and running with<br>Vonage APIs in your language of choice.<br><br>"
+          subtitle: "The Server SDKs allow you to get up and running with<br> the Vonage APIs in your language of choice.<br><br>"
           text: 
             - content: "Examples and inspiration in .NET form"
               type: large
