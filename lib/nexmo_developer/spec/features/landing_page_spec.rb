@@ -211,7 +211,7 @@ RSpec.feature 'Landing page' do
     within('.columns > .Vlt-grid') do
       within('.Vlt-col--M-1of2:nth-of-type(1)') do
         expect(page).to have_link('SDKs & Tools', href: '/tools')
-        expect(page).to have_content('The Server SDKs allow you to get up and running with')
+        expect(page).to have_content('The Server SDKs allow you to get up and running with the')
         expect(page).to have_content('Vonage APIs in your language of choice.')
       end
 

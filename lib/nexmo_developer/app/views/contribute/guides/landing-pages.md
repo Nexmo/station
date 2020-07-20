@@ -167,7 +167,7 @@ In addition, you can also specify an optional `subtitle` parameter that gives yo
 
 ```yaml
 
-subtitle: "The Nexmo libraries allow you to get up and running with<br> Vonage APIs quickly in your language of choice."`
+subtitle: "The Server SDKs allow you to get up and running with<br> Vonage APIs quickly in your language of choice."`
 
 ```
 
