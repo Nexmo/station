@@ -167,13 +167,13 @@ RSpec.feature 'Landing page' do
       end
 
       within('.Nxd-products-banner:nth-of-type(2)') do
-        expect(page).to have_link('Nexmo Client SDK', href: '/client-sdk/overview')
-        expect(page).to have_css('p', text: 'Build multi-platform applications with contextual communications using Nexmo Client SDK and Conversation API.')
+        expect(page).to have_link('Client SDK', href: '/client-sdk/overview')
+        expect(page).to have_css('p', text: 'Build multi-platform applications with contextual communications using Client SDK and Conversation API.')
       end
 
       within('.Vlt-grid.Vlt-grid--center:nth-of-type(5)') do
         within('.Vlt-col--M-1of2:nth-of-type(1)') do
-          expect(page).to have_content('NEXMO CLIENT SDK')
+          expect(page).to have_content('CLIENT SDK')
           expect(page).to have_link('In-App Voice', href: '/client-sdk/in-app-voice/overview')
 
           within('nav') do
@@ -191,7 +191,7 @@ RSpec.feature 'Landing page' do
         end
 
         within('.Vlt-col--M-1of2:nth-of-type(2)') do
-          expect(page).to have_content('NEXMO CLIENT SDK')
+          expect(page).to have_content('CLIENT SDK')
           expect(page).to have_link('In-App Messaging', href: '/client-sdk/in-app-messaging/overview')
 
           within('nav') do
