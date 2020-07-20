@@ -3661,12 +3661,13 @@ code-point-at@^1.0.0:
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
   integrity sha1-DQcLTQQ6W+ozovGkDi7bPZpMz3c=
 
-coffee-loader@^0.7.3:
-  version "0.7.3"
-  resolved "https://registry.yarnpkg.com/coffee-loader/-/coffee-loader-0.7.3.tgz#fadbc6efd6fc7ecc88c5b3046a2c292066bcb54a"
-  integrity sha1-+tvG79b8fsyIxbMEaiwpIGa8tUo=
+coffee-loader@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/coffee-loader/-/coffee-loader-1.0.0.tgz#b8cedc8c81eb2a435af59e4b369ece439261fcb4"
+  integrity sha512-/fjJBA842cpoN2upABQFO45ALS0clTHM8WsAbvDrArn6y4TaZikKgSPyMZxwqAkkz6zTV7MgS4RuxU3wS4XUvw==
   dependencies:
-    loader-utils "^1.0.2"
+    loader-utils "^2.0.0"
+    schema-utils "^2.6.6"
 
 coffee-script@^1.12.7:
   version "1.12.7"
