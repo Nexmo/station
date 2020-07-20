@@ -15,7 +15,7 @@ RSpec.feature 'Landing page' do
 
     within('.container .row .center', match: :first) do
       expect(page).to have_css('h1.Vlt-title--margin-top2', text: 'Connected Code')
-      expect(page).to have_css('p.p-large', text: 'Everything you need to build connected applications with Vonage APIs')
+      expect(page).to have_css('p.p-large', text: 'Everything you need to build connected applications with Vonage Developer APIs')
     end
 
     within('.Nxd-products-list') do
@@ -211,8 +211,8 @@ RSpec.feature 'Landing page' do
     within('.columns > .Vlt-grid') do
       within('.Vlt-col--M-1of2:nth-of-type(1)') do
         expect(page).to have_link('SDKs & Tools', href: '/tools')
-        expect(page).to have_content('The Nexmo libraries allow you to get up and running with')
-        expect(page).to have_content('Nexmo APIs quickly in your language of choice.')
+        expect(page).to have_content('The Server SDKs allow you to get up and running with')
+        expect(page).to have_content('Vonage Developer APIs in your language of choice.')
       end
 
       within('.Vlt-col--M-1of2:nth-of-type(2)') do

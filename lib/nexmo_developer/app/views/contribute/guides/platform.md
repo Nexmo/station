@@ -195,8 +195,8 @@ Notices can be added site-wide or on specific routes. Here are examples of imple
 some-unique-id:
   content: |-
     <h4>Welcome to Nexmo Developer</h4>
-    <p>We are improving our Documentation, API references, learning resources & tooling to help you more effectively use our services. We want to help you find everything you need to integrate Nexmo APIs into your code.</p>
-    <p>As we start this transition, we’d love to hear from you with thoughts & suggestions. If you’ve got something, positive or negative, to tell us, please tell us using the feedback tool at the bottom of each guide or <a href="https://github.com/Nexmo/nexmo-developer/issues/new">file an issue</a> on GitHub. - Nexmo</p>
+    <p>We are improving our Documentation, API references, learning resources and tooling to help you more effectively use our services. We want to help you find everything you need to integrate Vonage Developer APIs into your code.</p>
+    <p>As we start this transition, we’d love to hear from you with thoughts and suggestions. If you’ve got something, positive or negative, to tell us, please tell us using the feedback tool at the bottom of each guide or <a href="https://github.com/Nexmo/nexmo-developer/issues/new">file an issue</a> on GitHub. - Nexmo</p>
 ```
 
 ### Section Specific (non-dismissible)

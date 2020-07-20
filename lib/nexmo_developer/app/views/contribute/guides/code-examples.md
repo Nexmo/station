@@ -23,8 +23,8 @@ The following values should be used as placeholders in code examples. They can b
 
 Key | Description | User customisation (future)
 -- | -- | --
-`NEXMO_API_KEY` | The users Nexmo API Key | ✅
-`NEXMO_API_SECRET` | The users Nexmo API Key | ✅
+`NEXMO_API_KEY` | The user's Vonage Developer API Key | ✅
+`NEXMO_API_SECRET` | The user's Vonage Developer API Key | ✅
 `NEXMO_NUMBER` | The virtual number that the user holds with Nexmo | ❓
 `TO_NUMBER` for outbound §§ `YOUR_NUMBER` for inbound | The number that the user owns or wants to communicate with | ❓
 `NEXMO_APPLICATION_PRIVATE_KEY` | Represents a string of the actual private key | ❎
@@ -185,6 +185,6 @@ Documentation should be clear whether JavaScript code is intended to run on the 
 
 #### Python
 
-Avoid code that is significantly different in Python 2 and 3. When this is unavoidable, abstract away the incompatible code to the smallest area possible and use [`__future__`](https://docs.python.org/2/library/__future__.html) to ensure backwards compatibility with Python 2.
+Use Python 3.
 
-Inbound HTTP calls should use a WSGI-compatible web framework, preferably the [Flask](http://flask.pocoo.org/) micro-framework. Explanations of how to integrate Nexmo APIs with [Django](https://www.djangoproject.com/) are sensible too.
+Inbound HTTP calls should use a WSGI-compatible web framework, preferably the [Flask](http://flask.pocoo.org/) micro-framework. Explanations of how to integrate Vonage Developer APIs with [Django](https://www.djangoproject.com/) are sensible too.

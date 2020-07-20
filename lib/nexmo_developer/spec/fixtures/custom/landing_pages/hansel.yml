@@ -1,6 +1,6 @@
 # Hanselminutes Landing Page Config
 
-title: "Nexmo APIs provide all you need to get up and running with your .NET applications"
+title: "Vonage Developer APIs provide all you need to get up and running with your .NET applications"
 meta_title: ".NET Tutorials, SDK, code samples and more for a full suite of cloud communications APIs"
 
 page:
@@ -34,7 +34,7 @@ page:
       - type: call_to_action
         call_to_action:
           title: "SDKs & Tools"
-          subtitle: "The Nexmo libraries allow you to get up and running with<br> Nexmo APIs quickly in your language of choice."
+          subtitle: "The Server SDKs allow you to get up and running with<br> Vonage Developer APIs in your language of choice."
           icon: 
             name: "icon-design-tools"
             color: "blue-dark"
@@ -63,7 +63,7 @@ page:
       - type: call_to_action
         call_to_action:
           title: "Nexmo & .NET in action"
-          subtitle: "The Nexmo libraries allow you to get up and running with<br>Nexmo APIs quickly in your language of choice.<br><br>"
+          subtitle: "The Server SDKs allow you to get up and running with<br>Vonage Developer APIs in your language of choice.<br><br>"
           text: 
             - content: "Examples and inspiration in .NET form"
               type: large
