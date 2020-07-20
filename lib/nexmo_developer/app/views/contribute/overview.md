@@ -8,7 +8,7 @@ We're always looking at ways to improve our documentation and platform and would
 
 ## [Introduction to contributing](/contribute/guides/introduction)
 
-An introductory guide for first time contributors to understand how and where contributions to Vonage Developer API documentation can be made.
+An introductory guide for first time contributors to understand how and where contributions to Vonage API Developer documentation can be made.
 
 ## [Writing Style Guide](/contribute/guides/writing-style-guide)
 

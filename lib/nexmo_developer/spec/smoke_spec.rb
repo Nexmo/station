@@ -122,7 +122,7 @@ RSpec.describe 'Smoke Tests', type: :request, ndp: true do
 
   it '/api-errors contains the expected text' do
     get '/api-errors'
-    expect(response.body).to include('When a Vonage Developer API returns an error, for instance, if your account has no credit')
+    expect(response.body).to include('When a Vonage API returns an error, for instance, if your account has no credit')
   end
 
   it '/product-lifecycle/beta contains the expected text' do
