@@ -9,7 +9,7 @@ RSpec.describe 'Smoke Tests', type: :request, ndp: true do
 
   it '/documentation contains the expected text' do
     get '/documentation'
-    expect(response.body).to include('Welcome to the Nexmo Developer Documentation')
+    expect(response.body).to include('Welcome to the Vonage API Developer Documentation')
   end
 
   it '/use-cases contains the expected text' do
