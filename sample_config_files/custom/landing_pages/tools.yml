@@ -57,7 +57,7 @@ page:
     - column:
       - type: html
         html:
-          content: "<p>The Nexmo Server SDKs allow you to get up an running with Nexmo API quickly in your language of choice.</p>"
+          content: "<p>The Server SDKs allow you to get up an running with the Vonage APIs in your language of choice.</p>"
   - row:
     - column:
       - type: github_repo

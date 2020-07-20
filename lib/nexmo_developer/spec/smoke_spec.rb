@@ -9,7 +9,7 @@ RSpec.describe 'Smoke Tests', type: :request, ndp: true do
 
   it '/documentation contains the expected text' do
     get '/documentation'
-    expect(response.body).to include('Welcome to the Nexmo Developer Documentation')
+    expect(response.body).to include('Welcome to the Vonage APIs Developer Documentation')
   end
 
   it '/use-cases contains the expected text' do
@@ -24,7 +24,7 @@ RSpec.describe 'Smoke Tests', type: :request, ndp: true do
 
   it '/tools contains the expected text' do
     get '/tools'
-    expect(response.body).to include('The Nexmo Server SDKs allow you to get up an running with Nexmo API quickly in your language of choice.')
+    expect(response.body).to include('The Server SDKs allow you to get up an running with the Vonage APIs in your language of choice.')
   end
 
   it '/jwt contains the expected text' do

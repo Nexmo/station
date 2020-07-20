@@ -191,7 +191,7 @@ Some examples are given here:
 * Using 'Nexmo Application' rather than 'application' (where appropriate).
 * Using 'web application' rather than 'application' (where appropriate).
 * Using 'webhook URL' rather than 'endpoint' or 'callback URL'.
-* Using Nexmo Server SDK rather than 'SDK'.
+* Using Server SDK rather than 'SDK'.
 * Using Nexmo Command Line Interface, or Nexmo CLI, rather than 'command line'.
 
 ## Avoid using 'he or she' constructs

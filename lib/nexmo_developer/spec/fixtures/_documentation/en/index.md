@@ -1,7 +1,8 @@
 ---
 title: Documentation
+description: Vonage APIs Developer Documentation
 ---
 
 # Documentation
 
-Welcome to the Nexmo Developer Documentation.
+Welcome to the Vonage APIs Developer Documentation.
