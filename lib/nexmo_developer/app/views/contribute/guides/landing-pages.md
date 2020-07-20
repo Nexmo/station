@@ -163,11 +163,11 @@ The `call_to_action` content block creates a specific layout of text with an ico
 
 ```
 
-In addition, you can also specify an optional `subtitle` parameter that gives you the opportunity to provide more descriptive text for your call to action. (_Note: You can use markdown in the `subtitle` to further style the content_.) For example, the following would render with a line break between `with` and `Vonage Developer APIs`:
+In addition, you can also specify an optional `subtitle` parameter that gives you the opportunity to provide more descriptive text for your call to action. (_Note: You can use markdown in the `subtitle` to further style the content_.) For example, the following would render with a line break between `with` and `Vonage APIs`:
 
 ```yaml
 
-subtitle: "The Nexmo libraries allow you to get up and running with<br> Vonage Developer APIs quickly in your language of choice."`
+subtitle: "The Nexmo libraries allow you to get up and running with<br> Vonage APIs quickly in your language of choice."`
 
 ```
 

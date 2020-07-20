@@ -4,7 +4,7 @@ title: Use Cases
 
 # Use Cases
 
-Use Cases provide guidance on how to implement real-world scenarios using Vonage Developer APIs and third-party APIs and products.
+Use Cases provide guidance on how to implement real-world scenarios using Vonage APIs and third-party APIs and products.
 
 Whereas Tutorials provide step-by-step instructions on how to do specific things with one product, Use Cases describe far more complex scenarios, that may use several Vonage API products, and optionally external provider products.
 

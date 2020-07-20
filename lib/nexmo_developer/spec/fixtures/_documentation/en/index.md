@@ -1,8 +1,8 @@
 ---
 title: Documentation
-description: Vonage Developer APIs Documentation
+description: Vonage API Developer Documentation
 ---
 
 # Documentation
 
-Welcome to the Vonage Developer APIs Documentation.
+Welcome to the Vonage API Developer Documentation.

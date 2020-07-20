@@ -4,12 +4,12 @@ RSpec.describe 'Smoke Tests', type: :request, ndp: true do
   it '/ contains the expected text' do
     get '/'
     expect(response.body).to include('Connected Code')
-    expect(response.body).to include('Everything you need to build connected applications with Vonage Developer APIs')
+    expect(response.body).to include('Everything you need to build connected applications with Vonage APIs')
   end
 
   it '/documentation contains the expected text' do
     get '/documentation'
-    expect(response.body).to include('Welcome to the Vonage Developer APIs Documentation')
+    expect(response.body).to include('Welcome to the Vonage API Developer Documentation')
   end
 
   it '/use-cases contains the expected text' do
@@ -24,7 +24,7 @@ RSpec.describe 'Smoke Tests', type: :request, ndp: true do
 
   it '/tools contains the expected text' do
     get '/tools'
-    expect(response.body).to include('The Server SDKs allow you to get up an running with the Vonage Developer APIs in your language of choice.')
+    expect(response.body).to include('The Server SDKs allow you to get up an running with the Vonage APIs in your language of choice.')
   end
 
   it '/jwt contains the expected text' do

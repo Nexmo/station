@@ -187,4 +187,4 @@ Documentation should be clear whether JavaScript code is intended to run on the 
 
 Use Python 3.
 
-Inbound HTTP calls should use a WSGI-compatible web framework, preferably the [Flask](http://flask.pocoo.org/) micro-framework. Explanations of how to integrate Vonage Developer APIs with [Django](https://www.djangoproject.com/) are sensible too.
+Inbound HTTP calls should use a WSGI-compatible web framework, preferably the [Flask](http://flask.pocoo.org/) micro-framework. Explanations of how to integrate Vonage APIs with [Django](https://www.djangoproject.com/) are sensible too.

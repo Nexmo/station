@@ -56,7 +56,7 @@ page:
                 apis:
                   - title: 'Application API'
                     path: 'api/application.v2'
-                    description: 'Create and manage the applications you use across Vonage Developer APIs. Create, manage and configure your applications and authentication.'
+                    description: 'Create and manage the applications you use across Vonage APIs. Create, manage and configure your applications and authentication.'
                   - title: 'Conversation API'
                     path: 'api/conversation'
                     description: 'Create real-time communications channels for text, voice and video.'
@@ -97,7 +97,7 @@ page:
                     description: 'Details of the incoming webhooks sent by the Voice API. Learn how to respond to an incoming call and react to events during a call.'
                   - title: 'Media API'
                     path: 'api/media'
-                    description: 'Manage media items for use with Vonage Developer APIs. This API allows you to handle media to send and to download recordings.'
+                    description: 'Manage media items for use with Vonage APIs. This API allows you to handle media to send and to download recordings.'
                     badge:
                       name: Beta
                       color: green
