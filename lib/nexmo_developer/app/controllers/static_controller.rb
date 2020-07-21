@@ -45,6 +45,7 @@ class StaticController < ApplicationController
       migrate_tropo
     end
 
+    @navigation = yaml_name.to_sym
     render layout: 'landing'
   end
 
