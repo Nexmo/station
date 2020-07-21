@@ -68,7 +68,7 @@ RSpec.describe LocaleSwitcherPresenter do
           [
             "#{Rails.configuration.docs_base_path}/_documentation/en",
             "#{Rails.configuration.docs_base_path}/_documentation/cn",
-            "#{Rails.configuration.docs_base_path}/_documentation/ja"
+            "#{Rails.configuration.docs_base_path}/_documentation/ja",
           ]
         )
 

@@ -31,6 +31,6 @@ class LocaleSwitcherPresenter
   end
 
   def multiple_locales?
-    locales.length > 1 ? true : false
+    locales.length > 1
   end
 end
