@@ -13,7 +13,7 @@ class TopnavItem
 
   def css_classes
     classes = ['Vlt-tabs__link']
-    classes << 'Vlt-tabs__link_active' if @navigation == @name.downcase || @navigation == @url.delete('/')
+    classes << 'Vlt-tabs__link_active' if @navigation == @name.downcase
     classes.join(' ')
   end
 end
