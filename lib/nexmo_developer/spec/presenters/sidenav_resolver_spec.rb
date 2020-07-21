@@ -144,7 +144,7 @@ RSpec.describe SidenavResolver do
 
     it 'sorts the items based on their weight' do
       result = subject.sort_navigation(structure)
-      items = result[:children].map { |child| child[:title] }
+      items = result[:children].pluck(:title)
 
       expect(items).to match_array(
         [

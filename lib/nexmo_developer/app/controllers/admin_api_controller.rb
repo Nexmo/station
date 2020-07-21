@@ -5,7 +5,7 @@ class AdminApiController < ApplicationController
     bearer_token = request.headers['Authorization']&.match(/^Bearer /)&.post_match
     return false unless bearer_token
 
-    User.where(admin: true, nexmo_developer_api_secret: bearer_token).exists?
+    User.exists?(admin: true, nexmo_developer_api_secret: bearer_token)
   end
 
   def authenticate

@@ -25,7 +25,7 @@ class OpenApiConstraint
     name = name.gsub(/(\.v\d+)/, '')
 
     matches = list.select do |s|
-      s.starts_with?(name) && !s.include?("#{name}/")
+      s.starts_with?(name) && s.exclude?("#{name}/")
     end
 
     matches = matches.map do |s|

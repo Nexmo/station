@@ -7,7 +7,7 @@ namespace :links do
     filter = ARGV[1]
     table = Terminal::Table.new do |t|
       get_links_on_a_page("#{Rails.configuration.docs_base_path}/_documentation/**/*.md").each do |from, to|
-        next if filter && !from.include?(filter)
+        next if filter && from.exclude?(filter)
 
         t << [from.split(%r{(.{25,1000}/)}).join("\n").strip, to.join("\n")]
         t << :separator
@@ -23,7 +23,7 @@ namespace :links do
     filter = ARGV[1]
     table = Terminal::Table.new do |t|
       get_links_to_a_page("#{Rails.configuration.docs_base_path}/_documentation/**/*.md").each do |to, from|
-        next if filter && !to.include?(filter)
+        next if filter && to.exclude?(filter)
 
         t << [to, from.join("\n")]
         t << :separator
@@ -55,7 +55,7 @@ namespace :links do
     additional_title = "containing '#{filter}'" if filter
     puts 'digraph {'
     get_links_on_a_page("#{Rails.configuration.docs_base_path}/_documentation/**/*.md").each do |from, to|
-      next if filter && !from.include?(filter)
+      next if filter && from.exclude?(filter)
 
       to.each do |l|
         puts "\"#{from}\" -> \"#{l}\""
@@ -76,7 +76,7 @@ namespace :links do
     additional_title = "containing '#{filter}'" if filter
     puts 'digraph {'
     get_links_to_a_page("#{Rails.configuration.docs_base_path}/_documentation/**/*.md").each do |to, from|
-      next if filter && !to.include?(filter)
+      next if filter && to.exclude?(filter)
 
       from.each do |l|
         puts "\"#{l}\" -> \"#{to}\""
