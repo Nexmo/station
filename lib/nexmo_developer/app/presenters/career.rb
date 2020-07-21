@@ -15,7 +15,7 @@ class Career
   end
 
   def department_codes
-    @department_codes ||= @career[:departments].map { |d| d[:id] }
+    @department_codes ||= @career[:departments].pluck(:id) # rubocop:disable Rails/PluckId
   end
 
   def description
