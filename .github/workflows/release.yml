@@ -1,0 +1,16 @@
+name: Release Station
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Publish Gem Version to Internal Github Package Registry On Tag
+      uses: bodyshopbidsdotcom/gh-action-publish-gem-on-tag@1.0.0
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        owner: bodyshopbidsdotcom
