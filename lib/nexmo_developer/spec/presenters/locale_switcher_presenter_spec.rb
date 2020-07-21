@@ -72,9 +72,7 @@ RSpec.describe LocaleSwitcherPresenter do
           ]
         )
 
-        multiple_locales = subject.multiple_locales?
-
-        expect(multiple_locales).to eq(true)
+        expect(subject.multiple_locales?).to eq(true)
       end
     end
 
@@ -82,9 +80,7 @@ RSpec.describe LocaleSwitcherPresenter do
       it 'returns false' do
         expect(Dir).to receive(:[]).and_return(["#{Rails.configuration.docs_base_path}/_documentation/en"])
 
-        multiple_locales = subject.multiple_locales?
-
-        expect(multiple_locales).to eq(false)
+        expect(subject.multiple_locales?).to eq(false)
       end
     end
   end
