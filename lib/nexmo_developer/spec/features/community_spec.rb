@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'Community' do
+RSpec.feature 'Community', ndp: true do
   let!(:euruko)        { FactoryBot.create(:event) }
   let!(:video_session) { FactoryBot.create(:session) }
 
