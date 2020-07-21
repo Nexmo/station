@@ -46,6 +46,10 @@ Here’s what some people do at this point - they merge their code snippet chang
 
 If you added a new code snippet and merged it into master of the code snippet repo, an NDP PR will **automatically** be created for you at this point. This is because at the least, NDP will need to be updated to point to the latest master of the code snippet repo, not the previous commit.
 
+You won't always use the automated PR though. If you're only updating a single snippet or not affecting the display of snippets in NDP, it's a nice shortcut. **Usually, you want to make sure that all the required changes are in place before creating a PR to point NDP at the latest version of the code snippet submodule repos.** In that case, you can delete the automatic update PRs with a note saying that you'll be pushing under a separate PR. 
+
+If you're not ready for the Automated PR to be merged then flag it as 'Do not merge', or if you are not going to use it close with a suitable note.
+
 ## NDP side of the code snippet
 
 Now, while waiting for a review of your code snippet code you can do the NDP part.
