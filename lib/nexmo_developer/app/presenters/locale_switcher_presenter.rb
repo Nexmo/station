@@ -29,4 +29,8 @@ class LocaleSwitcherPresenter
       Dir["#{root}/*"].map { |path| path.gsub("#{root}/", '') }
     end
   end
+
+  def multiple_locales?
+    locales.length > 1 ? true : false
+  end
 end

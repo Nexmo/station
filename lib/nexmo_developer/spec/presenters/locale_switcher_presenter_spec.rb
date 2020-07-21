@@ -60,4 +60,32 @@ RSpec.describe LocaleSwitcherPresenter do
       end
     end
   end
+
+  describe '#multiple_locales?' do
+    context 'with multiple locales' do
+      it 'returns true' do
+        expect(Dir).to receive(:[]).and_return(
+          [
+            "#{Rails.configuration.docs_base_path}/_documentation/en",
+            "#{Rails.configuration.docs_base_path}/_documentation/cn",
+            "#{Rails.configuration.docs_base_path}/_documentation/ja"
+          ]
+        )
+
+        multiple_locales = subject.multiple_locales?
+
+        expect(multiple_locales).to eq(true)
+      end
+    end
+
+    context 'with one locale' do
+      it 'returns false' do
+        expect(Dir).to receive(:[]).and_return(["#{Rails.configuration.docs_base_path}/_documentation/en"])
+
+        multiple_locales = subject.multiple_locales?
+
+        expect(multiple_locales).to eq(false)
+      end
+    end
+  end
 end

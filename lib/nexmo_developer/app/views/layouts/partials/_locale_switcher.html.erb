@@ -11,7 +11,7 @@
       </span>
     <% end %>
   </div>
-  <% unless presenter.disabled? %>
+  <% unless presenter.disabled? || presenter.multiple_locales? == false %>
     <div class="Vlt-dropdown__panel">
       <div class="Vlt-dropdown__panel__content">
         <% presenter.locales.each do |locale| %>
