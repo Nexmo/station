@@ -38,7 +38,7 @@ The tech writing team usually recommends coding and testing the code snippet cod
 
 1. Go to the code snippet repo directory and make your code changes in a branch. Test code changes locally.
 
-2. If everything is OK, push up the branch to create a PR. Request a review. While waiting for a review you can work on the NDP side of things. Remember, as your changes at this point are on a PR you won’t affect NDP, so if, for example, you’ve deleted a code snippet, NDP won’t be affected - yet.
+2. If everything is OK, push up the branch to create a PR. Request a review. While waiting for a review you can work on the NDP side of things. Remember, as your changes have not been merged yet they will not be visible in  NDP, so if, for example, you’ve deleted a code snippet, NDP won’t be affected.
 
 Here’s what some people do at this point - they merge their code snippet changes to master in the code snippet repo. If you deleted a code snippet or modified an existing one you just broke NDP - at least - those code snippet pages in NDP. The line number will be out, or worst case the code snippet has now gone completely. However, if you only added a code snippet you’re still good (although as yet the docs won't display it).
 
