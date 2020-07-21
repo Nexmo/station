@@ -1,18 +1,4 @@
 GIT
-  remote: https://github.com/nexmo/nexmo-markdown-renderer.git
-  revision: f4af0a2d405572dd83056f58acb531adb72179f2
-  branch: consider-rails-root-for-views
-  specs:
-    nexmo_markdown_renderer (0.4.0)
-      activemodel (~> 6.0)
-      banzai (~> 0.1.2)
-      i18n (~> 1.7)
-      nokogiri (~> 1.10)
-      octicons_helper (~> 8.2)
-      redcarpet (~> 3.4)
-      rouge (~> 2.0.7)
-
-GIT
   remote: https://github.com/oscardelben/rawler.git
   revision: f2909b135fce7d35167f98026ac481926c94423e
   specs:
@@ -235,7 +221,7 @@ GEM
       mime-types (~> 3.0)
       multi_xml (>= 0.5.2)
     httpclient (2.8.3)
-    i18n (1.8.3)
+    i18n (1.8.4)
       concurrent-ruby (~> 1.0)
     i18n_data (0.10.0)
     icalendar (2.6.1)
@@ -315,6 +301,14 @@ GEM
       sass (~> 3.1)
       shotgun (~> 0.9)
       sinatra (~> 2.0)
+    nexmo_markdown_renderer (0.4.1)
+      activemodel (~> 6.0)
+      banzai (~> 0.1.2)
+      i18n (~> 1.7)
+      nokogiri (~> 1.10)
+      octicons_helper (~> 8.2)
+      redcarpet (~> 3.4)
+      rouge (~> 2.0.7)
     nio4r (2.5.2)
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
@@ -539,7 +533,7 @@ GEM
     woothee (1.11.1)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.3.1)
+    zeitwerk (2.4.0)
 
 PLATFORMS
   ruby
@@ -584,7 +578,7 @@ DEPENDENCIES
   neatjson
   newrelic_rpm
   nexmo-oas-renderer (~> 2.1)
-  nexmo_markdown_renderer!
+  nexmo_markdown_renderer
   nokogiri (~> 1.10.9)
   octokit
   pg (~> 1.2)
