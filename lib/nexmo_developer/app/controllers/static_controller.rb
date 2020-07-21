@@ -45,6 +45,7 @@ class StaticController < ApplicationController
       migrate_tropo
     end
 
+    @navigation = request.path.split('/').last.to_sym
     render layout: 'landing'
   end
 
