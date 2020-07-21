@@ -7,7 +7,7 @@ updates:
   open-pull-requests-limit: 10
   reviewers:
   - fabianrbz
-  - benhayehudi
+  - bencgreenberg
   labels:
   - rails-app-updates
 - package-ecosystem: npm
@@ -17,7 +17,7 @@ updates:
   open-pull-requests-limit: 10
   reviewers:
   - fabianrbz
-  - benhayehudi
+  - bencgreenberg
 - package-ecosystem: bundler
   directory: "/"
   schedule:
@@ -25,6 +25,6 @@ updates:
   open-pull-requests-limit: 10
   reviewers:
   - fabianrbz
-  - benhayehudi
+  - bencgreenberg
   labels:
   - gemspec-updates
