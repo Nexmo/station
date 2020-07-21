@@ -8,6 +8,8 @@ namespace :ci do
         "#{Rails.configuration.docs_base_path}/_documentation/en/**/*.md",
         "#{Rails.configuration.docs_base_path}/_api/**/*.md",
         "#{Rails.configuration.docs_base_path}/_tutorials/**/*.md",
+        "#{Rails.configuration.docs_base_path}/_use_cases/**/*.md",
+        "#{Rails.root}/app/views/contribute/**/*.md",
       ]
 
     document_paths.each do |path|
