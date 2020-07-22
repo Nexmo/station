@@ -86,6 +86,9 @@ GEM
     algoliasearch (1.27.3)
       httpclient (~> 2.8, >= 2.8.3)
       json (>= 1.5.1)
+    apparition (0.6.0)
+      capybara (~> 3.13, < 4)
+      websocket-driver (>= 0.6.5)
     arbre (1.2.1)
       activesupport (>= 3.0.0)
     ast (2.4.1)
@@ -542,6 +545,7 @@ DEPENDENCIES
   actionpack-page_caching!
   activeadmin (~> 2.7)
   algoliasearch
+  apparition
   autoprefixer-rails
   awesome_print
   barnes

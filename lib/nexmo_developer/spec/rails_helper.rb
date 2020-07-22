@@ -11,6 +11,9 @@ require 'factory_bot_rails'
 require 'pry'
 require 'faker'
 require 'capybara/rails'
+require 'capybara/apparition'
+
+Capybara.javascript_driver = :apparition
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
