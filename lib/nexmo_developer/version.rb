@@ -1,3 +1,3 @@
 module NexmoDeveloper
-  VERSION = '0.0.79'.freeze
+  VERSION = '0.0.80'.freeze
 end
