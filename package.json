@@ -12,7 +12,7 @@
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
     "@babel/plugin-syntax-import-meta": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
-    "@rails/ujs": "^6.0.3",
+    "@rails/ujs": "^6.0.3-2",
     "@rails/webpacker": "^5.1.1",
     "@vonagevolta/volta2": "^0.0.54",
     "algoliasearch": "^4.3.1",
