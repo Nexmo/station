@@ -40,7 +40,7 @@ jobs:
           ${{ runner.os }}-yarn-
     - name: Install packages
       run: |
-        yarn install --pure-lockfile
+        yarn install --frozen-lockfile
     - name: Set up Ruby 2.5.8
       uses: ruby/setup-ruby@v1
       with:
@@ -82,6 +82,16 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         path: vdp
         submodules: true
+    - name: Precompile assets
+      env:
+        POSTGRES_USERNAME: postgres
+        DOCS_BASE_PATH: ./spec/fixtures
+        OAS_PATH: ./spec/fixtures/api_specs/definitions
+        FORCE_COLOR: true
+        RAILS_ENV: test
+      run: |
+        bundle exec ./bin/webpack
+      working-directory: ./lib/nexmo_developer
     - name: Run Platform Tests
       env:
         POSTGRES_USERNAME: postgres
@@ -91,7 +101,7 @@ jobs:
       run: |
         bundle exec rails db:create
         bundle exec rails db:migrate
-        bundle exec rake spec
+        bundle exec rspec
         bundle exec rubocop
       working-directory: ./lib/nexmo_developer
     - name: Run NDP Tests
