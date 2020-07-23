@@ -82,15 +82,21 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         path: vdp
         submodules: true
-    - name: Precompile assets
+    - name: Run NDP Tests
       env:
         POSTGRES_USERNAME: postgres
-        DOCS_BASE_PATH: ./spec/fixtures
-        OAS_PATH: ./spec/fixtures/api_specs/definitions
+        DOCS_BASE_PATH: ${{ github.workspace }}/ndp
+        OAS_PATH: ${{ github.workspace }}/ndp/_open_api/api_specs/definitions
         FORCE_COLOR: true
-        RAILS_ENV: test
+        NODE_ENV: development
       run: |
-        bundle exec ./bin/webpack
+        bundle exec rspec --tag ndp
+        bundle exec rake ci:verify_pages
+        bundle exec rake ci:verify_navigation
+        bundle exec rake ci:verify_oas_reference
+        RAILS_ENV=test bundle exec rake ci:verify_error_urls_resolve
+        bundle exec rake ci:check_word_blocklist
+        bundle exec rake ci:check_ruby_version
       working-directory: ./lib/nexmo_developer
     - name: Run Platform Tests
       env:
@@ -103,21 +109,6 @@ jobs:
         bundle exec rails db:migrate
         bundle exec rspec
         bundle exec rubocop
-      working-directory: ./lib/nexmo_developer
-    - name: Run NDP Tests
-      env:
-        POSTGRES_USERNAME: postgres
-        DOCS_BASE_PATH: ${{ github.workspace }}/ndp
-        OAS_PATH: ${{ github.workspace }}/ndp/_open_api/api_specs/definitions
-        FORCE_COLOR: true
-      run: |
-        bundle exec rspec --tag ndp
-        bundle exec rake ci:verify_pages
-        bundle exec rake ci:verify_navigation
-        bundle exec rake ci:verify_oas_reference
-        RAILS_ENV=test bundle exec rake ci:verify_error_urls_resolve
-        bundle exec rake ci:check_word_blocklist
-        bundle exec rake ci:check_ruby_version
       working-directory: ./lib/nexmo_developer
     - name: Run VDP Tests
       env:
