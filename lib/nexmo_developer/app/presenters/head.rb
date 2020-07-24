@@ -1,66 +1,96 @@
 class Head
-  attr_reader :items
+  class Description
+    def initialize(config:, frontmatter:)
+      @config      = config
+      @frontmatter = frontmatter
+    end
 
-  def initialize(items: nil)
-    @items = items
+    def description
+      @description ||= from_frontmatter || @config.fetch('description') do
+        raise "You must provide a 'description' parameter in header_meta.yml"
+      end
+    end
+
+    def from_frontmatter
+      @frontmatter && (@frontmatter['meta_description'] || @frontmatter['description'])
+    end
+  end
+
+  attr_reader :config, :frontmatter
+
+  def initialize(frontmatter = nil)
+    @frontmatter = frontmatter
 
     after_initialize!
+    validate_files_presence!
   end
 
-  def head_from_config(config)
-    config = YAML.safe_load(open_config(config))
-    {
-      title: title(config),
-      description: description(config),
-      google_site_verification: config['google-site-verification'] || '',
-      application_name: config['application-name'],
-      og_image: file(config['og-image']),
-      og_image_width: config['og-image-width'],
-      og_image_height: config['og-image-height'],
-      apple_touch_icon: file('apple-touch-icon.png'),
-      favicon: file('favicon.ico'),
-      favicon_32_squared: file('favicon-32x32.png'),
-      manifest: file('manifest.json'),
-      safari_pinned_tab: file('safari-pinned-tab.svg'),
-      mstile_144_squared: file('mstile-144x144.png'),
-    }
+  def title
+    @title ||= config.fetch('title') do
+      raise "You must provide a 'title' parameter in header_meta.yml"
+    end
   end
 
-  def open_config(config)
-    File.open(config)
+  def description
+    @description ||= Description.new(config: config, frontmatter: frontmatter).description
   end
 
-  def config_exist?(path)
-    File.exist?(path)
+  def google_site_verification
+    @google_site_verification ||= config['google-site-verification']
   end
 
-  def file_does_not_exist?(path)
-    !File.exist?(path)
+  def application_name
+    @application_name ||= config['application-name']
+  end
+
+  def favicon
+    'meta/favicon.ico'
+  end
+
+  def favicon_32_squared
+    'meta/favicon-32x32.png'
+  end
+
+  def manifest
+    'meta/manifest.json'
+  end
+
+  def safari_pinned_tab
+    'meta/safari-pinned-tab.svg'
+  end
+
+  def mstile_144_squared
+    'meta/mstile-144x144.png'
+  end
+
+  def apple_touch_icon
+    'meta/apple-touch-icon.png'
+  end
+
+  def og_image
+    @og_image ||= "meta/#{config['og-image']}"
+  end
+
+  def og_image_width
+    @og_image_width ||= config['og-image-width']
+  end
+
+  def og_image_height
+    @og_image_height ||= config['og-image-height']
   end
 
   private
 
   def after_initialize!
-    raise 'You must provide a config/header_meta.yml file in your documentation path.' unless config_exist?("#{Rails.configuration.docs_base_path}/config/header_meta.yml")
+    config_path = "#{Rails.configuration.docs_base_path}/config/header_meta.yml"
+    raise 'You must provide a config/header_meta.yml file in your documentation path.' unless File.exist?(config_path)
 
-    @items = head_from_config("#{Rails.configuration.docs_base_path}/config/header_meta.yml")
+    @config = YAML.safe_load(File.open(config_path))
   end
 
-  def title(config)
-    raise "You must provide a 'title' parameter in header_meta.yml" if config['title'].blank?
-
-    config['title']
-  end
-
-  def description(config)
-    raise "You must provide an 'description' parameter in header_meta.yml" if config['description'].blank?
-
-    config['description']
-  end
-
-  def file(file_name)
-    raise "You must provide an #{file_name} file inside the public/meta directory" if file_does_not_exist?("#{Rails.configuration.docs_base_path}/public/meta/#{file_name}")
-
-    "meta/#{file_name}"
+  def validate_files_presence!
+    %i[favicon favicon_32_squared manifest safari_pinned_tab mstile_144_squared apple_touch_icon og_image].each do |file|
+      raise "You must provide a #{send(file).sub('meta/', '')} file inside the public/meta directory" unless File.exist?("#{Rails.configuration.docs_base_path}/public/#{send(file)}")
+    end
   end
 end
