@@ -99,7 +99,7 @@ RSpec.describe Head do
 
       it 'raises' do
         expect { subject.favicon }
-          .to raise_error(RuntimeError, 'You must provide an favicon.ico file inside the public/meta directory')
+          .to raise_error(RuntimeError, 'You must provide a favicon.ico file inside the public/meta directory')
       end
     end
   end
@@ -115,7 +115,7 @@ RSpec.describe Head do
 
       it 'raises' do
         expect { subject.favicon_32_squared }
-          .to raise_error(RuntimeError, 'You must provide an favicon-32x32.png file inside the public/meta directory')
+          .to raise_error(RuntimeError, 'You must provide a favicon-32x32.png file inside the public/meta directory')
       end
     end
   end
@@ -131,7 +131,7 @@ RSpec.describe Head do
 
       it 'raises' do
         expect { subject.manifest }
-          .to raise_error(RuntimeError, 'You must provide an manifest.json file inside the public/meta directory')
+          .to raise_error(RuntimeError, 'You must provide a manifest.json file inside the public/meta directory')
       end
     end
   end
@@ -147,7 +147,7 @@ RSpec.describe Head do
 
       it 'raises' do
         expect { subject.safari_pinned_tab }
-          .to raise_error(RuntimeError, 'You must provide an safari-pinned-tab.svg file inside the public/meta directory')
+          .to raise_error(RuntimeError, 'You must provide a safari-pinned-tab.svg file inside the public/meta directory')
       end
     end
   end
@@ -163,7 +163,7 @@ RSpec.describe Head do
 
       it 'raises' do
         expect { subject.mstile_144_squared }
-          .to raise_error(RuntimeError, 'You must provide an mstile-144x144.png file inside the public/meta directory')
+          .to raise_error(RuntimeError, 'You must provide a mstile-144x144.png file inside the public/meta directory')
       end
     end
   end
@@ -179,7 +179,7 @@ RSpec.describe Head do
 
       it 'raises' do
         expect { subject.apple_touch_icon }
-          .to raise_error(RuntimeError, 'You must provide an apple-touch-icon.png file inside the public/meta directory')
+          .to raise_error(RuntimeError, 'You must provide a apple-touch-icon.png file inside the public/meta directory')
       end
     end
   end
@@ -195,7 +195,7 @@ RSpec.describe Head do
 
       it 'raises' do
         expect { subject.og_image }
-          .to raise_error(RuntimeError, 'You must provide an nexmo-developer-card.png file inside the public/meta directory')
+          .to raise_error(RuntimeError, 'You must provide a nexmo-developer-card.png file inside the public/meta directory')
       end
     end
   end

@@ -90,7 +90,7 @@ class Head
 
   def validate_files_presence!
     %i[favicon favicon_32_squared manifest safari_pinned_tab mstile_144_squared apple_touch_icon og_image].each do |file|
-      raise "You must provide an #{send(file).sub('meta/', '')} file inside the public/meta directory" unless File.exist?("#{Rails.configuration.docs_base_path}/public/#{send(file)}")
+      raise "You must provide a #{send(file).sub('meta/', '')} file inside the public/meta directory" unless File.exist?("#{Rails.configuration.docs_base_path}/public/#{send(file)}")
     end
   end
 end
