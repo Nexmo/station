@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Smoke Tests', type: :request, ndp: true do
   it '/ contains the expected text' do
     get '/'
-    expect(response.body).to include('Connected Code')
+    expect(response.body).to include('Vonage API Developer')
     expect(response.body).to include('Everything you need to build connected applications with Vonage APIs')
   end
 
