@@ -2,7 +2,7 @@
   <div class="Vlt-col Vlt-col--3of4">
     <div class="Vlt-card">
       <div class="Ndx-task-step__code-language Vlt-right">
-        <div><%= render 'code_languages/icon', code_language: @tutorial.code_language %></div>
+        <div><%= render 'code_languages/icon', code_language: @tutorial.code_language, dark: true %></div>
       </div>
     <%= @content.html_safe %>
 
@@ -45,7 +45,7 @@
                 <% @tutorial.available_code_languages.reject { |l| l == @tutorial.code_language }.each do |language| %>
                   <li class="Ndx-task-step__code-language">
                     <a title="<%= language %>" href="<%= "/#{@tutorial.current_product}/tutorials/#{@tutorial.name}/#{@tutorial.first_step}/#{language}" %>">
-                      <div><%= render 'code_languages/icon', code_language: language %></div>
+                      <div><%= render 'code_languages/icon', code_language: language, dark: true %></div>
                     </a>
                   </li>
                 <% end %>
