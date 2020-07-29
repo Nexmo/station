@@ -1793,10 +1793,10 @@
   dependencies:
     "@types/node" "*"
 
-"@vonagevolta/volta2@^0.0.54":
-  version "0.0.54"
-  resolved "https://registry.yarnpkg.com/@vonagevolta/volta2/-/volta2-0.0.54.tgz#8c08a3cc2a902dd05d8f93a0633f8283ec57ef66"
-  integrity sha512-+78UHHv1/s8BHe31bfAH2b749PnbX7qewlHA3GMa94VceJ9ddJL0iB+MvOey5H9KwLKYoszWpO4Ot07cyG7l2A==
+"@vonagevolta/volta2@^0.0.55":
+  version "0.0.55"
+  resolved "https://registry.yarnpkg.com/@vonagevolta/volta2/-/volta2-0.0.55.tgz#838665c817496230ba7c20089f4c5101fbed4423"
+  integrity sha512-TW+nNwVEI7Bv81pD5Kw/lssnpreEeJx4VyG8/TdC0AzzDkoZJBSfCYt83CfKhnC47cw+2Rb2/ZbPOBWKZjNUDw==
   dependencies:
     marked "^0.7.0"
     marked-sanitizer-github "^1.0.0"

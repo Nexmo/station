@@ -14,7 +14,7 @@
     "@babel/preset-env": "^7.10.4",
     "@rails/ujs": "^6.0.3-2",
     "@rails/webpacker": "^5.1.1",
-    "@vonagevolta/volta2": "^0.0.54",
+    "@vonagevolta/volta2": "^0.0.55",
     "algoliasearch": "^4.3.1",
     "autoprefixer": "^9.8.5",
     "babel-loader": "^8.0.0",
