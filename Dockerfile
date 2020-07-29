@@ -26,7 +26,7 @@ RUN bundle install --without development:test:assets -j4 --retry 3 --path=vendor
     && find vendor/bundle/ruby/2.5.0/gems/ -name "*.o" -delete
 
 # Install node dependencies
-RUN yarn install --production
+RUN yarn install --frozen-lockfile
 
 # Copy the app in to /station and compile assets
 COPY lib/nexmo_developer/ $RAILS_ROOT/
