@@ -92,7 +92,7 @@ GEM
     arbre (1.2.1)
       activesupport (>= 3.0.0)
     ast (2.4.1)
-    autoprefixer-rails (9.8.5)
+    autoprefixer-rails (9.8.6)
       execjs
     awesome_print (1.8.0)
     banzai (0.1.3)
