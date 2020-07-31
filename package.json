@@ -22,7 +22,7 @@
     "coffee-loader": "^1.0.0",
     "coffee-script": "^1.12.7",
     "compression-webpack-plugin": "^4.0.0",
-    "css-loader": "^4.1.0",
+    "css-loader": "^4.1.1",
     "dotenv": "^8.2.0",
     "file-loader": "^6.0.0",
     "foundation-sites": "^6.6.3",
