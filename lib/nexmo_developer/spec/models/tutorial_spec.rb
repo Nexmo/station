@@ -292,6 +292,7 @@ RSpec.describe Tutorial, type: :model do
 
     context 'dynamic step' do
       # rubocop:disable Layout/ClosingHeredocIndentation
+      # rubocop:disable Style/StringConcatenation
       it 'returns content if it exists' do
         tutorial = described_class.load('example_tutorial', current_step)
 
@@ -305,6 +306,7 @@ RSpec.describe Tutorial, type: :model do
                                                                        HEREDOC
           .strip + "\n")
       end
+      # rubocop:enable Style/StringConcatenation
       # rubocop:enable Layout/ClosingHeredocIndentation
 
       it 'raises if it does not exist' do
