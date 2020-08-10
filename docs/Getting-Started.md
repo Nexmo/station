@@ -21,7 +21,7 @@ Once the `Gemfile` is completed, Station can be downloaded and installed locally
 
 ## Booting Up For The First Time
 
-Station requires a certain defined file structure in the content file path provided to the CLI when booting it up. Please refer to the [Configuration](https://github.com/Nexmo/station/blob/master/docs/Configuration) page for detailed instructions. Without this file structure, Station will not run correctly.
+Station requires a certain defined file structure in the content file path provided to the CLI when booting it up. Please refer to the [How To Use](https://github.com/Nexmo/station/blob/master/docs/How-To-Use#configuration-files) page for detailed instructions. Without this file structure, Station will not run correctly.
 
 To start Station the following command can be executed from the command line, replacing `/content/path` with the absolute file path to your content:
 
@@ -31,4 +31,4 @@ $ bundle exec nexmo-developer --docs=/content/path
 
 For troubleshooting diagnosis you can turn on logging output to the console by prepending `RAILS_LOG_TO_STDOUT=true` to the command. This can also be defined permanently in a dotenv file in the top-level folder of your content.
 
-Station is also available as a Docker image. Please refer to the [How To Use](https://github.com/Nexmo/station/blob/master/docs/How-To-Use) page for instructions on booting it up with Docker.
+Station is also available as a Docker image. Please refer to the [How To Use](https://github.com/Nexmo/station/blob/master/docs/How-To-Use#running-with-docker) page for instructions on booting it up with Docker.
