@@ -1,2 +1,5 @@
 relative_links:
   enabled: true
+
+plugins:
+  - jekyll-relative-links
