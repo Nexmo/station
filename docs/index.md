@@ -67,6 +67,6 @@
 </ul>
 
 <p>
-  Learn more about <a href="/station/docs/Getting-Started">Getting Started</a> 
-  and <a href="/station/docs/How-To-Use">How To Use</a> Station.
+  Learn more about <a href="docs/Getting-Started.md">Getting Started</a> 
+  and <a href="docs/How-To-Use.md">How To Use</a> Station.
 </p>
