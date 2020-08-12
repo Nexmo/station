@@ -38,4 +38,4 @@ Station accomplishes this by:
 * Disaggregating the code of the platform and its content so content contributors do not need to be concerned at all with the code
 * With regular releases of new versions following semantic versioning guidelines, providing administrators with the assurance that their platform will be current with dependency upgrades by maintaining a single gem dependency, that of Station itself
 
-Learn more about [Getting Started](https://github.com/Nexmo/station/blob/master/docs/Getting-Started) and [How To Use](https://github.com/Nexmo/station/blob/master/docs/How-To-Use) Station.
+Learn more about [Getting Started](/station/docs/Getting-Started) and [How To Use](/station/docs/How-To-Use) Station.

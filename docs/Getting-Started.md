@@ -31,4 +31,4 @@ $ bundle exec nexmo-developer --docs=/content/path
 
 For troubleshooting diagnosis you can turn on logging output to the console by prepending `RAILS_LOG_TO_STDOUT=true` to the command. This can also be defined permanently in a dotenv file in the top-level folder of your content.
 
-Station is also available as a Docker image. Please refer to the [How To Use](https://github.com/Nexmo/station/blob/master/docs/How-To-Use#running-with-docker) page for instructions on booting it up with Docker.
+Station is also available as a Docker image. Please refer to the [How To Use](/station/docs/How-To-Use#running-with-docker) page for instructions on booting it up with Docker.
