@@ -1,3 +1,8 @@
+---
+title: "Getting Started"
+permalink: /Getting-Started
+---
+
 # Contents
 
 1. [Dependencies](#dependencies)

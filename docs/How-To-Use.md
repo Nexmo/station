@@ -1,3 +1,8 @@
+---
+title: "How To Use"
+permalink: /How-To-Use
+---
+
 # Contents
 
 1. [Content Structure and Files](#content-structure-and-files)
