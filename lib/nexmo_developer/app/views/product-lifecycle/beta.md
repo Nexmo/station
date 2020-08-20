@@ -21,10 +21,7 @@ We aim to have conceptual documentation, tutorials and code samples available fo
 
 ## Server SDKs
 
-Server SDK for Node.js is available<sup>*</sup>.
-
-<small>* *Excluded products*: Conversation API</small>
-
+Server SDK for Node.js is available.
 
 ## Deprecation
 
