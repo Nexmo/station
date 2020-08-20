@@ -127,7 +127,7 @@ RSpec.describe 'Smoke Tests', type: :request, ndp: true do
 
   it '/product-lifecycle/beta contains the expected text' do
     get '/product-lifecycle/beta'
-    expect(response.body).to include('Beta products at Nexmo are in the final stages of testing')
+    expect(response.body).to include('Beta products at Vonage are in the final stages of testing')
   end
 
   it '/tutorials' do
