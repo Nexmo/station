@@ -7691,10 +7691,10 @@ jsprim@^1.2.2:
     json-schema "0.2.3"
     verror "1.10.0"
 
-jsrsasign@^9.0.1:
-  version "9.0.1"
-  resolved "https://registry.yarnpkg.com/jsrsasign/-/jsrsasign-9.0.1.tgz#ef62b757eace3b2127142adaba7a3c26e2487307"
-  integrity sha512-DRPZ75Y+G0O1zWKQkevkr0ENBYl7nb39/112lXzBgzoaeiUkGXpRfk+FbRCusowG6MvpInOwEmZ3IWU9VI4w3w==
+jsrsasign@^9.0.3:
+  version "9.0.3"
+  resolved "https://registry.yarnpkg.com/jsrsasign/-/jsrsasign-9.0.3.tgz#a424e79772f43feae690de1df7f429add39d78ad"
+  integrity sha512-0HZuGr5vqSrGLJIRxrjNJukXpGXDhhBX9X0+6iZ90xQKz7xuiMA//ZT1nXjiuegLPRdizNub5osDcnYjbu2bdg==
 
 jsx-ast-utils@^2.4.1:
   version "2.4.1"
