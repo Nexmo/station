@@ -4,10 +4,15 @@
   -webkit-font-smoothing: antialiased;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  height: 100%;
 }
 
 em {
@@ -31,7 +36,9 @@ em {
 
 @media #{$M-plus} {
   .Nxd-main {
-    height: calc(100vh - 111px);
+    height: calc(100vh - 150px);
+    margin-top: 150px;
+    padding: 0px 32px;
   }
 }
 

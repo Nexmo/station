@@ -45,7 +45,7 @@
 
 @media #{$M-plus} {
   .Vlt-sidenav {
-    height: calc(100vh - 111px);
+    height: calc(100vh - 150px);
   }
 }
 
@@ -96,9 +96,7 @@
 }
 
 .Nxd-sidenav {
-  padding-top: 8px;
-}
-
-.Nxd-header__sub__menu {
-  margin-bottom: 24px;
+  @media #{$M-plus} {
+    margin-top: 150px;
+  }
 }

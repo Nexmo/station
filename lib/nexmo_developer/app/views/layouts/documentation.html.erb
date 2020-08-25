@@ -6,16 +6,17 @@
     <%= render partial: 'layouts/partials/header' %>
     <div id="Vlt-sidenav" class="Vlt-sidenav Nxd-sidenav Vlt-sidenav--animate Vlt-sidenav--rounded">
       <div class="Vlt-sidenav__scroll">
-        <nav class="sidenav" tabindex="0" data-active="<%= active_sidenav_item %>">
+        <nav class="sidenav" id="sidenav" data-active="<%= active_sidenav_item %>" aria-label="Documentation">
           <% cache_unless params[:namespace].present?, ['sidenav', I18n.locale] do %>
             <%= render partial: 'layouts/partials/sidenav' %>
           <% end %>
         </nav>
       </div>
     </div>
-    <main class="Vlt-main Nxd-main" tabindex="0">
+    <main class="Vlt-main Nxd-main">
       <%= render partial: 'layouts/partials/notices' %>
-      <div class="Vlt-article" id="primary-content">
+      <div class="Vlt-article">
+        <div id="primary-content" tabindex="-1"></div>
         <%= yield %>
         <%= render partial: 'layouts/partials/feedback' unless @skip_feedback %>
       </div>
