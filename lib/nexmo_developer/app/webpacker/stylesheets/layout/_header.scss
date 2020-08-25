@@ -1,10 +1,17 @@
 .Nxd-header {
   width: 100%;
   z-index: 700;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
 
   @media #{$S-only} {
     height: auto;
   }
+}
+
+#header {
+  outline: none;
 }
 
 .Nxd-header__main {
@@ -12,7 +19,6 @@
   background: $white;
   color: $white;
   display: flex;
-  height: 65px;
   flex: 0 0 100%;
   padding: $unit2;
   transition: height .5s;
@@ -186,4 +192,16 @@
 .Nxd-main-header__link {
   font-weight: 600;
   padding-top: 2px;
+}
+
+#skip-to-content, #skip-to-navigation {
+  left: 67%;
+  position: absolute;
+  transform: translateY(-140%);
+  transition: transform 0.3s;
+
+  &:focus {
+    transform: translateY(0%);
+    z-index: 1000;
+  }
 }

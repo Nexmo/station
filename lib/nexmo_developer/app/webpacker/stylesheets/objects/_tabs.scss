@@ -1,4 +1,7 @@
 #primary-content {
+  outline: none;
+  overflow-y: hidden;
+
   .Vlt-tabs__link_active {
     background: $grey-lighter;
 

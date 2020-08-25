@@ -14,7 +14,7 @@
     <% end %>
   <% elsif sidenav_subitem.collapsible? %>
     <li class="js--collapsible navigation-item--<%= sidenav_subitem.title.parameterize %> navigation-item">
-      <a class="Vlt-sidemenu__trigger" href="/concepts">
+      <a class="Vlt-sidemenu__trigger" href="/concepts" role="link">
         <span class="Vlt-sidemenu__label"><%= sidenav_subitem.title %></span>
       </a>
       <% if sidenav_subitem.children.any? %>
