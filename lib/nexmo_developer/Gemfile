@@ -178,8 +178,8 @@ group :development do
 end
 
 group :test do
-  gem 'cuprite'
   gem 'capybara'
+  gem 'cuprite'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
