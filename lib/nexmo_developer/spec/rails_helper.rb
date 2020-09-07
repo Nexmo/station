@@ -15,7 +15,11 @@ require 'capybara/cuprite'
 
 Capybara.javascript_driver = :cuprite
 Capybara.register_driver(:cuprite) do |app|
-  Capybara::Cuprite::Driver.new(app, window_size: [1200, 800])
+  browser_options = {}.tap do |opts|
+    opts['no-sandbox'] = nil if ENV['CI']
+    opts['window_size'] = [1200, 800]
+  end
+  Capybara::Cuprite::Driver.new(app, browser_options: browser_options)
 end
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
