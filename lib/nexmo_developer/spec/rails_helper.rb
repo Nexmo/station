@@ -11,9 +11,12 @@ require 'factory_bot_rails'
 require 'pry'
 require 'faker'
 require 'capybara/rails'
-require 'capybara/apparition'
+require 'capybara/cuprite'
 
-Capybara.javascript_driver = :apparition
+Capybara.javascript_driver = :cuprite
+Capybara.register_driver(:cuprite) do |app|
+  Capybara::Cuprite::Driver.new(app, window_size: [1200, 800])
+end
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are

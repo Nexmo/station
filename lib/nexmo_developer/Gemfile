@@ -178,7 +178,7 @@ group :development do
 end
 
 group :test do
-  gem 'apparition'
+  gem 'cuprite'
   gem 'capybara'
 end
 
