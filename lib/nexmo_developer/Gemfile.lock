@@ -185,7 +185,7 @@ GEM
     gravatar_image_tag (1.2.0)
     greenhouse_io (2.5.0)
       httmultiparty (~> 0.3.16)
-    groupdate (5.1.0)
+    groupdate (5.2.0)
       activesupport (>= 5)
     guard (2.16.2)
       formatador (>= 0.2.4)
@@ -277,7 +277,7 @@ GEM
     mimemagic (0.3.5)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
-    minitest (5.14.1)
+    minitest (5.14.2)
     msgpack (1.3.3)
     multi_json (1.15.0)
     multi_xml (0.6.0)
@@ -571,7 +571,7 @@ DEPENDENCIES
   gmaps4rails
   gravatar_image_tag (= 1.2.0)
   greenhouse_io
-  groupdate (= 5.1.0)
+  groupdate (= 5.2.0)
   guard-livereload (~> 2.5)
   guard-rspec
   icalendar
