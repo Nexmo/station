@@ -15,11 +15,7 @@ require 'capybara/cuprite'
 
 Capybara.javascript_driver = :cuprite
 Capybara.register_driver(:cuprite) do |app|
-  Capybara::Cuprite::Driver.new(app, browser_options: { 'no-sandbox': nil,
-                                                        'window_size': [1200, 800],
-                                                        'timeout': 30,
-                                                        'slowmo': 5,
-                                                        'process_timeout': 5 })
+  Capybara::Cuprite::Driver.new(app, browser_options: { 'window_size': [1200, 800], 'process_timeout': 5 })
 end
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
