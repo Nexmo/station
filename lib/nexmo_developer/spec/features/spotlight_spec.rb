@@ -5,7 +5,7 @@ RSpec.feature 'Spotlight', ndp: true, js: true do
     allow(RestClient).to receive(:post).and_return(double(code: 200))
   end
 
-  scenario 'submitting an idea' do
+  xscenario 'submitting an idea' do
     visit '/spotlight'
 
     fill_in 'Your Name', with: 'John'
