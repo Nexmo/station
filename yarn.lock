@@ -1749,10 +1749,10 @@
   dependencies:
     "@types/node" "*"
 
-"@vonagevolta/volta2@^0.0.55":
-  version "0.0.55"
-  resolved "https://registry.yarnpkg.com/@vonagevolta/volta2/-/volta2-0.0.55.tgz#838665c817496230ba7c20089f4c5101fbed4423"
-  integrity sha512-TW+nNwVEI7Bv81pD5Kw/lssnpreEeJx4VyG8/TdC0AzzDkoZJBSfCYt83CfKhnC47cw+2Rb2/ZbPOBWKZjNUDw==
+"@vonagevolta/volta2@^0.0.56":
+  version "0.0.56"
+  resolved "https://registry.yarnpkg.com/@vonagevolta/volta2/-/volta2-0.0.56.tgz#a9929581bf0aaeb8f2e9d766df2483635ccf64c8"
+  integrity sha512-hNWjiCD+AupTOnH/LEUTBB/V/AHxe3jq2ZY8NC9W0u3aEacRGqk86pwpOOARF2cY9LsA7C0SFME8nbqZWXLX3Q==
   dependencies:
     marked "^0.7.0"
     marked-sanitizer-github "^1.0.0"
