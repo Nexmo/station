@@ -14,6 +14,7 @@ RSpec.feature 'Spotlight', ndp: true, js: true do
     fill_in 'outline', with: 'Outline of the idea'
     click_button 'Submit'
 
+    page.driver.wait_for_network_idle
     expect(page).to have_css('#success .Vlt-callout__content', text: 'Thanks for your submission, we will review it and get in contact with you shortly')
   end
 end
