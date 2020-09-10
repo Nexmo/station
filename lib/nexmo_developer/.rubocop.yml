@@ -261,3 +261,12 @@ Rails/WhereExists:
 
 Rails/MatchRoute:
   Enabled: true
+
+Rails/AfterCommitOverride:
+  Enabled: true
+
+Rails/SquishedSQLHeredocs:
+  Enabled: true
+
+Rails/WhereNot:
+  Enabled: true
