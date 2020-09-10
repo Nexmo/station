@@ -26,6 +26,7 @@ namespace :repos do
 
     warnings = []
 
+    # rubocop:disable Style/CombinableLoops
     repos.each do |r|
       if r.path
         if File.directory?("#{Rails.root}/#{r.path}")
@@ -49,6 +50,7 @@ namespace :repos do
 
       progressbar.increment
     end
+    # rubocop:enable Style/CombinableLoops
 
     warnings.each { |warning| puts warning.colorize(:light_yellow) }
   end
