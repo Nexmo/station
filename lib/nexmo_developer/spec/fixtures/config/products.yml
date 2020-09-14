@@ -4,148 +4,178 @@ products:
     icon: 'user'
     path: account
     dropdown: true
+    translation_frequency: 15
   -
     name: 'Subaccounts'
     icon: 'user'
     path: account/subaccounts
     dropdown: true
+    translation_frequency: 15
   -
     name: 'Applications'
     icon: 'flow'
     path: application
     dropdown: true
+    translation_frequency: 15
   -
     name: 'Audit'
     icon: 'search'
     path: audit
     dropdown: true
+    translation_frequency: 15
   -
     name: 'Client SDK'
     icon: 'duplicate'
     path: client-sdk
     dropdown: true
+    translation_frequency: 15
   -
     name: 'In-App Voice'
     icon: 'microphone'
     path: client-sdk/in-app-voice
     dropdown: true
+    translation_frequency: 15
   -
     name: 'In-App Video'
     icon: 'video'
     path: client-sdk/in-app-video
     dropdown: true
+    translation_frequency: 15
   -
     name: 'In-App Messaging'
     icon: 'chat'
     path: client-sdk/in-app-messaging
     dropdown: true
+    translation_frequency: 15
   -
     name: 'Concepts'
     icon: 'books'
     path: concepts
     dropdown: true
+    translation_frequency: 15
   -
     name: 'Conversation API'
     icon: 'queue'
     path: conversation
     dropdown: true
+    translation_frequency: 15
   -
     name: 'Dispatch API'
     icon: 'message'
     path: dispatch
     dropdown: true
+    translation_frequency: 15
   -
     name: 'Getting Started'
     icon: 'queue'
     path: 'getting-started'
     dropdown: false
+    translation_frequency: 15
   -
     name: 'Messages API'
     icon: 'message'
     path: messages
     dropdown: true
+    translation_frequency: 15
   -
     name: 'SMS API'
     icon: 'message'
     path: messaging/sms
     dropdown: true
+    translation_frequency: 15
   -
     name: 'Conversion API'
     icon: 'message'
     path: messaging/conversion-api
     dropdown: true
+    translation_frequency: 15
   -
     name: 'US Short Codes'
     icon: 'message'
     path: messaging/us-short-codes
     dropdown: true
+    translation_frequency: 15
   -
     name: 'Number Insight API'
     icon: 'hash'
     path: number-insight
     dropdown: true
+    translation_frequency: 15
   -
     name: 'Numbers'
     icon: 'hash'
     path: numbers
     dropdown: true
+    translation_frequency: 15
   -
     name: 'Redact API'
     icon: 'search'
     path: redact
     dropdown: true
+    translation_frequency: 15
   -
     name: 'Reports API'
     icon: 'code'
     path: reports
     dropdown: true
+    translation_frequency: 15
   -
     name: 'Tools'
     icon: 'code'
     path: tools
     dropdown: true
+    translation_frequency: 15
   -
     name: 'Verify'
     icon: 'check-circle'
     path: verify
     dropdown: true
+    translation_frequency: 15
   -
     name: 'SIP'
     icon: 'phone'
     path: voice/sip
     dropdown: true
+    translation_frequency: 15
   -
     name: 'Voice API'
     icon: 'phone'
     path: voice/voice-api
     dropdown: true
+    translation_frequency: 15
   -
     name: 'Smart Numbers'
     icon: 'telephone'
     path: vonage-business-cloud/smart-numbers
     dropdown: true
+    translation_frequency: 15
   -
     name: 'Vonage Integration Suite'
     icon: 'telephone'
     path: vonage-business-cloud/integration-suite
     dropdown: true
+    translation_frequency: 15
   -
     name: 'VBC Account API'
     icon: 'telephone'
     path: vonage-business-cloud/vbc-apis/account-api
     dropdown: true
+    translation_frequency: 15
   -
     name: 'VBC Extension API'
     icon: 'telephone'
     path: vonage-business-cloud/vbc-apis/extension-api
     dropdown: true
+    translation_frequency: 15
   -
     name: 'VBC Reports API'
     icon: 'telephone'
     path: vonage-business-cloud/vbc-apis/reports-api
     dropdown: true
+    translation_frequency: 15
   -
     name: 'VBC User API'
     icon: 'telephone'
     path: vonage-business-cloud/vbc-apis/user-api
     dropdown: true
+    translation_frequency: 15
