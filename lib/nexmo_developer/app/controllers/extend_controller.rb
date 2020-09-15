@@ -17,7 +17,7 @@ class ExtendController < ApplicationController
       { title: title, description: description, tags: tags, image: image, route: route }
     end.compact
 
-    render layout: 'page'
+    render layout: 'landing'
   end
 
   def show
