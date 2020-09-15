@@ -9,7 +9,7 @@ RSpec.feature 'Extend' do
 
     within('.Vlt-grid--center') do
       expect(page).to have_css('h5', text: 'Amazon Lex Connector')
-      expect(page).to have_css('p', text: 'A hosted and opensource connector to bridge between Nexmo websockets and Amazon Lex')
+      expect(page).to have_css('p', text: 'An opensource connector to bridge between Vonage websockets and Amazon Lex')
       expect(page).to have_link('Learn More', href: '/extend/amazon-lex-connector')
     end
   end
