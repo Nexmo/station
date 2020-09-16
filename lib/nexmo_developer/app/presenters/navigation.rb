@@ -28,14 +28,14 @@ class Navigation
 
   def product
     @product ||= begin
-                   if @folder[:path].starts_with?('app/views')
-                     path_to_url.split('/').first
-                   else
-                     DocumentationConstraint.products_for_routes.find do |p|
-                       path_to_url.starts_with? p
-                     end
-                   end
-                 end
+      if @folder[:path].starts_with?('app/views')
+        path_to_url.split('/').first
+      else
+        DocumentationConstraint.products_for_routes.find do |p|
+          path_to_url.starts_with? p
+        end
+      end
+    end
   end
 
   def document

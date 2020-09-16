@@ -26,18 +26,18 @@ class Tutorial::Metadata
 
   def available_code_languages
     @available_code_languages ||= begin
-                                    Nexmo::Markdown::DocFinder
-                                      .code_languages_for_tutorial(path: path.sub('.yml', '/'))
-                                      .map { |file_path| File.basename(Pathname.new(file_path).basename, '.yml') }
-                                      .sort_by { |l| Nexmo::Markdown::CodeLanguage.find(l).weight }
-                                  end
+      Nexmo::Markdown::DocFinder
+        .code_languages_for_tutorial(path: path.sub('.yml', '/'))
+        .map { |file_path| File.basename(Pathname.new(file_path).basename, '.yml') }
+        .sort_by { |l| Nexmo::Markdown::CodeLanguage.find(l).weight }
+    end
   end
 
   def code_language
     @code_language ||= begin
-                         available_code_languages
-                           .min_by { |k| Nexmo::Markdown::CodeLanguage.languages.map(&:key).index(k) }
-                       end
+      available_code_languages
+        .min_by { |k| Nexmo::Markdown::CodeLanguage.languages.map(&:key).index(k) }
+    end
   end
 
   def default_product
