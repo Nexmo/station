@@ -8,9 +8,9 @@ RSpec.describe Translator::FileTranslator do
     expect(subject.doc_path).to eql(doc_path)
   end
 
-  describe '#load_frontmatter' do
+  describe '#frontmatter' do
     it 'loads the document metadata correctly' do
-      expect(subject.load_frontmatter).to include('translation_frequency' => 10)
+      expect(subject.frontmatter).to include('translation_frequency' => 10)
     end
   end
 

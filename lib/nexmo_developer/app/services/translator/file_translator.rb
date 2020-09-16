@@ -7,19 +7,17 @@ module Translator
     end
 
     def translation_requests
-      doc = load_frontmatter
-
       I18n.available_locales.map do |locale|
-        Translator::TranslationRequest.new(locale: locale, frequency: frequency(doc), path: doc_path)
+        Translator::TranslationRequest.new(locale: locale, frequency: frequency, path: doc_path)
       end
     end
 
-    def load_frontmatter
-      @load_frontmatter ||= YAML.safe_load(File.read("#{Rails.configuration.docs_base_path}/_documentation/en/#{doc_path}"))
+    def frontmatter
+      @frontmatter ||= YAML.safe_load(File.read("#{Rails.configuration.docs_base_path}/_documentation/en/#{doc_path}"))
     end
 
-    def frequency(doc)
-      return doc['translation_frequency'] if doc['translation_frequency']
+    def frequency
+      return frontmatter['translation_frequency'] if frontmatter['translation_frequency']
 
       product_translation_frequency
     end
