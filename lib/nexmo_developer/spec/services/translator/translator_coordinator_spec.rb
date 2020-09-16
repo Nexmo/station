@@ -9,21 +9,21 @@ RSpec.describe Translator::TranslatorCoordinator do
     expect(coordinator.paths).to be_an(Array)
   end
 
-  describe '#create_requests' do
+  describe '#requests' do
     it 'returns an Array of Translator::TranslationRequests instances' do
       paths = ['voice/voice-api/guides/numbers.md', 'messages/external-accounts/overview.md']
       coordinator = described_class.new(paths: paths)
-      requests = coordinator.create_requests
+      requests = coordinator.requests
 
       expect(requests).to all(be_a(Translator::TranslationRequest))
     end
   end
 
-  describe '#organize_jobs' do
+  describe '#jobs' do
     it 'returns the requests grouped by translation frequency in ascending order' do
       paths = ['voice/voice-api/guides/numbers.md', 'messages/external-accounts/overview.md']
       coordinator = described_class.new(paths: paths)
-      jobs = coordinator.organize_jobs
+      jobs = coordinator.jobs
 
       expect(jobs.keys).to eql(jobs.keys.sort)
     end
