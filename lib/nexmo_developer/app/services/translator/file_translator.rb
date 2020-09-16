@@ -21,21 +21,23 @@ module Translator
     def frequency(doc)
       return doc['translation_frequency'] if doc['translation_frequency']
 
-      find_matching_product
+      product_translation_frequency
     end
 
-    def find_matching_product
+    def find_product
       products = YAML.safe_load(File.open("#{Rails.configuration.docs_base_path}/config/products.yml"))
 
-      product = products['products'].detect { |p| doc_path.starts_with? p['path'] }
+      @product ||= products['products'].detect { |p| doc_path.starts_with? p['path'] }
 
-      raise ArgumentError, 'Unable to match document with products list in config/products.yml' unless product
+      raise ArgumentError, 'Unable to match document with products list in config/products.yml' unless @product
 
-      product_translation_frequency(product)
+      @product
     end
 
-    def product_translation_frequency(product)
-      raise ArgumentError, "Expected a 'translation_frequency' attribute for this product but none found" if product['translation_frequency'].nil?
+    def product_translation_frequency
+      product = find_product
+
+      raise ArgumentError, "Expected a 'translation_frequency' attribute for this product but none found" unless product['translation_frequency']
 
       product['translation_frequency']
     end

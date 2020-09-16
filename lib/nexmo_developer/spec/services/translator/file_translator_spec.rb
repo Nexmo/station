@@ -22,20 +22,20 @@ RSpec.describe Translator::FileTranslator do
     end
   end
 
-  describe '#find_matching_product' do
+  describe '#product_translation_frequency' do
     it 'finds the matching product translation frequency in the products config YAML file' do
-      product = subject.find_matching_product
+      product = subject.product_translation_frequency
 
       expect(product).to eql(15)
     end
   end
 
-  describe '#find_matching_product with no matching product' do
+  describe '#find_product with no matching product' do
     let(:doc_path) { 'messaging/tiktok/overview.md' }
     subject { described_class.new(doc_path) }
 
     it 'raises an exception' do
-      expect { subject.find_matching_product }.to raise_error(ArgumentError, 'Unable to match document with products list in config/products.yml')
+      expect { subject.find_product }.to raise_error(ArgumentError, 'Unable to match document with products list in config/products.yml')
     end
   end
 end
