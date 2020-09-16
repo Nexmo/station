@@ -8,6 +8,7 @@ module Translator
 
     def jobs
       @jobs ||= requests.group_by(&:frequency)
+      # Translator::SmartlingCoordinator.new(@jobs)
     end
 
     def requests

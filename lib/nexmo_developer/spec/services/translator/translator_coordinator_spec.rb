@@ -24,7 +24,6 @@ RSpec.describe Translator::TranslatorCoordinator do
       paths = ['voice/voice-api/guides/numbers.md', 'messages/external-accounts/overview.md']
       coordinator = described_class.new(paths: paths)
       jobs = coordinator.jobs
-
       expect(jobs.keys).to eql(jobs.keys.sort)
     end
   end
