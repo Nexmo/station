@@ -86,24 +86,24 @@ class Tutorial
 
   def subtasks
     @subtasks ||= begin
-                    tasks = []
+      tasks = []
 
-                    (yaml['tasks'] || []).map do |t|
-                      tasks.push(
-                        Task.make_from(
-                          name: t,
-                          code_language: code_language,
-                          current_step: current_step
-                        )
-                      )
-                    end
+      (yaml['tasks'] || []).map do |t|
+        tasks.push(
+          Task.make_from(
+            name: t,
+            code_language: code_language,
+            current_step: current_step
+          )
+        )
+      end
 
-                    tasks.unshift(prerequisite_task)
-                    tasks.unshift(introduction_task)
-                    tasks.push(conclusion_task)
+      tasks.unshift(prerequisite_task)
+      tasks.unshift(introduction_task)
+      tasks.push(conclusion_task)
 
-                    tasks.compact
-                  end
+      tasks.compact
+    end
   end
 
   def self.load_prerequisites(prerequisites, current_step)

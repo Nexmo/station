@@ -36,8 +36,8 @@ class FeedbackPresenter
 
   def github_url
     @github_url ||= begin
-                      info = YAML.safe_load(File.open("#{Rails.configuration.docs_base_path}/config/business_info.yml"))
-                      "https://github.com/#{info['docs_repo']}/blob/#{ENV.fetch('branch', 'master')}/#{path_to_url}"
-                    end
+      info = YAML.safe_load(File.open("#{Rails.configuration.docs_base_path}/config/business_info.yml"))
+      "https://github.com/#{info['docs_repo']}/blob/#{ENV.fetch('branch', 'master')}/#{path_to_url}"
+    end
   end
 end

@@ -13,13 +13,13 @@ module Search
 
     def product
       @product ||= begin
-                     product = relative_path.split('/')[1]
-                     if product == 'messaging'
-                       "#{relative_path.split('/')[1]} > #{relative_path.split('/')[2]}"
-                     else
-                       product
-                     end
-                   end
+        product = relative_path.split('/')[1]
+        if product == 'messaging'
+          "#{relative_path.split('/')[1]} > #{relative_path.split('/')[2]}"
+        else
+          product
+        end
+      end
     end
 
     def to_h
