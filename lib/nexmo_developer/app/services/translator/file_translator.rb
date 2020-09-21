@@ -8,8 +8,8 @@ module Translator
 
     def translation_requests
       @translation_requests ||= begin
-          I18n.available_locales.map do |locale|
-            Translator::TranslationRequest.new(locale: locale, frequency: frequency, path: doc_path)
+        I18n.available_locales.map do |locale|
+          Translator::TranslationRequest.new(locale: locale, frequency: frequency, path: doc_path)
         end
       end
     end
