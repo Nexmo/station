@@ -7,11 +7,11 @@ module Translator
     end
 
     def locales
-      @locales ||= jobs.each{|job| @locales << job.locale.to_s }
+      @locales ||= jobs.each { |job| @locales << job.locale.to_s }
     end
 
     def due_date(frequency)
-      @due_date ||= (Time.now + frequency.days)
+      @due_date ||= (Time.zone.now + frequency.days)
     end
 
     def perform
