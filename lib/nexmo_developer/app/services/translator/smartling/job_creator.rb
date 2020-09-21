@@ -1,6 +1,10 @@
+require 'smartling'
+
 module Translator
   module Smartling
     class JobCreator
+      attr_reader :job_name, :locales, :due_date, :user_id, :user_secret, :project_id
+
       def initialize(params = {})
         @job_name = "stationTranslationJob#{rand 10**10}"
         @locales = params.fetch(:locales)
@@ -11,7 +15,7 @@ module Translator
       end
 
       def client
-        @client ||= Smartling::Endpoints::Api.new(
+        @client ||= ::Smartling::Api.new(
           userId: user_id,
           userSecret: user_secret
         )
