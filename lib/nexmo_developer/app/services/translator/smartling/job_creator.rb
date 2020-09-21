@@ -49,7 +49,11 @@ module Translator
       def validate_job_creation(result)
         raise ArgumentError, "#{result.status}: #{result.code}" unless result.status == 200
 
-        result.data.translationJobUid
+        job_uuid(result.data)
+      end
+
+      def job_uuid(data)
+        @job_uuid ||= data.translationJobUid
       end
     end
   end
