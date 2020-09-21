@@ -36,7 +36,7 @@ module Translator
     end
 
     def product_translation_frequency
-      raise ArgumentError, "Expected a 'translation_frequency' attribute for this product but none found" unless product['translation_frequency']
+      raise ArgumentError, "Expected a 'translation_frequency' attribute for #{find_product['name']} but none found" unless find_product['translation_frequency']
 
       find_product['translation_frequency']
     end
