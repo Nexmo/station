@@ -7,8 +7,10 @@ module Translator
     end
 
     def translation_requests
-      I18n.available_locales.map do |locale|
-        Translator::TranslationRequest.new(locale: locale, frequency: frequency, path: doc_path)
+      @translation_requests ||= begin
+          I18n.available_locales.map do |locale|
+            Translator::TranslationRequest.new(locale: locale, frequency: frequency, path: doc_path)
+        end
       end
     end
 
@@ -23,9 +25,10 @@ module Translator
     end
 
     def find_product
-      products = YAML.safe_load(File.open("#{Rails.configuration.docs_base_path}/config/products.yml"))
-
-      @product ||= products['products'].detect { |p| doc_path.starts_with? p['path'] }
+      @find_product ||= begin
+        products = YAML.safe_load(File.open("#{Rails.configuration.docs_base_path}/config/products.yml"))
+        products['products'].detect { |p| doc_path.starts_with? p['path'] }
+      end
 
       raise ArgumentError, 'Unable to match document with products list in config/products.yml' unless @product
 
@@ -33,11 +36,9 @@ module Translator
     end
 
     def product_translation_frequency
-      product = find_product
-
       raise ArgumentError, "Expected a 'translation_frequency' attribute for this product but none found" unless product['translation_frequency']
 
-      product['translation_frequency']
+      find_product['translation_frequency']
     end
   end
 end
