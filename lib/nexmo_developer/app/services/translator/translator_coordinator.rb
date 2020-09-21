@@ -1,6 +1,6 @@
 module Translator
   class TranslatorCoordinator
-    attr_accessor :paths
+    attr_reader :paths
 
     def initialize(params = {})
       @paths = params.fetch(:paths)
