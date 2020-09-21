@@ -30,9 +30,9 @@ module Translator
         products['products'].detect { |p| doc_path.starts_with? p['path'] }
       end
 
-      raise ArgumentError, 'Unable to match document with products list in config/products.yml' unless @product
+      raise ArgumentError, 'Unable to match document with products list in config/products.yml' unless @find_product
 
-      @product
+      @find_product
     end
 
     def product_translation_frequency
