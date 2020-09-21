@@ -65,7 +65,7 @@
     "kind-of": "^6.0.3",
     "jpeg-js": "^0.4.0",
     "http-proxy": "^1.18.1",
-    "serialize-javascript": "^4.0.0",
+    "serialize-javascript": "^5.0.1",
     "url-regex": "^5.0.0",
     "marked": "^0.7.0"
   },
