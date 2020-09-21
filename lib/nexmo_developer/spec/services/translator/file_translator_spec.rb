@@ -10,7 +10,7 @@ RSpec.describe Translator::FileTranslator do
 
   describe '#frontmatter' do
     it 'loads the document metadata correctly' do
-      expect(subject.frontmatter).to include('translation_frequency' => 10)
+      expect(subject.frontmatter).to include('translation_frequency' => 13)
     end
   end
 
@@ -19,6 +19,24 @@ RSpec.describe Translator::FileTranslator do
       requests = subject.translation_requests
 
       expect(requests).to all(be_a(Translator::TranslationRequest))
+    end
+  end
+
+  describe '#frequency' do
+    it 'returns the translation frequency from the document if it exists' do
+      expect(subject.frequency).to be(13)
+    end
+
+    it 'returns the translation frequency from the products config if its not present in the document' do
+      translator = described_class.new('messaging/sms/overview.md')
+
+      expect(translator.frequency).to be(15)
+    end
+
+    it 'raises an exception if translation frequency cannot be found in either document or products config' do
+      translator = described_class.new('vonage-business-cloud/vbc-apis/user-api/overview.md')
+
+      expect { translator.frequency }.to raise_error(ArgumentError, "Expected a 'translation_frequency' attribute for VBC User API but none found")
     end
   end
 

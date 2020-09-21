@@ -2,7 +2,7 @@
 title: Numbers
 description: Numbers are a key part of using the Nexmo Voice API. This guide covers number formatting, outgoing caller IDs and incoming call numbers.
 navigation_weight: 2
-translation_frequency: 10
+translation_frequency: 13
 ---
 
 # Numbers
