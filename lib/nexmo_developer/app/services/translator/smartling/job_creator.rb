@@ -50,11 +50,11 @@ module Translator
       def validate_job_creation(message, status_code)
         raise ArgumentError, "#{status_code}: #{message['response']['code']}" unless status_code == 200
 
-        job_uuid(result.data)
+        job_uuid(message['data']['translationJobUuid'])
       end
 
-      def job_uuid(data)
-        @job_uuid ||= data.translationJobUid
+      def job_uuid(uuid)
+        @job_uuid ||= uuid
       end
     end
   end
