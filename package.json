@@ -52,7 +52,7 @@
     "vue": "^2.6.12",
     "vue-loader": "^15.9.3",
     "vue-template-compiler": "^2.6.12",
-    "webpack": "^4.44.1",
+    "webpack": "^4.44.2",
     "webpack-manifest-plugin": "^2.2.0",
     "webpack-merge": "^5.1.4",
     "webpacker": "^4",
