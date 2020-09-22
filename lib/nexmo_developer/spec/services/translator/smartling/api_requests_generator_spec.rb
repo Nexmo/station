@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Translator::Smartling::ApiRequestsGenerator do
+  before(:each) do
+    allow(Translator::Smartling::TokenGenerator).to receive(:token).and_return(sample_jwt)
+  end
+
   context 'with a new Smartling Jobs API request' do
     let(:params) do
       {
