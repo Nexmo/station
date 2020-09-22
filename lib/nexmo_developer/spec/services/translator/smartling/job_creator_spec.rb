@@ -79,6 +79,14 @@ RSpec.describe Translator::Smartling::JobCreator do
         end
       end
     end
+
+    describe '#job_uuid' do
+      it 'returns the job UUID' do
+        uuid = 'abc123abc'
+
+        expect(subject.job_uuid('abc123abc')).to eql(uuid)
+      end
+    end
   end
 
   def sample_jwt
