@@ -34,15 +34,22 @@ RSpec.describe Translator::Smartling::ApiRequestsGenerator do
     end
 
     describe '#create' do
-      xit 'makes a successful HTTP POST request to Smartling Jobs API' do
-        mock_net_http = double('http')
-        # mock_net_http_post = double('Net::HTTP::Post')
-        # allow(Net::HTTP).to receive(:new).and_return(mock_net_http)
+      it 'makes a successful HTTP POST request to Smartling Jobs API' do
+        mock_net_http = double('Net::HTTP')
+        allow(Net::HTTP).to receive(:new).and_return(mock_net_http)
         allow(mock_net_http).to receive(:use_ssl=).and_return(true)
-        allow(subject).to receive(:create).and_return('abc123abc')
-        # allow(Net::HTTP::Post).to receive(:new).and_return(mock_net_http_post)
-        subject.create
-        expect(mock_net_http).to receive(:request).with(hash_including(dueDate: 'Mon, 21 Sep 2020 12:37:40 UTC +00:00'))
+
+        mock_net_http_post = double('Net::HTTP::Post')
+        expect(Net::HTTP::Post).to receive(:new).and_return(mock_net_http_post)
+
+        response = Net::HTTPSuccess.new(1.1, 200, 'OK')
+        expect(response).to receive(:body) .and_return('{"data": {"translationJobUuid": "uuid-translation"}}')
+
+        allow(mock_net_http_post).to receive(:body=)
+                                         .with("{\"jobName\":\"ADP Translation Job: Tue, 22 Sep 2020 10:47:58 UTC +00:00\",\"targetLocaleIds\":[\"en\",\"ja\"],\"dueDate\":\"Thu, 24 Sep 2020 12:37:40 UTC +00:00\"}")
+
+        expect(mock_net_http).to receive(:request).with(mock_net_http_post).and_return(response)
+        expect(subject.create).to eq("uuid-translation")
       end
 
       it 'returns a translation job UUID' do
