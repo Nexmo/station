@@ -58,6 +58,12 @@ RSpec.describe Translator::Smartling::JobCreator do
         subject.create_job
         expect(mock_net_http).to receive(:request).with(hash_including(dueDate: 'Mon, 21 Sep 2020 12:37:40 UTC +00:00'))
       end
+
+      it 'returns a translation job UUID' do
+        allow(subject).to receive(:create_job).and_return('abc123abc')
+
+        expect(subject.create_job).to eql('abc123abc')
+      end
     end
   end
 
