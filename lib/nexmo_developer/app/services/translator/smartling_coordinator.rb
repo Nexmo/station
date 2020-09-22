@@ -15,7 +15,6 @@ module Translator
     end
 
     def perform
-      create_job
       create_batch
       upload_files
       execute_batch

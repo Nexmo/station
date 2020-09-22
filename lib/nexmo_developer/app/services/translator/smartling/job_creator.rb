@@ -14,17 +14,6 @@ module Translator
         @project_id = ENV['SMARTLING_PROJECT_ID']
       end
 
-      def client
-        @client ||= ::Smartling::Api.new(
-          userId: user_id,
-          userSecret: user_secret
-        )
-      end
-
-      def token
-        @token ||= client.token
-      end
-
       def job_uri
         @job_uri ||= URI("https://api.smartling.com/jobs-api/v3/projects/#{project_id}/jobs")
       end
@@ -34,7 +23,7 @@ module Translator
         http.use_ssl = true
         req = Net::HTTP::Post.new(job_uri.path, {
           'Content-Type' => 'application/json',
-          'Authorization' => "Bearer #{token}",
+          'Authorization' => "Bearer #{Translator::Smartling::TokenGenerator.token}",
         })
         req.body = {
           'jobName' => "ADP Translation Job: #{Time.zone.now}",
