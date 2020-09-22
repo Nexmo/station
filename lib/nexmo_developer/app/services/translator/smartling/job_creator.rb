@@ -42,12 +42,13 @@ module Translator
           'dueDate' => due_date,
         }.to_json
         res = http.request(req)
-
-        validate_job_creation(res)
+        message = JSON.parse(res.body)
+        status_code = res.code
+        validate_job_creation(message, status_code)
       end
 
-      def validate_job_creation(result)
-        raise ArgumentError, "#{result.status}: #{result.code}" unless result.status == 200
+      def validate_job_creation(message, status_code)
+        raise ArgumentError, "#{status_code}: #{message['response']['code']}" unless status_code == 200
 
         job_uuid(result.data)
       end
