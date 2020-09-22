@@ -19,31 +19,15 @@ module Translator
       end
 
       def create_job
-        http = Net::HTTP.new(job_uri.host, job_uri.port)
-        http.use_ssl = true
-        req = Net::HTTP::Post.new(job_uri.path, {
-          'Content-Type' => 'application/json',
-          'Authorization' => "Bearer #{Translator::Smartling::TokenGenerator.token}",
-        })
-        req.body = {
-          'jobName' => "ADP Translation Job: #{Time.zone.now}",
-          'targetLocaleIds' => locales,
-          'dueDate' => due_date,
-        }.to_json
-        res = http.request(req)
-        message = JSON.parse(res.body)
-        status_code = res.code
-        validate_job_creation(message, status_code)
-      end
-
-      def validate_job_creation(message, status_code)
-        raise ArgumentError, "#{status_code}: #{message['response']['code']}" unless status_code == 200
-
-        job_uuid(message['data']['translationJobUuid'])
-      end
-
-      def job_uuid(uuid)
-        @job_uuid ||= uuid
+        Translator::Smartling::ApiRequestsGenerator.new(
+          action: 'job',
+          uri: job_uri,
+          body: {
+            'jobName' => "ADP Translation Job: #{Time.zone.now}",
+            'targetLocaleIds' => locales,
+            'dueDate' => due_date,
+          }
+        ).create
       end
     end
   end

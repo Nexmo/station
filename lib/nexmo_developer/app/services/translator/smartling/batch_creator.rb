@@ -13,27 +13,11 @@ module Translator
       end
 
       def create_batch
-        http = Net::HTTP.new(batch_uri.host, batch_uri.port)
-        http.use_ssl = true
-        req = Net::HTTP::Post.new(batch_uri.path, {
-          'Content-Type' => 'application/json',
-          'Authorization' => "Bearer #{Translator::Smartling::TokenGenerator.token}",
-        })
-        req.body = { 'translationJobUuid' => job_id }.to_json
-        res = http.request(req)
-        message = JSON.parse(res.body)
-        status_code = res.code
-        validate_batch_creation(message, status_code)
-      end
-
-      def validate_batch_creation(message, status_code)
-        raise ArgumentError, "#{status_code}: #{message['response']['code']}" unless status_code == 200
-
-        batch_uuid(message['data']['batchUuid'])
-      end
-
-      def batch_uuid(uuid)
-        @batch_uuid ||= uuid
+        Translator::Smartling::ApiRequestsGenerator.new(
+          action: 'batch',
+          uri: batch_uri,
+          body: { 'translationJobUuid' => job_id }
+        ).create
       end
     end
   end
