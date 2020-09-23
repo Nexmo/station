@@ -4,30 +4,26 @@ module Translator
 
     def initialize(params = {})
       @jobs = params.fetch(:jobs)
-      byebug
     end
 
-    def coordinate_job
-      # {13 => [], 15 => []}
-      # 13, 15
-      # [], [], []
-      jobs.each do |freq, requests|
-        @new_job_request = {}
-        @new_job_request[:due_date] = due_date(freq)
-        @new_job_request[:locales] = 
-        @new_job_request[:requests] = requests
+    def coordinate_jobs
+      job_ids = jobs.reduce({}) do |memo, (freq, requests)|
+        job_id = create_job(freq, requests)
+        batch_id = create_batch(job_id)
+        memo.merge({ freq => {"job" => job_id, "batch" => batch_id}})
       end
+
+      job_ids
     end
 
-    def locales
-      @locales ||= begin
-        jobs.each { |arr| arr[1].each { |job| @locales << job.locale.to_s } }
-        @locales.uniq!
-      end
+    def locales(requests)
+      requests.map do |j|
+        j.locale.to_s
+      end.uniq
     end
 
     def due_date(frequency)
-      @due_date ||= (Time.zone.now + frequency.days)
+      Time.zone.now + frequency.days
     end
 
     def perform
@@ -36,15 +32,17 @@ module Translator
       execute_batch
     end
 
-    def create_job
-      @create_job ||= Translator::Smartling::JobCreator.new(
-        locales: locales,
-        due_date: due_date
+    def create_job(frequency, requests)
+      return "job-#{frequency}"
+      Translator::Smartling::JobCreator.new(
+        locales: locales(requests),
+        due_date: due_date(frequency)
       ).create_job
     end
 
-    def create_batch
-      @create_batch ||= Translator::Smartling::BatchCreator.new(jobId: create_job)
+    def create_batch(job_id)
+      return "batch-#{job_id}"
+      Translator::Smartling::BatchCreator.new(jobId: job_id)
     end
   end
 end
