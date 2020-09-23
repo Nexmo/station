@@ -4,10 +4,26 @@ module Translator
 
     def initialize(params = {})
       @jobs = params.fetch(:jobs)
+      byebug
+    end
+
+    def coordinate_job
+      # {13 => [], 15 => []}
+      # 13, 15
+      # [], [], []
+      jobs.each do |freq, requests|
+        @new_job_request = {}
+        @new_job_request[:due_date] = due_date(freq)
+        @new_job_request[:locales] = 
+        @new_job_request[:requests] = requests
+      end
     end
 
     def locales
-      @locales ||= jobs.each { |job| @locales << job.locale.to_s }
+      @locales ||= begin
+        jobs.each { |arr| arr[1].each { |job| @locales << job.locale.to_s } }
+        @locales.uniq!
+      end
     end
 
     def due_date(frequency)
