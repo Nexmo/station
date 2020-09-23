@@ -45,7 +45,7 @@ RSpec.describe Translator::Smartling::ApiRequestsGenerator do
         response = Net::HTTPSuccess.new(1.1, 200, 'OK')
         expect(response).to receive(:body).and_return('{"data": {"translationJobUuid": "uuid-translation"}}')
 
-        allow(mock_net_http_post).to receive(:body=)
+        expect(mock_net_http_post).to receive(:body=)
           .with('{"jobName":"ADP Translation Job: Tue, 22 Sep 2020 10:47:58 UTC +00:00","targetLocaleIds":["en","ja"],"dueDate":"Thu, 24 Sep 2020 12:37:40 UTC +00:00"}')
 
         expect(mock_net_http).to receive(:request).with(mock_net_http_post).and_return(response)
