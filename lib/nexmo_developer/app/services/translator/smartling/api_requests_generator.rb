@@ -26,20 +26,23 @@ module Translator
       end
 
       def validate_success(message, status_code)
-        raise ArgumentError, "#{status_code}: #{message['response']['code']}" unless status_code == 200
+        success_codes = [200, 202]
+        raise ArgumentError, "#{status_code}: #{message['response']['code']}" unless success_codes.include?(status_code)
 
         case action
         when 'job'
           uuid(message['data']['translationJobUuid'])
         when 'batch'
           uuid(message['data']['batchUuid'])
+        when 'upload'
+          message['data']['message']
         else
           raise ArgumentError, "Unrecognized 'action' parameter, expected either 'job' or 'batch'"
         end
       end
 
       def uuid(uuid)
-        @uuid ||= uuid
+        uuid
       end
     end
   end

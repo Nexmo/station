@@ -4,16 +4,23 @@ module Translator
 
     def initialize(params = {})
       @jobs = params.fetch(:jobs)
+
+      validate!
+    end
+
+    def validate!
+      raise ArgumentError, "Expected the 'jobs' parameter to be a Hash" if jobs.is_a?(String)
+      raise ArgumentError, "Expected the value of the 'jobs' parameter to be an Array" unless jobs.values.all?(Array)
     end
 
     def coordinate_jobs
-      job_ids = jobs.reduce({}) do |memo, (freq, requests)|
+      result = jobs.reduce({}) do |memo, (freq, requests)|
         job_id = create_job(freq, requests)
         batch_id = create_batch(job_id)
-        memo.merge({ freq => {"job" => job_id, "batch" => batch_id}})
+        memo.merge({ freq => { 'job_id' => job_id, 'batch_id' => batch_id, 'locales' => locales(requests), 'requests' => requests } })
       end
 
-      job_ids
+      initiate_upload_to_batch(result)
     end
 
     def locales(requests)
@@ -26,14 +33,7 @@ module Translator
       Time.zone.now + frequency.days
     end
 
-    def perform
-      create_batch
-      upload_files
-      execute_batch
-    end
-
     def create_job(frequency, requests)
-      return "job-#{frequency}"
       Translator::Smartling::JobCreator.new(
         locales: locales(requests),
         due_date: due_date(frequency)
@@ -41,8 +41,13 @@ module Translator
     end
 
     def create_batch(job_id)
-      return "batch-#{job_id}"
-      Translator::Smartling::BatchCreator.new(jobId: job_id)
+      Translator::Smartling::BatchCreator.new(jobId: job_id).create_batch
+    end
+
+    def initiate_upload_to_batch(jobs)
+      Translator::Smartling::FileUpload.new(
+        jobs: jobs
+      )
     end
   end
 end
