@@ -66,7 +66,7 @@ RSpec.describe Translator::SmartlingCoordinator do
       allow(Time).to receive_message_chain(:zone, :now).and_return(time)
       frequency = 10
 
-      expect(subject.due_date(frequency)).to eql(time + frequency.days)
+      expect(subject.due_date(frequency)).to eql((time + frequency.days).to_s)
     end
   end
 
