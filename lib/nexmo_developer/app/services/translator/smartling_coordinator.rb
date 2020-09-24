@@ -17,10 +17,12 @@ module Translator
       result = jobs.reduce({}) do |memo, (freq, requests)|
         job_id = create_job(freq, requests)
         batch_id = create_batch(job_id)
-        memo.merge({ freq => { 'job_id' => job_id, 'batch_id' => batch_id, 'locales' => locales(requests), 'requests' => requests } })
+        memo.reverse_merge!({ freq => { 'job_id' => job_id, 'batch_id' => batch_id, 'locales' => locales(requests), 'requests' => requests } })
       end
 
-      initiate_upload_to_batch(result)
+      result.each_value do |r|
+        initiate_upload_to_batch(r)
+      end
     end
 
     def locales(requests)
@@ -30,7 +32,7 @@ module Translator
     end
 
     def due_date(frequency)
-      Time.zone.now + frequency.days
+      (Time.zone.now + frequency.days).to_s
     end
 
     def create_job(frequency, requests)
@@ -46,8 +48,10 @@ module Translator
 
     def initiate_upload_to_batch(jobs)
       Translator::Smartling::FileUpload.new(
-        jobs: jobs
-      )
+        batch_id: jobs['batch_id'],
+        locales: jobs['locales'],
+        docs: jobs['requests']
+      ).upload_files
     end
   end
 end
