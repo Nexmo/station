@@ -16,7 +16,7 @@ RSpec.describe Translator::TranslatorCoordinator do
 
   describe '#jobs' do
     it 'returns the requests grouped by translation frequency in ascending order' do
-      expect(subject.jobs.keys).to eql(subject.jobs.keys.sort)
+      expect(subject.jobs.jobs.keys).to eql(subject.jobs.jobs.keys.sort)
     end
   end
 end
