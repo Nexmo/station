@@ -17,37 +17,39 @@ RSpec.describe Translator::SmartlingCoordinator do
     end
   end
 
-  describe '#coordinate_jobs' do
-    it 'returns multiple translation frequency keys for multiple jobs requests' do
-      ENV['SMARTLING_USER_ID'] = 'abcdefg123456789'
-      ENV['SMARTLING_USER_SECRET'] = '1234567890zawrfkd'
-      ENV['SMARTLING_PROJECT_ID'] = '234sdfedfg'
+  context 'with correct parameters' do
+    ENV['SMARTLING_USER_ID'] = 'abcdefg123456789'
+    ENV['SMARTLING_USER_SECRET'] = '1234567890zawrfkd'
+    ENV['SMARTLING_PROJECT_ID'] = '234sdfedfg'
+    describe '#coordinate_jobs' do
+      it 'a unique job ID and batch ID for each each unique translation job and batch request' do
+        first_job = double('Translator::Smartling::JobCreator')
+        first_batch = double('Translator::Smartling::BatchCreator')
+        second_job = double('Translator::Smartling::JobCreator')
+        second_batch = double('Translator::Smartling::BatchCreator')
 
-      first_job = double('Translator::Smartling::JobCreator')
-      first_batch = double('Translator::Smartling::BatchCreator')
-      second_job = double('Translator::Smartling::JobCreator')
-      second_batch = double('Translator::Smartling::BatchCreator')
+        # rubocop:disable Rails/TimeZone
+        allow(Time).to receive_message_chain(:zone, :now).and_return(Time.parse('August 23, 2020'))
+        # rubocop:enable Rails/TimeZone
+        allow(Translator::Smartling::TokenGenerator).to receive(:token).and_return(sample_jwt)
+        allow_any_instance_of(Translator::Smartling::ApiRequestsGenerator).to receive(:create).and_return(mock_upload_request_payload)
+        allow_any_instance_of(Translator::Smartling::ApiRequestsGenerator).to receive(:validate_success).with(mock_upload_success_payload, 202).and_return(mock_upload_success_payload)
+        allow(Translator::Smartling::JobCreator).to receive(:new).with(mock_job_creator_new_first_job).and_return(first_job)
+        allow(Translator::Smartling::JobCreator).to receive(:new).with(mock_job_creator_new_second_job).and_return(second_job)
+        allow(Translator::Smartling::BatchCreator).to receive(:new).with(jobId: 'job1').and_return(first_batch)
+        allow(Translator::Smartling::BatchCreator).to receive(:new).with(jobId: 'job2').and_return(second_batch)
+        allow(first_job).to receive(:create_job).and_return('job1')
+        allow(first_batch).to receive(:create_batch).and_return('batch1')
+        allow(second_job).to receive(:create_job).and_return('job2')
+        allow(second_batch).to receive(:create_batch).and_return('batch2')
 
-      # rubocop:disable Rails/TimeZone
-      allow(Time).to receive_message_chain(:zone, :now).and_return(Time.parse('August 23, 2020'))
-      # rubocop:enable Rails/TimeZone
-      allow(Translator::Smartling::TokenGenerator).to receive(:token).and_return(sample_jwt)
-      allow_any_instance_of(Translator::Smartling::ApiRequestsGenerator).to receive(:create).and_return(mock_upload_request_payload)
-      allow_any_instance_of(Translator::Smartling::ApiRequestsGenerator).to receive(:validate_success).with(mock_upload_success_payload, 202).and_return(mock_upload_success_payload)
-      allow(Translator::Smartling::JobCreator).to receive(:new).with(mock_job_creator_new_first_job).and_return(first_job)
-      allow(Translator::Smartling::JobCreator).to receive(:new).with(mock_job_creator_new_second_job).and_return(second_job)
-      allow(Translator::Smartling::BatchCreator).to receive(:new).with(jobId: 'job1').and_return(first_batch)
-      allow(Translator::Smartling::BatchCreator).to receive(:new).with(jobId: 'job2').and_return(second_batch)
+        result = described_class.new(jobs: mock_multiple_jobs_data).coordinate_jobs
 
-      allow(first_job).to receive(:create_job).and_return('job1')
-      allow(first_batch).to receive(:create_batch).and_return('batch1')
-      allow(second_job).to receive(:create_job).and_return('job2')
-      allow(second_batch).to receive(:create_batch).and_return('batch2')
-
-      result = described_class.new(jobs: mock_multiple_jobs_data).coordinate_jobs
-
-      expect(result.values[0]['job_id']).to eql('job2')
-      expect(result.values[1]['job_id']).to eql('job1')
+        expect(result.values[0]['job_id']).to eql('job2')
+        expect(result.values[0]['batch_id']).to eql('batch2')
+        expect(result.values[1]['job_id']).to eql('job1')
+        expect(result.values[1]['batch_id']).to eql('batch1')
+      end
     end
   end
 
