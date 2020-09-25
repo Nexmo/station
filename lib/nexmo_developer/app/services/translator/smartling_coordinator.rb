@@ -51,7 +51,7 @@ module Translator
         batch_id: jobs['batch_id'],
         locales: jobs['locales'],
         docs: jobs['requests']
-      ).upload_files
+      ).initiate_upload
     end
   end
 end

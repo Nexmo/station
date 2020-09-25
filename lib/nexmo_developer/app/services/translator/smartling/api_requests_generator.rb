@@ -35,7 +35,7 @@ module Translator
         when 'batch'
           uuid(message['data']['batchUuid'])
         when 'upload'
-          message['data']['message']
+          message['response']['data']['message']
         else
           raise ArgumentError, "Unrecognized 'action' parameter, expected either 'job' or 'batch'"
         end

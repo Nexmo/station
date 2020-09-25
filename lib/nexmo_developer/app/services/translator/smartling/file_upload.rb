@@ -13,19 +13,26 @@ module Translator
         @upload_uri ||= URI("https://api.smartling.com/jobs-batch-api/v1/projects/#{ENV['SMARTLING_PROJECT_ID']}/batches/#{batch_id}/file")
       end
 
-      def upload_files
+      def initiate_upload
+        result = []
         docs.each do |doc|
-          Translator::Smartling::ApiRequestsGenerator.new(
-            action: 'upload',
-            uri: upload_uri,
-            body: {
-              'file' => File.read("#{Rails.configuration.docs_base_path}/_documentation/#{I18n.default_locale}/#{doc.path}"),
-              'fileUri' => doc.path,
-              'fileType' => 'markdown',
-              'localeIdsToAuthorize[]' => locales,
-            }
-          ).create
+          result << upload_file(doc)
         end
+
+        'move on to execute job action' if result.all?('Your file was successfully uploaded. Word and string counts are not available right now.')
+      end
+
+      def upload_file(doc)
+        Translator::Smartling::ApiRequestsGenerator.new(
+          action: 'upload',
+          uri: upload_uri,
+          body: {
+            'file' => File.read("#{Rails.configuration.docs_base_path}/_documentation/#{I18n.default_locale}/#{doc.path}"),
+            'fileUri' => doc.path,
+            'fileType' => 'markdown',
+            'localeIdsToAuthorize[]' => locales,
+          }
+        ).create
       end
     end
   end
