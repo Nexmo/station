@@ -18,8 +18,6 @@ module Translator
         docs.each do |doc|
           result << upload_file(doc)
         end
-
-        'move on to execute job action' if result.all?('Your file was successfully uploaded. Word and string counts are not available right now.')
       end
 
       def upload_file(doc)
