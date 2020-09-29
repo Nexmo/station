@@ -10,7 +10,7 @@ module Translator
       end
 
       def upload_uri
-        @upload_uri ||= URI("https://api.smartling.com/jobs-batch-api/v1/projects/#{ENV['SMARTLING_PROJECT_ID']}/batches/#{batch_id}/file")
+        @upload_uri ||= URI("https://api.smartling.com/jobs-batch-api/v2/projects/#{ENV['SMARTLING_PROJECT_ID']}/batches/#{batch_id}/file")
       end
 
       def initiate_upload
@@ -27,12 +27,12 @@ module Translator
           action: 'upload',
           uri: upload_uri,
           body: {
-            'file' => File.read("#{Rails.configuration.docs_base_path}/_documentation/#{I18n.default_locale}/#{doc.path}"),
+            'file' => File.open("#{Rails.configuration.docs_base_path}/_documentation/#{I18n.default_locale}/#{doc.path}"),
             'fileUri' => doc.path,
             'fileType' => 'markdown',
             'localeIdsToAuthorize[]' => locales,
           }
-        ).create
+        ).upload
       end
     end
   end

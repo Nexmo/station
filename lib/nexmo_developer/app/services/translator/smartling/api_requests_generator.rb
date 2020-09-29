@@ -25,24 +25,41 @@ module Translator
         validate_success(message, status_code)
       end
 
+      def upload
+        https = Net::HTTP.new(uri.host, uri.port)
+        https.use_ssl = true
+
+        request = Net::HTTP::Post.new(uri)
+        request['Authorization'] = "Bearer #{token}"
+
+        form_data = [
+          ['fileUri', body['fileUri']],
+          ['fileType', body['fileType']],
+          ['localeIdsToAuthorize[]', body['localeIdsToAuthorize[]']],
+          ['file', body['file']],
+        ]
+        request.set_form form_data, 'multipart/form-data'
+        res = https.request(request)
+        message = JSON.parse(res.body)
+        status_code = res.code
+
+        validate_success(message, status_code)
+      end
+
       def validate_success(message, status_code)
-        success_codes = [200, 202]
-        raise ArgumentError, "#{status_code}: #{message['response']['code']}" unless success_codes.include?(status_code)
+        success_codes = ['200', '202']
+        raise ArgumentError, "#{status_code}: #{message['response']['errors'][0]['message']}" unless success_codes.include?(status_code)
 
         case action
         when 'job'
-          uuid(message['data']['translationJobUuid'])
+          message['response']['data']['translationJobUid']
         when 'batch'
-          uuid(message['data']['batchUuid'])
+          message['response']['data']['batchUid']
         when 'upload'
-          message['response']['data']['message']
+          status_code
         else
           raise ArgumentError, "Unrecognized 'action' parameter, expected either 'job' or 'batch'"
         end
-      end
-
-      def uuid(uuid)
-        uuid
       end
     end
   end

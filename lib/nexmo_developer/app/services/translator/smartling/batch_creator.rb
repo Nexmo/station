@@ -16,7 +16,7 @@ module Translator
         Translator::Smartling::ApiRequestsGenerator.new(
           action: 'batch',
           uri: batch_uri,
-          body: { 'translationJobUuid' => job_id }
+          body: { 'translationJobUid' => job_id, 'authorize' => true }
         ).create
       end
     end
