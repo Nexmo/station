@@ -59,6 +59,27 @@ RSpec.describe Translator::Smartling::ApiRequestsGenerator do
       end
     end
 
+    describe '#upload' do
+      xit 'makes a successful file upload PUT request to Smartling' do
+        mock_net_http = double('Net::HTTP')
+        allow(Net::HTTP).to receive(:new).and_return(mock_net_http)
+        allow(mock_net_http).to receive(:use_ssl=).and_return(true)
+
+        mock_net_http_post = double('Net::HTTP::Post')
+        expect(Net::HTTP::Post).to receive(:new).and_return(mock_net_http_post)
+
+        response = Net::HTTPSuccess.new(1.1, 202, 'OK')
+        expect(response).to receive(:body).and_return('{"response"=>{"code"=>"ACCEPTED", "data"=>nil}}')
+
+        expect(mock_net_http_post).to receive(:[]=).with('Authorization', "Bearer #{sample_jwt}")
+        expect(mock_net_http_post).to receive(:set_form)
+          .with(mock_form_data, 'multipart/form-data')
+
+        expect(mock_net_http).to receive(:request).with(mock_net_http_post).and_return(response)
+        expect(subject.upload).to eq('202')
+      end
+    end
+
     describe '#validate_success' do
       context 'with a new job successfully created' do
         it 'returns the job UUID' do
@@ -144,5 +165,13 @@ RSpec.describe Translator::Smartling::ApiRequestsGenerator do
         'message' => 'Invalid token',
       },
     }
+  end
+
+  def mock_form_data
+    [
+      ['fileUri', 'voice/voice-api/guides/numbers.md'],
+      ['fileType', 'markdown'], ['localeIdsToAuthorize[]', ['ja-JP', 'zh-CN']],
+      ['file', File.open("#{Rails.configuration.docs_base_path}/_documentation/#{I18n.default_locale}/voice/voice-api/guides/numbers.md")]
+    ]
   end
 end
