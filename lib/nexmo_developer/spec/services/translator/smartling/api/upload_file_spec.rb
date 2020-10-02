@@ -68,7 +68,7 @@ RSpec.describe Translator::Smartling::API::UploadFile do
         stub_request(:post, uri)
           .to_return(
             status: 500,
-            body: { 'response' => { 'code' => 'GENERAL_ERROR', 'errors' => [ 'key' => 'general_error', 'message' => 'Unexpected server error', 'details' => {} ] } }.to_json.to_s
+            body: { 'response' => { 'code' => 'GENERAL_ERROR', 'errors' => [{ 'key' => 'general_error', 'message' => 'Unexpected server error', 'details' => {} }] } }.to_json.to_s
           )
 
         expect(Bugsnag).to receive(:notify).with('Translator::Smartling::API::UploadFile 500: Unexpected server error')

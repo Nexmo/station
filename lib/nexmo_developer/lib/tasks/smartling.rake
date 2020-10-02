@@ -41,7 +41,7 @@ namespace :smartling do
   end
 
   desc 'Send documents to Smartling by frequency'
-  task :translations_by_frequency, %i[frequency] =>  :env do
+  task :translations_by_frequency, %i[frequency] => :env do
     puts "Sending Files to Smartling with frequency #{frequency}"
 
     # Which files should we include?

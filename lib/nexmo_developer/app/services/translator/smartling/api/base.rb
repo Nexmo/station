@@ -29,13 +29,11 @@ module Translator
         def call
           make_request!
 
-          if success?
-            Rails.logger.info("#{self.class} : Success #{return_value}")
-            return_value
-          else
-            raise error
-          end
-        rescue => e
+          raise error unless success?
+
+          Rails.logger.info("#{self.class} : Success #{return_value}")
+          return_value
+        rescue StandardError => e
           Bugsnag.notify(e.message)
           Rails.logger.error(e.message)
           nil

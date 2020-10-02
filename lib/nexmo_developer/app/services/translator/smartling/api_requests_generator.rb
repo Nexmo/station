@@ -14,7 +14,7 @@ module Translator
         ::Translator::Smartling::API::CreateBatch.call(
           project_id: project_id,
           job_id: job_id,
-          token: token,
+          token: token
         )
       end
 
