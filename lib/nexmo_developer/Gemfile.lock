@@ -1,4 +1,18 @@
 GIT
+  remote: https://github.com/nexmo/nexmo-markdown-renderer.git
+  revision: 2f601e1d49409dc2df459711683e0579ac2d8e0f
+  branch: bring-back-translation-pipelines
+  specs:
+    nexmo_markdown_renderer (0.4.1)
+      activemodel (~> 6.0)
+      banzai (~> 0.1.2)
+      i18n (~> 1.7)
+      nokogiri (~> 1.10)
+      octicons_helper (~> 8.2)
+      redcarpet (~> 3.4)
+      rouge (~> 2.0.7)
+
+GIT
   remote: https://github.com/oscardelben/rawler.git
   revision: f2909b135fce7d35167f98026ac481926c94423e
   specs:
@@ -141,6 +155,7 @@ GEM
     country_select (4.0.0)
       countries (~> 3.0)
       sort_alphabetical (~> 1.0)
+    crack (0.4.4)
     crass (1.0.6)
     debug_inspector (0.0.3)
     deep_merge (1.2.1)
@@ -213,6 +228,7 @@ GEM
       actionpack (>= 4.1)
       activesupport (>= 4.1)
     hash-deep-merge (0.1.1)
+    hashdiff (1.0.1)
     htmlentities (4.3.4)
     httmultiparty (0.3.16)
       httparty (>= 0.7.3)
@@ -306,14 +322,6 @@ GEM
       sass (~> 3.1)
       shotgun (~> 0.9)
       sinatra (~> 2.0)
-    nexmo_markdown_renderer (0.4.6)
-      activemodel (~> 6.0)
-      banzai (~> 0.1.2)
-      i18n (~> 1.7)
-      nokogiri (~> 1.10)
-      octicons_helper (~> 8.2)
-      redcarpet (~> 3.4)
-      rouge (~> 2.0.7)
     nio4r (2.5.4)
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
@@ -527,6 +535,10 @@ GEM
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
+    webmock (3.9.2)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
+      hashdiff (>= 0.4.0, < 2.0.0)
     webpacker (5.2.1)
       activesupport (>= 5.2)
       rack-proxy (>= 0.6.1)
@@ -584,7 +596,7 @@ DEPENDENCIES
   neatjson
   newrelic_rpm
   nexmo-oas-renderer (~> 2.3.0)
-  nexmo_markdown_renderer (~> 0.4)
+  nexmo_markdown_renderer!
   nokogiri (~> 1.10.9)
   octokit
   pg (~> 1.2)
@@ -613,6 +625,7 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 4.1.20)
   web-console (>= 3.3.0)
+  webmock
   webpacker
   woothee
 
