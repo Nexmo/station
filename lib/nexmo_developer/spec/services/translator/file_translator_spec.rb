@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Translator::FileTranslator do
   let(:doc_path) { 'voice/voice-api/guides/numbers.md' }
+
   subject { described_class.new(doc_path) }
 
   it 'accepts a documentation path to initialize an instance' do
@@ -19,6 +20,7 @@ RSpec.describe Translator::FileTranslator do
       requests = subject.translation_requests
 
       expect(requests).to all(be_a(Translator::TranslationRequest))
+      expect(requests.map(&:locale).uniq).to match_array(['zh-CN', 'ja-JP'])
     end
   end
 
@@ -42,18 +44,20 @@ RSpec.describe Translator::FileTranslator do
 
   describe '#product_translation_frequency' do
     it 'finds the matching product translation frequency in the products config YAML file' do
-      product = subject.product_translation_frequency
-
-      expect(product).to eql(15)
+      expect(subject.product_translation_frequency).to eql(15)
     end
   end
 
-  describe '#find_product with no matching product' do
+  describe '#product' do
     let(:doc_path) { 'messaging/tiktok/overview.md' }
-    subject { described_class.new(doc_path) }
 
-    it 'raises an exception' do
-      expect { subject.find_product }.to raise_error(ArgumentError, 'Unable to match document with products list in config/products.yml')
+    it 'raises an exception if there isn\'t a product associated' do
+      expect { subject.product }.to raise_error(ArgumentError, 'Unable to match document with products list in config/products.yml')
+    end
+
+    it 'returns the corresponding product' do
+      product = described_class.new('messaging/sms/overview.md').product
+      expect(product).to include('name' => 'SMS API', 'translation_frequency' => 15)
     end
   end
 end

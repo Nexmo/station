@@ -1,11 +1,11 @@
 module Translator
   class TranslationRequest
-    attr_accessor :locale, :frequency, :path
+    attr_reader :locale, :frequency, :path
 
-    def initialize(params = {})
-      @locale = params.fetch(:locale)
-      @frequency = params.fetch(:frequency)
-      @path = params.fetch(:path)
+    def initialize(locale:, frequency:, path:)
+      @locale    = locale
+      @frequency = frequency
+      @path      = path
     end
   end
 end

@@ -1,10 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe Translator::TranslationRequest do
-  subject { described_class.new(locale: 'ja', frequency: 15, path: 'a/sample/path/doc.md') }
+  subject do
+    described_class.new(
+      locale: 'ja',
+      frequency: 15,
+      path: 'a/sample/path/doc.md'
+    )
+  end
 
   it 'returns an instance its class' do
-    expect(subject).to be_an_instance_of(Translator::TranslationRequest)
+    expect(subject).to be_an_instance_of(described_class)
   end
 
   it 'returns an instance with correct locale attribute' do

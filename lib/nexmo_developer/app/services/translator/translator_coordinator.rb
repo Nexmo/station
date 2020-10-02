@@ -2,26 +2,26 @@ module Translator
   class TranslatorCoordinator
     attr_reader :paths
 
-    def initialize(params = {})
-      @paths = params.fetch(:paths)
-
-      after_initialize!
-    end
-
-    def after_initialize!
-      raise ArgumentError, "Expected 'paths' parameter to be an Array" unless paths.is_a?(Array)
-      raise ArgumentError, "Expected all values in 'paths' parameter to be a String" unless paths.all?(String)
-
-      jobs
-    end
-
-    def jobs
-      @jobs ||= requests.group_by(&:frequency)
-      Translator::SmartlingCoordinator.new(jobs: @jobs)
+    def initialize(paths:, frequency:)
+      @paths     = paths
+      @frequency = frequency
     end
 
     def requests
-      @requests ||= paths.map { |path| Translator::FileTranslator.new(path).translation_requests }.flatten
+      @requests ||= @paths.map do |path|
+        Translator::FileTranslator.new(path).translation_requests
+      end.flatten
+    end
+
+    def requests_by_frequency
+      @requests_by_frequency ||= requests.group_by(&:frequency)
+    end
+
+    def create_smartling_jobs!
+      Translator::SmartlingCoordinator.call(
+        requests: requests_by_frequency.fetch(@frequency, []),
+        frequency: @frequency
+      )
     end
   end
 end

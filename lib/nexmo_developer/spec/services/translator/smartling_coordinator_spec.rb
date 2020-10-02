@@ -1,141 +1,68 @@
 require 'rails_helper'
 
 RSpec.describe Translator::SmartlingCoordinator do
-  describe '#new' do
-    it 'returns an empty jobs attribute if the jobs parameter is an empty hash' do
-      subject = described_class.new(jobs: {})
+  let(:frequency) { 15 }
+  let(:accounts_overview) { Translator::TranslationRequest.new(locale: 'ja-JP', frequency: frequency, path: 'messages/external-accounts/overview.md') }
+  let(:sms_overview) { Translator::TranslationRequest.new(locale: 'ja-JP', frequency: frequency, path: 'messaging/sms/overview.md') }
+  let(:guides_numbers) { Translator::TranslationRequest.new(locale: 'zh-CN', frequency: frequency, path: 'voice/voice-api/guides/numbers.md') }
+  let(:connect_an_inbound_call) { Translator::TranslationRequest.new(locale: 'es-ES', frequency: frequency, path: 'voice/voice-api/code-snippets/connect-an-inobound-call.md') }
+  let(:requests) { [accounts_overview, sms_overview, guides_numbers, connect_an_inbound_call] }
 
-      expect(subject.coordinate_jobs).to eql({})
-    end
+  subject { described_class.new(requests: requests, frequency: frequency) }
 
-    it 'raises an exception for incorrect parameter types' do
-      expect { described_class.new(jobs: 'Hello') }.to raise_error(ArgumentError, "Expected the 'jobs' parameter to be a Hash")
-    end
+  describe '#call' do
+    it 'creates one Job per locale, a Batch and uploads the corresponding files to the Batch' do
+      expect(subject).to receive(:create_job).exactly(3).times.and_return(nil, 'smartling-job-id-1', 'smartling-job-id-2')
 
-    it 'raises an exception for incorrect parameter value types' do
-      expect { described_class.new(jobs: { 13 => ['a', 'b'], 15 => 'bar' }) }.to raise_error(ArgumentError, "Expected the value of the 'jobs' parameter to be an Array")
-    end
-  end
+      expect(subject).to receive(:create_batch).twice.and_return(nil, 'smartling-batch-id')
 
-  context 'with correct parameters' do
-    ENV['SMARTLING_USER_ID'] = 'abcdefg123456789'
-    ENV['SMARTLING_USER_SECRET'] = '1234567890zawrfkd'
-    ENV['SMARTLING_PROJECT_ID'] = '234sdfedfg'
-    describe '#coordinate_jobs' do
-      it 'a unique job ID and batch ID for each each unique translation job and batch request' do
-        first_job = double('Translator::Smartling::JobCreator')
-        first_batch = double('Translator::Smartling::BatchCreator')
-        second_job = double('Translator::Smartling::JobCreator')
-        second_batch = double('Translator::Smartling::BatchCreator')
+      expect(subject).to receive(:upload_file_to_batch).once.with('smartling-batch-id', connect_an_inbound_call)
 
-        # rubocop:disable Rails/TimeZone
-        allow(Time).to receive_message_chain(:zone, :now).and_return(Time.parse('August 23, 2020'))
-        # rubocop:enable Rails/TimeZone
-        allow(Translator::Smartling::TokenGenerator).to receive(:token).and_return(sample_jwt)
-        allow_any_instance_of(Translator::Smartling::ApiRequestsGenerator).to receive(:create).and_return(mock_upload_request_payload)
-        allow_any_instance_of(Translator::Smartling::ApiRequestsGenerator).to receive(:validate_success).with(mock_upload_success_payload, 202).and_return(mock_upload_success_payload)
-        allow(Translator::Smartling::JobCreator).to receive(:new).with(mock_job_creator_new_first_job).and_return(first_job)
-        allow(Translator::Smartling::JobCreator).to receive(:new).with(mock_job_creator_new_second_job).and_return(second_job)
-        allow(Translator::Smartling::BatchCreator).to receive(:new).with(jobId: 'job1').and_return(first_batch)
-        allow(Translator::Smartling::BatchCreator).to receive(:new).with(jobId: 'job2').and_return(second_batch)
-        allow(first_job).to receive(:create_job).and_return('job1')
-        allow(first_batch).to receive(:create_batch).and_return('batch1')
-        allow(second_job).to receive(:create_job).and_return('job2')
-        allow(second_batch).to receive(:create_batch).and_return('batch2')
-
-        result = described_class.new(jobs: mock_multiple_jobs_data).coordinate_jobs
-
-        expect(result.values[0]['job_id']).to eql('job2')
-        expect(result.values[0]['batch_id']).to eql('batch2')
-        expect(result.values[1]['job_id']).to eql('job1')
-        expect(result.values[1]['batch_id']).to eql('batch1')
-      end
+      subject.call
     end
   end
 
-  describe '#locales' do
-    it 'returns an array of unique locales strings' do
-      subject = described_class.new(jobs: mock_multiple_jobs_data)
-      expect(subject.locales(mock_requests)).to eql(['en', 'cn', 'ja'])
+  describe '#requests_by_locale' do
+    it 'groups translations requests by locale' do
+      hash = subject.requests_by_locale
+
+      expect(hash.keys).to match_array(['ja-JP', 'zh-CN', 'es-ES'])
+      expect(hash['ja-JP']).to match_array([accounts_overview, sms_overview])
+      expect(hash['zh-CN']).to match_array([guides_numbers])
+      expect(hash['es-ES']).to match_array([connect_an_inbound_call])
     end
   end
 
-  describe '#frequency' do
-    let(:time) { Time.zone.now }
-
-    it 'calculates a due date based on the translation frequency' do
-      subject = described_class.new(jobs: mock_multiple_jobs_data)
-      allow(Time).to receive_message_chain(:zone, :now).and_return(time)
-      frequency = 10
-
-      expect(subject.due_date(frequency)).to eql((time + frequency.days).to_s)
+  describe '#due_date' do
+    it 'returns the date in iso8601 format' do
+      expect(subject.due_date).to eq((Time.current + frequency.days).to_s(:iso8601))
     end
   end
 
-  def mock_multiple_jobs_data
-    {
-      13 => [
-        Translator::TranslationRequest.new(locale: 'en', frequency: 13, path: 'voice/voice-api/guides/numbers.md'),
-        Translator::TranslationRequest.new(locale: 'cn', frequency: 13, path: 'voice/voice-api/guides/numbers.md'),
-        Translator::TranslationRequest.new(locale: 'ja', frequency: 13, path: 'voice/voice-api/guides/numbers.md'),
-      ],
-      15 => [
-        Translator::TranslationRequest.new(locale: 'en', frequency: 15, path: 'messages/external-accounts/overview.md'),
-        Translator::TranslationRequest.new(locale: 'cn', frequency: 15, path: 'messages/external-accounts/overview.md'),
-        Translator::TranslationRequest.new(locale: 'ja', frequency: 15, path: 'messages/external-accounts/overview.md'),
-      ],
-    }
+  describe '#create_job' do
+    it 'creates a Job' do
+      expect(Translator::Smartling::ApiRequestsGenerator).to receive(:create_job)
+        .with(locales: ['ja-JP'], due_date: subject.due_date)
+
+      subject.create_job('ja-JP')
+    end
   end
 
-  def mock_requests
-    [
-      Translator::TranslationRequest.new(locale: 'en', frequency: 13, path: 'voice/voice-api/guides/numbers.md'),
-      Translator::TranslationRequest.new(locale: 'cn', frequency: 13, path: 'voice/voice-api/guides/numbers.md'),
-      Translator::TranslationRequest.new(locale: 'ja', frequency: 13, path: 'voice/voice-api/guides/numbers.md'),
-    ]
+  describe '#create_batch' do
+    it 'creates a batch for a Job' do
+      expect(Translator::Smartling::ApiRequestsGenerator).to receive(:create_batch)
+        .with(job_id: 'smartling-job-id')
+
+      subject.create_batch('smartling-job-id')
+    end
   end
 
-  def mock_job_creator_new_first_job
-    {
-      locales: ['en', 'cn', 'ja'],
-      due_date: '2020-09-05 00:00:00 +0300',
-    }
-  end
+  describe '#upload_file_to_batch' do
+    it 'uploads a file to the Batch' do
+      expect(Translator::Smartling::ApiRequestsGenerator).to receive(:upload_file)
+        .with(batch_id: 'smartling-batch-id', translation_request: requests.first)
 
-  # rubocop:disable Rails/TimeZone
-  def mock_job_creator_new_second_job
-    {
-      locales: ['en', 'cn', 'ja'],
-      due_date: Time.parse('2020-09-07 00:00:00.000000000 +0300'),
-    }
-  end
-  # rubocop:enable Rails/TimeZone
-
-  def mock_upload_request_payload
-    {
-      'response' => {
-        'code' => 'SUCCESS',
-        'data' => [
-          {
-            'message' => 'Your file was successfully uploaded. Word and string counts are not available right now.',
-          },
-        ],
-      },
-    }
-  end
-
-  def mock_upload_success_payload
-    {
-      response: {
-        code: 'SUCCESS',
-        data: {
-          message: 'Your file was successfully uploaded. Word and string counts are not available right now.',
-        },
-      },
-    }
-  end
-
-  def sample_jwt
-    'ey65gy654t34tswfssfdsdf3.eyJdssdfkwefiews32345234124rewfwef3gwefdq3e2y04MjMyYjMxNmM2YWMiLCJlesdfw3rwef345324eqfdsjyhgwedawd23wegrgeNDcxLCJpc3MiOiJodHRwczovL3Nzby5zbWFydGxpbmcuY29tL2F1dGgvcmVhbG1zL1NtYXJ0bGluZyIsImF1ZCI6ImF1dGhlbnRpY2F0aW9uLXNlcnZpY2UiLCJzdWIiOiIyZjg2MTVjZS0wMTQ5LTQzNGYtOThhMS0yMTcxY2ZlMzE4ODUiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJhdXRoZW50aWNhdGlvbi1zZXJ2aWNlIiwic2Vzc2lvbl9zdGF0ZSI6Ijk4OGNlNDllLTJjYTUtNDhlMy1iYzIyLWMwMjQ1NzQ5NDRlNSIsImNsaWVudF9zZXNzaW9uIjoiYjVkODRmYmEtODFkMi00MWYyLWFiOGQtOTdiMGQxYTI1M2MyIiwiYWxsb3dlZC1vcmlnaW5zIjpbXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIlJPTEVfQVBJX1VTRVIiLCJ1c2VyIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3rgef4523rwefdCIsInZpZXctcHJvZmlsZSJdfX0sInVpZCI6IjA2MWFlMmEyZWI2NCIsIm5hbWUiOiJuZXhtby1kZXZlbG9wZXIiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhcGlVc2VyK3Byb2plY3QrMWRmM2I5ZGYyQHNtYXJ0bGluZy5jb20iLCJnaXZlbl9uYW1lIjoiQVBJIFVzZXIiLCJmYW1pbHlfbmFtZSI6Im5leG1vLWRldmVsb3BlciIsImVtYWlsIjoiYXBpVXNlcitwcm9qZWN0KzFkZjNiOWRmMkBzbWFydGxpbmcuY29tIn0.X_cXsqYXrxJzoBpRr3W0duiwPv72QHWtQ02Rhs_ZH9-nGmBb7jZ2MtwX-QOMJanIjFGeCwfsf3ozEemWY3HvpwFqv55HOFt2uVAFj3mLiADtSbKKiV-ixh5sY1pAcsjgNeQ-feMXjwpOIFgqQOWDhwc_yvDqAk9wKdMECMNcYa8'
+      subject.upload_file_to_batch('smartling-batch-id', requests.first)
+    end
   end
 end

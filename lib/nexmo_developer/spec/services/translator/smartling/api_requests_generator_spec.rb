@@ -1,177 +1,57 @@
 require 'rails_helper'
 
 RSpec.describe Translator::Smartling::ApiRequestsGenerator do
-  before(:each) do
-    allow(Translator::Smartling::TokenGenerator).to receive(:token).and_return(sample_jwt)
-  end
+  let(:token) { 'smartling-auth-token' }
+  let(:project_id) { described_class.project_id }
 
-  context 'with a new Smartling Jobs API request' do
-    let(:params) do
-      {
-        action: 'job',
-        uri: 'https://api.smartling.com/jobs-api/v3/projects/234sdfedfg/jobs',
-        token: sample_jwt,
-        body: {
-          'jobName' => 'ADP Translation Job: Tue, 22 Sep 2020 10:47:58 UTC +00:00',
-          'targetLocaleIds' => ['en', 'ja'],
-          'dueDate' => 'Thu, 24 Sep 2020 12:37:40 UTC +00:00',
-        },
-      }
-    end
-    subject { described_class.new(params) }
+  describe '.create_job' do
+    let(:due_date) { Time.current.to_date }
+    let(:locales) { ['ja-JP'] }
 
-    it 'initializes with the correct parameters' do
-      expect(subject).to have_attributes(
-        action: 'job',
-        uri: URI('https://api.smartling.com/jobs-api/v3/projects/234sdfedfg/jobs'),
-        token: sample_jwt,
-        body: {
-          'jobName' => 'ADP Translation Job: Tue, 22 Sep 2020 10:47:58 UTC +00:00',
-          'targetLocaleIds' => ['en', 'ja'],
-          'dueDate' => 'Thu, 24 Sep 2020 12:37:40 UTC +00:00',
-        }
-      )
-    end
+    before { allow(described_class).to receive(:token).and_return(token) }
 
-    describe '#create' do
-      it 'makes a successful HTTP POST request to Smartling Jobs API' do
-        mock_net_http = double('Net::HTTP')
-        allow(Net::HTTP).to receive(:new).and_return(mock_net_http)
-        allow(mock_net_http).to receive(:use_ssl=).and_return(true)
+    it 'generates an API call that creates a Job' do
+      expect(Translator::Smartling::API::CreateJob)
+        .to receive(:call)
+        .with(locales: locales, due_date: due_date, project_id: project_id, token: token)
 
-        mock_net_http_post = double('Net::HTTP::Post')
-        expect(Net::HTTP::Post).to receive(:new).and_return(mock_net_http_post)
-
-        response = Net::HTTPSuccess.new(1.1, 200, 'OK')
-        expect(response).to receive(:body).and_return('{"data": {"translationJobUuid": "uuid-translation"}}')
-
-        expect(mock_net_http_post).to receive(:body=)
-          .with('{"jobName":"ADP Translation Job: Tue, 22 Sep 2020 10:47:58 UTC +00:00","targetLocaleIds":["en","ja"],"dueDate":"Thu, 24 Sep 2020 12:37:40 UTC +00:00"}')
-
-        expect(mock_net_http).to receive(:request).with(mock_net_http_post).and_return(response)
-        expect(subject.create).to eq('uuid-translation')
-      end
-
-      it 'returns a translation job UUID' do
-        allow(subject).to receive(:create).and_return('abc123abc')
-
-        expect(subject.create).to eql('abc123abc')
-      end
-    end
-
-    describe '#upload' do
-      xit 'makes a successful file upload PUT request to Smartling' do
-        mock_net_http = double('Net::HTTP')
-        allow(Net::HTTP).to receive(:new).and_return(mock_net_http)
-        allow(mock_net_http).to receive(:use_ssl=).and_return(true)
-
-        mock_net_http_post = double('Net::HTTP::Post')
-        expect(Net::HTTP::Post).to receive(:new).and_return(mock_net_http_post)
-
-        response = Net::HTTPSuccess.new(1.1, 202, 'OK')
-        expect(response).to receive(:body).and_return('{"response"=>{"code"=>"ACCEPTED", "data"=>nil}}')
-
-        expect(mock_net_http_post).to receive(:[]=).with('Authorization', "Bearer #{sample_jwt}")
-        expect(mock_net_http_post).to receive(:set_form)
-          .with(mock_form_data, 'multipart/form-data')
-
-        expect(mock_net_http).to receive(:request).with(mock_net_http_post).and_return(response)
-        expect(subject.upload).to eq('202')
-      end
-    end
-
-    describe '#validate_success' do
-      context 'with a new job successfully created' do
-        it 'returns the job UUID' do
-          expect(subject.validate_success(mock_job_success_message, 200)).to eql('abc123abc')
-        end
-      end
-
-      context 'with an unsuccessful job attempt' do
-        it 'raises the Smartling error code as an exception' do
-          expect { subject.validate_success(mock_error_message, 401) }.to raise_error(ArgumentError, '401: AUTHENTICATION_ERROR')
-        end
-      end
+      described_class.create_job(locales: locales, due_date: due_date)
     end
   end
 
-  context 'with a new Smartling Batches API request' do
-    let(:params) do
-      {
-        action: 'batch',
-        uri: 'https://api.smartling.com/jobs-batch-api/v1/projects/234sdfedfg/batches',
-        token: sample_jwt,
-        body: { 'translationJobUuid' => 'abc123abc' },
-      }
-    end
-    subject { described_class.new(params) }
+  describe '.create_batch' do
+    let(:job_id) { 'smartling-job-id' }
 
-    it 'initializes with the correct parameters' do
-      expect(subject).to have_attributes(
-        action: 'batch',
-        uri: URI('https://api.smartling.com/jobs-batch-api/v1/projects/234sdfedfg/batches'),
-        token: sample_jwt,
-        body: { 'translationJobUuid' => 'abc123abc' }
-      )
-    end
+    before { allow(described_class).to receive(:token).and_return(token) }
 
-    describe '#validate_success' do
-      context 'with a new batch successfully created' do
-        it 'returns the batch UUID' do
-          expect(subject.validate_success(mock_batch_success_message, 200)).to eql('qwe0rty98poi')
-        end
-      end
+    it 'generates an API call that creates a Batch' do
+      expect(Translator::Smartling::API::CreateBatch)
+        .to receive(:call)
+        .with(project_id: project_id, token: token, job_id: job_id)
 
-      context 'with an unsuccessful batch attempt' do
-        it 'raises the Smartling error code as an exception' do
-          expect { subject.validate_success(mock_error_message, 401) }.to raise_error(ArgumentError, '401: AUTHENTICATION_ERROR')
-        end
-      end
+      described_class.create_batch(job_id: job_id)
     end
   end
 
-  def sample_jwt
-    'ey65gy654t34tswfssfdsdf3.eyJdssdfkwefiews32345234124rewfwef3gwefdq3e2y04MjMyYjMxNmM2YWMiLCJlesdfw3rwef345324eqfdsjyhgwedawd23wegrgeNDcxLCJpc3MiOiJodHRwczovL3Nzby5zbWFydGxpbmcuY29tL2F1dGgvcmVhbG1zL1NtYXJ0bGluZyIsImF1ZCI6ImF1dGhlbnRpY2F0aW9uLXNlcnZpY2UiLCJzdWIiOiIyZjg2MTVjZS0wMTQ5LTQzNGYtOThhMS0yMTcxY2ZlMzE4ODUiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJhdXRoZW50aWNhdGlvbi1zZXJ2aWNlIiwic2Vzc2lvbl9zdGF0ZSI6Ijk4OGNlNDllLTJjYTUtNDhlMy1iYzIyLWMwMjQ1NzQ5NDRlNSIsImNsaWVudF9zZXNzaW9uIjoiYjVkODRmYmEtODFkMi00MWYyLWFiOGQtOTdiMGQxYTI1M2MyIiwiYWxsb3dlZC1vcmlnaW5zIjpbXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIlJPTEVfQVBJX1VTRVIiLCJ1c2VyIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3rgef4523rwefdCIsInZpZXctcHJvZmlsZSJdfX0sInVpZCI6IjA2MWFlMmEyZWI2NCIsIm5hbWUiOiJuZXhtby1kZXZlbG9wZXIiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhcGlVc2VyK3Byb2plY3QrMWRmM2I5ZGYyQHNtYXJ0bGluZy5jb20iLCJnaXZlbl9uYW1lIjoiQVBJIFVzZXIiLCJmYW1pbHlfbmFtZSI6Im5leG1vLWRldmVsb3BlciIsImVtYWlsIjoiYXBpVXNlcitwcm9qZWN0KzFkZjNiOWRmMkBzbWFydGxpbmcuY29tIn0.X_cXsqYXrxJzoBpRr3W0duiwPv72QHWtQ02Rhs_ZH9-nGmBb7jZ2MtwX-QOMJanIjFGeCwfsf3ozEemWY3HvpwFqv55HOFt2uVAFj3mLiADtSbKKiV-ixh5sY1pAcsjgNeQ-feMXjwpOIFgqQOWDhwc_yvDqAk9wKdMECMNcYa8'
+  describe '.upload_file' do
+    let(:batch_id) { 'smartling-batch-id' }
+    let(:translation_request) { double(Translator::TranslationRequest) }
+
+    before { allow(described_class).to receive(:token).and_return(token) }
+
+    it 'generates an API call that uploads a file to a batch' do
+      expect(Translator::Smartling::API::UploadFile)
+        .to receive(:call)
+        .with(project_id: project_id, batch_id: batch_id, translation_request: translation_request, token: token)
+
+      described_class.upload_file(batch_id: batch_id, translation_request: translation_request)
+    end
   end
 
-  def mock_job_success_message
-    {
-      'response' => {
-        'code' => 'SUCCESS',
-      },
-      'data' => {
-        'translationJobUuid' => 'abc123abc',
-      },
-    }
-  end
-
-  def mock_batch_success_message
-    {
-      'response' => {
-        'code' => 'SUCCESS',
-      },
-      'data' => {
-        'batchUuid' => 'qwe0rty98poi',
-      },
-    }
-  end
-
-  def mock_error_message
-    {
-      'response' => {
-        'code' => 'AUTHENTICATION_ERROR',
-      },
-      'errors' => {
-        'message' => 'Invalid token',
-      },
-    }
-  end
-
-  def mock_form_data
-    [
-      ['fileUri', 'voice/voice-api/guides/numbers.md'],
-      ['fileType', 'markdown'], ['localeIdsToAuthorize[]', ['ja-JP', 'zh-CN']],
-      ['file', File.open("#{Rails.configuration.docs_base_path}/_documentation/#{I18n.default_locale}/voice/voice-api/guides/numbers.md")]
-    ]
+  describe '.token' do
+    it 'returns the authentication token' do
+      expect(Translator::Smartling::TokenGenerator).to receive(:token)
+      described_class.token
+    end
   end
 end
