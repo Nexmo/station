@@ -39,4 +39,18 @@ namespace :smartling do
     smartling.download_translated(filename: args[:file], locale: args[:locale], type: args[:type])
     puts 'Done!'
   end
+
+  desc 'Send documents to Smartling by frequency'
+  task :translations_by_frequency, %i[frequency] =>  :env do
+    puts "Sending Files to Smartling with frequency #{frequency}"
+
+    # Which files should we include?
+    paths = []
+    Translator::TranslatorCoordinator.new(
+      paths: paths,
+      frequency: args[:frequency]
+    ).create_smartling_jobs!
+
+    puts 'Done!'
+  end
 end
