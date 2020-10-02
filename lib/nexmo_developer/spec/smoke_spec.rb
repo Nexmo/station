@@ -116,6 +116,7 @@ RSpec.describe 'Smoke Tests', type: :request, ndp: true do
   LandingPageConstraint.list.each do |name|
     name = "/#{name}"
     it "#{name} loads" do
+      allow(Greenhouse).to receive(:devrel_careers).and_return([])
       get name
     end
   end
