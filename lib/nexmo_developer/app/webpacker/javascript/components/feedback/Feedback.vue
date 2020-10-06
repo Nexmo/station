@@ -18,15 +18,6 @@
           </div>
         </div>
       </div>
-
-      <div class="Vlt-col Vlt-col--right Vlt-col--1of4">
-        <span v-if="githubUrl" id="feedback__improve">
-          <svg class="Vlt-icon Vlt-black">
-            <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-github" />
-          </svg>
-          <a v-bind:href="githubUrl" target="_blank" class="Vlt-text-link Vlt-black"> Improve this page</a>
-        </span>
-      </div>
     </div>
 
     <p v-if="error" class="form__error">{{error}}</p>
@@ -69,7 +60,7 @@
 </template>
 <script>
   export default {
-    props: ['codeLanguage', 'codeLanguageSelectedWhilstOnPage', 'codeLanguageSetByUrl', 'currentUser', 'feedbackAuthor', 'githubUrl', 'recaptcha', 'source'],
+    props: ['codeLanguage', 'codeLanguageSelectedWhilstOnPage', 'codeLanguageSetByUrl', 'currentUser', 'feedbackAuthor', 'recaptcha', 'source'],
     data: function() {
       return {
         comment: '',
