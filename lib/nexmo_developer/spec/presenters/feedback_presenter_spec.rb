@@ -59,22 +59,4 @@ RSpec.describe FeedbackPresenter do
       expect(subject.passed_invisible_captcha?).to eq(false)
     end
   end
-
-  describe '#show_github_link?' do
-    context 'with a document_path' do
-      let(:document_path) { 'dummy/doc' }
-
-      it { expect(subject.show_github_link?).to eq(true) }
-    end
-
-    it { expect(subject.show_github_link?).to eq(false) }
-  end
-
-  describe '#github_url' do
-    let(:document_path) { "#{Rails.configuration.docs_base_path}/_documentation/en/concepts/overview.md" }
-
-    it 'returns the url to the doc' do
-      expect(subject.github_url).to eq("https://github.com/nexmo/nexmo-docs/blob/master/#{document_path.gsub("#{Rails.configuration.docs_base_path}/", '')}")
-    end
-  end
 end
