@@ -1,32 +1,5 @@
 <% if @show_feedback %>
-  <% feedback = FeedbackPresenter.new(params, request, session, @document_path) %>
-  <br>
-  <hr>
-  <br>
-
-  <script>
-    window.feedbackProps = {
-      code_language_set_by_url: <%= feedback.code_language? %>,
-      code_language: '<%= feedback.code_language %>',
-      source: '<%= canonical_url %>',
-
-      recaptcha: {
-        enabled: <%= feedback.captcha_enabled? %>,
-        skip: <%= feedback.passed_invisible_captcha? %>,
-        sitekey: '<%= feedback.captcha_key %>',
-      },
-
-      <% if feedback.show_github_link? %>
-        github_url: '<%= feedback.github_url %>'
-      <% end %>
-    }
-  </script>
-
-  <% if feedback.captcha_enabled? %>
-    <% unless feedback.passed_invisible_captcha? %>
-      <div id="recaptcha-container"></div>
-    <% end %>
-  <% end %>
-
-  <div id="feedback-app"></div>
+  <button id="feedback-button" class="Vlt-modal-trigger Vlt-btn Vlt-btn--primary Vlt-btn--app">
+    Feedback
+  </button>
 <% end %>
