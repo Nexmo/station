@@ -305,7 +305,7 @@ GEM
       sass (~> 3.1)
       shotgun (~> 0.9)
       sinatra (~> 2.0)
-    nexmo_markdown_renderer (0.4.1)
+    nexmo_markdown_renderer (0.4.2)
       activemodel (~> 6.0)
       banzai (~> 0.1.2)
       i18n (~> 1.7)
