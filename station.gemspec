@@ -88,6 +88,6 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency('newrelic_rpm', '6.13.1')
   spec.add_runtime_dependency('redis', '4.2.2')
 
-  spec.add_development_dependency('rubocop', '~> 0.92.0')
+  spec.add_development_dependency('rubocop', '~> 0.93.0')
   spec.add_development_dependency('rubocop-rails', '~> 2.6')
 end
