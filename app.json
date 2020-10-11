@@ -1,24 +1,21 @@
 {
-  "addons": [
-
-  ],
   "buildpacks": [
-    {
-      "url": "heroku/ruby"
-    }
+    { "url": "https://github.com/Nexmo/heroku-buildpack-clone-repo.git" },
+    { "url": "heroku/nodejs" },
+    { "url": "https://github.com/negativetwelve/heroku-buildpack-subdir" },
+    { "url": "heroku/ruby" }
   ],
   "env": {
-      "DOCS_BASE_PATH": "`pwd`",
-      "OAS_PATH": "`pwd`"
+    "GIT_REPO_URL": { "required": true }
   },
+  "stack": "heroku-18",
   "formation": {
     "web": {
       "quantity": 1,
       "size": "free"
     }
   },
-  "name": "api-specification",
-  "scripts": {
-  },
-  "stack": "heroku-18"
+  "addons": [
+    "heroku-postgresql:hobby-dev"
+  ]
 }
