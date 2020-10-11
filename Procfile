@@ -1,1 +1,1 @@
-web: bundle exec nexmo-developer --docs=`pwd`
+web: lib/nexmo_developer/bin/initiate server --docs /app/__repo
