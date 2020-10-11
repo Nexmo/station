@@ -8,7 +8,7 @@ RSpec.describe 'rendering _github_repo landing page partial' do
         'language' => 'Ruby',
     }
 
-    expect(rendered).to include('<a class="Vlt-card Nxd-github-card Vlt-left" href="https://example.com/org/repo-name" data-github="Nexmo/repo-name">')
+    expect(rendered).to include('<a class="Vlt-card Nxd-github-card Vlt-left" href="https://example.com/org/repo-name" data-github="org/repo-name">')
     expect(rendered).to include('<h3 class="Vlt-blue-dark">repo-name</h3>')
     expect(rendered).to include('<p>This is a sample title</p>')
     expect(rendered).to include('<span class="Vlt-blue-dark">●</span> Ruby')
