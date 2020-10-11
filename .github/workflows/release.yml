@@ -1,0 +1,79 @@
+name: Publish Gem
+
+on:
+  push:
+    tags:
+      - "v*"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "12.x"
+      - name: Find yarn cache location
+        id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: JS package cache
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - name: Install packages
+        run: |
+          yarn install --pure-lockfile
+      - name: Set up Ruby 2.5.8
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.5.8
+      - name: Ruby gem cache
+        uses: actions/cache@v2
+        with:
+          path: ${{ github.workspace }}/vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gems-
+      - name: Install postgres headers
+        run: sudo apt-get -yqq install libpq-dev
+      - name: Bundle Setup
+        run: |
+          gem update --system 3.0.3 -N
+          gem install --no-document bundler
+          bundle config path ${{ github.workspace }}/vendor/bundle
+        working-directory: ./lib/nexmo_developer
+      - name: Bundle Install
+        env:
+          POSTGRES_USERNAME: postgres
+        run: |
+          bundle install --jobs 4 --retry 3
+        working-directory: ./lib/nexmo_developer
+
+      - name: Precompile assets
+        env:
+          RAILS_SERVE_STATIC_FILES: 1
+          DISABLE_SSL: 1
+          RAILS_LOG_TO_STDOUT: 1
+          RAILS_ENV: production
+        run: bundle exec rails assets:precompile
+        working-directory: ./lib/nexmo_developer
+
+      - name: Set Credentials
+        run: |
+          mkdir -p $HOME/.gem
+          touch $HOME/.gem/credentials
+          chmod 0600 $HOME/.gem/credentials
+          printf -- "---\n:github: Bearer ${GITHUB_TOKEN}\n" > $HOME/.gem/credentials
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          RUBYGEMS_API_KEY: ${{secrets.RUBYGEMS_API_KEY}}
+
+      - name: Publish to GitHub Packages
+        run: |
+          export OWNER=$( echo ${{ github.repository }} | cut -d "/" -f 1 )
+          gem build station.gemspec
+          gem push --KEY github --host https://rubygems.pkg.github.com/${OWNER} *.gem

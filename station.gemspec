@@ -3,7 +3,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require_relative "lib/nexmo_developer/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "nexmo-developer"
+  spec.name          = "station"
   spec.version       = NexmoDeveloper::VERSION
   spec.authors       = ["Nexmo DevRel"]
   spec.email         = ["devrel@nexmo.com"]
