@@ -9,8 +9,24 @@ Station provides a documentation platform ready to use with your custom document
 The [documentation for Station](https://nexmo.github.io/station) covers detailed installation, setup and configuration instructions. Please refer to the documentation as the primary resource for getting started with Station.
 
 * [Documentation](https://nexmo.github.io/station)
+* [Troubleshooting](#troubleshooting)
 * [Contributing](#contributing)
 * [License](#license)
+
+## Troubleshooting
+
+<details>
+<summary>
+How do I add a database to a review application?
+</summary>
+
+In the Heroku review app that you'd like a database for, visit `More -> Run Console` then run the following command:
+
+```bash
+cd lib/nexmo_developer/ && bin/rails db:migrate
+```
+</details>
+
 
 ## Contributing
 
