@@ -51,9 +51,9 @@ RSpec.describe Translator::SmartlingCoordinator do
   describe '#create_batch' do
     it 'creates a batch for a Job' do
       expect(Translator::Smartling::ApiRequestsGenerator).to receive(:create_batch)
-        .with(job_id: 'smartling-job-id')
+        .with(job_id: 'smartling-job-id', requests: [])
 
-      subject.create_batch('smartling-job-id')
+      subject.create_batch('smartling-job-id', [])
     end
   end
 

@@ -21,15 +21,16 @@ RSpec.describe Translator::Smartling::ApiRequestsGenerator do
 
   describe '.create_batch' do
     let(:job_id) { 'smartling-job-id' }
+    let(:requests) { [] }
 
     before { allow(described_class).to receive(:token).and_return(token) }
 
     it 'generates an API call that creates a Batch' do
       expect(Translator::Smartling::API::CreateBatch)
         .to receive(:call)
-        .with(project_id: project_id, token: token, job_id: job_id)
+        .with(project_id: project_id, token: token, job_id: job_id, requests: requests)
 
-      described_class.create_batch(job_id: job_id)
+      described_class.create_batch(job_id: job_id, requests: requests)
     end
   end
 

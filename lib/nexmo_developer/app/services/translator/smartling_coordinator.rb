@@ -16,7 +16,7 @@ module Translator
 
         next unless job_id
 
-        batch_id = create_batch(job_id)
+        batch_id = create_batch(job_id, requests)
 
         next unless batch_id
 
@@ -39,9 +39,10 @@ module Translator
       )
     end
 
-    def create_batch(job_id)
+    def create_batch(job_id, requests)
       Translator::Smartling::ApiRequestsGenerator.create_batch(
-        job_id: job_id
+        job_id: job_id,
+        requests: requests
       )
     end
 

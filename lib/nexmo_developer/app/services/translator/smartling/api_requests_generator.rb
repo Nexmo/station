@@ -10,11 +10,12 @@ module Translator
         )
       end
 
-      def self.create_batch(job_id:)
+      def self.create_batch(job_id:, requests:)
         ::Translator::Smartling::API::CreateBatch.call(
           project_id: project_id,
           job_id: job_id,
-          token: token
+          token: token,
+          requests: requests
         )
       end
 
