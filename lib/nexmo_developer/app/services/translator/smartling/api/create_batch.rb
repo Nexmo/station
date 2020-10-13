@@ -15,7 +15,7 @@ module Translator
         end
 
         def uri
-          @uri ||= URI("https://api.smartling.com/jobs-batch-api/v1/projects/#{@project_id}/batches")
+          @uri ||= URI("https://api.smartling.com/job-batches-api/v2/projects/#{@project_id}/batches")
         end
 
         def success?
