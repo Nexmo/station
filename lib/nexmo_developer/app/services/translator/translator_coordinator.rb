@@ -23,5 +23,11 @@ module Translator
         frequency: @frequency
       )
     end
+
+    def download_smartling_files!
+      Translator::SmartlingDownloader.call(
+        paths: @paths
+      )
+    end
   end
 end

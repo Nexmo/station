@@ -28,6 +28,19 @@ module Translator
         )
       end
 
+      def self.get_file_status(path:)
+        ::Translator::Smartling::API::FileStatus.call(
+          path: path
+        )
+      end
+
+      def self.download_file(locale:, path:)
+        ::Translator::Smarttling::API::DownloadFile.call(
+          locale: locale,
+          path: path
+        )
+      end
+
       def self.token
         @token ||= Translator::Smartling::TokenGenerator.token
       end
