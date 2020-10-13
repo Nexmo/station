@@ -4,7 +4,7 @@ RSpec.describe Translator::Smartling::API::CreateBatch do
   let(:project_id) { 'smartling-project-id' }
   let(:job_id) { 'smartling-job-id' }
   let(:token) { 'smartling-auth-token' }
-  let(:uri) { "https://api.smartling.com/jobs-batch-api/v1/projects/#{project_id}/batches" }
+  let(:uri) { "https://api.smartling.com/job-batches-api/v2/projects/#{project_id}/batches" }
 
   describe '#call' do
     subject do
