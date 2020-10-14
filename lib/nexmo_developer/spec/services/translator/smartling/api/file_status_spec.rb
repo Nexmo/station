@@ -65,6 +65,29 @@ RSpec.describe Translator::Smartling::API::FileStatus do
 
     context 'on failure' do
       it 'logs the API error message and returns nil' do
+        stub_request(:get, uri)
+          .with(
+            headers: { 'Authorization' => "Bearer #{token}", 'Content-Type' => 'application/json' },
+            query: URI.encode_www_form('fileUri' => 'messages/external-accounts/overview.md')
+          )
+          .to_return(
+            status: 500,
+            body: {
+              "response": {
+                "code": 'GENERAL_ERROR',
+                "errors": [
+                  {
+                    "key": 'general_error',
+                    "message": 'Unexpected server error',
+                    "details": {},
+                  },
+                ],
+              },
+            }.to_json.to_s
+          )
+
+        expect(Bugsnag).to receive(:notify).with('Translator::Smartling::API::FileStatus 500: Unexpected server error')
+        expect(subject.call).to be_nil
       end
     end
   end
