@@ -20,6 +20,7 @@ en:
     on-demand-call-recording: On-Demand Call Recording
     webhook: Webhook
     app-center: App Center
+    content-types: Content Types
   layouts:
     partials:
       header:
