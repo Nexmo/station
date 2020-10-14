@@ -1,5 +1,9 @@
 <% if @show_feedback %>
-  <button id="feedback-button" class="Vlt-modal-trigger Vlt-btn Vlt-btn--primary Vlt-btn--app">
+  <button id="feedback-button" class="Vlt-modal-trigger Vlt-btn Vlt-btn--primary Vlt-btn--app" data-modal="feedback-modal">
     Feedback
   </button>
+
+  <div id="feedback-modal" class="Vlt-modal Vlt-modal--large">
+    <div id="feedback-app"></div>
+  </div>
 <% end %>
