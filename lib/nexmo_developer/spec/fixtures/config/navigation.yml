@@ -155,3 +155,7 @@ navigation_overrides:
   contribute:
     administration:
       navigation_weight: 9999
+    structure:
+      navigation-weight: 5
+      content-types: 
+        navigation-weight: 1
