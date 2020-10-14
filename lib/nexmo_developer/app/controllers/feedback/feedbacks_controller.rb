@@ -40,7 +40,7 @@ module Feedback
     end
 
     def set_cookies
-      return unless @feedback.owner.class == ::Feedback::Author
+      return unless @feedback.owner.instance_of?(::Feedback::Author)
 
       cookies[:feedback_author_id] = {
         value: @feedback.owner.id,
@@ -90,7 +90,7 @@ module Feedback
     end
 
     def set_email
-      return if @feedback.owner.class == User
+      return if @feedback.owner.instance_of?(User)
       return if params['feedback_feedback']['email'].blank?
 
       @feedback.owner.email = params['feedback_feedback']['email']
