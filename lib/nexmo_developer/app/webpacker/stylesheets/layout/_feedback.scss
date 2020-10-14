@@ -8,4 +8,8 @@
   &:hover {
     box-shadow: 0 0 35px 2px rgba(0,0,0,.24)
   }
+
+  @media #{$S-only} {
+    bottom: 250px;
+  }
 }
