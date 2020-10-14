@@ -27,11 +27,11 @@ Nexmo Developer is structured by context and by product. The four main sections 
 
 This section hosts the bulk of the written content for the NDP. The content is structured by products each of which have the following four sections:
 
-  * **[Overviews](/contribute/structure/guides/overviews)** - The first pages you reach when you select a product.
-  * **[Guides](/contribute/structure/guides/guides)** - Provide key concepts in more depth than the overview.
-  * **[Code Snippets](/contribute/structure/guides/code-snippets)** - Used as a quick reference of how to do something specific.
-  * **[Tutorials](/contribute/structure/guides/tutorials)** - Step-by-step guide on how to do something. There is also a detailed [guide to tutorials](/contribute/guides/tutorials) available.
-  * **[Use Cases](/contribute/structure/guides/use-cases)** - Multi-product scenarios using Vonage APIs and those of other providers.
+  * **[Overviews](/contribute/structure/content-types/overviews)** - The first pages you reach when you select a product.
+  * **[Guides](/contribute/structure/content-types/guides)** - Provide key concepts in more depth than the overview.
+  * **[Code Snippets](/contribute/structure/content-types/code-snippets)** - Used as a quick reference of how to do something specific.
+  * **[Tutorials](/contribute/structure/content-types/tutorials)** - Step-by-step guide on how to do something. There is also a detailed [guide to tutorials](/contribute/guides/tutorials) available.
+  * **[Use Cases](/contribute/structure/content-types/use-cases)** - Multi-product scenarios using Vonage APIs and those of other providers.
 
 ### API Reference
 
