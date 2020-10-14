@@ -12,15 +12,19 @@ module Translator
         end
 
         def build_request
-          Net::HTTP :Get.new(uri.path, headers)
+          Net::HTTP::Get.new(uri, headers)
         end
 
         def uri
           @uri ||= begin
             uri = URI("https://api.smartling.com/files-api/v2/projects/#{@project_id}/locales/#{@locale_id}/file")
-            uri.query = URI.encode_www_form({ 'fileUri' => path, 'retrievalType' => 'published' })
+            uri.query = URI.encode_www_form({ 'fileUri' => @path, 'retrievalType' => 'published' })
             uri
           end
+        end
+
+        def headers
+          { 'Authorization' => "Bearer #{@token}", 'Content-Type' => 'application/json' }
         end
 
         def success?
@@ -28,7 +32,7 @@ module Translator
         end
 
         def return_value
-          @return_value ||= response_body
+          @return_value ||= @response.body
         end
       end
     end
