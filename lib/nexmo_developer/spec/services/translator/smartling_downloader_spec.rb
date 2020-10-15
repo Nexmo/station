@@ -27,7 +27,7 @@ RSpec.describe Translator::SmartlingDownloader do
     it 'downloads the translated file' do
       expect(Translator::Smartling::ApiRequestsGenerator).to receive(:download_file)
         .with(locale: 'zh-CN', path: "#{Rails.configuration.docs_base_path}/_documentation/en/messaging/sms/overview.md")
-        .and_return('翻译文字')
+        .and_return(File.read("#{Rails.configuration.docs_base_path}/_documentation/cn/messaging/sms/overview.md"))
 
       subject.download_file(locale: 'zh-CN', path: '_documentation/en/messaging/sms/overview.md')
     end
