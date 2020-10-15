@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Translator::SmartlingDownloader do
-  let(:paths) { ['messaging/sms/overview.md', 'voice/voice-api/guides/numbers.md'] }
+  let(:paths) { ["_documentation/en/messaging/sms/overview.md", "_documentation/en/voice/voice-api/guides/numbers.md"] }
 
   subject { described_class.new(paths: paths) }
 
@@ -17,18 +17,18 @@ RSpec.describe Translator::SmartlingDownloader do
   describe '#get_file_status' do
     it 'gets the file status' do
       expect(Translator::Smartling::ApiRequestsGenerator).to receive(:get_file_status)
-        .with(path: ['messaging/sms/overview.md'])
+        .with(path: "#{Rails.configuration.docs_base_path}/_documentation/en/messaging/sms/overview.md")
 
-      subject.get_file_status(path: ['messaging/sms/overview.md'])
+      subject.get_file_status(path: "_documentation/en/messaging/sms/overview.md")
     end
   end
 
   describe '#download_file' do
     it 'downloads the translated file' do
       expect(Translator::Smartling::ApiRequestsGenerator).to receive(:download_file)
-        .with(locale: 'ja-JP', path: ['messaging/sms/overview.md'])
+        .with(locale: 'ja-JP', path: "#{Rails.configuration.docs_base_path}/_documentation/en/messaging/sms/overview.md")
 
-      subject.download_file(locale: 'ja-JP', path: ['messaging/sms/overview.md'])
+      subject.download_file(locale: 'ja-JP', path: "_documentation/en/messaging/sms/overview.md")
     end
   end
 end
