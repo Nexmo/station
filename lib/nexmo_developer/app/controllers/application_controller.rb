@@ -10,7 +10,6 @@ class ApplicationController < ActionController::Base
 
   http_basic_authenticate_with name: ENV['USERNAME'], password: ENV['PASSWORD'], if: :requires_authentication?
 
-  before_action :set_show_feedback
   before_action :set_notices
   before_action :set_code_language
   before_action :set_feedback_author
@@ -37,10 +36,6 @@ class ApplicationController < ActionController::Base
 
   def requires_authentication?
     ENV['USERNAME'] && ENV['PASSWORD']
-  end
-
-  def set_show_feedback
-    @show_feedback = true
   end
 
   def set_code_language
