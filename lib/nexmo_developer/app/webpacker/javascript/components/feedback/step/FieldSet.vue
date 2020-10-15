@@ -4,11 +4,11 @@
       <div v-for="field in step.fields">
         <label class="Vlt-label" v-if="field.label !== undefined">{{field.label}}</label>
         <div v-if="field.type === 'input'" class="Vlt-input">
-          <input v-model="$data[field.name]"></input>
+          <input :name="field.name" v-model="$data[field.name]"></input>
           <small class="Vlt-form__element__hint" v-if="field.hint !== undefined">{{field.hint}}</small>
         </div>
         <div v-else-if="field.type === 'textarea'" class="Vlt-textarea">
-          <textarea v-model="$data[field.name]" rows="5" :placeholder="field.placeholder"></textarea>
+          <textarea :name="field.name" v-model="$data[field.name]" rows="5" :placeholder="field.placeholder"></textarea>
         </div>
         <div v-else></div>
       </div>

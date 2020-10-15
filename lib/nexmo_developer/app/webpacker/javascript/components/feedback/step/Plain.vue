@@ -3,7 +3,6 @@
     <p class="content">{{ step.content }}</p>
     <button v-show="!lastStep" class="Vlt-btn Vlt-btn--app Vlt-btn--tertiary Vlt-modal__cancel" v-on:click="reset">Cancel</button>
     <button v-show="lastStep" class="Vlt-btn Vlt-btn--app Vlt-btn--secondary Vlt-modal__cancel" v-on:click="reset">Close</button>
-    <button v-show="!lastStep" class="Vlt-btn Vlt-btn--app Vlt-btn--secondary">Continue</button>
   </div>
 </template>
 <script>

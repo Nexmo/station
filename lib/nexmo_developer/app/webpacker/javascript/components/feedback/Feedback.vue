@@ -19,7 +19,7 @@
           </label>
         </div>
 
-        <small v-if="hasError"class="Vlt-form__element__error">This field is required</small>
+        <small v-if="hasError" class="Vlt-form__element__error">This field is required</small>
         <button class="Vlt-btn Vlt-btn--app Vlt-btn--tertiary Vlt-modal__cancel" v-on:click="reset">Cancel</button>
         <button class="Vlt-btn Vlt-btn--app Vlt-btn--secondary" v-on:click="onPathSelection">Continue</button>
       </div>
@@ -32,129 +32,14 @@ import FeedbackPath from './FeedbackPath.vue';
 import eventHub from './eventHub';
 
 export default {
-  props: [],
+  props: ['paths', 'title'],
   components: { FeedbackPath },
   data: function() {
     return {
-      title: "Great! Please let us know what you think:",
       currentPathIndex: null,
       selected: false,
       cancelText: 'Cancel',
       hasError: false,
-      paths: [
-        {
-          "question": "I found what I needed to know - thanks!",
-          "steps": [
-            {
-              "title": "Thank You!",
-              "type": "textarea",
-              "content": "We’re glad you found what you were looking for.\n\nWe’re always trying to improve our documentation and feedback like yours helps us know when we are on the right track!",
-              "label": "Anything we can improve on?",
-              "placeholder": "Hint text"
-            },
-            {
-              "title": "Thank You!",
-              "type": "plain",
-              "content": "We’re glad you found what you were looking for.\n\nWe’re always trying to improve our documentation and feedback like yours helps us know when we are on the right track!",
-              "image": "/assets/images/done.svg"
-            }
-          ]
-        },
-        {
-          "question": "There is a problem with the documentation.",
-          "steps": [
-            {
-              "title": "Thanks for letting us know!\nPlease, tell us more:",
-              "type": "radiogroup",
-              "questions": [
-                "The documentation is missing information.",
-                "The documentation is unclear.",
-                "The documentation is incorrect.",
-                "There is a broken link.",
-                "I don’t understand the terminology."
-              ]
-            },
-            {
-              "title": "What have we left out?",
-              "type": "textarea",
-              "placeholder": "Please leave feedback here"
-            },
-            {
-              "title": "Thank You!",
-              "type": "plain",
-              "content": "We have recorded your feedback. Feedback like yours will help us better serve your needs in the future, and it’s much appreciated!",
-              "image": "/assets/images/programming.svg"
-            }
-          ]
-        },
-        {
-          "question": "I am having problems with the sample code.",
-          "steps": [
-            {
-              "title": "Sorry you’re having trouble. What’s wrong?",
-              "type": "radiogroup",
-              "questions": [
-                "The sample code doesn’t work.",
-                "The sample code isn’t helpful.",
-                "The sample(s) I was expecting to see are missing."
-              ]
-            },
-            {
-              "title": "Please help us help you by providing details.",
-              "type": "textarea",
-              "placeholder": "Please leave feedback here"
-            },
-            {
-              "title": "Thank You!",
-              "type": "plain",
-              "content": "We have recorded your feedback. Feedback like yours will help us better serve your needs in the future, and it’s much appreciated!",
-              "image": "/assets/images/programming.svg"
-            }
-          ]
-        },
-        {
-          "question": "I need help with something else.",
-          "steps": [
-            {
-              "title": "What do you need help with?",
-              "type": "radiogroup",
-              "questions": [
-                "My account/billing.",
-                "The capabilities of the product.",
-                "Something else."
-              ]
-            },
-            {
-              "title": "Let's get you some help!",
-              "type": "fieldset",
-              "fields": [
-                { "type": "input", "name": "firstName", "label": "First name" },
-                { "type": "input", "name": "lastName", "label": "Last name" },
-                { "type": "input", "name": "companyName", "label": "Company Name" },
-                { "type": "input", "name": "apiKey", "label": "API Key", "hint": "(Hint: You can find this in the Developer Dashboard at https://dashboard.nexmo.com)" },
-                { "type": "textarea", "name": "feedback", "label": "Please tell us how we can help you:", "placeholder": "Please leave feedback here" },
-              ]
-            },
-            {
-              "title": "Thank You!",
-              "type": "plain",
-              "content": "We have recorded your feedback and will get back to you as soon as we can.",
-              "image": "/assets/images/productive-work.svg"
-            }
-          ]
-        },
-        {
-          "question": "I don’t understand any of this!",
-          "steps": [
-            {
-              "title": "Sorry Charlie",
-              "type": "plain",
-              "content": "You need to be a software developer to use our APIs.\n\nFor more information, see: https://www.vonage.co.uk/communications-apis/platform",
-              "image": "/assets/images/oops.svg"
-            }
-          ]
-        }
-      ]
     }
   },
   computed: {

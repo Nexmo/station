@@ -6,4 +6,8 @@
   <div id="feedback-modal" class="Vlt-modal Vlt-modal--large">
     <div id="feedback-app"></div>
   </div>
+
+  <script>
+    window.feedbackProps = <%= YAML.safe_load(File.read("#{Rails.root}/config/feedback.yml")).to_json.html_safe %>
+  </script>
 <% end %>

@@ -3,7 +3,7 @@
     <step v-show="index === currentStepIndex"
       v-for="(step, index) in feedback_path.steps"
       v-bind:step="step"
-      v-bind:last-step="index === (feedback_path.steps.length - 1)" />
+      v-bind:last-step="lastStep" />
   </div>
 </template>
 <script>
