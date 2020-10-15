@@ -9,7 +9,7 @@ RSpec.describe ImprovePagePresenter do
 
   describe '#github_url' do
     it 'returns the url to the doc' do
-      expect(subject.github_url).to eq("https://github.com/nexmo/nexmo-developer/blob/master/_documentation/en/concepts/overview.md")
+      expect(subject.github_url).to eq('https://github.com/nexmo/nexmo-developer/blob/master/_documentation/en/concepts/overview.md')
     end
   end
 end
