@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/nexmo/nexmo-markdown-renderer.git
-  revision: 2f601e1d49409dc2df459711683e0579ac2d8e0f
+  revision: 6405c46595185269e6302b194bd4f236611c078c
   branch: bring-back-translation-pipelines
   specs:
-    nexmo_markdown_renderer (0.4.1)
+    nexmo_markdown_renderer (0.4.2)
       activemodel (~> 6.0)
       banzai (~> 0.1.2)
       i18n (~> 1.7)
