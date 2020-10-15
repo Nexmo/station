@@ -10,7 +10,7 @@ module Translator
         :en
       end
     end
-  
+
     def storage_folder(filename, locale)
       if filename.starts_with? '_documentation'
         dir_path = Pathname.new(file_uri(filename)).dirname.to_s

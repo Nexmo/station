@@ -1,5 +1,5 @@
 module Translator
-  class TranslatorCoordinator    
+  class TranslatorCoordinator
     attr_reader :paths
 
     def initialize(paths:, frequency:)
