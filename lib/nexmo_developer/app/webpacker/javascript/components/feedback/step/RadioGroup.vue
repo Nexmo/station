@@ -41,7 +41,7 @@ export default {
     validate: function() {
       if (this.$el.querySelector('input[type="radio"]:checked') !== null) {
         this.hasError = false;
-        eventHub.$emit('next-step');
+        eventHub.$emit('next-step', this.answer);
         return false;
       } else {
         this.hasError = true;

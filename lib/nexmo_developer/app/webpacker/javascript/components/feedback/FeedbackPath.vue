@@ -10,6 +10,7 @@
 
 import Step from './step/base.vue';
 import eventHub from './eventHub';
+import store from './store';
 
 export default {
   props: ['feedback_path'],
@@ -28,8 +29,9 @@ export default {
     }
   },
   methods: {
-    nextStep: function() {
+    nextStep: function(answer) {
       this.currentStepIndex += 1;
+      store.addStep(answer);
       return false;
     },
     reset: function() {
@@ -40,6 +42,9 @@ export default {
   mounted: function() {
     eventHub.$on('reset-modal', this.reset);
     eventHub.$on('next-step', this.nextStep);
+  },
+  beforeDestroy: function() {
+    eventHub.$off('next-step');
   }
 }
 </script>

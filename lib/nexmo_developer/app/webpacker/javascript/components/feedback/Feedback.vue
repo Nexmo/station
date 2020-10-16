@@ -30,9 +30,10 @@
 
 import FeedbackPath from './FeedbackPath.vue';
 import eventHub from './eventHub';
+import store from './store';
 
 export default {
-  props: ['paths', 'title'],
+  props: ['paths', 'title', 'source', 'configId'],
   components: { FeedbackPath },
   data: function() {
     return {
@@ -40,6 +41,7 @@ export default {
       selected: false,
       cancelText: 'Cancel',
       hasError: false,
+      store: store
     }
   },
   computed: {
@@ -55,6 +57,7 @@ export default {
       if (this.$el.querySelector('input[type="radio"][name="feedbackPath"]:checked') !== null) {
         this.hasError = false;
         this.selected = true;
+        store.setPath(this.currentPathIndex);
       } else {
         this.hasError = true;
       }
@@ -63,6 +66,8 @@ export default {
       this.selected = false;
       this.hasError = false;
       this.currentPathIndex = null;
+      store.clearState();
+
       Array.from(document.getElementsByClassName('Vlt-modal_visible'), function(modal) {
         modal.classList.remove('Vlt-modal_visible');
       })
@@ -70,6 +75,8 @@ export default {
     }
   },
   mounted: function() {
+    store.setSource(this.source);
+    store.setConfigId(this.configId);
     eventHub.$on('reset-modal', this.reset);
   }
 }

@@ -36,6 +36,17 @@ export default {
       hasError: false,
     }
   },
+  computed: {
+    answer: function() {
+      return {
+        firstName: this.firstName,
+        lastName: this.lastName,
+        companyName: this.companyName,
+        apiKey: this.apiKey,
+        feedback: this.feedback
+      };
+    }
+  },
   methods: {
     resetFields: function() {
       this.firstName = '';
@@ -50,7 +61,7 @@ export default {
         this.hasError = true;
       } else {
         this.hasError = false;
-        eventHub.$emit('next-step');
+        eventHub.$emit('next-step', this.answer);
       }
     },
     reset: function() {

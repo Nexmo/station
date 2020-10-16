@@ -8,4 +8,6 @@
 
 <script>
   window.feedbackProps = <%= YAML.safe_load(File.read("#{Rails.root}/config/feedback.yml")).to_json.html_safe %>
+  window.feedbackProps.source = 'source';
+  window.feedbackProps.configId = 'config-uuid';
 </script>

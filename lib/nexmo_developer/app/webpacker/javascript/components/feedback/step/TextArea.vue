@@ -38,7 +38,7 @@ export default {
         this.error = true;
       } else {
         this.error = false;
-        eventHub.$emit('next-step');
+        eventHub.$emit('next-step', this.answer);
       }
     }
   },
