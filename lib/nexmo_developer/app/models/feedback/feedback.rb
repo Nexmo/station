@@ -6,6 +6,7 @@ module Feedback
 
     belongs_to :resource, class_name: '::Feedback::Resource'
     belongs_to :owner, polymorphic: true
+    belongs_to :config, optional: true
 
     attr_accessor :email, :source
 
