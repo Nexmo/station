@@ -1,5 +1,6 @@
 ---
 title: Use Cases
+navigation_weight: 5
 ---
 
 # Use Cases

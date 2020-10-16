@@ -1,6 +1,6 @@
 ---
 title: Creating a Tutorial
-description: Learn how to create a tutorial
+navigation_weight: 1
 ---
 
 # Tutorials

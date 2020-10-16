@@ -1,6 +1,6 @@
 ---
 title: Creating a Use Case
-description: Learn how to create a Use Case
+navigation_weight: 2
 ---
 
 # Creating a Use Case
