@@ -1,13 +1,13 @@
 ---
 title: Creating a Tutorial
-description: This topic describes how to write step-by-step tutorials.
+description: Learn how to create a tutorial
 ---
 
 # Tutorials
 
 Step-by-step procedures are documented using tutorials in Nexmo Developer. This topic describes how to create a new tutorial.
 
-> **Wait!**: Are you sure that a Tutorial is the right format for what you want to achieve? Please read our [Tutorials and Use Cases guide]()
+> **Wait!** Are you sure that a Tutorial is the right format for what you want to achieve? Please read our [Tutorials and Use Cases guide]()
 
 Tutorials support multiple programming languages. You can select the language you require from the list provided.
 

@@ -13,7 +13,7 @@ Our documentation allows for three different types of "how-to" content:
 
 If you just want to show a bit of sample code that demonstrates to a reader how to perform a single task, then you need a [code snippet](/contribute/structure/content-types/code-snippets).
 
-If you want to teach a reader how to build something, then you'll need either a **Tutorial** or a **Use Case**. This page will help you decide which of those two formats is appropriate.
+If you want to teach a reader how to build something, then you'll need either a **Tutorial** or a **Use Case**. This page will help you decide which of those two formats is right for your content.
 
 ## Characteristics of a Tutorial
 
@@ -38,7 +38,7 @@ While Tutorials provide step-by-step instructions on how to do specific things w
 
 Use Cases do not have to provide a step-by-step approach, although sometimes they do. Tutorials always use the step-by-step approach.
 
-If several of the following apply, then use the Use Case format:
+If several of the following apply, then consider the Use Case format:
 
 * You have a demo app that you want to show our readers and then break it down to explain how it works
 * You are demonstrating the basis of a "real world" application that someone might actually want to build
@@ -55,10 +55,10 @@ If several of the following apply, then use the Use Case format:
 
 Once you have decided on the appropriate format, you should first learn how to structure the content of your Tutorial or Use Case:
 
-* [Tutorial structure]()
-* [Use Case structure]()
+* [Tutorial structure](/contribute/structure/content-types/tutorials)
+* [Use Case structure](/contribute/structure/content-types/use-cases)
 
 Then, see the appropriate guide to learn how to add your new Tutorial or Use Case to our documentation platform:
 
-* [Creating a Tutorial]()
-* [Creating a Use Case]()
+* [Creating a Tutorial](/contribute/tutorials-and-use-cases/tutorials)
+* [Creating a Use Case](/contribute/tutorials-and-use-cases/use-cases)
