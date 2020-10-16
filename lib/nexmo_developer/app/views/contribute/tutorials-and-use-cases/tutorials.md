@@ -7,7 +7,7 @@ navigation_weight: 1
 
 Step-by-step procedures are documented using tutorials in Nexmo Developer. This topic describes how to create a new tutorial.
 
-> **Wait!** Are you sure that a Tutorial is the right format for what you want to achieve? Please read our [Tutorials and Use Cases guide]()
+> **Wait!** Are you sure that a Tutorial is the right format for what you want to achieve? Please read our [Tutorials and Use Cases guide](/contribute/guides/tutorials-and-use-cases)
 
 Tutorials support multiple programming languages. You can select the language you require from the list provided.
 
