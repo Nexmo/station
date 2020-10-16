@@ -21,7 +21,7 @@ Tutorials demonstrate how to complete a specific, well-defined task, using a ste
 
 If all of the following apply, then use the Tutorial format:
 
-* You want to show the user how to create a simple application from scratch using one or more of our [SDKs](tools) (Tutorials support multiple languages)
+* You want to show the user how to create a simple application from scratch using one or more of our SDKs (Tutorials support multiple languages)
 * You will guide them through the process step-by-step
 * You are focusing on a single Vonage API
 * You do not rely heavily on third party APIs or frameworks that you cannot reasonably assume that our readers will be proficient in
@@ -30,7 +30,6 @@ If all of the following apply, then use the Tutorial format:
 
 * See [Sending a Facebook message with Failover](/dispatch/tutorials/send-facebook-message-with-failover/introduction) for an example of a single-language tutorial.
 * See [Creating a chat app](/client-sdk/tutorials/in-app-messaging/introduction) for an example of a multi-language tutorial.
-* See also [Use Cases](/contribute/guides/use-cases).
 
 
 ## Characteristics of a Use Case
