@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_02_092734) do
+ActiveRecord::Schema.define(version: 2020_10_16_110604) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -53,6 +53,11 @@ ActiveRecord::Schema.define(version: 2020_04_02_092734) do
     t.index ["email"], name: "index_feedback_authors_on_email"
   end
 
+  create_table "feedback_configs", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "title"
+    t.jsonb "paths"
+  end
+
   create_table "feedback_feedbacks", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "sentiment", null: false
     t.uuid "resource_id", null: false
@@ -66,9 +71,13 @@ ActiveRecord::Schema.define(version: 2020_04_02_092734) do
     t.boolean "code_language_selected_whilst_on_page"
     t.boolean "code_language_set_by_url"
     t.boolean "resolved", default: false, null: false
+    t.uuid "feedback_config_id"
+    t.integer "path"
+    t.jsonb "steps"
     t.index ["code_language"], name: "index_feedback_feedbacks_on_code_language"
     t.index ["code_language_selected_whilst_on_page"], name: "index_feedbacks_on_code_language_selected_whilst_on_page"
     t.index ["code_language_set_by_url"], name: "index_feedbacks_on_code_language_set_by_url"
+    t.index ["feedback_config_id"], name: "index_feedback_feedbacks_on_feedback_config_id"
     t.index ["ip"], name: "index_feedback_feedbacks_on_ip"
     t.index ["owner_id", "owner_type"], name: "index_feedback_feedbacks_on_owner_id_and_owner_type"
     t.index ["resolved"], name: "index_feedback_feedbacks_on_resolved"
@@ -139,4 +148,5 @@ ActiveRecord::Schema.define(version: 2020_04_02_092734) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "feedback_feedbacks", "feedback_configs"
 end
