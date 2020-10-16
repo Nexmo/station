@@ -6,12 +6,12 @@ title: Use Cases
 
 Use Cases provide guidance on how to implement real-world scenarios using Vonage APIs and third-party APIs and products.
 
-Whereas Tutorials provide step-by-step instructions on how to do specific things with one product, Use Cases describe far more complex scenarios, that may use several Vonage API products, and optionally external provider products.
+A Use Case is implemented as a single markdown file, but when the platform renders it, the headings appear as navigable steps on the right-hand side of the page:
 
-Use Cases do not have to provide a step-by-step approach, although sometimes they do. Tutorials always use the step-by-step approach.
+![Sample use case](/assets/images/contributing/uc-example.png)
 
-## Examples
+You have more flexibility when writing a use case than you do with a tutorial. Usually you will start by showing readers how to set up, configure and then run a demo project and then break it down to show how it works. But you might choose to adopt a more "step-by-step" approach. Ultimately, it's up to you.
 
-A good example of a Use Case is:
+> **Unsure if this is the right format?**: Please read our [Tutorials and Use Cases guide]() to help you decide.
 
-* [Order Support System](https://developer.nexmo.com/use-cases/client-sdk-sendinblue-order-confirm) - A Use Case demonstrating Conversation API, Client SDK and SendInBlue API for email. This describes implementing an Order Spport System scenario.
+If you are sure that a Use Case is what you need, please see our [Use Case guide]() to learn how to create one.

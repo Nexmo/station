@@ -1,5 +1,5 @@
 ---
-title: Tutorials
+title: Creating a Tutorial
 description: This topic describes how to write step-by-step tutorials.
 ---
 
@@ -7,9 +7,7 @@ description: This topic describes how to write step-by-step tutorials.
 
 Step-by-step procedures are documented using tutorials in Nexmo Developer. This topic describes how to create a new tutorial.
 
-The following screenshot illustrates the appearance of a tutorial:
-
-![Sending a message with Dispatch API](/assets/images/contributing/task-example.png)
+> **Wait!**: Are you sure that a Tutorial is the right format for what you want to achieve? Please read our [Tutorials and Use Cases guide]()
 
 Tutorials support multiple programming languages. You can select the language you require from the list provided.
 
@@ -197,9 +195,3 @@ conclusion:
 ```
 
 This content is provided directly in the tutorial configuration file as it is specific to the current tutorial and is not intended to be reused. Remember if you have language-specifc tutorials there will be one configuration file for each supported language.
-
-## Further information
-
-* See [Sending a Facebook message with Failover](/dispatch/tutorials/send-facebook-message-with-failover/introduction) for an example of a single-language tutorial.
-* See [Creating a chat app](/client-sdk/tutorials/in-app-messaging/introduction) for an example of a multi-language tutorial.
-* See also [Use Cases](/contribute/guides/use-cases).

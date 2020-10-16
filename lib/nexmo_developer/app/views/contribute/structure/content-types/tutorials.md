@@ -5,7 +5,13 @@ navigation_weight: 4
 
 # Tutorials
 
-Tutorials are complete example of how to build something practical. They are step-by-step and self-contained providing all necessary content inline and may combine many different products. They usually cover a single specific use case.
+A tutorial is a complete walkthrough of how to build something practical. They are step-by-step and self-contained providing all necessary content inline and focus on a single, well-defined outcome. Tutorials also support multiple programming languages.
+
+The following screenshot illustrates the appearance of a tutorial:
+
+![Sending a message with Dispatch API](/assets/images/contributing/task-example.png)
+
+> **Wait!**: Are you sure that a Tutorial is the right format for what you want to achieve? Please read our [Tutorials and Use Cases guide]() to help you decide.
 
 ## Opening
 
