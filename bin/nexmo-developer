@@ -27,6 +27,9 @@ docs_path = OptionParser.new do |opts|
   opts.on("--rake-ci", "Runs ci tasks") do
     rake_ci = true
   end
+  opts.on("--rake-smartling-download", "Runs Smartling download check") do
+    rake_smartling_download = true
+  end
 end.parse!
 
 $LOAD_PATH.unshift(File.expand_path('../lib/nexmo_developer', __dir__))
@@ -89,6 +92,10 @@ if rake_ci
   Rails.application.load_tasks
   Rails::Command.invoke 'runner', ["Rake::Task['db:setup'].invoke"]
   Rails::Command.invoke 'runner', ["Rake::Task['ci:all'].invoke"]
+elsif rake_smartling_download
+  puts 'Running Smartling download check...'
+  Rails.application.load_tasks
+  Rails::Command.invoke 'runner', ["Rake::Task['smartling:download'].invoke"]
 else
   Rails::Command.invoke 'server'
 end

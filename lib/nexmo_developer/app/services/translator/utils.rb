@@ -18,7 +18,8 @@ module Translator
       elsif filename.starts_with? 'config/locales'
         Pathname.new(file_uri(filename)).dirname.to_s
       else
-        raise 'Unexpected file path'
+        dir_path = Pathname.new(file_uri(filename)).dirname.to_s
+        "#{Rails.configuration.docs_base_path}/_documentation/#{locale}/#{dir_path}"
       end
     end
 
@@ -28,6 +29,8 @@ module Translator
                     Pathname.new(file_uri(filename)).basename.to_s
                   elsif filename.starts_with? 'config/locales'
                     "#{locale}#{Pathname.new(file_uri(filename)).extname}"
+                  else
+                    Pathname.new(file_uri(filename)).basename.to_s
                   end
       "#{folder}/#{file_name}"
     end

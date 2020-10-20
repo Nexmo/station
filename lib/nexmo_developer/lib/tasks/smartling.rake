@@ -53,4 +53,13 @@ namespace :smartling do
 
     puts 'Done!'
   end
+
+  desc 'Check for new translations by locale and download them'
+  task 'download': :environment do
+    puts 'Checking for completed translations and downloading them'
+
+    Translator::SmartlingDownloader.new.call
+
+    puts 'Done!'
+  end
 end

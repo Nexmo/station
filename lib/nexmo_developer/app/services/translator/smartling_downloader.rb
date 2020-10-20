@@ -4,8 +4,8 @@ module Translator
 
     attr_reader :paths
 
-    def initialize(paths:)
-      @paths = paths
+    def initialize(paths: [])
+      @paths = get_file_paths
     end
 
     def call
@@ -15,16 +15,20 @@ module Translator
       end
     end
 
+    def get_file_paths
+      ::Translator::Smartling::ApiRequestsGenerator.get_file_paths
+    end
+
     def get_file_status(path:)
       ::Translator::Smartling::ApiRequestsGenerator.get_file_status(
-        path: file_path(path, 'en')
+        path: path
       )
     end
 
     def download_file(locale:, path:)
       doc = ::Translator::Smartling::ApiRequestsGenerator.download_file(
         locale: locale,
-        path: file_path(path, 'en')
+        path: path
       )
 
       save_file(doc, locale, path)
@@ -35,6 +39,7 @@ module Translator
       folder = storage_folder(path, locale)
       FileUtils.mkdir_p(folder) unless File.exist?(folder)
       File.open(file_path(path, locale), 'w+') do |file|
+        file.binmode
         file.write(Nexmo::Markdown::Pipelines::Smartling::Download.call(doc))
       end
     end

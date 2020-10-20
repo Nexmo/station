@@ -28,15 +28,26 @@ module Translator
         )
       end
 
+      def self.get_file_paths
+        ::Translator::Smartling::API::FilePaths.call(
+          project_id: project_id,
+          token: token
+        )
+      end
+
       def self.get_file_status(path:)
         ::Translator::Smartling::API::FileStatus.call(
+          project_id: project_id,
+          token: token,
           path: path
         )
       end
 
       def self.download_file(locale:, path:)
-        ::Translator::Smarttling::API::DownloadFile.call(
-          locale: locale,
+        ::Translator::Smartling::API::DownloadFile.call(
+          project_id: project_id,
+          token: token,
+          locale_id: locale,
           path: path
         )
       end
