@@ -5,7 +5,7 @@ module Translator
     attr_reader :paths
 
     def initialize(paths: [])
-      @paths = get_file_paths
+      @paths = paths || file_paths
     end
 
     def call
@@ -17,8 +17,8 @@ module Translator
       end
     end
 
-    def get_file_paths
-      ::Translator::Smartling::ApiRequestsGenerator.get_file_paths
+    def file_paths
+      ::Translator::Smartling::ApiRequestsGenerator.file_paths
     end
 
     def get_file_status(path:)

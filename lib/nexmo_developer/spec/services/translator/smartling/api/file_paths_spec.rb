@@ -5,6 +5,10 @@ RSpec.describe Translator::Smartling::API::FilePaths do
   let(:uri) { "https://api.smartling.com/published-files-api/v2/projects/#{project_id}/files/list/recently-published" }
   let(:token) { 'smartling-auth-token' }
 
+  before do
+    allow_any_instance_of(Translator::Smartling::API::FilePaths).to receive(:format_date).and_return('2020-10-16T18:27:20+00:00')
+  end
+
   subject do
     described_class.new(
       project_id: project_id,
@@ -18,7 +22,7 @@ RSpec.describe Translator::Smartling::API::FilePaths do
         stub_request(:get, uri)
           .with(
             headers: { 'Authorization' => "Bearer #{token}", 'Content-Type' => 'application/json' },
-            query: URI.encode_www_form('publishedAfter' => '2020/10/16')
+            query: URI.encode_www_form('publishedAfter' => subject.format_date)
           )
           .to_return(
             status: 200,
@@ -57,7 +61,7 @@ RSpec.describe Translator::Smartling::API::FilePaths do
         stub_request(:get, uri)
           .with(
             headers: { 'Authorization' => "Bearer #{token}", 'Content-Type' => 'application/json' },
-            query: URI.encode_www_form('publishedAfter' => '2020/10/16')
+            query: URI.encode_www_form('publishedAfter' => subject.format_date)
           )
           .to_return(
             status: 500,

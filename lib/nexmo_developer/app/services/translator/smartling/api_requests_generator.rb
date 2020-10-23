@@ -28,7 +28,7 @@ module Translator
         )
       end
 
-      def self.get_file_paths
+      def self.file_paths
         ::Translator::Smartling::API::FilePaths.call(
           project_id: project_id,
           token: token
