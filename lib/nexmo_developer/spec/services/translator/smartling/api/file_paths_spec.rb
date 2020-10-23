@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Translator::Smartling::API::FilePaths do
   let(:project_id) { 'smartling-project-id' }
-  let(:uri) { "https://api.smartling.com/files-api/v2/projects/#{project_id}/files/list" }
+  let(:uri) { "https://api.smartling.com/files-api/v2/projects/#{project_id}/files/list/recently-published" }
   let(:token) { 'smartling-auth-token' }
 
   subject do
@@ -16,7 +16,10 @@ RSpec.describe Translator::Smartling::API::FilePaths do
     context 'on success' do
       it 'returns an array with paths of completed translations' do
         stub_request(:get, uri)
-          .with(headers: { 'Authorization' => "Bearer #{token}", 'Content-Type' => 'application/json' })
+          .with(
+            headers: { 'Authorization' => "Bearer #{token}", 'Content-Type' => 'application/json' },
+            query: URI.encode_www_form('publishedAfter' => '2020/10/16')
+          )
           .to_return(
             status: 200,
             body: {
@@ -52,7 +55,10 @@ RSpec.describe Translator::Smartling::API::FilePaths do
     context 'on failure' do
       it 'logs the API error message and returns nil' do
         stub_request(:get, uri)
-          .with(headers: { 'Authorization' => "Bearer #{token}", 'Content-Type' => 'application/json' })
+          .with(
+            headers: { 'Authorization' => "Bearer #{token}", 'Content-Type' => 'application/json' },
+            query: URI.encode_www_form('publishedAfter' => '2020/10/16')
+          )
           .to_return(
             status: 500,
             body: {
