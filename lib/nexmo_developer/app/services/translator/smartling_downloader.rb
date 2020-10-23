@@ -9,6 +9,8 @@ module Translator
     end
 
     def call
+      raise ArgumentError, "The 'paths' parameter cannot be empty" unless @paths
+
       @paths.map do |path|
         locales = get_file_status(path: path)
         locales.map { |locale| download_file(locale: locale, path: path) }

@@ -19,7 +19,7 @@ module Translator
 
         def uri
           @uri ||= begin
-            uri = URI("https://api.smartling.com/files-api/v2/projects/#{@project_id}/files/list/recently-published")
+            uri = URI("https://api.smartling.com/published-files-api/v2/projects/#{@project_id}/files/list/recently-published")
             uri.query = URI.encode_www_form({ 'publishedAfter' => format_date })
             uri
           end
@@ -27,7 +27,7 @@ module Translator
 
         def format_date
           d = 1.week.ago
-          d.strftime('%Y/%m/%d')
+          DateTime.parse(d.to_s).iso8601.to_s
         end
 
         def success?

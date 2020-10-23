@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Translator::Smartling::API::FilePaths do
   let(:project_id) { 'smartling-project-id' }
-  let(:uri) { "https://api.smartling.com/files-api/v2/projects/#{project_id}/files/list/recently-published" }
+  let(:uri) { "https://api.smartling.com/published-files-api/v2/projects/#{project_id}/files/list/recently-published" }
   let(:token) { 'smartling-auth-token' }
 
   subject do
