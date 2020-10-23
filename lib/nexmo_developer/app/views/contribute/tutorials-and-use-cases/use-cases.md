@@ -20,7 +20,3 @@ Each main topic within your Use Case should be a Level 2 heading (`##`). You can
 ![Creating a Use Case](/assets/images/contributing/create-a-uc.png)
 
 You should state any prerequisties, which can be either software or technical knowledge. At the end of the Use Case, provide a suitable conclusion and links to next steps (e.g. how could the user extend this example?) and further resources (links to API references, tutorials, and so on).
-
-
-
-![Creating a use case](/assets/images/contributing/create-a-uc.png)
