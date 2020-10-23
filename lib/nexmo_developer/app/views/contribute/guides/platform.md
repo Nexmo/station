@@ -1,5 +1,6 @@
 ---
 title: Platform
+navigation_weight: 7
 ---
 
 # Platform
@@ -8,19 +9,23 @@ This document provides some insight into the inner-workings of Nexmo Developer a
 
 ## Contents
 
+- [Contents](#contents)
 - [Icons](#icons)
 - [Navigation Text](#navigation-text)
 - [Pages and content](#pages-and-content)
 - [OpenAPI Pages](#openapi-pages)
 - [Admin](#admin)
 - [Search](#search)
-- [Non-markdown pages](#non-markdown-pages)
+- [Non-Markdown pages](#non-markdown-pages)
 - [Team listing](#team-listing)
 - [Markdown Pipeline](#markdown-pipeline)
+  - [Filters](#filters)
 - [Webpack](#webpack)
 - [Hosting](#hosting)
 - [Redirects](#redirects)
 - [Notices](#notices)
+  - [Site wide](#site-wide)
+  - [Section Specific (non-dismissible)](#section-specific-non-dismissible)
 - [Code Examples](#code-examples)
 
 ## Icons
