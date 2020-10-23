@@ -23,4 +23,4 @@ You should state any prerequisties, which can be either software or technical kn
 
 
 
-![Creating a use case](/assets/images/create-a-uc.png)
+![Creating a use case](/assets/images/contributing/create-a-uc.png)
