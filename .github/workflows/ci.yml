@@ -92,6 +92,14 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         path: vdp
         submodules: true
+    - name: Precompile assets ENV=test
+      env:
+        RAILS_SERVE_STATIC_FILES: 1
+        DISABLE_SSL: 1
+        RAILS_LOG_TO_STDOUT: 1
+        RAILS_ENV: test
+      run: bundle exec rails assets:precompile
+      working-directory: ./lib/nexmo_developer
     - name: Run Platform Tests
       env:
         POSTGRES_USERNAME: postgres
@@ -103,14 +111,6 @@ jobs:
         bundle exec rails db:migrate
         bundle exec rake spec
         bundle exec rubocop
-      working-directory: ./lib/nexmo_developer
-    - name: Precompile assets ENV=test
-      env:
-        RAILS_SERVE_STATIC_FILES: 1
-        DISABLE_SSL: 1
-        RAILS_LOG_TO_STDOUT: 1
-        RAILS_ENV: test
-      run: bundle exec rails assets:precompile
       working-directory: ./lib/nexmo_developer
     - name: Run NDP Tests
       env:
