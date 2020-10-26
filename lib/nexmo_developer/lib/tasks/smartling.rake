@@ -62,4 +62,13 @@ namespace :smartling do
 
     puts 'Done!'
   end
+
+  desc 'Upload recently modified docs to Smartling for translation'
+  task 'upload', %i[paths] => :env do
+    puts 'Uploading files...'
+
+    Translator::SmartlingCoordinator.new(paths: args[:paths]).create_smartling_jobs!
+
+    puts 'Done!'
+  end
 end
