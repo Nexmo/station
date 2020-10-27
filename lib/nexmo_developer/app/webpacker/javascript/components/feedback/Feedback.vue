@@ -58,6 +58,8 @@ export default {
         this.hasError = false;
         this.selected = true;
         store.setPath(this.currentPathIndex);
+        store.setSentiment(this.selectedPath.sentiment);
+        this.createOrUpdateFeedback();
       } else {
         this.hasError = true;
       }
@@ -66,12 +68,31 @@ export default {
       this.selected = false;
       this.hasError = false;
       this.currentPathIndex = null;
+      this.createOrUpdateFeedback();
       store.clearState();
 
       Array.from(document.getElementsByClassName('Vlt-modal_visible'), function(modal) {
         modal.classList.remove('Vlt-modal_visible');
       })
       return false;
+    },
+    createOrUpdateFeedback: function() {
+      fetch('/feedback/feedbacks', {
+        method: 'POST',
+        credentials: 'same-origin',
+        body: JSON.stringify({ feedback_feedback: store.toParam() }),
+        headers: { 'Content-Type': 'application/json' }
+      })
+      .then((response) => {
+        if (response.ok) { return response.json() }
+        return Promise.reject({ message: 'Bad response from server', response })
+      })
+      .then((payload) => {
+        store.setFeedbackId(payload.id);
+      })
+      .catch((error) => {
+        console.log(error)
+      });
     }
   },
   mounted: function() {
@@ -82,13 +103,13 @@ export default {
 }
 </script>
 <style scoped>
-  .radio-button {
-    margin-bottom: 11px;
-  }
-  .Vlt-modal__panel {
-    padding: 0px;
-    width: auto;
-  }
+.radio-button {
+  margin-bottom: 11px;
+}
+.Vlt-modal__panel {
+  padding: 0px;
+  width: auto;
+}
   .Vlt-modal__header {
     padding: 32px 32px 0 32px;
   }

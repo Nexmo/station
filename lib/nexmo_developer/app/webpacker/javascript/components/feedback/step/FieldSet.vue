@@ -5,10 +5,10 @@
         <label class="Vlt-label" v-if="field.label !== undefined">{{field.label}}</label>
         <div v-if="field.type === 'input'" class="Vlt-input">
           <input :name="field.name" v-model="$data[field.name]"></input>
-          <small class="Vlt-form__element__hint" v-if="field.hint !== undefined">{{field.hint}}</small>
         </div>
         <div v-else-if="field.type === 'textarea'" class="Vlt-textarea">
           <textarea :name="field.name" v-model="$data[field.name]" rows="5" :placeholder="field.placeholder"></textarea>
+          <small class="Vlt-form__element__hint" v-if="field.hint !== undefined">{{field.hint}}</small>
         </div>
         <div v-else></div>
       </div>
@@ -28,36 +28,33 @@ export default {
   props: ['step', 'lastStep'],
   data: function() {
     return {
-      firstName: '',
-      lastName: '',
+      name: '',
       companyName: '',
-      apiKey: '',
       feedback: '',
+      email: '',
       hasError: false,
     }
   },
   computed: {
     answer: function() {
       return {
-        firstName: this.firstName,
-        lastName: this.lastName,
+        name: this.name,
         companyName: this.companyName,
-        apiKey: this.apiKey,
-        feedback: this.feedback
+        feedback: this.feedback,
+        email: this.email
       };
     }
   },
   methods: {
     resetFields: function() {
-      this.firstName = '';
-      this.lastName = '';
+      this.name = '';
       this.companyName = '';
-      this.apiKey = '';
       this.feedback = '';
+      this.email = '';
       this.hasError = false;
     },
     validate: function() {
-      if (this.firstName === '' || this.lastName === '' || this.companyName === '' || this.apiKey === '' || this.feedback === '') {
+      if (this.name === '' || this.companyName === '' || this.feedback === '' || this.email === '') {
         this.hasError = true;
       } else {
         this.hasError = false;
