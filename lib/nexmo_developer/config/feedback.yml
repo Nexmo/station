@@ -30,7 +30,7 @@ paths:
       - The documentation is incorrect.
       - There is a broken link.
       - I don’t understand the terminology.
-    - title: What have we left out?
+    - title: Please tell us what we could have done better
       type: textarea
       placeholder: Please leave feedback here
     - title: Thank You!
@@ -45,7 +45,7 @@ paths:
       questions:
       - The sample code doesn’t work.
       - The sample code isn’t helpful.
-      - The sample(s) I was expecting to see are missing.
+      - The documentation is missing useful samples.
     - title: Please help us help you by providing details.
       type: textarea
       placeholder: Please leave feedback here
@@ -84,12 +84,11 @@ paths:
         placeholder: Please leave feedback here
     - title: Thank You!
       type: plain
-      content: We have recorded your feedback and will get back to you as soon as we
-        can.
+      content: We have recorded your feedback and will attempt to get you some help. But if your enquiry is urgent please contact support directly at https://www.vonage.co.uk/support/
       image: "/assets/images/productive-work.svg"
   - question: I don’t understand any of this!
     steps:
-    - title: Sorry Charlie
+    - title: Ours might not be the solution you are looking for ...
       type: plain
       content: |-
         You need to be a software developer to use our APIs.
