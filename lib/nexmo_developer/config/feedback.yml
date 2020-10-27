@@ -1,5 +1,5 @@
 ---
-title: "Great! Please let us know what you think:"
+title: "We love feedback!"
 paths:
   - question: I found what I needed to know - thanks!
     steps:
@@ -9,7 +9,7 @@ paths:
         We’re glad you found what you were looking for.
 
         We’re always trying to improve our documentation and feedback like yours helps us know when we are on the right track!
-      label: Anything we can improve on?
+      label: Is there anything we did particularly well?
       placeholder: Hint text
     - title: Thank You!
       type: plain
