@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe FeedbackPresenter do
   let(:canonical_url) { 'https://developer.nexmo.com' }
-  let(:feedback) { YAML.safe_load(File.read("#{Rails.configuration.docs_base_path}/config/feedback.yml")) }
+  let(:feedback) { YAML.safe_load(File.read("#{Rails.root}/config/feedback.yml")) }
 
   subject { described_class.new(canonical_url) }
 

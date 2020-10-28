@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Feedback::Config do
   let(:config_file) do
     YAML.safe_load(
-      File.read("#{Rails.configuration.docs_base_path}/config/feedback.yml")
+      File.read("#{Rails.root}/config/feedback.yml")
     )
   end
 

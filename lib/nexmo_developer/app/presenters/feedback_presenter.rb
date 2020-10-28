@@ -12,7 +12,7 @@ class FeedbackPresenter
 
   def config
     @config ||= YAML.safe_load(
-      File.read("#{Rails.configuration.docs_base_path}/config/feedback.yml")
+      File.read("#{Rails.root}/config/feedback.yml")
     )
   end
 
