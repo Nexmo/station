@@ -17,6 +17,7 @@ module Feedback
 
     scope :positive, -> { where(sentiment: 'positive') }
     scope :negative, -> { where(sentiment: 'negative') }
+    scope :neutral,  -> { where(sentiment: 'neutral') }
 
     after_commit :notify
 

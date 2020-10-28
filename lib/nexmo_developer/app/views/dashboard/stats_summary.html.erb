@@ -35,6 +35,7 @@
       <tr>
         <th>Month</th>
         <th>Positive</th>
+        <th>Neutral</th>
         <th>Negative</th>
         <th>Percentage</th>
       </tr>
@@ -42,12 +43,14 @@
       <tbody>
       <% months.each do |month, data| %>
       <% data['positive'] = data['positive'] || 0 %>
+      <% data['neutral'] = data['neutral'] || 0 %>
       <% data['negative'] = data['negative'] || 0 %>
       <tr>
         <td><%= month.strftime("%b %Y") %></td>
         <td><%= data['positive'] %></td>
+        <td><%= data['neutral'] %></td>
         <td><%= data['negative'] %></td>
-        <td><%= (data['positive']/((data['positive'] + data['negative']).to_f)*100).round(2) %>%</td>
+        <td><%= (data['positive']/((data['positive'] + data['negative'] + data['neutral']).to_f)*100).round(2) %>%</td>
       </tr>
       <% end %>
       </tbody>
