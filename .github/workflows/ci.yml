@@ -66,6 +66,16 @@ jobs:
       run: |
         bundle install --jobs 4 --retry 3 --deployment
       working-directory: ./lib/nexmo_developer
+
+    - name: Precompile assets
+      env:
+        RAILS_SERVE_STATIC_FILES: 1
+        DISABLE_SSL: 1
+        RAILS_LOG_TO_STDOUT: 1
+        RAILS_ENV: production
+      run: bundle exec rails assets:precompile
+      working-directory: ./lib/nexmo_developer
+
     - name: Fetch NDP
       uses: actions/checkout@master
       with:
@@ -82,6 +92,14 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         path: vdp
         submodules: true
+    - name: Precompile assets ENV=test
+      env:
+        RAILS_SERVE_STATIC_FILES: 1
+        DISABLE_SSL: 1
+        RAILS_LOG_TO_STDOUT: 1
+        RAILS_ENV: test
+      run: bundle exec rails assets:precompile
+      working-directory: ./lib/nexmo_developer
     - name: Run Platform Tests
       env:
         POSTGRES_USERNAME: postgres
