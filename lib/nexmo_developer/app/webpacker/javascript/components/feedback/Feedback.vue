@@ -103,7 +103,9 @@ export default {
         return Promise.reject({ message: 'Bad response from server', response })
       })
       .then((payload) => {
-        store.setFeedbackId(payload.id);
+        if (this.selected) {
+          store.setFeedbackId(payload.id);
+        }
       })
       .catch((error) => {
         console.log(error)
