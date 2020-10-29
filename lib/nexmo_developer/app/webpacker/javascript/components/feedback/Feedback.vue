@@ -33,7 +33,7 @@ import eventHub from './eventHub';
 import store from './store';
 
 export default {
-  props: ['paths', 'title', 'source', 'configId'],
+  props: ['paths', 'title', 'source', 'configId', 'codeLanguage'],
   components: { FeedbackPath },
   data: function() {
     return {
@@ -41,7 +41,10 @@ export default {
       selected: false,
       cancelText: 'Cancel',
       hasError: false,
-      store: store
+      store: store,
+      programmingLanguage: this.codeLanguage,
+      programmingLanguageSelectedWhilstOnPage: null,
+      programmingLanguageSetByUrl: !!this.codeLanguage
     }
   },
   computed: {
@@ -76,11 +79,23 @@ export default {
       })
       return false;
     },
+    parameters: function() {
+      return {
+        feedback_feedback: Object.assign(
+          store.toParam(),
+          {
+            code_language: this.programmingLanguage,
+            code_language_selected_whilst_on_page: this.programmingLanguageSelectedWhilstOnPage,
+            code_language_set_by_url: this.programmingLanguageSetByUrl,
+          }
+        ),
+      };
+    },
     createOrUpdateFeedback: function() {
       fetch('/feedback/feedbacks', {
         method: 'POST',
         credentials: 'same-origin',
-        body: JSON.stringify({ feedback_feedback: store.toParam() }),
+        body: JSON.stringify(this.parameters()),
         headers: { 'Content-Type': 'application/json' }
       })
       .then((response) => {
@@ -93,12 +108,21 @@ export default {
       .catch((error) => {
         console.log(error)
       });
+    },
+    handleCodeLanguageChange: function(event) {
+      this.programmingLanguage = event.detail.language;
+      this.programmingSelectedWhilstOnPage = true;
+      this.programmingSetByUrl = false;
     }
   },
   mounted: function() {
+    document.addEventListener('codeLanguageChange', this.handleCodeLanguageChange.bind(this));
     store.setSource(this.source);
     store.setConfigId(this.configId);
     eventHub.$on('reset-modal', this.reset);
+  },
+  beforeDestroy: function() {
+    document.removeEventListener('codeLanguageChange', this.handleCodeLanguageChange.bind(this));
   }
 }
 </script>

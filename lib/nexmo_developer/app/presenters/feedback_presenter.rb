@@ -1,12 +1,15 @@
 class FeedbackPresenter
-  def initialize(canonical_url)
+  def initialize(canonical_url, params)
     @canonical_url = canonical_url
+    @params        = params
   end
 
   def props
     config.merge(
       'source' => @canonical_url,
-      'configId' => feedback_config.id
+      'configId' => feedback_config.id,
+      'codeLanguage' => @params[:code_language],
+      'codeLanguageSetByUrl' => @params[:code_language].present?
     )
   end
 

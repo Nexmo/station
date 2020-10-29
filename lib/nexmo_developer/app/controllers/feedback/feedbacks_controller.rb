@@ -38,7 +38,10 @@ module Feedback
         :source,
         :path,
         :feedback_config_id,
-        :steps
+        :steps,
+        :code_language,
+        :code_language_set_by_url,
+        :code_language_selected_whilst_on_page
       )
     end
 

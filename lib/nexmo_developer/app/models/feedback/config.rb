@@ -4,7 +4,9 @@ module Feedback
 
     def self.find_or_create_config(config)
       last_config = self.last
-      return last_config if last_config && last_config.attributes.except('id') == config
+      if last_config && last_config.attributes.slice('title', 'paths') == config
+        return last_config
+      end
 
       new_config = new(title: config['title'], paths: config['paths'])
       new_config.save
