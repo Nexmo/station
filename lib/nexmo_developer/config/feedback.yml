@@ -1,7 +1,7 @@
 ---
-title: "Thank you...we love feedback! Please tell us more:"
+title: "Test config:"
 paths:
-  - question: I found what I needed to know - thanks!
+  - question: Question 1
     sentiment: positive
     steps:
     - title: Thank You!
@@ -11,7 +11,7 @@ paths:
 
         We’re always trying to improve our documentation and feedback like yours helps us know when we are on the right track!
       label: Is there anything we did particularly well?
-      placeholder: Hint text
+      placeholder: Please tell us here
     - title: Thank You!
       type: plain
       content: |-
@@ -19,7 +19,7 @@ paths:
 
         We’re always trying to improve our documentation and feedback like yours helps us know when we are on the right track!
       image: "/assets/images/done.svg"
-  - question: There is a problem with the documentation.
+  - question: Question 2.
     sentiment: negative
     steps:
     - title: |-
@@ -27,11 +27,11 @@ paths:
         Please, tell us more:
       type: radiogroup
       questions:
-      - The documentation is missing information.
-      - The documentation is unclear.
-      - The documentation is incorrect.
-      - There is a broken link.
-      - I don’t understand the terminology.
+      - 2a The documentation is missing information.
+      - 2b The documentation is unclear.
+      - 2c The documentation is incorrect.
+      - 2d There is a broken link.
+      - 2e I don’t understand the terminology.
     - title: Please tell us what we could have done better
       type: textarea
       placeholder: Please leave feedback here
@@ -41,40 +41,41 @@ paths:
       content: We have recorded your feedback. Feedback like yours will help us better
         serve your needs in the future, and it’s much appreciated!
       image: "/assets/images/programming.svg"
-  - question: I am having problems with the sample code.
+  - question: Question 3.
     sentiment: negative
     steps:
     - title: Sorry you’re having trouble. What’s wrong?
       type: radiogroup
       questions:
-      - The sample code doesn’t work.
-      - The sample code isn’t helpful.
-      - The documentation is missing useful samples.
+      - 3a The sample code doesn’t work.
+      - 3b The sample code isn’t helpful.
+      - 3c The documentation is missing useful samples.
+      - 3d Extra bonus question
     - title: Please help us help you by providing details.
       type: textarea
       placeholder: Please leave feedback here
+      email: true
     - title: Thank You!
       type: plain
       content: We have recorded your feedback. Feedback like yours will help us better
         serve your needs in the future, and it’s much appreciated!
       image: "/assets/images/programming.svg"
-  - question: I need help with something else.
+  - question: Question 4.
     sentiment: neutral
     steps:
     - title: What do you need help with?
       type: radiogroup
       questions:
-      - My account/billing.
-      - The capabilities of the product.
-      - Something else.
+      - 4a My account/billing.
+      - 4b The capabilities of the product.
     - title: Let's get you some help!
       type: fieldset
       fields:
       - type: input
         name: name
-        label: Your name
+        label: What's your name?
       - type: input
-        name: companyName
+        name: Where do you work?
         label: Company Name
       - type: input
         name: email
@@ -92,7 +93,7 @@ paths:
       type: plain
       content: We have recorded your feedback and will attempt to get you some help. But if your enquiry is urgent please contact support directly at https://www.vonage.co.uk/support/
       image: "/assets/images/productive-work.svg"
-  - question: I don’t understand any of this!
+  - question: Question 5
     sentiment: neutral
     steps:
     - title: Ours might not be the solution you are looking for ...
@@ -102,3 +103,11 @@ paths:
 
         For more information, see: https://www.vonage.co.uk/communications-apis/platform
       image: "/assets/images/oops.svg"
+  - question: Question 6 - extra
+    sentiment: neutral
+    steps:
+    - title: Config seems to be working
+      type: plain
+      content: |-
+        Fabian is a genius! Go Fabian :)
+      image: "/assets/images/oops.svg"      
