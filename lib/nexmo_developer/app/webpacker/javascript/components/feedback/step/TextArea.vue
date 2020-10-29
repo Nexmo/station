@@ -3,6 +3,13 @@
     <p class="content">{{ step.content }}</p>
     <br>
 
+    <div v-if="step.email" class="Vlt-form__element">
+      <label class="Vlt-label" for="email">Your Email <small class="Vlt-grey-dark">(optional)</small></label>
+      <div class="Vlt-input">
+        <input type="email" id="email" v-model="email"/>
+      </div>
+    </div>
+
     <div class="step-textarea Vlt-form__element" v-bind:class="{ 'Vlt-form__element--error': error }">
       <div class="Vlt-textarea" v-bind:class="{ 'step-textarea__no-content': step.content === undefined }">
         <label for="answer">{{ step.label }}</label>
@@ -19,11 +26,12 @@
 <script>
 
 import eventHub from '../eventHub';
+import store from '../store';
 
 export default {
   props: ['step', 'lastStep'],
   data: function() {
-    return { answer: null, error: false };
+    return { answer: null, error: false, email: null };
   },
   methods: {
     resetFields: function() {
@@ -38,6 +46,9 @@ export default {
         this.error = true;
       } else {
         this.error = false;
+        if (this.email) {
+          store.setEmail(this.email);
+        }
         eventHub.$emit('next-step', this.answer);
       }
     }
