@@ -86,9 +86,9 @@ Rails.application.routes.draw do
   resources :careers, only: [:index]
 
   get '/task/(*tutorial_step)', to: 'tutorial#single'
-  get '/(*product)/tutorials(/:code_language)', to: 'tutorial#list', constraints: DocumentationConstraint.documentation.merge(Nexmo::Markdown::CodeLanguage.route_constraint)
-  get '/(*product)/tutorials/(:tutorial_name)(/*tutorial_step)(/:code_language)', to: 'tutorial#index', constraints: DocumentationConstraint.documentation
-  get '/tutorials/(:tutorial_name)(/*tutorial_step)(/:code_language)', to: 'tutorial#index', constraints: Nexmo::Markdown::CodeLanguage.route_constraint
+  get '(/:locale)/(*product)/tutorials(/:code_language)', to: 'tutorial#list', constraints: DocumentationConstraint.documentation.merge(namespace: Nexmo::Markdown::CodeLanguage.route_constraint, locale: LocaleConstraint.available_locales)
+  get '(/:locale)/(*product)/tutorials/(:tutorial_name)(/*tutorial_step)(/:code_language)', to: 'tutorial#index', constraints: DocumentationConstraint.documentation, locale: LocaleConstraint.available_locales
+  get '(/:locale)/tutorials/(:tutorial_name)(/*tutorial_step)(/:code_language)', to: 'tutorial#index', constraints: Nexmo::Markdown::CodeLanguage.route_constraint, locale: LocaleConstraint.available_locales
 
   scope '(/:locale)', constraints: LocaleConstraint.new do
     get '/*product/api-reference', to: 'markdown#api'
