@@ -5,13 +5,13 @@ RSpec.describe Translator::Smartling::API::DownloadFile do
   let(:uri) { "https://api.smartling.com/files-api/v2/projects/#{project_id}/locales/#{locale_id}/file" }
   let(:locale_id) { 'zh-CN' }
   let(:token) { 'smartling-auth-token' }
-  let(:path) { ['messages/external-accounts/overview.md'] }
+  let(:file_uri) { ['messages/external-accounts/overview.md'] }
 
   subject do
     described_class.new(
       project_id: project_id,
       locale_id: locale_id,
-      path: path,
+      file_uri: file_uri,
       token: token
     )
   end
