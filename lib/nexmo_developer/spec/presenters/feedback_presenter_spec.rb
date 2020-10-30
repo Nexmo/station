@@ -4,7 +4,7 @@ RSpec.describe FeedbackPresenter do
   let(:params) { {} }
   let(:request) { double(parameters: { 'code_language' => 'ruby' }) }
   let(:session) { {} }
-  let(:document_path) {}
+  let(:document_path) { nil }
 
   subject { described_class.new(params, request, session, document_path) }
 
