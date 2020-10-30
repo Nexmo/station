@@ -82,7 +82,4 @@ RSpec.describe LocaleRedirector do
 
     it { expect(subject).to eq('/api') }
   end
-
-  describe '#add_locale?' do
-  end
 end

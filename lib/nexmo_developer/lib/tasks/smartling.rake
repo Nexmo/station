@@ -39,8 +39,4 @@ namespace :smartling do
     smartling.download_translated(filename: args[:file], locale: args[:locale], type: args[:type])
     puts 'Done!'
   end
-
-  desc 'Find documents that need translations'
-  task translations_due: :env do
-  end
 end
