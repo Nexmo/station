@@ -113,12 +113,12 @@ export default {
     },
     handleCodeLanguageChange: function(event) {
       this.programmingLanguage = event.detail.language;
-      this.programmingSelectedWhilstOnPage = true;
-      this.programmingSetByUrl = false;
+      this.programmingLanguageSelectedWhilstOnPage = true;
+      this.programmingLanguageSetByUrl = false;
     }
   },
   mounted: function() {
-    document.addEventListener('codeLanguageChange', this.handleCodeLanguageChange.bind(this));
+    document.addEventListener('codeLanguageChange', this.handleCodeLanguageChange);
     store.setSource(this.source);
     store.setConfigId(this.configId);
     eventHub.$on('reset-modal', this.reset);
