@@ -16,11 +16,19 @@ RSpec.describe Translator::TranslatorCoordinator do
     end
   end
 
-  describe '#create_smartling_jobs' do
+  describe '#create_smartling_jobs!' do
     it 'creates Jobs in Smartling for files with the provided frequency' do
       expect(Translator::SmartlingCoordinator).to receive(:call)
 
       subject.create_smartling_jobs!
+    end
+  end
+
+  describe '#download_smartling_files!' do
+    it 'starts the process for downloading files from Smartling' do
+      expect(Translator::SmartlingDownloader).to receive(:call)
+
+      subject.download_smartling_files!
     end
   end
 end
