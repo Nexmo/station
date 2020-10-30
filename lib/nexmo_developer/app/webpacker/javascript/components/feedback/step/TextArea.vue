@@ -60,27 +60,27 @@ export default {
 
 </script>
 <style scoped>
-  .wrapper {
-    flex-direction: column;
-    max-width: 434px;
-  }
-  .content {
-    white-space: pre-line;
-  }
-  .step-textarea {
-    display: flex;
-    flex-direction: column;
-  }
-  .step-textarea textarea {
-    resize: none;
-    max-width: 441px;
-    height: 73px;
-    margin-top: 11px;
-  }
-  .step-textarea__no-content textarea {
-    height: 169px;
-    @media only screen and (min-width: 576px) {
-      width: 450px;
-    };
-  }
+.wrapper {
+  flex-direction: column;
+  max-width: 434px;
+}
+.content {
+  white-space: pre-line;
+}
+.step-textarea {
+  display: flex;
+  flex-direction: column;
+}
+.step-textarea textarea {
+  resize: none;
+  max-width: 441px;
+  height: 73px;
+  margin-top: 11px;
+}
+.step-textarea__no-content textarea {
+  height: 169px;
+  @media only screen and (min-width: 576px) {
+    width: 450px;
+  };
+}
 </style>

@@ -54,12 +54,12 @@ export default {
 }
 </script>
 <style scoped>
-  .radio-button {
-    margin-bottom: 11px;
-  }
-  .Vlt-form__element {
-    @media only screen and (min-width: 576px) {
-      width: 450px;
-    };
-  }
+.radio-button {
+  margin-bottom: 11px;
+}
+.Vlt-form__element {
+  @media only screen and (min-width: 576px) {
+    width: 450px;
+  };
+}
 </style>

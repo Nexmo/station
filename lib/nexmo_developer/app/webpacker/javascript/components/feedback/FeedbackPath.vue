@@ -49,8 +49,8 @@ export default {
 }
 </script>
 <style scoped>
-  .feedback-path {
-    display: flex;
-    flex-direction: column;
-  }
+.feedback-path {
+  display: flex;
+  flex-direction: column;
+}
 </style>

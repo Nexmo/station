@@ -31,23 +31,23 @@ export default {
 }
 </script>
 <style scoped>
-  .step {
-    display: flex;
-  }
-  .image {
-    padding: 0px;
-  }
-  .step-title {
-    white-space: pre-line;
-  }
-  .step-content {
-    flex-direction: column;
-    padding: 32px;
-    max-width: 580px;
-  }
-  img {
-    @media only screen and (max-width: 576px) {
-      display: none;
-    };
-  }
+.step {
+  display: flex;
+}
+.image {
+  padding: 0px;
+}
+.step-title {
+  white-space: pre-line;
+}
+.step-content {
+  flex-direction: column;
+  padding: 32px;
+  max-width: 580px;
+}
+img {
+  @media only screen and (max-width: 576px) {
+    display: none;
+  };
+}
 </style>

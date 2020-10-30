@@ -19,8 +19,8 @@ export default {
 }
 </script>
 <style scoped>
-  .content {
-    white-space: pre-line;
-    max-width: 316px;
-  }
+.content {
+  white-space: pre-line;
+  max-width: 316px;
+}
 </style>

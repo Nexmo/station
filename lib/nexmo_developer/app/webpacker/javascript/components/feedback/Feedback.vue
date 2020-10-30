@@ -136,20 +136,20 @@ export default {
   padding: 0px;
   width: auto;
 }
-  .Vlt-modal__header {
-    padding: 32px 32px 0 32px;
-  }
-  .Vlt-modal__title {
-    margin: auto;
-    white-space: pre-line;
-  }
-  .Vlt-modal__content {
-    padding: 0px;
-  }
-  .paths {
-    padding: 32px;
-    @media only screen and (min-width: 575px) {
-      min-width: 500px;
-    };
-  }
+.Vlt-modal__header {
+  padding: 32px 32px 0 32px;
+}
+.Vlt-modal__title {
+  margin: auto;
+  white-space: pre-line;
+}
+.Vlt-modal__content {
+  padding: 0px;
+}
+.paths {
+  padding: 32px;
+  @media only screen and (min-width: 575px) {
+    min-width: 500px;
+  };
+}
 </style>
