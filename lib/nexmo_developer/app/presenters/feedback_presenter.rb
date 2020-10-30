@@ -13,10 +13,16 @@ class FeedbackPresenter
     )
   end
 
+  def show_feedback?
+    File.exist?(config_file_path)
+  end
+
   def config
-    @config ||= YAML.safe_load(
-      File.read("#{Rails.root}/config/feedback.yml")
-    )
+    @config ||= YAML.safe_load(File.read(config_file_path))
+  end
+
+  def config_file_path
+    "#{Rails.configuration.docs_base_path}/config/feedback.yml"
   end
 
   def feedback_config
