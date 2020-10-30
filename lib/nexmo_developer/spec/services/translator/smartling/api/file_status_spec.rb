@@ -4,12 +4,12 @@ RSpec.describe Translator::Smartling::API::FileStatus do
   let(:project_id) { 'smartling-project-id' }
   let(:uri) { "https://api.smartling.com/files-api/v2/projects/#{project_id}/file/status" }
   let(:token) { 'smartling-auth-token' }
-  let(:path) { ['messages/external-accounts/overview.md'] }
+  let(:file_uri) { ['messages/external-accounts/overview.md'] }
 
   subject do
     described_class.new(
       project_id: project_id,
-      path: path,
+      file_uri: file_uri,
       token: token
     )
   end
