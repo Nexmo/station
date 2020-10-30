@@ -75,6 +75,21 @@ RSpec.describe Translator::Smartling::ApiRequestsGenerator do
     end
   end
 
+  describe '.download_file' do
+    let(:locale) { 'zh-CN' }
+    let(:path) { 'voice/voice-api/guides/numbers.md' }
+
+    before { allow(described_class).to receive(:token).and_return(token) }
+
+    it 'generates an API call that downloads a file from Smartling by locale' do
+      expect(Translator::Smartling::API::DownloadFile)
+        .to receive(:call)
+        .with(project_id: project_id, token: token, locale_id: locale, path: path)
+
+      described_class.download_file(locale: locale, path: path)
+    end
+  end
+
   describe '.token' do
     it 'returns the authentication token' do
       expect(Translator::Smartling::TokenGenerator).to receive(:token)
