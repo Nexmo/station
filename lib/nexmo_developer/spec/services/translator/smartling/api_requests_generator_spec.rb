@@ -49,6 +49,18 @@ RSpec.describe Translator::Smartling::ApiRequestsGenerator do
     end
   end
 
+  describe '.file_paths' do
+    before { allow(described_class).to receive(:token).and_return(token) }
+
+    it 'generates an API call that generates a list of recently published file paths' do
+      expect(Translator::Smartling::API::FilePaths)
+        .to receive(:call)
+        .with(project_id: project_id, token: token)
+
+      described_class.file_paths
+    end
+  end
+
   describe '.token' do
     it 'returns the authentication token' do
       expect(Translator::Smartling::TokenGenerator).to receive(:token)
