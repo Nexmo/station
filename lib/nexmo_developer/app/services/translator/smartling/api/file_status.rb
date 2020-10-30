@@ -4,9 +4,9 @@ module Translator
       class FileStatus
         include Base
 
-        def initialize(project_id:, path:, token:)
+        def initialize(project_id:, file_uri:, token:)
           @project_id   = project_id
-          @path         = path
+          @file_uri     = file_uri
           @token        = token
         end
 
@@ -21,7 +21,7 @@ module Translator
         def uri
           @uri ||= begin
             uri = URI("https://api.smartling.com/files-api/v2/projects/#{@project_id}/file/status")
-            uri.query = URI.encode_www_form({ 'fileUri' => @path })
+            uri.query = URI.encode_www_form({ 'fileUri' => @file_uri })
             uri
           end
         end

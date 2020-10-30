@@ -62,31 +62,31 @@ RSpec.describe Translator::Smartling::ApiRequestsGenerator do
   end
 
   describe '.get_file_status' do
-    let(:path) { 'voice/voice-api/guides/numbers.md' }
+    let(:file_uri) { 'voice/voice-api/guides/numbers.md' }
 
     before { allow(described_class).to receive(:token).and_return(token) }
 
     it 'generates an API call that gets the status of a file in Smartling' do
       expect(Translator::Smartling::API::FileStatus)
         .to receive(:call)
-        .with(project_id: project_id, token: token, path: path)
+        .with(project_id: project_id, token: token, file_uri: file_uri)
 
-      described_class.get_file_status(path: path)
+      described_class.get_file_status(file_uri: file_uri)
     end
   end
 
   describe '.download_file' do
     let(:locale) { 'zh-CN' }
-    let(:path) { 'voice/voice-api/guides/numbers.md' }
+    let(:file_uri) { 'voice/voice-api/guides/numbers.md' }
 
     before { allow(described_class).to receive(:token).and_return(token) }
 
     it 'generates an API call that downloads a file from Smartling by locale' do
       expect(Translator::Smartling::API::DownloadFile)
         .to receive(:call)
-        .with(project_id: project_id, token: token, locale_id: locale, path: path)
+        .with(project_id: project_id, token: token, locale_id: locale, file_uri: file_uri)
 
-      described_class.download_file(locale: locale, path: path)
+      described_class.download_file(locale: locale, file_uri: file_uri)
     end
   end
 

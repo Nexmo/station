@@ -4,10 +4,10 @@ module Translator
       class DownloadFile
         include Base
 
-        def initialize(project_id:, locale_id:, path:, token:)
+        def initialize(project_id:, locale_id:, file_uri:, token:)
           @project_id   = project_id
           @locale_id    = locale_id
-          @path         = path
+          @file_uri     = file_uri
           @token        = token
         end
 
@@ -18,7 +18,7 @@ module Translator
         def uri
           @uri ||= begin
             uri = URI("https://api.smartling.com/files-api/v2/projects/#{@project_id}/locales/#{@locale_id}/file")
-            uri.query = URI.encode_www_form({ 'fileUri' => @path, 'retrievalType' => 'published' })
+            uri.query = URI.encode_www_form({ 'fileUri' => @file_uri, 'retrievalType' => 'published' })
             uri
           end
         end
