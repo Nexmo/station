@@ -3,9 +3,9 @@ require 'rails_helper'
 RSpec.describe Translator::TranslationRequest do
   subject do
     described_class.new(
-      locale: 'ja',
+      locale: 'ja-JP',
       frequency: 15,
-      path: 'a/sample/path/doc.md'
+      path: 'messaging/sms/overview.md'
     )
   end
 
@@ -14,7 +14,7 @@ RSpec.describe Translator::TranslationRequest do
   end
 
   it 'returns an instance with correct locale attribute' do
-    expect(subject.locale).to eql('ja')
+    expect(subject.locale).to eql('ja-JP')
   end
 
   it 'returns an instance with correct frequency attribute' do
@@ -22,6 +22,6 @@ RSpec.describe Translator::TranslationRequest do
   end
 
   it 'returns an instance with correct path attribute' do
-    expect(subject.path).to eql('a/sample/path/doc.md')
+    expect(subject.path).to eql('messaging/sms/overview.md')
   end
 end
