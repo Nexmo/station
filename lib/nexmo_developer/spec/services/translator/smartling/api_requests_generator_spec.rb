@@ -61,6 +61,20 @@ RSpec.describe Translator::Smartling::ApiRequestsGenerator do
     end
   end
 
+  describe '.get_file_status' do
+    let(:path) { 'voice/voice-api/guides/numbers.md' }
+
+    before { allow(described_class).to receive(:token).and_return(token) }
+
+    it 'generates an API call that gets the status of a file in Smartling' do
+      expect(Translator::Smartling::API::FileStatus)
+        .to receive(:call)
+        .with(project_id: project_id, token: token, path: path)
+
+      described_class.get_file_status(path: path)
+    end
+  end
+
   describe '.token' do
     it 'returns the authentication token' do
       expect(Translator::Smartling::TokenGenerator).to receive(:token)
