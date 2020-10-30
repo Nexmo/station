@@ -60,4 +60,10 @@ RSpec.describe Translator::FileTranslator do
       expect(product).to include('name' => 'SMS API', 'translation_frequency' => 15)
     end
   end
+
+  describe '#full_path' do
+    it 'returns a complete file path for the partial path provided' do
+      expect(subject.full_path).to eql("#{Rails.configuration.docs_base_path}/_documentation/en/#{doc_path}")
+    end
+  end
 end
