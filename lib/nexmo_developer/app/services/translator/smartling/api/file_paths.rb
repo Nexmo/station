@@ -26,8 +26,7 @@ module Translator
         end
 
         def format_date
-          d = 1.week.ago
-          DateTime.parse(d.to_s).iso8601.to_s
+          DateTime.parse(1.week.ago.to_s).iso8601.to_s
         end
 
         def success?
