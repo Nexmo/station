@@ -8,8 +8,6 @@ module Feedback
       @feedback = ::Feedback::Feedback.find_by(id: params['feedback_feedback']['id'])
       @feedback ||= ::Feedback::Feedback.new
 
-      return render json: { error: 'Are you a robot? It looks like you failed our reCAPTCHA. Try again.' }, status: :unauthorized unless validate_recapcha
-
       @feedback.assign_attributes(feedback_params)
       @feedback.ip = request.remote_ip
 
@@ -25,20 +23,6 @@ module Feedback
 
     private
 
-    def validate_recapcha
-      return true unless ENV['RECAPTCHA_ENABLED']
-      return true if session[:user_passed_invisible_captcha]
-      return true if @feedback.persisted?
-
-      Recaptcha.with_configuration({ site_key: ENV['RECAPTCHA_INVISIBLE_SITE_KEY'], secret_key: ENV['RECAPTCHA_INVISIBLE_SECRET_KEY'] }) do
-        if verify_recaptcha
-          session[:user_passed_invisible_captcha] = true
-          return true
-        end
-        return false
-      end
-    end
-
     def set_cookies
       return unless @feedback.owner.instance_of?(::Feedback::Author)
 
@@ -49,10 +33,12 @@ module Feedback
     end
 
     def feedback_params
-      params.require(:feedback_feedback).permit(
+      params.require(:feedback_feedback).permit!.slice(
         :sentiment,
-        :comment,
         :source,
+        :path,
+        :feedback_config_id,
+        :steps,
         :code_language,
         :code_language_set_by_url,
         :code_language_selected_whilst_on_page

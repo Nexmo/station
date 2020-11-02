@@ -6,6 +6,7 @@ module Feedback
 
     belongs_to :resource, class_name: '::Feedback::Resource'
     belongs_to :owner, polymorphic: true
+    belongs_to :config, optional: true, class_name: '::Feedback::Config', foreign_key: 'feedback_config_id', inverse_of: :feedbacks
 
     attr_accessor :email, :source
 
@@ -16,6 +17,7 @@ module Feedback
 
     scope :positive, -> { where(sentiment: 'positive') }
     scope :negative, -> { where(sentiment: 'negative') }
+    scope :neutral,  -> { where(sentiment: 'neutral') }
 
     after_commit :notify
 

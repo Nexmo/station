@@ -1,43 +1,31 @@
 class FeedbackPresenter
-  def initialize(params, request, session, document_path)
+  def initialize(canonical_url, params)
+    @canonical_url = canonical_url
     @params        = params
-    @request       = request
-    @session       = session
-    @document_path = document_path
   end
 
-  def code_language?
-    @params[:code_language].present?
+  def props
+    config.merge(
+      'source' => @canonical_url,
+      'configId' => feedback_config.id,
+      'codeLanguage' => @params[:code_language],
+      'codeLanguageSetByUrl' => @params[:code_language].present?
+    )
   end
 
-  def code_language
-    @request.parameters['code_language']
+  def show_feedback?
+    File.exist?(config_file_path)
   end
 
-  def captcha_enabled?
-    ENV['RECAPTCHA_ENABLED'] || false
+  def config
+    @config ||= YAML.safe_load(File.read(config_file_path))
   end
 
-  def captcha_key
-    ENV['RECAPTCHA_INVISIBLE_SITE_KEY']
+  def config_file_path
+    "#{Rails.configuration.docs_base_path}/config/feedback.yml"
   end
 
-  def passed_invisible_captcha?
-    @session[:user_passed_invisible_captcha] || false
-  end
-
-  def show_github_link?
-    !!@document_path
-  end
-
-  def path_to_url
-    @document_path&.gsub("#{Rails.configuration.docs_base_path}/", '')
-  end
-
-  def github_url
-    @github_url ||= begin
-      info = YAML.safe_load(File.open("#{Rails.configuration.docs_base_path}/config/business_info.yml"))
-      "https://github.com/#{info['docs_repo']}/blob/#{ENV.fetch('branch', 'master')}/#{path_to_url}"
-    end
+  def feedback_config
+    @feedback_config ||= Feedback::Config.find_or_create_config(config)
   end
 end

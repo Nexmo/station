@@ -8,7 +8,7 @@ assets:
   footer_logo:
     path: '/images/logos/Vonage-wordmark--white.svg'
     alt: 'Vonage Logo'
-docs_repo: 'nexmo/nexmo-docs'
+docs_repo: 'nexmo/nexmo-developer'
 oas_repo: 'vonage/api-specification'
 header:
   links:

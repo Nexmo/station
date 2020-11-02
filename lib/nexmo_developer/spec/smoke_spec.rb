@@ -78,7 +78,7 @@ RSpec.describe 'Smoke Tests', type: :request, ndp: true do
     get '/voice/voice-api/guides/numbers'
 
     expect(response.body).to include('Numbers are a key concept to understand when working with the Vonage Voice API. The following points should be considered before developing your Vonage Application.')
-    expect(response.body).to include('github_url')
+    expect(response.body).to include('Improve this page')
   end
 
   it 'markdown page has default code_language' do

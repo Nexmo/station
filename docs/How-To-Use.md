@@ -12,6 +12,7 @@ permalink: /How-To-Use
 2. [Running Station](#running-station)
     1. [Running Standalone](#running-standalone)
     2. [Running With Docker](#running-with-docker)
+3. [Configuring the Feedback Widget](#configuring-the-feedback-widget)
 
 ## Content Structure and Files
 
@@ -150,3 +151,122 @@ services:
 ```
 
 After running `docker-compose up`, you will need to run `docker-compose run web bundle exec rake db:migrate` to initialise the database.
+
+## Configuring the Feedback Widget
+
+The Feedback Widget is a fully customizable, wizard-based approach to leaving feedback. You can configure it to accept feedback from users which is both useful and actionable.
+
+### Configuring the Feedback Widget
+
+The Feedback Widget configuration is YAML-based and can be found in the `config/feedback.yml` file in your documentation directory.
+
+> **Note**: The Feedback Widget only appears if this file is present.
+
+Configuration involves specifying the different "Questions" you want to ask and the "Steps" you want to take in response to the answers to those questions.
+
+The general format of this file is as follows:
+
+```yaml
+title: Thanks! We love feedback!
+paths:
+  - question: Your documentation is great!
+    sentiment: positive
+    steps: 
+      - title: We're glad you love our docs
+        type: textarea
+        content: |-
+          We're glad you found what you are looking for!
+        label: Is there anything we did particularly well?
+        placeholder: Please type your feedback here
+        image: "/assets/images/applause.png"
+  - question: There is a problem with the documentation
+    sentiment: negative
+    steps: 
+      - title: Thanks for letting us know!
+        type: radiongroup
+        questions:
+          - The documentation is missing information.
+          - The documentation is unclear.
+          - The documentation is incorrect.
+          - There is a broken link.
+      - title: What have we left out?
+        type: textarea
+        placeholder: Please tell us what's wrong?
+        email: true
+      - title: Thanks for letting us know
+        type: plain
+        content: |-
+          We have recorded your feedback. If you have left your email address, we'll be in touch!
+    - question: I need help!
+        - title: What do you need help with?
+          type: radiogroup
+          questions:
+          - My account/billing.
+          - The capabilities of the product.
+          - Something else.
+        - title: Let's get you some help!
+          type: fieldset
+          fields:
+          - type: input
+            name: firstName
+            label: First name
+          - type: input
+            name: lastName
+            label: Last name
+          - type: input
+            name: companyName
+            label: Company Name
+          - type: input
+            name: apiKey
+            label: API Key
+            hint: "(Hint: You can find this in your account dashboard)"
+          - type: textarea
+            name: feedback
+            label: 'Please tell us how we can help you:'
+            placeholder: Please leave feedback here
+        - title: Thank You!
+          type: plain
+          content: |-
+            We have recorded your feedback and will get back to you as soon as we
+            can.
+          image: "/assets/images/support.svg"          
+```
+
+### Anatomy of the configuration file
+
+#### Paths
+
+The `paths` property defines the different "routes" that users can take through the feedback widget. It contains a sequence of `question` objects.
+
+#### Question
+
+Each `question` object represents one choice on the front page of the wizard and drives the flow of the feedback from that point onwards. Each option is selectable using a radio button.
+
+For example, in the configuration shown above, the front page of the wizard would show a dialog that contains the following options in a radio group:
+
+```
+[ ] Your documentation is great!
+[ ] There is a problem with your documentation
+[ ] I need help
+```
+
+At the point the user selects an item in this group, the feedback configured in the `sentiment` property is recorded. This is either `positive`, `neutral`, or `negative`. After that, the flow through the feedback widget depends on what is configured in the `steps` for that `question`.
+
+#### Steps
+
+The `steps` property is a sequence of objects that specify the route through the wizard based on the main `question` selected. There can be one, or multiple, steps.
+
+Each step shows a new page of the dialog, which can be one of the following different types, depending on the `type` property:
+
+* `plain` - Plain text, as specified in the `content` property.
+* `textarea` - A text area where the user can provide further information. You can optionally specify `label` and `placeholder` text for this.
+* `radiogroup` - Radio buttons where you can ask for further clarification. Each option is defined in the `questions` sequence.
+* `fieldset` - A form containing `fields` that can capture whatever information you require from your users.
+
+Any step can capture the user's email address so that you can get back to them about the feedback they have left. To include this field, specify `email: true` for the step.
+
+### Persistence
+
+The feedback captured by the wizard is stored in the database at `[YOUR_SITE_URL]/admin/feedbacks`. The questions the user was asked and the responses they entered are also stored, so that the users' answers can be seen in the context of the questions you asked. So, if you change the wizard's configuration, the users' responses still make sense.
+
+

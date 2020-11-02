@@ -1,194 +1,155 @@
 <template>
-  <div class="Vlt-box Vlt-box--left Vlt-bg-grey-lighter feedback">
-    <div class="Vlt-grid">
-      <div class="Vlt-col Vlt-col--3of4">
-        <h4>Was this documentation helpful?</h4>
+  <div class="Vlt-modal__panel">
+    <div class="Vlt-modal__dismiss" v-on:click="reset"></div>
+    <div class="Vlt-modal__header" v-if="!showSteps">
+      <span>Feedback</span>
+      <h4 class="Vlt-modal__title">{{title}}</h4>
+    </div>
 
-        <div class="sentiments">
-          <div v-if="uploadingSentiment">
-            <div class="Vlt-spinner Vlt-spinner--small"></div>
-          </div>
-          <div>
-            <span v-on:click="setSentiment('positive')" v-bind:class="[{ 'Vlt-btn_active': sentiment == 'positive' }, 'Vlt-btn Vlt-btn--large Vlt-btn--tertiary Vlt-btn--icon Vlt-bg-green']">
-              <svg class="Vlt-white"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-happy"/></svg>
+    <div class="Vlt-modal__content">
+      <feedback-path v-bind:feedback_path="selectedPath" v-if="showSteps"/>
+      <div v-show="!showSteps" class="paths Vlt-form__element" v-bind:class="{ 'Vlt-form__element--error': hasError }">
+        <div v-for="(path, index) in paths" class="radio-button Vlt-radio">
+          <label :for=index>
+            <span class="Vlt-radio__button">
+              <input name="feedbackPath" type="radio" :id=index :value=index v-model="currentPathIndex">
+              <span class="Vlt-radio__icon"></span>
             </span>
-            <span v-on:click="setSentiment('negative')" v-bind:class="[{ 'Vlt-btn_active': sentiment == 'negative' }, 'Vlt-btn Vlt-btn--large Vlt-btn--tertiary Vlt-btn--icon Vlt-bg-red']">
-              <svg class="Vlt-white"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-unhappy"/></svg>
-            </span>
-          </div>
+            {{path.question}}
+          </label>
         </div>
-      </div>
 
-      <div class="Vlt-col Vlt-col--right Vlt-col--1of4">
-        <span v-if="githubUrl" id="feedback__improve">
-          <svg class="Vlt-icon Vlt-black">
-            <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-github" />
-          </svg>
-          <a v-bind:href="githubUrl" target="_blank" class="Vlt-text-link Vlt-black"> Improve this page</a>
-        </span>
+        <small v-if="hasError" class="Vlt-form__element__error">This field is required</small>
+        <button class="Vlt-btn Vlt-btn--app Vlt-btn--tertiary Vlt-modal__cancel" v-on:click="reset">Cancel</button>
+        <button class="Vlt-btn Vlt-btn--app Vlt-btn--secondary" v-on:click="onPathSelection">Continue</button>
       </div>
     </div>
-
-    <p v-if="error" class="form__error">{{error}}</p>
-
-    <div v-if="sentiment && !showExtendedFields || feedbackComplete">
-      <hr/>
-      <p>Great! Thanks for the feedback.</p>
-    </div>
-
-    <div v-if="showExtendedFields && id && !feedbackComplete">
-      <hr/>
-      <p>We see that this page didn’t meet your expectations. We’re really sorry!<br/></p>
-      <div class="Vlt-form__element">
-        <p><strong>We’d like a chance to fix that. Please would you give us some more information?</strong></p>
-        <label class="Vlt-label">What didn’t work for me: <small class="Vlt-grey-darker">(required)</small></label>
-        <div class="Vlt-textarea">
-          <textarea v-model="comment"/>
-        </div>
-      </div>
-
-      <div v-if="!currentUser" class="Vlt-form__element Vlt-form__element--elastic">
-        <p><strong>Can we let you know when we've solved your issue?</strong></p>
-        <label class="Vlt-label">My email: <small class="Vlt-grey-darker">(optional)</small></label>
-        <div class="Vlt-input">
-          <input type="email" size="20" placeholder="email" id="email" v-model="emailInput"/>
-        </div>
-      </div>
-
-      <input v-on:click="submitFeedback" v-bind:disabled="isSubmitDisabled" type="submit" class="Vlt-btn Vlt-btn--primary Vlt-btn--app" value="Send Feedback" />
-      <p>Your data will be treated in accordance with our <a href="https://www.nexmo.com/privacy-policy">Privacy Policy</a>, which sets out the rights you have in respect of your data.</p>
-    </div>
-
-    <p v-if="currentUser">
-      <br/>
-      Logged in as {{ currentUser.email }}.
-      <a v-bind:href="currentUser.signout_path">Sign out</a>
-    </p>
-
   </div>
 </template>
 <script>
-  export default {
-    props: ['codeLanguage', 'codeLanguageSelectedWhilstOnPage', 'codeLanguageSetByUrl', 'currentUser', 'feedbackAuthor', 'githubUrl', 'recaptcha', 'source'],
-    data: function() {
-      return {
-        comment: '',
-        emailInput: '',
-        error: false,
-        feedbackComplete: undefined,
-        id: undefined,
-        recaptchaToken: undefined,
-        sentiment: undefined,
-        showExtendedFields: false,
-        submittingFeedback: undefined,
-        uploadingSentiment: false,
-        programmingLanguage: this.codeLanguage,
-        progammingLanguageSelectedWhilstOnPage: undefined,
-        progammingLanguageSetByUrl: undefined
-      };
+
+import FeedbackPath from './FeedbackPath.vue';
+import eventHub from './eventHub';
+import store from './store';
+
+export default {
+  props: ['paths', 'title', 'source', 'configId', 'codeLanguage'],
+  components: { FeedbackPath },
+  data: function() {
+    return {
+      currentPathIndex: null,
+      selected: false,
+      cancelText: 'Cancel',
+      hasError: false,
+      store: store,
+      programmingLanguage: this.codeLanguage,
+      programmingLanguageSelectedWhilstOnPage: null,
+      programmingLanguageSetByUrl: !!this.codeLanguage
+    }
+  },
+  computed: {
+    showSteps: function() {
+      return this.currentPathIndex !== null && this.selected;
     },
-    mounted: function() {
-      document.addEventListener('codeLanguageChange', this.handleCodeLanguageChange.bind(this));
+    selectedPath: function() {
+      return this.paths[this.currentPathIndex];
     },
-    beforeDestroy: function() {
-      document.removeEventListener('codeLanguageChange', this.handleCodeLanguageChange.bind(this));
-    },
-    computed: {
-      email: function() {
-        return this.feedbackAuthor && this.feedbackAuthor.email ||
-          this.currentUser && this.currentUser.email || this.emailInput;
-      },
-      isSubmitDisabled: function() {
-        return this.submittingFeedback || this.comment === '';
+  },
+  methods: {
+    onPathSelection: function() {
+      if (this.$el.querySelector('input[type="radio"][name="feedbackPath"]:checked') !== null) {
+        this.hasError = false;
+        this.selected = true;
+        store.setPath(this.currentPathIndex);
+        store.setSentiment(this.selectedPath.sentiment);
+        this.createOrUpdateFeedback();
+      } else {
+        this.hasError = true;
       }
     },
-    methods: {
-      setSentiment: function(sentiment) {
-        this.sentiment = sentiment;
-        this.showExtendedFields = sentiment == 'negative';
-        this.uploadingSentiment = true;
-        this.error = undefined;
-        this.createOrUpdate();
-      },
-      parameters: function() {
-        return {
-          'g-recaptcha-response': this.recaptchaToken,
-          feedback_feedback: {
-            id: this.id,
-            sentiment: this.sentiment,
-            comment: this.comment,
-            email: this.email,
+    reset: function() {
+      this.selected = false;
+      this.hasError = false;
+      this.currentPathIndex = null;
+      this.createOrUpdateFeedback();
+      store.clearState();
+
+      Array.from(document.getElementsByClassName('Vlt-modal_visible'), function(modal) {
+        modal.classList.remove('Vlt-modal_visible');
+      })
+      return false;
+    },
+    parameters: function() {
+      return {
+        feedback_feedback: Object.assign(
+          store.toParam(),
+          {
             code_language: this.programmingLanguage,
             code_language_selected_whilst_on_page: this.programmingLanguageSelectedWhilstOnPage,
             code_language_set_by_url: this.programmingLanguageSetByUrl,
-            source: this.source,
           }
-        };
-      },
-      invisibleCaptchaCallback: function(recaptchaToken) {
-        this.recaptchaToken = recaptchaToken;
-        this.createOrUpdate();
-      },
-      createOrUpdate: function() {
-        if (this.recaptcha && this.recaptcha.enabled && !this.recaptcha.skip && this.recaptchaToken == undefined) {
-          const element = document.createElement('div');
-          document.getElementById('recaptcha-container').append(element);
-
-          const id = grecaptcha.render(element, {
-            sitekey: this.recaptcha.sitekey,
-            callback: this.invisibleCaptchaCallback.bind(this),
-            size: 'invisible',
-            badge: 'inline',
-          })
-          return grecaptcha.execute(id);
+        ),
+      };
+    },
+    createOrUpdateFeedback: function() {
+      fetch('/feedback/feedbacks', {
+        method: 'POST',
+        credentials: 'same-origin',
+        body: JSON.stringify(this.parameters()),
+        headers: { 'Content-Type': 'application/json' }
+      })
+      .then((response) => {
+        if (response.ok) { return response.json() }
+        return Promise.reject({ message: 'Bad response from server', response })
+      })
+      .then((payload) => {
+        if (this.selected) {
+          store.setFeedbackId(payload.id);
         }
-
-        fetch('/feedback/feedbacks', {
-          method: 'POST',
-          credentials: 'same-origin',
-          body: JSON.stringify(this.parameters()),
-          headers: { 'Content-Type': 'application/json' }
-        })
-        .then((response) => {
-          if (response.ok) { return response.json() }
-          return Promise.reject({ message: 'Bad response from server', response })
-        })
-        .then((payload) => {
-          this.feedbackComplete = this.submittingFeedback;
-          this.uploadingSentiment = false;
-          this.submittingFeedback = false;
-          this.id = payload.id;
-        })
-        .catch((error) => {
-          console.log(error)
-
-          this.uploadingSentiment = false;
-          this.submittingFeedback = false;
-
-          if (error.response) {
-            error.response.json()
-              .then((payload) => {
-                this.error = payload.error;
-              })
-              .catch(() => {
-                this.error = "Something went wrong! Try again later";
-              })
-          } else {
-            this.error = "Something went wrong! Try again later";
-          }
-        })
-      },
-      submitFeedback: function() {
-        this.submittingFeedback = true;
-        this.createOrUpdate();
-      },
-      handleCodeLanguageChange: function(event) {
-        this.programmingLanguage = event.detail.language;
-        this.programmingSelectedWhilstOnPage = true;
-        this.programmingSetByUrl = false;
-      }
+      })
+      .catch((error) => {
+        console.log(error)
+      });
+    },
+    handleCodeLanguageChange: function(event) {
+      this.programmingLanguage = event.detail.language;
+      this.programmingLanguageSelectedWhilstOnPage = true;
+      this.programmingLanguageSetByUrl = false;
     }
+  },
+  mounted: function() {
+    document.addEventListener('codeLanguageChange', this.handleCodeLanguageChange);
+    store.setSource(this.source);
+    store.setConfigId(this.configId);
+    eventHub.$on('reset-modal', this.reset);
+  },
+  beforeDestroy: function() {
+    document.removeEventListener('codeLanguageChange', this.handleCodeLanguageChange.bind(this));
   }
+}
 </script>
 <style scoped>
+.radio-button {
+  margin-bottom: 11px;
+}
+.Vlt-modal__panel {
+  padding: 0px;
+  width: auto;
+}
+.Vlt-modal__header {
+  padding: 32px 32px 0 32px;
+}
+.Vlt-modal__title {
+  margin: auto;
+  white-space: pre-line;
+}
+.Vlt-modal__content {
+  padding: 0px;
+}
+.paths {
+  padding: 32px;
+  @media only screen and (min-width: 575px) {
+    min-width: 500px;
+  };
+}
 </style>

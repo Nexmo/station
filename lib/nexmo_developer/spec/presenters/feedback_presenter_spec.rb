@@ -1,80 +1,35 @@
 require 'rails_helper'
 
 RSpec.describe FeedbackPresenter do
-  let(:params) { {} }
-  let(:request) { double(parameters: { 'code_language' => 'ruby' }) }
-  let(:session) { {} }
-  let(:document_path) { nil }
+  let(:canonical_url) { 'https://developer.nexmo.com' }
+  let(:feedback) { YAML.safe_load(File.read("#{Rails.configuration.docs_base_path}/config/feedback.yml")) }
+  let(:params) { { code_language: 'ruby' } }
 
-  subject { described_class.new(params, request, session, document_path) }
+  subject { described_class.new(canonical_url, params) }
 
-  describe '#code_language?' do
-    context 'when `code_language` params is present' do
-      let(:params) { { code_language: 'ruby' } }
+  describe '#props' do
+    it 'returns a json object that acts as props for the vue component' do
+      expect(subject.props['source']).to eq(canonical_url)
+      expect(subject.props['configId']).to eq(Feedback::Config.last.id)
+      expect(subject.props['title']).to eq(feedback['title'])
+      expect(subject.props['paths']).to eq(feedback['paths'])
+      expect(subject.props['codeLanguage']).to eq('ruby')
+      expect(subject.props['codeLanguageSetByUrl']).to eq(true)
+    end
+  end
 
-      it 'returns true' do
-        expect(subject.code_language?).to eq(true)
+  describe '#show_feedback?' do
+    context 'when the config file exists' do
+      it { expect(subject.show_feedback?).to eq(true) }
+    end
+
+    context 'otherwise' do
+      before do
+        allow(File).to receive(:exist?).and_call_original
+        allow(File).to receive(:exist?).and_return(false)
       end
-    end
 
-    it 'returns false otherwise' do
-      expect(subject.code_language?).to eq(false)
-    end
-  end
-
-  describe '#code_language' do
-    it 'returns the code language set in the request' do
-      expect(subject.code_language).to eq('ruby')
-    end
-  end
-
-  describe '#captcha_enabled?' do
-    it 'returns true if the env variable is set' do
-      expect(ENV).to receive(:[]).with('RECAPTCHA_ENABLED').and_return(true)
-      expect(subject.captcha_enabled?).to eq(true)
-    end
-
-    it { expect(subject.captcha_enabled?).to eq(false) }
-  end
-
-  describe '#captcha_key' do
-    it 'returns the key if present' do
-      expect(ENV).to receive(:[]).with('RECAPTCHA_INVISIBLE_SITE_KEY').and_return('abc123')
-      expect(subject.captcha_key).to eq('abc123')
-    end
-
-    it { expect(subject.captcha_key).to be_nil }
-  end
-
-  describe '#passed_invisible_captcha?' do
-    context 'when the value is set in the session' do
-      let(:session) { { user_passed_invisible_captcha: true } }
-
-      it 'returns the value' do
-        expect(subject.passed_invisible_captcha?).to eq(true)
-      end
-    end
-
-    it 'returns false otherwise' do
-      expect(subject.passed_invisible_captcha?).to eq(false)
-    end
-  end
-
-  describe '#show_github_link?' do
-    context 'with a document_path' do
-      let(:document_path) { 'dummy/doc' }
-
-      it { expect(subject.show_github_link?).to eq(true) }
-    end
-
-    it { expect(subject.show_github_link?).to eq(false) }
-  end
-
-  describe '#github_url' do
-    let(:document_path) { "#{Rails.configuration.docs_base_path}/_documentation/en/concepts/overview.md" }
-
-    it 'returns the url to the doc' do
-      expect(subject.github_url).to eq("https://github.com/nexmo/nexmo-docs/blob/master/#{document_path.gsub("#{Rails.configuration.docs_base_path}/", '')}")
+      it { expect(subject.show_feedback?).to eq(false) }
     end
   end
 end
