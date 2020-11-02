@@ -183,7 +183,7 @@ paths:
     sentiment: negative
     steps: 
       - title: Thanks for letting us know!
-        type: radiongroup
+        type: radiogroup
         questions:
           - The documentation is missing information.
           - The documentation is unclear.
