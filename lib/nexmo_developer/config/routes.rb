@@ -35,12 +35,12 @@ Rails.application.routes.draw do
   get '/stats', to: 'dashboard#stats'
   get '/stats/summary', to: 'dashboard#stats_summary'
 
-  get '/use-cases/(:code_language)', to: 'use_case#index', constraints: Nexmo::Markdown::CodeLanguage.route_constraint, as: :use_cases
-  get '/use-cases/*document(/:code_language)', to: 'use_case#show', constraints: Nexmo::Markdown::CodeLanguage.route_constraint
+  get '(/:locale)/use-cases/(:code_language)', to: 'use_case#index', constraints: Nexmo::Markdown::CodeLanguage.route_constraint.merge(locale: LocaleConstraint.available_locales), as: :use_cases
+  get '(/:locale)/use-cases/*document(/:code_language)', to: 'use_case#show', constraints: Nexmo::Markdown::CodeLanguage.route_constraint.merge(locale: LocaleConstraint.available_locales)
 
-  get '/*product/use-cases(/:code_language)', to: 'use_case#index', constraints: DocumentationConstraint.documentation
+  get '(/:locale)/*product/use-cases(/:code_language)', to: 'use_case#index', constraints: DocumentationConstraint.documentation.merge(locale: LocaleConstraint.available_locales)
 
-  get '/*product/use-cases(/:code_language)', to: 'use_case#index', constraints: lambda { |request|
+  get '(/:locale)/*product/use-cases(/:code_language)', to: 'use_case#index', constraints: lambda { |request|
     products = Product.all.map { |p| p['path'] }
 
     # If there's no language in the URL it's an implicit match

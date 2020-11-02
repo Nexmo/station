@@ -1,5 +1,6 @@
 class UseCaseController < ApplicationController
   before_action :set_navigation
+  before_action :canonical_redirect, only: %i[index show]
 
   def index
     @product = params['product']
@@ -51,5 +52,14 @@ class UseCaseController < ApplicationController
 
   def set_navigation
     @navigation = 'use-cases'
+  end
+
+  def canonical_redirect
+    return if params[:locale].nil? && session[:locale].nil?
+    return if params[:locale] && params[:locale] != I18n.default_locale.to_s
+    return if session[:locale] && session[:locale] != I18n.default_locale.to_s
+    return if params[:locale].nil? && session[:locale] == I18n.default_locale.to_s
+
+    redirect_to request.path.gsub("/#{I18n.locale}", '')
   end
 end
