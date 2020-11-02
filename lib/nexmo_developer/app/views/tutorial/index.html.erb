@@ -44,7 +44,10 @@
               <ul class="Ndx-task__code-language-list">
                 <% @tutorial.available_code_languages.reject { |l| l == @tutorial.code_language }.each do |language| %>
                   <li class="Ndx-task-step__code-language">
-                    <a title="<%= language %>" href="<%= "/#{@tutorial.current_product}/tutorials/#{@tutorial.name}/#{@tutorial.first_step}/#{language}" %>">
+                    <a
+                      title="<%= language %>"
+                      href="<%= url_for(controller: :tutorial, action: :index, product: @tutorial.current_product, tutorial_name: @tutorial.name, tutorial_step: @tutorial.first_step, code_language: language) %>"
+                      >
                       <div><%= render 'code_languages/icon', code_language: language, dark: true %></div>
                     </a>
                   </li>

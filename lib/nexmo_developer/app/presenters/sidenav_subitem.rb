@@ -27,14 +27,16 @@ class SidenavSubitem < SidenavItem
         controller: :tutorial,
         action: :index,
         product: @folder[:product],
-        only_path: true
+        only_path: true,
+        locale: locale
       )
     elsif @folder[:root] == "#{Rails.configuration.docs_base_path}/_use_cases"
       url_for(
         document: Navigation.new(@folder).path_to_url,
         controller: controller,
         action: :show,
-        only_path: true
+        only_path: true,
+        locale: locale
       )
     elsif @folder[:path].starts_with?('app/views')
       navigation = Navigation.new(@folder)

@@ -4,6 +4,7 @@ class TutorialController < ApplicationController
   before_action :set_tutorial, except: %i[list single]
   before_action :check_tutorial_step, except: %i[list single]
   before_action :set_sidenav
+  before_action :canonical_redirect, only: %i[list index]
 
   def list
     @product = params['product']
@@ -99,5 +100,14 @@ class TutorialController < ApplicationController
       tutorial_step: @tutorial.first_step,
       code_language: @tutorial.code_language
     )
+  end
+
+  def canonical_redirect
+    return if params[:locale].nil? && session[:locale].nil?
+    return if params[:locale] && params[:locale] != I18n.default_locale.to_s
+    return if session[:locale] && session[:locale] != I18n.default_locale.to_s
+    return if params[:locale].nil? && session[:locale] == I18n.default_locale.to_s
+
+    redirect_to request.path.gsub("/#{I18n.locale}", '')
   end
 end

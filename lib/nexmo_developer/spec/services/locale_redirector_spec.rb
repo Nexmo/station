@@ -62,7 +62,7 @@ RSpec.describe LocaleRedirector do
       'https://developer.nexmo.com/use-cases/client-sdk-click-to-call'
     end
 
-    it { expect(subject).to eq('/use-cases/client-sdk-click-to-call') }
+    it { expect(subject).to eq('/cn/use-cases/client-sdk-click-to-call') }
   end
 
   context 'tutorials' do
@@ -71,7 +71,7 @@ RSpec.describe LocaleRedirector do
       'https://developer.nexmo.com/client-sdk/tutorials/phone-to-app/introduction'
     end
 
-    it { expect(subject).to eq('/client-sdk/tutorials/phone-to-app/introduction') }
+    it { expect(subject).to eq('/cn/client-sdk/tutorials/phone-to-app/introduction') }
   end
 
   context 'api' do
