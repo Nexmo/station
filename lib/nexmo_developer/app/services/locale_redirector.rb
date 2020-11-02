@@ -23,7 +23,7 @@ class LocaleRedirector
 
   def add_locale?
     @params[:preferred_locale] != I18n.default_locale.to_s &&
-      ['tutorials', 'use-cases'].none? { |path| current_path.include?(path) } &&
-      DocumentationConstraint.product_with_parent_list.any? { |path| current_path.include?(path) }
+      (DocumentationConstraint.product_with_parent_list.any? { |path| current_path.include?(path) } ||
+       ['tutorials', 'use-cases'].any? { |path| current_path.include?(path) })
   end
 end

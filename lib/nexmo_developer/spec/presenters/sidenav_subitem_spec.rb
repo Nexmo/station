@@ -83,9 +83,9 @@ RSpec.describe SidenavSubitem do
       it { expect(subject.build_url).to eq('/client-sdk/tutorials/phone-to-app') }
 
       context 'specifying a locale' do
-        let(:locale) { :en }
+        let(:locale) { :cn }
 
-        it { expect(subject.build_url).to eq('/client-sdk/tutorials/phone-to-app') }
+        it { expect(subject.build_url).to eq('/cn/client-sdk/tutorials/phone-to-app') }
       end
     end
 
@@ -104,9 +104,9 @@ RSpec.describe SidenavSubitem do
       it { expect(subject.build_url).to eq('/use-cases/sending-whatsapp-messages-with-messages-api') }
 
       context 'specifying a locale' do
-        let(:locale) { :en }
+        let(:locale) { :cn }
 
-        it { expect(subject.build_url).to eq('/use-cases/sending-whatsapp-messages-with-messages-api') }
+        it { expect(subject.build_url).to eq('/cn/use-cases/sending-whatsapp-messages-with-messages-api') }
       end
     end
 

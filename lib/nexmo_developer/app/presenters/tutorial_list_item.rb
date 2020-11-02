@@ -62,11 +62,11 @@ class TutorialListItem
   end
 
   def product_url
-    "/#{products.join('')}/tutorials"
+    "/#{I18n.locale}/#{products.join('')}/tutorials"
   end
 
   def url
-    external_link || "/#{products.join('')}/tutorials/#{filename}/#{first_step}"
+    external_link || "/#{I18n.locale}/#{products.join('')}/tutorials/#{filename}/#{first_step}"
   end
 
   def available_languages
