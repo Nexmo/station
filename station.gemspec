@@ -69,7 +69,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency('rest-client', '2.1.0')
   spec.add_runtime_dependency('chartkick', '3.4.2')
   spec.add_runtime_dependency('groupdate', '5.2.1')
-  spec.add_runtime_dependency('terminal-table', '1.8.0')
+  spec.add_runtime_dependency('terminal-table', '2.0.0')
   spec.add_runtime_dependency('lograge', '0.11.2')
   spec.add_runtime_dependency('sassc-rails', '2.1.2')
   spec.add_runtime_dependency('uglifier', '4.2.0')
