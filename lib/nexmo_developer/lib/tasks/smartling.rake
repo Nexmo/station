@@ -40,20 +40,6 @@ namespace :smartling do
     puts 'Done!'
   end
 
-  desc 'Send documents to Smartling by frequency'
-  task :translations_by_frequency, %i[frequency] => :env do
-    puts "Sending Files to Smartling with frequency #{frequency}"
-
-    # Which files should we include?
-    paths = []
-    Translator::TranslatorCoordinator.new(
-      paths: paths,
-      frequency: args[:frequency]
-    ).create_smartling_jobs!
-
-    puts 'Done!'
-  end
-
   desc 'Check for new translations by locale and download them'
   task 'download': :environment do
     puts 'Checking for completed translations and downloading them'
@@ -64,10 +50,13 @@ namespace :smartling do
   end
 
   desc 'Upload recently modified docs to Smartling for translation'
-  task :upload, %i[paths] => [:environment] do |_, args|
-    puts 'Uploading files...'
+  task :upload, %i[paths frequency] => [:environment] do |_, args|
+    puts "Uploading files to Smartling with a translation frequency of #{args[:frequency]} days..."
 
-    Translator::TranslatorCoordinator.new(paths: args[:paths]).create_smartling_jobs!
+    Translator::TranslatorCoordinator.new(
+      paths: args[:paths],
+      frequency: args[:frequency]
+    ).create_smartling_jobs!
 
     puts 'Done!'
   end
