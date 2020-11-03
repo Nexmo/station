@@ -4,6 +4,10 @@ module Translator
 
     attr_reader :file_uris
 
+    def self.call(attrs = {})
+      new(attrs).call
+    end
+
     def initialize(file_uris: [])
       @file_uris = file_uris || file_paths
     end
