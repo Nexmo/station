@@ -51,7 +51,7 @@
     "sha1-file": "^1.0.0",
     "style-loader": "^2.0.0",
     "vue": "^2.6.12",
-    "vue-loader": "^15.9.4",
+    "vue-loader": "^15.9.5",
     "vue-template-compiler": "^2.6.12",
     "webpack": "^4.44.2",
     "webpack-manifest-plugin": "^2.2.0",
