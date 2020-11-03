@@ -18,6 +18,7 @@ module Translator
       @file_uris.map do |uri|
         locales = get_file_status(file_uri: uri)
         next unless locales
+
         locales.map { |locale| download_file(locale: locale, file_uri: uri) }
       end
     end
