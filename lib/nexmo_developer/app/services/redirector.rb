@@ -10,8 +10,6 @@ class Redirector
     url = find_by_config(request) || find_by_environment_redirect(request) # rubocop:disable Rails/DynamicFindBy
     return unless url
 
-    Redirect.where(url: strip_locale_from_path(request.path)).first_or_create.increment!('uses') # rubocop:disable Rails/SkipsModelValidations
-
     url
   end
 
