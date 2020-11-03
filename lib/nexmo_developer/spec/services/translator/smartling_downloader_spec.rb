@@ -38,5 +38,13 @@ RSpec.describe Translator::SmartlingDownloader do
 
       subject.download_file(locale: 'zh-CN', file_uri: '_documentation/en/messaging/sms/overview.md')
     end
+
+    it 'does not download anything if there is no file returned by the API' do
+      expect(Translator::Smartling::ApiRequestsGenerator).to receive(:download_file)
+        .with(locale: 'zh-CN', file_uri: '_documentation/en/messaging/sms/overview.md')
+        .and_return('')
+
+      subject.download_file(locale: 'zh-CN', file_uri: '_documentation/en/messaging/sms/overview.md')
+    end
   end
 end
