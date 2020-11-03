@@ -30,4 +30,21 @@ RSpec.describe Feedback::Feedback, type: :model do
       end
     end
   end
+
+  describe '#notify' do
+    subject { described_class.new }
+
+    context 'when SLACK_WEBHOOK is defined' do
+      it 'fires a slack notification' do
+        allow(ENV).to receive(:[]).with('SLACK_WEBHOOK').and_return('webhook')
+        expect(FeedbackSlackNotifier).to receive(:call).with(subject)
+
+        subject.notify
+      end
+    end
+
+    context 'otherwise' do
+      it { expect(subject.notify).to eq(nil) }
+    end
+  end
 end

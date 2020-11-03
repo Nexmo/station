@@ -70,21 +70,17 @@ paths:
       type: fieldset
       fields:
       - type: input
-        name: firstName
-        label: First name
+        name: name
+        label: Your name
       - type: input
-        name: lastName
-        label: Last name
+        name: email
+        label: Email
       - type: input
         name: companyName
         label: Company Name
-      - type: input
-        name: apiKey
-        label: API Key
-        hint: "(Hint: You can find this in the Developer Dashboard at https://dashboard.nexmo.com)"
       - type: textarea
         name: feedback
-        label: 'Please tell us how we can help you:'
+        label: 'Please tell us how we can help you'
         placeholder: Please leave feedback here
     - title: Thank You!
       type: plain
