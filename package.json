@@ -21,7 +21,7 @@
     "babel-preset-babili": "^0.1.4",
     "coffee-loader": "^1.0.1",
     "coffee-script": "^1.12.7",
-    "compression-webpack-plugin": "^6.0.4",
+    "compression-webpack-plugin": "^6.0.5",
     "css-loader": "^5.0.0",
     "dotenv": "^8.2.0",
     "file-loader": "^6.2.0",

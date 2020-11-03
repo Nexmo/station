@@ -3788,10 +3788,10 @@ compression-webpack-plugin@^4.0.0:
     serialize-javascript "^4.0.0"
     webpack-sources "^1.4.3"
 
-compression-webpack-plugin@^6.0.4:
-  version "6.0.4"
-  resolved "https://registry.yarnpkg.com/compression-webpack-plugin/-/compression-webpack-plugin-6.0.4.tgz#524699c0ad4e94cab0eb199c734e291f6ab685b9"
-  integrity sha512-PViPdrF5UmqZxsr9WNoE+R6lTre6/5tC9TmWotBfhOQtWlc7oj/SXCsrecbZJ9LDpwLjHH6llPCKmw+JGPGN+A==
+compression-webpack-plugin@^6.0.5:
+  version "6.0.5"
+  resolved "https://registry.yarnpkg.com/compression-webpack-plugin/-/compression-webpack-plugin-6.0.5.tgz#3d185efaf4b1f496db4155797cc8e7a5cd917552"
+  integrity sha512-mMQv27ywyrfM+GG1QEYVnpuoPBBqAxDvQLsTLPArzdV1GsgS/brQ7Ml1fJMuipp1KD2iHg1I88yDSXt8WhRvLw==
   dependencies:
     cacache "^15.0.5"
     find-cache-dir "^3.3.1"
@@ -5554,14 +5554,6 @@ file-loader@^3.0.1:
     schema-utils "^1.0.0"
 
 file-loader@^6.0.0, file-loader@^6.2.0:
-  version "6.2.0"
-  resolved "https://registry.yarnpkg.com/file-loader/-/file-loader-6.2.0.tgz#baef7cf8e1840df325e4390b4484879480eebe4d"
-  integrity sha512-qo3glqyTa61Ytg4u73GultjHGjdRyig3tG6lPtyX/jOEJvHif9uB0/OCI2Kif6ctF3caQTW2G5gym21oAsI4pw==
-  dependencies:
-    loader-utils "^2.0.0"
-    schema-utils "^3.0.0"
-
-file-loader@^6.2.0:
   version "6.2.0"
   resolved "https://registry.yarnpkg.com/file-loader/-/file-loader-6.2.0.tgz#baef7cf8e1840df325e4390b4484879480eebe4d"
   integrity sha512-qo3glqyTa61Ytg4u73GultjHGjdRyig3tG6lPtyX/jOEJvHif9uB0/OCI2Kif6ctF3caQTW2G5gym21oAsI4pw==
