@@ -13,6 +13,12 @@ RSpec.describe Translator::SmartlingDownloader do
 
       subject.call
     end
+
+    it 'does something when no files are ready to download' do
+      expect(subject).to receive(:get_file_status).exactly(2).times.and_return([])
+
+      subject.call
+    end
   end
 
   describe '#get_file_status' do
