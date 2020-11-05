@@ -13,7 +13,7 @@ module Translator
     end
 
     def call
-      raise ArgumentError, "The 'paths' parameter cannot be empty" unless @file_uris
+      raise ArgumentError, "The 'file_uris' parameter cannot be empty" unless @file_uris
 
       @file_uris.map do |uri|
         locales = get_file_status(file_uri: uri)
