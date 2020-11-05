@@ -49,15 +49,15 @@ RSpec.describe Translator::Smartling::ApiRequestsGenerator do
     end
   end
 
-  describe '.file_paths' do
+  describe '.file_uris' do
     before { allow(described_class).to receive(:token).and_return(token) }
 
-    it 'generates an API call that generates a list of recently published file paths' do
-      expect(Translator::Smartling::API::FilePaths)
+    it 'generates an API call that generates a list of recently published file uris' do
+      expect(Translator::Smartling::API::FileUris)
         .to receive(:call)
         .with(project_id: project_id, token: token)
 
-      described_class.file_paths
+      described_class.file_uris
     end
   end
 

@@ -12,7 +12,7 @@ module Translator
           Translator::TranslationRequest.new(
             locale: locale_with_region(locale),
             frequency: frequency,
-            path: doc_path
+            file_uri: doc_path
           )
         end
       end

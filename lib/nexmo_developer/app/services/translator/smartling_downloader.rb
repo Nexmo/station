@@ -23,8 +23,8 @@ module Translator
       end
     end
 
-    def file_paths
-      ::Translator::Smartling::ApiRequestsGenerator.file_paths
+    def file_uris_from_smartling
+      ::Translator::Smartling::ApiRequestsGenerator.file_uris
     end
 
     def get_file_status(file_uri:)

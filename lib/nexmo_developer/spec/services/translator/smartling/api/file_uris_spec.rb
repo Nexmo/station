@@ -1,12 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe Translator::Smartling::API::FilePaths do
+RSpec.describe Translator::Smartling::API::FileUris do
   let(:project_id) { 'smartling-project-id' }
   let(:uri) { "https://api.smartling.com/published-files-api/v2/projects/#{project_id}/files/list/recently-published" }
   let(:token) { 'smartling-auth-token' }
 
   before do
-    allow_any_instance_of(Translator::Smartling::API::FilePaths).to receive(:format_date).and_return('2020-10-16T18:27:20+00:00')
+    allow_any_instance_of(Translator::Smartling::API::FileUris).to receive(:format_date).and_return('2020-10-16T18:27:20+00:00')
   end
 
   subject do
@@ -18,7 +18,7 @@ RSpec.describe Translator::Smartling::API::FilePaths do
 
   describe '#call' do
     context 'on success' do
-      it 'returns an array with paths of completed translations' do
+      it 'returns an array with file uris of completed translations' do
         stub_request(:get, uri)
           .with(
             headers: { 'Authorization' => "Bearer #{token}", 'Content-Type' => 'application/json' },
@@ -79,7 +79,7 @@ RSpec.describe Translator::Smartling::API::FilePaths do
             }.to_json.to_s
           )
 
-        expect(Bugsnag).to receive(:notify).with('Translator::Smartling::API::FilePaths 500: Unexpected server error')
+        expect(Bugsnag).to receive(:notify).with('Translator::Smartling::API::FileUris 500: Unexpected server error')
         expect(subject.call).to be_nil
       end
     end

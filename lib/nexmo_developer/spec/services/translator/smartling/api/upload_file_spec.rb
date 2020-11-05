@@ -9,7 +9,7 @@ RSpec.describe Translator::Smartling::API::UploadFile do
     Translator::TranslationRequest.new(
       locale: 'ja-JP',
       frequency: 15,
-      path: 'messages/external-accounts/overview.md'
+      file_uri: 'messages/external-accounts/overview.md'
     )
   end
 
@@ -27,7 +27,7 @@ RSpec.describe Translator::Smartling::API::UploadFile do
     let(:request_body) do
       [
         ['file', File.open(file)],
-        ['fileUri', translation_request.path],
+        ['fileUri', translation_request.file_uri],
         ['fileType', 'markdown'],
         ['localeIdsToAuthorize[]', translation_request.locale],
       ]
@@ -59,7 +59,7 @@ RSpec.describe Translator::Smartling::API::UploadFile do
             body: { 'response' => { 'code' => 'ACCEPTED', 'data' => nil } }.to_json.to_s
           )
 
-        expect(subject.call).to eq(translation_request.path)
+        expect(subject.call).to eq(translation_request.file_uri)
       end
     end
 

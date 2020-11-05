@@ -20,7 +20,7 @@ module Translator
         def form_data
           [
             ['file', File.open(file)],
-            ['fileUri', @translation_request.path],
+            ['fileUri', @translation_request.file_uri],
             ['fileType', 'markdown'],
             ['localeIdsToAuthorize[]', @translation_request.locale],
           ]
@@ -35,7 +35,7 @@ module Translator
         end
 
         def return_value
-          @return_value ||= @translation_request.path
+          @return_value ||= @translation_request.file_uri
         end
 
         def to_s
@@ -54,7 +54,7 @@ module Translator
           @file ||= begin
             file = Tempfile.new
             file.write Nexmo::Markdown::Pipelines::Smartling::Preprocessor.new.call(
-              File.read("#{Rails.configuration.docs_base_path}/_documentation/#{I18n.default_locale}/#{@translation_request.path}")
+               File.read("#{Rails.configuration.docs_base_path}/_documentation/#{I18n.default_locale}/#{@translation_request.file_uri}")
             )
             file.rewind
             file.close

@@ -2,10 +2,10 @@ require 'rails_helper'
 
 RSpec.describe Translator::SmartlingCoordinator do
   let(:frequency) { 15 }
-  let(:accounts_overview) { Translator::TranslationRequest.new(locale: 'ja-JP', frequency: frequency, path: 'messages/external-accounts/overview.md') }
-  let(:sms_overview) { Translator::TranslationRequest.new(locale: 'ja-JP', frequency: frequency, path: 'messaging/sms/overview.md') }
-  let(:guides_numbers) { Translator::TranslationRequest.new(locale: 'zh-CN', frequency: frequency, path: 'voice/voice-api/guides/numbers.md') }
-  let(:connect_an_inbound_call) { Translator::TranslationRequest.new(locale: 'es-ES', frequency: frequency, path: 'voice/voice-api/code-snippets/connect-an-inobound-call.md') }
+  let(:accounts_overview) { Translator::TranslationRequest.new(locale: 'ja-JP', frequency: frequency, file_uri: 'messages/external-accounts/overview.md') }
+  let(:sms_overview) { Translator::TranslationRequest.new(locale: 'ja-JP', frequency: frequency, file_uri: 'messaging/sms/overview.md') }
+  let(:guides_numbers) { Translator::TranslationRequest.new(locale: 'zh-CN', frequency: frequency, file_uri: 'voice/voice-api/guides/numbers.md') }
+  let(:connect_an_inbound_call) { Translator::TranslationRequest.new(locale: 'es-ES', frequency: frequency, file_uri: 'voice/voice-api/code-snippets/connect-an-inobound-call.md') }
   let(:requests) { [accounts_overview, sms_overview, guides_numbers, connect_an_inbound_call] }
 
   subject { described_class.new(requests: requests, frequency: frequency) }

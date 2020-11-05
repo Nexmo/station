@@ -28,8 +28,8 @@ module Translator
         )
       end
 
-      def self.file_paths
-        ::Translator::Smartling::API::FilePaths.call(
+      def self.file_uris
+        ::Translator::Smartling::API::FileUris.call(
           project_id: project_id,
           token: token
         )

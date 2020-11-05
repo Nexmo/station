@@ -20,7 +20,7 @@ module Translator
         end
 
         def file_uris
-          @requests.map(&:path)
+          @requests.map(&:file_uri)
         end
 
         def uri
