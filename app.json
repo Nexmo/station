@@ -17,5 +17,8 @@
   },
   "addons": [
     "heroku-postgresql:hobby-dev"
-  ]
+  ],
+  "scripts": {
+    "postdeploy": "cd /app/lib/nexmo_developer && bin/rails db:migrate"
+  }
 }
