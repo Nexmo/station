@@ -104,7 +104,9 @@ elsif rake_smartling_download
 elsif rake_smartling_upload
   puts 'Running Smartling upload process...'
   Rails.application.load_tasks
-  Rails::Command.invoke 'runner', ["Rake::Task['smartling:upload'].invoke"]
+
+  frequency, *paths = ARGV
+  Rails::Command.invoke 'runner', ["Rake::Task['smartling:upload'].invoke(#{paths}, #{frequency})"]
 else
   Rails::Command.invoke 'server'
 end

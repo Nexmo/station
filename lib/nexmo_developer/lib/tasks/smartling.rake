@@ -51,7 +51,9 @@ namespace :smartling do
 
   desc 'Upload recently modified docs to Smartling for translation'
   task :upload, %i[paths frequency] => [:environment] do |_, args|
+    # RAILS_ENV=production RAILS_LOG_TO_STDOUT=1 be nexmo-developer --docs=`pwd` --rake-smartling-upload  15 messages/test.md messages/external-accounts/overview.md
     puts "Uploading files to Smartling with a translation frequency of #{args[:frequency]} days..."
+    puts args[:paths].join("\n")
 
     Translator::TranslatorCoordinator.new(
       paths: args[:paths],
