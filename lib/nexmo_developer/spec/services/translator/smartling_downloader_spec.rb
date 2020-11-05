@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Translator::SmartlingDownloader do
-  let(:file_uris) { ['_documentation/en/messaging/sms/overview.md', '_documentation/en/voice/voice-api/guides/numbers.md'] }
+  let(:file_uris) { ['messaging/sms/overview.md', 'voice/voice-api/guides/numbers.md'] }
   let(:token) { 'smartling-auth-token' }
 
   subject { described_class.new(file_uris: file_uris) }
