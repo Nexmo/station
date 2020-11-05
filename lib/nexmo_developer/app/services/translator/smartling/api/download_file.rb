@@ -34,6 +34,10 @@ module Translator
         def return_value
           @return_value ||= @response.body
         end
+
+        def to_s
+          "#{@file_uri} => #{@locale_id}"
+        end
       end
     end
   end

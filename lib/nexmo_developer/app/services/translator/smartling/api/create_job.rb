@@ -34,6 +34,10 @@ module Translator
         def headers
           { 'Content-Type' => 'application/json', 'Authorization' => "Bearer #{@token}" }
         end
+
+        def to_s
+          return_value
+        end
       end
     end
   end

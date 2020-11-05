@@ -35,6 +35,10 @@ module Translator
           @return_value ||= response_body['response']['data']['batchUid']
         end
 
+        def to_s
+          return_value
+        end
+
         def headers
           { 'Content-Type' => 'application/json', 'Authorization' => "Bearer #{@token}" }
         end

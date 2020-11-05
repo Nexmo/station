@@ -38,6 +38,10 @@ module Translator
           @return_value ||= @translation_request.path
         end
 
+        def to_s
+          return_value
+        end
+
         def headers
           { 'Authorization' => "Bearer #{@token}" }
         end

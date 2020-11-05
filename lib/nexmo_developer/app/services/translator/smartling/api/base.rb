@@ -31,7 +31,7 @@ module Translator
 
           raise error unless success?
 
-          Rails.logger.info("#{self.class} : Success #{return_value}")
+          Rails.logger.info("#{self.class} : Success #{self}")
           return_value
         rescue StandardError => e
           Bugsnag.notify(e.message)

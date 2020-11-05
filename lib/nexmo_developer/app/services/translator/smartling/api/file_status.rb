@@ -33,6 +33,10 @@ module Translator
         def return_value
           @return_value ||= response_body['response']['data']['items'].map { |item| item['localeId'] }
         end
+
+        def to_s
+          "#{@file_uri} => #{return_value}"
+        end
       end
     end
   end
