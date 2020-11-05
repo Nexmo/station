@@ -46,6 +46,7 @@ RSpec.describe Translator::SmartlingDownloader do
       expect(Translator::Smartling::ApiRequestsGenerator).to receive(:download_file)
         .with(locale: 'zh-CN', file_uri: '_documentation/en/messaging/sms/overview.md')
         .and_return(File.read("#{Rails.configuration.docs_base_path}/_documentation/cn/messaging/sms/overview.md"))
+      expect(subject).to receive(:save_file)
 
       subject.download_file(locale: 'zh-CN', file_uri: '_documentation/en/messaging/sms/overview.md')
     end
@@ -53,9 +54,30 @@ RSpec.describe Translator::SmartlingDownloader do
     it 'does not download anything if there is no file returned by the API' do
       expect(Translator::Smartling::ApiRequestsGenerator).to receive(:download_file)
         .with(locale: 'zh-CN', file_uri: '_documentation/en/messaging/sms/overview.md')
-        .and_return('')
+        .and_return(nil)
 
       subject.download_file(locale: 'zh-CN', file_uri: '_documentation/en/messaging/sms/overview.md')
+    end
+  end
+
+  describe '#save_file' do
+    let(:doc) { 'binary file downloaded from Smartling' }
+    let(:locale) { 'zh-CN' }
+    let(:file_uri) { 'messaging/sms/overview.md' }
+    let(:output_path) { "#{Rails.configuration.docs_base_path}/_documentation/cn/messaging/sms/overview.md" }
+    let(:processed_doc) { File.read("#{Rails.configuration.docs_base_path}/_documentation/cn/messaging/sms/overview.md") }
+
+    it 'stores the downloaded file to disk' do
+      allow(File).to receive(:open).and_call_original
+      allow(File).to receive(:write).and_call_original
+
+      expect(Nexmo::Markdown::Pipelines::Smartling::Download).to receive(:call).with(doc).and_return(processed_doc)
+      file_double = double(File)
+      expect(file_double).to receive(:binmode)
+      expect(File).to receive(:open).with(output_path, 'w+').and_yield(file_double)
+      expect(file_double).to receive(:write).with(processed_doc)
+
+      subject.save_file(doc, locale, file_uri)
     end
   end
 end

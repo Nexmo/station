@@ -39,6 +39,8 @@ module Translator
         file_uri: file_uri
       )
 
+      return unless doc
+
       save_file(doc, locale, file_uri)
     end
 

@@ -36,6 +36,10 @@ module Translator
         def return_value
           @return_value ||= response_body['response']['data']['items'].map { |item| item['fileUri'] }
         end
+
+        def to_s
+          return_value.join("\n").prepend("\n")
+        end
       end
     end
   end
