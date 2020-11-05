@@ -6,7 +6,7 @@ RSpec.describe Translator::SmartlingDownloader do
 
   subject { described_class.new(file_uris: file_uris) }
 
-  describe '#call' do
+  describe '#call with file URIs provided in initialization' do
     it 'gets a list of locales of translated files ready to download and downloads each file' do
       expect(subject).to receive(:get_file_status).exactly(2).times.and_return(['ja-JP', 'zh-CN'])
       expect(subject).to receive(:download_file).exactly(4).times
@@ -18,6 +18,17 @@ RSpec.describe Translator::SmartlingDownloader do
       expect(subject).to receive(:get_file_status).exactly(2).times.and_return([])
 
       subject.call
+    end
+  end
+
+  describe '#call without file URIs provided in initialization' do
+    it 'makes a GET request to Smartling to obtain file URI paths of files ready to download' do
+      expect(Translator::Smartling::ApiRequestsGenerator).to receive(:file_uris)
+        .and_return(['/files/translation_import.csv', '/files/4.properties'])
+
+      downloader = described_class.new
+
+      expect(downloader.file_uris).to eql(['/files/translation_import.csv', '/files/4.properties'])
     end
   end
 
