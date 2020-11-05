@@ -8,7 +8,7 @@ module Translator
       new(attrs).call
     end
 
-    def initialize(file_uris: [])
+    def initialize(file_uris: nil)
       @file_uris = file_uris || file_paths
     end
 
