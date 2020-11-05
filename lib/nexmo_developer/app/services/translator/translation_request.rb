@@ -1,11 +1,11 @@
 module Translator
   class TranslationRequest
-    attr_reader :locale, :frequency, :path
+    attr_reader :locale, :frequency, :file_uri
 
-    def initialize(locale:, frequency:, path:)
+    def initialize(locale:, frequency:, file_uri:)
       @locale    = locale
       @frequency = frequency
-      @path      = path
+      @file_uri  = file_uri
     end
   end
 end

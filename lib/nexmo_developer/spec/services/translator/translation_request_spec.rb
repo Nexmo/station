@@ -5,7 +5,7 @@ RSpec.describe Translator::TranslationRequest do
     described_class.new(
       locale: 'ja-JP',
       frequency: 15,
-      path: 'messaging/sms/overview.md'
+      file_uri: 'messaging/sms/overview.md'
     )
   end
 
@@ -21,7 +21,7 @@ RSpec.describe Translator::TranslationRequest do
     expect(subject.frequency).to eql(15)
   end
 
-  it 'returns an instance with correct path attribute' do
-    expect(subject.path).to eql('messaging/sms/overview.md')
+  it 'returns an instance with correct file_uri attribute' do
+    expect(subject.file_uri).to eql('messaging/sms/overview.md')
   end
 end
