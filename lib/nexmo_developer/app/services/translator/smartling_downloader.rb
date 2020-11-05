@@ -9,7 +9,7 @@ module Translator
     end
 
     def initialize(file_uris: nil)
-      @file_uris = file_uris || file_paths
+      @file_uris = file_uris || file_uris_from_smartling
     end
 
     def call
