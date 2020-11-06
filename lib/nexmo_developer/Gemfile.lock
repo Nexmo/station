@@ -306,7 +306,7 @@ GEM
       sass (~> 3.1)
       shotgun (~> 0.9)
       sinatra (~> 2.0)
-    nexmo_markdown_renderer (0.4.6)
+    nexmo_markdown_renderer (0.5.0)
       activemodel (~> 6.0)
       banzai (~> 0.1.2)
       i18n (~> 1.7)
@@ -584,7 +584,7 @@ DEPENDENCIES
   neatjson
   newrelic_rpm
   nexmo-oas-renderer (~> 2.3.0)
-  nexmo_markdown_renderer (~> 0.4)
+  nexmo_markdown_renderer (~> 0.5)
   nokogiri (~> 1.10.9)
   octokit
   pg (~> 1.2)
