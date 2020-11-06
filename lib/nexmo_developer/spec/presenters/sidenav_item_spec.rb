@@ -50,7 +50,7 @@ RSpec.describe SidenavItem do
   end
 
   describe '#css_classes' do
-    it { expect(subject.css_classes).to eq('Nxd-sidenav-badge Vlt-badge Vlt-badge--margin-left Vlt-badge--small Vlt-bg-green-lighter Vlt-green') }
+    it { expect(subject.css_classes).to eq('Nxd-sidenav-badge Vlt-badge Vlt-badge--margin-left Vlt-badge--small Vlt-badge--transparent Vlt-badge--green') }
   end
 
   describe 'link_url' do
