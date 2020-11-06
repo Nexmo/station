@@ -12,6 +12,7 @@ require 'pry'
 require 'faker'
 require 'capybara/rails'
 require 'capybara/apparition'
+require 'webmock/rspec'
 
 Capybara.javascript_driver = :apparition
 

@@ -39,4 +39,27 @@ namespace :smartling do
     smartling.download_translated(filename: args[:file], locale: args[:locale], type: args[:type])
     puts 'Done!'
   end
+
+  desc 'Check for new translations by locale and download them'
+  task 'download': :environment do
+    puts 'Checking for completed translations and downloading them'
+
+    Translator::SmartlingDownloader.new.call
+
+    puts 'Done!'
+  end
+
+  desc 'Upload recently modified docs to Smartling for translation'
+  task :upload, %i[paths frequency] => [:environment] do |_, args|
+    # RAILS_ENV=production RAILS_LOG_TO_STDOUT=1 be nexmo-developer --docs=`pwd` --rake-smartling-upload  15 messages/test.md messages/external-accounts/overview.md
+    puts "Uploading files to Smartling with a translation frequency of #{args[:frequency]} days..."
+    puts args[:paths].join("\n")
+
+    Translator::TranslatorCoordinator.new(
+      paths: args[:paths],
+      frequency: args[:frequency]
+    ).create_smartling_jobs!
+
+    puts 'Done!'
+  end
 end

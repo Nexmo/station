@@ -3,6 +3,8 @@ require 'optparse'
 
 clear_cache = false
 rake_ci = false
+rake_smartling_download = false
+rake_smartling_upload = false
 
 options = {}
 docs_path = OptionParser.new do |opts|
@@ -26,6 +28,12 @@ docs_path = OptionParser.new do |opts|
   end
   opts.on("--rake-ci", "Runs ci tasks") do
     rake_ci = true
+  end
+  opts.on("--rake-smartling-download", "Runs Smartling download check") do
+    rake_smartling_download = true
+  end
+  opts.on("--rake-smartling-upload", "Runs Smartling upload process") do
+    rake_smartling_upload = true
   end
 end.parse!
 
@@ -89,6 +97,16 @@ if rake_ci
   Rails.application.load_tasks
   Rails::Command.invoke 'runner', ["Rake::Task['db:setup'].invoke"]
   Rails::Command.invoke 'runner', ["Rake::Task['ci:all'].invoke"]
+elsif rake_smartling_download
+  puts 'Running Smartling download check...'
+  Rails.application.load_tasks
+  Rails::Command.invoke 'runner', ["Rake::Task['smartling:download'].invoke"]
+elsif rake_smartling_upload
+  puts 'Running Smartling upload process...'
+  Rails.application.load_tasks
+
+  frequency, *paths = ARGV
+  Rails::Command.invoke 'runner', ["Rake::Task['smartling:upload'].invoke(#{paths}, #{frequency})"]
 else
   Rails::Command.invoke 'server'
 end
