@@ -34,6 +34,8 @@ module ApplicationHelper
   end
 
   def canonical_base
+    return "https://#{ENV['HEROKU_APP_NAME']}.herokuapp.com" if ENV['HEROKU_APP_NAME']
+
     canonical_base_from_config || request.base_url
   end
 
