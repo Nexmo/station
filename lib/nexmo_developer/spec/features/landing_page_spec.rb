@@ -211,8 +211,8 @@ RSpec.feature 'Landing page', ndp: true do
     within('.columns > .Vlt-grid') do
       within('.Vlt-col--M-1of2:nth-of-type(1)') do
         expect(page).to have_link('SDKs & Tools', href: '/tools')
-        expect(page).to have_content('The Nexmo libraries allow you to get up and running with')
-        expect(page).to have_content('Nexmo APIs quickly in your language of choice.')
+        expect(page).to have_content('The Vonage Server SDKs allow you to get up and running with')
+        expect(page).to have_content('Vonage APIs quickly in your language of choice.')
       end
 
       within('.Vlt-col--M-1of2:nth-of-type(2)') do
