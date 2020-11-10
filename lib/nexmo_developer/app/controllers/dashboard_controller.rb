@@ -197,7 +197,7 @@ class DashboardController < ApplicationController
 
       parts.insert(1, 'top-level') if parts.count < 3
 
-      parts = [parts[0], parts[1], parts[2..-1].join('/')] if parts.count > 3
+      parts = [parts[0], parts[1], parts[2..].join('/')] if parts.count > 3
       next if parts[0] == 'migrate'
 
       x = @complete_coverage
