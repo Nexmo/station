@@ -27,6 +27,18 @@ cd lib/nexmo_developer/ && bin/rails db:migrate
 ```
 </details>
 
+<details>
+<summary>
+What do I do if I encounter the ActionView::Template::Error: Webpacker can't find application.js error?
+</summary>
+    
+From the command line execute the following from within the `lib/nexmo_developer` folder in Station changing the paths for your local file paths to the API specification and documentation files:
+
+```bash
+rm -rf public/packs &&  DOCS_BASE_PATH=/path/to/docs RAILS_SERVE_STATIC_FILES=1 DISABLE_SSL=1 RAILS_LOG_TO_STDOUT=1 OAS_PATH=/path/to/oas/specs RAILS_ENV=production bundle exec rails assets:precompile --trace
+```
+</details>
+
 
 ## Contributing
 
