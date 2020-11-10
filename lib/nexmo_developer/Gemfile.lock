@@ -1,4 +1,23 @@
 GIT
+  remote: https://github.com/nexmo/nexmo-oas-renderer.git
+  revision: 9ea139aedc444285d34361eae8304a4cfb5ac079
+  branch: pass-env-to-renderer
+  specs:
+    nexmo-oas-renderer (2.4.0)
+      activemodel (~> 6.0)
+      activesupport (~> 6.0)
+      banzai (~> 0.1.2)
+      dotenv (~> 2.7)
+      neatjson (~> 0.8)
+      nexmo_markdown_renderer (~> 0.3)
+      oas_parser (~> 0.25.1)
+      octicons_helper (~> 8.2)
+      redcarpet (= 3.4.0)
+      sass (~> 3.1)
+      shotgun (~> 0.9)
+      sinatra (~> 2.0)
+
+GIT
   remote: https://github.com/oscardelben/rawler.git
   revision: f2909b135fce7d35167f98026ac481926c94423e
   specs:
