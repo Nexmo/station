@@ -91,7 +91,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency('rubocop', '~> 1.2.0')
   spec.add_development_dependency('rubocop-rails', '~> 2.6')
 
-  s.metadata = {
+  spec.metadata = {
     'homepage' => 'https://github.com/Nexmo/station',
     'source_code_uri' => 'https://github.com/Nexmo/station',
     'bug_tracker_uri' => 'https://github.com/Nexmo/station/issues'
