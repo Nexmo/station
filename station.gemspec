@@ -94,7 +94,7 @@ Gem::Specification.new do |spec|
   spec.metadata = {
     'homepage' => 'https://github.com/Nexmo/station',
     'source_code_uri' => 'https://github.com/Nexmo/station',
-    'bug_tracker_uri' => 'https://github.com/Nexmo/station/issues'
+    'bug_tracker_uri' => 'https://github.com/Nexmo/station/issues',
     'documentation_uri' => 'https://nexmo.github.io/station/'
   }
 end
