@@ -5,11 +5,11 @@ require_relative "lib/nexmo_developer/version"
 Gem::Specification.new do |spec|
   spec.name          = "station"
   spec.version       = NexmoDeveloper::VERSION
-  spec.authors       = ["Nexmo DevRel"]
-  spec.email         = ["devrel@nexmo.com"]
+  spec.authors       = ["Vonage DevRel"]
+  spec.email         = ["devrel@vonage.com"]
   spec.executables   << 'nexmo-developer'
 
-  spec.summary       = %q{Nexmo Developer Platform}
+  spec.summary       = %q{Station provides a documentation platform ready to use with your custom documentation.}
   spec.homepage      = "https://github.com/Nexmo/station"
   spec.license       = "MIT"
 
