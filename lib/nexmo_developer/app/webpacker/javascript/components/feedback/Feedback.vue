@@ -77,6 +77,7 @@ export default {
       Array.from(document.getElementsByClassName('Vlt-modal_visible'), function(modal) {
         modal.classList.remove('Vlt-modal_visible');
       })
+      document.body.classList.remove('Vlt-body--modal-open');
       return false;
     },
     parameters: function() {
