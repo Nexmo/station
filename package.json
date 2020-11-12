@@ -46,7 +46,7 @@
     "puppeteer": "^5.4.1",
     "rails-erb-loader": "^5.1.0",
     "resolve-url-loader": "^3.1.2",
-    "sass-loader": "^10.0.5",
+    "sass-loader": "^10.1.0",
     "serialize-javascript": "^5.0.1",
     "sha1-file": "^1.0.0",
     "style-loader": "^2.0.0",
