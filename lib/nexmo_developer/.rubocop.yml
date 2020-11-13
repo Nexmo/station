@@ -271,3 +271,6 @@ Rails/SquishedSQLHeredocs:
 
 Rails/WhereNot:
   Enabled: true
+
+Lint/DuplicateBranch:
+  Enabled: false
