@@ -19,11 +19,12 @@ COPY lib/nexmo_developer/Gemfile* package.json yarn.lock $RAILS_ROOT/
 RUN bundle config --global frozen 1 \
     && gem update --system \
     && gem install bundler
+
 RUN bundle install --without development:test:assets -j4 --retry 3 --path=vendor/bundle \
     # Remove unneeded files (cached *.gem, *.o, *.c)
-    && rm -rf vendor/bundle/ruby/2.5.0/cache/*.gem \
-    && find vendor/bundle/ruby/2.5.0/gems/ -name "*.c" -delete \
-    && find vendor/bundle/ruby/2.5.0/gems/ -name "*.o" -delete
+    && rm -rf vendor/bundle/ruby/2.7.0/cache/*.gem \
+    && find vendor/bundle/ruby/2.7.0/gems/ -name "*.c" -delete \
+    && find vendor/bundle/ruby/2.7.0/gems/ -name "*.o" -delete
 
 # Install node dependencies
 RUN yarn install --frozen-lockfile
