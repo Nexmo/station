@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/nexmo/nexmo-oas-renderer.git
-  revision: 9ea139aedc444285d34361eae8304a4cfb5ac079
-  branch: pass-env-to-renderer
+  revision: acea28aa7fafa07bb9ebe5a5bb2de70743ec1cf6
+  branch: master
   specs:
     nexmo-oas-renderer (2.4.0)
       activemodel (~> 6.0)
