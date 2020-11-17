@@ -43,7 +43,7 @@
     "postcss-smart-import": "^0.7.5",
     "precss": "^4.0.0",
     "prop-types": "^15.7.2",
-    "puppeteer": "^5.4.1",
+    "puppeteer": "^5.5.0",
     "rails-erb-loader": "^5.1.0",
     "resolve-url-loader": "^3.1.2",
     "sass-loader": "^10.1.0",
