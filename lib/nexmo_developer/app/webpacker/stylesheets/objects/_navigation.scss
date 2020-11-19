@@ -65,12 +65,11 @@
 
 #Vlt-sidenav-mobile-trigger {
   display: inline-block;
-  margin-top: $unit0;
-  margin-right: $unit2;
 
   svg {
     height: 24px;
     width: 24px;
+    fill: #131415;
   }
 
   @media #{$M-plus} {
