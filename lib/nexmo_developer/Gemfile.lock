@@ -295,7 +295,7 @@ GEM
     nenv (0.3.0)
     netrc (0.11.0)
     newrelic_rpm (6.13.1)
-    nexmo-oas-renderer (2.4.0)
+    nexmo-oas-renderer (2.4.1)
       activemodel (~> 6.0)
       activesupport (~> 6.0)
       banzai (~> 0.1.2)
@@ -589,7 +589,7 @@ DEPENDENCIES
   lograge
   neatjson
   newrelic_rpm
-  nexmo-oas-renderer (~> 2.4.0)
+  nexmo-oas-renderer (~> 2.4.1)
   nexmo_markdown_renderer (~> 0.5)
   nokogiri (~> 1.10.9)
   octokit
