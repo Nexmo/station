@@ -15,7 +15,7 @@
     "@rails/ujs": "^6.0.3-4",
     "@rails/webpacker": "^5.2.1",
     "@vonagevolta/volta2": "^0.0.56",
-    "algoliasearch": "^4.7.0",
+    "algoliasearch": "^4.8.0",
     "autoprefixer": "^9.8.6",
     "babel-loader": "^8.2.1",
     "babel-preset-babili": "^0.1.4",
