@@ -62,11 +62,11 @@ class TutorialListItem
   end
 
   def product_url
-    "/#{I18n.locale}/#{products.join('')}/tutorials"
+    "/#{I18n.locale}/#{products.join}/tutorials"
   end
 
   def url
-    external_link || "/#{I18n.locale}/#{products.join('')}/tutorials/#{filename}/#{first_step}"
+    external_link || "/#{I18n.locale}/#{products.join}/tutorials/#{filename}/#{first_step}"
   end
 
   def available_languages
@@ -74,7 +74,7 @@ class TutorialListItem
       OpenStruct.new(
         language: language,
         label: Nexmo::Markdown::CodeLanguage.find(language).label,
-        url: external_link || "/#{products.join('')}/tutorials/#{filename}/#{first_step}/#{language}"
+        url: external_link || "/#{products.join}/tutorials/#{filename}/#{first_step}/#{language}"
       )
     end
   end
