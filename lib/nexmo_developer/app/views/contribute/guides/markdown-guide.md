@@ -28,19 +28,19 @@ navigation_weight: 3
 
 The purpose of the metadata is to provide useful information in the following areas:
 
-* Algolia search results (that is when you search in NDP)
-* Google (and other external search engine) search results
-* Information for the navbar (also sometimes called the table of contents or TOC)
+-   Algolia search results (that is when you search in NDP)
+-   Google (and other external search engine) search results
+-   Information for the navbar (also sometimes called the table of contents or TOC)
 
 The meta data items that can be used are described in the following table:
 
-Metadata | HTML generated | Description
-----|----|----
-`title` | N/A | This is the title for the topic that will be displayed in the navbar. This main be different to that display at the top of the topic. It is displayed in the Algolia search results when you search NDP.
-`description` | N/A | This is the short description for the topic. It is displayed in the Algolia search results when you search NDP. It should indicate the nature of the content of the topic.
-`meta_title` | `<head><title>The title</title>...</head>` | Used for SEO in external search engine results. This should be more descriptive than the `title` to provide additional context in the absence of the navbar. [Further reading](https://moz.com/learn/seo/title-tag).
-`meta_description` | `<head><meta name="description" content="The description">...</head>` | Used in external search engine results. Provides SEO. Should be no more than 160 characters. [Further reading](https://moz.com/learn/seo/meta-description).
-`navigation_weight` | N/A | A hint to position the topic in the navbar where a particular position is preferred. The lower the number used the higher in the navbar the item will appear. Overrides information defined in `config/navigation.yml`. In most cases you only need to add a `navigation_weight` item if your topic is not automatically displayed in your preferred position in the navbar.
+| Metadata            | HTML generated                                                        | Description                                                                                                                                                                                                                                                                                                                                                                  |
+| ------------------- | --------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `title`             | N/A                                                                   | This is the title for the topic that will be displayed in the navbar. This main be different to that display at the top of the topic. It is displayed in the Algolia search results when you search NDP.                                                                                                                                                                     |
+| `description`       | N/A                                                                   | This is the short description for the topic. It is displayed in the Algolia search results when you search NDP. It should indicate the nature of the content of the topic.                                                                                                                                                                                                   |
+| `meta_title`        | `<head><title>The title</title>...</head>`                            | Used for SEO in external search engine results. This should be more descriptive than the `title` to provide additional context in the absence of the navbar. [Further reading](https://moz.com/learn/seo/title-tag).                                                                                                                                                         |
+| `meta_description`  | `<head><meta name="description" content="The description">...</head>` | Used in external search engine results. Provides SEO. Should be no more than 160 characters. [Further reading](https://moz.com/learn/seo/meta-description).                                                                                                                                                                                                                  |
+| `navigation_weight` | N/A                                                                   | A hint to position the topic in the navbar where a particular position is preferred. The lower the number used the higher in the navbar the item will appear. Overrides information defined in `config/navigation.yml`. In most cases you only need to add a `navigation_weight` item if your topic is not automatically displayed in your preferred position in the navbar. |
 
 ### Example
 
@@ -62,15 +62,15 @@ When using `title` bear in mind that while something like "Overview" may be fine
 
 Ideally task (step) or other active topics should include a gerund. For example:
 
-* Installing the Vonage Command Line Interface (CLI)
+-   Installing the Vonage Command Line Interface (CLI)
 
 Topics providing reference information would have a noun-based title, for example:
 
-* The Conversation object
+-   The Conversation object
 
 To provide greater context in external search results a corresponding `meta_title` might contain much more specific information, for example:
 
-* The Vonage Conversation API Conversation object
+-   The Vonage Conversation API Conversation object
 
 ### Writing an effective `description`
 
@@ -89,7 +89,9 @@ This appears in external search engine results. While navbar titles such as "Ove
 **Headings**
 
 # I am a H1
+
 ## I am a H2
+
 ### I am a H3
 
 > Custom extension: Headings have their own slugified ID's for deep linking. For example the `h1` has an ID of `i-am-a-h1`
@@ -100,7 +102,7 @@ Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia od
 
 **Inline styles**
 
-Text can be **bold**, *italic* or ***bold and italic***. You could use ~~strikethrough~~ but please don't.
+Text can be **bold**, _italic_ or **_bold and italic_**. You could use ~~strikethrough~~ but please don't.
 
 You can define inline `code block` with backticks.
 
@@ -152,13 +154,13 @@ Find out ^[more](Tooltips are useful for when you have more information to conve
 >
 > Indentations are 4 spaces.
 
-* Alpha
-* Bravo
-    * Charlie
-    * Delta
-        * Echo
-    * Foxtrot
-* Golf
+-   Alpha
+-   Bravo
+    -   Charlie
+    -   Delta
+        -   Echo
+    -   Foxtrot
+-   Golf
 
 **Ordered Lists**
 
@@ -171,7 +173,7 @@ Find out ^[more](Tooltips are useful for when you have more information to conve
     1. Three
     2. Four
         1. Five
-    1. Six
+    3. Six
 3. Seven
 
 ## Code
@@ -184,11 +186,11 @@ See our detailed [code examples guide](/contribute/guides/code-examples) for adv
 >
 > You'll have to view the `markdown-guide.md` source to see how since showing you the syntax would result in it being processed.
 
-Key | Description
--- | --
-`TO_NUMBER` | The number you are sending the SMS to
-`API_KEY` | You can find this in your [account overview](https://dashboard.nexmo.com/account-overview)
-`API_SECRET` | You can find this in your [account overview](https://dashboard.nexmo.com/account-overview)
+| Key          | Description                                                                                |
+| ------------ | ------------------------------------------------------------------------------------------ |
+| `TO_NUMBER`  | The number you are sending the SMS to                                                      |
+| `API_KEY`    | You can find this in your [account overview](https://dashboard.nexmo.com/account-overview) |
+| `API_SECRET` | You can find this in your [account overview](https://dashboard.nexmo.com/account-overview) |
 
 ## Tabbed Content (custom plugin)
 
@@ -229,10 +231,10 @@ Note that `tabbed` is set to `true` for tabbed folder content.
 
 Example files can be found in the folder `_documentation/en/client-sdk/setup/add-sdk-to-your-app`:
 
-* `.config.yml`
-* `android.md`
-* `ios.md`
-* `javascript.md`
+-   `.config.yml`
+-   `android.md`
+-   `ios.md`
+-   `javascript.md`
 
 The rendered output can be found [here](/client-sdk/setup/add-sdk-to-your-app/javascript).
 
@@ -288,21 +290,21 @@ Andrew->>China: I am good thanks!
 
 Inline [IETF language tag](https://en.wikipedia.org/wiki/IETF_language_tag) support, using both primary language tags and subtags, is provided using the following syntax.
 
-Language | Key | Text
--- | -- | --
-English | none | Hello World
-Spanish | `es` | [Hola Mundo](lang: 'es')
-French | `fr` | [Bonjour le monde](lang: 'fr')
-Brazilian Portuguese | `pt-BR` | [Olá Mundo](lang: 'pt-BR')
-Hebrew | `il` | [שלום עולם](lang: 'il')
+| Language             | Key     | Text                           |
+| -------------------- | ------- | ------------------------------ |
+| English              | none    | Hello World                    |
+| Spanish              | `es`    | [Hola Mundo](lang: "es")       |
+| French               | `fr`    | [Bonjour le monde](lang: "fr") |
+| Brazilian Portuguese | `pt-BR` | [Olá Mundo](lang: "pt-BR")     |
+| Hebrew               | `il`    | [שלום עולם](lang: "il")        |
 
 ## Anchors (custom plugin)
 
 Adding custom anchors and retaining support for old headings can be done as such:
 
-````
+```
 ⚓ This is the old heading
-````
+```
 
 This would produce the following HTML:
 
@@ -312,12 +314,12 @@ This would produce the following HTML:
 
 If you are adding support for a changed header this would normally go above the old heading as such:
 
-````
+```
 ⚓ Send with Short Message Service
 ⚓ Send with SMS
 
 # Sending an SMS
-````
+```
 
 ### Example
 
@@ -365,9 +367,9 @@ image: public/assets/screenshots/da5f952d465355c19eb888fa1049844b31e090c2.png
 
 The HTML `<audio>` element can be utilised in Markdown with the following syntax:
 
-````
+```
 🔈[https://developer.nexmo.com.s3.amazonaws.com/assets/ssml/06-phonemes.mp3]
-````
+```
 
 This produces the following output:
 
@@ -377,9 +379,9 @@ This produces the following output:
 
 You can use syntax such as:
 
-````
+```
 Welcome to [~dynamic_content_example~]
-````
+```
 
 This will render as:
 
@@ -405,7 +407,7 @@ Alternatively, you can specify the concepts to list manually if you need to show
 
 ````
 ```concept_list
-concepts: 
+concepts:
   - voice/voice-api/call-flow
   - messaging/sms/delivery-receipts
 ```
@@ -414,7 +416,27 @@ concepts:
 This produces the following output:
 
 ```concept_list
-concepts: 
+concepts:
   - voice/voice-api/call-flow
   - messaging/sms/delivery-receipts
+```
+
+## Snippet Variables (custom plugin)
+
+When writing a code snippet, you may need to define variables that the snippet will use and provide a description of each. The description will be shown in the selected language if a translation is available.
+
+The variables are defined in `config/code_snippet_variables.yml`
+
+````
+```snippet_variables
+- NEXMO_API_KEY
+- TO_NUMBER
+```
+````
+
+Produces the following output:
+
+```snippet_variables
+- NEXMO_API_KEY
+- TO_NUMBER
 ```
