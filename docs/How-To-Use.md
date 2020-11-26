@@ -49,7 +49,7 @@ The files required are:
 * `business_info.yml`: Specific business/organizational information for the platform. This includes the platform name, the path to the header and footer logos, and more.
 * `top_navigation.yml`: The links for the top navigation bar of the platform. 
 * `meta_info.yml`: Information used to generate the links in the platform's `<head>` tags, such as search engine optimization details.
-* `products.yml`: A list of each product or item covered in the platform's content. The icon, documentation path and color schema for each product is also specified here.
+* `products.yml`: A list of each product or item covered in the platform's content. The icon, documentation path, color schema and automated translation frequency for each product is also specified here.
 
 In addition to the above configuration files, Station also expects the following files to be created and placed inside the `/public/meta` path. These files are meta icons also used in the generation of the `<head>` content:
 
