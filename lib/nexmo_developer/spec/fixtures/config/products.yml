@@ -100,7 +100,7 @@ products:
     icon: 'hash'
     path: number-insight
     dropdown: true
-    translation_frequency: 15
+    translation_frequency: 14
   -
     name: 'Numbers'
     icon: 'hash'
@@ -130,7 +130,7 @@ products:
     icon: 'check-circle'
     path: verify
     dropdown: true
-    translation_frequency: 15
+    translation_frequency: 10
   -
     name: 'SIP'
     icon: 'phone'
