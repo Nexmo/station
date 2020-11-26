@@ -4,58 +4,68 @@ products:
     icon: 'phone'
     icon_colour: 'blue'
     path: 'call-recording'
+    translation_frequency: 8
     dropdown: true
   - 
     name: 'Node RED'
     icon: 'flow'
     icon_colour: 'red'
     path: 'node-red'
+    translation_frequency: 10    
     dropdown: true
   - 
     name: 'Provisioning'
     icon: 'phone'
     icon_colour: 'green'
     path: 'provisioning'
+    translation_frequency: 8
     dropdown: true
   - 
     name: 'Reports'
     icon: 'file-search'
     icon_colour: 'purple-dark'
     path: 'reports'
+    translation_frequency: 180
     dropdown: true
   - 
     name: 'Smart Numbers'
     icon: 'queue'
     icon_colour: 'yellow'
     path: 'smart-numbers'
+    translation_frequency: 180
     dropdown: true
   - 
     name: 'Telephony'
     icon: 'phone'
     icon_colour: 'black'
     path: 'telephony'
+    translation_frequency: 10
     dropdown: true
   - 
     name: 'Vonage Integration Platform'
     icon: 'chat'
     icon_colour: 'blue'
     path: 'vonage-integration-platform'
+    translation_frequency: 8
     dropdown: true
   - 
     name: 'Zapier'
     icon: 'lock'
     icon_colour: 'blue'
     path: 'zapier'
+    translation_frequency: 10
     dropdown: true
   - 
     name: 'Concepts'
     icon: 'message'
     icon_colour: 'green'
     path: 'concepts'
+    translation_frequency: 10
     dropdown: true
   - 
     name: 'App Center'
     icon: 'file-search'
     icon_colour: 'purple'
     path: 'app-center'
+    translation_frequency: 180
     dropdown: true
