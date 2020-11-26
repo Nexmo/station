@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Translator::TranslatorCoordinator do
-  let(:paths) { ['voice/voice-api/guides/numbers.md', 'messages/external-accounts/overview.md'] }
+  let(:paths) { ['_documentation/en/voice/voice-api/guides/numbers.md', '_documentation/en/messages/external-accounts/overview.md'] }
   let(:frequency) { 15 }
 
   subject { described_class.new(paths: paths, frequency: frequency) }

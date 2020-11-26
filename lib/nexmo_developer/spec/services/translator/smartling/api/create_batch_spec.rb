@@ -10,7 +10,8 @@ RSpec.describe Translator::Smartling::API::CreateBatch do
       Translator::TranslationRequest.new(
         locale: 'ja-JP',
         frequency: 15,
-        file_uri: 'messages/external-accounts/overview.md'
+        file_uri: 'messages/external-accounts/overview.md',
+        file_path: "#{Rails.configuration.docs_base_path}/en/messages/external-accounts/overview.md"
       ),
     ]
   end

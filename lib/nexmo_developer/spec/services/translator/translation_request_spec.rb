@@ -5,7 +5,8 @@ RSpec.describe Translator::TranslationRequest do
     described_class.new(
       locale: 'ja-JP',
       frequency: 15,
-      file_uri: 'messaging/sms/overview.md'
+      file_uri: 'messaging/sms/overview.md',
+      file_path: "#{Rails.configuration.docs_base_path}/en/messaging/sms/overview.md"
     )
   end
 

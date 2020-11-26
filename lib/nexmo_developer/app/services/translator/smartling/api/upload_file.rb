@@ -53,8 +53,10 @@ module Translator
         def file
           @file ||= begin
             file = Tempfile.new
-            file.write Nexmo::Markdown::Pipelines::Smartling::Preprocessor.new.call(
-              File.read("#{Rails.configuration.docs_base_path}/_documentation/#{I18n.default_locale}/#{@translation_request.file_uri}")
+            file.write(
+              Nexmo::Markdown::Pipelines::Smartling::Preprocessor.new.call(
+                File.read(@translation_request.file_path)
+              )
             )
             file.rewind
             file.close

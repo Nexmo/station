@@ -9,7 +9,8 @@ RSpec.describe Translator::Smartling::API::UploadFile do
     Translator::TranslationRequest.new(
       locale: 'ja-JP',
       frequency: 15,
-      file_uri: 'messages/external-accounts/overview.md'
+      file_uri: 'messages/external-accounts/overview.md',
+      file_path: "#{Rails.configuration.docs_base_path}/_documentation/en/messages/external-accounts/overview.md"
     )
   end
 
@@ -74,6 +75,26 @@ RSpec.describe Translator::Smartling::API::UploadFile do
         expect(Bugsnag).to receive(:notify).with('Translator::Smartling::API::UploadFile 500: Unexpected server error')
         expect(subject.call).to be_nil
       end
+    end
+  end
+
+  describe '#file' do
+    let(:tempfile) { double(Tempfile) }
+
+    it 'returns a temp file with the processed content of the original file' do
+      expect(Tempfile).to receive(:new).and_return(tempfile)
+      allow(File).to receive(:read).and_call_original
+      expect(File).to receive(:read)
+        .with("#{Rails.configuration.docs_base_path}/_documentation/en/messages/external-accounts/overview.md")
+        .and_return('file content')
+      expect(Nexmo::Markdown::Pipelines::Smartling::Preprocessor)
+        .to receive_message_chain(:new, :call)
+        .with('file content')
+      expect(tempfile).to receive(:write)
+      expect(tempfile).to receive(:rewind)
+      expect(tempfile).to receive(:close)
+
+      subject.file
     end
   end
 end
