@@ -1766,12 +1766,12 @@
   dependencies:
     "@types/node" "*"
 
-"@vonagevolta/volta2@^0.1.2":
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/@vonagevolta/volta2/-/volta2-0.1.2.tgz#dabfde87c62aac1545b7fea9a175da57340cf89f"
-  integrity sha512-iRoyHgU4fUfIDP/Sjockni4LSRbKpSNhvNYZVU8XDaj0Cb0NIPYCQoqEEGo+WaHxhEFRRWv2dIOSJ9BvVH+dMA==
+"@vonagevolta/volta2@^0.1.4":
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/@vonagevolta/volta2/-/volta2-0.1.4.tgz#00a0360e61fe8faf6016906851d3d2441bf976e7"
+  integrity sha512-BYBsebS5NK9gAP4DdXg5hJYs/wLTk3wTiDZPJFLrEhTuGz46pWrkf8IbeBFJMqgTdW4ZMpeXtio9mme8mAPNJQ==
   dependencies:
-    marked "^0.7.0"
+    marked "^1.1.0"
     marked-sanitizer-github "^1.0.0"
     prismjs "^1.15.0"
     tooltip.js "^1.2.0"
@@ -8207,7 +8207,7 @@ marked-sanitizer-github@^1.0.0:
     html-void-elements "^1.0.5"
     htmlparser2 "^4.1.0"
 
-marked@^0.3.5, marked@^0.7.0:
+marked@^0.3.5, marked@^0.7.0, marked@^1.1.0:
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/marked/-/marked-0.7.0.tgz#b64201f051d271b1edc10a04d1ae9b74bb8e5c0e"
   integrity sha512-c+yYdCZJQrsRjTPhUx7VKkApw9bwDkNbHUKo1ovgcfDjb2kc8rLuRbIFyXL5WOEUwzSSKo3IXpph2K6DqB/KZg==
