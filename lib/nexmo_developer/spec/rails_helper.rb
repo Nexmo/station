@@ -40,6 +40,7 @@ RSpec.configure do |config|
 
   config.include Rails.application.routes.url_helpers, type: :request
 
+  config.before { I18n.locale = :en }
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
