@@ -119,7 +119,6 @@ jobs:
         OAS_PATH: ${{ github.workspace }}/ndp/_open_api/api_specs/definitions
         FORCE_COLOR: true
       run: |
-        bundle exec rspec --tag ndp
         bundle exec rake ci:verify_pages
         bundle exec rake ci:verify_navigation
         bundle exec rake ci:verify_oas_reference
