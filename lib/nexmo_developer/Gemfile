@@ -20,11 +20,6 @@ gem 'coffee-rails', '~> 5.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-# Use jquery as the JavaScript library
-gem 'jquery-rails'
-# Add clipboard for copying content
-gem 'clipboard-rails'
-
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.10.1'
 # Use Redis adapter to run Action Cable in production
@@ -33,9 +28,6 @@ gem 'jbuilder', '~> 2.10.1'
 # gem 'bcrypt', '~> 3.1.7'
 # Add Geocoder to get latitude and longitude for geographic places
 gem 'geocoder'
-
-# Add gmap4rails to integrate the Google Maps API
-gem 'gmaps4rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -90,9 +82,6 @@ gem 'octokit', require: false
 
 # Cross-language UserAgent classifier library, ruby implementation
 gem 'woothee'
-
-# Create beautiful JavaScript charts with one line of Ruby
-gem 'chartkick', '3.4.2'
 
 # The simplest way to group temporal data
 gem 'groupdate', '5.2.1'
