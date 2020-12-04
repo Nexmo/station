@@ -82,6 +82,11 @@
     <% end %>
   <% end %>
 
+  <% if local_assigns[:oas_page] %>
+    <%= javascript_packs_with_chunks_tag 'gems', defer: true %>
+    <%= stylesheet_pack_tag 'gems' %>
+  <% end %>
+  
   <% if ENV['ENVIRONMENT_SCRIPTS'] %>
     <%= ENV['ENVIRONMENT_SCRIPTS'].html_safe %>
   <% end %>

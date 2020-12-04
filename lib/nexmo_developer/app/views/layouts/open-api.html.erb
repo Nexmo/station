@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%= render partial: 'layouts/partials/head' %>
+  <%= render partial: 'layouts/partials/head', locals: { oas_page: true } %>
 
   <body class="oas-page" data-push-state-root="<%= canonical_path %>">
     <%= render partial: 'layouts/partials/header' %>
