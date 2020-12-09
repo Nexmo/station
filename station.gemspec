@@ -40,7 +40,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency('rails', '~> 6.0')
   spec.add_runtime_dependency('bootsnap', '~> 1.4')
   spec.add_runtime_dependency('nexmo-oas-renderer', '~> 2.4')
-  spec.add_runtime_dependency('nexmo_markdown_renderer', '~> 0.7')
+  spec.add_runtime_dependency('nexmo_markdown_renderer', '~> 0.7.2')
   spec.add_runtime_dependency('activesupport', '~> 6.0')
   spec.add_runtime_dependency('bugsnag', '~> 6.13')
   spec.add_runtime_dependency('railties', '~> 6.0')
@@ -88,7 +88,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency('newrelic_rpm', '6.14.0')
   spec.add_runtime_dependency('redis', '4.2.5')
 
-  spec.add_development_dependency('rubocop', '~> 1.4.1')
+  spec.add_development_dependency('rubocop', '~> 1.5.0')
   spec.add_development_dependency('rubocop-rails', '~> 2.6')
 
   spec.metadata = {
