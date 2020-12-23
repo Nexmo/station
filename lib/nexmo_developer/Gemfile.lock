@@ -306,7 +306,7 @@ GEM
       sass (~> 3.1)
       shotgun (~> 0.9)
       sinatra (~> 2.0)
-    nexmo_markdown_renderer (0.7.3)
+    nexmo_markdown_renderer (0.7.4)
       activemodel (~> 6.0)
       banzai (~> 0.1.2)
       i18n (~> 1.7)
@@ -382,7 +382,7 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.20.3, < 2.0)
     rainbow (3.0.0)
-    rake (13.0.1)
+    rake (13.0.3)
     ransack (2.4.0)
       activerecord (>= 5.2.4)
       activesupport (>= 5.2.4)
@@ -510,7 +510,7 @@ GEM
     truncato (0.7.11)
       htmlentities (~> 4.3.1)
       nokogiri (>= 1.7.0, <= 2.0)
-    tzinfo (1.2.8)
+    tzinfo (1.2.9)
       thread_safe (~> 0.1)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
@@ -587,7 +587,7 @@ DEPENDENCIES
   neatjson
   newrelic_rpm
   nexmo-oas-renderer (~> 2.4.1)
-  nexmo_markdown_renderer (~> 0.7.3)
+  nexmo_markdown_renderer (~> 0.7.4)
   nokogiri (~> 1.10.9)
   octokit
   pg (~> 1.2)
