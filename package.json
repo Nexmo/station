@@ -55,7 +55,7 @@
     "vue-template-compiler": "^2.6.12",
     "webpack": "^4.44.2",
     "webpack-manifest-plugin": "^3.0.0",
-    "webpack-merge": "^5.7.2",
+    "webpack-merge": "^5.7.3",
     "webpacker": "^4",
     "websocket-extensions": "^0.1.4",
     "whatwg-fetch": "^3.5.0"
