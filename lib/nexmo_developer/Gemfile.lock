@@ -176,7 +176,6 @@ GEM
       faraday-net_http (~> 1.0)
       multipart-post (>= 1.2, < 3)
       ruby2_keywords
-    faraday-net_http (1.0.0)
     ffi (1.14.2)
     formatador (0.2.5)
     formtastic (3.1.5)
@@ -339,7 +338,11 @@ GEM
     octokit (4.20.0)
       faraday (>= 0.9)
       sawyer (~> 0.8.0, >= 0.5.3)
+<<<<<<< HEAD
     oj (3.10.18)
+=======
+    oj (3.10.17)
+>>>>>>> 83f1853a5... gemfile.lock
     orm_adapter (0.5.0)
     parallel (1.20.1)
     parser (3.0.0.0)
