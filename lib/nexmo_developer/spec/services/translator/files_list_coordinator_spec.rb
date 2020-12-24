@@ -27,7 +27,7 @@ RSpec.describe Translator::FilesListCoordinator do
     context 'with a product not in the allowed products list' do
       before { allow(subject).to receive(:use_case_product) { 'martian/radar' } }
 
-      it 'returns an empty string' do  
+      it 'returns an empty string' do
         expect(subject.process_use_case_file('_use_cases/en/not-a-ga-product/guides/not-here.md')).to eql('')
       end
     end

@@ -20,7 +20,7 @@ module Translator
     end
 
     def files
-      @files ||= %x[git log --since="#{@days}".days --name-only --oneline --diff-filter=AMR --pretty=format: master _documentation/en _tutorials/en _use_cases/en | uniq | awk 'NF'].split("/n")
+      @files ||= `git log --since="#{@days}".days --name-only --oneline --diff-filter=AMR --pretty=format: master _documentation/en _tutorials/en _use_cases/en | uniq | awk 'NF'`.split('/n')
     end
 
     def process_files(files)
@@ -42,7 +42,7 @@ module Translator
         return file if file.include?(product)
       end
 
-      return ''
+      ''
     end
 
     def process_use_case_file(file)
@@ -50,7 +50,7 @@ module Translator
         return file if use_case_product(file).include?(product)
       end
 
-      return ''
+      ''
     end
 
     def use_case_product(file)
@@ -59,8 +59,7 @@ module Translator
       raise ArgumentError, "Missing 'products' key in use case document: #{file}" unless @use_case_product
     end
 
-    def process_tutorial_file(file)
-    end
+    def process_tutorial_file(file); end
 
     def allowed_products
       @allowed_products ||= [
@@ -72,7 +71,7 @@ module Translator
         'sms',
         'tools',
         'verify',
-        'voice'
+        'voice',
       ].freeze
     end
 
@@ -81,7 +80,7 @@ module Translator
 
       list = TutorialList.all
 
-      list = list.reject { |l| allowed_products.each do |product| l.products.include?(product) end }
+      list = list.reject { |l| allowed_products.each { |product| l.products.include?(product) } }
     end
   end
 end
