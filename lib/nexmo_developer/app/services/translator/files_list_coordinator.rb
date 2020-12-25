@@ -24,17 +24,19 @@ module Translator
     end
 
     def process_files(files)
-      files.each do |f|
+      files.map.with_index do |f, i|
         if f.include?('_documentation')
-          process_doc_file(f)
+          files.delete_at(i) if process_doc_file(f) == ''
         elsif f.include?('_use_cases')
-          process_use_case_file(f)
+          files.delete_at(i) if process_use_case_file(f) == ''
         elsif f.include?('_tutorials')
-          process_tutorial_file(f)
+          iles.delete_at(i) if process_tutorial_file(f) == ''
         else
           raise ArgumentError, "The following file did not match documentation, use cases or tutorials: #{f}"
         end
       end
+
+      files
     end
 
     def process_doc_file(file)
@@ -54,9 +56,11 @@ module Translator
     end
 
     def use_case_product(file)
-      @use_case_product ||= YAML.safe_load("#{Rails.configuration.docs_base_path}/#{file}")['products']
+      @use_case_product = YAML.safe_load(File.read("#{Rails.configuration.docs_base_path}/#{file}"))['products']
 
       raise ArgumentError, "Missing 'products' key in use case document: #{file}" unless @use_case_product
+
+      @use_case_product
     end
 
     def process_tutorial_file(file)

@@ -23,6 +23,12 @@ RSpec.describe Translator::FilesListCoordinator do
     end
   end
 
+  describe '#process_files' do
+    it 'returns only files with allowed products' do
+      expect(subject.process_files(['_documentation/en/messaging/tiktok/overview.md', '_use_cases/en/dummy.md', '_documentation/en/vonage-business-cloud/vbc-apis/user-api/overview.md'])).to eql(['_use_cases/en/dummy.md'])
+    end
+  end
+
   describe '#process_doc_file' do
     it 'returns the file when its in the allowed products list' do
       expect(subject.process_doc_file('_documentation/en/voice/voice-api/guides/websockets.md')).to eql('_documentation/en/voice/voice-api/guides/websockets.md')
