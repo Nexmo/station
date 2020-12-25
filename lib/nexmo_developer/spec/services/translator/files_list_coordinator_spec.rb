@@ -27,6 +27,10 @@ RSpec.describe Translator::FilesListCoordinator do
     it 'returns only files with allowed products' do
       expect(subject.process_files(['_documentation/en/messaging/tiktok/overview.md', '_use_cases/en/dummy.md', '_documentation/en/vonage-business-cloud/vbc-apis/user-api/overview.md'])).to eql(['_use_cases/en/dummy.md'])
     end
+
+    it 'raises an exception if the file is not from within a recognized documentation folder' do
+      expect { subject.process_files(['_not_a_folder/klingon/war_ship/specs.md']) }.to raise_error(ArgumentError, 'The following file did not match documentation, use cases or tutorials: _not_a_folder/klingon/war_ship/specs.md')
+    end
   end
 
   describe '#process_doc_file' do
