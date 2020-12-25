@@ -5,6 +5,24 @@ RSpec.describe Translator::FilesListCoordinator do
 
   subject { described_class.new(days: days) }
 
+  describe '#files' do
+    context 'when there are changed files within the days given' do
+      before { allow(subject).to receive(:files) { ['lib/nexmo_developer/spec/fixtures/_documentation/en/messaging/tiktok/overview.md', 'lib/nexmo_developer/spec/fixtures/_use_cases/en/dummy.md'] } }
+
+      it 'returns an array of those files' do
+        expect(subject.files).to eql(['lib/nexmo_developer/spec/fixtures/_documentation/en/messaging/tiktok/overview.md', 'lib/nexmo_developer/spec/fixtures/_use_cases/en/dummy.md'])
+      end
+    end
+
+    context 'when there are no changed files within the days given' do
+      before { allow(subject).to receive(:files) { [] } }
+
+      it 'returns an empty array' do
+        expect(subject.files).to eql([])
+      end
+    end
+  end
+
   describe '#process_doc_file' do
     it 'returns the file when its in the allowed products list' do
       expect(subject.process_doc_file('_documentation/en/voice/voice-api/guides/websockets.md')).to eql('_documentation/en/voice/voice-api/guides/websockets.md')

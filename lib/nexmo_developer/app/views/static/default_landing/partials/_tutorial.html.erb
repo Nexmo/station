@@ -2,7 +2,7 @@
 
 <%
   path = Nexmo::Markdown::DocFinder.find(
-    root: Tutorial.tutorials_path,
+    root: Nexmo::Markdown::Tutorial.tutorials_path,
     document: "#{local_assigns['name']}.yml",
     language: @language,
   ).path

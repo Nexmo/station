@@ -8,7 +8,7 @@ RSpec.describe 'rendering _tutorial landing page partial' do
   context 'with a valid file' do
     before do
       expect(Nexmo::Markdown::DocFinder).to receive(:find).with(
-        root: Tutorial.tutorials_path,
+        root: Nexmo::Markdown::Tutorial.tutorials_path,
         document: 'this-is-a-sample.yml',
         language: I18n.default_locale
       ).and_return(Nexmo::Markdown::DocFinder::Doc.new(path: 'config/tutorials/en/this-is-a-sample.yml', available_languages: ['en']))

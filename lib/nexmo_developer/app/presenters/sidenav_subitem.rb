@@ -21,7 +21,7 @@ class SidenavSubitem < SidenavItem
   end
 
   def build_url
-    if @folder[:root] == Tutorial.tutorials_path
+    if @folder[:root] == Nexmo::Markdown::Tutorial.tutorials_path
       url_for(
         tutorial_name: Navigation.new(@folder).path_to_url,
         controller: :tutorial,

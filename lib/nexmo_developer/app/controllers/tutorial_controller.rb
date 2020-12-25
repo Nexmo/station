@@ -74,7 +74,7 @@ class TutorialController < ApplicationController
   def set_tutorial
     @tutorial_name = params[:tutorial_name]
     render_not_found unless @tutorial_name
-    @tutorial = Tutorial.load(
+    @tutorial = Nexmo::Markdown::Tutorial.load(
       @tutorial_name,
       @tutorial_step,
       params[:product],
