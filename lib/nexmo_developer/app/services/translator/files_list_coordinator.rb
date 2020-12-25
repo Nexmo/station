@@ -59,7 +59,11 @@ module Translator
       raise ArgumentError, "Missing 'products' key in use case document: #{file}" unless @use_case_product
     end
 
-    def process_tutorial_file(file); end
+    def process_tutorial_file(file)
+      allowed_tutorial_files.each do |tutorial|
+        return file if file.include?(tutorial)
+      end
+    end
 
     def allowed_products
       @allowed_products ||= [
@@ -77,10 +81,21 @@ module Translator
 
     def allowed_tutorial_files
       file_names = []
+      tutorials_list = []
 
-      list = TutorialList.all
+      TutorialList.all.each do |item|
+        allowed_products.each do |product|
+          tutorials_list << item if item.products.to_s.include?(product)
+        end
+      end
 
-      list = list.reject { |l| allowed_products.each { |product| l.products.include?(product) } }
+      tutorials_list.each do |item|
+        item.tutorial.prerequisites&.each do |prereq|
+          file_names << prereq.name
+        end
+      end
+
+      file_names.uniq
     end
   end
 end
