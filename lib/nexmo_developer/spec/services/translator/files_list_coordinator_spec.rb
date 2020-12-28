@@ -75,6 +75,19 @@ RSpec.describe Translator::FilesListCoordinator do
       end
     end
 
+    context 'with a tutorial and a prerequisite file in the allowed products list' do
+      before { allow(subject).to receive(:files).and_return(['_tutorials/en/voice/make-outbound-call.md', '_tutorials/en/run-ngrok.md']) }
+      before { allow(TutorialList).to receive(:all).and_return([TutorialListItem.new("#{Rails.configuration.docs_base_path}/config/tutorials/en/voice-sample.yml")]) }
+
+      it 'returns both the tutorial and its prerequisite' do
+        file_list = []
+        file_list << subject.process_tutorial_file('_tutorials/en/voice/make-outbound-call.md')
+        file_list << subject.process_tutorial_file('_tutorials/en/run-ngrok.md')
+
+        expect(file_list).to eql(['_tutorials/en/voice/make-outbound-call.md', '_tutorials/en/run-ngrok.md'])
+      end
+    end
+
     context 'with a tutorial not in the allowed products list' do
       before { allow(subject).to receive(:files).and_return(['_tutorials/en/vulcan/first-contact.md']) }
       before { allow(TutorialList).to receive(:all).and_return([TutorialListItem.new("#{Rails.configuration.docs_base_path}/config/tutorials/en/voice-sample.yml")]) }
