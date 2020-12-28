@@ -53,9 +53,9 @@ namespace :smartling do
   task :check_docs_changes, %i[days] => [:environment] do |_, args|
     puts "Creating list of changed docs files within #{args[:days]} days..."
 
-    files = Translator::FilesListCoordinator.new(days: args[:days]).call
+    Translator::FilesListCoordinator.new(days: args[:days]).call
 
-    puts files
+    puts 'File List Generated'
   end
 
   desc 'Upload recently modified docs to Smartling for translation'
