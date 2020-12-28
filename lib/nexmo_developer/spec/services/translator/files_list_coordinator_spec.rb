@@ -67,14 +67,20 @@ RSpec.describe Translator::FilesListCoordinator do
 
   describe '#process_tutorial_file' do
     context 'with a tutorial in the allowed products list' do
+      before { allow(subject).to receive(:files).and_return(['_tutorials/en/voice/make-outbound-call.md']) }
+      before { allow(TutorialList).to receive(:all).and_return([TutorialListItem.new("#{Rails.configuration.docs_base_path}/config/tutorials/en/voice-sample.yml")]) }
+
       it 'returns a tutorial file from an allowed product' do
-        true
+        expect(subject.process_tutorial_file('_tutorials/en/voice/make-outbound-call.md')).to eql('_tutorials/en/voice/make-outbound-call.md')
       end
     end
 
     context 'with a tutorial not in the allowed products list' do
+      before { allow(subject).to receive(:files).and_return(['_tutorials/en/vulcan/first-contact.md']) }
+      before { allow(TutorialList).to receive(:all).and_return([TutorialListItem.new("#{Rails.configuration.docs_base_path}/config/tutorials/en/voice-sample.yml")]) }
+
       it 'returns an empty string' do
-        true
+        expect(subject.process_tutorial_file('_tutorials/en/vulcan/first-contact.md')).to eql('')
       end
     end
   end
