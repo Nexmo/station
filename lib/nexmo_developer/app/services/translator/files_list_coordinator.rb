@@ -9,13 +9,6 @@ module Translator
     end
 
     def call
-      # create list of files since days through git log
-      # filter list for only allowed GA products
-      # -> documentation by folder path
-      # -> use_cases through product key in document frontmatter
-      # -> tutorials through reading the tutorial config
-      files
-
       process_files(files)
     end
 
@@ -24,24 +17,26 @@ module Translator
     end
 
     def process_files(files)
-      files.map.with_index do |f, i|
-        if f.include?('_documentation')
-          files.delete_at(i) if process_doc_file(f) == ''
-        elsif f.include?('_use_cases')
-          files.delete_at(i) if process_use_case_file(f) == ''
-        elsif f.include?('_tutorials')
-          iles.delete_at(i) if process_tutorial_file(f) == ''
+      list = []
+
+      files.each do |file|
+        if file.include?('_documentation')
+          list << file unless process_doc_file(file) == ''
+        elsif file.include?('_use_cases')
+          list << file unless process_use_case_file(file) == ''
+        elsif file.include?('_tutorials')
+          list << file unless process_tutorial_file(file) == ''
         else
-          raise ArgumentError, "The following file did not match documentation, use cases or tutorials: #{f}"
+          raise ArgumentError, "The following file did not match documentation, use cases or tutorials: #{file}"
         end
       end
 
-      files
+      list
     end
 
     def process_doc_file(file)
       allowed_products.each do |product|
-        return file if file.include?(product)
+        return file if file.split('/')[2] == product
       end
 
       ''
@@ -65,8 +60,10 @@ module Translator
 
     def process_tutorial_file(file)
       allowed_tutorial_files.each do |tutorial|
-        return file if file.include?(tutorial)
+        return file if file == tutorial
       end
+
+      ''
     end
 
     def allowed_products
@@ -95,7 +92,8 @@ module Translator
 
       tutorials_list.each do |item|
         item.tutorial.prerequisites&.each do |prereq|
-          file_names << prereq.name
+          file_name = "#{prereq.load_file!.root.split('/').last}/en/#{prereq.name}.md"
+          file_names << file_name
         end
       end
 
