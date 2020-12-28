@@ -95,6 +95,11 @@ module Translator
           file_name = "#{prereq.load_file!.root.split('/').last}/en/#{prereq.name}.md"
           file_names << file_name
         end
+
+        item.tutorial.yaml['tasks']&.each do |task|
+          file_name = "_tutorials/en/#{task}"
+          file_names << file_name
+        end
       end
 
       file_names.uniq
