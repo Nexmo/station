@@ -97,7 +97,7 @@ module Translator
         end
 
         item.tutorial.yaml['tasks']&.each do |task|
-          file_name = "_tutorials/en/#{task}"
+          file_name = "_tutorials/en/#{task}.md"
           file_names << file_name
         end
       end
