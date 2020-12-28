@@ -102,6 +102,13 @@ Rails.application.routes.draw do
 
   get '/ed', to: 'static#blog_cookie'
 
+  if LoadConfig.exist?('config/engines.yml')
+    engines = LoadConfig.load_file('config/engines.yml')
+    engines.each do |path, klass|
+      mount klass.constantize, at: path
+    end
+  end
+
   get '*unmatched_route', to: 'application#not_found'
 
   root 'static#landing'

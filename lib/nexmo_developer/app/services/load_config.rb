@@ -11,4 +11,8 @@ class LoadConfig
       YAML.load_file("#{Rails.root}/#{file_path}")
     end
   end
+
+  def self.exist?(file_path)
+    File.exist?("#{docs_base_path}/#{file_path}") || File.exist?("#{Rails.root}/#{file_path}")
+  end
 end
