@@ -13,7 +13,7 @@ module Translator
     end
 
     def files
-      @files ||= `(git fetch origin master:master) && (git log --since="#{@days}".days --name-only --oneline --diff-filter=AMR --pretty=format: master #{Rails.configuration.docs_base_path}/_documentation/en #{Rails.configuration.docs_base_path}/_tutorials/en #{Rails.configuration.docs_base_path}/_use_cases/en) | uniq | awk 'NF'`.split("\n")
+      @files ||= `(git fetch origin master:master) && (git log --since="#{@days}".days --name-only --oneline --diff-filter=ACM --pretty=format: master #{Rails.configuration.docs_base_path}/_documentation/en #{Rails.configuration.docs_base_path}/_tutorials/en #{Rails.configuration.docs_base_path}/_use_cases/en) | uniq | awk 'NF'`.split("\n")
     end
 
     def process_files(files)
