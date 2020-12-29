@@ -56,6 +56,7 @@ namespace :smartling do
     files = Translator::FilesListCoordinator.new(days: args[:days]).call
 
     puts 'File List Generated'
+    puts files
 
     files
   end
