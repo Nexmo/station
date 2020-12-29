@@ -57,9 +57,7 @@ namespace :smartling do
 
     puts 'File List Generated'
 
-    return '' if files.empty?
-
-    files
+    files.empty? ? '' : files
   end
 
   desc 'Upload recently modified docs to Smartling for translation'
