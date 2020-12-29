@@ -31,14 +31,12 @@ module Translator
         end
       end
 
-      list = list.each.with_index do |file, index|
-        list.delete_at(index) unless File.exist?("#{Rails.configuration.docs_base_path}/#{file}")
-      end
-
       list
     end
 
     def process_doc_file(file)
+      return '' unless File.exist?("#{Rails.configuration.docs_base_path}/#{file}")
+
       allowed_products.each do |product|
         return file if file.split('/')[2] == product
       end
@@ -47,6 +45,8 @@ module Translator
     end
 
     def process_use_case_file(file)
+      return '' unless File.exist?("#{Rails.configuration.docs_base_path}/#{file}")
+
       allowed_products.each do |product|
         return file if use_case_product(file).include?(product)
       end
@@ -55,12 +55,14 @@ module Translator
     end
 
     def use_case_product(file)
-      @use_case_product = YAML.safe_load(File.read("#{Rails.configuration.docs_base_path}/#{file}"))['products'] || ''
+      @use_case_product = YAML.safe_load(File.read("#{Rails.configuration.docs_base_path}/#{file}"))['products']
 
       @use_case_product
     end
 
     def process_tutorial_file(file)
+      return '' unless File.exist?("#{Rails.configuration.docs_base_path}/#{file}")
+
       allowed_tutorial_files.each do |tutorial|
         return file if file == tutorial
       end
