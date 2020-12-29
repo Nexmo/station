@@ -31,7 +31,7 @@ module Translator
         end
       end
 
-      list
+      list.uniq
     end
 
     def process_doc_file(file)
