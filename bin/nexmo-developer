@@ -77,8 +77,6 @@ elsif rake_smartling_upload
   frequency, *paths = ARGV
   Rails::Command.invoke 'runner', ["Rake::Task['smartling:upload'].invoke(#{paths}, #{frequency})"]
 elsif rake_check_docs_changes
-  puts 'Running Check for docs changes on disk...'
-
   days = ARGV
   Rails::Command.invoke 'runner', ["Rake::Task['smartling:check_docs_changes'].invoke(#{days})"]
 else
