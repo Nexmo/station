@@ -55,9 +55,9 @@ module Translator
     end
 
     def use_case_product(file)
-      @use_case_product = YAML.safe_load(File.read("#{Rails.configuration.docs_base_path}/#{file}"))['products']
+      @use_case_product = YAML.safe_load(File.read("#{Rails.configuration.docs_base_path}/#{file}"))['products'] || ''
 
-      raise ArgumentError, "Missing 'products' key in use case document: #{file}" unless @use_case_product
+      raise ArgumentError, "Missing 'products' key in use case document: #{file}" unless @use_case_product == ''
 
       @use_case_product
     end
