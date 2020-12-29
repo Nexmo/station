@@ -31,6 +31,10 @@ module Translator
         end
       end
 
+      list = list.each.with_index do |file, index|
+        list.delete_at(index) unless File.exist?("#{Rails.configuration.docs_base_path}/#{file}")
+      end
+
       list
     end
 
