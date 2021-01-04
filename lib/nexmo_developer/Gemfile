@@ -44,7 +44,7 @@ gem 'gmaps4rails'
 # gem 'capistrano-rails', group: :development
 
 # Nokogiri (鋸) is an HTML, XML, SAX, and Reader parser. Among Nokogiri's many features is the ability to search documents via XPath or CSS3 selectors.
-gem 'nokogiri', '~> 1.10.9'
+gem 'nokogiri', '~> 1.11.0'
 
 # Autoload dotenv in Rails.
 gem 'dotenv-rails', groups: %i[development test]
@@ -110,7 +110,7 @@ gem 'bootsnap', require: false
 gem 'diffy', require: false
 
 # Automatic Ruby code style checking tool. Aims to enforce the community-driven Ruby Style Guide.
-gem 'rubocop', '~> 1.6.1', require: false
+gem 'rubocop', '~> 1.7.0', require: false
 gem 'rubocop-rails', '~> 2.9', require: false
 
 # Volta needs a CSS autoprefixer
@@ -165,7 +165,7 @@ end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'listen', '~> 3.3'
+  gem 'listen', '~> 3.4'
   gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'guard-livereload', '~> 2.5', require: false

@@ -87,7 +87,7 @@
     "node-fetch": "^2.6.1",
     "vue-jest": "^3.0.7",
     "webpack-bundle-analyzer": "^4.3.0",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3.11.1"
   },
   "version": "1.1.0",
   "engines": {
