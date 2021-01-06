@@ -114,37 +114,6 @@ namespace :ci do
     end
   end
 
-  task 'check_word_blocklist': :environment do
-    markdown_files =
-      [
-        "#{Rails.configuration.docs_base_path}/_documentation/en/**/*.md",
-        "#{Rails.configuration.docs_base_path}/_api/**/*.md",
-        "#{Rails.configuration.docs_base_path}/_tutorials/**/*.md",
-        "#{Rails.configuration.docs_base_path}/_partials/*.md",
-        "#{Rails.configuration.docs_base_path}/_partials/**/*.md",
-        "#{Rails.configuration.docs_base_path}/_modals/**/*.md",
-      ]
-
-    block_list = File.read('.disallowed_words').split("\n")
-
-    errors = []
-    markdown_files.each do |path|
-      Dir.glob(path).each do |filename|
-        block_list.each do |word|
-          word = word.downcase
-          document = File.read(filename).downcase
-          if document.include? word
-            errors.push("#{word} found in #{filename.gsub("#{Rails.configuration.docs_base_path}/", '')}")
-          end
-        end
-      end
-    end
-
-    if errors.length.positive?
-      raise "Blocked words found:\n\n#{errors.join("\n")}"
-    end
-  end
-
   task 'check_ruby_version': :environment do
     # We treat .ruby-version as the canonical source
     ruby_version = File.read('.ruby-version').strip
