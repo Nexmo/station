@@ -136,5 +136,5 @@ namespace :ci do
     end
   end
 
-  task all: %i[verify_pages verify_navigation verify_oas_reference verify_error_urls_resolve check_word_blocklist]
+  task all: %i[verify_pages verify_navigation verify_oas_reference verify_error_urls_resolve]
 end
