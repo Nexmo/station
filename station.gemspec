@@ -80,7 +80,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency('colorize', '0.8.1')
   spec.add_runtime_dependency('neatjson', '0.9')
   spec.add_runtime_dependency('slack-notifier', '2.3.2')
-  spec.add_runtime_dependency('autoprefixer-rails', '10.1.0.0')
+  spec.add_runtime_dependency('autoprefixer-rails', '10.2.0.0')
   spec.add_runtime_dependency('titleize', '1.4.1')
   spec.add_runtime_dependency('countries', '3.0.1')
   spec.add_runtime_dependency('country_select', '4.0.0')
