@@ -137,6 +137,8 @@ gem 'smartling'
 
 gem 'newrelic_rpm'
 
+gem 'ahoy_matey', '~> 3.1'
+
 # A/B Testing
 gem 'split', '~> 3.4.1', require: 'split/dashboard'
 

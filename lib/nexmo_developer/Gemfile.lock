@@ -85,6 +85,11 @@ GEM
       zeitwerk (~> 2.3)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    ahoy_matey (3.1.0)
+      activesupport (>= 5)
+      device_detector
+      geocoder (>= 1.4.5)
+      safely_block (>= 0.2.1)
     algoliasearch (1.27.5)
       httpclient (~> 2.8, >= 2.8.3)
       json (>= 1.5.1)
@@ -147,6 +152,7 @@ GEM
     crass (1.0.6)
     debug_inspector (1.0.0)
     deep_merge (1.2.1)
+    device_detector (1.0.5)
     devise (4.7.3)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -165,6 +171,7 @@ GEM
     em-websocket (0.5.2)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
+    errbase (0.2.1)
     erubi (1.10.0)
     eventmachine (1.2.7)
     execjs (2.7.0)
@@ -455,6 +462,8 @@ GEM
       rubocop (>= 0.90.0, < 2.0)
     ruby-progressbar (1.11.0)
     ruby2_keywords (0.0.2)
+    safely_block (0.3.0)
+      errbase (>= 0.1.1)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -554,6 +563,7 @@ PLATFORMS
 DEPENDENCIES
   actionpack-page_caching!
   activeadmin (~> 2.9)
+  ahoy_matey (~> 3.1)
   algoliasearch
   apparition
   autoprefixer-rails
