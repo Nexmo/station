@@ -16,7 +16,7 @@ RSpec.describe 'Product dropdown', type: :view do
   it 'scopes the products to :product_scope' do
     html = Capybara::Node::Simple.new(subject)
 
-    expect(html).to have_css('.Vlt-dropdown__panel a', count: 2)
+    expect(html).to have_css('.Vlt-dropdown__panel a', count: 3)
     expect(html).to have_link('Any Product', href: '/use-cases')
     expect(html).to have_link('Number Insight API', href: '/number-insight/use-cases')
   end
