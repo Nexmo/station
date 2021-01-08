@@ -17,9 +17,7 @@ module Translator
     end
 
     def process_files(files)
-      list = []
-
-      files.each do |file|
+      files.each_with_object([]) do |file, list|
         if file.include?('_documentation')
           list << file unless process_doc_file(file) == ''
         elsif file.include?('_use_cases')
