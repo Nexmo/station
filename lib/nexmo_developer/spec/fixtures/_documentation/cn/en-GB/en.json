@@ -1,0 +1,403 @@
+{
+  "signUp" : {
+    "signUpForm" : {
+      "title" : "开始编码",
+      "subtitle" : "无需信用卡。已经有帐号了？",
+      "passwordPlaceholder" : "例如：********",
+      "createAccountBtn" : "创建我的免费帐户",
+      "checkboxLabel" : "我想获得有关 Vonage 产品和功能的有用新闻（您可以随时退订）。",
+      "legalText" : {
+        "partOne" : "注册即表示您同意我们的",
+        "partTwo" : "和我们的",
+        "termsOfService" : "服务条款",
+        "privacyPolicy" : "隐私政策",
+        "acceptableUse" : "合理使用政策"
+      },
+      "passwordTooltip" : {
+        "title" : "密码必须至少具有：",
+        "between8and72" : "8 个字符",
+        "upperCasePresent" : "1 个大写字母",
+        "lowerCasePresent" : "1 个小写字母",
+        "numberPresent" : "1 个数字",
+        "onlyValidCharsPresent" : "没有无效字符"
+      },
+      "marketing" : {
+        "unsubscribe1" : "我们有时会向您发送有关 Vonage 产品和功能的电子邮件，但是，如果您不希望收到这些电子邮件，请",
+        "unsubscribe2" : "点击此处",
+        "unsubscribe3" : "退订。"
+      }
+    },
+    "emailActivationFailure" : {
+      "title" : "糟糕！无法验证电子邮件验证链接",
+      "subtitle" : "噢，糟糕！该电子邮件链接似乎有问题。请尝试<a href='{href}'>登录</a>，我们将向您发送一个新链接以完成此流程。"
+    },
+    "emailConfirmation" : {
+      "title" : "您收到邮件了！",
+      "subtitle" : "我们已发送一封电子邮件至 {email}，内含激活您的帐户和证明您是人类的链接。",
+      "resendMail" : "重新发送电子邮件",
+      "defaultEmail" : "您的电子邮件地址",
+      "smallTxt" : "没收到任何邮件？{action}或查看您的垃圾邮件文件夹。",
+      "emailResent" : "完成了！我们已向您发送了新的电子邮件链接。请查看您的收件箱。"
+    },
+    "phoneActivationForm" : {
+      "title" : "还有一件事",
+      "subtitle" : "我们知道您是人类，但我们仍需要为您的帐户添加额外的安全保护层。",
+      "checkboxLabel" : "我每次从不寻常的设备或位置登录时，请重复此步骤。",
+      "sendCodeBtn" : "发送验证码",
+      "loginOrReset1" : "尝试",
+      "loginOrReset2" : "登录",
+      "loginOrReset3" : "您现有的帐户或",
+      "loginOrReset4" : "重置您的密码",
+      "loginOrReset5" : "如果您忘记了方式。"
+    },
+    "signUpVerifyPhone" : {
+      "title" : "还有一件事"
+    },
+    "errors" : {
+      "badRequest" : "您传递的参数无效",
+      "captchaServiceException" : "验证码不正确",
+      "countryBlocked" : "我们无法接受您所在国家/地区的注册",
+      "emailExists" : "该电子邮件已存在",
+      "forbiddenSignup" : "无法创建帐户。请稍后再试",
+      "statusConflict" : "出错了。请刷新页面，然后重试",
+      "phoneNumberAlreadyRegistered" : "该电话号码已被注册。",
+      "twoFaUnsupportedNumber" : "该电话号码无效",
+      "twoFaConcurrentRequests" : "您已经有正在处理的验证请求。如果您确定尚未收到 PIN 码，请等待五分钟，然后重试此页面。",
+      "twoFaAttemptsExceeded" : "超过 2FA 的尝试次数",
+      "verifyServiceException" : "抱歉！我们似乎遇到了技术问题。希望这是暂时状况，请在 5 分钟后重试。"
+    }
+  },
+  "security" : {
+    "securityPageLayout" : {
+      "title" : "Nexmo 现已更名为 Vonage",
+      "mainTxt" : "全新外观，相同功能。是时候让 Vonage Communications API 打招呼了。",
+      "linkTxt" : "详细了解"
+    },
+    "login" : {
+      "title" : "欢迎回来！",
+      "subtitle" : "我们想念您。还没有帐号？",
+      "forgotPassword" : "我忘记了我的密码",
+      "passwordUpdated" : "密码已更新！您现在可以登录了。",
+      "errors" : {
+        "accountLimitReached" : "您已达到帐户数量上限。请使用您现有的帐户登录。",
+        "incorrectCredentials" : "我们无法将您登录到您的 Dashboard 帐户，请检查您的电子邮件地址和密码，然后重试。如果您仍然遇到问题，请<a href='{supportLinkHref}' target='{supportLinkTarget}'>联系支持人员</a>。",
+        "tooManyAttempts" : "您尝试登录的次数过多，请稍后再试，或<a href='{supportLinkHref}' target='{supportLinkTarget}'>联系支持人员</a>。"
+      }
+    },
+    "forgotPassword" : {
+      "title" : "重置我的密码",
+      "subtitle" : "与您的帐户关联的电子邮件是什么？",
+      "submitBtn" : "发送重置电子邮件",
+      "smallTxt1" : "还没收到任何邮件？您可以再次查看您的垃圾邮件文件夹。",
+      "smallTxt2" : "或",
+      "resendEmail" : "重新发送电子邮件",
+      "contactSupport" : "联系支持人员",
+      "successMessage1" : "完成了！一封包含说明的电子邮件已发送至 ",
+      "successMessage2" : "，如果此帐户存在。请查看您的收件箱。",
+      "errors" : {
+        "linkExpired" : "链接已过期或无效。"
+      }
+    },
+    "resetPassword" : {
+      "title" : "更新我的密码",
+      "submitBtn" : "更新",
+      "newPasswordLabel" : "新密码",
+      "confirmPasswordLabel" : "确认新密码",
+      "errors" : {
+        "invalidParams" : "糟糕。出错了。",
+        "passwordSameAsExistingOne" : "新密码必须与当前密码不同。"
+      },
+      "restartLink1" : "尝试再次",
+      "restartLink2" : "开始重置过程",
+      "restartLink3" : "。"
+    },
+    "passwordTooltip" : {
+      "title" : "密码必须至少具有：",
+      "between8and72" : "8 个字符",
+      "between12and72" : "12 个字符",
+      "upperCasePresent" : "1 个大写字母",
+      "lowerCasePresent" : "1 个小写字母",
+      "numberPresent" : "1 个数字",
+      "onlyValidCharsPresent" : "没有无效字符",
+      "specialCharactPresent" : "1 个特殊字符"
+    }
+  },
+  "validationErrors" : {
+    "required" : "{field}必填",
+    "duplicate" : "{field}已存在",
+    "blocked" : "{field}被阻止",
+    "mandatory" : "{field}必填",
+    "email" : "必须是有效的电子邮件地址",
+    "invalid" : "{field}无效",
+    "internationalName" : "{field} 包含无效字符",
+    "toomany" : "我们已经有很多使用此电子邮件域的用户——请与支持人员联系以完成注册",
+    "short" : "{field}太短",
+    "long" : "{field}太长",
+    "minLength" : "{field}必须至少包含 {min} 个字符",
+    "maxLength" : "{field}的长度不能超过 {max} 个字符",
+    "captcha" : "验证码不正确",
+    "phoneNumberRequired" : "请输入您的电话号码",
+    "phoneNumberInvalid" : "请输入有效的电话号码",
+    "passwordsDoNotMatch" : "密码和确认信息不符"
+  },
+  "twoFA" : {
+    "verifyPhoneTitle" : "输入您的验证码",
+    "checkYourPhone" : "请查看您的手机 <strong id='userPhoneTest'>{phoneForDisplay}</strong> 接收验证消息或接听自动电话。",
+    "didNotReceiveAnything" : "没收到任何邮件？",
+    "requestNewCode" : "申请新代码",
+    "try" : "尝试再次",
+    "aDifferentNumber" : "其他号码",
+    "forHelp" : "以寻求帮助。",
+    "or" : "，或",
+    "sentNewPinCode" : "我们已向您发送了新的 PIN 码。请查看您的手机。",
+    "verificationCode" : "验证码",
+    "verifyBtnLabel" : "验证",
+    "tryAgain" : "请在 24 小时后重试，或",
+    "errors" : {
+      "tooManyAttempts" : "哎呀！您已达到尝试数量上限。",
+      "pleaseEnterCode" : "请输入您的验证码",
+      "verify_service_error" : "抱歉！我们似乎遇到了技术问题。希望这是暂时状况，请在 5 分钟后重试。",
+      "incorrect_code" : "糟糕。看来这可能是个错别字。",
+      "expired_code" : "哎呀。此代码已过期，请申请新代码。",
+      "too_many_failed" : "验证申请失败次数过多，请等待 24 小时再试一次。",
+      "cant_cancel_request" : "我们正在最后一次尝试通过自动电话将代码发送给您，您将能够在几分钟后再试一次。",
+      "unsupported_number" : "该电话号码无效。",
+      "concurrent_attempt_error" : "验证码应该已准备就绪。请查看您的手机，或申请新代码——这将会使旧代码过期。",
+      "concurrent_attempt_short_error" : "此号码已经有待处理的验证码",
+      "attempts_exceeeded" : "哎呀！您已达到尝试数量上限。请在 24 小时后重试，或联系支持人员。",
+      "too_many_request_429" : "申请次数过多"
+    },
+    "addNumber" : {
+      "content" : "为了确保安全，我们将通过短信或语音消息向您发送验证码。我们不接受虚拟号码 (VoIP)。"
+    }
+  },
+  "common" : {
+    "phoneNumber" : "电话号码",
+    "firstNameLabel" : "名字",
+    "lastNameLabel" : "姓氏",
+    "emailLabel" : "电子邮件",
+    "passwordLabel" : "密码",
+    "highSecurityPassword" : "安全程度高的电子邮件密码",
+    "incorrectCaptcha" : "验证码不正确",
+    "sessionExpired" : "您的会话已过期。请刷新页面",
+    "genericError" : "出错了。请刷新页面",
+    "cancelBtnLabel" : "取消",
+    "saveButtonLabel" : "保存",
+    "inboundLabel" : "入站",
+    "statusLabel" : "状态",
+    "refreshText" : "刷新",
+    "signUp" : "注册",
+    "logIn" : "登录",
+    "stillHaveIssues" : "仍有问题？",
+    "contactSupport" : "联系支持人员",
+    "contactSupportLowerCase" : "联系支持人员"
+  },
+  "coupons" : {
+    "title" : "优惠券",
+    "subTitle" : "兑换您的帐户优惠券",
+    "formTitle" : "输入优惠券代码",
+    "errorRequiredField" : "此字段必填。",
+    "errorSubmitValidField" : "请提交有效的优惠券代码。",
+    "genericError" : "发生错误。",
+    "success" : "已成功应用优惠券。您的帐户已添加了额外的测试积分。",
+    "successUpgrade" : "已成功应用优惠券。您的帐户已添加了额外的测试积分，并已启用完整的帐户功能。",
+    "successGeneric" : "已成功应用优惠券。",
+    "notFound" : "找不到优惠券。",
+    "expired" : "优惠券已过期。",
+    "notYetActive" : "抱歉，该促销活动尚未启动。",
+    "maxRedeemed" : "已使用此优惠券的最多兑换次数。",
+    "alreadyRedeemed" : "您已经兑换了该优惠券。",
+    "accountError" : "应用优惠券时出错。请联系支持人员。",
+    "tooManyTries" : "尝试次数过多，请在 5 分钟后重试。",
+    "stillBlocked" : "请等待 5 分钟，然后重试。"
+  },
+  "payments" : {
+    "balanceNotification" : {
+      "tabLabel" : "低余额提醒",
+      "title" : "关闭低余额提醒？",
+      "subTitle" : "当您的余额低于阈值时，会收到一封电子邮件。",
+      "calloutMessage" : "请记住，发票和低余额提醒将发送至相同的电子邮件。",
+      "thresholdLabel" : "当我的余额低于",
+      "emailLabel" : "发送电子邮件提醒至",
+      "emailHintBeforeLink" : "这是 ",
+      "emailHintLink" : "相同的电子邮件",
+      "emailHintAfterLink" : " 用于接收发票",
+      "changeEmailText" : "在此更改",
+      "disableModalTitle" : "关闭低余额提醒？",
+      "disableText" : "知道您的余额何时不足，这点很重要。如果您的资金用完了，服务可能会中断。",
+      "switchOffBtnLabel" : "关闭",
+      "error" : {
+        "thresholdRequired" : "阈值必填",
+        "thresholdMustBeInteger" : "阈值必须是数字",
+        "thresholdAboveUpperLimit" : "阈值不能超过 10000",
+        "thresholdBelowCreditLimit" : "阈值不能低于 {creditLimit}"
+      }
+    },
+    "history" : {
+      "tabLabel" : "付款历史记录",
+      "emailLabel" : "发送发票至",
+      "financeEmailModalHeader" : "您确定吗？",
+      "financeEmailConfirmationText" : "这也将更新用于低余额提醒的电子邮件地址。"
+    },
+    "autoReload" : {
+      "tabLabel" : "自动重新加载"
+    },
+    "methods" : {
+      "tabLabel" : "付款方式"
+    }
+  },
+  "sandbox" : {
+    "title" : "消息 API 沙箱",
+    "subTitle" : "立即使用我们的沙箱帐户开始测试和构建。沙箱目前不适用于 Dispatch API。",
+    "apiKeyLabel" : "API 密钥",
+    "apiKeyExtraLabel" : "您的电话号码一次只能列入一份沙箱白名单。",
+    "whatsappHeader" : "WhatsApp",
+    "messengerHeader" : "Facebook Messenger",
+    "viberHeader" : "Viber",
+    "mmsHeader" : "彩信",
+    "externalAccounts" : {
+      "header" : "设置您的沙箱",
+      "subHeader" : "沙箱目前支持以下频道。",
+      "invitationLabel" : "发送邀请电子邮件",
+      "inviteNewUserToTeam" : "邀请新用户加入您的团队",
+      "fetchingTeamError" : "获取团队时出错",
+      "retryText" : "重试",
+      "inviteText" : "邀请已发送至",
+      "emailText" : "电子邮件",
+      "yourText" : "您的",
+      "inviteNotSentText" : "邀请未发送至",
+      "undoText" : "撤消",
+      "clickLinkText" : "点击此链接",
+      "whatsappQRText1" : "扫描二维码，或",
+      "whatsappQRText2" : "，然后点击发送预先填写的消息。",
+      "whatsappMessageFirstText" : "发送 WhatsApp 消息至 ",
+      "whitelistedUsersTextSecond" : "位已列入白名单的用户。 ",
+      "whitelistedUsersTextFirst" : "您有",
+      "viberQRFirstText" : "扫描二维码并发送 ",
+      "viberQRSecondText" : " 至号码",
+      "viberMessageFirstText" : "发送 Viber 消息至 ",
+      "viberMessageSecondText" : " 使用密码口令 ",
+      "messengerQRFirstText" : "扫描二维码，或 ",
+      "messengerQRSecondText" : " 并发送密码口令",
+      "messengerQRThirdText" : " 至沙箱帐户",
+      "messengerMessageFirstText" : "发送消息至",
+      "messengerMessageLinkText" : "Vonage 沙箱 Facebook 页面",
+      "messageSecondText" : " 使用密码口令 ",
+      "firstTimerText" : "交换入站、出站和富媒体消息。",
+      "viberFirstTimerText" : "交换入站、出站和图像消息。",
+      "tryItOutText" : "添加到沙箱",
+      "viberAndroidTabHeaderLabel" : "Android",
+      "viberIosTabHeaderLabel" : "iOS",
+      "viberAndroidInstructionOne" : "在手机上打开 Viber",
+      "viberAndroidInstructionTwo" : "点击“更多”选项卡（右下方）",
+      "viberAndroidInstructionThree" : "打开 Viber 二维码扫描器",
+      "viberAndroidInstructionFour" : "扫描二维码",
+      "viberAndroidInstructionFive" : "发送消息： ",
+      "viberIosInstructionOne" : "在 iPhone 上打开相机应用",
+      "viberIosInstructionTwo" : "扫描二维码",
+      "viberIosInstructionThree" : "发送消息： "
+    },
+    "webhooks" : {
+      "header" : "Webhook",
+      "inboundHint" : "可选，我们会将入站消息转发到此 URL。",
+      "statusHint" : "可选，允许您接收消息状态更新（例如：已传递、已查看）。",
+      "updateWehbhooksBtnLabel" : "保存 Webhook"
+    },
+    "curlTabs" : {
+      "header" : "发送消息",
+      "whatsappDescription" : "别忘了将代码示例中的 $TO_NUMBER 替换为白名单中的号码。不要使用 + 或 00，只需以国家/地区代码开头，例如 447700900000。",
+      "messengerDescription" : "别忘了将代码示例中的 $FB_RECIPIENT_ID 替换为白名单中的 ID。",
+      "viberDescription" : "别忘了将代码示例中的 $TO_NUMBER 替换为白名单中的号码。不要使用 + 或 00，只需以国家/地区代码开头，例如 447700900000。"
+    },
+    "tips" : {
+      "tipOneHeader" : "将自己加入白名单",
+      "tipOneContent" : "从您的设备向每个沙箱帐户发送消息。",
+      "tipTwoHeader" : "Webhook",
+      "tipTwoContent" : "如果要测试入站消息或接收状态回调，则需要提供 Webhook。",
+      "tipThreeHeader" : "发送消息",
+      "tipThreeContent" : "只需复制并粘贴 curl 命令即可发送您的第一条消息。",
+      "tipFourHeader" : "阅读文档",
+      "tipFourContent" : "每个频道都支持不同的媒体类型，并且有关于何时向用户发送消息的规则。",
+      "learnMoreText" : "阅读文档",
+      "stepText" : "步骤",
+      "extraStepText" : "额外步骤",
+      "optionalText" : "可选"
+    }
+  },
+  "homepage" : {
+    "title" : "Vonage API Dashboard",
+    "welcomeBack" : "欢迎回来，",
+    "moreResources" : "更多资源",
+    "smsmRestrictionsTitle" : "短信功能和限制",
+    "smsmRestrictionsContent" : "一些国家/地区有特定的短信传递规则。选择一个以了解更多信息：",
+    "smsmRestrictionsLink" : "详细了解",
+    "shareCredentialsTitle" : "您是否共享登录凭据？",
+    "shareCredentialsContent" : "我们的权限系统让合作变得简单",
+    "shareCredentialsLink" : "邀请您的团队",
+    "moreVisibilityTitle" : "需要更高的可见性？",
+    "moreVisibilityContent" : "当您的号码订阅到期、余额不足或我们的价格发生变化时，会收到提醒。",
+    "moreVisibilityLink" : "设置通知",
+    "callout" : {
+      "title" : "消息 API 沙箱",
+      "content" : "开始使用我们新沙箱帐户为 Viber、Facebook Messenger 和 WhatsApp 发送消息。",
+      "cta" : "探索沙箱"
+    },
+    "products" : {
+      "title" : "您好，冒险家！",
+      "subTitle" : "Discover how easy developing with our APIs can be 🎉"
+    },
+    "moreResourcesFooter" : {
+      "apiReferences" : "API 参考",
+      "documentation" : "文档",
+      "tutorials" : "教程",
+      "github" : "Github",
+      "slack" : "Slack 工作区"
+    }
+  },
+  "wallet" : {
+    "youHave" : "您有",
+    "creditLeft" : "剩余积分",
+    "freeCreditLeft" : "剩余免费积分",
+    "upgradeToPaidAccount" : "升级为付费帐户将去除消息水印，启用向任何号码发送的出站流量，并允许购买虚拟号码",
+    "keepAccountRunningSmoothly" : "保持帐户运行顺畅",
+    "topUpAccount" : "添加资金"
+  },
+  "analytics" : {
+    "type" : "类型",
+    "date" : "日期",
+    "duration" : "持续时间",
+    "account" : "帐户",
+    "group_by" : "分组依据：",
+    "groupBy_byNetwork" : "按网络",
+    "groupBy_bycountry" : "按国家",
+    "allCountries" : "- 所有国家 -",
+    "no_result_line1" : "没有此搜索的结果。",
+    "no_result_line2" : "使用其他参数再试一次。",
+    "sms" : {
+      "title" : "短信分析 - 概述",
+      "detailedPageTitleByDay" : "短信分析 - 按天",
+      "detailedPageTitleByWeek" : "短信分析 - 按周",
+      "detailedPageTitleByMonth" : "短信分析 - 按月"
+    },
+    "voice" : {
+      "title" : "语音分析 - 概述",
+      "detailedPageTitleByDay" : "语音分析 - 按天",
+      "detailedPageTitleByMonth" : "语音分析 - 按月"
+    },
+    "verify" : {
+      "title" : "验证分析 - 概述",
+      "detailedPageTitleByDay" : "验证分析 - 按天",
+      "detailedPageTitleByMonth" : "验证分析 - 按月"
+    },
+    "ni" : {
+      "title" : "号码见解分析 - 概述",
+      "detailedPageTitleByDay" : "号码见解分析 - 按天",
+      "detailedPageTitleByMonth" : "号码见解分析 - 按月"
+    }
+  },
+  "pricing" : {
+    "title" : "定价",
+    "content" : "在此下载与此帐户关联的所有产品和国家/地区的定价：",
+    "buttonLabel" : "下载定价"
+  }
+}
