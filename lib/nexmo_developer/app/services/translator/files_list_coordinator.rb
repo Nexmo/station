@@ -19,11 +19,11 @@ module Translator
     def process_files(files)
       files.each_with_object([]) do |file, list|
         if file.include?('_documentation')
-          list << file unless process_doc_file(file) == ''
+          list << file if translatable_doc_file(file) == ''
         elsif file.include?('_use_cases')
-          list << file unless process_use_case_file(file) == ''
+          list << file if translatable_use_case_file(file) == ''
         elsif file.include?('_tutorials')
-          list << file unless process_tutorial_file(file) == ''
+          list << file if translatable_tutorial_file(file) == ''
         else
           raise ArgumentError, "The following file did not match documentation, use cases or tutorials: #{file}"
         end
@@ -32,24 +32,20 @@ module Translator
       list.uniq
     end
 
-    def process_doc_file(file)
-      return '' unless File.exist?("#{Rails.configuration.docs_base_path}/#{file}")
+    def translatable_doc_file(file)
+      return nil unless File.exist?("#{Rails.configuration.docs_base_path}/#{file}")
 
       allowed_products.each do |product|
         return file if file.split('/')[2] == product
       end
-
-      ''
     end
 
-    def process_use_case_file(file)
-      return '' unless File.exist?("#{Rails.configuration.docs_base_path}/#{file}")
+    def translatable_use_case_file(file)
+      return nil unless File.exist?("#{Rails.configuration.docs_base_path}/#{file}")
 
       allowed_products.each do |product|
         return file if use_case_product(file).include?(product)
       end
-
-      ''
     end
 
     def use_case_product(file)
@@ -58,14 +54,12 @@ module Translator
       @use_case_product
     end
 
-    def process_tutorial_file(file)
-      return '' unless File.exist?("#{Rails.configuration.docs_base_path}/#{file}")
+    def translatable_tutorial_file(file)
+      return nil unless File.exist?("#{Rails.configuration.docs_base_path}/#{file}")
 
       allowed_tutorial_files.each do |tutorial|
         return file if file == tutorial
       end
-
-      ''
     end
 
     def allowed_products
