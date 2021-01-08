@@ -7,7 +7,7 @@ class TutorialListItem
   end
 
   def tutorial
-    @tutorial ||= Nexmo::Markdown::Tutorial.load(File.basename(@path, '.yml'), nil)
+    @tutorial ||= Tutorial.load(File.basename(@path, '.yml'), nil)
   end
 
   def subtitle
