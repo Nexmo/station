@@ -37,41 +37,41 @@ RSpec.describe Translator::FilesListCoordinator do
     end
   end
 
-  describe '#process_doc_file' do
-    it 'returns the file when its in the allowed products list' do
-      expect(subject.process_doc_file('_documentation/en/voice/voice-api/guides/websockets.md')).to eql('_documentation/en/voice/voice-api/guides/websockets.md')
+  describe '#translatable_doc_file?' do
+    it 'returns true when its in the allowed products list' do
+      expect(subject.translatable_doc_file?('_documentation/en/voice/voice-api/guides/websockets.md')).to be true
     end
 
-    it 'returns an empty string when it is not in the allowed products list' do
-      expect(subject.process_doc_file('_documentation/en/not-a-ga-product/guides/not-here.md')).to eql('')
+    it 'returns false when it is not in the allowed products list' do
+      expect(subject.translatable_doc_file?('_documentation/en/not-a-ga-product/guides/not-here.md')).to be_falsey
     end
   end
 
-  describe '#process_use_case_file' do
+  describe '#translatable_use_case_file?' do
     context 'with a product in the allowed products list' do
       before { allow(subject).to receive(:use_case_product) { 'messaging/sms' } }
 
-      it 'returns the file when it is in the allowed products list' do
-        expect(subject.process_use_case_file('_use_cases/en/sms-customer-support.md')).to eql('_use_cases/en/sms-customer-support.md')
+      it 'returns true when it is in the allowed products list' do
+        expect(subject.translatable_use_case_file?('_use_cases/en/sms-customer-support.md')).to be true
       end
     end
 
     context 'with a product not in the allowed products list' do
       before { allow(subject).to receive(:use_case_product) { 'martian/radar' } }
 
-      it 'returns an empty string' do
-        expect(subject.process_use_case_file('_use_cases/en/not-a-ga-product/guides/not-here.md')).to eql('')
+      it 'returns false' do
+        expect(subject.translatable_use_case_file?('_use_cases/en/not-a-ga-product/guides/not-here.md')).to be_falsey
       end
     end
   end
 
-  describe '#process_tutorial_file' do
+  describe '#translatable_tutorial_file?' do
     context 'with a tutorial in the allowed products list' do
       before { allow(subject).to receive(:files).and_return(['_tutorials/en/voice/make-outbound-call.md']) }
       before { allow(TutorialList).to receive(:all).and_return([TutorialListItem.new("#{Rails.configuration.docs_base_path}/config/tutorials/en/voice-sample.yml")]) }
 
-      it 'returns a tutorial file from an allowed product' do
-        expect(subject.process_tutorial_file('_tutorials/en/voice/make-outbound-call.md')).to eql('_tutorials/en/voice/make-outbound-call.md')
+      it 'returns truie for a tutorial from an allowed product' do
+        expect(subject.translatable_tutorial_file?('_tutorials/en/voice/make-outbound-call.md')).to be true
       end
     end
 
@@ -80,9 +80,7 @@ RSpec.describe Translator::FilesListCoordinator do
       before { allow(TutorialList).to receive(:all).and_return([TutorialListItem.new("#{Rails.configuration.docs_base_path}/config/tutorials/en/voice-sample.yml")]) }
 
       it 'returns both the tutorial and its prerequisite' do
-        file_list = []
-        file_list << subject.process_tutorial_file('_tutorials/en/voice/make-outbound-call.md')
-        file_list << subject.process_tutorial_file('_tutorials/en/run-ngrok.md')
+        file_list = subject.process_files(['_tutorials/en/voice/make-outbound-call.md', '_tutorials/en/run-ngrok.md'])
 
         expect(file_list).to eql(['_tutorials/en/voice/make-outbound-call.md', '_tutorials/en/run-ngrok.md'])
       end
@@ -92,8 +90,8 @@ RSpec.describe Translator::FilesListCoordinator do
       before { allow(subject).to receive(:files).and_return(['_tutorials/en/vulcan/first-contact.md']) }
       before { allow(TutorialList).to receive(:all).and_return([TutorialListItem.new("#{Rails.configuration.docs_base_path}/config/tutorials/en/voice-sample.yml")]) }
 
-      it 'returns an empty string' do
-        expect(subject.process_tutorial_file('_tutorials/en/vulcan/first-contact.md')).to eql('')
+      it 'returns false' do
+        expect(subject.translatable_tutorial_file?('_tutorials/en/vulcan/first-contact.md')).to be_falsey
       end
     end
   end
