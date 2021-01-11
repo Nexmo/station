@@ -79,9 +79,8 @@ module Translator
           file_names << prereq.path
         end
 
-        item.tutorial.yaml['tasks']&.each do |task|
-          file_name = "_tutorials/en/#{task}.md"
-          file_names << file_name
+        item.tutorial.tasks&.each do |task|
+          file_names << task.path
         end
       end
 

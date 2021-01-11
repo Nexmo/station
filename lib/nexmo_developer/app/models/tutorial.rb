@@ -84,20 +84,18 @@ class Tutorial
     subtasks[current_task_index - 1]
   end
 
+  def tasks
+    @tasks ||= (yaml['tasks'] || []).map do |t|
+      Task.make_from(
+        name: t,
+        code_language: code_language,
+        current_step: current_step
+      )
+    end
+  end
+
   def subtasks
     @subtasks ||= begin
-      tasks = []
-
-      (yaml['tasks'] || []).map do |t|
-        tasks.push(
-          Task.make_from(
-            name: t,
-            code_language: code_language,
-            current_step: current_step
-          )
-        )
-      end
-
       tasks.unshift(prerequisite_task)
       tasks.unshift(introduction_task)
       tasks.push(conclusion_task)

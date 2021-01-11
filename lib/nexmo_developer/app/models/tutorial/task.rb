@@ -1,11 +1,24 @@
 class Tutorial::Task
-  attr_reader :name, :title, :description, :current_step
+  attr_reader :name, :code_language, :current_step
 
-  def initialize(name:, title:, description:, current_step:)
+  delegate :yaml, :path, to: :@file_loader
+
+  def initialize(name:, current_step:, code_language: nil, title: nil, description: nil)
     @name         = name
     @title        = title
     @description  = description
+    @code_language = code_language
     @current_step = current_step
+    @file_loader = load_file!
+  end
+
+  def load_file!
+    Tutorial::FileLoader.new(
+      root: Tutorial.task_content_path,
+      doc_name: @name,
+      code_language: @code_language,
+      format: 'md'
+    )
   end
 
   def active?
@@ -13,17 +26,9 @@ class Tutorial::Task
   end
 
   def self.make_from(name:, code_language:, current_step:)
-    file_loader = Tutorial::FileLoader.new(
-      root: Tutorial.task_content_path,
-      doc_name: name,
-      code_language: code_language,
-      format: 'md'
-    )
-
     new(
       name: name,
-      title: file_loader.yaml['title'],
-      description: file_loader.yaml['description'],
+      code_language: code_language,
       current_step: current_step
     )
   end
@@ -41,5 +46,13 @@ class Tutorial::Task
 
   def hash
     name.hash ^ title.hash ^ description.hash ^ current_step.hash
+  end
+
+  def title
+    @title || yaml['title']
+  end
+
+  def description
+    @description || yaml['description']
   end
 end
