@@ -1,7 +1,7 @@
 class Tutorial::Prerequisite
   attr_reader :name
 
-  delegate :content, :yaml, to: :@file_loader
+  delegate :content, :yaml, :path, to: :@file_loader
 
   def initialize(current_step:, code_language:, name:)
     @current_step  = current_step

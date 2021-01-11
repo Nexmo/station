@@ -56,7 +56,7 @@ module Translator
       return nil unless File.exist?("#{Rails.configuration.docs_base_path}/#{file}")
 
       allowed_tutorial_files.any? do |tutorial|
-        file == tutorial
+        tutorial.include?(file)
       end
     end
 
@@ -76,8 +76,7 @@ module Translator
 
       tutorials_list.each do |item|
         item.tutorial.prerequisites&.each do |prereq|
-          file_name = "#{prereq.load_file!.root.split('/').last}/en/#{prereq.name}.md"
-          file_names << file_name
+          file_names << prereq.path
         end
 
         item.tutorial.yaml['tasks']&.each do |task|
