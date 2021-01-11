@@ -25,11 +25,7 @@ RSpec.describe Translator::FilesListCoordinator do
 
   describe '#process_files' do
     it 'returns only files with allowed products' do
-      expect(subject.process_files(['_documentation/en/messaging/tiktok/overview.md', '_use_cases/en/dummy.md', '_documentation/en/vonage-business-cloud/vbc-apis/user-api/overview.md'])).to eql(['_use_cases/en/dummy.md'])
-    end
-
-    it 'does something to client sdk docs' do
-      subject.process_files(['_tutorials/en/client-sdk/app-to-app/call-code.md'])
+      expect(subject.process_files(['_documentation/en/warship/tiktok/overview.md', '_use_cases/en/dummy.md', '_documentation/en/vonage-business-cloud/vbc-apis/user-api/overview.md'])).to eql(['_use_cases/en/dummy.md'])
     end
 
     it 'raises an exception if the file is not from within a recognized documentation folder' do

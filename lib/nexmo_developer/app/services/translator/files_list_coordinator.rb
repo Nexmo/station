@@ -34,7 +34,7 @@ module Translator
       return nil unless File.exist?("#{Rails.configuration.docs_base_path}/#{file}")
 
       allowed_products.any? do |product|
-        file.split('/')[2] == product
+        product['path'].include?(file.split('/')[2])
       end
     end
 
@@ -42,7 +42,7 @@ module Translator
       return nil unless File.exist?("#{Rails.configuration.docs_base_path}/#{file}")
 
       allowed_products.any? do |product|
-        use_case_product(file).include?(product)
+        use_case_product(file).include?(product['path'])
       end
     end
 
@@ -61,17 +61,7 @@ module Translator
     end
 
     def allowed_products
-      @allowed_products ||= [
-        'account',
-        'application',
-        'conversion',
-        'numbers',
-        'number-insight',
-        'sms',
-        'tools',
-        'verify',
-        'voice',
-      ].freeze
+      @allowed_products ||= YAML.safe_load(File.read("#{Rails.configuration.docs_base_path}/config/products.yml"))['products'].select { |product| product['translate'] == true }
     end
 
     def allowed_tutorial_files
@@ -80,7 +70,7 @@ module Translator
 
       TutorialList.all.each do |item|
         allowed_products.each do |product|
-          tutorials_list << item if item.products.to_s.include?(product)
+          tutorials_list << item if item.products.to_s.include?(product['path'])
         end
       end
 
