@@ -300,7 +300,7 @@ GEM
     nenv (0.3.0)
     netrc (0.11.0)
     newrelic_rpm (6.14.0)
-    nexmo-oas-renderer (2.4.1)
+    nexmo-oas-renderer (2.5.0)
       activemodel (~> 6.0)
       activesupport (~> 6.0)
       banzai (~> 0.1.2)
@@ -309,7 +309,7 @@ GEM
       nexmo_markdown_renderer (~> 0.3)
       oas_parser (~> 0.25.1)
       octicons_helper (~> 8.2)
-      redcarpet (= 3.4.0)
+      redcarpet (= 3.5.1)
       sass (~> 3.1)
       shotgun (~> 0.9)
       sinatra (~> 2.0)
@@ -401,7 +401,7 @@ GEM
       ffi (~> 1.0)
     recaptcha (5.6.0)
       json
-    redcarpet (3.4.0)
+    redcarpet (3.5.1)
     redis (4.2.5)
     regexp_parser (1.8.2)
     request_store (1.5.0)
@@ -509,7 +509,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    statsd-ruby (1.4.0)
+    statsd-ruby (1.5.0)
     terminal-table (2.0.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
     thor (1.0.1)
@@ -594,7 +594,7 @@ DEPENDENCIES
   lograge
   neatjson
   newrelic_rpm
-  nexmo-oas-renderer (~> 2.4.1)
+  nexmo-oas-renderer (~> 2.5.0)
   nexmo_markdown_renderer (~> 0.7.5)
   nokogiri (~> 1.11.1)
   octokit
