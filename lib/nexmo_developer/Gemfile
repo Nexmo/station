@@ -131,7 +131,7 @@ gem 'country_select', '~> 4.0'
 
 gem 'nexmo-oas-renderer', '~> 2.4.1', require: false
 
-gem 'nexmo_markdown_renderer', '~> 0.7.4', git: 'https://github.com/Nexmo/nexmo-markdown-renderer.git', branch: 'fix-path'
+gem 'nexmo_markdown_renderer', '~> 0.7.5'
 gem 'smartling'
 
 gem 'newrelic_rpm'
