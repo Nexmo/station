@@ -49,6 +49,13 @@ namespace :smartling do
     puts 'Done!'
   end
 
+  desc 'Create list of changed documentation files within a given number of days'
+  task :check_docs_changes, %i[days] => [:environment] do |_, args|
+    files = Translator::FilesListCoordinator.new(days: args[:days]).call
+
+    puts files
+  end
+
   desc 'Upload recently modified docs to Smartling for translation'
   task :upload, %i[paths frequency] => [:environment] do |_, args|
     # RAILS_ENV=production RAILS_LOG_TO_STDOUT=1 be nexmo-developer --docs=`pwd` --rake-smartling-upload  15 _documentation/en/messages/test.md _documentation/en/messages/external-accounts/overview.md
