@@ -13,6 +13,9 @@ ActiveAdmin.setup do |config|
   #
   # config.site_title_link = "/"
 
+  # Webpacker
+  config.use_webpacker = true
+
   # Set an optional image to be displayed for the header
   # instead of a string (overrides :site_title)
   #
