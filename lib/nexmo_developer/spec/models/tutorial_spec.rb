@@ -20,7 +20,7 @@ RSpec.describe Tutorial, type: :model do
   end
 
   let(:application_subtask) do
-    Nexmo::Markdown::Tutorial::Task.new(
+    Tutorial::Task.new(
       name: 'application/create-voice',
       title: 'Create a voice application',
       current_step: current_step,
@@ -29,7 +29,7 @@ RSpec.describe Tutorial, type: :model do
   end
 
   let(:outbound_call_subtask) do
-    Nexmo::Markdown::Tutorial::Task.new(
+    Tutorial::Task.new(
       name: 'voice/make-outbound-call',
       title: 'Make an outbound call',
       current_step: current_step,
@@ -38,7 +38,7 @@ RSpec.describe Tutorial, type: :model do
   end
 
   let(:introduction_subtask) do
-    Nexmo::Markdown::Tutorial::Task.new(
+    Tutorial::Task.new(
       name: 'introduction',
       title: 'Introduction Title',
       current_step: current_step,
@@ -47,7 +47,7 @@ RSpec.describe Tutorial, type: :model do
   end
 
   let(:conclusion_subtask) do
-    Nexmo::Markdown::Tutorial::Task.new(
+    Tutorial::Task.new(
       name: 'conclusion',
       title: 'Conclusion Title',
       current_step: current_step,
@@ -115,7 +115,7 @@ RSpec.describe Tutorial, type: :model do
 
     context 'multi language' do
       let(:shared_task) do
-        Nexmo::Markdown::Tutorial::Task.new(
+        Tutorial::Task.new(
           name: 'multi_language/shared',
           title: 'This is a shared task',
           current_step: current_step,
@@ -124,7 +124,7 @@ RSpec.describe Tutorial, type: :model do
       end
 
       let(:javascript_code_task) do
-        Nexmo::Markdown::Tutorial::Task.new(
+        Tutorial::Task.new(
           name: 'multi_language/code',
           title: 'Javascript specific `code` task',
           current_step: current_step,
@@ -133,7 +133,7 @@ RSpec.describe Tutorial, type: :model do
       end
 
       let(:python_code_task) do
-        Nexmo::Markdown::Tutorial::Task.new(
+        Tutorial::Task.new(
           name: 'multi_language/code',
           title: 'Python specific `code` task',
           current_step: current_step,

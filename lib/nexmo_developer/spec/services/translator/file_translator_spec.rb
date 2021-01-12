@@ -73,10 +73,10 @@ RSpec.describe Translator::FileTranslator do
       end
 
       context 'otherwise' do
-        let(:doc_path) { '_documentation/en/messaging/tiktok/overview.md' }
+        let(:doc_path) { '_documentation/en/warship/tiktok/overview.md' }
 
         it 'raises an exception if there isn\'t a product associated' do
-          expect { subject.product }.to raise_error(ArgumentError, "Unable to match document with products list in config/products.yml for #{Rails.configuration.docs_base_path}/_documentation/en/messaging/tiktok/overview.md")
+          expect { subject.product }.to raise_error(ArgumentError, "Unable to match document with products list in config/products.yml for #{Rails.configuration.docs_base_path}/_documentation/en/warship/tiktok/overview.md")
         end
       end
     end
