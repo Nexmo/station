@@ -35,7 +35,7 @@
       <% step['fields'].each_with_index do |field, field_index| %>
         <div>
           <b><%= field['label'] %>:</b>
-          <small><%= feedback.steps[step_index][field['name']] %></small>
+          <small><%= feedback.steps[step_index].try(:[], field['name']) %></small>
         </div>
       <% end %>
     <% end %>

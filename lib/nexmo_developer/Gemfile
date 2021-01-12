@@ -7,7 +7,7 @@ git_source(:github) do |repo_name|
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.1.0'
+gem 'rails', '~> 6.1.1'
 gem 'webpacker'
 
 # Use postgresql as the database for Active Record
@@ -44,7 +44,7 @@ gem 'gmaps4rails'
 # gem 'capistrano-rails', group: :development
 
 # Nokogiri (鋸) is an HTML, XML, SAX, and Reader parser. Among Nokogiri's many features is the ability to search documents via XPath or CSS3 selectors.
-gem 'nokogiri', '~> 1.11.0'
+gem 'nokogiri', '~> 1.11.1'
 
 # Autoload dotenv in Rails.
 gem 'dotenv-rails', groups: %i[development test]
@@ -110,7 +110,7 @@ gem 'bootsnap', require: false
 gem 'diffy', require: false
 
 # Automatic Ruby code style checking tool. Aims to enforce the community-driven Ruby Style Guide.
-gem 'rubocop', '~> 1.7.0', require: false
+gem 'rubocop', '~> 1.8.1', require: false
 gem 'rubocop-rails', '~> 2.9', require: false
 
 # Volta needs a CSS autoprefixer

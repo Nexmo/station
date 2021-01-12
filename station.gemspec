@@ -75,12 +75,12 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency('uglifier', '4.2.0')
   spec.add_runtime_dependency('jquery-rails', '4.4.0')
   spec.add_runtime_dependency('jbuilder', '2.10.1')
-  spec.add_runtime_dependency('nokogiri', '1.11.0')
+  spec.add_runtime_dependency('nokogiri', '1.11.1')
   spec.add_runtime_dependency('ruby-progressbar', '1.11.0')
   spec.add_runtime_dependency('colorize', '0.8.1')
   spec.add_runtime_dependency('neatjson', '0.9')
   spec.add_runtime_dependency('slack-notifier', '2.3.2')
-  spec.add_runtime_dependency('autoprefixer-rails', '10.1.0.0')
+  spec.add_runtime_dependency('autoprefixer-rails', '10.2.0.0')
   spec.add_runtime_dependency('titleize', '1.4.1')
   spec.add_runtime_dependency('countries', '3.0.1')
   spec.add_runtime_dependency('country_select', '4.0.0')
@@ -88,7 +88,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency('newrelic_rpm', '6.14.0')
   spec.add_runtime_dependency('redis', '4.2.5')
 
-  spec.add_development_dependency('rubocop', '~> 1.7.0')
+  spec.add_development_dependency('rubocop', '~> 1.8.0')
   spec.add_development_dependency('rubocop-rails', '~> 2.6')
 
   spec.metadata = {
