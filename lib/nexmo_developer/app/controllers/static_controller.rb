@@ -113,7 +113,9 @@ class StaticController < ApplicationController
   end
 
   def robots
-    render 'robots.txt'
+    respond_to do |format|
+      format.any { render plain: 'robots', layout: false, content_type: 'text/plain' }
+    end
   end
 
   def team
