@@ -590,7 +590,7 @@ DEPENDENCIES
   rspec-collection_matchers
   rspec-rails (~> 4.0)
   rspec-snapshot (~> 0.1.2)
-  rubocop (~> 1.8.0)
+  rubocop (~> 1.8.1)
   rubocop-rails (~> 2.9)
   ruby-progressbar
   simplecov
