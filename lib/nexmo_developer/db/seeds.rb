@@ -67,5 +67,3 @@ Session.create!({
   video_url: 'https://www.youtube.com/watch?v=pHf9Df3Ns2U',
   published: true,
 })
-
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
