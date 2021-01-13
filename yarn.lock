@@ -2471,19 +2471,7 @@ author-regex@^1.0.0:
   resolved "https://registry.yarnpkg.com/author-regex/-/author-regex-1.0.0.tgz#d08885be6b9bbf9439fe087c76287245f0a81450"
   integrity sha1-0IiFvmubv5Q5/gh8dihyRfCoFFA=
 
-autoprefixer@^7.1.1:
-  version "7.2.6"
-  resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-7.2.6.tgz#256672f86f7c735da849c4f07d008abb056067dc"
-  integrity sha512-Iq8TRIB+/9eQ8rbGhcP7ct5cYb/3qjNYAR2SnzLCEcwF6rvVOax8+9+fccgXk4bEhQGjOZd5TLhsksmAdsbGqQ==
-  dependencies:
-    browserslist "^2.11.3"
-    caniuse-lite "^1.0.30000805"
-    normalize-range "^0.1.2"
-    num2fraction "^1.2.2"
-    postcss "^6.0.17"
-    postcss-value-parser "^3.2.3"
-
-autoprefixer@^9.6.1, autoprefixer@^9.8.6:
+autoprefixer@9.8.6, autoprefixer@^9.6.1:
   version "9.8.6"
   resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-9.8.6.tgz#3b73594ca1bf9266320c5acf1588d74dea74210f"
   integrity sha512-XrvP4VVHdRBCdX1S3WXVD8+RyG9qeb1D5Sn1DeLiG2xfSpzellk5k54xbUERJ3M5DggQxes39UGOTP8CFrEGbg==
@@ -2495,6 +2483,18 @@ autoprefixer@^9.6.1, autoprefixer@^9.8.6:
     num2fraction "^1.2.2"
     postcss "^7.0.32"
     postcss-value-parser "^4.1.0"
+
+autoprefixer@^7.1.1:
+  version "7.2.6"
+  resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-7.2.6.tgz#256672f86f7c735da849c4f07d008abb056067dc"
+  integrity sha512-Iq8TRIB+/9eQ8rbGhcP7ct5cYb/3qjNYAR2SnzLCEcwF6rvVOax8+9+fccgXk4bEhQGjOZd5TLhsksmAdsbGqQ==
+  dependencies:
+    browserslist "^2.11.3"
+    caniuse-lite "^1.0.30000805"
+    normalize-range "^0.1.2"
+    num2fraction "^1.2.2"
+    postcss "^6.0.17"
+    postcss-value-parser "^3.2.3"
 
 aws-sign2@~0.7.0:
   version "0.7.0"
@@ -11224,7 +11224,7 @@ postcss-load-config@^2.0.0:
     cosmiconfig "^5.0.0"
     import-cwd "^2.0.0"
 
-postcss-loader@^3.0.0:
+postcss-loader@3.0.0, postcss-loader@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/postcss-loader/-/postcss-loader-3.0.0.tgz#6b97943e47c72d845fa9e03f273773d4e8dd6c2d"
   integrity sha512-cLWoDEY5OwHcAjDnkyRQzAXfs2jrKjXpO/HQFcc5b5u/r7aa471wdmChmwfnv7x2u840iat/wi0lQ5nbRgSkUA==
