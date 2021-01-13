@@ -67,3 +67,4 @@ Session.create!({
   video_url: 'https://www.youtube.com/watch?v=pHf9Df3Ns2U',
   published: true,
 })
+
