@@ -35,7 +35,7 @@ module Translator
             total_word_count = response_body['response']['data']['totalWordCount']
             total_string_count = response_body['response']['data']['totalStringCount']
             response_body['response']['data']['items'].map do |item|
-              item['localeId'] if total_word_count == item['totalWordCount'] && total_string_count == item['totalStringCount']
+              item['localeId'] if total_word_count == item['completedWordCount'] && total_string_count == item['completedStringCount']
             end.compact
           end
         end

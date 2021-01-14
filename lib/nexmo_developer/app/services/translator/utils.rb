@@ -35,7 +35,7 @@ module Translator
         dir_path = pathname.dirname.to_s == '.' ? '' : "/#{pathname.dirname}"
         "#{Rails.configuration.docs_base_path}/config/tutorials/#{locale}#{dir_path}"
       elsif filename.starts_with? '_tutorials'
-        pathname = Pathname.new(filename.gsub("_tutorials/#{I18n.default_locale}/", ''))
+        pathname = Pathname.new(filename.gsub('_tutorials/', ''))
         dir_path = pathname.dirname.to_s == '.' ? '' : "/#{pathname.dirname}"
         "#{Rails.configuration.docs_base_path}/_tutorials/#{locale}#{dir_path}"
       else
