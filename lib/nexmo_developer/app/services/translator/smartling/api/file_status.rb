@@ -31,7 +31,13 @@ module Translator
         end
 
         def return_value
-          @return_value ||= response_body['response']['data']['items'].map { |item| item['localeId'] }
+          @return_value ||= begin
+            total_word_count = response_body['response']['data']['totalWordCount']
+            total_string_count = response_body['response']['data']['totalStringCount']
+            response_body['response']['data']['items'].map do |item|
+              item['localeId'] if total_word_count == item['totalWordCount'] && total_string_count == item['totalStringCount']
+            end.compact
+          end
         end
 
         def to_s
