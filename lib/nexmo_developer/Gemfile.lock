@@ -271,7 +271,7 @@ GEM
       activesupport (>= 4)
       railties (>= 4)
       request_store (~> 1.0)
-    loofah (2.8.0)
+    loofah (2.9.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     lumberjack (1.2.8)
@@ -313,7 +313,7 @@ GEM
       sass (~> 3.1)
       shotgun (~> 0.9)
       sinatra (~> 2.0)
-    nexmo_markdown_renderer (0.7.5)
+    nexmo_markdown_renderer (0.7.6)
       activemodel (~> 6.0)
       banzai (~> 0.1.2)
       i18n (~> 1.7)
@@ -595,7 +595,7 @@ DEPENDENCIES
   neatjson
   newrelic_rpm
   nexmo-oas-renderer (~> 2.5.0)
-  nexmo_markdown_renderer (~> 0.7.5)
+  nexmo_markdown_renderer (~> 0.7.6)
   nokogiri (~> 1.11.1)
   octokit
   pg (~> 1.2)
