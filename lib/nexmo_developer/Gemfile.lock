@@ -1,4 +1,36 @@
 GIT
+  remote: https://github.com/nexmo/nexmo-markdown-renderer.git
+  revision: 2ffb804aaba0b221802495b0d4fbd1740e466c88
+  branch: update-copy-icon
+  specs:
+    nexmo_markdown_renderer (0.7.6)
+      actionview (~> 6.0)
+      activemodel (~> 6.0)
+      banzai (~> 0.1.2)
+      i18n (~> 1.7)
+      nokogiri (~> 1.10)
+      redcarpet (~> 3.4)
+      rouge (~> 2.0.7)
+
+GIT
+  remote: https://github.com/nexmo/nexmo-oas-renderer.git
+  revision: a454b0d7f2f70d4d004fe33b278c977a41a50256
+  branch: update-copy-icon
+  specs:
+    nexmo-oas-renderer (2.5.0)
+      activemodel (~> 6.0)
+      activesupport (~> 6.0)
+      banzai (~> 0.1.2)
+      dotenv (~> 2.7)
+      neatjson (~> 0.8)
+      nexmo_markdown_renderer (~> 0.7.5)
+      oas_parser (~> 0.25.1)
+      redcarpet (= 3.5.1)
+      sass (~> 3.1)
+      shotgun (~> 0.9)
+      sinatra (~> 2.0)
+
+GIT
   remote: https://github.com/oscardelben/rawler.git
   revision: f2909b135fce7d35167f98026ac481926c94423e
   specs:
@@ -300,27 +332,6 @@ GEM
     nenv (0.3.0)
     netrc (0.11.0)
     newrelic_rpm (6.14.0)
-    nexmo-oas-renderer (2.5.0)
-      activemodel (~> 6.0)
-      activesupport (~> 6.0)
-      banzai (~> 0.1.2)
-      dotenv (~> 2.7)
-      neatjson (~> 0.8)
-      nexmo_markdown_renderer (~> 0.3)
-      oas_parser (~> 0.25.1)
-      octicons_helper (~> 8.2)
-      redcarpet (= 3.5.1)
-      sass (~> 3.1)
-      shotgun (~> 0.9)
-      sinatra (~> 2.0)
-    nexmo_markdown_renderer (0.7.6)
-      activemodel (~> 6.0)
-      banzai (~> 0.1.2)
-      i18n (~> 1.7)
-      nokogiri (~> 1.10)
-      octicons_helper (~> 8.2)
-      redcarpet (~> 3.4)
-      rouge (~> 2.0.7)
     nio4r (2.5.4)
     nokogiri (1.11.1)
       mini_portile2 (~> 2.5.0)
@@ -336,11 +347,6 @@ GEM
       hash-deep-merge
       mustermann-contrib (~> 1.1.1)
       nokogiri
-    octicons (8.5.0)
-      nokogiri (>= 1.6.3.1)
-    octicons_helper (8.5.0)
-      octicons (= 8.5.0)
-      rails
     octokit (4.20.0)
       faraday (>= 0.9)
       sawyer (~> 0.8.0, >= 0.5.3)
@@ -594,8 +600,8 @@ DEPENDENCIES
   lograge
   neatjson
   newrelic_rpm
-  nexmo-oas-renderer (~> 2.5.0)
-  nexmo_markdown_renderer (~> 0.7.6)
+  nexmo-oas-renderer!
+  nexmo_markdown_renderer!
   nokogiri (~> 1.11.1)
   octokit
   pg (~> 1.2)
