@@ -185,6 +185,7 @@ GEM
     geocoder (1.6.4)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    gmaps4rails (2.1.2)
     gravatar_image_tag (1.2.0)
     greenhouse_io (2.5.0)
       httmultiparty (~> 0.3.16)
@@ -565,6 +566,7 @@ DEPENDENCIES
   faker (= 2.15.1)
   ffi (>= 1.9.24)
   geocoder
+  gmaps4rails
   gravatar_image_tag (= 1.2.0)
   greenhouse_io
   groupdate (= 5.2.1)
