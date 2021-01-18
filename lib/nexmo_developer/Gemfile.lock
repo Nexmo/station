@@ -295,25 +295,24 @@ GEM
     nenv (0.3.0)
     netrc (0.11.0)
     newrelic_rpm (6.14.0)
-    nexmo-oas-renderer (2.5.0)
+    nexmo-oas-renderer (2.6.0)
       activemodel (~> 6.0)
       activesupport (~> 6.0)
       banzai (~> 0.1.2)
       dotenv (~> 2.7)
       neatjson (~> 0.8)
-      nexmo_markdown_renderer (~> 0.3)
+      nexmo_markdown_renderer (~> 0.8)
       oas_parser (~> 0.25.1)
-      octicons_helper (~> 8.2)
       redcarpet (= 3.5.1)
       sass (~> 3.1)
       shotgun (~> 0.9)
       sinatra (~> 2.0)
-    nexmo_markdown_renderer (0.7.6)
+    nexmo_markdown_renderer (0.8.0)
+      actionview (~> 6.0)
       activemodel (~> 6.0)
       banzai (~> 0.1.2)
       i18n (~> 1.7)
       nokogiri (~> 1.10)
-      octicons_helper (~> 8.2)
       redcarpet (~> 3.4)
       rouge (~> 2.0.7)
     nio4r (2.5.4)
@@ -331,11 +330,6 @@ GEM
       hash-deep-merge
       mustermann-contrib (~> 1.1.1)
       nokogiri
-    octicons (8.5.0)
-      nokogiri (>= 1.6.3.1)
-    octicons_helper (8.5.0)
-      octicons (= 8.5.0)
-      rails
     octokit (4.20.0)
       faraday (>= 0.9)
       sawyer (~> 0.8.0, >= 0.5.3)
@@ -582,8 +576,8 @@ DEPENDENCIES
   lograge
   neatjson
   newrelic_rpm
-  nexmo-oas-renderer (~> 2.5.0)
-  nexmo_markdown_renderer (~> 0.7.6)
+  nexmo-oas-renderer (~> 2.6)
+  nexmo_markdown_renderer (~> 0.8)
   nokogiri (~> 1.11.1)
   octokit
   pg (~> 1.2)
