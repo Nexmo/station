@@ -1,1 +1,0 @@
-%w[webfont.js]

@@ -1,1 +1,0 @@
-%w[stats.js]

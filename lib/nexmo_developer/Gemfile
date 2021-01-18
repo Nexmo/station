@@ -14,19 +14,11 @@ gem 'webpacker'
 gem 'pg', '~> 1.2'
 # Use Puma as the app server
 gem 'puma', '~> 5.1'
-# Use SCSS for stylesheets
-gem 'sassc-rails', '~> 2.1'
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 4.1.20'
+
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 5.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-
-# Use jquery as the JavaScript library
-gem 'jquery-rails'
-# Add clipboard for copying content
-gem 'clipboard-rails'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.10.1'
@@ -36,9 +28,6 @@ gem 'jbuilder', '~> 2.10.1'
 # gem 'bcrypt', '~> 3.1.7'
 # Add Geocoder to get latitude and longitude for geographic places
 gem 'geocoder'
-
-# Add gmap4rails to integrate the Google Maps API
-gem 'gmaps4rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -94,9 +83,6 @@ gem 'octokit', require: false
 # Cross-language UserAgent classifier library, ruby implementation
 gem 'woothee'
 
-# Create beautiful JavaScript charts with one line of Ruby
-gem 'chartkick', '3.4.2'
-
 # The simplest way to group temporal data
 gem 'groupdate', '5.2.1'
 
@@ -112,9 +98,6 @@ gem 'diffy', require: false
 # Automatic Ruby code style checking tool. Aims to enforce the community-driven Ruby Style Guide.
 gem 'rubocop', '~> 1.8.1', require: false
 gem 'rubocop-rails', '~> 2.9', require: false
-
-# Volta needs a CSS autoprefixer
-gem 'autoprefixer-rails'
 
 # Titleize modifies the existing Titleize Rails functionality to better suit our needs
 gem 'titleize'
@@ -150,6 +133,8 @@ gem 'redis'
 gem 'barnes'
 
 gem 'actionpack-page_caching', github: 'rails/actionpack-page_caching'
+
+gem 'sassc-rails', '~> 2.1'
 
 group :development, :test do
   gem 'awesome_print'
