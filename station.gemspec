@@ -81,6 +81,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency('newrelic_rpm', '6.14.0')
   spec.add_runtime_dependency('redis', '4.2.5')
   spec.add_runtime_dependency('sassc-rails', '2.1.2')
+  spec.add_runtime_dependency('gmaps4rails', '2.1.2')
 
   spec.add_development_dependency('rubocop', '~> 1.8.0')
   spec.add_development_dependency('rubocop-rails', '~> 2.6')
