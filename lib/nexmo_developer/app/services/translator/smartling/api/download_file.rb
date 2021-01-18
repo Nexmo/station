@@ -22,7 +22,6 @@ module Translator
               {
                 'fileUri' => @file_uri,
                 'retrievalType' => 'published',
-                'includeOriginalStrings' => false,
               }
             )
             uri
