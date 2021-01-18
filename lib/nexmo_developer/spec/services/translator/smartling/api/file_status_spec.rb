@@ -39,8 +39,8 @@ RSpec.describe Translator::Smartling::API::FileStatus do
                     {
                       "authorizedStringCount": 0,
                       "authorizedWordCount": 0,
-                      "completedStringCount": 0,
-                      "completedWordCount": 0,
+                      "completedStringCount": 1,
+                      "completedWordCount": 1,
                       "excludedStringCount": 0,
                       "excludedWordCount": 0,
                       "localeId": 'zh-CN',

@@ -22,7 +22,10 @@ RSpec.describe Translator::Smartling::API::DownloadFile do
         stub_request(:get, uri)
           .with(
             headers: { 'Authorization' => "Bearer #{token}", 'Content-Type' => 'application/json' },
-            query: URI.encode_www_form('fileUri' => 'messages/external-accounts/overview.md', 'retrievalType' => 'published')
+            query: URI.encode_www_form(
+              'fileUri' => 'messages/external-accounts/overview.md',
+              'retrievalType' => 'published'
+            )
           )
           .to_return(status: 200, body: '翻译文字')
 
@@ -35,7 +38,10 @@ RSpec.describe Translator::Smartling::API::DownloadFile do
         stub_request(:get, uri)
           .with(
             headers: { 'Authorization' => "Bearer #{token}", 'Content-Type' => 'application/json' },
-            query: URI.encode_www_form('fileUri' => 'messages/external-accounts/overview.md', 'retrievalType' => 'published')
+            query: URI.encode_www_form(
+              'fileUri' => 'messages/external-accounts/overview.md',
+              'retrievalType' => 'published'
+            )
           )
           .to_return(
             status: 500,

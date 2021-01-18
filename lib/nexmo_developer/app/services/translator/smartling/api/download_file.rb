@@ -18,7 +18,12 @@ module Translator
         def uri
           @uri ||= begin
             uri = URI("https://api.smartling.com/files-api/v2/projects/#{@project_id}/locales/#{@locale_id}/file")
-            uri.query = URI.encode_www_form({ 'fileUri' => @file_uri, 'retrievalType' => 'published' })
+            uri.query = URI.encode_www_form(
+              {
+                'fileUri' => @file_uri,
+                'retrievalType' => 'published',
+              }
+            )
             uri
           end
         end

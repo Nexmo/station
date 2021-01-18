@@ -102,14 +102,14 @@ RSpec.describe Translator::Utils do
       end
 
       context 'tutorials' do
-        let(:filename) { '_tutorials/en/buy-nexmo-number.md' }
+        let(:filename) { '_tutorials/buy-nexmo-number.md' }
 
         it 'returns the path to the folder where the translation should be stored' do
           expect(subject).to eq("#{Rails.configuration.docs_base_path}/_tutorials/cn")
         end
 
         context 'nested tutorials' do
-          let(:filename) { '_tutorials/en/client-sdk/android-shared/authenticate-alice/java.md' }
+          let(:filename) { '_tutorials/client-sdk/android-shared/authenticate-alice/java.md' }
 
           it 'returns the path to the folder where the translation should be stored' do
             expect(subject).to eq("#{Rails.configuration.docs_base_path}/_tutorials/cn/client-sdk/android-shared/authenticate-alice")
