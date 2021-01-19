@@ -12,4 +12,20 @@ RSpec.describe ImprovePagePresenter do
       expect(subject.github_url).to eq('https://github.com/nexmo/nexmo-developer/blob/master/_documentation/en/concepts/overview.md')
     end
   end
+
+  describe '#docs_repo' do
+    context 'when the path to the doc is in Station' do
+      let(:document_path) { 'app/views/contribute/overview.md' }
+
+      it 'returns the Station repository' do
+        expect(described_class.new(document_path).docs_repo).to eq('nexmo/station')
+      end
+    end
+
+    context 'when the path to the doc is outside Station' do
+      it 'returns the Station repository' do
+        expect(subject.docs_repo).to eq('nexmo/nexmo-developer')
+      end
+    end
+  end
 end
