@@ -7,13 +7,15 @@ class ImprovePagePresenter
     @github_url ||= "https://github.com/#{docs_repo}/blob/#{ENV.fetch('branch', 'master')}/#{path_to_url}"
   end
 
+  def docs_repo
+    @docs_repo ||= begin
+      path_to_url.include?('app/') ? 'nexmo/station' : YAML.safe_load(File.open("#{Rails.configuration.docs_base_path}/config/business_info.yml"))['docs_repo']
+    end
+  end
+
   private
 
   def path_to_url
     @document_path&.gsub("#{Rails.configuration.docs_base_path}/", '')
-  end
-
-  def docs_repo
-    @docs_repo ||= YAML.safe_load(File.open("#{Rails.configuration.docs_base_path}/config/business_info.yml"))['docs_repo']
   end
 end
