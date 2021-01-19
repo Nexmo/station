@@ -1,6 +1,5 @@
 class DashboardController < ApplicationController
   before_action :authenticate_admin!
-  before_action :set_additional_scripts
 
   def stats
     @feedbacks = Feedback::Feedback.created_between(created_after, created_before)
@@ -103,10 +102,6 @@ class DashboardController < ApplicationController
   end
 
   private
-
-  def set_additional_scripts
-    @additional_scripts = ['stats']
-  end
 
   def ignore_languages
     return params[:ignore].split(',') if params[:ignore].present?
