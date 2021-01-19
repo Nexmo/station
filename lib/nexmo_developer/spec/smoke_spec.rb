@@ -15,4 +15,9 @@ RSpec.describe 'Smoke Tests', type: :request do
     get '/product-lifecycle/beta'
     expect(response.body).to include('Beta products at Vonage are in the final stages of testing')
   end
+
+  it '/community contains a rendered Google Maps from the Gmaps4rails gem' do
+    get '/community'
+    expect(response.body).to include('webcal://www.example.com/feeds/events.ics')
+  end
 end
