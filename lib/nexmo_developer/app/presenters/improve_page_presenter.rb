@@ -9,13 +9,12 @@ class ImprovePagePresenter
 
   def docs_repo
     @docs_repo ||= begin
-      path_to_url.start_with?('app/') ? 'nexmo/station' : YAML.safe_load(File.open("#{Rails.configuration.docs_base_path}/config/business_info.yml"))['docs_repo']
+      path_to_url.start_with?('lib/nexmo_developer/app/') ? 'nexmo/station' : YAML.safe_load(File.open("#{Rails.configuration.docs_base_path}/config/business_info.yml"))['docs_repo']
     end
   end
 
-  private
-
   def path_to_url
-    @document_path&.gsub("#{Rails.configuration.docs_base_path}/", '')
+    @document_path&.gsub!("#{Rails.configuration.docs_base_path}/", '')
+    @document_path.start_with?('app/') ? @document_path.prepend('lib/nexmo_developer/') : @document_path
   end
 end
