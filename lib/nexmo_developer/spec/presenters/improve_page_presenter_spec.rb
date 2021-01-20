@@ -23,8 +23,16 @@ RSpec.describe ImprovePagePresenter do
     end
 
     context 'when the path to the doc is outside Station' do
-      it 'returns the Station repository' do
+      it 'returns the docs repository' do
         expect(subject.docs_repo).to eq('nexmo/nexmo-developer')
+      end
+    end
+
+    context 'when the path is outside Station but includes characters that might match a path in Station' do
+      let(:document_path) { '_documentation/en/app-to-phone/overview.md' }
+
+      it 'still returns the docs repository' do
+        expect(described_class.new(document_path).docs_repo).to eq('nexmo/nexmo-developer')
       end
     end
   end
