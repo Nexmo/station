@@ -36,4 +36,20 @@ RSpec.describe ImprovePagePresenter do
       end
     end
   end
+
+  describe '#path_to_url' do
+    context 'with a path to a doc in Station' do
+      let(:document_path) { 'app/views/contribute/overview.md' }
+
+      it 'returns a proper Station path' do
+        expect(described_class.new(document_path).path_to_url).to eq('lib/nexmo_developer/app/views/contribute/overview.md')
+      end
+    end
+
+    context 'with a path to a doc in a docs portal repository' do
+      it 'returns a path not modified for Station' do
+        expect(subject.path_to_url).to eq('_documentation/en/concepts/overview.md')
+      end
+    end
+  end
 end
