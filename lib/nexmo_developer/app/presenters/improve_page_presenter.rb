@@ -14,7 +14,9 @@ class ImprovePagePresenter
   end
 
   def path_to_url
-    @document_path&.gsub!("#{Rails.configuration.docs_base_path}/", '')
-    @document_path.start_with?('app/') ? @document_path.prepend('lib/nexmo_developer/') : @document_path
+    @path_to_url ||= begin
+      @document_path&.gsub!("#{Rails.configuration.docs_base_path}/", '')
+      @document_path.start_with?('app/views') ? @document_path.prepend('lib/nexmo_developer/') : @document_path
+    end
   end
 end
