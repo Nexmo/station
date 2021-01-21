@@ -100,4 +100,44 @@ RSpec.describe ImprovePagePresenter do
       end
     end
   end
+
+  describe '#docs_repo' do
+    context 'when the path to the doc is in Station' do
+      let(:document_path) { 'app/views/contribute/overview.md' }
+
+      it 'returns the Station repository' do
+        expect(described_class.new(document_path).docs_repo).to eq('nexmo/station')
+      end
+    end
+
+    context 'when the path to the doc is outside Station' do
+      it 'returns the docs repository' do
+        expect(subject.docs_repo).to eq('nexmo/nexmo-developer')
+      end
+    end
+
+    context 'when the path is outside Station but includes characters that might match a path in Station' do
+      let(:document_path) { '_documentation/en/app-to-phone/overview.md' }
+
+      it 'still returns the docs repository' do
+        expect(described_class.new(document_path).docs_repo).to eq('nexmo/nexmo-developer')
+      end
+    end
+  end
+
+  describe '#path_to_url' do
+    context 'with a path to a doc in Station' do
+      let(:document_path) { 'app/views/contribute/overview.md' }
+
+      it 'returns a proper Station path' do
+        expect(described_class.new(document_path).path_to_url).to eq('lib/nexmo_developer/app/views/contribute/overview.md')
+      end
+    end
+
+    context 'with a path to a doc in a docs portal repository' do
+      it 'returns a path not modified for Station' do
+        expect(subject.path_to_url).to eq('_documentation/en/concepts/overview.md')
+      end
+    end
+  end
 end

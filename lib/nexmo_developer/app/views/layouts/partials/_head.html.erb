@@ -76,11 +76,7 @@
   <%= javascript_include_tag 'application', defer: true %>
 
   <%= javascript_packs_with_chunks_tag 'application', defer: true %>
-  <% if @additional_scripts %>
-    <% @additional_scripts.each do |script| %>
-      <%= javascript_include_tag script %>
-    <% end %>
-  <% end %>
+
   <% if ENV['ENVIRONMENT_SCRIPTS'] %>
     <%= ENV['ENVIRONMENT_SCRIPTS'].html_safe %>
   <% end %>

@@ -126,6 +126,16 @@ They auto-magically color when you use verbs like [POST] or [DELETE]
 |
 | Nullam id dolor id nibh ultricies vehicula ut id elit. Donec ullamcorper nulla non metus auctor fringilla. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
 
+````
+| ### Click me
+|
+| Here is some hidden content.
+|
+| Markdown _still_ works `here`!
+|
+| Nullam id dolor id nibh ultricies vehicula ut id elit. Donec ullamcorper nulla non metus auctor fringilla. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+````
+
 | ### Alpha
 |
 | Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec id elit non mi porta gravida at eget metus. Sed posuere consectetur est at lobortis. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ullamcorper nulla non metus auctor fringilla.
@@ -134,13 +144,31 @@ They auto-magically color when you use verbs like [POST] or [DELETE]
 |
 | Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec id elit non mi porta gravida at eget metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Aenean lacinia bibendum nulla sed consectetur. Nullam quis risus eget urna mollis ornare vel eu leo.
 
+````
+| ### Alpha
+|
+| Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec id elit non mi porta gravida at eget metus. Sed posuere consectetur est at lobortis. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ullamcorper nulla non metus auctor fringilla.
+|
+| Donec id elit non mi porta gravida at eget metus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nulla vitae elit libero, a pharetra augue. Donec sed odio dui. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Cras mattis consectetur purus sit amet fermentum.
+|
+| Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec id elit non mi porta gravida at eget metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Aenean lacinia bibendum nulla sed consectetur. Nullam quis risus eget urna mollis ornare vel eu leo.
+````
+
 **Tooltips (custom plugin)**
 
 Find out ^[more](Tooltips are useful for when you have more information to convey, but don't want to break context.).
 
+````
+Find out ^[more](Tooltips are useful for when you have more information to convey, but don't want to break context.).
+````
+
 ## Images
 
 ![Please always add alt-text](https://media.giphy.com/media/pDTLSpqNvNxlu/giphy.gif)
+
+````
+![Please always add alt-text](https://media.giphy.com/media/pDTLSpqNvNxlu/giphy.gif)
+````
 
 > Images should be used sparingly, try to avoid using screenshots that might go out of date.
 >
@@ -183,14 +211,20 @@ See our detailed [code examples guide](/contribute/guides/code-examples) for adv
 ## Tables
 
 > Pipes should only be between cells. Two hyphens `--` should be used to 'underline' the headings.
->
-> You'll have to view the `markdown-guide.md` source to see how since showing you the syntax would result in it being processed.
 
 | Key          | Description                                                                                |
 | ------------ | ------------------------------------------------------------------------------------------ |
 | `TO_NUMBER`  | The number you are sending the SMS to                                                      |
 | `API_KEY`    | You can find this in your [account overview](https://dashboard.nexmo.com/account-overview) |
 | `API_SECRET` | You can find this in your [account overview](https://dashboard.nexmo.com/account-overview) |
+
+````
+| Key          | Description                                                                                |
+| ------------ | ------------------------------------------------------------------------------------------ |
+| `TO_NUMBER`  | The number you are sending the SMS to                                                      |
+| `API_KEY`    | You can find this in your [account overview](https://dashboard.nexmo.com/account-overview) |
+| `API_SECRET` | You can find this in your [account overview](https://dashboard.nexmo.com/account-overview) |
+````
 
 ## Tabbed Content (custom plugin)
 

@@ -70,7 +70,7 @@
     { name: 'Neutral', color: '#e1e2e6', data: @feedbacks.neutral.group_by_week('feedback_feedbacks.created_at').count },
     { name: 'Negative', color: '#ea5353', data: @feedbacks.negative.group_by_week('feedback_feedbacks.created_at').count },
   ],
-  stacked: true
+  stacked: true, defer: true
 ) %>
 
 <%
@@ -109,7 +109,7 @@
     { name: 'Neutral', color: '#e1e2e6', data: neutral },
     { name: 'Negative', color: '#ea5353', data: negative },
   ],
-  stacked: true
+  stacked: true, defer: true
 ) %>
 
 <hr>
