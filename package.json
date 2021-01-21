@@ -12,7 +12,6 @@
     "@babel/plugin-proposal-throw-expressions": "^7.12.1",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
     "@babel/plugin-syntax-import-meta": "^7.10.4",
-    "@babel/polyfill": "^7.12.1",
     "@babel/preset-env": "^7.12.11",
     "@googlemaps/google-maps-services-js": "^3.1.16",
     "@rails/ujs": "^6.1.0",
