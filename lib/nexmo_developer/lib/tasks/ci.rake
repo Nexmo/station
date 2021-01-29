@@ -2,7 +2,7 @@ require_relative '../common_errors'
 
 namespace :ci do
   desc 'Verify all pages to make sure that no exceptions are thrown'
-  task 'verify_pages': :environment do
+  task verify_pages: :environment do
     document_paths =
       [
         "#{Rails.configuration.docs_base_path}/_documentation/en/**/*.md",
@@ -24,7 +24,7 @@ namespace :ci do
   end
 
   desc 'Verify side navigation to make sure every page has valid YAML metadata'
-  task 'verify_navigation': :environment do
+  task verify_navigation: :environment do
     session = ActionDispatch::Integration::Session.new(Rails.application)
     res = session.get '/documentation'
 
@@ -35,7 +35,7 @@ namespace :ci do
   end
 
   desc 'Render all OAS based API references'
-  task 'verify_oas_reference': :environment do
+  task verify_oas_reference: :environment do
     session = ActionDispatch::Integration::Session.new(Rails.application)
     OpenApiConstraint.list.each do |name|
       res = session.get "/api/#{name}"
@@ -48,7 +48,7 @@ namespace :ci do
   end
 
   desc 'Ensure all OAS error URLS resolve'
-  task 'verify_error_urls_resolve': :environment do
+  task verify_error_urls_resolve: :environment do
     session = ActionDispatch::Integration::Session.new(Rails.application)
     session.host! 'localhost' unless Rails.env.test?
 
@@ -114,7 +114,7 @@ namespace :ci do
     end
   end
 
-  task 'check_word_blocklist': :environment do
+  task check_word_blocklist: :environment do
     markdown_files =
       [
         "#{Rails.configuration.docs_base_path}/_documentation/en/**/*.md",
@@ -145,7 +145,7 @@ namespace :ci do
     end
   end
 
-  task 'check_ruby_version': :environment do
+  task check_ruby_version: :environment do
     # We treat .ruby-version as the canonical source
     ruby_version = File.read('.ruby-version').strip
 

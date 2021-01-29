@@ -8,19 +8,19 @@ class JobsController < ApplicationController
       if params['ref'] == 'refs/heads/master'
         url = "https://api.travis-ci.org/repo/#{ENV['TRAVIS_REPO_ID']}/requests"
         RestClient.post(url, {
-          "request": {
-            "branch": 'master',
-            "config": {
-              "script": 'bundle exec rake diff:execute',
-              "env": {
-                "SSH_KEY_REQUIRED": true,
+          request: {
+            branch: 'master',
+            config: {
+              script: 'bundle exec rake diff:execute',
+              env: {
+                SSH_KEY_REQUIRED: true,
               },
             },
           },
         }.to_json, {
           content_type: :json,
           accept: :json,
-          'Authorization': "token #{ENV['TRAVIS_TOKEN']}",
+          Authorization: "token #{ENV['TRAVIS_TOKEN']}",
           'Travis-API-Version': '3',
         })
 

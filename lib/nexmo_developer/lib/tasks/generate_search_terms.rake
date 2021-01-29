@@ -21,7 +21,7 @@ namespace :search_terms do
   end
 
   desc 'Clear the index in Algolia'
-  task 'algolia:clear': :environment do
+  task 'algolia:clear' => :environment do
     unless ENV['ALGOLIA_APPLICATION_ID']
       puts 'Not rebuilding search index, Algolia Application ID not set'
       next
@@ -32,7 +32,7 @@ namespace :search_terms do
   end
 
   desc 'Refresh the Algolia index'
-  task 'algolia:refresh': :environment do
+  task 'algolia:refresh' => :environment do
     Rake::Task['search_terms:algolia:clear'].invoke
     Rake::Task['search_terms:algolia:generate'].invoke
   end

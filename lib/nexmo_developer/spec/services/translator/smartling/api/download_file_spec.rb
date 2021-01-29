@@ -46,13 +46,13 @@ RSpec.describe Translator::Smartling::API::DownloadFile do
           .to_return(
             status: 500,
             body: {
-              "response": {
-                "code": 'GENERAL_ERROR',
-                "errors": [
+              response: {
+                code: 'GENERAL_ERROR',
+                errors: [
                   {
-                    "key": 'general_error',
-                    "message": 'Unexpected server error',
-                    "details": {},
+                    key: 'general_error',
+                    message: 'Unexpected server error',
+                    details: {},
                   },
                 ],
               },

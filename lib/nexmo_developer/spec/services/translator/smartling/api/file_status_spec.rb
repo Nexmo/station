@@ -25,35 +25,35 @@ RSpec.describe Translator::Smartling::API::FileStatus do
           .to_return(
             status: 200,
             body: {
-              "response": {
-                "code": 'SUCCESS',
-                "data": {
-                  "created": '2017-09-06T20:29:15Z',
-                  "directives": {
-                    "file_uri_as_namespace": 'true',
+              response: {
+                code: 'SUCCESS',
+                data: {
+                  created: '2017-09-06T20:29:15Z',
+                  directives: {
+                    file_uri_as_namespace: 'true',
                   },
-                  "fileType": 'markdown',
-                  "fileUri": '/messages/external-accounts/overview.md',
-                  "hasInstructions": false,
-                  "items": [
+                  fileType: 'markdown',
+                  fileUri: '/messages/external-accounts/overview.md',
+                  hasInstructions: false,
+                  items: [
                     {
-                      "authorizedStringCount": 0,
-                      "authorizedWordCount": 0,
-                      "completedStringCount": 1,
-                      "completedWordCount": 1,
-                      "excludedStringCount": 0,
-                      "excludedWordCount": 0,
-                      "localeId": 'zh-CN',
+                      authorizedStringCount: 0,
+                      authorizedWordCount: 0,
+                      completedStringCount: 1,
+                      completedWordCount: 1,
+                      excludedStringCount: 0,
+                      excludedWordCount: 0,
+                      localeId: 'zh-CN',
                     },
                   ],
-                  "lastUploaded": '2017-09-06T20:29:15Z',
-                  "namespace": {
-                  "name": '/messages/external-accounts/overview.md',
+                  lastUploaded: '2017-09-06T20:29:15Z',
+                  namespace: {
+                  name: '/messages/external-accounts/overview.md',
                 },
-                  "parserVersion": 4,
-                  "totalCount": 1,
-                  "totalStringCount": 1,
-                  "totalWordCount": 1,
+                  parserVersion: 4,
+                  totalCount: 1,
+                  totalStringCount: 1,
+                  totalWordCount: 1,
                 },
               },
             }.to_json.to_s
@@ -73,13 +73,13 @@ RSpec.describe Translator::Smartling::API::FileStatus do
           .to_return(
             status: 500,
             body: {
-              "response": {
-                "code": 'GENERAL_ERROR',
-                "errors": [
+              response: {
+                code: 'GENERAL_ERROR',
+                errors: [
                   {
-                    "key": 'general_error',
-                    "message": 'Unexpected server error',
-                    "details": {},
+                    key: 'general_error',
+                    message: 'Unexpected server error',
+                    details: {},
                   },
                 ],
               },
