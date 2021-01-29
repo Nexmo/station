@@ -1,6 +1,6 @@
 namespace :documentation do
   desc 'Verify all pages have meta_title and description keys'
-  task 'check_keys': :environment do
+  task check_keys: :environment do
     documentation_path = "#{Rails.configuration.docs_base_path}/_documentation/**/*.md"
     documents = []
 

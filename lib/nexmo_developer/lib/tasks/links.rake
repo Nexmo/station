@@ -2,7 +2,7 @@ require 'terminal-table'
 
 namespace :links do
   desc 'Generate a report of all links FROM a given page'
-  task 'report_outbound': :environment do
+  task report_outbound: :environment do
     ARGV.each { |a| task a.to_sym }
     filter = ARGV[1]
     table = Terminal::Table.new do |t|
@@ -18,7 +18,7 @@ namespace :links do
   end
 
   desc 'Generate a report of all links TO a given page'
-  task 'report_inbound': :environment do
+  task report_inbound: :environment do
     ARGV.each { |a| task a.to_sym }
     filter = ARGV[1]
     table = Terminal::Table.new do |t|
@@ -34,21 +34,21 @@ namespace :links do
   end
 
   desc 'Show all pages with no outbound links'
-  task 'no_links_outbound': :environment do
+  task no_links_outbound: :environment do
     get_links_on_a_page("#{Rails.configuration.docs_base_path}/_documentation/**/*.md").each do |from, to|
       puts from if to.empty?
     end
   end
 
   desc 'Show all pages with no inbound links'
-  task 'no_links_inbound': :environment do
+  task no_links_inbound: :environment do
     get_links_to_a_page("#{Rails.configuration.docs_base_path}/_documentation/**/*.md").each do |to, from|
       puts to if from.empty?
     end
   end
 
   desc 'Generate graph of all links out of pages'
-  task 'graph_outbound': :environment do
+  task graph_outbound: :environment do
     ARGV.each { |a| task a.to_sym }
     filter = ARGV[1]
     additional_title = ''
@@ -69,7 +69,7 @@ namespace :links do
   end
 
   desc 'Generate graph of all links to pages'
-  task 'graph_inbound': :environment do
+  task graph_inbound: :environment do
     ARGV.each { |a| task a.to_sym }
     filter = ARGV[1]
     additional_title = ''

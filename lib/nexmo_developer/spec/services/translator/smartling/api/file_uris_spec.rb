@@ -27,26 +27,26 @@ RSpec.describe Translator::Smartling::API::FileUris do
           .to_return(
             status: 200,
             body: {
-              "response": {
-                "code": 'SUCCESS',
-                "data": {
-                  "items": [
+              response: {
+                code: 'SUCCESS',
+                data: {
+                  items: [
                     {
-                      "created": '2017-09-06T20:29:15Z',
-                      "fileType": 'csv',
-                      "fileUri": '/files/translation_import.csv',
-                      "hasInstructions": false,
-                      "lastUploaded": '2017-09-06T20:29:15Z',
+                      created: '2017-09-06T20:29:15Z',
+                      fileType: 'csv',
+                      fileUri: '/files/translation_import.csv',
+                      hasInstructions: false,
+                      lastUploaded: '2017-09-06T20:29:15Z',
                     },
                     {
-                      "created": '2017-05-27T12:45:36Z',
-                      "fileType": 'javaProperties',
-                      "fileUri": '/files/4.properties',
-                      "hasInstructions": false,
-                      "lastUploaded": '2017-05-27T12:45:36Z',
+                      created: '2017-05-27T12:45:36Z',
+                      fileType: 'javaProperties',
+                      fileUri: '/files/4.properties',
+                      hasInstructions: false,
+                      lastUploaded: '2017-05-27T12:45:36Z',
                     },
                   ],
-                  "totalCount": 2,
+                  totalCount: 2,
                 },
               },
             }.to_json.to_s
@@ -66,13 +66,13 @@ RSpec.describe Translator::Smartling::API::FileUris do
           .to_return(
             status: 500,
             body: {
-              "response": {
-                "code": 'GENERAL_ERROR',
-                "errors": [
+              response: {
+                code: 'GENERAL_ERROR',
+                errors: [
                   {
-                    "key": 'general_error',
-                    "message": 'Unexpected server error',
-                    "details": {},
+                    key: 'general_error',
+                    message: 'Unexpected server error',
+                    details: {},
                   },
                 ],
               },
