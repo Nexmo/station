@@ -118,6 +118,8 @@ class MarkdownController < ApplicationController
       code_language: @code_language,
       current_user: current_user,
       locale: params[:locale],
+      api_key: cookies.encrypted['api_key'],
+      api_secret: cookies.encrypted['api_secret'],
     }).call(content)
 
     [frontmatter, content]
