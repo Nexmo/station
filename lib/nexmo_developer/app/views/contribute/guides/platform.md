@@ -145,7 +145,6 @@ Frontmatter | No | [Implicit] | Strips frontmatter from documents
 PHPInliner | No | [Implicit] | Fixes a quirk with our code parser that requires PHP code to have `<?php` at the start. This filter adds an option onto PHP code examples that makes this not required.
 InlineEscape | No | [Extended] | Allows for escaping of inline code where normally the internals would be processes by the markdown. For example this isn't turned into a ``[label]`` when surrounded by two backticks.
 BlockEscape | No | [Extended] | Allows for escaping of code fences where normally the internals would be processes by the markdown.
-Screenshot | No | [Plugin] | Allows for screenshots be put into documentation that are captured by a headless browser so they can be easily refreshed.
 Anchor | No | [Extended] | Useful for when a title changes, an explicit anchor can be added and renders a non-visible anchor link to the same content.
 Audio | No | [Extended] | Used to embed audio examples using the `<audio>` element.
 Tooltip | No | [Extended] | Allows for ^[Toolips](Hello world!) to be added with a markdown-style syntax.

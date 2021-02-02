@@ -359,44 +359,6 @@ If you are adding support for a changed header this would normally go above the 
 
 [Go to the anchor](#anchor-example). I've placed at the top of this document.
 
-## Screenshots
-
-Webpage screenshots can be scripted so that they only require sourcing once. Define a screenshot as such:
-
-````
-```screenshot
-script: app/screenshots/webhook-url-for-delivery-receipt.js
-```
-````
-
-Run the following command:
-
-```
-$ rake screenshots:new
-```
-
-This changes the original source document to add an `image` value pointing to the screenshot:
-
-````
-```screenshot
-script: app/screenshots/webhook-url-for-delivery-receipt.js
-image: public/assets/screenshots/da5f952d465355c19eb888fa1049844b31e090c2.png
-```
-````
-
-You can also update all examples by running the following command:
-
-```
-$ rake screenshots:all
-```
-
-Here is the example of the final rendered output:
-
-```screenshot
-script: app/screenshots/webhook-url-for-delivery-receipt.js
-image: public/assets/screenshots/da5f952d465355c19eb888fa1049844b31e090c2.png
-```
-
 ## Audio (custom plugin)
 
 The HTML `<audio>` element can be utilised in Markdown with the following syntax:
