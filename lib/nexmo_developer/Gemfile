@@ -114,7 +114,7 @@ gem 'country_select', '~> 4.0'
 
 gem 'nexmo-oas-renderer', '~> 2.6', require: false
 
-gem 'nexmo_markdown_renderer', '~> 0.8'
+gem 'nexmo_markdown_renderer', '~> 0.9'
 
 gem 'smartling'
 
