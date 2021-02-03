@@ -4,7 +4,7 @@ Nexmo Developer is a simple Rails application with a mounted Sinatra app that ha
 
 # Deployment
 
-NDP is hosted in Heroku and is automatically deployed every time a branch is merged into master via a Github integration.
+NDP is hosted in Heroku and is automatically deployed every time a branch is merged into main via a Github integration.
 In case you want to force a deploy, you can always deploy NDP from [Heroku's dashboard](https://dashboard.heroku.com/apps/nexmo-developer).
 
 ## Required Resources
@@ -39,7 +39,7 @@ In case NDP is Down:
 
 * Check if [Heroku](https://status.heroku.com/) is having an outage. Unfortunately, if that is the case then there isn't much you can do about it (at least for now).
 * Otherwise, check the [logs](#logs) or [Bugsnag](#error-monitoring-and-reporting) to see if any issues show up and try to reproduce it locally.
-If the issue is related to the latest deploy, just revert the offending commits and the deploy again while you work on a fix. Once a fix is ready, open a Pull Request, make sure that it works in the corresponding Review App and finally after all the checks pass merge it into master.
+If the issue is related to the latest deploy, just revert the offending commits and the deploy again while you work on a fix. Once a fix is ready, open a Pull Request, make sure that it works in the corresponding Review App and finally after all the checks pass merge it into main.
 
 # Available configuration options
 
@@ -53,7 +53,7 @@ To enable the Search form locally, the `ALGOLIA_SEARCH_KEY` environment variable
 
 # Common issues when running NDP locally
 
-NDP can be run locally either directly or using Docker, for more information about how to run it see the [Readme](https://github.com/Nexmo/nexmo-developer/blob/master/README.md#running-locally). When using docker, re-building the image should fix the following issues
+NDP can be run locally either directly or using Docker, for more information about how to run it see the [Readme](https://github.com/Nexmo/nexmo-developer/blob/main/README.md#running-locally). When using docker, re-building the image should fix the following issues
 
 * `Could not find definition '<insert_file_here>' in '<path>'`: set the right `OAS_PATH`  in `.env`, check `.env.example` for the default value.
 
@@ -66,4 +66,4 @@ NDP can be run locally either directly or using Docker, for more information abo
 
 * Webpacker errors:
     * `The engine "node" is incompatible with this module. Expected version...` We use [nvm](https://github.com/nvm-sh/nvm) as node's version manage, check that the right version of node is installed (specified in `.nvmrc`) and run `nvm use <version>`.
-    * Make sure that all the packages are install by running `yarn install`
+    * Make sure that all the packages are installed by running `yarn install`
