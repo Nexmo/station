@@ -80,7 +80,7 @@ jobs:
     - name: Fetch NDP
       uses: actions/checkout@master
       with:
-        ref: master
+        ref: main
         repository: nexmo/nexmo-developer
         token: ${{ secrets.GITHUB_TOKEN }}
         path: ndp
