@@ -4,7 +4,7 @@ class ImprovePagePresenter
   end
 
   def github_url
-    @github_url ||= "https://github.com/#{docs_repo}/blob/#{ENV.fetch('branch', 'master')}/#{path_to_url}"
+    @github_url ||= "https://github.com/#{docs_repo}/blob/#{ENV.fetch('branch', 'main')}/#{path_to_url}"
   end
 
   def docs_repo
