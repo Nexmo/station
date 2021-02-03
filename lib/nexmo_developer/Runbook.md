@@ -66,4 +66,4 @@ NDP can be run locally either directly or using Docker, for more information abo
 
 * Webpacker errors:
     * `The engine "node" is incompatible with this module. Expected version...` We use [nvm](https://github.com/nvm-sh/nvm) as node's version manage, check that the right version of node is installed (specified in `.nvmrc`) and run `nvm use <version>`.
-    * Make sure that all the packages are install by running `yarn install`
+    * Make sure that all the packages are installed by running `yarn install`
