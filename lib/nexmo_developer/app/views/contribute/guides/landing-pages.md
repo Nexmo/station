@@ -544,13 +544,3 @@ The `warning_callout` content block provides an element to render a warning mess
     content: # Warning message goes here
 
 ```
-
-### Write for Nexmo
-
-The `write_for_nexmo` content block will provide a call to action element to Write for Nexmo with a Developer Spotlight graphic on the left-hand side and text advertising the Write for Nexmo program on the left-hand side.
-
-```yaml
-
-- type: write_for_nexmo
-
-```
