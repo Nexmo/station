@@ -57,8 +57,6 @@ Rails.application.routes.draw do
 
   get '(/:locale)/documentation', to: 'static#documentation', constraints: LocaleConstraint.new, as: :documentation
 
-  post '/spotlight', to: 'static#spotlight'
-
   get '/community/slack', to: 'slack#join'
   post '/community/slack', to: 'slack#invite'
 

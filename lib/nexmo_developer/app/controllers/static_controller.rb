@@ -145,19 +145,6 @@ class StaticController < ApplicationController
     end
   end
 
-  def spotlight
-    response = RestClient.post(
-      'https://hooks.zapier.com/hooks/catch/1936493/oyzjr4i/',
-      params.permit(:name, :email_address, :background, :outline, :previous_content).to_h
-    )
-
-    if response.code == 200
-      head :ok
-    else
-      head :unprocessable_entity
-    end
-  end
-
   def blog_cookie
     # This is the first touch time so we only want to set it if it's not already set
     set_utm_cookie('ft', Time.now.getutc.to_i) unless cookies[:ft]
