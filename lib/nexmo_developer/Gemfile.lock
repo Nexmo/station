@@ -190,7 +190,7 @@ GEM
     gravatar_image_tag (1.2.0)
     greenhouse_io (2.5.0)
       httmultiparty (~> 0.3.16)
-    groupdate (5.2.1)
+    groupdate (5.2.2)
       activesupport (>= 5)
     guard (2.16.2)
       formatador (>= 0.2.4)
@@ -571,7 +571,7 @@ DEPENDENCIES
   gmaps4rails (= 2.1.2)
   gravatar_image_tag (= 1.2.0)
   greenhouse_io
-  groupdate (= 5.2.1)
+  groupdate (= 5.2.2)
   guard-livereload (~> 2.5)
   guard-rspec
   icalendar
