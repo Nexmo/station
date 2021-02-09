@@ -84,7 +84,7 @@ gem 'octokit', require: false
 gem 'woothee'
 
 # The simplest way to group temporal data
-gem 'groupdate', '5.2.1'
+gem 'groupdate', '5.2.2'
 
 # A configurable and documented Rails view helper for adding gravatars into your Rails application.
 gem 'gravatar_image_tag', '1.2.0'
