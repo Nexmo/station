@@ -14,7 +14,7 @@
     "@babel/plugin-syntax-import-meta": "^7.10.4",
     "@babel/preset-env": "^7.12.13",
     "@googlemaps/google-maps-services-js": "^3.1.16",
-    "@rails/ujs": "^6.1.0",
+    "@rails/ujs": "^6.1.2",
     "@rails/webpacker": "^5.2.1",
     "@vonagevolta/volta2": "^0.1.6",
     "algoliasearch": "^4.8.5",
