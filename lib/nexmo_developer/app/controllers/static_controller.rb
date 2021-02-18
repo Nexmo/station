@@ -45,6 +45,8 @@ class StaticController < ApplicationController
       migrate_tropo
     end
 
+    @frontmatter = @landing_config
+    @document_title = @landing_config['title']
     @navigation = yaml_name.to_sym
     render layout: 'landing'
   end
