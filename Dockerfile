@@ -1,4 +1,4 @@
-FROM ruby:2.7.2-alpine AS build-env
+FROM ruby:3.0-alpine AS build-env
 ARG RAILS_ROOT=/station
 ARG BUILD_PACKAGES="build-base curl-dev git"
 ARG DEV_PACKAGES="postgresql-dev yaml-dev zlib-dev nodejs yarn"
@@ -37,7 +37,7 @@ RUN bundle exec rake assets:precompile
 RUN rm -rf node_modules tmp/cache vendor/assets spec
 
 ################ Build step done ###############
-FROM ruby:2.7.2-alpine
+FROM ruby:3.0-alpine
 ARG RAILS_ROOT=/station
 
 ENV RACK_ENV production

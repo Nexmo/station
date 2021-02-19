@@ -1,5 +1,5 @@
 # Base image:
-FROM ruby:2.7.2
+FROM ruby:3.0-alpine
 
 # Install dependencies
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev lsof
