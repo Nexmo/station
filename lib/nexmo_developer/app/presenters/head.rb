@@ -26,9 +26,13 @@ class Head
   end
 
   def title
-    @title ||= config.fetch('title') do
+    @title ||= title_from_frontmatter || config.fetch('title') do
       raise "You must provide a 'title' parameter in header_meta.yml"
     end
+  end
+
+  def title_from_frontmatter
+    @frontmatter && (@frontmatter['meta_title'] || @frontmatter['title'])
   end
 
   def description
