@@ -43,6 +43,17 @@ RSpec.describe Feedback::Feedback, type: :model do
       end
     end
 
+    context 'when there is an owner email defined' do
+      it 'fires an Orbit notification' do
+        author = Feedback::Author.new(email: 'devrel@vonage.com')
+        subject.owner = author
+
+        expect(OrbitFeedbackNotifier).to receive(:call).with(subject)
+
+        subject.notify
+      end
+    end
+
     context 'otherwise' do
       it { expect(subject.notify).to eq(nil) }
     end
