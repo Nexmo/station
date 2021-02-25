@@ -32,6 +32,11 @@ class OrbitFeedbackNotifier
         activity_type: 'adp:feedback',
         key: "adp-new-feedback-#{params[:email]}-#{Time.zone.now}",
       },
+      'identity' => {
+        'source' => 'ADP',
+        'source_host' => 'https://developer.vonage.com',
+        'email' => params[:email],
+      },
     }
     req
   end
