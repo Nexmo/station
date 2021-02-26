@@ -154,7 +154,7 @@ namespace :ci do
     gemfile_version = gemfile.match(/RUBY VERSION.*ruby (\d+\.\d+\.\d+).*BUNDLED WITH/m)[1].strip
 
     # How about Docker?
-    docker = File.read('Dockerfile')
+    docker = File.read('../../Dockerfile')
     docker_version = docker.match(/FROM ruby:(\d+\.\d+\.\d+).*/)[1].strip
 
     errors = []
