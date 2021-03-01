@@ -64,7 +64,7 @@
     "webpack-manifest-plugin": "^3.0.0",
     "webpack-merge": "^5.7.3",
     "websocket-extensions": "^0.1.4",
-    "whatwg-fetch": "^3.6.1"
+    "whatwg-fetch": "^3.6.2"
   },
   "resolutions": {
     "acorn": "^6.4.1",
