@@ -269,4 +269,6 @@ Any step can capture the user's email address so that you can get back to them a
 
 The feedback captured by the wizard is stored in the database at `[YOUR_SITE_URL]/admin/feedbacks`. The questions the user was asked and the responses they entered are also stored, so that the users' answers can be seen in the context of the questions you asked. So, if you change the wizard's configuration, the users' responses still make sense.
 
+### Integration with Orbit
 
+Feedback can be sent to your organization's [Orbit](https://www.orbit.love) workspace by configuring two environment variables: `ORBIT_API_KEY` and `ORBIT_WORKSPACE_ID`. The feedback sentiment (e.g. negative, positive), documentation resource URI and visitor email address is sent to the Orbit workspace for any feedback left by a visitor that provides an email address.

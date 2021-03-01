@@ -26,6 +26,8 @@ module Feedback
     end
 
     def notify
+      OrbitFeedbackNotifier.call(self) if !owner.nil? && owner.email.present?
+
       return unless ENV['SLACK_WEBHOOK']
 
       FeedbackSlackNotifier.call(self)
