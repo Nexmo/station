@@ -22,6 +22,8 @@ class OrbitFeedbackNotifier
   end
 
   def post!
+    return unless ENV['ORBIT_WORKSPACE_ID']
+
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true
     req = Net::HTTP::Post.new(uri)
