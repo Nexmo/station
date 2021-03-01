@@ -24,6 +24,8 @@ RSpec.describe Feedback::FeedbacksController, type: :controller do
       end
 
       it 'creates a author with an email' do
+        expect(OrbitFeedbackNotifier).to receive(:call)
+
         post :create, xhr: true, params: {
           feedback_feedback: {
             sentiment: 'positive',
@@ -44,6 +46,8 @@ RSpec.describe Feedback::FeedbacksController, type: :controller do
         end
 
         it 'reuses the author' do
+          expect(OrbitFeedbackNotifier).to receive(:call)
+
           post :create, xhr: true, params: {
             feedback_feedback: {
               sentiment: 'positive',
@@ -65,6 +69,8 @@ RSpec.describe Feedback::FeedbacksController, type: :controller do
       end
 
       it 'reuses the author' do
+        expect(OrbitFeedbackNotifier).to receive(:call)
+
         post :create, xhr: true, params: {
           feedback_feedback: {
             sentiment: 'positive',
@@ -78,6 +84,8 @@ RSpec.describe Feedback::FeedbacksController, type: :controller do
 
       context 'but the email does not match' do
         it 'creates a new author' do
+          expect(OrbitFeedbackNotifier).to receive(:call)
+
           post :create, xhr: true, params: {
             feedback_feedback: {
               sentiment: 'positive',
@@ -101,6 +109,8 @@ RSpec.describe Feedback::FeedbacksController, type: :controller do
       end
 
       it 'reuses the user' do
+        expect(OrbitFeedbackNotifier).to receive(:call)
+
         post :create, xhr: true, params: {
           feedback_feedback: {
             sentiment: 'positive',
@@ -116,6 +126,8 @@ RSpec.describe Feedback::FeedbacksController, type: :controller do
 
       context 'and an email is provided' do
         it 'ignores the email' do
+          expect(OrbitFeedbackNotifier).to receive(:call)
+
           post :create, xhr: true, params: {
             feedback_feedback: {
               sentiment: 'positive',
@@ -132,6 +144,8 @@ RSpec.describe Feedback::FeedbacksController, type: :controller do
 
     context 'when a feedback already exists' do
       before do
+        expect(OrbitFeedbackNotifier).to receive(:call)
+
         @feedback = FactoryBot.create(:feedback_feedback, sentiment: 'positive')
       end
 

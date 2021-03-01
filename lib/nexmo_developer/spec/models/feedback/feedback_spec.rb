@@ -9,6 +9,8 @@ RSpec.describe Feedback::Feedback, type: :model do
       let(:end_date) { nil }
 
       it 'excludes feedbacks created before start_date' do
+        expect(OrbitFeedbackNotifier).to receive(:call)
+
         FactoryBot.create(:feedback_feedback, created_at: date - 1)
 
         feedbacks = described_class.created_between(start_date, end_date)
@@ -22,6 +24,8 @@ RSpec.describe Feedback::Feedback, type: :model do
       let(:end_date) { date }
 
       it 'excludes feedbacks created after end_date' do
+        expect(OrbitFeedbackNotifier).to receive(:call)
+
         FactoryBot.create(:feedback_feedback, created_at: date + 1)
 
         feedbacks = described_class.created_between(start_date, end_date)

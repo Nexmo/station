@@ -18,6 +18,8 @@ RSpec.describe 'admin/feedbacks/_steps.html.erb' do
   end
 
   it 'renders the corresponding specs' do
+    expect(OrbitFeedbackNotifier).to receive(:call)
+
     render partial: 'admin/feedbacks/steps.html.erb', locals: { feedback: feedback }
 
     expect(rendered).to have_css('b', text: 'I need help with something else.')
