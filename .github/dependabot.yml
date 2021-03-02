@@ -5,9 +5,6 @@ updates:
   schedule:
     interval: daily
   open-pull-requests-limit: 10
-  reviewers:
-  - fabianrbz
-  - bencgreenberg
   labels:
   - rails-app-updates
 - package-ecosystem: npm
@@ -15,16 +12,10 @@ updates:
   schedule:
     interval: daily
   open-pull-requests-limit: 10
-  reviewers:
-  - fabianrbz
-  - bencgreenberg
 - package-ecosystem: bundler
   directory: "/"
   schedule:
     interval: daily
   open-pull-requests-limit: 10
-  reviewers:
-  - fabianrbz
-  - bencgreenberg
   labels:
   - gemspec-updates
