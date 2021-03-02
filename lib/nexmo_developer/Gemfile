@@ -87,7 +87,7 @@ gem 'woothee'
 gem 'groupdate', '5.2.2'
 
 # A configurable and documented Rails view helper for adding gravatars into your Rails application.
-gem 'gravatar_image_tag', '1.2.0'
+gem 'gravatar_image_tag', github: 'Envek/gravatar_image_tag', branch: 'fix/deprecation-warnings'
 
 # Boot large ruby/rails apps faster
 gem 'bootsnap', require: false
