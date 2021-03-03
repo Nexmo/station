@@ -35,7 +35,7 @@
     "glob": "^7.1.2",
     "gsap": "^3.6.0",
     "https-proxy-agent": "^5.0.0",
-    "jquery": "^3.5.0",
+    "jquery": "^3.6.0",
     "js-yaml": "4.0.0",
     "jsrsasign": "^10.1.12",
     "kind-of": "^6.0.3",
