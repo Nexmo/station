@@ -1,6 +1,4 @@
 class OrbitFeedbackNotifier
-  CONFIG = YAML.load_file("#{Rails.configuration.docs_base_path}/config/business_info.yml")
-
   def self.call(feedback)
     new(feedback).post!
   end
@@ -41,7 +39,6 @@ class OrbitFeedbackNotifier
       },
       identity: {
         source: 'email',
-        source_host: CONFIG['base_url'],
         email: params[:email],
       },
     }
