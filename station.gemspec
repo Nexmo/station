@@ -61,7 +61,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency('webpacker', '~> 5.1')
   spec.add_runtime_dependency('truncato', '~> 0.7.11')
   spec.add_runtime_dependency('puma', '>= 4.3', '< 6.0')
-  spec.add_runtime_dependency('barnes', '0.0.8')
+  spec.add_runtime_dependency('barnes', '0.0.9')
   spec.add_runtime_dependency('woothee', '~> 1.11')
   spec.add_runtime_dependency('algoliasearch', '1.27.5')
   spec.add_runtime_dependency('rest-client', '2.1.0')
