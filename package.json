@@ -23,7 +23,7 @@
     "babel-preset-babili": "^0.1.4",
     "chart.js": "^2.9.4",
     "chartkick": "^3.2.1",
-    "clipboard": "^2.0.7",
+    "clipboard": "^2.0.8",
     "coffee-loader": "^1.0.1",
     "coffee-script": "^1.12.7",
     "compression-webpack-plugin": "^6.1.1",
