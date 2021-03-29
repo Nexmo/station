@@ -37,7 +37,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
   spec.add_runtime_dependency('activeadmin', '~> 2.7')
-  spec.add_runtime_dependency('rails', '~> 6.0')
+  spec.add_runtime_dependency('rails', '~> 6.1')
   spec.add_runtime_dependency('bootsnap', '~> 1.4')
   spec.add_runtime_dependency('nexmo-oas-renderer', '~> 2.6')
   spec.add_runtime_dependency('nexmo_markdown_renderer', '~> 0.9')
