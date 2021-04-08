@@ -139,7 +139,7 @@ gem 'sassc-rails', '~> 2.1'
 gem 'gmaps4rails', '2.1.2'
 
 # Create beautiful JavaScript charts with one line of Ruby
-gem 'chartkick', '3.4.2'
+gem 'chartkick', '~> 4.0'
 
 group :development, :test do
   gem 'awesome_print'
