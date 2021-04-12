@@ -22,7 +22,7 @@
     "babel-loader": "^8.2.2",
     "babel-preset-babili": "^0.1.4",
     "chart.js": "^3.1.0",
-    "chartkick": "^4.0.2",
+    "chartkick": "^4.0.3",
     "clipboard": "^2.0.8",
     "coffee-loader": "^1.0.1",
     "coffee-script": "^1.12.7",
