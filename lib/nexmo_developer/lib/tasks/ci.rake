@@ -167,5 +167,27 @@ namespace :ci do
     end
   end
 
-  task all: %i[verify_pages verify_navigation verify_oas_reference verify_error_urls_resolve check_word_blocklist]
+  task validate_tutorials: :environment do
+    p 'Validating tutorials...'
+    TutorialList.all.each do |tutorial_list_item|
+      # Consider every code language and the case when it is nil
+      tutorial_list_item.languages.append(nil).each do |code_language|
+        tutorial = Tutorial.load(tutorial_list_item.filename, nil, nil, code_language)
+
+        tasks = tutorial.subtasks
+        tasks.map(&:validate!)
+
+        messages = tasks.map(&:errors).map(&:messages).flatten.reject(&:empty?)
+        if messages.any?
+          p "Errors for: #{tutorial.path}"
+          messages.each do |errors|
+            errors.each { |_k, v| p "* #{v.join(',')}".indent(4) }
+          end
+        end
+      end
+    end
+    p 'Done!'
+  end
+
+  task all: %i[verify_pages verify_navigation verify_oas_reference verify_error_urls_resolve check_word_blocklist validate_tutorials]
 end
