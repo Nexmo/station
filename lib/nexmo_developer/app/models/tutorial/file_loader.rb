@@ -9,13 +9,7 @@ class Tutorial::FileLoader
   end
 
   def path
-    @path ||= Nexmo::Markdown::DocFinder.find(
-      root: root,
-      document: doc_name,
-      language: ::I18n.locale,
-      code_language: code_language,
-      format: format
-    ).path
+    @path ||= doc.path
   end
 
   def content
@@ -24,5 +18,15 @@ class Tutorial::FileLoader
 
   def yaml
     @yaml ||= YAML.safe_load(content)
+  end
+
+  def doc
+    @doc ||= Nexmo::Markdown::DocFinder.find(
+      root: root,
+      document: doc_name,
+      language: ::I18n.locale,
+      code_language: code_language,
+      format: format
+    )
   end
 end

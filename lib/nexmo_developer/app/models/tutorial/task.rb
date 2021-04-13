@@ -1,5 +1,7 @@
 class Tutorial::Task
-  attr_reader :name, :code_language, :current_step
+  extend ActiveModel::Naming
+
+  attr_reader :name, :code_language, :current_step, :errors
 
   delegate :yaml, :path, to: :@file_loader
 
@@ -10,6 +12,8 @@ class Tutorial::Task
     @code_language = code_language
     @current_step = current_step
     @file_loader = load_file!
+
+    @errors = ActiveModel::Errors.new(self)
   end
 
   def load_file!
@@ -19,6 +23,14 @@ class Tutorial::Task
       code_language: @code_language,
       format: 'md'
     )
+  end
+
+  def validate!
+    unless ['introduction', 'conclusion', 'prerequisites'].include? name
+      path.present?
+    end
+  rescue ::Nexmo::Markdown::DocFinder::MissingDoc => _e
+    @errors.add(:name, message: "could not find the file: #{name}")
   end
 
   def active?
@@ -54,5 +66,19 @@ class Tutorial::Task
 
   def description
     @description || yaml['description']
+  end
+
+  # The following methods are needed for validation
+
+  def read_attribute_for_validation(attr)
+    send(attr)
+  end
+
+  def self.human_attribute_name(attr, _options = {})
+    attr
+  end
+
+  def self.lookup_ancestors
+    [self]
   end
 end
