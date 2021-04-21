@@ -194,3 +194,7 @@ table {
 code .token.function{
   color: #E75B2F !important;
 }
+
+pre.Vlt-prism--dark code {
+  white-space: pre-wrap;
+}
