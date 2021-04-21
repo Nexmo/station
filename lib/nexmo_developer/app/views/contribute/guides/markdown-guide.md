@@ -102,7 +102,7 @@ Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia od
 
 **Inline styles**
 
-Text can be **bold**, _italic_ or **_bold and italic_**. You could use ~~strikethrough~~ but please don't.
+Text can be **bold**, *italic* or ***bold and italic***. You could use ~~strikethrough~~ but please don't.
 
 You can define inline `code block` with backticks.
 
@@ -122,7 +122,7 @@ They auto-magically color when you use verbs like [POST] or [DELETE]
 |
 | Here is some hidden content.
 |
-| Markdown _still_ works `here`!
+| Markdown *still* works `here`!
 |
 | Nullam id dolor id nibh ultricies vehicula ut id elit. Donec ullamcorper nulla non metus auctor fringilla. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
 
@@ -131,7 +131,7 @@ They auto-magically color when you use verbs like [POST] or [DELETE]
 |
 | Here is some hidden content.
 |
-| Markdown _still_ works `here`!
+| Markdown *still* works `here`!
 |
 | Nullam id dolor id nibh ultricies vehicula ut id elit. Donec ullamcorper nulla non metus auctor fringilla. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
 ````
