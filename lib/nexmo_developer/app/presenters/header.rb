@@ -1,5 +1,7 @@
 class Header
-  def initialize
+  def initialize(params = {})
+    @params = params
+
     after_initialize!
   end
 
@@ -34,6 +36,10 @@ class Header
 
   def sign_up_text
     @sign_up_text ||= config['header']['links']['sign-up']['text']
+  end
+
+  def campaign_dataset
+    { campaign: @params[:product], 'signup-url': ENV['SIGNUP_URL'] }
   end
 
   private

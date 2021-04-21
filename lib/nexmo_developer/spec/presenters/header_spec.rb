@@ -75,4 +75,17 @@ RSpec.describe Header do
 
     it { expect(subject).to eq(['Log In', 'Try Me']) }
   end
+
+  describe '#campaign_dataset' do
+    subject { described_class.new({ product: 'concepts' }).campaign_dataset }
+
+    before do
+      allow(ENV).to receive(:[]).and_call_original
+      allow(ENV).to receive(:[]).with('SIGNUP_URL').and_return('url')
+    end
+
+    it 'returns the necessary html data attributes' do
+      expect(subject).to match({ campaign: 'concepts', 'signup-url': 'url' })
+    end
+  end
 end
