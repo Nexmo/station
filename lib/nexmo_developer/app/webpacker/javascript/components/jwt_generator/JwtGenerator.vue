@@ -146,7 +146,7 @@ export default {
       } else if (this.applicationId) {
         message = 'Next, provide a Private Key';
       } else {
-        message = '<h4>Use your <code>private key</code> and <code>application_id</code> to create a JWT for your Nexmo Application</h4>The JWT is generated on the client-side so your private key <strong>never leaves your browser</strong>.';
+        message = '<h4>Use your <code>private key</code> and <code>application_id</code> to create a JWT for your Vonage Application</h4>The JWT is generated on the client-side so your private key <strong>never leaves your browser</strong>.';
       }
       return message;
     },
