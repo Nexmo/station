@@ -32,12 +32,14 @@ em {
 
 .Nxd-main {
   outline: none;
+  height: calc(100vh - 150px);
+  margin-top: 150px;
 }
 
-@media #{$M-plus} {
+@media #{'only screen and (min-width: #{$small-screen} ) and (max-width: #{$big-screen})'} {
   .Nxd-main {
-    height: calc(100vh - 150px);
-    margin-top: 150px;
+    height: calc(100vh - 250px);
+    margin-top: 250px;
     padding: 0px 32px;
   }
 }
