@@ -5,6 +5,12 @@
   <body class="Nxd-template" data-push-state-root="<%= canonical_path %>">
     <%= render partial: 'layouts/partials/header' %>
     <div id="Vlt-sidenav" class="Vlt-sidenav Nxd-sidenav Vlt-sidenav--animate Vlt-sidenav--rounded">
+      <div class="Vlt-sidenav__block Vlt-sidenav__block--logo">
+        <div id="Vlt-sidenav-collapse-trigger" class="Vlt-sidenav__collapse">
+          <svg class="Vlt-sidenav__collapse__close"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-chevron-left"></use></svg>
+          <svg class="Vlt-sidenav__collapse__open"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-menu"></use></svg>
+        </div>
+      </div>
       <div class="Vlt-sidenav__scroll">
         <nav class="sidenav" id="sidenav" data-active="<%= active_sidenav_item %>" aria-label="Documentation">
           <% cache_unless params[:namespace].present?, ['sidenav', I18n.locale] do %>
