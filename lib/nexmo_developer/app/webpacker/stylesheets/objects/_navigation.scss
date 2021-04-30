@@ -13,6 +13,11 @@
 .Vlt-sidenav {
   flex: 0 0 300px;
   width: 300px;
+
+  &__collapse__close {
+    position: absolute;
+    right: 20px;
+  }
 }
 
 .Vlt-sidemenu--flat {
