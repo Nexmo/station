@@ -28,7 +28,7 @@
     "coffee-script": "^1.12.7",
     "compression-webpack-plugin": "^6.1.1",
     "css-loader": "^5.2.4",
-    "dotenv": "^8.2.0",
+    "dotenv": "^8.4.0",
     "fetch-mock": "^9.11.0",
     "file-loader": "^6.2.0",
     "foundation-sites": "^6.6.3",
