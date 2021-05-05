@@ -1,7 +1,7 @@
 FROM ruby:3.0.0-alpine AS build-env
 ARG RAILS_ROOT=/station
 ARG BUILD_PACKAGES="build-base curl-dev git bash"
-ARG DEV_PACKAGES="postgresql-dev yaml-dev zlib-dev nodejs yarn"
+ARG DEV_PACKAGES="postgresql-dev yaml-dev zlib-dev nodejs yarn shared-mime-info"
 ARG RUBY_PACKAGES="tzdata"
 ENV RAILS_ENV=production
 ENV NODE_ENV=production
