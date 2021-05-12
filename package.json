@@ -57,7 +57,7 @@
     "style-loader": "^2.0.0",
     "underscore": "^1.13.1",
     "vue": "^2.6.12",
-    "vue-loader": "^15.9.6",
+    "vue-loader": "^15.9.7",
     "vue-template-compiler": "^2.6.12",
     "webfontloader": "^1.6.28",
     "webpack": "^4.44.2",
