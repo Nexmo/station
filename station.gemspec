@@ -60,7 +60,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency('diffy', '~> 3.3')
   spec.add_runtime_dependency('webpacker', '~> 5.1')
   spec.add_runtime_dependency('truncato', '~> 0.7.11')
-  spec.add_runtime_dependency('puma', '>= 4.3', '< 6.0')
+  spec.add_runtime_dependency('puma', '>= 5.3', '< 6.0')
   spec.add_runtime_dependency('barnes', '0.0.9')
   spec.add_runtime_dependency('woothee', '~> 1.11')
   spec.add_runtime_dependency('algoliasearch', '1.27.5')
