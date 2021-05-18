@@ -33,7 +33,7 @@ gem 'geocoder'
 # gem 'capistrano-rails', group: :development
 
 # Nokogiri (鋸) is an HTML, XML, SAX, and Reader parser. Among Nokogiri's many features is the ability to search documents via XPath or CSS3 selectors.
-gem 'nokogiri', '~> 1.11.1'
+gem 'nokogiri', '>= 1.11.4'
 
 # Autoload dotenv in Rails.
 gem 'dotenv-rails', groups: %i[development test]
