@@ -69,7 +69,7 @@ gem 'faker', '2.16.0', require: false
 gem 'factory_bot_rails', '6.1.0', require: false
 
 # A slim ruby wrapper for posting to slack webhooks
-gem 'slack-notifier', '2.3.2'
+gem 'slack-notifier', '2.4.0'
 
 # The administration framework for Ruby on Rails.
 gem 'activeadmin', '~> 2.9'

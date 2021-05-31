@@ -533,7 +533,7 @@ GEM
       rack-protection (= 2.1.0)
       tilt (~> 2.0)
     sixarm_ruby_unaccent (1.2.0)
-    slack-notifier (2.3.2)
+    slack-notifier (2.4.0)
     smartling (2.0.3)
       multi_json (~> 1.0)
       oj (~> 3.0)
@@ -662,7 +662,7 @@ DEPENDENCIES
   ruby-progressbar
   sassc-rails (~> 2.1)
   simplecov
-  slack-notifier (= 2.3.2)
+  slack-notifier (= 2.4.0)
   smartling
   split (~> 3.4.1)
   terminal-table
