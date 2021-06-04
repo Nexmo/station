@@ -78,7 +78,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency('countries', '3.1.0')
   spec.add_runtime_dependency('country_select', '5.1.0')
   spec.add_runtime_dependency('smartling', '2.0.3')
-  spec.add_runtime_dependency('newrelic_rpm', '7.0.0')
+  spec.add_runtime_dependency('newrelic_rpm', '7.1.0')
   spec.add_runtime_dependency('redis', '4.2.5')
   spec.add_runtime_dependency('sassc-rails', '2.1.2')
   spec.add_runtime_dependency('gmaps4rails', '2.1.2')
