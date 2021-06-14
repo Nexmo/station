@@ -1,5 +1,5 @@
 ---
-title: Quick howto on a simple thing
+title: Quick how to on a simple thing
 navigation_weight: 5
 ---
 

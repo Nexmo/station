@@ -7,7 +7,7 @@ description: This topic describes a method for updating code snippets in GitHub
 
 ## Introduction
 
-Updating code snippets and testing thoroughly can catch people out. You might end up with errors while trying to build NDP, or while running it locally. Here’s the procedure the tech writing team uses, which is not the only one, but it provides a good starting point for developing your own methods.
+Updating code snippets and testing thoroughly can cause some unintended consequences if you're not careful. You might end up with errors while trying to build NDP, or while running it locally. Here’s the procedure the tech writing team uses, which is not the only one, but it provides a good starting point for developing your own methods.
 
 > Remember: code snippet repos are in submodules as far as NDP is concerned. If you are not familiar with submodules it’s probably worth doing a little background reading on them first.
 
