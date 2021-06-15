@@ -1,0 +1,28 @@
+.Nxd-landing {
+  background: $grey-900;
+
+  .row {
+    padding: 20px 0;
+  }
+
+  .container {
+    margin: 96px auto;
+    padding: 0 20px;
+
+    @media #{$S-only} {
+      margin: 24px auto;
+    }
+  }
+
+  .Nxd-hero-section__get-started {
+    margin: 0 32px 0 0;
+  }
+
+  .Nxd-hero-section__title {
+    padding: 31px 0 0 0;
+  }
+
+  .Vlt-btn+.Vlt-btn {
+    margin-left: 0px;
+  }
+}
