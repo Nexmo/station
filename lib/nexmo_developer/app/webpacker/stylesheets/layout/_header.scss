@@ -1,5 +1,4 @@
-.Nxd-header {
-  max-width: 1440px;
+.Adp-header {
   background-color: $black;
   position: absolute;
   left: 0;
@@ -10,7 +9,7 @@
   line-height: 20px;
 }
 
-.Nxd-header__nav {
+.Adp-header__nav {
   top: 0;
   bottom: 62.37%;
   height: 36px;
@@ -55,7 +54,7 @@
   }
 }
 
-.Nxd-header__sub {
+.Adp-header__sub {
   bottom: 0;
   top: 34.41%;
   height: 60px;
@@ -63,10 +62,18 @@
   align-items: center;
   justify-content: flex-start;
 
+  @media #{$S-only} {
+    padding: 0 18px;
+  }
+
   .logo {
     height: 28px;
     align-self: center;
     padding: 0 72px 0 24px;
+
+    @media #{$S-only} {
+      padding: 0 72px 0 0;
+    }
   }
 
   nav {
