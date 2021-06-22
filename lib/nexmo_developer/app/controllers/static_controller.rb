@@ -67,6 +67,7 @@ class StaticController < ApplicationController
   end
 
   def landing
+    @homepage = true
     render layout: 'landing'
   end
 

@@ -33,7 +33,6 @@ em {
 .Nxd-main {
   outline: none;
   height: calc(100vh - 150px);
-  margin-top: 150px;
 }
 
 @media #{'only screen and (min-width: #{$small-screen} ) and (max-width: #{$big-screen})'} {
@@ -45,7 +44,6 @@ em {
 }
 
 .Nxd-landing-main {
-  margin-top: 150px;
   padding: $unit3 $unit4;
 }
 

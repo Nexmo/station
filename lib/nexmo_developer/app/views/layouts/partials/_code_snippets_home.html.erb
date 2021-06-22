@@ -1,0 +1,9 @@
+<% presenter = CodeSnippetsHomePresenter.new %>
+
+<div class="Adp-code-snippets-listing">
+  <% presenter.code_snippets.each do |snippet| %>
+    <div class="Adp-code-snippet">
+      <%= snippet.html_safe %>
+    </div>
+  <% end %>
+</div>

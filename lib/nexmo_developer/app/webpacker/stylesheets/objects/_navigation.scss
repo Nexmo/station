@@ -109,8 +109,6 @@
 }
 
 .Nxd-sidenav {
-  margin-top: 150px;
-
   @media #{'only screen and (min-width: #{$small-screen} ) and (max-width: #{$big-screen})'} {
     margin-top: 250px;
   }
