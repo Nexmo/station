@@ -486,7 +486,8 @@ GEM
       rspec-expectations (~> 3.10)
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
-    rspec-snapshot (0.1.2)
+    rspec-snapshot (2.0.0)
+      awesome_print (> 1.0.0)
       rspec (> 3.0.0)
     rspec-support (3.10.2)
     rubocop (1.10.0)
@@ -664,7 +665,7 @@ DEPENDENCIES
   rest-client
   rspec-collection_matchers
   rspec-rails (~> 5.0)
-  rspec-snapshot (~> 0.1.2)
+  rspec-snapshot (~> 2.0.0)
   rubocop (~> 1.10.0)
   rubocop-rails (~> 2.9)
   ruby-progressbar
