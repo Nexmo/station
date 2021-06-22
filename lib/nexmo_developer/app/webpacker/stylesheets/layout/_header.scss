@@ -1,8 +1,9 @@
 .Adp-header {
   background-color: $black;
-  position: absolute;
+  position: relative;
   left: 0;
   right: 0;
+  width: 100%;
 
   font-family: Spezia;
   font-size: 14px;
@@ -60,7 +61,7 @@
   height: 60px;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
 
   @media #{$S-only} {
     padding: 0 18px;
@@ -82,14 +83,53 @@
 
   .Vlt-tabs__link {
     padding: 0;
-    margin: 0 40px 0 0;
+    margin-right: 40px;
+
+    &:active {
+      background-color: $black !important;
+    }
+
+    &:focus {
+      background-color: $black !important;
+    }
+
+    @media #{$S-only} {
+      padding: 0;
+      width: 100%;
+      min-height: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      &-menu {
+        align-items: flex-start;
+      }
+    }
 
     p {
       margin: 0;
+      display: inline;
     }
 
     a {
       line-height: 24px;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    button:hover {
+      text-decoration: none;
+    }
+
+    svg {
+      height: 15px;
+      width: 15px;
+    }
+
+    &:after {
+      background: none;
     }
   }
 
@@ -97,6 +137,81 @@
     display: flex;
     align-items: center;
     line-height: 24px;
+  }
+
+  .Vlt-topmenu {
+    width: 100%;
+    visibility: hidden;
+    z-index: 15;
+    display: block;
+    position: absolute;
+    left: 0;
+    overflow: hidden;
+    min-width: 130px;
+
+    @media #{$S-only} {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &-active {
+      visibility: visible;
+
+      @media #{$S-only} {
+        position: static;
+      }
+
+      .Vlt-tabs__link-menu b {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .Adp-header__sub__menu {
+    @media #{$S-only} {
+      position: absolute;
+      height: 100vh;
+      width: 100vw;
+      background: $black;
+      z-index: 10;
+      top: 60px;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      padding: 50px;
+      align-items: flex-start;
+    }
+  }
+
+  .Vlt-header__backdrop {
+    background: black;
+    height: 0px;
+    position: absolute;
+    width: 100%;
+    top: 96px;
+
+    &-active {
+      height: 214px;
+      z-index: 10;
+
+      @media #{$S-only} {
+        display: none;
+      }
+    }
+  }
+
+  .Vlt-topmenu__items {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+
+    @media #{$S-only} {
+      align-items: center;
+    }
+
+    .Vlt-topmenu__item {
+      margin-bottom: 16px;
+    }
   }
 }
 
@@ -110,4 +225,8 @@
     transform: translateY(0%);
     z-index: 1000;
   }
+}
+
+.subnav-logo {
+  display: flex;
 }

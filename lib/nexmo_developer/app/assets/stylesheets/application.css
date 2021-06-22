@@ -1,1 +1,8 @@
 //= require stylesheets/nexmo-oas-renderer
+
+.Adp-use-cases__background {
+  filter: blur(100px);
+}
+.Adp-platform__background {
+  filter: blur(100px);
+}

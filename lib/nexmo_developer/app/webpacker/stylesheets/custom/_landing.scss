@@ -1,6 +1,5 @@
-.Adp-landing {
+.Adp-homepage {
   background: $grey-900;
-
   .row {
     padding: 20px 95px;
 
@@ -10,7 +9,7 @@
   }
 
   .container {
-    margin: 96px auto;
+    margin: 0 auto;
     padding: 0 20px;
 
     @media #{$S-only} {
@@ -42,7 +41,6 @@
       background: linear-gradient(90deg, #7FC6F4 4.86%, #D5279B 96.11%);
       mix-blend-mode: hard-light;
       opacity: 0.4;
-      //filter: blur(100px);
     }
 
     .Vlt-tabs__header {
@@ -55,6 +53,19 @@
 
     .Vlt-tabs__link_active:after {
       background: $white;
+    }
+
+    &__all {
+      margin-bottom: 0px;
+
+      svg, a {
+        color: #B77EF9 !important;
+        fill: #B77EF9 !important;
+      }
+    }
+
+    &__all-mobile {
+      width: 100%;
     }
   }
 
@@ -69,6 +80,10 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+
+      @media #{$M-plus} {
+        min-height: 288px;
+      }
     }
 
     p {
@@ -105,6 +120,281 @@
 
       img {
         border-radius: 8px 8px 0 0;
+      }
+    }
+  }
+
+  .Adp-listing {
+    position: relative;
+    h3 {
+      margin-bottom: 32px;
+    }
+
+    @media #{$S-only} {
+      .Vlt-btn--primary {
+        width: 100%;
+      }
+    }
+
+    .Vlt-col--3of3 {
+      display: flex;
+      justify-content: center;
+    }
+
+    &__platform {
+      .Vlt-grid {
+        @media #{$M-plus} {
+          padding: 40px 80px;
+        }
+      }
+      .Adp-listing__item {
+        margin-bottom: 0px;
+      }
+    }
+
+    &__background {
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background: linear-gradient(90deg, #7FC6F4 4.86%, #8728FB 96.11%);
+      mix-blend-mode: hard-light;
+      opacity: 0.2;
+    }
+
+    &__background-glass {
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(25px);
+      border-radius: 16px;
+
+      @media #{$S-only} {
+        padding: 0 15px;
+      }
+    }
+  }
+
+  .Adp-listing__item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+
+    &-title {
+      display: flex;
+
+      svg {
+        margin-right: 16px;
+      }
+    }
+
+    &-links {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      padding-bottom: 24px;
+
+      &-border {
+        border-bottom: 1px solid $grey-700;
+      }
+
+      a {
+        justify-content: space-between;
+        display: flex;
+        margin: 0 0 8px 40px;
+      }
+    }
+  }
+
+  .Adp-brand-listing {
+    background: linear-gradient(90deg, #7FC6F4 4.86%, #8728FB 96.11%);
+
+    .container {
+
+      @media #{$S-only} {
+        margin: 0px auto;
+      }
+    }
+
+    @media #{$M-plus} {
+      height: 88px;
+    }
+
+    .Vlt-grid {
+      justify-content: space-between;
+      align-items: center;
+
+      // overrides volta's style, they don't work
+      @media #{$S-only} {
+        .Vlt-col--S-1of2 {
+          display: flex;
+          justify-content: center;
+          flex: 0 0 50%;
+        }
+      }
+    }
+
+    .row {
+      padding: 16px 95px;
+
+      @media #{$S-only} {
+        padding: 16px 0;
+      }
+    }
+  }
+
+  .Adp-documentation {
+    .Adp-listing__item-links {
+      @media #{$S-only} {
+        border-bottom: 1px solid $grey-700;
+      }
+    }
+  }
+
+  .Adp-platform__background {
+    background: linear-gradient(90deg, #7FC6F4 4.86%, #8728FB 96.11%);
+    mix-blend-mode: hard-light;
+    opacity: 0.2;
+    position: absolute;
+    width: 100%;
+    height: 285px;
+    top: 78px;
+    left: 0px;
+
+    &-glass {
+      @media #{$M-plus} {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(25px);
+        border-radius: 16px;
+      }
+
+      @media #{$S-only} {
+        padding: 0 15px;
+      }
+    }
+  }
+
+  .Adp-listing__platform {
+    .Adp-listing__item {
+      @media #{$S-only} {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(25px);
+        border-radius: 16px;
+        padding: 15px;
+
+        .Adp-listing__item-links {
+          padding: 0;
+        }
+      }
+    }
+  }
+
+  .Adp-video-listing {
+    .Vlt-col {
+      display: flex;
+      justify-content: center;
+    }
+
+    .Vlt-btn {
+      @media #{$S-only} {
+        width: 100%;
+      }
+    }
+  }
+
+  .Adp-code-snippets-listing {
+    .Adp-code-snippet {
+      background-color: #333333;
+      border-radius: 15px;
+
+      code, pre {
+        background-color: #333333;
+      }
+
+      pre {
+        margin: 0;
+        padding: 16px 24px;
+        border-radius: 15px;
+      }
+
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      #prerequisites, #write-the-code, #run-your-code, p {
+        display: none;
+      }
+
+      .Nxd-accordion-emphasis {
+        display: none;
+      }
+
+      pre:not(.main-code) {
+        display: none;
+      }
+
+      #write-the-code ~ .code-toolbar + p {
+        display: flex;
+        font-weight: 600;
+
+        a {
+          color: white;
+          padding: 10px 35px 0px;
+        }
+      }
+
+      #run-your-code ~ .code-toolbar, #run-your-code ~ .code-toolbar + p {
+        display: none;
+      }
+
+      .Vlt-tabs__content {
+        margin-top: 0px;
+        padding-bottom: 16px;
+      }
+
+      .Vlt-tabs__header--bordered {
+        box-shadow: none;
+        display: flex;
+        overflow: scroll;
+        justify-content: space-between;
+        margin-top: 0px;
+        padding: 16px;
+
+        .Vlt-tabs__link {
+          border-radius: 100px;
+          padding: 12px;
+          margin: 0;
+          color: white;
+
+          &:first-child {
+            margin: 0;
+          }
+          a {
+            display: flex;
+            font-size: 16px;
+            font-weight: 600;
+          }
+
+          &:after {
+            background: none;
+          }
+
+          &:active {
+            background-color: #333333 !important;
+          }
+        }
+
+        .Vlt-tabs__link_active {
+          background: #757575;
+          border: none;
+
+          &:before {
+            background: none;
+          }
+        }
       }
     }
   }

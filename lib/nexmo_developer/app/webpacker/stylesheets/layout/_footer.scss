@@ -1,33 +1,37 @@
 #footer {
+  min-height: 336px;
   background: $black;
   border-radius: 4px;
   color: rgba($white, 0.7);
-  padding: $spacing*2 0 $spacing;
-  margin-top: $spacing;
   line-height: 1.8;
   z-index: 2;
-  flex: 0 0 100%;
   width: 100%;
 
+  @media #{$L-plus} {
+    padding: 0 95px;
+  }
+
   .container {
+    background: $black;
     display: flex;
+    margin: 80px auto;
     flex-wrap: wrap;
+
+    @media #{$S-only} {
+      margin: 40px auto;
+    }
 
     > div {
       flex: 3;
-      margin-right: 2.5%;
       min-width: 150px;
       margin-bottom: $spacing;
     }
 
-    #footer-support {
-      flex: 2;
-    }
-
     #footer-outbound-links {
-      flex: 4;
+      display: flex;
+      flex-direction: column;
       min-width: 260px;
-      text-align: center;
+      align-items: center;
 
       h5 {
         margin-bottom: 0px;
@@ -40,6 +44,10 @@
       a {
         display: flex;
       }
+
+      @media #{$S-only} {
+        align-items: flex-start;
+      }
     }
 
     @include tablet {
@@ -47,12 +55,7 @@
         flex-grow: 1.45;
       }
 
-      #footer-support {
-        flex: 3;
-      }
-
       #footer-outbound-links {
-        border-top: 1px solid $gray;
         margin-top: $spacing;
         flex: none;
         width: 100%;
@@ -60,28 +63,36 @@
     }
   }
 
+  .Vlt-col {
+    @media #{$S-only} {
+      margin-bottom: 32px;
+    }
+  }
+
   h5 {
     color: $white;
+    line-height: 24px;
+    padding-bottom: 8px;
   }
 
   a {
     color: rgba($white, 0.7);
     font-size: 1.4rem;
     display: block;
+    line-height: 14px;
 
     &:hover {
       color: $white;
     }
   }
+
+  p {
+    color: $white;
+  }
 }
 
 #footer-logo {
   margin: 0 auto $spacing;
-  max-width: 350px;
-
-  .Nxd-product__separator {
-    margin: 0 10px;
-  }
 
   .Nxd-product__title {
     align-items: baseline;
@@ -89,7 +100,12 @@
   }
 
   .Nxd-logo__image {
-    width: 44%;
+    width: 220px;
+    height: 28px;
+  }
+
+  @media #{$S-only} {
+    margin: auto auto 20px 0;
   }
 }
 
@@ -103,11 +119,17 @@
   text-align: center;
   font-size: 24px;
   display: flex;
-  margin-top: 20px;
+  margin-top: 25px;
   justify-content: center;
+  width: 100%;
+  justify-content: space-around;
 
   a {
     margin: 0 10px;
     display: inline-block;
+  }
+
+  @media #{$S-only} {
+    justify-content: flex-start;
   }
 }

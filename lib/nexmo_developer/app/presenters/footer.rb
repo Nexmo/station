@@ -11,9 +11,6 @@ class Footer
     config = YAML.safe_load(open_config(config))
     {
       name: config['name'],
-      subtitle: config['subtitle'],
-      logo_path: config['assets']['footer_logo']['path'],
-      logo_alt: config['assets']['footer_logo']['alt'],
       status: config['footer']['links']['status'],
       social_links: config['footer']['links']['social'],
       navigation_links: config['footer']['links']['navigation'],
@@ -45,6 +42,8 @@ class Footer
           word.upcase
         elsif word == 'apis'
           'APIs'
+        elsif word == 'sdk'
+          'SDK'
         else
           word.titleize
         end

@@ -1,26 +1,34 @@
 <template>
-  <div>
-    <div>
-      <div class="Vlt-composite">
-        <div class="Vlt-composite__prepend Vlt-composite__prepend--icon">
-          <svg><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-search"/></svg>
-        </div>
-        <div class="Vlt-input Vlt-input--round">
-          <input
-            v-model="query"
-            name="query"
-            placeholder="Search"
-            id="searchbox-test"
-            type="text"
-            autoComplete="off"
-            v-on:keydown.esc="onEscDownHandler"
-            v-on:input="onInputHandler"
-            ></input>
+  <div class="Wrapper">
+    <div class="Wrapper-content">
+      <svg class="Vlt-icon Vlt-grey Nxd-search-icon">
+        <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-search-full" />
+      </svg>
+
+
+      <div class="Nxd-search-input">
+        <div class="Vlt-composite Vlt-composite--appendedicon">
+          <div class="Vlt-composite__prepend Vlt-composite__prepend--icon">
+            <svg><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-search"/></svg>
+          </div>
+          <div class="Vlt-input">
+            <input
+              v-model="query"
+              name="query"
+              placeholder="Search"
+              id="searchbox-test"
+              type="text"
+              autoComplete="off"
+              v-on:keydown.esc="onEscDownHandler"
+              v-on:input="onInputHandler"
+              ></input>
+          </div>
+          <div class="Vlt-composite__append Vlt-composite__append--icon Nxd-search-close">
+            <svg><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-cross-bold"/></svg>
+          </div>
         </div>
       </div>
     </div>
-
-    <svg v-show="query" class="Nxd-search__clear"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-cross"/></svg>
 
     <div v-show="showResults" class="Nxd-search">
       <div class="Nxd-search__wrapper">
@@ -76,11 +84,17 @@ export default {
   mounted: function() {
     if (document.querySelector('.Nxd-template')) {
       document.querySelector('.Nxd-template').addEventListener('click', this.onClickOutside.bind(this));
+    } else if (document.querySelector('.Adp-landing')) {
+      document.querySelector('.Adp-landing .wrapper').addEventListener('click', this.onClickOutside.bind(this));
     }
+    this.$el.querySelector('.Nxd-search-icon').addEventListener('click', this.handleSearchToggle.bind(this));
+    this.$el.querySelector('.Nxd-search-close').addEventListener('click', this.handleSearchToggle.bind(this));
   },
   onDestroy: function() {
     if (document.querySelector('.Nxd-template')) {
       document.querySelector('.Nxd-template').removeEventListener('click', this.onClickOutside.bind(this));
+    } else if (document.querySelector('.Adp-landing')) {
+      document.querySelector('.Adp-landing .wrapper').removeEventListener('click', this.onClickOutside.bind(this));
     }
   },
   computed: {
@@ -111,6 +125,23 @@ export default {
       }
       if (this.expanded) {
         this.expanded = false;
+      }
+      this.toggleSearch(true);
+    },
+
+    handleSearchToggle: function(event) {
+      event.preventDefault();
+      event.stopPropagation();
+
+      this.toggleSearch();
+    },
+
+    toggleSearch: function(hide) {
+      let search = this.$el.querySelector('.Nxd-search-input');
+      if (hide === true || search.style.display == 'flex') {
+        search.style.display = 'none';
+      } else {
+        search.style.display = 'flex';
       }
     },
     onEscDownHandler: function(event) {
@@ -179,4 +210,34 @@ export default {
 }
 </script>
 <style scoped>
+.Wrapper {
+  top: 55px;
+  right: 13px;
+  display: flex;
+  position: absolute;
+}
+.Wrapper-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.Nxd-search-input {
+  display: none;
+  width: 756px;
+  padding: 20px 30px;
+  background: white;
+  height: 87px;
+  border-radius: 8px;
+  margin-top: 5px;
+  z-index: 10;
+}
+.Vlt-composite {
+  width: 100%;
+}
+.Nxd-search-icon {
+  margin-right: 10px;
+}
+#searchbox-test {
+  border: 1px solid white;
+}
 </style>
