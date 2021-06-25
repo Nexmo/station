@@ -12,6 +12,8 @@
       </div>
       <%= yield %>
     </div>
-    <%= render partial: 'layouts/partials/footer' %>
+    <% if @homepage %>
+      <%= render partial: 'layouts/partials/footer' %>
+    <% end %>
   </body>
 </html>

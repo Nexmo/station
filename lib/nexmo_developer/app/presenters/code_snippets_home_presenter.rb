@@ -1,14 +1,21 @@
 class CodeSnippetsHomePresenter
   def code_snippets
     @code_snippets ||= config['code_snippets'].map do |snippet|
-      Nexmo::Markdown::Renderer.new.call(
-        <<-STRING
+      OpenStruct.new(
+        html: Nexmo::Markdown::Renderer.new.call(
+          <<-STRING
           ```code_snippets
           source: '#{snippet}'
           ```
-        STRING
+          STRING
+        ),
+        title: snippet.split('/').last.titleize
       )
     end
+  end
+
+  def cache_key
+    @cache_key ||= config['code_snippets'].join('-')
   end
 
   def config
