@@ -304,6 +304,22 @@
     }
   }
 
+  .Adp-hero-section__code-background {
+    background: #871EFF;
+    border-radius: 0 0 0 40px;
+    height: 360px;
+    z-index: -1;
+    width: 60vw;
+    left: -5px;
+    position: absolute;
+    top: -20px;
+
+    @media #{$S-only} {
+      width: 100vw;
+      left: 0;
+    }
+  }
+
   .Adp-code-snippets-listing {
     .Adp-code-snippet {
       background-color: #333333;
