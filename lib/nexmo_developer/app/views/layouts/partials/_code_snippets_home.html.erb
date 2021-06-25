@@ -1,9 +1,38 @@
 <% presenter = CodeSnippetsHomePresenter.new %>
 
-<div class="Adp-code-snippets-listing">
-  <% presenter.code_snippets.each do |snippet| %>
-    <div class="Adp-code-snippet">
-      <%= snippet.html_safe %>
-    </div>
-  <% end %>
+<div class="Adp-code-snippets-listing glide">
+
+  <div class="glide__arrows" data-glide-el="controls">
+    <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
+      <svg class="Vlt-icon Vlt-white">
+        <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-left" />
+      </svg>
+    </button>
+    <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
+      <svg class="Vlt-icon Vlt-white">
+        <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-right" />
+      </svg>
+    </button>
+  </div>
+  <div class="glide__bullets" data-glide-el="controls[nav]">
+    <button class="glide__bullet" data-glide-dir="=0"></button>
+    <button class="glide__bullet" data-glide-dir="=1"></button>
+    <button class="glide__bullet" data-glide-dir="=2"></button>
+  </div>
+
+  <div class="glide__track" data-glide-el="track">
+    <% cache presenter.cache_key do %>
+      <div class="glide__slides">
+        <% presenter.code_snippets.each do |snippet| %>
+          <div class="glide__slide" data-glide-autoplay="4000">
+            <p class="Adp-code-snippet__title"><b><%= snippet.title %></b></p>
+            <div class="Adp-code-snippet">
+              <%= snippet.html.html_safe %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
 </div>

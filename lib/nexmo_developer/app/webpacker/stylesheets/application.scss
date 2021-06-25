@@ -27,6 +27,9 @@
 // this should be imported last
 @import '~@vonagevolta/volta2/scss/volta-prism';
 
+@import "@glidejs/glide/src/assets/sass/glide.core";
+@import "@glidejs/glide/src/assets/sass/glide.theme";
+
 /// NDP styles
 @import "./custom/variables";
 @import "./custom/core";

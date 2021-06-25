@@ -321,6 +321,14 @@
   }
 
   .Adp-code-snippets-listing {
+    .Adp-code-snippet__title {
+      padding-left: 12px;
+
+      b {
+        color: white;
+      }
+    }
+
     .Adp-code-snippet {
       background-color: #333333;
       border-radius: 15px;
@@ -412,6 +420,32 @@
           }
         }
       }
+    }
+  }
+
+  .glide {
+    position: static;
+
+    &__track {
+      margin-top: 40px;
+    }
+
+    &__bullets {
+      top: 20px;
+      left: 48px;
+    }
+
+    &__arrow {
+      border: none;
+      box-shadow: none;
+    }
+
+    &__arrow--left {
+      left: 0;
+    }
+
+    &__arrow--right {
+      right: 0;
     }
   }
 }
