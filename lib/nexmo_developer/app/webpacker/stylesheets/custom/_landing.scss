@@ -52,7 +52,7 @@
     }
 
     &__all {
-      margin-bottom: 0px;
+      margin: 20px auto 0;
 
       svg, a {
         color: #B77EF9 !important;
@@ -70,12 +70,14 @@
     backdrop-filter: blur(25px);
     border-radius: 16px;
     padding: 24px 24px 0 24px;
+    height: 100%;
 
     .Vlt-card__content {
       min-height: 257px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      height: 100%;
 
       @media #{$M-plus} {
         min-height: 288px;
@@ -99,6 +101,7 @@
     &-tags {
       padding: 0 0 16px 0;
       display: flex;
+      flex-wrap: wrap;
 
       p {
         color: $grey-300;
@@ -337,6 +340,8 @@
         margin: 0;
         padding: 16px 24px;
         border-radius: 15px;
+        max-height: 250px;
+        overflow: scroll;
       }
 
       svg {
@@ -421,6 +426,7 @@
 
   .glide {
     position: static;
+    max-height: 400px;
 
     &__track {
       margin-top: 40px;
