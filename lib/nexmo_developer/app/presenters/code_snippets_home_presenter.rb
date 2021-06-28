@@ -5,11 +5,11 @@ class CodeSnippetsHomePresenter
         html: Nexmo::Markdown::Renderer.new.call(
           <<-STRING
           ```code_snippets
-          source: '#{snippet}'
+          source: '#{snippet['source']}'
           ```
           STRING
         ),
-        title: snippet.split('/').last.titleize
+        title: snippet['title']
       )
     end
   end
