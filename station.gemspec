@@ -76,7 +76,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency('slack-notifier', '2.4.0')
   spec.add_runtime_dependency('titleize', '1.4.1')
   spec.add_runtime_dependency('countries', '3.1.0')
-  spec.add_runtime_dependency('country_select', '5.1.0')
+  spec.add_runtime_dependency('country_select', '6.0.0')
   spec.add_runtime_dependency('smartling', '2.0.3')
   spec.add_runtime_dependency('newrelic_rpm', '7.1.0')
   spec.add_runtime_dependency('redis', '4.2.5')
