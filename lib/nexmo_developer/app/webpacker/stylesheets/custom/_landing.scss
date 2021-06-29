@@ -17,6 +17,10 @@
     }
   }
 
+  .Adp-hero-section__get-started {
+    margin-right: 32px;
+  }
+
   .Adp-hero-section__title {
     padding: 31px 0 0 0;
   }
@@ -443,11 +447,19 @@
     }
 
     &__arrow--left {
-      left: -15px;
+      left: -25px;
+
+      @media #{$S-only} {
+        left: -15px;
+      }
     }
 
     &__arrow--right {
-      right: -15px;
+      right: -25px;
+
+      @media #{$S-only} {
+        right: -15px;
+      }
     }
   }
 }
