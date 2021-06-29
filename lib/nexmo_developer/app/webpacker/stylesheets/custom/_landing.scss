@@ -384,7 +384,7 @@
         box-shadow: none;
         display: flex;
         overflow: scroll;
-        justify-content: space-between;
+        justify-content: flex-start;
         margin-top: 0px;
         padding: 16px;
 
@@ -443,11 +443,11 @@
     }
 
     &__arrow--left {
-      left: 0;
+      left: -15px;
     }
 
     &__arrow--right {
-      right: 0;
+      right: -15px;
     }
   }
 }
