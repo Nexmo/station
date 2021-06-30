@@ -35,6 +35,8 @@
 
   .Adp-use-cases {
     position: relative;
+    -webkit-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
 
     &__background {
       position: absolute;
