@@ -126,7 +126,6 @@ export default {
       if (this.expanded) {
         this.expanded = false;
       }
-      this.toggleSearch(true);
     },
 
     handleSearchToggle: function(event) {
@@ -191,6 +190,7 @@ export default {
         searchPromise.then((response) => {
           this.results = response['results'];
           this.loading = false;
+          this.toggleSearch(true);
         })
       }
     },
