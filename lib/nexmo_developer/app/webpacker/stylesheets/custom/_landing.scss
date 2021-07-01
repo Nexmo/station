@@ -352,7 +352,11 @@
         padding: 16px 24px;
         border-radius: 15px;
         max-height: 250px;
-        overflow: auto;
+        overflow: hidden;
+
+        &:hover {
+          overflow: auto;
+        }
       }
 
       svg {
@@ -394,10 +398,14 @@
       .Vlt-tabs__header--bordered {
         box-shadow: none;
         display: flex;
-        overflow: auto;
         justify-content: flex-start;
         margin-top: 0px;
         padding: 16px;
+        overflow-x: hidden;
+
+        &:hover {
+          overflow-x: auto;
+        }
 
         .Vlt-tabs__link {
           border-radius: 100px;
@@ -467,6 +475,24 @@
       @media #{$S-only} {
         right: -15px;
       }
+    }
+
+    *::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+      background-color: #333;
+      border-radius: 10px;
+    }
+
+    *::-webkit-scrollbar {
+      background-color: #333;
+      width: 10px;
+      height: 10px;
+    }
+
+    *::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+      background-color: #1a1a1a;
     }
   }
 }
