@@ -56,7 +56,7 @@ WORKDIR $RAILS_ROOT
 # Install packges needed at runtime
 RUN apk update \
     && apk upgrade \
-    && apk add --update --no-cache tzdata postgresql-client nodejs bash
+    && apk add --update --no-cache tzdata postgresql-client nodejs bash shared-mime-info
 
 # Upgrade Bundler to version 2
 RUN bundle config --global frozen 1 \
