@@ -44,11 +44,11 @@ jobs:
       - name: Publish to Registry
         uses: docker/build-push-action@v2
         with:
-          context:
-            push: true
-            no-cache: true
-            tags: ${{ steps.prep.outputs.tags }}
-            labels: |
-              org.opencontainers.image.source=${{ github.event.repository.html_url }}
-              org.opencontainers.image.created=${{ steps.prep.outputs.created }}
-              org.opencontainers.image.revision=${{ github.sha }}
+          context: .
+          push: true
+          no-cache: true
+          tags: ${{ steps.prep.outputs.tags }}
+          labels: |
+            org.opencontainers.image.source=${{ github.event.repository.html_url }}
+            org.opencontainers.image.created=${{ steps.prep.outputs.created }}
+            org.opencontainers.image.revision=${{ github.sha }}
