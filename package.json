@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "@activeadmin/activeadmin": "^2.9.0",
-    "@babel/core": "^7.14.6",
+    "@babel/core": "^7.14.8",
     "@babel/plugin-proposal-class-properties": "^7.14.5",
     "@babel/plugin-proposal-decorators": "^7.14.5",
     "@babel/plugin-proposal-export-namespace-from": "^7.14.5",
@@ -28,7 +28,7 @@
     "coffee-loader": "^1.0.1",
     "coffee-script": "^1.12.7",
     "compression-webpack-plugin": "^6.1.1",
-    "css-loader": "^5.2.6",
+    "css-loader": "^5.2.7",
     "dotenv": "^10.0.0",
     "fetch-mock": "^9.11.0",
     "file-loader": "^6.2.0",
