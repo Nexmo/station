@@ -190,7 +190,6 @@ export default {
         searchPromise.then((response) => {
           this.results = response['results'];
           this.loading = false;
-          this.toggleSearch(true);
         })
       }
     },
