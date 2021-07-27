@@ -307,4 +307,20 @@ RSpec.describe StaticController, type: :request do
       it_behaves_like 'renders the corresponding layout', [['Vlt-col--1of2', 'Vlt-col--1of2']]
     end
   end
+
+  describe '#ed' do
+    it 'redirects to the dashboard' do
+      get '/ed'
+
+      expect(response).to redirect_to('https://dashboard.nexmo.com/sign-up?utm_medium=dev_education&utm_source=blog')
+    end
+
+    context 'with extra params' do
+      it 'redirects to the dashboard' do
+        get '/ed', params: { 'c' => 'campaign', 'ct' => 'content', 't' => 'term' }
+
+        expect(response).to redirect_to('https://dashboard.nexmo.com/sign-up?utm_campaign=campaign&utm_content=content&utm_medium=dev_education&utm_source=blog&utm_term=term')
+      end
+    end
+  end
 end
