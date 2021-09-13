@@ -84,7 +84,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency('gmaps4rails', '2.1.2')
   spec.add_runtime_dependency('chartkick', '4.0.5')
 
-  spec.add_development_dependency('rubocop', '~> 1.16.0')
+  spec.add_development_dependency('rubocop', '~> 1.21.0')
   spec.add_development_dependency('rubocop-rails', '~> 2.6')
 
   spec.metadata = {
