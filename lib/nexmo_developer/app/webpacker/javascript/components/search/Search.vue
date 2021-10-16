@@ -40,16 +40,13 @@
             <h3 class="Nx-search__title">
               {{ resultTitle(result.index) }}
             </h3>
-            <div v-if="result.hits.length > 0" >
+            <div>
               <div v-if="isZendeskArticle(result)">
                 <ZendeskArticle v-for="hit in result.hits" v-bind:hit="hit" v-bind:key="hitKey(result, hit)"/>
               </div>
               <div v-else-if="isNDPArticle(result)">
                 <NDPArticle v-for="hit in result.hits" v-bind:hit="hit" v-bind:key="hitKey(result, hit)"/>
               </div>
-            </div>
-            <div v-else>
-              <p class="Nxd-search--no-results"><i>No results</i></p>
             </div>
           </div>
         </div>
