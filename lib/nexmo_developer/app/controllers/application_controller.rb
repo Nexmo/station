@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   include ApplicationHelper
 
+  before_action :redirect_vonage_domain
+
   helper_method :page_title
 
   rescue_from Errno::ENOENT, with: :not_found
@@ -89,5 +91,22 @@ class ApplicationController < ActionController::Base
 
   def page_title
     @page_title ||= PageTitle.new(@product, @document_title).title
+  end
+
+  def redirect_vonage_domain
+    if Rails.env.production?
+      if request.host === 'developer.nexmo.com'
+        redirect_to("#{request.protocol}developer.vonage.com#{request.fullpath}", status: :moved_permanently)
+
+        return
+      end
+
+      if request.host === 'developer.nexmocn.com'
+        # TO-DO: LOCALE change this to point to the new domain with chinese content
+        redirect_to("#{request.protocol}developer.vonage.com#{request.fullpath}", status: :moved_permanently)
+
+        return
+      end
+    end
   end
 end
