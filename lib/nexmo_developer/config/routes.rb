@@ -75,6 +75,9 @@ Rails.application.routes.draw do
   get '/api-errors/:definition(/*subapi)', to: 'api_errors#index_scoped', as: 'api_errors_scoped', constraints: OpenApiConstraint.errors_available
   get '/api-errors/*definition/:id', to: 'api_errors#show', constraints: OpenApiConstraint.errors_available
 
+  # Custom route for TESTING redirection in RSpec
+  get '/redirect_to_vonage', to: 'application#redirect_vonage_domain'
+
   mount ::Nexmo::OAS::Renderer::API, at: '/api'
 
   authenticated(:user) do

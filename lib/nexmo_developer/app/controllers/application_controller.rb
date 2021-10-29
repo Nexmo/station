@@ -34,6 +34,25 @@ class ApplicationController < ActionController::Base
     redirect_to root_path unless current_user.admin?
   end
 
+  def redirect_vonage_domain
+    return unless Rails.env.production? || Rails.env.test?
+
+    check_redirect_for(request)
+  end
+
+  def check_redirect_for(request)
+    case request.host
+    when 'developer.nexmo.com'
+      redirect_to("https://developer.vonage.com#{request.fullpath}",
+                  status: :moved_permanently) and return
+
+    when 'developer.nexmocn.com'
+      # TO-DO: LOCALE change this to point to the new domain with chinese content
+      redirect_to("https://developer.vonage.com#{request.fullpath}",
+                  status: :moved_permanently) and return
+    end
+  end
+
   private
 
   def requires_authentication?
@@ -91,18 +110,5 @@ class ApplicationController < ActionController::Base
 
   def page_title
     @page_title ||= PageTitle.new(@product, @document_title).title
-  end
-
-  def redirect_vonage_domain
-    return unless Rails.env.production?
-
-    return unless request.host == 'developer.nexmo.com'
-
-    redirect_to("#{request.protocol}developer.vonage.com#{request.fullpath}", status: :moved_permanently)
-
-    return unless request.host == 'developer.nexmocn.com'
-
-    # TO-DO: LOCALE change this to point to the new domain with chinese content
-    redirect_to("#{request.protocol}developer.vonage.com#{request.fullpath}", status: :moved_permanently)
   end
 end
