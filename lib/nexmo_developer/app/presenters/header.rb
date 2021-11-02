@@ -11,6 +11,14 @@ class Header
     @sign_up_text ||= config['header']['links']['sign-up']['text']
   end
 
+  def sign_in_path
+    @sign_in_path ||= config['header']['links']['sign-in']['path']
+  end
+
+  def sign_in_text
+    @sign_in_text ||= config['header']['links']['sign-in']['text']
+  end
+
   private
 
   def after_initialize!
