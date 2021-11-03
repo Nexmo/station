@@ -17,6 +17,9 @@ header:
       text:
         - 'Log In'
         - 'Try Me'
+    sign-in:
+      path: https://path/to/site
+      text: 'Sign in'
   hiring:
     display: true
 footer:
