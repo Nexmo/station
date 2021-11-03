@@ -12,11 +12,6 @@ class Header
   end
 
   def sign_in_path
-    puts "\n\n\n\n"
-    p config
-    puts "\n\n\n\n"
-    p config['header']
-    puts "\n\n\n\n"
     @sign_in_path ||= config['header']['links']['sign-in']['path']
   end
 
@@ -31,10 +26,6 @@ class Header
   end
 
   def config
-    puts "\n\n\n\n\n\n"
-    puts "Rails.configuration.docs_base_path"
-    puts Rails.configuration.docs_base_path
-    puts "\n\n\n\n\n\n"
     @config ||= YAML.safe_load(
       File.open("#{Rails.configuration.docs_base_path}/config/business_info.yml")
     )
