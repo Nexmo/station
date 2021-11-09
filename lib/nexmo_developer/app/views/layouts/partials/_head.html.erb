@@ -10,7 +10,7 @@
       page: {
           pageInfo: {
               pageID: "5093",
-              pageName: "Example page",
+              pageName: "Homepage",
               destinationURL: "https://example.com/index.html",
               functionDept: "Nexmo function dept",
               primaryCategory: "Example category",
@@ -81,16 +81,8 @@
       }
     ]
   }
-</script>
-
-
-  <% if ['production'].include? Rails.env %>
-  <script src="https://assets.adobedtm.com/54d668d6379a/4bfed685397d/launch-1b04eb013f27.min.js" async></script>
-  <% elsif ['staging'].include? Rails.env %>
-  <script src="https://assets.adobedtm.com/54d668d6379a/4bfed685397d/launch-bd7391ae49af-staging.min.js" async></script>
-  <% else %>
+  </script> 
   <script src="https://assets.adobedtm.com/54d668d6379a/4bfed685397d/launch-029c4ab10638-development.min.js" async></script>
-  <% end%>
   <% if head.google_site_verification %>
     <meta name="google-site-verification" content=<%= head.google_site_verification %> />
   <% end %>
