@@ -131,7 +131,7 @@ The content block takes the following required parameters:
             name: # The name of the Volta icon (i.e. 'Vlt-icon-message')
           apis: # A list of the APIs wto show in this category collection
             - title: # Name of the API (i.e. 'Messages API')
-              path: # The relative path to the API documentation (i.e. 'api/messages.v1')
+              path: # The relative path to the API documentation (i.e. 'api/messages-olympus')
               description: # A body of text to describe the API
 ```
 
