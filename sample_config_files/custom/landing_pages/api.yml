@@ -14,7 +14,7 @@ page:
                   name: 'Vlt-icon-message'
                 apis:
                   - title: 'Messages API'
-                    path: 'api/messages.v1'
+                    path: 'api/messages-olympus'
                     description: 'For SMS, MMS, Facebook, WhatsApp, Viber and much more: Messages API allows easy integration with multiple messaging platforms through a single integration. This API is currently in Beta, so expect some changes before it is production-ready.'
                     badge:
                       name: Beta

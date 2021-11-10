@@ -89,7 +89,7 @@ RSpec.describe 'Markdown', type: :request do
       it 'redirects' do
         get '/messages/api-reference'
 
-        expect(response).to redirect_to('/api/messages.v1')
+        expect(response).to redirect_to('/api/messages-olympus')
       end
     end
 
