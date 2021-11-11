@@ -6,17 +6,13 @@
 
   <script type="text/javascript">
   digitalData = {
-    pageInstanceID: "Example page - production",
-      page: {
-          pageInfo: {
-              pageID: "5093",
-              pageName: "Homepage",
-              destinationURL: "https://example.com/index.html",
-              functionDept: "Nexmo function dept",
-              primaryCategory: "Example category",
-              siteIdentifier: "Adobe Analytics",
-              lob: "abc",
-        primaryCategory: "",
+    page: {
+      pageInfo: {
+        pageName: "biz:api:adp:developer:homepage",
+        functionDept: "biz:api:adp",
+        primaryCategory: "biz:api:adp:developer",
+        siteIdentifier: "api:adp:developer",
+        lob: "biz",
         subCategory1: "",
         subCategory2: "",
         subCategory3: "",
@@ -27,7 +23,7 @@
         flowName: "",
         tokenFLag: "",
         spaFlag: ""
-          },
+      },
       content: {
         author: "",
         businessSize: "",
@@ -42,7 +38,7 @@
         topic: "|homepage|",
         type: "homepage"
       }
-      },
+    },
     eventData: {
       events: "",
       fCTA: "",
@@ -82,7 +78,11 @@
     ]
   }
   </script> 
-  <script src="https://assets.adobedtm.com/54d668d6379a/4bfed685397d/launch-029c4ab10638-development.min.js" async></script>
+  <% if ['production'].include? Rails.env %>
+    <script src="https://assets.adobedtm.com/54d668d6379a/4bfed685397d/launch-1b04eb013f27.min.js" async></script>
+  <% else %>
+    <script src="https://assets.adobedtm.com/54d668d6379a/4bfed685397d/launch-029c4ab10638-development.min.js" async></script>
+  <% end %>
   <% if head.google_site_verification %>
     <meta name="google-site-verification" content=<%= head.google_site_verification %> />
   <% end %>
