@@ -24,4 +24,16 @@ RSpec.describe Header do
 
     it { expect(subject).to eq(['Log In', 'Try Me']) }
   end
+
+  describe '#sign_in_path' do
+    subject { described_class.new.sign_in_path }
+
+    it { expect(subject).to eq('https://path/to/site') }
+  end
+
+  describe '#sign_in_text' do
+    subject { described_class.new.sign_in_text }
+
+    it { expect(subject).to eq('Sign in') }
+  end
 end
