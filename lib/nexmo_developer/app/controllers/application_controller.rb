@@ -39,11 +39,11 @@ class ApplicationController < ActionController::Base
     when 'developer.nexmo.com'
       redirect_to("https://developer.vonage.com#{request.fullpath}", status: :moved_permanently) and return
     when 'developer.nexmocn.com'
-      unless request.fullpath.include?('?')
-        redirect_to("https://developer.vonage.com#{request.fullpath}?locale=cn", status: :moved_permanently) and return
-      else
+      if request.fullpath.include?('?')
         redirect_to("https://developer.vonage.com#{request.fullpath}&locale=cn", status: :moved_permanently) and return
       end
+
+      redirect_to("https://developer.vonage.com#{request.fullpath}?locale=cn", status: :moved_permanently) and return
     end
   end
 
