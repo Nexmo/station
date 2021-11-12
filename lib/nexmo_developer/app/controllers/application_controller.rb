@@ -35,21 +35,15 @@ class ApplicationController < ActionController::Base
   end
 
   def redirect_vonage_domain
-    return unless Rails.env.production? || Rails.env.test?
-
-    check_redirect_for(request)
-  end
-
-  def check_redirect_for(request)
     case request.host
     when 'developer.nexmo.com'
-      redirect_to("https://developer.vonage.com#{request.fullpath}",
-                  status: :moved_permanently) and return
-
+      redirect_to("https://developer.vonage.com#{request.fullpath}", status: :moved_permanently) and return
     when 'developer.nexmocn.com'
-      # TO-DO: LOCALE change this to point to the new domain with chinese content
-      redirect_to("https://developer.vonage.com#{request.fullpath}",
-                  status: :moved_permanently) and return
+      unless request.fullpath.include?('?')
+        redirect_to("https://developer.vonage.com#{request.fullpath}?locale=cn", status: :moved_permanently) and return
+      else
+        redirect_to("https://developer.vonage.com#{request.fullpath}&locale=cn", status: :moved_permanently) and return
+      end
     end
   end
 
