@@ -8,17 +8,17 @@
   digitalData = {
     page: {
       pageInfo: {
-        pageName: "biz:api:adp:developer:homepage",
+        pageName: "",
         functionDept: "biz:api:adp",
         primaryCategory: "biz:api:adp:developer",
         siteIdentifier: "api:adp:developer",
         lob: "biz",
-        subCategory1: "biz:api:adp:developer:homepage",
-        subCategory2: "biz:api:adp:developer:homepage",
-        subCategory3: "biz:api:adp:developer:homepage",
+        subCategory1: "",
+        subCategory2: "",
+        subCategory3: "",
         appVersion: "",
-        language: "en",
-        country: "us",
+        language: "",
+        country: "",
         pageCategory: "",
         flowName: "",
         tokenFLag: "",
@@ -35,8 +35,8 @@
         profRole: "",
         publishDate: "",
         subCategory: "",
-        topic: "|homepage|",
-        type: "homepage"
+        topic: "",
+        type: ""
       }
     },
     eventData: {
@@ -51,7 +51,7 @@
       user: {
         profile: {
           profileInfo: {
-            visitorType: "Recent",
+            visitorType: "",
         accountNumber: "",
         accountStatus: "",
         userType: "",
@@ -78,11 +78,7 @@
     ]
   }
   </script> 
-  <% if ['production'].include? Rails.env %>
-    <script src="https://assets.adobedtm.com/54d668d6379a/4bfed685397d/launch-1b04eb013f27.min.js" async></script>
-  <% else %>
-    <script src="https://assets.adobedtm.com/54d668d6379a/4bfed685397d/launch-029c4ab10638-development.min.js" async></script>
-  <% end %>
+  <script src="https://assets.adobedtm.com/54d668d6379a/4bfed685397d/launch-029c4ab10638-development.min.js" async></script>
 
   <% if head.google_site_verification %>
     <meta name="google-site-verification" content=<%= head.google_site_verification %> />
