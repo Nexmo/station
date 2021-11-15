@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   include ApplicationHelper
 
+  before_action :redirect_vonage_domain
+
   helper_method :page_title
 
   rescue_from Errno::ENOENT, with: :not_found
@@ -30,6 +32,19 @@ class ApplicationController < ActionController::Base
     return redirect_to new_user_session_path unless user_signed_in?
 
     redirect_to root_path unless current_user.admin?
+  end
+
+  def redirect_vonage_domain
+    case request.host
+    when 'developer.nexmo.com'
+      redirect_to("https://developer.vonage.com#{request.fullpath}", status: :moved_permanently) and return
+    when 'developer.nexmocn.com'
+      if request.fullpath.include?('?')
+        redirect_to("https://developer.vonage.com#{request.fullpath}&locale=cn", status: :moved_permanently) and return
+      end
+
+      redirect_to("https://developer.vonage.com#{request.fullpath}?locale=cn", status: :moved_permanently) and return
+    end
   end
 
   private
