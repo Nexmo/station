@@ -102,12 +102,8 @@ Rails.application.routes.draw do
 
   namespace :blog do
     get '/:year/:month/:day/:blog_path/', to: 'blogpost#show'
-    # /blog/2021/11/12/asyncronous-php-with-revoltphp-vonage-voice-api/ 
-
-    # OAS_PATH="/Users/mranieri/Documents/dev/nexmo-developer/_open_api/api_specs/definitions" bundle exec nexmo-developer --docs=`pwd
-
+    # /blog/2021/11/12/asyncronous-php-with-revoltphp-vonage-voice-api/
     # get '/', to: 'blog#'
-    
   end
 
   get '*unmatched_route', to: 'application#not_found'
