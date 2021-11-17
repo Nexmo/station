@@ -98,9 +98,19 @@ Rails.application.routes.draw do
 
   get '(/:locale)/*product/*document(/:code_language)', to: 'markdown#show', constraints: DocumentationConstraint.documentation.merge(locale: LocaleConstraint.available_locales)
 
-  get '/ed', to: 'static#blog_cookie'
+  get '/ed', to: 'static#blog_cookie' # workaround for Learn.vonage.com to share Google Analytics tracking with ADP
+
+  namespace :blog do
+    get '/:year/:month/:day/:blog_path/', to: 'blogpost#show'
+    # /blog/2021/11/12/asyncronous-php-with-revoltphp-vonage-voice-api/ 
+
+    # OAS_PATH="/Users/mranieri/Documents/dev/nexmo-developer/_open_api/api_specs/definitions" bundle exec nexmo-developer --docs=`pwd
+
+    # get '/', to: 'blog#'
+    
+  end
 
   get '*unmatched_route', to: 'application#not_found'
-
+  
   root 'static#landing'
 end
