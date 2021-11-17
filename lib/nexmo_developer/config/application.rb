@@ -38,6 +38,7 @@ module NexmoDeveloper
     config.docs_base_path = ENV.fetch('DOCS_BASE_PATH', '.')
     config.middleware.use ::ActionDispatch::Static, "#{Rails.configuration.docs_base_path}/public", index: 'index'
     config.oas_path = ENV.fetch('OAS_PATH', './_open_api/api_specs/definitions')
+    config.blog_path = ENV.fetch('BLOG_PATH', './_blog')
     config.paths['app/views'].unshift("#{Rails.configuration.docs_base_path}/custom/views")
     config.i18n.load_path += Dir[Pathname.new(config.docs_base_path).join('config', 'locales', '**', '*.yml')]
   end
