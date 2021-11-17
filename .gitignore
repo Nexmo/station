@@ -19,7 +19,7 @@
 lib/nexmo_developer/.env
 lib/nexmo_developer/node_modules
 lib/nexmo_developer/public/packs
-lib/nexmo_developer/public/packs-test/media
+lib/nexmo_developer/public/packs-test
 ib/nexmo_developer/config/algolia.yml
 lib/nexmo_developer/tmp/*
 lib/nexmo_developer/tmp
@@ -39,3 +39,5 @@ lib/nexmo_developer/public/assets
 .vscode/*
 coverage
 .DS_Store
+
+node_modules
