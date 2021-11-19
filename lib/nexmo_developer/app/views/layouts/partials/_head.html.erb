@@ -3,83 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <script type="text/javascript">
-  digitalData = {
-    page: {
-      pageInfo: {
-        pageName: "",
-        functionDept: "biz:api:adp",
-        primaryCategory: "biz:api:adp:developer",
-        siteIdentifier: "api:adp:developer",
-        lob: "biz",
-        subCategory1: "",
-        subCategory2: "",
-        subCategory3: "",
-        appVersion: "",
-        language: "",
-        country: "",
-        pageCategory: "",
-        flowName: "",
-        tokenFLag: "",
-        spaFlag: ""
-      },
-      content: {
-        author: "",
-        businessSize: "",
-        category: "",
-        company: "",
-        industry: "",
-        name: "",
-        product: "",
-        profRole: "",
-        publishDate: "",
-        subCategory: "",
-        topic: "",
-        type: ""
-      }
-    },
-    eventData: {
-      events: "",
-      fCTA: "",
-      fIndustry: "",
-      fLines: "",
-      fName: "",
-      interactionType: "",
-      linesSlider: ""
-    },
-      user: {
-        profile: {
-          profileInfo: {
-            visitorType: "",
-        accountNumber: "",
-        accountStatus: "",
-        userType: "",
-        userName: "",
-        accountPlan: "",
-        UserID: "",
-        responsiveSiteVersion: "",
-        country: "",
-        acctnumLocations: "",
-        acctcontractFlag: ""
-          }
-        }
-      },
-    transaction: [
-      {
-        productInfo: {
-          productID: ""
-        },
-        quantity: "",
-        price: {
-          basePrice: ""
-        }
-      }
-    ]
-  }
-  </script> 
+  
   <script src="https://assets.adobedtm.com/54d668d6379a/4bfed685397d/launch-029c4ab10638-development.min.js" async></script>
-
+ 
   <% if head.google_site_verification %>
     <meta name="google-site-verification" content=<%= head.google_site_verification %> />
   <% end %>
@@ -205,6 +131,4 @@
   <meta name="copyright" content="<%= Time.current.year %> <%= head.application_name %>" />
 
   <%= csrf_meta_tags %>
-
-  
 </head>
