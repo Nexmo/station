@@ -98,12 +98,12 @@ Rails.application.routes.draw do
 
   get '(/:locale)/*product/*document(/:code_language)', to: 'markdown#show', constraints: DocumentationConstraint.documentation.merge(locale: LocaleConstraint.available_locales)
 
-  get '/ed', to: 'static#blog_cookie' # workaround for Learn.vonage.com to share Google Analytics tracking with ADP
+  get '/ed', to: 'static#blog_cookie' # workaround for Learn.vonage. com to share Google Analytics tracking with ADP
 
   namespace :blog do
-    get '/:year/:month/:day/:blog_path/', to: 'blogpost#show'
-    # /blog/2021/11/12/asyncronous-php-with-revoltphp-vonage-voice-api/
-    # get '/', to: 'blog#'
+    get '/', to: 'blogpost#index'
+    get '(/:locale)/:year/:month/:day/:blog_path/', to: 'blogpost#show', constraints: { locale: LocaleConstraint.available_locales }
+    get '/author/:name', to: 'authors#show', as: 'author'
   end
 
   get '*unmatched_route', to: 'application#not_found'

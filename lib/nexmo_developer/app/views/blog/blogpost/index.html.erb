@@ -1,0 +1,85 @@
+<!-- 
+<h1>All posts</h1>
+
+<h6>BLOG_PATH: <%= ENV['BLOG_PATH'] %></h6>
+
+<hr>	
+
+<ol>
+	<% @data.each do |d| %>
+		<li>
+			<p><%= link_to d['title'], d['link'] %></p>
+			<p><small><code><%= d['tags'].join(' ') %></code></small></p>
+			<p><small><%= d['description'] %></small></p>
+		</li>
+		<hr>
+	<% end %>
+</ol>
+-->
+
+<% unless @data.count.positive? %>
+  <div class="Vlt-callout Vlt-callout--warning">
+    <i></i>
+    <div class="Vlt-callout__content">
+      No Blogpost available
+    </div>
+  </div>
+<% else %>
+  <div class="Vlt-grid Nxd-use-cases">
+    <% @data.in_groups(3) do |blogposts| %>
+      <div class="Vlt-col">
+        <% blogposts.compact.each do |blogpost| %>
+          <% author = @authors[blogpost['author'].to_sym] %>
+ <%#  {"title"=>"12 Bots To Better Your Open Source Project", "description"=>"12 ways to improve your open source project with Probot and GitHub Actions—enabling you to extend your workflow and customize the way GitHub functions.", "thumbnail"=>"/content/blog/12-bots-to-better-your-open-source-project/Blog_Bots-Better-Opensource_1200x600.png", "author"=>"nahrinjalal", "published"=>true, "published_at"=>"2020-10-28 14:35:06 UTC", "updated_at"=>"", "category"=>"tutorial", "tags"=>["open-source", "hacktoberfest", "bots"], "link"=>"blog/20/10/28/12-bots-to-better-your-open-source-project", "locale"=>"en", "slug"=>"12-bots-to-better-your-open-source-project"}%>
+          <div class="Vlt-card Vlt-card--border Vlt-card--lesspadding">
+            <div class="Vlt-card__header" style="display: flex; justify-content: space-between;">
+              <a
+                href="#"
+                class="Vlt-badge Vlt-badge--small Vlt-badge--transparent Vlt-margin--A-bottom2 Vlt-badge--blue"
+                >
+                <%= blogpost['category'] %>
+              </a>
+            </div>
+
+            <div class="Vlt-card__content">
+              <a href="<%= blogpost['link'] %>">
+                <p class="p-large"><b><%= blogpost['title'] %></b></p>
+              </a>
+
+              <p><%= blogpost['description'] %></p>
+
+              <a href="<%= blogpost['link'] %>" class="Vlt-blue-darker">
+                <%= t('read_more') %>
+                <svg class="Vlt-icon Vlt-icon--smaller">
+                  <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-arrow-thin-right" />
+                </svg>
+              </a>
+
+              <% if blogpost['tags'].count > 0 %>
+                <hr class="hr--short"></hr>
+                <% blogpost['tags'].each do |tag| %>
+                  <a
+                    href="#"
+                    >
+                    <small class="Vlt-grey-darker Nxd-tutorials__language Nxd-tutorials__language--<%= tag %>"><span>●</span> <%= tag == "Objective_C" ? "Objective-C" : tag %></small>
+                  </a>
+                <% end %>
+              <% end %>
+
+              <% if author && author['name'] %>
+                <hr class="hr--short"></hr>
+                <h5 class="Vlt-title--icon">
+                  <% if author['image_url'] %>
+                    <%= image_tag author['image_url'], style: "width: 30px; border-radius: 50%;" %>
+                  <% end %>
+                  <%= link_to author['name'], blog_author_path(author['short_name']) %>
+                </h5>
+              <% end %>
+
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
