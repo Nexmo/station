@@ -1,8 +1,8 @@
 class Blog::CategoriesController < Blog::MainController
 
-  # def show
-  #   @author    = AuthorParser.fetch_author(params[:name]) 
-  #   @blogposts = AuthorParser.fetch_all_blogposts_from(params[:name]) 
-  # end
+  def show
+    @authors   = AuthorParser.fetch_all_authors
+    @blogposts = CategoryParser.fetch_blogposts_with_category(params[:slug])
+  end
 
 end

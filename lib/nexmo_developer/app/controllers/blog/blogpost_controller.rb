@@ -10,8 +10,8 @@ class Blog::BlogpostController < Blog::MainController
   end
 
   # Rake Task??
-  def create_json_data_file
-    JsonParser.write_all()
-  end
+  # def create_json_data_file
+  #   JsonParser.write_all()
+  # end
 
 end

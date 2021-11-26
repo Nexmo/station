@@ -103,7 +103,9 @@ Rails.application.routes.draw do
   namespace :blog do
     get '/', to: 'blogpost#index'
     get '(/:locale)/:year/:month/:day/:blog_path/', to: 'blogpost#show', constraints: { locale: LocaleConstraint.available_locales }
-    get '/author/:name', to: 'authors#show', as: 'author'
+    get '/authors/:name', to: 'authors#show', as: 'author'
+    get '/categories/:slug', to: 'categories#show', as: 'category'
+    get '/tags/:slug', to: 'tags#show', as: 'tag'
   end
 
   get '*unmatched_route', to: 'application#not_found'

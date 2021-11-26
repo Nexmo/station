@@ -38,7 +38,7 @@
               <div class="Vlt-card Vlt-card--border Vlt-card--lesspadding">
                 <div class="Vlt-card__header" style="display: flex; justify-content: space-between;">
                   <a
-                    href="#"
+                    href="<%= blog_category_path(blogpost['category'])%>"
                     class="Vlt-badge Vlt-badge--small Vlt-badge--transparent Vlt-margin--A-bottom2 Vlt-badge--blue"
                     >
                     <%= blogpost['category'] %>
@@ -62,8 +62,9 @@
                   <% if blogpost['tags'].count > 0 %>
                     <hr class="hr--short"></hr>
                     <% blogpost['tags'].each do |tag| %>
+                      <% next if tag.empty? %>
                       <a
-                        href="#"
+                        href="<%= blog_tag_path(tag)%>"
                         >
                         <small class="Vlt-grey-darker Nxd-tutorials__language Nxd-tutorials__language--<%= tag %>"><span>●</span> <%= tag == "Objective_C" ? "Objective-C" : tag %></small>
                       </a>
