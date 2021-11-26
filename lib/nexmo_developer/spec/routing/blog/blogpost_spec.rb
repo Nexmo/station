@@ -7,5 +7,4 @@ RSpec.describe 'blogpost route', type: :routing do
         .to route_to(controller: 'blog/blogpost', action: 'show', year: '2021', month: '12', day: '25', blog_path: 'santa-is-here')
     end
   end
-
 end

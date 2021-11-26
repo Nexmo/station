@@ -109,6 +109,6 @@ Rails.application.routes.draw do
   end
 
   get '*unmatched_route', to: 'application#not_found'
-  
+
   root 'static#landing'
 end
