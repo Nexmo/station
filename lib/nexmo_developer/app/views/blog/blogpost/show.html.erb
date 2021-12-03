@@ -2,6 +2,32 @@
 
 <hr>
 
-<div style="margin:0 200px;">
-  <%= raw @content %>
+<p 
+  style="
+    text-opacity: 1;
+    color: rgba(107,114,128,.6);
+    text-align: right;"
+>
+  <%= @content.reading_time format: :approx %> read
+</p>
+
+
+<div style="display:flex;justify-content: space-between;">
+
+  <div class="Vlt-card Vlt-bg-white" style="width:20%;height: fit-content;">
+      
+      <div class="Vlt-card__image" style="background-image: url('<%= @author['image_url'] %>'); background-size: cover; min-height: 25vh;"></div>
+      
+      
+      <div class="Vlt-card__content">
+        <%= @author["name"] %>
+      </div>
+  </div>
+
+  <div class="Vlt-card Vlt-bg-white" style="width:78%;">
+    <div class="Vlt-card__content">
+      <%= raw @content %>
+    </div>
+  </div>
+
 </div>

@@ -16,9 +16,14 @@
       <% author = @authors[blogpost['author'].to_sym] %>
       <% category = @categories.find{ |c| c['slug'] == blogpost['category'].downcase } %>
   <%#  {"title"=>"12 Bots To Better Your Open Source Project", "description"=>"12 ways to improve your open source project with Probot and GitHub Actions—enabling you to extend your workflow and customize the way GitHub functions.", "thumbnail"=>"/content/blog/12-bots-to-better-your-open-source-project/Blog_Bots-Better-Opensource_1200x600.png", "author"=>"nahrinjalal", "published"=>true, "published_at"=>"2020-10-28 14:35:06 UTC", "updated_at"=>"", "category"=>"tutorial", "tags"=>["open-source", "hacktoberfest", "bots"], "link"=>"blog/20/10/28/12-bots-to-better-your-open-source-project", "locale"=>"en", "slug"=>"12-bots-to-better-your-open-source-project"}%>
-      
+      <% header_url = "https://d226lax1qjow5r.cloudfront.net/blog/blogposts#{blogpost['thumbnail'].gsub('/content/blog','')}"  %>
+
+
+
+
       
       <div class="Vlt-card Vlt-card--border Vlt-card--lesspadding Vlt-col">
+	<div class="Vlt-card__image" style="background-image: url(<%= header_url %>); background-size: cover"></div>
         <div class="Vlt-card__header" style="display: flex; justify-content: space-between;">
           <a
             href="<%= blog_category_path(blogpost['category'])%>"
@@ -94,6 +99,9 @@
       </div>
 
 
+	</div>
+</div>
+
       
     </div>
     <% end %>
@@ -108,6 +116,10 @@
     <% @data.in_groups(3) do |blogposts| %>
       <div class="Vlt-col">
         <% blogposts.compact.each do |blogpost| %>
+
+
+
+        
           <% author = @authors[blogpost['author'].to_sym] %>
           <% category = @categories.find{ |c| c['slug'] == blogpost['category'].downcase } %>
  <%#  {"title"=>"12 Bots To Better Your Open Source Project", "description"=>"12 ways to improve your open source project with Probot and GitHub Actions—enabling you to extend your workflow and customize the way GitHub functions.", "thumbnail"=>"/content/blog/12-bots-to-better-your-open-source-project/Blog_Bots-Better-Opensource_1200x600.png", "author"=>"nahrinjalal", "published"=>true, "published_at"=>"2020-10-28 14:35:06 UTC", "updated_at"=>"", "category"=>"tutorial", "tags"=>["open-source", "hacktoberfest", "bots"], "link"=>"blog/20/10/28/12-bots-to-better-your-open-source-project", "locale"=>"en", "slug"=>"12-bots-to-better-your-open-source-project"}%>
@@ -186,6 +198,10 @@
             </div>
           </div>
         <% end %>
+
+
+
+        
       </div>
     <% end %>
   </div>

@@ -429,6 +429,7 @@ GEM
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    readingtime (0.4.0)
     recaptcha (5.8.1)
       json
     redcarpet (3.5.1)
@@ -660,6 +661,7 @@ DEPENDENCIES
   rack (>= 2.0.6)
   rails (~> 6.1.4)
   rawler!
+  readingtime
   recaptcha
   redis
   rest-client

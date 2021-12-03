@@ -1,0 +1,237 @@
+.Vlt-badge--dispatch-api,
+.Vlt-badge--messages-api,
+.Vlt-badge--messages-api-sandbox,
+.Vlt-badge--number-insight-api,
+.Vlt-badge--number-api,
+.Vlt-badge--reports-api,
+.Vlt-badge--account-api,
+.Vlt-badge--pricing-api,
+.Vlt-badge--external-accounts-api,
+.Vlt-badge--redact-api,
+.Vlt-badge--audit-api,
+.Vlt-badge--verify-api,
+.Vlt-badge--media-api,
+.Vlt-badge--voice-api,
+.Vlt-badge--conversation-api,
+.Vlt-badge--video-api,
+.Vlt-badge--sms-api,
+.Vlt-badge--station {
+  background: black;
+  color: white;
+}
+.Vlt-badge--spotlight {
+  background-color: rgba(135, 31, 255, 1);
+  color: white;
+}
+
+.Vlt-badge--voyagers {
+  background-color: rgba(135, 31, 255, 1);
+  color: white;
+}
+
+.Vlt-badge--slack {
+  background: rgba(74, 21, 75, 0.4);
+  color: black;
+}
+
+.Vlt-badge--faunadb {
+  background: rgba(50, 63, 203, 0.4);
+  color: black;
+}
+
+.Vlt-badge--vue {
+  background-color: rgba(65, 184, 131, 0.4);
+  color: rgba(53, 73, 94, 1);
+}
+
+.Vlt-badge--nuxt {
+  background-color: rgba(0, 197, 142, 0.4);
+  color: black;
+}
+
+.Vlt-badge--ruby-on-rails,
+.Vlt-badge--ruby {
+  background-color: rgba(204, 52, 45, 0.4);
+  color: black;
+}
+
+.Vlt-badge--javascript {
+  background-color: rgba(247, 223, 30, 0.4);
+  color: black;
+}
+
+.Vlt-badge--typescript {
+  background-color: rgba(49, 120, 198, 0.4);
+  color: black;
+}
+
+.Vlt-badge--dotnet {
+  background-color: rgba(93, 37, 144, 0.4);
+  color: black;
+}
+
+.Vlt-badge--node {
+  background-color: rgba(61, 136, 54, 0.4);
+  color: black;
+}
+
+.Vlt-badge--deno {
+  background: rgba(22, 30, 46, 0.4);
+  color: black;
+}
+
+.Vlt-badge--node-red {
+  background-color: rgba(142, 1, 0, 0.4);
+  color: black;
+}
+
+.Vlt-badge--azure {
+  background-color: rgba(0, 127, 255, 0.4);
+  color: black;
+}
+
+.Vlt-badge--zapier {
+  background-color: rgba(255, 74, 0, 0.4);
+  color: black;
+}
+
+.Vlt-badge--go {
+  background-color: rgba(224, 235, 245, 0.4);
+  color: black;
+}
+
+.Vlt-badge--php {
+  background-color: rgba(35, 161, 170, 0.4);
+  color: black;
+}
+
+.Vlt-badge--aws {
+  background-color: rgba(33, 43, 58, 0.4);
+  color: black;
+}
+
+.Vlt-badge--firebase {
+  background-color: rgba(255, 202, 40, 0.4);
+  color: black;
+}
+
+.Vlt-badge--zendesk {
+  background-color: rgba(3, 54, 61, 0.4);
+  color: black;
+}
+
+.Vlt-badge--ibm-watson {
+  background-color: rgba(0, 98, 255, 0.4);
+  color: black;
+}
+
+.Vlt-badge--git {
+  background-color: rgba(241, 78, 50, 0.4);
+  color: black;
+}
+
+.Vlt-badge--github {
+  content: 'GitHub';
+  background-color: rgba(51, 51, 51, 0.4);
+  color: black;
+}
+
+.Vlt-badge--hacktoberfest {
+  background-color: rgba(7, 37, 64, 0.4);
+  color: black;
+}
+
+.Vlt-badge--digitalocean {
+  background-color: rgba(0, 105, 255, 0.4);
+  color: black;
+}
+
+.Vlt-badge--java {
+  background-color: rgba(1, 71, 110, 0.4);
+  color: black;
+}
+
+.Vlt-badge--python {
+  background-color: rgba(30, 56, 187, 0.4);
+  color: black;
+}
+
+.Vlt-badge--mongodb {
+  background-color: rgba(19, 170, 82, 0.4);
+  color: black;
+}
+
+.Vlt-badge--netlify {
+  background: linear-gradient(
+    to bottom,
+    rgba(35, 194, 184, 0.4),
+    rgba(55, 175, 188, 0.4)
+  );
+  color: black;
+}
+
+.Vlt-badge--postman {
+  background: rgba(255, 108, 55, 0.4);
+  color: black;
+}
+
+.Vlt-badge--opensource {
+  background: rgba(61, 166, 57, 0.4);
+  color: black;
+}
+
+.Vlt-badge--react-native,
+.Vlt-badge--react {
+  background: rgba(97, 218, 251, 0.4);
+  color: black;
+}
+
+.Vlt-badge--open-api {
+  background: rgba(56, 184, 50, 0.4);
+  color: black;
+}
+
+.Vlt-badge--inclusion {
+  background: linear-gradient(
+    90deg,
+    black,
+    black 12.5%,
+    rgba(117, 77, 21, 1) 12.5%,
+    rgba(117, 77, 21, 1) 25%,
+    rgba(240, 0, 0, 1) 25%,
+    rgba(240, 0, 0, 1) 37.5%,
+    rgba(255, 128, 0, 1) 37.5%,
+    rgba(255, 128, 0, 1) 50%,
+    rgba(255, 255, 0, 1) 50%,
+    rgba(255, 255, 0, 1) 62.5%,
+    rgba(0, 121, 64, 1) 62.5%,
+    rgba(0, 121, 64, 1) 75%,
+    rgba(64, 64, 255, 1) 75%,
+    rgba(64, 64, 255, 1) 87.5%,
+    rgba(160, 0, 192, 1) 87.5%,
+    rgba(160, 0, 192, 1)
+  );
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5), -1px -1px 2px rgba(0, 0, 0, 0.5),
+    -1px 1px 2px rgba(0, 0, 0, 0.5), 1px -1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.Vlt-badge--diversity {
+  background: linear-gradient(
+    90deg,
+    rgba(85, 205, 252, 1),
+    rgba(85, 205, 252, 1) 20%,
+    rgba(247, 168, 184, 1) 20%,
+    rgba(247, 168, 184, 1) 40%,
+    white 40%,
+    white 60%,
+    rgba(247, 168, 184, 1) 60%,
+    rgba(247, 168, 184, 1) 80%,
+    rgba(85, 205, 252, 1) 80%,
+    rgba(85, 205, 252, 1) 100%
+  );
+  color: black;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5),
+    -1px -1px 2px rgba(255, 255, 255, 0.5),
+    -1px 1px 2px rgba(255, 255, 255, 0.5), 1px -1px 2px rgba(255, 255, 255, 0.5);
+}
