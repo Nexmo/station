@@ -3,7 +3,7 @@
 
 <div class="Adp-header">
   <header id="header" class="Adp-header__main Vlt-M-plus">
-  <input type="hidden" id="adobe_launch_url" value="<%=ENV['ADOBE_LAUNCH_URL']%>">
+  <input type="hidden" id="adobe_launch_primary_category" value="<%=ENV['ADOBE_LAUNCH_PRIMARY_CATEGORY']%>">
     <a tabindex="0" id="skip-to-navigation" href="#sidenav-first" class="Vlt-btn Vlt-btn--outline Vlt-btn--primary Vlt-btn--app">Skip to navigation</a>
     <a tabindex="0" id="skip-to-content" href="#primary-content" class="Vlt-btn Vlt-btn--outline Vlt-btn--primary Vlt-btn--app">Skip to content</a>
 
@@ -121,7 +121,7 @@
       <% end %>
     <% end %>
   </section>
-
-  <%= javascript_include_tag 'digitalData'%>
-
+  <% if ENV['ADOBE_LAUNCH_URL'] && ENV['ADOBE_LAUNCH_PRIMARY_CATEGORY'] %>
+    <%= javascript_include_tag 'digitalData'%>
+  <% end %>
 </div>
