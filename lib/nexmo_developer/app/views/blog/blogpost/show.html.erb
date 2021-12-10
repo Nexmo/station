@@ -16,8 +16,17 @@
 
   <div class="Vlt-card Vlt-bg-white" style="width:20%;height: fit-content;">
       
-      <div class="Vlt-card__image" style="background-image: url('<%= @author['image_url'] %>'); background-size: cover; min-height: 25vh;"></div>
-      
+
+      <% if @author['image_url'] %>
+        <% if @author['image_url'].include? 'gravatar' %>
+          <% url = @author['image_url'] %>
+        <% else %>
+          <% url = "https://d226lax1qjow5r.cloudfront.net/blog/authors/#{@author['image_url'].gsub('/content/images/','')}" %>
+        <% end %>
+      <% end %>
+
+      <div class="Vlt-card__image" style="background-image: url('<%= url %>'); background-size: cover; min-height: 25vh;"></div>
+
       
       <div class="Vlt-card__content">
         <%= @author["name"] %>

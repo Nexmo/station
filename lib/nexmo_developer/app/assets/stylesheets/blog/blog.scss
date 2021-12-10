@@ -1,0 +1,23 @@
+.max-w-screen-xl {
+  max-width: 1280px;
+}
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+//Category titles separator
+.Vlt-text-separator span::before,
+.Vlt-text-separator span::after {
+  background: linear-gradient(to right, #7fc6f4, #d5279b) !important;
+}
+
+.my-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 1fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+  

@@ -32,7 +32,7 @@ class BlogpostParser
       document = File.read(filename)
 
       # body = Nexmo::Markdown::Renderer.new.call(document)
-      frontmatter = YAML.safe_load(document)
+      frontmatter = YAML.safe_load(document, [Time])
 
       frontmatter.except!('comments', 'redirect', 'canonical', 'old_categories')
 

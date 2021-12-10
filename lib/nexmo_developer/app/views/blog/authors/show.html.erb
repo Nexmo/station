@@ -7,7 +7,16 @@
     <% if @author && @author['name'] %>
     
       <% if @author['image_url'] %>
-        <%= image_tag @author['image_url'], style: "border-radius: 50%;" %>
+        <% if @author['image_url'].include? 'gravatar' %>
+          <% url = @author['image_url'] %>
+        <% else %>
+          <% url = "https://d226lax1qjow5r.cloudfront.net/blog/authors/#{@author['image_url'].gsub('/content/images/','')}" %>
+        <% end %>
+      <% end %>
+
+
+      <% if @author['image_url'] %>
+        <%= image_tag url, style: "border-radius: 50%;" %>
       <% end %>
       <h2 class="Vlt-title--icon">
         <%= @author['name'] %>
@@ -20,7 +29,7 @@
   </div>
 
 
-  <div style="width:70%;">
+  <div style="width:65%;">
 
     <% unless @blogposts.count.positive? %>
       <div class="Vlt-callout Vlt-callout--warning">
@@ -34,45 +43,7 @@
         <% @blogposts.in_groups(2) do |blogposts| %>
           <div class="Vlt-col">
             <% blogposts.compact.each do |blogpost| %>
-    <%#  {"title"=>"12 Bots To Better Your Open Source Project", "description"=>"12 ways to improve your open source project with Probot and GitHub Actions—enabling you to extend your workflow and customize the way GitHub functions.", "thumbnail"=>"/content/blog/12-bots-to-better-your-open-source-project/Blog_Bots-Better-Opensource_1200x600.png", "author"=>"nahrinjalal", "published"=>true, "published_at"=>"2020-10-28 14:35:06 UTC", "updated_at"=>"", "category"=>"tutorial", "tags"=>["open-source", "hacktoberfest", "bots"], "link"=>"blog/20/10/28/12-bots-to-better-your-open-source-project", "locale"=>"en", "slug"=>"12-bots-to-better-your-open-source-project"}%>
-              <div class="Vlt-card Vlt-card--border Vlt-card--lesspadding">
-                <div class="Vlt-card__header" style="display: flex; justify-content: space-between;">
-                  <a
-                    href="<%= blog_category_path(blogpost['category'])%>"
-                    class="Vlt-badge Vlt-badge--small Vlt-badge--transparent Vlt-margin--A-bottom2 Vlt-badge--blue"
-                    >
-                    <%= blogpost['category'] %>
-                  </a>
-                </div>
-
-                <div class="Vlt-card__content">
-                  <a href="/<%= blogpost['link'] %>">
-                    <p class="p-large"><b><%= blogpost['title'] %></b></p>
-                  </a>
-
-                  <p><%= blogpost['description'] %></p>
-
-                  <a href="/<%= blogpost['link'] %>" class="Vlt-blue-darker">
-                    <%= t('read_more') %>
-                    <svg class="Vlt-icon Vlt-icon--smaller">
-                      <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-arrow-thin-right" />
-                    </svg>
-                  </a>
-
-                  <% if blogpost['tags'].count > 0 %>
-                    <hr class="hr--short"></hr>
-                    <% blogpost['tags'].each do |tag| %>
-                      <% next if tag.empty? %>
-                      <a
-                        href="<%= blog_tag_path(tag)%>"
-                        >
-                        <small class="Vlt-grey-darker Nxd-tutorials__language Nxd-tutorials__language--<%= tag %>"><span>●</span> <%= tag == "Objective_C" ? "Objective-C" : tag %></small>
-                      </a>
-                    <% end %>
-                  <% end %>
-
-                </div>
-              </div>
+               <%= render partial: 'blog/blogpost/blogpost', locals: { blogpost: blogpost, show_category_label: true } %>
             <% end %>
           </div>
         <% end %>
