@@ -3,6 +3,7 @@ require_relative '../common_errors'
 namespace :ci do
   desc 'Verify all pages to make sure that no exceptions are thrown'
   task verify_pages: :environment do
+    puts 'ci/verify_pages - Verify all pages to make sure that no exceptions are thrown'
     document_paths =
       [
         "#{Rails.configuration.docs_base_path}/_documentation/en/**/*.md",
@@ -25,6 +26,7 @@ namespace :ci do
 
   desc 'Verify side navigation to make sure every page has valid YAML metadata'
   task verify_navigation: :environment do
+    puts 'ci/verify_navigation - Verify side navigation to make sure every page has valid YAML metadata'
     session = ActionDispatch::Integration::Session.new(Rails.application)
     res = session.get '/documentation'
 
@@ -36,6 +38,7 @@ namespace :ci do
 
   desc 'Render all OAS based API references'
   task verify_oas_reference: :environment do
+    puts 'ci/verify_oas_reference - Render all OAS based API references'
     session = ActionDispatch::Integration::Session.new(Rails.application)
     OpenApiConstraint.list.each do |name|
       res = session.get "/api/#{name}"
@@ -49,19 +52,24 @@ namespace :ci do
 
   desc 'Ensure all OAS error URLS resolve'
   task verify_error_urls_resolve: :environment do
+    puts 'ci/verify_error_urls_resolve - Ensure all OAS error URLS resolve'
     session = ActionDispatch::Integration::Session.new(Rails.application)
     session.host! 'localhost' unless Rails.env.test?
 
     errors = []
 
     OpenApiConstraint.list.each do |name|
+      puts " - Checking #{name}"
       definition = OpenApiDefinitionResolver.find(name)
 
       definition.endpoints.each do |endpoint|
+        puts "   -  #{endpoint.method} #{endpoint.path.path}"
         endpoint.responses.each do |response|
+          puts "     -  #{response.code}"
           next if response.code[0] == '2' # Successes don't have error messages
 
           response.formats.each do |format|
+            puts "       -  #{format}"
             schema = response.schema(format)
 
             # Turn everything in to an array to simplify things
@@ -72,6 +80,11 @@ namespace :ci do
             end
 
             properties.each do |property|
+
+              #  Workaround for issue when referencing from common errors
+              # eg: 10DLC: - $ref: "common/common_errors.yml#/components/responses/DefaultError/content/application~1json/schema"
+              next if property.blank?
+
               type = property['type']
 
               # Skip if it's an old-style error
@@ -115,6 +128,7 @@ namespace :ci do
   end
 
   task check_word_blocklist: :environment do
+    puts 'ci/check_word_blocklist - Check that none words in the word blocklist are in use'
     markdown_files =
       [
         "#{Rails.configuration.docs_base_path}/_documentation/en/**/*.md",
@@ -146,6 +160,7 @@ namespace :ci do
   end
 
   task check_ruby_version: :environment do
+    puts 'ci/check_ruby_version - Check that the current Ruby version is supported'
     # We treat .ruby-version as the canonical source
     ruby_version = File.read('.ruby-version').strip
 
