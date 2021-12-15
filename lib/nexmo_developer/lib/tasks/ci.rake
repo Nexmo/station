@@ -80,7 +80,6 @@ namespace :ci do
             end
 
             properties.each do |property|
-
               #  Workaround for issue when referencing from common errors
               # eg: 10DLC: - $ref: "common/common_errors.yml#/components/responses/DefaultError/content/application~1json/schema"
               next if property.blank?
