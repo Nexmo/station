@@ -5,7 +5,6 @@
 <div style="display: flex; justify-content: space-around">
   <div style="width:30%;">
     <% if @author && @author['name'] %>
-    
       <% if @author['image_url'] %>
         <% if @author['image_url'].include? 'gravatar' %>
           <% url = @author['image_url'] %>

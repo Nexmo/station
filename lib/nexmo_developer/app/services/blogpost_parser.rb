@@ -27,7 +27,6 @@ class BlogpostParser
     ]
     blogposts_locale_path -= blogposts_path_with_errors
 
-    # blogposts_path.first(5).each do |filename|
     blogposts_locale_path.each do |filename|
       document = File.read(filename)
 

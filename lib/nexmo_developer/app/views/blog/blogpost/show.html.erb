@@ -1,22 +1,20 @@
-<%= link_to '<< Back to Blogs', blog_path %>
-
-<hr>
-
-<p 
-  style="
-    text-opacity: 1;
-    color: rgba(107,114,128,.6);
-    text-align: right;"
->
-  <%= @content.reading_time format: :approx %> read
-</p>
-
+<!-- Reading time -->
+<div style="display:flex;justify-content: flex-end;">
+  <p style="text-opacity: 1; color: rgba(107,114,128,.6); text-align: right;">
+    <%= @content.reading_time format: :approx %> read &nbsp; 
+  </p>
+  <p>
+    <svg class="Vlt-icon Vlt-icon--smaller Vlt-grey-darker" style="opacity: .6;">
+      <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-clock"></use>
+    </svg>
+  </p>
+</div>
 
 <div style="display:flex;justify-content: space-between;">
 
+  <!-- Author -->
   <div class="Vlt-card Vlt-bg-white" style="width:20%;height: fit-content;">
       
-
       <% if @author['image_url'] %>
         <% if @author['image_url'].include? 'gravatar' %>
           <% url = @author['image_url'] %>
@@ -25,14 +23,27 @@
         <% end %>
       <% end %>
 
-      <div class="Vlt-card__image" style="background-image: url('<%= url %>'); background-size: cover; min-height: 25vh;"></div>
+      <div class="Vlt-card__image" style="background-image: url('<%= url %>'); background-size: cover; min-height: 40vh; background-position: center;"></div>
 
-      
       <div class="Vlt-card__content">
-        <%= @author["name"] %>
+        <%= link_to blog_author_path(@author['short_name']), class: "Vlt-blue-darker" do %>
+          <h4><%= @author["name"] %></h4>
+        <% end %>
+        
+        <p style="opacity:.6;font-weight: bold;">
+          <%= @author["bio"].truncate(200) %>
+        </p>
+        
+        <%= link_to blog_author_path(@author['short_name']), class: "Vlt-blue-darker" do %>
+          Read more
+          <svg class="Vlt-icon Vlt-icon--smaller">
+            <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-arrow-thin-right"></use>
+          </svg>
+        <% end %>
       </div>
   </div>
 
+  <!-- Content -->
   <div class="Vlt-card Vlt-bg-white" style="width:78%;">
     <div class="Vlt-card__content">
       <%= raw @content %>

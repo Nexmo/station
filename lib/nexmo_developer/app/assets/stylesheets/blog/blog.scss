@@ -13,11 +13,36 @@
   background: linear-gradient(to right, #7fc6f4, #d5279b) !important;
 }
 
-.my-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 1fr;
-  grid-column-gap: 10px;
-  grid-row-gap: 10px;
+.my-2col-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  grid-auto-rows: 1fr !important;
+  grid-column-gap: 10px !important;
+  grid-row-gap: 10px !important;
 }
+
+.my-3col-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  grid-auto-rows: 1fr !important;
+  grid-column-gap: 10px !important;
+  grid-row-gap: 10px !important;
   
+  .Vlt-card:hover {
+    -webkit-transform: none;
+    transform: none;
+    -webkit-box-shadow: 0 10px 30px rgba(19, 20, 21, .1);
+    box-shadow: 0 10px 30px rgba(19, 20, 21, .1);
+    transform: none;
+  }
+  
+  .Vlt-card {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: 1px solid #e6e6e6;
+    -webkit-transition: -webkit-box-shadow ease-in 0.25s;
+    transition: -webkit-box-shadow ease-in 0.25s;
+    transition: box-shadow ease-in 0.25s;
+    transition: box-shadow ease-in 0.25s, -webkit-box-shadow ease-in 0.25s;
+  }
+}

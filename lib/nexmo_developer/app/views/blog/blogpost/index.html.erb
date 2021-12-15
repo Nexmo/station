@@ -16,39 +16,30 @@
       <span>LATEST POSTS</span>
     </div>
 
-    <div class="Vlt-grid">
-      <% @data.shift(2).each do |blogpost| %>
-      <%# {"title"=>"Rachel Sunderland Joins the Vonage Developer Relations Team", "description"=>"An introduction to Rachel Sunderland and some reflections from her two months at Vonage. ", 
-      "thumbnail"=>"/content/blog/rachel-sunderland-joins-the-vonage-developer-relations-team/rachel-sunderland.png", 
-      "author"=>"rachel-sunderland", "published"=>true, "published_at"=>"2021-09-22 09:15:32 UTC", "updated_at"=>"2021-09-22 09:15:32 UTC", 
-      "category"=>"team", "tags"=>["Careers"], "spotlight"=>false, "outdated"=>false, "replacement_url"=>"", "link"=>"blog//21/09/22/rachel-sunderland-joins-the-vonage-developer-relations-team", "locale"=>"en", 
-       "filename"=>"rachel-sunderland-joins-the-vonage-developer-relations-team"} %>
+    <div class="my-2col-grid">
+      <% @latest_blogposts.each do |blogpost| %>
         <%= render partial: 'blog/blogpost/blogpost_with_image', locals: { blogpost: blogpost } %>
       <% end %>
     </div>
 
 
   <% @categories.each do |category| %>
-      
-    <% name = category['slug'] %>
-    <% title = category['plural'] %>
-    <% blogposts = @data.first(100) %>
     
     <div class="hr--tall Vlt-text-separator Vlt-text-separator--big" style="opacity: .6; letter-spacing: .1em;">
-      <span>< <%= title.upcase %> /></span>
+      <span>< <%= category.plural.upcase %> /></span>
     </div>
 
-    <div class="my-grid">
+    <div class="my-3col-grid">
 
-      <% blogposts.select{ |b| b['category'] == name }.first(6).in_groups(3) do |blogposts| %>
-
+      <% category.blogposts.in_groups(3) do |blogposts| %>
           <% blogposts.compact.each do |blogpost| %>
-            <%= render partial: 'blog/blogpost/blogpost', locals: { blogpost: blogpost, show_category_label: false } %>
+            <%# cache blogpost do %>
+              <%= render partial: 'blog/blogpost/blogpost', locals: { blogpost: blogpost, show_category_label: false } %>
+            <%# end %>
           <% end %>
-        
       <% end %>
 
-    </div> <!-- <div class="Vlt-grid Nxd-use-cases"> -->
+    </div> <!-- <div class="my-3col-grid"> -->
 
 
   <% end %>
