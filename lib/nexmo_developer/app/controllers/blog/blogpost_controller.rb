@@ -4,23 +4,28 @@ class Blog::BlogpostController < Blog::MainController
     # All blogposts as Json [{title: .., descr: ..}, {...}, ...]
     @data = BlogpostParser.fetch_all
 
+##### AUTHORS
+    @authors = AuthorParser.fetch_all_authors
+
+
 ##### CATEGORIES
     # All categories as Json [{name: .., slug: ..}, {...}, ...]
     @categories = CategoryParser.fetch_all_categories
     
-    data = @data.dup
-    @categories.map! do |c| 
+    # data = @data.dup
+
+    @categories_with_blogposts = @categories.map do |c| 
       category = Blog::Category.new(c)
       
-      # Assign 6 blogposts to each category to display
-      category.return_n_blogposts_with_category_from(data, 6)
+      # Assign 6 blogposts to each category to display in INDEX
+      category.return_n_blogposts_with_category_from(@data, 6)
+      
+      category.blogposts.each { |b| b.author = Blog::Author.new(@authors[b.author.to_sym]) }
       
       category
     end
-    
-##### AUTHORS
-    @authors = AuthorParser.fetch_all_authors
 
+    raise
 
 ##### BLOGPOSTS
     # Latest 2 Blog::Blogpost Instances

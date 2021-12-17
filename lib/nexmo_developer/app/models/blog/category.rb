@@ -1,3 +1,4 @@
+require 'pry'
 class Blog::Category
   attr_reader :name, :plural, :slug, :color
   attr_accessor :blogposts
@@ -13,14 +14,21 @@ class Blog::Category
     @blogposts = []
   end
 
-  def return_n_blogposts_with_category_from(blogposts, n=0)
-    blogposts.select! { |b| b['category'] == @slug }
+  def return_n_blogposts_with_category_from(blogposts_json, n=0)
+    
+    bp = blogposts_json.select { |b| 
+      
+      # binding.pry if @slug == 'release'
+      
+      b['category'].downcase == @slug.downcase 
+    }
 
-    blogposts = blogposts.first(n) if n.positive?
-raise
-    @blogposts = blogposts.map { |b| Blog::Blogpost.new b }
-                          .each { |b| b.author = Blog::Author.new(@authors[b.author.to_sym]) }
-                          .compact
+
+    bp = bp.first(n) if n.positive?
+
+    @blogposts = bp.map { |b| Blog::Blogpost.new b }
+                              #  .compact
+
   end
 
 end

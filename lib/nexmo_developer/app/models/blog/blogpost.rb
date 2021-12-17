@@ -17,7 +17,9 @@ class Blog::Blogpost
     # @tags         = attributes['tags']
     # @link         = attributes['link']
     # @locale       = attributes['locale']
-    # @slug         = attributes['slug']
+    # @outdated     = attributes['outdated']
+    
+    # @replacement_url  = attributes['replacement_url']
   end
 
   def self.with_path(path, locale)
