@@ -1,47 +1,26 @@
 class Blog::BlogpostController < Blog::MainController
+  LATEST_FOR_PREVIEW    = 2
+  BLOGPOSTS_FOR_PREVIEW = 6
+
   def index
-##### RAW DATA
-    # All blogposts as Json [{title: .., descr: ..}, {...}, ...]
-    @data = BlogpostParser.fetch_all
-
-##### AUTHORS
+#   Fetch data as Json
+#   TODO: Cache data
+    data = BlogpostParser.fetch_all 
     @authors = AuthorParser.fetch_all_authors
+    categories = CategoryParser.fetch_all_categories
 
-
-##### CATEGORIES
-    # All categories as Json [{name: .., slug: ..}, {...}, ...]
-    @categories = CategoryParser.fetch_all_categories
-    
-    # data = @data.dup
-
-    @categories_with_blogposts = @categories.map do |c| 
-      category = Blog::Category.new(c)
-      
-      # Assign 6 blogposts to each category to display in INDEX
-      category.return_n_blogposts_with_category_from(@data, 6)
-      
-      category.blogposts.each { |b| b.author = Blog::Author.new(@authors[b.author.to_sym]) }
-      
-      category
+ #  Build Blogposts by category
+    @categories_with_blogposts = categories.map do |category| 
+      Blog::Category.new(category).build_n_blogposts_by_category(data, BLOGPOSTS_FOR_PREVIEW)
     end
 
-    raise
-
-##### BLOGPOSTS
-    # Latest 2 Blog::Blogpost Instances
-    @latest_blogposts = @data.shift(2)
-                             .map  { |b| Blog::Blogpost.new b }
-                             .each { |b| b.author = Blog::Author.new(@authors[b.author.to_sym]) }
-
+#   Build latest Blogposts
+    @latest_blogposts = data.first(LATEST_FOR_PREVIEW)
+                            .map { |attributes| Blog::Blogpost.new(attributes) }
   end
 
   def show
-    @author = AuthorParser.fetch_author(params[:author])
+    @author  = AuthorParser.fetch_author(params[:author])
     @content = Blog::Blogpost.with_path(params[:blog_path], 'en')
   end
-
-  # Rake Task??
-  # def create_json_data_file
-  #   JsonParser.write_all()
-  # end
 end

@@ -1,4 +1,4 @@
-<% unless @data.count.positive? %>
+<% unless @categories_with_blogposts.present? %>
 
   <div class="Vlt-callout Vlt-callout--warning">
     <i></i>
@@ -17,13 +17,11 @@
     </div>
 
     <div class="my-2col-grid">
-      <% @latest_blogposts.each do |blogpost| %>
-        <%= render partial: 'blog/blogpost/blogpost_with_image', locals: { blogpost: blogpost } %>
-      <% end %>
+        <%= render partial: 'blog/blogpost/blogpost_with_image', collection: @latest_blogposts, as: :blogpost %>
     </div>
 
 
-  <% @categories.each do |category| %>
+  <% @categories_with_blogposts.each do |category| %>
     
     <div class="hr--tall Vlt-text-separator Vlt-text-separator--big" style="opacity: .6; letter-spacing: .1em;">
       <span>< <%= category.plural.upcase %> /></span>
@@ -31,18 +29,16 @@
 
     <div class="my-3col-grid">
 
-      <% category.blogposts.in_groups(3) do |blogposts| %>
-          <% blogposts.compact.each do |blogpost| %>
+      <% category.blogposts.compact.in_groups(3) do |blogposts| %>
             <%# cache blogpost do %>
-              <%= render partial: 'blog/blogpost/blogpost', locals: { blogpost: blogpost, show_category_label: false } %>
+              <%= render partial: 'blog/blogpost/blogpost', collection: @latest_blogposts, as: :blogpost, locals: { show_category_label: false } %>
             <%# end %>
-          <% end %>
       <% end %>
 
-    </div> <!-- <div class="my-3col-grid"> -->
+    </div>
 
 
-  <% end %>
+  <% end # @categories_with_blogposts.each %> 
 
     
 

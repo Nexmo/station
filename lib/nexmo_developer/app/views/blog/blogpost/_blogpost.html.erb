@@ -1,84 +1,84 @@
-        <%# author = @authors[blogpost.author.to_sym] || @author %>
-        <%# category = @categories&.find{ |c| c['slug'] == blogpost.category.downcase } || blogpost.category %>
- <%#  {"title"=>"12 Bots To Better Your Open Source Project", "description"=>"12 ways to improve your open source project with Probot and GitHub Actions—enabling you to extend your workflow and customize the way GitHub functions.", "thumbnail"=>"/content/blog/12-bots-to-better-your-open-source-project/Blog_Bots-Better-Opensource_1200x600.png", "author"=>"nahrinjalal", "published"=>true, "published_at"=>"2020-10-28 14:35:06 UTC", "updated_at"=>"", "category"=>"tutorial", "tags"=>["open-source", "hacktoberfest", "bots"], "link"=>"blog/20/10/28/12-bots-to-better-your-open-source-project", "locale"=>"en", "slug"=>"12-bots-to-better-your-open-source-project"}%>
+<%# author   = blogpost.author %>
+<%# category = blogpost.category %>
+<%# image_url = "https://d226lax1qjow5r.cloudfront.net/blog/blogposts#{blogpost.thumbnail.gsub('/content/blog','')}" %>
          
-         
-          <div class="Vlt-card Vlt-card--border Vlt-card--lesspadding">
-            
-          <% if show_category_label %>
-            <div class="Vlt-card__header" style="display: flex; justify-content: space-between;">
-              <a
-                href="<%= blog_category_path(blogpost.category)%>"
-                class=""
-                style="
-                  text-transform: uppercase;
-                  color: <%= category['color'] %>;
-                  font-size: 1.5rem;
-                  line-height: 3.25rem;
-                  font-weight: bold;">
+  
+  <div class="Vlt-card Vlt-card--border Vlt-card--lesspadding">
+    
+  <% if show_category_label %>
+    <div class="Vlt-card__header" style="display: flex; justify-content: space-between;">
+      <a
+        href="<%= blog_category_path(blogpost.category)%>"
+        class=""
+        style="
+          text-transform: uppercase;
+          color: <%= category['color'] %>;
+          font-size: 1.5rem;
+          line-height: 3.25rem;
+          font-weight: bold;">
 
-                < <%= blogpost.category %> />
-              </a>
-            </div>
-          <% end %>
+        < <%= blogpost.category %> />
+      </a>
+    </div>
+  <% end %>
 
-              
-              
-            <% if blogpost.tags.count > 0 %>
-              <div style='margin-bottom: 1.5rem;'>
-                <% blogpost.tags.each do |tag| %>
-                  <% next if tag.empty? %>
-                    <a
-                      href="<%= blog_tag_path(tag.downcase)%>"
-                      >
-                      <small class="Vlt-badge Vlt-badge--<%= tag.downcase %> Vlt-badge--transparent"><span>#</span><%= tag == "Objective_C" ? "Objective-C" : tag.downcase %></small>
-                    </a>
-                <% end %>
-              </div>
+      
+      
+    <% if blogpost.tags.count > 0 %>
+      <div style='margin-bottom: 1.5rem;'>
+        <% blogpost.tags.each do |tag| %>
+          <% next if tag.empty? %>
+            <a
+              href="<%= blog_tag_path(tag.downcase)%>"
+              >
+              <small class="Vlt-badge Vlt-badge--<%= tag.downcase %> Vlt-badge--transparent"><span>#</span><%= tag == "Objective_C" ? "Objective-C" : tag.downcase %></small>
+            </a>
+        <% end %>
+      </div>
+    <% end %>
+
+
+    <div class="Vlt-card__content">
+      <a href="/<%= blogpost.link %>?author=<%= blogpost.author.short_name if blogpost.author.present? %>">
+        <p class="p-large"><b><%= blogpost.title %></b></p>
+      </a>
+
+      <p><%= blogpost.description.truncate(150) %></p>
+
+      <a href="/<%= blogpost.link %>?author=<%= blogpost.author.short_name if blogpost.author.present? %>" class="Vlt-blue-darker">
+        <%= t('read_more') %>
+        <svg class="Vlt-icon Vlt-icon--smaller">
+          <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-arrow-thin-right" />
+        </svg>
+      </a>
+
+
+      <% if blogpost.author && blogpost.author.name %>
+        <hr class="hr--short">
+
+        <div style='display:flex; justify-content: flex-start;'>
+        
+          <% if blogpost.author.image_url %>
+            <% if blogpost.author.image_url.include? 'gravatar' %>
+              <% url = blogpost.author.image_url %>
+            <% else %>
+              <% url = "https://d226lax1qjow5r.cloudfront.net/blog/authors/#{blogpost.author.image_url.gsub('/content/images/','')}" %>
             <% end %>
-
-
-            <div class="Vlt-card__content">
-              <a href="/<%= blogpost.link %>?author=<%= author['short_name'] if author.present? %>">
-                <p class="p-large"><b><%= blogpost.title %></b></p>
-              </a>
-
-              <p><%= blogpost.description.truncate(150) %></p>
-
-              <a href="/<%= blogpost.link %>?author=<%= author['short_name'] if author.present? %>" class="Vlt-blue-darker">
-                <%= t('read_more') %>
-                <svg class="Vlt-icon Vlt-icon--smaller">
-                  <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-arrow-thin-right" />
-                </svg>
-              </a>
-
-
-              <% if author && author['name'] %>
-                <hr class="hr--short">
-
-                <div style='display:flex; justify-content: flex-start;'>
-                
-                  <% if author['image_url'] %>
-                    <% if author['image_url'].include? 'gravatar' %>
-                      <% url = author['image_url'] %>
-                    <% else %>
-                      <% url = "https://d226lax1qjow5r.cloudfront.net/blog/authors/#{author['image_url'].gsub('/content/images/','')}" %>
-                    <% end %>
-                    <%= image_tag url, style: " display: block; width: 4.5rem; height: 4.5rem; border-radius: 50%;" %>
-                  <% end %>
-                
-                  <div style='margin-left: 1.5rem;'>
-                    <h5>
-                      <%= link_to author['name'], blog_author_path(author['short_name']) %>
-                
-                      <p class='Vlt-grey-darker'>
-                        <strong><%= Date.parse(blogpost.published_at).strftime('%b %d, %Y') %></strong>
-                      </p>
-                    </h5>
-                  </div>
-                  
-                </div>
-              <% end %>
-
-            </div>
+            <%= image_tag url, style: " display: block; width: 4.5rem; height: 4.5rem; border-radius: 50%;" %>
+          <% end %>
+        
+          <div style='margin-left: 1.5rem;'>
+            <h5>
+              <%= link_to blogpost.author.name, blog_author_path(blogpost.author.short_name) %>
+        
+              <p class='Vlt-grey-darker'>
+                <strong><%= Date.parse(blogpost.published_at).strftime('%b %d, %Y') %></strong>
+              </p>
+            </h5>
           </div>
+          
+        </div>
+      <% end %>
+
+    </div>
+  </div>
