@@ -44,11 +44,12 @@ class BlogpostParser
   def self.build_custom_attributes(frontmatter, filename, locale)
     frontmatter.except!('comments', 'redirect', 'canonical', 'old_categories')
 
+    filename = File.basename(filename, '.md')
     year, month, day = frontmatter['published_at'].strftime('%y %m %d').split
-    
+
     { 
       'locale'   => locale,
-      'link'     => "blog/#{locale == 'en' ? '' : locale}/#{year}/#{month}/#{day}/#{filename}",
+      'link'     => "blog/#{locale == 'en' ? '' : locale + '/'}#{year}/#{month}/#{day}/#{filename}",
       'filename' => File.basename(filename, '.md'),
       'author'   => AuthorParser.fetch_author(frontmatter['author']),
       'category' => CategoryParser.fetch_category(frontmatter['category']),
