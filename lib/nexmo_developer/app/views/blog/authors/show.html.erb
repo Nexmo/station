@@ -1,36 +1,41 @@
-<%= link_to '<< Back to Blogs', blog_path %>
-
-<hr>
-
 <div style="display: flex; justify-content: space-around">
-  <div style="width:30%;">
-    <% if @author && @author['name'] %>
-      <% if @author['image_url'] %>
-        <% if @author['image_url'].include? 'gravatar' %>
-          <% url = @author['image_url'] %>
-        <% else %>
-          <% url = "#{Blog::Blogpost::CLOUDFRONT_BLOG_URL}authors/#{@author['image_url'].gsub('/content/images/','')}" %>
-        <% end %>
-      <% end %>
+  <div id="author-column">
+    <% if @author && @author.name %>
 
-
-      <% if @author['image_url'] %>
-        <%= image_tag url, style: "border-radius: 50%;" %>
+      <% if @author.image_url %>
+        <div class="gradient-wrapper">
+          <%= image_tag @author.url, style: "border-radius: 50%;border: 2px solid white;" %>
+        </div> 
       <% end %>
+      
       <h2 class="Vlt-title--icon">
-        <%= @author['name'] %>
+        <%= @author.name %>
       </h2>
-      <p>
-        <%= @author['bio'] if @author['bio'] %>
-      </p>
-    <% end %>
+      
+      <% if @author.title %>
+        <p><code><%= @author.title %></code></p>
+      <% end %>
+      
+      <% if @author.bio %>
+        <p class="">
+          <%= @author.bio %>
+        </p>
+      <% end %>
+      
+      <h2>
+        <svg class="Vlt-icon Vlt-icon--larger">
+          <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-pentool" />
+        </svg>
+      </h2>
+    
+    <% end # if @author && @author.name %>
 
   </div>
 
 
-  <div style="width:65%;">
+  <div style="width:70%;">
 
-    <% unless @blogposts.count.positive? %>
+    <% unless @author.blogposts.count.positive? %>
       <div class="Vlt-callout Vlt-callout--warning">
         <i></i>
         <div class="Vlt-callout__content">
@@ -38,13 +43,9 @@
         </div>
       </div>
     <% else %>
-      <div class="Vlt-grid Nxd-use-cases">
-        <% @blogposts.in_groups(2) do |blogposts| %>
-          <div class="Vlt-col">
-            <% blogposts.compact.each do |blogpost| %>
-               <%= render partial: 'blog/blogpost/blogpost', locals: { blogpost: blogpost, show_category_label: true } %>
-            <% end %>
-          </div>
+      <div class="my-3col-grid">
+        <% @author.blogposts.in_groups(2) do |blogposts| %>
+          <%= render partial: 'blog/blogpost/blogpost', collection: blogposts, as: :blogpost, locals: { show_category_label: true, show_author: false } %>
         <% end %>
       </div>
     <% end %>

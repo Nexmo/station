@@ -6,6 +6,20 @@
   margin-right: auto;
 }
 
+// Author info column
+#author-column {
+  width: 25%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+// border-top gradient for Author BIO
+.gradient-border-left {
+  border-left: 2px solid;
+  padding-left: 4px;
+  border-image:   linear-gradient(to bottom, rgba(127, 198, 244, .8), rgba(213, 39, 155, .8)) 5;
+}
 
 //Category titles separator
 .Vlt-text-separator span::before,
@@ -46,3 +60,30 @@
     transition: box-shadow ease-in 0.25s, -webkit-box-shadow ease-in 0.25s;
   }
 }
+
+// Gradient for AUTHOR Avatar BORDER
+.gradient-wrapper {   
+  display: flex;
+  align-items: center;
+  max-width: 22em;
+  margin-bottom: 2em;
+
+  position: relative;
+  box-sizing: border-box;
+
+  color: #FFF;
+  background: #000;
+  background-clip: padding-box;
+  border: solid 5px transparent;
+  border-radius: 50%;
+  
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      z-index: -1;
+      margin: -5px;
+      border-radius: inherit;
+      background: linear-gradient(to right, rgba(127, 198, 244, .8), rgba(213, 39, 155, .8));
+    }
+  }

@@ -1,8 +1,9 @@
 <%# author   = blogpost.author %>
 <%# category = blogpost.category %>
 <%# image_url = "#{Blog::Blogpost::CLOUDFRONT_BLOG_URL}blogposts#{blogpost.thumbnail.gsub('/content/blog','')}" %>
-         
-  
+
+<% if blogpost %>
+
   <div class="Vlt-card Vlt-card--border Vlt-card--lesspadding">
     
   <% if show_category_label %>
@@ -12,12 +13,12 @@
         class=""
         style="
           text-transform: uppercase;
-          color: <%= category['color'] %>;
+          color: <%= blogpost.category.color %>;
           font-size: 1.5rem;
           line-height: 3.25rem;
           font-weight: bold;">
 
-        < <%= blogpost.category %> />
+        < <%= blogpost.category.name %> />
       </a>
     </div>
   <% end %>
@@ -53,7 +54,7 @@
       </a>
 
 
-      <% if blogpost.author && blogpost.author.name %>
+      <% if blogpost.author && blogpost.author.name && show_author %>
         <hr class="hr--short">
 
         <div style='display:flex; justify-content: flex-start;'>
@@ -82,3 +83,5 @@
 
     </div>
   </div>
+
+<% end %>
