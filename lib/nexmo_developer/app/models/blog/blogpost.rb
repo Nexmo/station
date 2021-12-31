@@ -1,11 +1,10 @@
 class Blog::Blogpost
-
   attr_accessor :title, :description, :thumbnail, :author, :published, :published_at,
                 :updated_at, :category, :tags, :link, :locale, :slug, :spotlight, :filename
 
-  def initialize(attributes)
-    # attributes.each {|k, v| self.instance_variable_set("@#{k}", v)} 
+  CLOUDFRONT_BLOG_URL = 'https://d226lax1qjow5r.cloudfront.net/blog/'
 
+  def initialize(attributes)
     @title        = attributes['title']
     @description  = attributes['description']
     @thumbnail    = attributes['thumbnail']

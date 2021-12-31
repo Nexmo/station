@@ -1,6 +1,6 @@
 <%# author   = blogpost.author %>
 <%# category = blogpost.category %>
-<%# image_url = "https://d226lax1qjow5r.cloudfront.net/blog/blogposts#{blogpost.thumbnail.gsub('/content/blog','')}" %>
+<%# image_url = "#{Blog::Blogpost::CLOUDFRONT_BLOG_URL}blogposts#{blogpost.thumbnail.gsub('/content/blog','')}" %>
          
   
   <div class="Vlt-card Vlt-card--border Vlt-card--lesspadding">
@@ -62,7 +62,7 @@
             <% if blogpost.author.image_url.include? 'gravatar' %>
               <% url = blogpost.author.image_url %>
             <% else %>
-              <% url = "https://d226lax1qjow5r.cloudfront.net/blog/authors/#{blogpost.author.image_url.gsub('/content/images/','')}" %>
+              <% url = "#{Blog::Blogpost::CLOUDFRONT_BLOG_URL}authors/#{blogpost.author.image_url.gsub('/content/images/','')}" %>
             <% end %>
             <%= image_tag url, style: " display: block; width: 4.5rem; height: 4.5rem; border-radius: 50%;" %>
           <% end %>

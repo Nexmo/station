@@ -9,7 +9,7 @@
         <% if @author['image_url'].include? 'gravatar' %>
           <% url = @author['image_url'] %>
         <% else %>
-          <% url = "https://d226lax1qjow5r.cloudfront.net/blog/authors/#{@author['image_url'].gsub('/content/images/','')}" %>
+          <% url = "#{Blog::Blogpost::CLOUDFRONT_BLOG_URL}authors/#{@author['image_url'].gsub('/content/images/','')}" %>
         <% end %>
       <% end %>
 

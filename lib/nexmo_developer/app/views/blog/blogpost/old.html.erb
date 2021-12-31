@@ -16,7 +16,7 @@
       <% author = @authors[blogpost['author'].to_sym] %>
       <% category = @categories.find{ |c| c['slug'] == blogpost['category'].downcase } %>
   <%#  {"title"=>"12 Bots To Better Your Open Source Project", "description"=>"12 ways to improve your open source project with Probot and GitHub Actions—enabling you to extend your workflow and customize the way GitHub functions.", "thumbnail"=>"/content/blog/12-bots-to-better-your-open-source-project/Blog_Bots-Better-Opensource_1200x600.png", "author"=>"nahrinjalal", "published"=>true, "published_at"=>"2020-10-28 14:35:06 UTC", "updated_at"=>"", "category"=>"tutorial", "tags"=>["open-source", "hacktoberfest", "bots"], "link"=>"blog/20/10/28/12-bots-to-better-your-open-source-project", "locale"=>"en", "slug"=>"12-bots-to-better-your-open-source-project"}%>
-      <% header_url = "https://d226lax1qjow5r.cloudfront.net/blog/blogposts#{blogpost['thumbnail'].gsub('/content/blog','')}"  %>
+      <% header_url = "#{Blog::Blogpost::CLOUDFRONT_BLOG_URL}blogposts#{blogpost['thumbnail'].gsub('/content/blog','')}"  %>
 
 
 
@@ -78,7 +78,7 @@
                 <% if author['image_url'].include? 'gravatar' %>
                   <% url = author['image_url'] %>
                 <% else %>
-                  <% url = "https://d226lax1qjow5r.cloudfront.net/blog/authors/#{author['image_url'].gsub('/content/images/','')}" %>
+                  <% url = "#{Blog::Blogpost::CLOUDFRONT_BLOG_URL}authors/#{author['image_url'].gsub('/content/images/','')}" %>
                 <% end %>
                 <%= image_tag url, style: " display: block; width: 4.5rem; height: 4.5rem; border-radius: 50%;" %>
               <% end %>
@@ -178,7 +178,7 @@
                     <% if author['image_url'].include? 'gravatar' %>
                       <% url = author['image_url'] %>
                     <% else %>
-                      <% url = "https://d226lax1qjow5r.cloudfront.net/blog/authors/#{author['image_url'].gsub('/content/images/','')}" %>
+                      <% url = "#{Blog::Blogpost::CLOUDFRONT_BLOG_URL}authors/#{author['image_url'].gsub('/content/images/','')}" %>
                     <% end %>
                     <%= image_tag url, style: " display: block; width: 4.5rem; height: 4.5rem; border-radius: 50%;" %>
                   <% end %>
