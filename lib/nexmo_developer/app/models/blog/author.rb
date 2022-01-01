@@ -30,7 +30,7 @@ class Blog::Author
     @stackoverflow_url = attributes['stackoverflow_url'] || ''
 
     @blogposts = []
-    @url       = build_url
+    @url       = build_avatar_url
   end
 
   def build_all_blogposts_from_author(blogposts_json)
@@ -44,10 +44,13 @@ class Blog::Author
     self
   end
 
-  def build_url
-    @url = image_url.include?('gravatar') ? 
-             image_url : 
-               "#{Blog::Blogpost::CLOUDFRONT_BLOG_URL}authors/#{image_url.gsub('/content/images/','')}"    
+  def build_avatar_url
+    # TODO: add default image for avatar when image_url is not present
+    # return @url = DEFAULT_AVATAR unless image_url.present?
+
+    image_url.include?('gravatar') ? 
+      image_url : 
+        "#{Blog::Blogpost::CLOUDFRONT_BLOG_URL}authors/#{image_url.gsub('/content/images/','')}"    
   end
 end
   

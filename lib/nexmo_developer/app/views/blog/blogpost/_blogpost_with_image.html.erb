@@ -1,73 +1,62 @@
-<% author   = blogpost.author %>
-<% category = blogpost.category %>
-<% image_url = "#{Blog::Blogpost::CLOUDFRONT_BLOG_URL}blogposts#{blogpost.thumbnail.gsub('/content/blog','')}" %>
+<% if blogpost %>
+  <% author   = blogpost.author %>
+  <% category = blogpost.category %>
 
 
-<div class="Vlt-card Vlt-card--border Vlt-card--lesspadding Vlt-col">
+  <div class="Vlt-card Vlt-card--border Vlt-col d-flex-column" style="padding:0;">
 
-  <a href="/<%= blogpost.link %>?author=<%= author.short_name if author.present? %>" class="Vlt-blue-darker">
-    <div class="" style="background-image: url(<%= image_url %>); background-size: cover;height: 20rem; width: 100%;"></div>
-  </a>
+    <a href="/<%= blogpost.link %>" class="Vlt-blue-darker">
+      <div class="Vlt-card--border border-radius-top card-header-image" style="background-image: url(<%= blogpost.header_img_url %>);"></div>
+    </a>
 
-  <div class="Vlt-card__header" style="display: flex; justify-content: space-between; margin-top: 1.5em;">
-    <a
-      href="<%= blog_category_path(category.slug)%>"
-      class=""
-      style="
-        text-transform: uppercase;
-        color: <%= category.color %>;
-        font-size: 1.5rem;
-        line-height: 3.25rem;
-        font-weight: bold;">
-
+    <a href="<%= blog_category_path(category.slug)%>" class="category-name" style="color: <%= category.color %>">
       < <%= category.name %> />
     </a>
-  </div>
-    
-
-
-  <div class="Vlt-card__content">
-    <a href="/<%= blogpost.link %>?author=<%= author.short_name if author.present? %>">
-      <p class="p-large"><b><%= blogpost.title %></b></p>
-    </a>
-
-    <p><%= blogpost.description %></p>
-
-    <a href="/<%= blogpost.link %>?author=<%= author.short_name if author.present? %>" class="Vlt-blue-darker">
-      <%= t('read_more') %>
-      <svg class="Vlt-icon Vlt-icon--smaller">
-        <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-arrow-thin-right" />
-      </svg>
-    </a>
-
-
-    <% if author && author.name %>
-      <hr class="hr--short">
-
-      <div style='display:flex; justify-content: flex-start;'>
       
-        <% if author.image_url %>
-          <% if author.image_url.include? 'gravatar' %>
-            <% url = author.image_url %>
-          <% else %>
-            <% url = "#{Blog::Blogpost::CLOUDFRONT_BLOG_URL}authors/#{author.image_url.gsub('/content/images/','')}" %>
-          <% end %>
-          <%= image_tag url, style: " display: block; width: 4.5rem; height: 4.5rem; border-radius: 50%;" %>
-        <% end %>
-      
-        <div style='margin-left: 1.5rem;'>
-          <h5>
-            <%= link_to author.name, blog_author_path(author.short_name) %>
-            
-            <p class='Vlt-grey-darker'>
-              <strong><%= Date.parse(blogpost.published_at).strftime('%b %d, %Y') %></strong>
-            </p>
-          </h5>
-        </div>
-        
+    <div class="blogpost_card_content Vlt-card--lesspadding">
+      <div class="">
+        <a href="/<%= blogpost.link %>">
+          <p class="p-large"><b><%= blogpost.title %></b></p>
+        </a>
+
+        <p><%= blogpost.description %></p>
       </div>
-    <% end %>
 
+
+
+      <% if author && author.name %>
+        <div class="card-footer">
+
+          <a href="/<%= blogpost.link %>" class="Vlt-blue-darker">
+            <%= t('read_more') %>
+            <svg class="Vlt-icon Vlt-icon--smaller">
+              <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-arrow-thin-right" />
+            </svg>
+          </a>
+
+          <hr class="hr--short">
+
+          <div style='display:flex; justify-content: flex-start;'>
+          
+            <% if author.image_url %>
+              <%= image_tag author.url, style: " display: block; width: 4.5rem; height: 4.5rem; border-radius: 50%;" %>
+            <% end %>
+          
+            <div style='margin-left: 1.5rem;'>
+              <h5>
+                <%= link_to author.name, blog_author_path(author.short_name) %>
+                
+                <p class='Vlt-grey-darker'>
+                  <strong><%= Date.parse(blogpost.published_at).strftime('%b %d, %Y') %></strong>
+                </p>
+              </h5>
+            </div>
+            
+          </div>
+        </div>
+      <% end %>
+
+    </div>
   </div>
-</div>
 
+<% end %>

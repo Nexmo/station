@@ -6,7 +6,7 @@
     <%= render partial: 'layouts/partials/header' %>
     <div class="wrapper wrapper--tint" tabindex="2">
        <%= render partial: 'layouts/partials/notices' %>
-      <main class="Nxd-landing-main">
+      <main class="Nxd-landing-main <%= @gradient_bg ? 'gradient-bg' : ''%>">
         <%= yield %>
       </main>
     </div>

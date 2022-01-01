@@ -14,7 +14,7 @@ class BlogpostParser
     all_blogposts = []
 
     ['en', 'cn', 'it'].each do |locale|
-      all_blogposts += BlogpostParser.build_index_with_locale(locale)
+      all_blogposts += build_index_with_locale(locale)
     end
 
 #   Sort by DATE
@@ -31,13 +31,8 @@ class BlogpostParser
     blogposts_path_with_errors = [ '/Users/mranieri/Documents/dev/nexmo-developer/_blog/blogposts/en/add-video-capabilities-to-zendesk-with-vonage-video-api.md']
     blogposts_locale_path -= blogposts_path_with_errors
 
-    blogposts = blogposts_locale_path.map do |filename|
-      document = File.read(filename)
-
-      # body = Nexmo::Markdown::Renderer.new.call(document)
-      frontmatter = YAML.safe_load(document, [Time])
-
-      frontmatter.merge!(build_custom_attributes(frontmatter, filename, locale))
+    blogposts_locale_path.map do |filename|
+      build_show_with_locale(filename, locale)
     end
   end
 
@@ -54,5 +49,14 @@ class BlogpostParser
       'author'   => AuthorParser.fetch_author(frontmatter['author']),
       'category' => CategoryParser.fetch_category(frontmatter['category']),
     }
+  end
+
+  def self.build_show_with_locale(filename, locale = 'en')
+    document = File.read(filename)
+
+    # body = Nexmo::Markdown::Renderer.new.call(document)
+    frontmatter = YAML.safe_load(document, [Time])
+
+    frontmatter.merge!(build_custom_attributes(frontmatter, filename, locale))
   end
 end

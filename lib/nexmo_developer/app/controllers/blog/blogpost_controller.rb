@@ -20,7 +20,6 @@ class Blog::BlogpostController < Blog::MainController
   end
 
   def show
-    @author  = AuthorParser.fetch_author(params[:author])
-    @content = Blog::Blogpost.with_path(params[:blog_path], 'en')
+    @blogpost = Blog::Blogpost.build_blogpost_from_path(params[:blog_path], 'en')
   end
 end
