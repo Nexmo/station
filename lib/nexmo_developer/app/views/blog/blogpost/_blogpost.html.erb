@@ -6,15 +6,13 @@
   <div class="Vlt-card Vlt-card--border Vlt-card--lesspadding d-flex-column">
     
     <% if show_category_label %>
-      <div class="Vlt-card__header" style="display:flex;justify-content:space-between;">
-        <a href="<%= blog_category_path(category.slug)%>" class="category-name" style="color: <%= category.color %>">
+        <a href="<%= blog_category_path(category.slug)%>" class="category-name" style="color: <%= category.color %>;padding:0 0 16px 0;">
           < <%= category.name %> />
         </a>
-      </div>
     <% end %>
 
       
-    <% if blogpost.tags.count > 0 %>
+    <% if blogpost.tags.count > 0 && show_author %>
       <div style='margin-bottom: 1.5rem;'>
         <% blogpost.tags.each do |tag| %>
           <% next if tag.empty? %>
@@ -30,7 +28,7 @@
 
     <div class="blogpost_card_content">
       <div class="">
-        <a href="/<%= blogpost.link %>?author=<%= author.short_name if author.present? %>">
+        <a href="/<%= blogpost.link %>">
           <p class="p-large"><b><%= blogpost.title %></b></p>
         </a>
 
@@ -41,11 +39,8 @@
       <% if author && author.name && show_author %>
         <div class="card-footer">
           
-          <a href="/<%= blogpost.link %>?author=<%= author.short_name if author.present? %>" class="Vlt-blue-darker">
-            <%= t('read_more') %>
-            <svg class="Vlt-icon Vlt-icon--smaller">
-              <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-arrow-thin-right" />
-            </svg>
+          <a href="/<%= blogpost.link %>?author=<%= author.short_name %>" class="Vlt-blue-darker">
+            [<%= t('read_more') %>]
           </a>
 
           <hr class="hr--short">
@@ -65,6 +60,32 @@
             </div>
             
           </div>
+          
+        </div>
+
+      <% else %>
+        <div>
+      
+          <% if blogpost.tags.count > 0 %>
+            <div style='margin-bottom: 1.5rem;'>
+              <% blogpost.tags.each do |tag| %>
+                <% next if tag.empty? %>
+                  <a
+                    href="<%= blog_tag_path(tag.downcase)%>"
+                    >
+                    <small class="Vlt-badge Vlt-badge--<%= tag.downcase %> Vlt-badge--transparent"><span>#</span><%= tag == "Objective_C" ? "Objective-C" : tag.downcase %></small>
+                  </a>
+              <% end %>
+            </div>
+          <% end %>
+
+          <div style="display: flex;justify-content: space-between;">
+            <a href="/<%= blogpost.link %>?author=<%= author.short_name if author.present? %>" class="Vlt-blue-darker">
+              [<%= t('read_more') %>]
+            </a>
+            <p class='Vlt-grey-darker'><strong><%= Date.parse(blogpost.published_at).strftime('%b %d, %Y') %></strong></p>
+          </div>
+
         </div>
       <% end %>
 

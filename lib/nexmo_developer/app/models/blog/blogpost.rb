@@ -21,7 +21,7 @@ class Blog::Blogpost
 
     @author       = Blog::Author.new(attributes['author']) # TODO: DEFAULT AUTHOR
     @category     = Blog::Category.new(attributes['category'])
-    
+
     @content        = ''
     @header_img_url = build_header_img_url
 

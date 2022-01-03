@@ -6,6 +6,7 @@
   margin-right: auto;
 }
 
+
 // Author info column
 #author-column {
   width: 25%;
@@ -14,11 +15,15 @@
   flex-direction: column;
 }
 
+
 // High opacity gradient BG
 .gradient-bg {
-  background: linear-gradient(to right, rgba(127, 198, 244, .1), rgba(213, 39, 155, .1));
+  // background: linear-gradient(to right, rgba(127, 198, 244, .1), rgba(213, 39, 155, .1));
+  background: linear-gradient(135deg, rgba(127, 198, 244, 0.3), rgba(213, 39, 155, 0.1));
+  background-attachment: fixed;
   min-height: 100vh;
 }
+
 
 // border-top gradient for Author BIO
 .gradient-border-left {
@@ -27,18 +32,22 @@
   border-image:   linear-gradient(to bottom, rgba(127, 198, 244, .8), rgba(213, 39, 155, .8)) 5;
 }
 
+
 // Category titles separator
 .Vlt-text-separator span::before,
 .Vlt-text-separator span::after {
   background: linear-gradient(to right, #7fc6f4, #d5279b) !important;
 }
 
+
 // Header IMG on blogpost_with_image card
 .card-header-image {
   width: 100%;
   height: 26rem;
   background-size: cover;
+  background-position: center;
 }
+
 
 // Border radius top for blogpost_with_image partial
 .border-radius-top {
@@ -48,17 +57,37 @@
   border-bottom-right-radius: 0 !important;
 }
 
+
 // < CATEGORY /> tag on blogposts
 .category-name {
   display: block;
   
-  padding: 16px 16px 0 16px !important;
+  padding: 16px 16px 0 16px;
   
   font-size: 1.5rem;
   line-height: 3.25rem;
   font-weight: bold;
   text-transform: uppercase;
 }
+
+
+// Raw blogpost content in SHOW
+.raw_blopost_content {
+  margin-top: 3em;
+  
+  p {
+    font-size: 1.8rem;
+    letter-spacing: 0.5px;
+    color: #374151;
+    margin: 1em 0;
+    
+    strong {
+      display: inline-block;
+      margin: 1em 0;
+    }
+  }
+}
+
 
 // Blogpost card content
 .blogpost_card_content {
@@ -68,11 +97,13 @@
   flex-grow: 1;
 }
 
+
 // Category header separator
 .header-separator {
   opacity: .6;
   letter-spacing: .1em;
 }
+
 
 // display flex for card content
 .d-flex-column {
@@ -80,6 +111,7 @@
   justify-content: space-between;
   flex-direction: column;
 }
+
 
 // CUSTOM GRID 
 .my-2col-grid {
@@ -133,30 +165,3 @@
     transition: box-shadow ease-in 0.25s, -webkit-box-shadow ease-in 0.25s;
   }
 }
-
-// GRADIENT for AUTHOR Avatar BORDER
-.gradient-wrapper {   
-  display: flex;
-  align-items: center;
-  max-width: 22em;
-  margin-bottom: 2em;
-
-  position: relative;
-  box-sizing: border-box;
-
-  color: #FFF;
-  background: #000;
-  background-clip: padding-box;
-  border: solid 5px transparent;
-  border-radius: 50%;
-  
-    &:before {
-      content: '';
-      position: absolute;
-      top: 0; right: 0; bottom: 0; left: 0;
-      z-index: -1;
-      margin: -5px;
-      border-radius: inherit;
-      background: linear-gradient(to right, rgba(127, 198, 244, .8), rgba(213, 39, 155, .8));
-    }
-  }

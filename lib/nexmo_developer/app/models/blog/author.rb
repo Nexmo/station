@@ -7,7 +7,7 @@ class Blog::Author
 
   def initialize(attributes = {})
     @name       = attributes['name']
-    @title      = attributes['title']
+    @title      = attributes['title']          || 'Vonage Team Member'
     @bio        = attributes['bio']
     @short_name = attributes['short_name']
     @email      = attributes['email']

@@ -20,6 +20,11 @@ class Blog::BlogpostController < Blog::MainController
   end
 
   def show
+    data = BlogpostParser.fetch_all 
+    
     @blogpost = Blog::Blogpost.build_blogpost_from_path(params[:blog_path], 'en')
+    @related_blogposts = data.select{ |b| b['category']['slug'] == @blogpost.category.slug && b['title'] != @blogpost.title }
+                         .first(3)
+                         .map { |attributes| Blog::Blogpost.new attributes }
   end
 end

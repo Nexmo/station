@@ -13,9 +13,7 @@ class BlogpostParser
   def self.build
     all_blogposts = []
 
-    ['en', 'cn', 'it'].each do |locale|
-      all_blogposts += build_index_with_locale(locale)
-    end
+    ['en', 'cn', 'it'].each { |locale| all_blogposts += build_index_with_locale(locale) }
 
 #   Sort by DATE
     all_blogposts = all_blogposts.sort_by { |k| k['published_at'] }.reverse
@@ -28,12 +26,9 @@ class BlogpostParser
     blogposts_locale_path = Dir.glob("#{ENV['BLOG_PATH']}/blogposts/#{locale}/*.md")
 
     # TODO: - fix the issue with this blogpost
-    blogposts_path_with_errors = [ '/Users/mranieri/Documents/dev/nexmo-developer/_blog/blogposts/en/add-video-capabilities-to-zendesk-with-vonage-video-api.md']
-    blogposts_locale_path -= blogposts_path_with_errors
+    blogposts_locale_path -= [ '/Users/mranieri/Documents/dev/nexmo-developer/_blog/blogposts/en/add-video-capabilities-to-zendesk-with-vonage-video-api.md']
 
-    blogposts_locale_path.map do |filename|
-      build_show_with_locale(filename, locale)
-    end
+    blogposts_locale_path.map { |filename| build_show_with_locale(filename, locale) }
   end
 
   def self.build_custom_attributes(frontmatter, filename, locale)

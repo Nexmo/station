@@ -1,57 +1,44 @@
-<div style="display: flex; justify-content: space-around">
-  <div id="author-column">
-    <% if @author && @author.name %>
+<div class="max-w-screen-xl mx-auto">
 
-      <% if @author.image_url %>
-        <div class="gradient-wrapper">
-          <%= image_tag @author.url, style: "border-radius: 50%;border: 2px solid white;" %>
-        </div> 
-      <% end %>
-      
-      <h2 class="Vlt-title--icon">
-        <%= @author.name %>
-      </h2>
-      
-      <% if @author.title %>
-        <p><code><%= @author.title %></code></p>
-      <% end %>
-      
-      <% if @author.bio %>
-        <p class="">
-          <%= @author.bio %>
+  <div style="display: flex; justify-content: space-between">
+
+    <!-- Author -->
+    <div class="Vlt-card Vlt-bg-white" style="width:28%;height: fit-content;">
+      <div class="Vlt-card__image" style="background-image: url('<%= @author.url %>'); background-size: cover; min-height: 40vh; background-position: center;"></div>
+
+      <div class="Vlt-card__content">
+        <h2 class="Vlt-title--icon">
+          <svg class="Vlt-icon Vlt-icon--larger">
+            <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-pentool" />
+          </svg>
+          <%= @author.name %>
+        </h2>
+        
+        <p style="margin-bottom:16px;"><code><small><%= @author.title %></small></code></p>
+
+        <p style="opacity:.8;font-weight: bold;">
+          <%= @author.bio if @author.bio.present? %>
         </p>
-      <% end %>
-      
-      <h2>
-        <svg class="Vlt-icon Vlt-icon--larger">
-          <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-pentool" />
-        </svg>
-      </h2>
-    
-    <% end # if @author && @author.name %>
+      </div>
+    </div>
 
-  </div>
-
-
-  <div style="width:70%;">
-
-    <% unless @author.blogposts.count.positive? %>
-      <div class="Vlt-callout Vlt-callout--warning">
-        <i></i>
-        <div class="Vlt-callout__content">
-          No Blogpost available
+    <!-- Blogposts -->
+    <div style="width:70%;">
+      <% unless @author.blogposts.count.positive? %>
+        <div class="Vlt-callout Vlt-callout--warning">
+          <i></i>
+          <div class="Vlt-callout__content">
+            No Blogpost available
+          </div>
         </div>
-      </div>
-    <% else %>
-      <div class="my-3col-grid">
-        <% @author.blogposts.in_groups(2) do |blogposts| %>
-          <%= render partial: 'blog/blogpost/blogpost', collection: blogposts, as: :blogpost, locals: { show_category_label: true, show_author: false } %>
-        <% end %>
-      </div>
-    <% end %>
-
-
-
+      <% else %>
+        <div class="my-3col-grid">
+          <% @author.blogposts.in_groups(2) do |blogposts| %>
+            <%= render partial: 'blog/blogpost/blogpost', collection: blogposts, as: :blogpost, locals: { show_category_label: true, show_author: false } %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
-</div>
 
+</div>
