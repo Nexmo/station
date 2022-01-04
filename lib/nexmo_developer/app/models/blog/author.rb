@@ -5,6 +5,9 @@ class Blog::Author
               :website_url, :twitter, :linkedin_url, :github_url, :youtube_url, 
               :facebook_url, :stackoverflow_url, :twitch_url, :blogposts, :url
 
+  # DEFAULT_AVATAR = 'https://avatars.githubusercontent.com/u/2683897'
+  DEFAULT_AVATAR = 'https://pbs.twimg.com/profile_images/1410653053578010628/3EZv_tGF_400x400.jpg'
+
   def initialize(attributes = {})
     @name       = attributes['name']           || 'Vonage Team Member'
     @title      = attributes['title']          || 'Vonage Team Member'
@@ -38,6 +41,8 @@ class Blog::Author
     @blogposts = blogposts_json.select do |b| 
       if b['author'] && b['author']['short_name'].present?
         b['author']['short_name'].downcase == @short_name.downcase
+      else
+        b['author'] == nil
       end
     end.map { |b| Blog::Blogpost.new b }
 
@@ -45,8 +50,8 @@ class Blog::Author
   end
 
   def build_avatar_url
-    # TODO: add default image for avatar when image_url is not present
-    # return @url = DEFAULT_AVATAR unless image_url.present?
+    return DEFAULT_AVATAR unless image_url.present?
+
     image_url.include?('gravatar') || image_url.include?('https://github.com/') ? 
       image_url : 
         "#{Blog::Blogpost::CLOUDFRONT_BLOG_URL}authors/#{image_url.gsub('/content/images/','')}"    

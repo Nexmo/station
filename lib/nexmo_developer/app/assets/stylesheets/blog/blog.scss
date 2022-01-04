@@ -70,7 +70,10 @@
   text-transform: uppercase;
 }
 
-
+.fix-position-V-icon{
+  position: relative;
+  top: 2px;
+}
 // Raw blogpost content in SHOW
 .raw_blopost_content {
   margin-top: 3em;

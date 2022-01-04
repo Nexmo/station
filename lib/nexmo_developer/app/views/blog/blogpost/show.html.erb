@@ -103,6 +103,7 @@
         <div class="Vlt-card__content">
           <%= link_to "/#{related.link}" do %>
             <h5><%= related.title %></h5>
+            <p class='Vlt-grey-darker'><%= Time.parse(related.updated_at).strftime('%b %d, %Y') %></p>
             <p class="Vlt-blue-darker">
             [<%= t('read_more') %>]
             </p>

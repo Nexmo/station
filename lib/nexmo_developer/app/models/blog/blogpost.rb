@@ -39,6 +39,7 @@ class Blog::Blogpost
     
     blogpost = new(BlogpostParser.build_show_with_locale(path, locale))
     blogpost.content = Nexmo::Markdown::Renderer.new({}).call(document)
+    
     blogpost
   end
 

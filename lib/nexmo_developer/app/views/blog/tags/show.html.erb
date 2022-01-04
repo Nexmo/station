@@ -1,71 +1,25 @@
-<%= link_to '<< Back to Blogs', blog_path %>
+<div class="max-w-screen-xl mx-auto">
 
-<hr>
+  <div class="header-separator hr--tall Vlt-text-separator Vlt-text-separator--big">
+    <span>< <%= @tag.upcase %> /></span>
+  </div>
 
-<h2>
-  <%= params[:slug] %>
-</h2>
-
-<% unless @blogposts.count.positive? %>
-  <div class="Vlt-callout Vlt-callout--warning">
-    <i></i>
-    <div class="Vlt-callout__content">
-      No Blogpost available
+  <% unless @blogposts.count.positive? %>
+    
+    <div class="Vlt-callout Vlt-callout--warning">
+      <div class="Vlt-callout__content">No Blogpost available</div>
     </div>
-  </div>
-<% else %>
-  <div class="Vlt-grid Nxd-use-cases">
-    <% @blogposts.in_groups(3) do |blogposts| %>
-      <div class="Vlt-col">
-        <% blogposts.compact.each do |blogpost| %>
-          <% author = @authors[blogpost['author'].to_sym] %>
-          <div class="Vlt-card Vlt-card--border Vlt-card--lesspadding">
-            <div class="Vlt-card__header" style="display: flex; justify-content: space-between;">
-              <a
-                href="<%= blog_category_path(blogpost['category'])%>"
-                class="Vlt-badge Vlt-badge--small Vlt-badge--transparent Vlt-margin--A-bottom2 Vlt-badge--blue"
-                >
-                <%= blogpost['category'] %>
-              </a>
-            </div>
 
-            <div class="Vlt-card__content">
-              <a href="/<%= blogpost['link'] %>">
-                <p class="p-large"><b><%= blogpost['title'] %></b></p>
-              </a>
+  <% else %>
 
-              <p><%= blogpost['description'] %></p>
+    <div class="my-3col-grid">
+      <% @blogposts.compact.in_groups(3) do |blogposts| %>
+        <%# cache blogpost do %>
+        <%= render partial: 'blog/blogpost/blogpost', collection: blogposts, as: :blogpost, locals: { show_category_label: false, show_author: true } %>
+        <%# end %>
+      <% end %>
+    </div>
 
-              <a href="/<%= blogpost['link'] %>" class="Vlt-blue-darker">
-                [<%= t('read_more') %>]
-              </a>
+  <% end %>
 
-              <% if blogpost['tags'].count > 0 %>
-                <hr class="hr--short"></hr>
-                <% blogpost['tags'].each do |tag| %>
-                  <% next if tag.empty? %>
-                  <a
-                    href="<%= blog_tag_path(tag)%>"
-                    >
-                    <small class="Vlt-grey-darker Nxd-tutorials__language Nxd-tutorials__language--<%= tag %>"><span>●</span> <%= tag == "Objective_C" ? "Objective-C" : tag %></small>
-                  </a>
-                <% end %>
-              <% end %>
-
-              <% if author && author['name'] %>
-                <hr class="hr--short"></hr>
-                <h5 class="Vlt-title--icon">
-                  <% if author['image_url'] %>
-                    <%= image_tag author['image_url'], style: "width: 30px; border-radius: 50%;" %>
-                  <% end %>
-                  <%= link_to author['name'], blog_author_path(author['short_name']) %>
-                </h5>
-              <% end %>
-
-            </div>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
-<% end %>
+</div>

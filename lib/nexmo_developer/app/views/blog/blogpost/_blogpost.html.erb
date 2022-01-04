@@ -5,27 +5,36 @@
 
   <div class="Vlt-card Vlt-card--border Vlt-card--lesspadding d-flex-column">
     
+    <!-- CATEGORY -->
     <% if show_category_label %>
-        <a href="<%= blog_category_path(category.slug)%>" class="category-name" style="color: <%= category.color %>;padding:0 0 16px 0;">
-          < <%= category.name %> />
-        </a>
+      <a href="<%= blog_category_path(category.slug)%>" class="category-name" style="color: <%= category.color %>;padding:0 0 16px 0;">
+        < <%= category.name %> />
+      </a>
     <% end %>
 
-      
+    <!-- TAGs label -->  
     <% if blogpost.tags.count > 0 && show_author %>
       <div style='margin-bottom: 1.5rem;'>
         <% blogpost.tags.each do |tag| %>
           <% next if tag.empty? %>
-            <a
-              href="<%= blog_tag_path(tag.downcase)%>"
-              >
-              <small class="Vlt-badge Vlt-badge--<%= tag.downcase %> Vlt-badge--transparent"><span>#</span><%= tag == "Objective_C" ? "Objective-C" : tag.downcase %></small>
+            <a href="<%= blog_tag_path(tag.downcase)%>">
+              <small class="Vlt-badge Vlt-badge--<%= tag.downcase %> Vlt-badge--transparent tag_with_icon">
+                <% if TagParser::TAGS_WITH_ICON.include? tag %>
+                  <span class="fix-position-V-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width: 1em;" class="Vlt-white">
+                      <path d="M9.3 11.6L4.7 1.5H0l6.8 15.3s.1.1.1 0l2.4-5.2zm9.9-10.1s-6.1 13.9-6.9 15.6c-1.8 4.1-3.2 5.1-4.6 5.3H12c1.9 0 3.2-1.3 5.1-5.3.6-1.4 6.9-15.6 6.9-15.6h-4.8z" />
+                    </svg>
+                  </span>
+                <% else %>
+                  #
+                <% end %>
+              <%= tag == "Objective_C" ? "Objective-C" : tag.downcase %></small>
             </a>
         <% end %>
       </div>
     <% end %>
 
-
+    <!-- CONTENT -->  
     <div class="blogpost_card_content">
       <div class="">
         <a href="/<%= blogpost.link %>">
@@ -36,10 +45,11 @@
       </div>
 
 
+      <!-- AUTHOR -->
       <% if author && author.name && show_author %>
-        <div class="card-footer">
+        <div class="">
           
-          <a href="/<%= blogpost.link %>?author=<%= author.short_name %>" class="Vlt-blue-darker">
+          <a href="/<%= blogpost.link %>" class="Vlt-blue-darker">
             [<%= t('read_more') %>]
           </a>
 
@@ -48,7 +58,7 @@
           <div style='display:flex; justify-content: flex-start;'>
           
             <% if author.image_url %>
-              <%= image_tag author.url, style: " display: block; width: 4.5rem; height: 4.5rem; border-radius: 50%;" %>
+              <%= image_tag author.url, style: "display: block; width: 4.5rem; height: 4.5rem; border-radius: 50%;" %>
             <% end %>
           
             <div style='margin-left: 1.5rem;'>
@@ -64,30 +74,18 @@
         </div>
 
       <% else %>
-        <div>
-      
-          <% if blogpost.tags.count > 0 %>
-            <div style='margin-bottom: 1.5rem;'>
-              <% blogpost.tags.each do |tag| %>
-                <% next if tag.empty? %>
-                  <a
-                    href="<%= blog_tag_path(tag.downcase)%>"
-                    >
-                    <small class="Vlt-badge Vlt-badge--<%= tag.downcase %> Vlt-badge--transparent"><span>#</span><%= tag == "Objective_C" ? "Objective-C" : tag.downcase %></small>
-                  </a>
-              <% end %>
-            </div>
-          <% end %>
+      <!-- NO AUTHOR -->
+        <div class="">
 
           <div style="display: flex;justify-content: space-between;">
-            <a href="/<%= blogpost.link %>?author=<%= author.short_name if author.present? %>" class="Vlt-blue-darker">
+            <a href="/<%= blogpost.link %>" class="Vlt-blue-darker">
               [<%= t('read_more') %>]
             </a>
             <p class='Vlt-grey-darker'><strong><%= Date.parse(blogpost.published_at).strftime('%b %d, %Y') %></strong></p>
           </div>
 
         </div>
-      <% end %>
+      <% end # if author && author.name && show_author %>
 
     </div>
   </div>
