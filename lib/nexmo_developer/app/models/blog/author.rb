@@ -6,11 +6,11 @@ class Blog::Author
               :facebook_url, :stackoverflow_url, :twitch_url, :blogposts, :url
 
   def initialize(attributes = {})
-    @name       = attributes['name']
+    @name       = attributes['name']           || 'Vonage Team Member'
     @title      = attributes['title']          || 'Vonage Team Member'
-    @bio        = attributes['bio']
-    @short_name = attributes['short_name']
-    @email      = attributes['email']
+    @bio        = attributes['bio']            || ''
+    @short_name = attributes['short_name']     || 'vonage_team_member'
+    @email      = attributes['email']          || ''
     @image_url  = attributes['image_url']      || ''
     
     @author     = attributes['author']         || ''
@@ -47,8 +47,7 @@ class Blog::Author
   def build_avatar_url
     # TODO: add default image for avatar when image_url is not present
     # return @url = DEFAULT_AVATAR unless image_url.present?
-
-    image_url.include?('gravatar') ? 
+    image_url.include?('gravatar') || image_url.include?('https://github.com/') ? 
       image_url : 
         "#{Blog::Blogpost::CLOUDFRONT_BLOG_URL}authors/#{image_url.gsub('/content/images/','')}"    
   end

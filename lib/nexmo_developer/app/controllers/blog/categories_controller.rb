@@ -1,6 +1,8 @@
 class Blog::CategoriesController < Blog::MainController
   def show
-    @authors   = AuthorParser.fetch_all_authors
-    @blogposts = CategoryParser.fetch_blogposts_with_category(params[:slug])
+    data = BlogpostParser.fetch_all 
+    attributes = CategoryParser.fetch_category(params[:slug])
+    
+    @category_with_all_blogposts = Blog::Category.new(attributes).build_n_blogposts_by_category(data)
   end
 end

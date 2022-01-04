@@ -1,5 +1,3 @@
-require 'pry'
-
 class Blog::Category
   attr_reader   :name, :plural, :slug, :color
   attr_accessor :blogposts

@@ -19,7 +19,7 @@ class Blog::Blogpost
     @outdated     = attributes['outdated']     || false
     @spotlight    = attributes['spotlight']    || false
 
-    @author       = Blog::Author.new(attributes['author']) # TODO: DEFAULT AUTHOR
+    @author       = Blog::Author.new(attributes['author'] || {})  # TODO: DEFAULT AUTHOR
     @category     = Blog::Category.new(attributes['category'])
 
     @content        = ''
