@@ -18,7 +18,7 @@
         <% blogpost.tags.each do |tag| %>
           <% next if tag.empty? %>
             <a href="<%= blog_tag_path(tag.downcase)%>">
-              <small class="Vlt-badge Vlt-badge--<%= tag.downcase %> Vlt-badge--transparent tag_with_icon">
+              <small class="Vlt-badge Vlt-badge--<%= tag.downcase %> Vlt-badge--transparent">
                 <% if TagParser::TAGS_WITH_ICON.include? tag %>
                   <span class="fix-position-V-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width: 1em;" class="Vlt-white">
