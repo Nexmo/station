@@ -1,0 +1,67 @@
+<div class="social-links">
+
+<% if author.website_url.present? %>
+  <%= link_to author.website_url, target: '_blank', rel: "noopener" do %>
+    <div class="Vlt-btn Vlt-btn--white Vlt-btn--icon">
+      <svg><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-world"/></svg>
+    </div>
+  <% end %>
+<% end %>
+
+<% if author.twitter.present? %>
+  <%= link_to "https://www.twitter.com/#{author.twitter}", target: '_blank', rel: "noopener" do %>
+    <div class="Vlt-btn Vlt-btn--white Vlt-btn--icon">
+      <svg><use xlink:href="/symbol/volta-brand-icons.svg#Brand-icon-twitter-color"/></svg>
+    </div>
+  <% end %>
+<% end %>
+
+<% if author.linkedin_url.present? %>
+  <%= link_to author.linkedin_url, target: '_blank', rel: "noopener" do %>
+    <div class="Vlt-btn Vlt-btn--white Vlt-btn--icon">
+      <svg><use xlink:href="/symbol/volta-brand-icons.svg#Brand-icon-linkedin-color"/></svg>
+    </div>
+  <% end %>
+<% end %>
+
+<% if author.github_url.present? %>
+  <%= link_to author.github_url, target: '_blank', rel: "noopener" do %>
+    <div class="Vlt-btn Vlt-btn--white Vlt-btn--icon">
+      <svg><use xlink:href="/symbol/volta-brand-icons.svg#Brand-icon-github-color"/></svg>
+    </div>
+  <% end %>
+<% end %>
+
+<% if author.youtube_url.present? %>
+  <%= link_to author.youtube_url, target: '_blank', rel: "noopener" do %>
+    <div class="Vlt-btn Vlt-btn--white Vlt-btn--icon">
+      <svg><use xlink:href="/symbol/volta-brand-icons.svg#Brand-icon-youtube-color"/></svg>
+    </div>
+  <% end %>
+<% end %>
+
+<% if author.facebook_url.present? %>
+  <%= link_to author.facebook_url, target: '_blank', rel: "noopener" do %>
+    <div class="Vlt-btn Vlt-btn--white Vlt-btn--icon">
+      <svg><use xlink:href="/symbol/volta-brand-icons.svg#Brand-icon-facebook-color"/></svg>
+    </div>
+  <% end %>
+<% end %>
+
+<% if author.twitch_url.present? %>
+  <%= link_to author.twitch_url, target: '_blank', rel: "noopener" do %>
+    <div class="Vlt-btn Vlt-btn--white Vlt-btn--icon">
+      <svg><use xlink:href="/symbol/volta-brand-icons.svg#Brand-icon-twitch-color"/></svg>
+    </div>
+  <% end %>
+<% end %>
+
+<% if author.stackoverflow_url.present? %>
+  <%= link_to author.stackoverflow_url, target: '_blank', rel: "noopener" do %>
+    <div class="Vlt-btn Vlt-btn--white Vlt-btn--icon">
+      <svg><use xlink:href="/symbol/volta-brand-icons.svg#Brand-icon-stackoverflow-color"/></svg>
+    </div>
+  <% end %>
+<% end %>
+
+</div>

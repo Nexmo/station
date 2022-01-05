@@ -57,7 +57,15 @@
   border-bottom-right-radius: 0 !important;
 }
 
-//image_tag Author
+
+// Center Author name
+.center-author-name {
+  display: flex;
+  justify-content: center;
+}
+
+
+// image_tag Author
 .image-tag-author {
   display: block; 
   width: 4.5rem; 
@@ -86,9 +94,15 @@
 
 
 // Centering orizontally V-icon with text
-.fix-position-V-icon{
+.fix-position-V-icon {
   position: relative;
   left: 2px;
+}
+
+
+// Centering orizontally V-icon with text
+.social-links {
+  text-align: center;
 }
 
 
@@ -116,6 +130,13 @@
   justify-content: space-between;
   flex-direction: column;
   flex-grow: 1;
+}
+
+
+// Category header separator
+.author-title {
+  margin-bottom:16px;
+  text-align: center;
 }
 
 

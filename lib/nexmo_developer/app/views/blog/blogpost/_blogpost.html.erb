@@ -12,27 +12,8 @@
       </a>
     <% end %>
 
-    <!-- TAGs label -->  
-    <% if blogpost.tags.count > 0 && show_author %>
-      <div style='margin-bottom: 1.5rem;'>
-        <% blogpost.tags.each do |tag| %>
-          <% next if tag.empty? %>
-            <a href="<%= blog_tag_path(tag.downcase)%>">
-              <small class="Vlt-badge Vlt-badge--<%= tag.downcase %> Vlt-badge--transparent">
-                <% if TagParser::TAGS_WITH_ICON.include? tag %>
-                  <span class="fix-position-V-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width: 1em;" class="Vlt-white">
-                      <path d="M9.3 11.6L4.7 1.5H0l6.8 15.3s.1.1.1 0l2.4-5.2zm9.9-10.1s-6.1 13.9-6.9 15.6c-1.8 4.1-3.2 5.1-4.6 5.3H12c1.9 0 3.2-1.3 5.1-5.3.6-1.4 6.9-15.6 6.9-15.6h-4.8z" />
-                    </svg>
-                  </span>
-                <% else %>
-                  #
-                <% end %>
-              <%= tag == "Objective_C" ? "Objective-C" : tag.downcase %></small>
-            </a>
-        <% end %>
-      </div>
-    <% end %>
+    <!-- TOP TAGs label -->  
+    <%= render partial: 'blog/blogpost/tag_labels', locals: { blogpost: blogpost } %>
 
     <!-- CONTENT -->  
     <div class="blogpost_card_content">
