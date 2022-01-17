@@ -15,10 +15,10 @@ class BlogpostParser
 
     ['en', 'cn', 'it'].each { |locale| all_blogposts += build_index_with_locale(locale) }
 
-#   Sort by DATE
+    #   Sort by DATE
     all_blogposts = all_blogposts.sort_by { |k| k['published_at'] }.reverse
 
-#   Write content
+    #   Write content
     File.write(PATH_TO_INDEX, JSON.pretty_generate(all_blogposts))
   end
 
@@ -26,7 +26,7 @@ class BlogpostParser
     blogposts_locale_path = Dir.glob("#{ENV['BLOG_PATH']}/blogposts/#{locale}/*.md")
 
     # TODO: - fix the issue with this blogpost
-    blogposts_locale_path -= [ '/Users/mranieri/Documents/dev/nexmo-developer/_blog/blogposts/en/add-video-capabilities-to-zendesk-with-vonage-video-api.md']
+    blogposts_locale_path -= ['/Users/mranieri/Documents/dev/nexmo-developer/_blog/blogposts/en/add-video-capabilities-to-zendesk-with-vonage-video-api.md']
 
     blogposts_locale_path.map { |filename| build_show_with_locale(filename, locale) }
   end
@@ -37,11 +37,11 @@ class BlogpostParser
     filename = File.basename(filename, '.md')
     year, month, day = frontmatter['published_at'].strftime('%y %m %d').split
 
-    { 
-      'locale'   => locale,
-      'link'     => "blog/#{locale == 'en' ? '' : locale + '/'}#{year}/#{month}/#{day}/#{filename}",
+    {
+      'locale' => locale,
+      'link' => "blog/#{locale == 'en' ? '' : "#{locale}/"}#{year}/#{month}/#{day}/#{filename}",
       'filename' => File.basename(filename, '.md'),
-      'author'   => AuthorParser.fetch_author(frontmatter['author']),
+      'author' => AuthorParser.fetch_author(frontmatter['author']),
       'category' => CategoryParser.fetch_category(frontmatter['category']),
     }
   end

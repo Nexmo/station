@@ -39,11 +39,11 @@
         <% end %>
 
         <p style="margin-bottom:16px;"><code><small><%= author.title %></small></code></p>
-        
+
         <p style="opacity:.6;font-weight: bold;">
           <%= author.bio.truncate(200) if author.bio.present? %>
         </p>
-        
+
         <%= link_to blog_author_path(author.short_name), class: "Vlt-blue-darker" do %>
           [<%= t('read_more') %>]
         <% end %>
@@ -56,17 +56,17 @@
 
       <!-- Header IMG -->
       <div class="border-radius-top card-header-image" style="background-image: url(<%= @blogpost.header_img_url %>);"></div>
-      
+
       <div class="Vlt-card__content" style="padding:24px;">
-      
+
         <!-- Category tag -->
         <a href="<%= blog_category_path(category.slug)%>" class="category-name" style="color: <%= category.color %>;padding:0 0 16px 0;">
           < <%= category.name %> />
         </a>
-        
+
         <!-- Title -->
         <h1><%= @blogpost.title %></h1>
-        
+
         <!-- TAGs -->
         <% if @blogpost.tags.count > 0 %>
           <div style='margin-bottom: 1.5rem;'>
@@ -78,38 +78,42 @@
             <% end %>
           </div>
         <% end %>
-        
+
         <!-- Last Updated at -->
-        <p class='Vlt-grey-darker'><strong>Last updated on <%= @blogpost.updated_at.strftime('%b %d, %Y') %></strong></p>
+        <% if @blogpost.updated_at.present? %>
+          <p class='Vlt-grey-darker'><strong>Last updated on <%= @blogpost.updated_at.strftime('%b %d, %Y') %></strong></p>
+        <% end %>
 
         <!-- Raw content -->
         <div class="raw_blopost_content"><%= raw @blogpost.content %></div>
       </div>
-    
+
     </div>
 
     <!-- Related Blogposts -->
     <div class="Vlt-card Vlt-bg-white" style="width:20%;height: fit-content;">
-        
+
       <h4 style="text-align:center;">Related Posts</h4>
-    
+
       <div class="header-separator hr--tall Vlt-text-separator Vlt-text-separator--big">
         <span>
           <svg class="Vlt-icon"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-pentool" /></svg>
         </span>
       </div>
-      
+
       <% @related_blogposts.each_with_index do |related, i| %>
         <div class="Vlt-card__content">
           <%= link_to "/#{related.link}" do %>
             <h5><%= related.title %></h5>
-            <p class='Vlt-grey-darker'><%= Time.parse(related.updated_at).strftime('%b %d, %Y') %></p>
+            <% if related.updated_at.present? %>
+              <p class='Vlt-grey-darker'><%= Time.parse(related.updated_at).strftime('%b %d, %Y') %></p>
+            <% end %>
             <p class="Vlt-blue-darker">
             [<%= t('read_more') %>]
             </p>
           <% end %>
         </div>
-        
+
         <% if i != @related_blogposts.length - 1 %>
          <hr class="hr--short" style="opacity:.4;">
         <% end %>

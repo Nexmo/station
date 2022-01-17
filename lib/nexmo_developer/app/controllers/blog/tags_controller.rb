@@ -3,7 +3,6 @@ class Blog::TagsController < Blog::MainController
     @tag = params['slug']
 
     blogposts = TagParser.fetch_blogposts_with_tag(params[:slug])
-    @blogposts = blogposts.map { |attributes| Blog::Blogpost.new attributes } 
+    @blogposts = blogposts.map { |attributes| Blog::Blogpost.new attributes }
   end
 end
-

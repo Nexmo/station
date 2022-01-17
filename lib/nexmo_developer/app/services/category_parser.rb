@@ -8,7 +8,7 @@ class CategoryParser
   end
 
   def self.fetch_category(slug)
-    fetch_all_categories.find{|c| c['slug'] == slug.downcase}
+    fetch_all_categories.find { |c| c['slug'] == slug.downcase }
   end
 
   def self.fetch_blogposts_with_category(category)

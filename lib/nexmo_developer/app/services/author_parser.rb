@@ -25,11 +25,11 @@ class AuthorParser
 
   def self.fetch_author(name)
     author_json_path = "#{PATH_TO_AUTHORS}#{name}.json"
-    
+
     return unless File.exist?(author_json_path)
-    
+
     file = File.read(author_json_path)
-    
+
     short_name = File.basename(author_json_path, '.json')
 
     JSON.parse(file).merge!({ 'short_name' => short_name })
