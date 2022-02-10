@@ -4,8 +4,7 @@ class Blog::Author
               :website_url, :twitter, :linkedin_url, :github_url, :youtube_url,
               :facebook_url, :stackoverflow_url, :twitch_url, :blogposts, :url
 
-  # DEFAULT_AVATAR = 'https://avatars.githubusercontent.com/u/2683897'
-  DEFAULT_AVATAR = 'https://pbs.twimg.com/profile_images/1410653053578010628/3EZv_tGF_400x400.jpg'.freeze
+  DEFAULT_AVATAR = 'https://s3.eu-west-1.amazonaws.com/developer.vonage.com/vonage-logo-images/vonage-square-logo.png'.freeze
 
   def initialize(attributes = {})
     @name       = attributes['name']           || 'Vonage Team Member'
@@ -51,7 +50,7 @@ class Blog::Author
   def build_avatar_url
     return DEFAULT_AVATAR if image_url.blank?
 
-    if image_url.include?('gravatar') || image_url.include?('https://github.com/')
+    if image_url.include?('gravatar') || image_url.include?('https://github.com/') || image_url.include?('https://ca.slack-edge.com/')
       image_url
     else
       "#{Blog::Blogpost::CLOUDFRONT_BLOG_URL}authors/#{image_url.gsub('/content/images/', '')}"
