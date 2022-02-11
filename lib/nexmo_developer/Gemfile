@@ -149,11 +149,11 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   gem 'pry', require: false
+  gem 'rails-controller-testing'
   gem 'rawler', git: 'https://github.com/oscardelben/rawler.git', require: false
   gem 'rspec-collection_matchers'
   gem 'rspec-rails', '~> 5.0'
   gem 'rspec-snapshot', '~> 2.0.0'
-  gem 'rails-controller-testing'
   gem 'simplecov', require: false
   gem 'webmock'
 end
