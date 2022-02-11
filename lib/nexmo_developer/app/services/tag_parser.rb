@@ -33,6 +33,6 @@ class TagParser
   def self.fetch_blogposts_with_tag(tag)
     blogposts_hash = JSON.parse(File.read(BlogpostParser::PATH_TO_INDEX))
 
-    blogposts_hash.select { |blogpost| blogpost['tags'].include? tag }
+    blogposts_hash.select { |b| b['tags'].include?(tag) && b['published'] && !b['outdated'] }
   end
 end
