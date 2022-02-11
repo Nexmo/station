@@ -622,6 +622,7 @@ PLATFORMS
 DEPENDENCIES
   actionpack-page_caching!
   activeadmin (~> 2.9)
+  addressable (~> 2.8)
   algoliasearch
   apparition
   awesome_print

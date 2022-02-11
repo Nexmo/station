@@ -3,17 +3,18 @@ class Blog::Blogpost
                 :updated_at, :category, :tags, :link, :locale, :slug, :spotlight,
                 :filename, :content, :header_img_url
 
-  CLOUDFRONT_BLOG_URL = 'https://d226lax1qjow5r.cloudfront.net/blog/'.freeze
+  CLOUDFRONT_BLOG_URL    = 'https://d226lax1qjow5r.cloudfront.net/blog/'.freeze
+  DEFAULT_HEADER_IMG_URL = 'https://s3.eu-west-1.amazonaws.com/developer.vonage.com/vonage-logo-images/vonage-wide-logo.png'.freeze
 
   def initialize(attributes)
     @title        = attributes['title']
     @description  = attributes['description']
-    @thumbnail    = attributes['thumbnail']
-    @published    = attributes['published']
+    @thumbnail    = attributes['thumbnail']    || ''
+    @published    = attributes['published']    || false
     @published_at = attributes['published_at']
     @updated_at   = attributes['updated_at']
-    @tags         = attributes['tags']
-    @link         = attributes['link']
+    @tags         = attributes['tags']         || []
+    @link         = attributes['link']         || ''
     @filename     = attributes['filename']
     @locale       = attributes['locale']       || 'en'
     @outdated     = attributes['outdated']     || false
@@ -44,9 +45,18 @@ class Blog::Blogpost
   end
 
   def build_header_img_url
-    # TODO: add default image for header image (for latest post and BlogpostsController#SHOW)
-    # return DEFAULT_HEADER_IMG_URL
-    "#{Blog::Blogpost::CLOUDFRONT_BLOG_URL}blogposts/#{thumbnail.gsub('/content/blog/', '')}"
+    require 'net/http'
+    require 'addressable'
+
+    url = Addressable::URI.parse("#{Blog::Blogpost::CLOUDFRONT_BLOG_URL}blogposts/#{thumbnail.gsub('/content/blog/', '')}")
+
+    Net::HTTP.start(url.host, url.port) do |http|
+      if http.head(url.request_uri)['Content-Type'].start_with? 'image'
+        url
+      else
+        DEFAULT_HEADER_IMG_URL
+      end
+    end
   end
 
   def self.default_not_found_page(path)
