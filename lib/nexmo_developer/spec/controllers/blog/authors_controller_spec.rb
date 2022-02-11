@@ -31,12 +31,17 @@ RSpec.describe Blog::AuthorsController, type: :controller do
     context "with author that does not exist" do
       let(:author) { 'joe-bloggs'}
 
-      # it 'returns a 404 HTTP code' do
-      #   get :show, :params => { name: author }
-      #   expect(response).to have_http_status(404)
-      # end
+      it 'returns a 404 HTTP code' do
+        get :show, :params => { name: author }
+        expect(response).to have_http_status(404)
+      end
 
-      # it 'renders the custom 404 template' # TODO: once we have the custom 404 page
+      # it 'renders the custom 404 template' # TODO: change once we have the custom 404 page
+      it 'renders the show template' do
+        get :show, :params => { name: author }
+        expect(response).to render_template("static/404")
+      end
+
     end
   end
 end
