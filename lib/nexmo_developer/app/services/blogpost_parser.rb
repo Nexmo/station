@@ -26,7 +26,7 @@ class BlogpostParser
     blogposts_locale_path = Dir.glob("#{ENV['BLOG_PATH']}/blogposts/#{locale}/*.md")
 
     # TODO: - fix the issue with this blogpost
-    blogposts_locale_path -= ['/Users/mranieri/Documents/dev/nexmo-developer/_blog/blogposts/en/add-video-capabilities-to-zendesk-with-vonage-video-api.md']
+    blogposts_locale_path -= ["#{Rails.configuration.blog_path}/blogposts/en/add-video-capabilities-to-zendesk-with-vonage-video-api.md"]
 
     blogposts_locale_path.map { |filename| build_show_with_locale(filename, locale) }
   end

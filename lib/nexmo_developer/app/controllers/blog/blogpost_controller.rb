@@ -6,6 +6,8 @@ class Blog::BlogpostController < Blog::MainController
   def index
     #   Fetch data as Json
     data = BlogpostParser.fetch_all
+                         .select { |b| b['published'] && !b['outdated']}
+
     @authors = AuthorParser.fetch_all_authors
     categories = CategoryParser.fetch_all_categories
 

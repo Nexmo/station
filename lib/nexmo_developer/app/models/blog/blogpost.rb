@@ -46,6 +46,7 @@ class Blog::Blogpost
 
   def build_header_img_url
     require 'net/http'
+    require 'addressable'
 
     url = Addressable::URI.parse("#{Blog::Blogpost::CLOUDFRONT_BLOG_URL}blogposts/#{thumbnail.gsub('/content/blog/', '')}")
 
