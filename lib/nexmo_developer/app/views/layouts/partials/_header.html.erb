@@ -120,4 +120,7 @@
       <% end %>
     <% end %>
   </section>
+  <% if ENV['ADOBE_LAUNCH_URL'] %>
+    <%= javascript_include_tag 'digitalData'%>
+  <% end %>
 </div>
