@@ -95,6 +95,11 @@ gem 'bootsnap', require: false
 # Convenient diffing in ruby
 gem 'diffy', require: false
 
+# Provides estimated reading times (for our Blog)
+gem 'readingtime'
+
+gem 'addressable', '~> 2.8', require: false
+
 # Automatic Ruby code style checking tool. Aims to enforce the community-driven Ruby Style Guide.
 gem 'rubocop', '~> 1.10.0', require: false
 gem 'rubocop-rails', '~> 2.9', require: false
@@ -146,6 +151,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   gem 'pry', require: false
+  gem 'rails-controller-testing'
   gem 'rawler', git: 'https://github.com/oscardelben/rawler.git', require: false
   gem 'rspec-collection_matchers'
   gem 'rspec-rails', '~> 5.0'

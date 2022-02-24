@@ -1,0 +1,46 @@
+<div class="max-w-screen-xl mx-auto">
+
+  <div style="display: flex; justify-content: space-between">
+
+    <!-- Author -->
+    <div class="Vlt-card Vlt-bg-white" style="width:28%;height: fit-content;">
+      <div class="Vlt-card__image" style="background-image: url('<%= @author.url %>'); background-size: cover; min-height: 40vh; background-position: center;"></div>
+
+      <div class="Vlt-card__content">
+        <h2 class="Vlt-title--icon center-author-name">
+          <svg class="Vlt-icon Vlt-icon--larger">
+            <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-pentool" />
+          </svg>
+          <%= @author.name %>
+        </h2>
+        
+        <p class="author-title"><code><small><%= @author.title %></small></code></p>
+
+        <p style="opacity:.8;font-weight: bold;">
+          <%= @author.bio if @author.bio.present? %>
+        </p>
+      </div>
+
+      <%= render partial: 'blog/authors/social_links', locals: { author: @author} %>
+    </div>
+
+    <!-- Blogposts -->
+    <div style="width:70%;">
+      <% unless @author.blogposts.count.positive? %>
+        <div class="Vlt-callout Vlt-callout--warning">
+          <div class="Vlt-callout__content">No Blogpost available</div>
+        </div>
+      <% else %>
+
+        <div class="my-3col-grid">
+          <% @author.blogposts.in_groups(2) do |blogposts| %>
+            <%= render partial: 'blog/blogpost/blogpost', collection: blogposts, as: :blogpost, 
+                  locals: { show_category_label: true, show_author: false, show_tag_labels: true } %>
+          <% end %>
+        </div>
+      
+      <% end %>
+    </div>
+  </div>
+
+</div>

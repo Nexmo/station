@@ -1,0 +1,209 @@
+.max-w-screen-xl {
+  max-width: 1280px;
+}
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+// Author info column
+#author-column {
+  width: 25%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+// High opacity gradient BG
+.gradient-bg {
+  // background: linear-gradient(to right, rgba(127, 198, 244, .1), rgba(213, 39, 155, .1));
+  background: linear-gradient(135deg, rgba(127, 198, 244, 0.3), rgba(213, 39, 155, 0.1));
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+
+// border-top gradient for Author BIO
+.gradient-border-left {
+  border-left: 2px solid;
+  padding-left: 4px;
+  border-image:   linear-gradient(to bottom, rgba(127, 198, 244, .8), rgba(213, 39, 155, .8)) 5;
+}
+
+
+// Category titles separator
+.Vlt-text-separator span::before,
+.Vlt-text-separator span::after {
+  background: linear-gradient(to right, #7fc6f4, #d5279b) !important;
+}
+
+
+// Header IMG on blogpost_with_image card
+.card-header-image {
+  width: 100%;
+  height: 26rem;
+  background-size: cover;
+  background-position: center;
+}
+
+
+// Border radius top for blogpost_with_image partial
+.border-radius-top {
+  border-top-right-radius: 8px  !important;
+  border-top-left-radius: 8px   !important;
+  border-bottom-left-radius: 0  !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+
+// Center Author name
+.center-author-name {
+  display: flex;
+  justify-content: center;
+}
+
+
+// image_tag Author
+.image-tag-author {
+  display: block; 
+  width: 4.5rem; 
+  height: 4.5rem; 
+  border-radius: 50%;
+}
+
+// < CATEGORY /> tag on blogposts
+.category-name {
+  display: block;
+  
+  padding: 16px 16px 0 16px;
+  
+  font-size: 1.5rem;
+  line-height: 3.25rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  
+  // HOVER effect for CATEGORY labels
+  position: relative;
+  left: 0;
+  transition: all .2s ease-in-out;
+
+  &:hover { left: 5px; }
+}
+
+
+// Centering orizontally V-icon with text
+.fix-position-V-icon {
+  position: relative;
+  left: 2px;
+}
+
+
+// Centering orizontally V-icon with text
+.social-links {
+  text-align: center;
+}
+
+
+// Raw blogpost content in SHOW
+.raw_blopost_content {
+  margin-top: 3em;
+  
+  p {
+    font-size: 1.8rem;
+    letter-spacing: 0.5px;
+    color: #374151;
+    margin: 1em 0;
+    
+    strong {
+      display: inline-block;
+      margin: 1em 0;
+    }
+  }
+}
+
+
+// Blogpost card content
+.blogpost_card_content {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+
+// Category header separator
+.author-title {
+  margin-bottom:16px;
+  text-align: center;
+}
+
+
+// Category header separator
+.header-separator {
+  opacity: .6;
+  letter-spacing: .1em;
+}
+
+
+// display flex for card content
+.d-flex-column {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+
+// CUSTOM GRID 
+.my-2col-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  grid-auto-rows: 1fr !important;
+  grid-column-gap: 10px !important;
+  grid-row-gap: 10px !important;
+  
+  .Vlt-card:hover {
+    -webkit-transform: none;
+    transform: none;
+    -webkit-box-shadow: 0 10px 30px rgba(19, 20, 21, .1);
+    box-shadow: 0 10px 30px rgba(19, 20, 21, .1);
+    transform: none;
+  }
+  
+  .Vlt-card {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: 1px solid #e6e6e6;
+    -webkit-transition: -webkit-box-shadow ease-in 0.25s;
+    transition: -webkit-box-shadow ease-in 0.25s;
+    transition: box-shadow ease-in 0.25s;
+    transition: box-shadow ease-in 0.25s, -webkit-box-shadow ease-in 0.25s;
+  }
+}
+
+.my-3col-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  grid-auto-rows: 1fr !important;
+  grid-column-gap: 10px !important;
+  grid-row-gap: 10px !important;
+  
+  .Vlt-card:hover {
+    -webkit-transform: none;
+    transform: none;
+    -webkit-box-shadow: 0 10px 30px rgba(19, 20, 21, .1);
+    box-shadow: 0 10px 30px rgba(19, 20, 21, .1);
+    transform: none;
+  }
+  
+  .Vlt-card {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: 1px solid #e6e6e6;
+    -webkit-transition: -webkit-box-shadow ease-in 0.25s;
+    transition: -webkit-box-shadow ease-in 0.25s;
+    transition: box-shadow ease-in 0.25s;
+    transition: box-shadow ease-in 0.25s, -webkit-box-shadow ease-in 0.25s;
+  }
+}
