@@ -667,7 +667,7 @@ DEPENDENCIES
   rails (~> 6.1.4)
   rails-controller-testing
   rawler!
-  readingtime
+  readingtime (= 0.4.0)
   recaptcha
   redis
   rest-client

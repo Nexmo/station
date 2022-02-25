@@ -96,7 +96,7 @@ gem 'bootsnap', require: false
 gem 'diffy', require: false
 
 # Provides estimated reading times (for our Blog)
-gem 'readingtime'
+gem 'readingtime', '0.4.0'
 
 gem 'addressable', '~> 2.8', require: false
 
