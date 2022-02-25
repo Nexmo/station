@@ -7,10 +7,13 @@
   <div style="display:flex;justify-content: space-between;">
     <div style="width:20%"></div>
     <div style="width:58%">
+
       <!-- Reading time -->
+      <% reading = reading_time_without_code_tags(@blogpost.content) %>
+      <% if reading.present? %>
       <div style="display:flex;justify-content: flex-end;">
         <p style="text-opacity: 1; color: rgba(107,114,128,.8); text-align: right;">
-          <%= readind_time_without_code_tags(@blogpost.content)%>&nbsp;
+          <%= reading %>&nbsp;
         </p>
         <p>
           <svg class="Vlt-icon Vlt-icon--smaller Vlt-grey-darker" style="opacity: .6;">
@@ -18,6 +21,8 @@
           </svg>
         </p>
       </div>
+      <% end %> <!-- Reading time -->
+
     </div>
     <div style="width:20%"></div>
   </div>
