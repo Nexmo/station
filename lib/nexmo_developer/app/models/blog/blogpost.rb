@@ -45,19 +45,18 @@ class Blog::Blogpost
   end
 
   def build_header_img_url
-    # require 'net/http'
-    # require 'addressable'
+    require 'net/http'
+    require 'addressable'
 
-    # url = Addressable::URI.parse("#{Blog::Blogpost::CLOUDFRONT_BLOG_URL}blogposts/#{thumbnail.gsub('/content/blog/', '')}")
+    url = Addressable::URI.parse("#{Blog::Blogpost::CLOUDFRONT_BLOG_URL}blogposts/#{thumbnail.gsub('/content/blog/', '')}")
 
-    # Net::HTTP.start(url.host, url.port) do |http|
-    #   if http.head(url.request_uri)['Content-Type'].start_with? 'image'
-    #     url
-    #   else
-    #     DEFAULT_HEADER_IMG_URL
-    #   end
-    # end
-    "#{Blog::Blogpost::CLOUDFRONT_BLOG_URL}blogposts/#{thumbnail.gsub('/content/blog/', '')}"
+    Net::HTTP.start(url.host, url.port, use_ssl: true) do |http|
+      if http.head(url.request_uri)['Content-Type'].start_with? 'image'
+        url
+      else
+        DEFAULT_HEADER_IMG_URL
+      end
+    end
   end
 
   def self.default_not_found_page(path)
