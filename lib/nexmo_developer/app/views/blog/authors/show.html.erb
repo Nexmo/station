@@ -1,9 +1,9 @@
 <div class="max-w-screen-xl mx-auto">
 
-  <div style="display: flex; justify-content: space-between">
+  <div class="show-author-wrapper">
 
     <!-- Author -->
-    <div class="Vlt-card Vlt-bg-white" style="width:28%;height: fit-content;">
+    <div class="Vlt-card Vlt-bg-white author-details">
       <div class="Vlt-card__image" style="background-image: url('<%= @author.url %>'); background-size: cover; min-height: 40vh; background-position: center;"></div>
 
       <div class="Vlt-card__content">
@@ -13,7 +13,7 @@
           </svg>
           <%= @author.name %>
         </h2>
-        
+
         <p class="author-title"><code><small><%= @author.title %></small></code></p>
 
         <p style="opacity:.8;font-weight: bold;">
@@ -25,7 +25,7 @@
     </div>
 
     <!-- Blogposts -->
-    <div style="width:70%;">
+    <div class="author-blogposts">
       <% unless @author.blogposts.count.positive? %>
         <div class="Vlt-callout Vlt-callout--warning">
           <div class="Vlt-callout__content">No Blogpost available</div>
@@ -34,11 +34,11 @@
 
         <div class="my-3col-grid">
           <% @author.blogposts.in_groups(2) do |blogposts| %>
-            <%= render partial: 'blog/blogpost/blogpost', collection: blogposts, as: :blogpost, 
+            <%= render partial: 'blog/blogpost/blogpost', collection: blogposts, as: :blogpost,
                   locals: { show_category_label: true, show_author: false, show_tag_labels: true } %>
           <% end %>
         </div>
-      
+
       <% end %>
     </div>
   </div>
