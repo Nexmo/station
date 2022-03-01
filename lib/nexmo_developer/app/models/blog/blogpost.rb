@@ -50,7 +50,7 @@ class Blog::Blogpost
 
     url = Addressable::URI.parse("#{Blog::Blogpost::CLOUDFRONT_BLOG_URL}blogposts/#{thumbnail.gsub('/content/blog/', '')}")
 
-    Net::HTTP.start(url.host, url.port) do |http|
+    Net::HTTP.start(url.host, url.port, use_ssl: true) do |http|
       if http.head(url.request_uri)['Content-Type'].start_with? 'image'
         url
       else
