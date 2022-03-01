@@ -7,6 +7,9 @@
 }
 
 
+.flex-between { display:flex;justify-content: space-between; }
+
+
 // Author info column
 #author-column {
   width: 25%;
@@ -58,6 +61,27 @@
 }
 
 
+// Main wrapper for Blogposts#SHOW
+#blogpost-show-wrapper {
+  #author  { width:20%; height: fit-content; }
+  #content { width:58%; padding:0; }
+  #related { width:20%; height: fit-content; }
+}
+
+@media screen and (max-width: 767px) {
+  #blogpost-show-wrapper {
+    flex-direction: column;
+
+    #author, #content, #related {
+      min-width:300px; width:100%;
+    }
+
+    // VIDEO embedded in IFRAME Blogposts#SHOW
+    iframe { width: 100% !important; }
+  }
+}
+
+
 // Center Author name
 .center-author-name {
   display: flex;
@@ -67,23 +91,23 @@
 
 // image_tag Author
 .image-tag-author {
-  display: block; 
-  width: 4.5rem; 
-  height: 4.5rem; 
+  display: block;
+  width: 4.5rem;
+  height: 4.5rem;
   border-radius: 50%;
 }
 
 // < CATEGORY /> tag on blogposts
 .category-name {
   display: block;
-  
+
   padding: 16px 16px 0 16px;
-  
+
   font-size: 1.5rem;
   line-height: 3.25rem;
   font-weight: bold;
   text-transform: uppercase;
-  
+
   // HOVER effect for CATEGORY labels
   position: relative;
   left: 0;
@@ -109,13 +133,13 @@
 // Raw blogpost content in SHOW
 .raw_blopost_content {
   margin-top: 3em;
-  
+
   p {
     font-size: 1.8rem;
     letter-spacing: 0.5px;
     color: #374151;
     margin: 1em 0;
-    
+
     strong {
       display: inline-block;
       margin: 1em 0;
@@ -155,14 +179,46 @@
 }
 
 
-// CUSTOM GRID 
+// Author Wrapper - Authors#SHOW
+.show-author-wrapper {
+  display: flex;
+  justify-content: space-between;
+
+
+  .author-details {
+    width:28%;
+    height: fit-content;
+  }
+
+  .author-blogposts {
+    width:70%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .show-author-wrapper {
+    flex-direction: column;
+
+    .author-details { min-width: 300px; width:100%; }
+
+    .author-blogposts {
+      width:100%;
+      .my-3col-grid { grid-template-columns: repeat(1, 1fr) !important; }
+    }
+  }
+}
+
+
+// CUSTOM GRID
 .my-2col-grid {
+  min-width: 300px;
+
   display: grid !important;
   grid-template-columns: repeat(2, 1fr) !important;
   grid-auto-rows: 1fr !important;
   grid-column-gap: 10px !important;
   grid-row-gap: 10px !important;
-  
+
   .Vlt-card:hover {
     -webkit-transform: none;
     transform: none;
@@ -170,7 +226,7 @@
     box-shadow: 0 10px 30px rgba(19, 20, 21, .1);
     transform: none;
   }
-  
+
   .Vlt-card {
     -webkit-box-shadow: none;
     box-shadow: none;
@@ -182,13 +238,21 @@
   }
 }
 
+@media screen and (max-width: 767px) {
+  .my-2col-grid {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+}
+
 .my-3col-grid {
+  min-width: 300px;
+
   display: grid !important;
   grid-template-columns: repeat(3, 1fr) !important;
   grid-auto-rows: 1fr !important;
   grid-column-gap: 10px !important;
   grid-row-gap: 10px !important;
-  
+
   .Vlt-card:hover {
     -webkit-transform: none;
     transform: none;
@@ -196,7 +260,7 @@
     box-shadow: 0 10px 30px rgba(19, 20, 21, .1);
     transform: none;
   }
-  
+
   .Vlt-card {
     -webkit-box-shadow: none;
     box-shadow: none;
@@ -206,4 +270,16 @@
     transition: box-shadow ease-in 0.25s;
     transition: box-shadow ease-in 0.25s, -webkit-box-shadow ease-in 0.25s;
   }
+}
+
+@media screen and (max-width: 767px) {
+  .my-3col-grid {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+}
+
+
+// Media query for MAIN MOBILE LAYOUT
+@media screen and (max-width: 480) {
+  .Nxd-landing-main { padding: 8px !important; }
 }

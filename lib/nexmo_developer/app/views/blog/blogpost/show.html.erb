@@ -4,7 +4,7 @@
 <div class="max-w-screen-xl mx-auto">
 
   <!-- Layout tweak for reading time position -->
-  <div style="display:flex;justify-content: space-between;">
+  <div class="flex-between">
     <div style="width:20%"></div>
     <div style="width:58%">
 
@@ -28,10 +28,10 @@
   </div>
 
 
-  <div style="display:flex;justify-content: space-between;">
+  <div id="blogpost-show-wrapper" class="flex-between">
 
     <!-- Author -->
-    <div class="Vlt-card Vlt-bg-white" style="width:20%;height: fit-content;">
+    <div id="author" class="Vlt-card Vlt-bg-white">
 
       <div class="Vlt-card__image" style="background-image: url('<%= author.url %>'); background-size: cover; min-height: 40vh; background-position: center;"></div>
 
@@ -57,7 +57,7 @@
     </div>
 
     <!-- Main Content -->
-    <div class="Vlt-card Vlt-bg-white" style="width:58%;padding:0;">
+    <div id="content" class="Vlt-card Vlt-bg-white">
 
       <!-- Header IMG -->
       <div class="border-radius-top card-header-image" style="background-image: url(<%= @blogpost.header_img_url %>);"></div>
@@ -96,7 +96,7 @@
     </div>
 
     <!-- Related Blogposts -->
-    <div class="Vlt-card Vlt-bg-white" style="width:20%;height: fit-content;">
+    <div id="related" class="Vlt-card Vlt-bg-white">
 
       <h4 style="text-align:center;">Related Posts</h4>
 
