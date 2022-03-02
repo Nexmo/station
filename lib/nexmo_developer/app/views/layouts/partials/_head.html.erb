@@ -4,6 +4,86 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <script type='text/javascript'>
+  const PRIMARY_CATEGORY = 'biz:api:adp:developer'
+
+window.digitalData = {
+  page: {
+    pageInfo: {
+      pageName: '',
+      functionDept: '',
+      primaryCategory: PRIMARY_CATEGORY,
+      siteIdentifier: '',
+      lob: '',
+      subCategory1: '',
+      subCategory2: '',
+      subCategory3: '',
+      appVersion: '',
+      language: '',
+      country: '',
+      pageCategory: '',
+      flowName: '',
+      tokenFLag: '',
+      spaFlag: ''
+    },
+    content: {
+      author: '',
+      businessSize: '',
+      category: '',
+      company: '',
+      industry: '',
+      name: '',
+      product: '',
+      profRole: '',
+      publishDate: '',
+      subCategory: '',
+      topic: '',
+      type: ''
+    }
+  },
+  eventData: {
+    events: '',
+    fCTA: '',
+    fIndustry: '',
+    fLines: '',
+    fName: '',
+    interactionType: '',
+    linesSlider: ''
+  },
+  user: {
+    profile: {
+      profileInfo: {
+        visitorType: '',
+        accountNumber: '',
+        accountStatus: '',
+        userType: '',
+        userName: '',
+        accountPlan: '',
+        UserID: '',
+        responsiveSiteVersion: '',
+        country: '',
+        acctnumLocations: '',
+        acctcontractFlag: ''
+      }
+    }
+  },
+  transaction: [
+    {
+      productInfo: {
+        productID: ''
+      },
+      quantity: '',
+      price: {
+        basePrice: ''
+      }
+    }
+  ]
+}
+  </script>
+
+  <% if ENV['ADOBE_LAUNCH_URL'] %>
+    <script src='<%= ENV['ADOBE_LAUNCH_URL'] %>' async></script>
+  <% end %>
   <% if head.google_site_verification %>
     <meta name="google-site-verification" content=<%= head.google_site_verification %> />
   <% end %>
@@ -79,10 +159,6 @@
 
   <% if ENV['ENVIRONMENT_SCRIPTS'] %>
     <%= ENV['ENVIRONMENT_SCRIPTS'].html_safe %>
-  <% end %>
-
-  <% if ENV['ADOBE_LAUNCH_URL'] %>
-    <script src='<%= ENV['ADOBE_LAUNCH_URL'] %>' async></script>
   <% end %>
 
   <%= stylesheet_pack_tag 'application', preload: true %>
