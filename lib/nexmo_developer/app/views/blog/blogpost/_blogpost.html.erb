@@ -1,0 +1,74 @@
+<% if blogpost %>
+  <% author   = blogpost.author %>
+  <% category = blogpost.category %>
+
+
+  <div class="Vlt-card Vlt-card--border d-flex-column">
+    
+    <!-- CATEGORY -->
+    <% if show_category_label %>
+      <a href="<%= blog_category_path(category.slug)%>" class="category-name" style="color: <%= category.color %>;padding:0 0 16px 0;">
+        < <%= category.name %> />
+      </a>
+    <% end %>
+
+    <!-- TOP TAGs label -->  
+    <%= render partial: 'blog/blogpost/tag_labels', locals: { blogpost: blogpost } %>
+
+    <!-- CONTENT -->  
+    <div class="blogpost_card_content">
+      <div class="">
+        <a href="/<%= blogpost.link %>">
+          <p class="p-large"><b><%= blogpost.title %></b></p>
+        </a>
+
+        <p><%= blogpost.description.truncate(150) %></p>
+      </div>
+
+
+      <!-- AUTHOR -->
+      <% if author && author.name && show_author %>
+        <div class="">
+          
+          <a href="/<%= blogpost.link %>" class="Vlt-blue-darker">
+            [<%= t('read_more') %>]
+          </a>
+
+          <hr class="hr--short">
+
+          <div style='display:flex; justify-content: flex-start;'>
+          
+            <% if author.image_url %>
+              <%= image_tag author.url, style: "display: block; width: 4.5rem; height: 4.5rem; border-radius: 50%;" %>
+            <% end %>
+          
+            <div style='margin-left: 1.5rem;'>
+              <h5>
+                <%= link_to author.name, blog_author_path(author.short_name) %>
+          
+                <p class='Vlt-grey-darker'><strong><%= Date.parse(blogpost.published_at).strftime('%b %d, %Y') %></strong></p>
+              </h5>
+            </div>
+            
+          </div>
+          
+        </div>
+
+      <% else %>
+      <!-- NO AUTHOR -->
+        <div class="">
+
+          <div style="display: flex;justify-content: space-between;">
+            <a href="/<%= blogpost.link %>" class="Vlt-blue-darker">
+              [<%= t('read_more') %>]
+            </a>
+            <p class='Vlt-grey-darker'><strong><%= Date.parse(blogpost.published_at).strftime('%b %d, %Y') %></strong></p>
+          </div>
+
+        </div>
+      <% end # if author && author.name && show_author %>
+
+    </div>
+  </div>
+
+<% end %>

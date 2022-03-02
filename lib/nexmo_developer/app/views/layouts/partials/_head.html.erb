@@ -3,9 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <% if ENV['ADOBE_LAUNCH_URL'] %>
-    <script src='<%= ENV['ADOBE_LAUNCH_URL'] %>' async></script>
-  <% end %>
+
   <% if head.google_site_verification %>
     <meta name="google-site-verification" content=<%= head.google_site_verification %> />
   <% end %>
@@ -81,6 +79,10 @@
 
   <% if ENV['ENVIRONMENT_SCRIPTS'] %>
     <%= ENV['ENVIRONMENT_SCRIPTS'].html_safe %>
+  <% end %>
+
+  <% if ENV['ADOBE_LAUNCH_URL'] %>
+    <script src='<%= ENV['ADOBE_LAUNCH_URL'] %>' async></script>
   <% end %>
 
   <%= stylesheet_pack_tag 'application', preload: true %>

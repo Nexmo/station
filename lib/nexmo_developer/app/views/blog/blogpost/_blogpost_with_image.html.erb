@@ -1,0 +1,59 @@
+<% if blogpost %>
+  <% author   = blogpost.author %>
+  <% category = blogpost.category %>
+
+
+  <div class="Vlt-card Vlt-card--border Vlt-col d-flex-column" style="padding:0;">
+
+    <a href="/<%= blogpost.link %>" class="Vlt-blue-darker">
+      <div class="Vlt-card--border border-radius-top card-header-image" style="background-image: url(<%= blogpost.header_img_url %>);"></div>
+    </a>
+
+    <a href="<%= blog_category_path(category.slug)%>" class="category-name" style="color: <%= category.color %>">
+      < <%= category.name %> />
+    </a>
+
+    <div class="blogpost_card_content Vlt-card--lesspadding">
+      <div class="">
+        <a href="/<%= blogpost.link %>">
+          <p class="p-large"><b><%= blogpost.title %></b></p>
+        </a>
+
+        <p><%= blogpost.description %></p>
+      </div>
+
+
+
+      <% if author && author.name %>
+        <div class="card-footer">
+
+          <a href="/<%= blogpost.link %>" class="Vlt-blue-darker">
+            [<%= t('read_more') %>]
+          </a>
+
+          <hr class="hr--short">
+
+          <div style='display:flex; justify-content: flex-start;'>
+
+            <% if author.image_url %>
+              <%= image_tag author.url, class: "image-tag-author" %>
+            <% end %>
+
+            <div style='margin-left: 1.5rem;'>
+              <h5>
+                <%= link_to author.name, blog_author_path(author.short_name) %>
+
+                <p class='Vlt-grey-darker'>
+                  <strong><%= Date.parse(blogpost.published_at).strftime('%b %d, %Y') %></strong>
+                </p>
+              </h5>
+            </div>
+
+          </div>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+
+<% end %>

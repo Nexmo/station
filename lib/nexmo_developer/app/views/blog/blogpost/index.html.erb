@@ -1,0 +1,43 @@
+<% unless @categories_with_blogposts.present? %>
+
+  <div class="Vlt-callout Vlt-callout--warning">
+    <i></i>
+    <div class="Vlt-callout__content">
+      No Blogpost available
+    </div>
+  </div>
+
+<% else %>
+
+
+  <div class="max-w-screen-xl mx-auto">
+
+    <div class="header-separator hr--tall Vlt-text-separator Vlt-text-separator--big">
+      <span>LATEST POSTS</span>
+    </div>
+
+    <div class="my-2col-grid">
+        <%= render partial: 'blog/blogpost/blogpost_with_image', collection: @latest_blogposts, as: :blogpost %>
+    </div>
+
+
+  <% @categories_with_blogposts.each do |category| %>
+
+    <div class="header-separator hr--tall Vlt-text-separator Vlt-text-separator--big">
+      <span>< <%= category.plural.upcase %> /></span>
+    </div>
+
+    <div class="my-3col-grid">
+      <% category.blogposts.compact.in_groups(3) do |blogposts| %>
+        <%# cache blogpost do %>
+        <%= render partial: 'blog/blogpost/blogpost', collection: blogposts, as: :blogpost, locals: { show_category_label: false, show_author: true } %>
+        <%# end %>
+      <% end %>
+    </div>
+
+  <% end # @categories_with_blogposts.each %>
+
+  </div>
+
+
+<% end %>
