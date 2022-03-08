@@ -3,8 +3,8 @@ class Blog::Blogpost
                 :updated_at, :category, :tags, :link, :locale, :slug, :spotlight,
                 :filename, :content, :header_img_url
 
-  CLOUDFRONT_BLOG_URL    = 'https://d226lax1qjow5r.cloudfront.net/blog/'.freeze
-  DEFAULT_HEADER_IMG_URL = 'https://s3.eu-west-1.amazonaws.com/developer.vonage.com/vonage-logo-images/vonage-wide-logo.png'.freeze
+  CLOUDFRONT_BLOG_URL     = 'https://d226lax1qjow5r.cloudfront.net/blog/'.freeze
+  DEFAULT_VONAGE_LOGO_URL = 'https://s3.eu-west-1.amazonaws.com/developer.vonage.com/vonage-logo-images/vonage-wide-logo.png'.freeze
 
   def initialize(attributes)
     @title        = attributes['title']
@@ -24,7 +24,7 @@ class Blog::Blogpost
     @category     = Blog::Category.new(attributes['category'])
 
     @content        = ''
-    @header_img_url = build_header_img_url
+    @header_img_url = build_bucket_img_url_from_thumbnail
 
     @replacement_url  = attributes['replacement_url']
   end
@@ -44,7 +44,7 @@ class Blog::Blogpost
     blogpost
   end
 
-  def build_header_img_url
+  def build_bucket_img_url_from_thumbnail
     require 'net/http'
     require 'addressable'
 
@@ -54,7 +54,7 @@ class Blog::Blogpost
       if http.head(url.request_uri)['Content-Type'].start_with? 'image'
         url
       else
-        DEFAULT_HEADER_IMG_URL
+        DEFAULT_VONAGE_LOGO_URL
       end
     end
   end
