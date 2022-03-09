@@ -54,7 +54,7 @@ class Blog::Blogpost
 
     Net::HTTP.start(url.host, url.port, use_ssl: true) do |http|
       if http.head(url.request_uri)['Content-Type'].start_with? 'image'
-        url
+        thumbnail
       else
         DEFAULT_VONAGE_LOGO_URL
       end
