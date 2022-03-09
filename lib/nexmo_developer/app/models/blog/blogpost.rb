@@ -24,7 +24,8 @@ class Blog::Blogpost
     @category     = Blog::Category.new(attributes['category'])
 
     @content        = ''
-    @header_img_url = build_bucket_img_url_from_thumbnail
+    # @header_img_url = build_bucket_img_url_from_thumbnail
+    @header_img_url = attributes['thumbnail']    || ''
 
     @replacement_url  = attributes['replacement_url']
   end
