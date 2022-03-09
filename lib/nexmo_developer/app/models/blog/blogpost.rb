@@ -53,11 +53,12 @@ class Blog::Blogpost
     url = Addressable::URI.parse(thumbnail)
 
     Net::HTTP.start(url.host, url.port, use_ssl: true) do |http|
-      if http.head(url.request_uri)['Content-Type'].start_with? 'image'
-        thumbnail
-      else
-        DEFAULT_VONAGE_LOGO_URL
-      end
+      return thumbnail if http.head(url.request_uri)['Content-Type'].start_with? 'image'
+
+      return DEFAULT_VONAGE_LOGO_URL
+
+    rescue Errno::ECONNREFUSED
+      DEFAULT_VONAGE_LOGO_URL
     end
   end
 
