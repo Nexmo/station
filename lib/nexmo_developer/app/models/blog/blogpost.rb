@@ -25,7 +25,7 @@ class Blog::Blogpost
 
     @content        = ''
     # @header_img_url = build_bucket_img_url_from_thumbnail
-    @header_img_url = attributes['thumbnail']    || ''
+    @header_img_url = build_bucket_img_url_from_thumbnail
 
     @replacement_url  = attributes['replacement_url']
   end
