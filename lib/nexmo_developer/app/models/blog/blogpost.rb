@@ -24,7 +24,6 @@ class Blog::Blogpost
     @category     = Blog::Category.new(attributes['category'])
 
     @content        = ''
-    # @header_img_url = build_bucket_img_url_from_thumbnail
     @header_img_url = build_bucket_img_url_from_thumbnail
 
     @replacement_url  = attributes['replacement_url']
@@ -51,14 +50,14 @@ class Blog::Blogpost
     require 'net/http'
     require 'addressable'
 
-    thumbnail = thumbnail.gsub('/content/blog/') do |match| # gsub Netlify img urls
+    @thumbnail = @thumbnail.gsub('/content/blog/') do |match| # gsub Netlify img urls
       "#{Blog::Blogpost::CLOUDFRONT_BLOG_URL}blogposts/#{match.gsub('/content/blog/', '')}"
     end
 
-    url = Addressable::URI.parse(thumbnail)
+    url = Addressable::URI.parse(@thumbnail)
 
     Net::HTTP.start(url.host, url.port, use_ssl: true) do |http|
-      return thumbnail if http.head(url.request_uri)['Content-Type'].start_with? 'image'
+      return @thumbnail if http.head(url.request_uri)['Content-Type'].start_with? 'image'
 
       return DEFAULT_VONAGE_LOGO_URL
 
