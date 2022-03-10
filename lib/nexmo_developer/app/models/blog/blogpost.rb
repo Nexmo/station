@@ -51,6 +51,10 @@ class Blog::Blogpost
     require 'net/http'
     require 'addressable'
 
+    thumbnail = thumbnail.gsub('/content/blog/') do |match| # gsub Netlify img urls
+      "#{Blog::Blogpost::CLOUDFRONT_BLOG_URL}blogposts/#{match.gsub('/content/blog/', '')}"
+    end
+
     url = Addressable::URI.parse(thumbnail)
 
     Net::HTTP.start(url.host, url.port, use_ssl: true) do |http|
