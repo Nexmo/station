@@ -60,7 +60,7 @@ class Blog::Blogpost
       if http.head(url.request_uri)['Content-Type'].start_with? 'image'
         @thumbnail
       else
-        DEFAULT_HEADER_IMG_URL
+        DEFAULT_VONAGE_LOGO_URL
       end
     end
   end
