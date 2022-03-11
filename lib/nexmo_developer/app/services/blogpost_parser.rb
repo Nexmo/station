@@ -47,9 +47,10 @@ class BlogpostParser
   end
 
   def self.build_show_with_locale(filename, locale = 'en')
-    document = File.read(filename)
+    document = File.read(filename).gsub('/content/blog/') do |match| # gsub Netlify img urls
+      "#{Blog::Blogpost::CLOUDFRONT_BLOG_URL}blogposts/#{match.gsub('/content/blog/', '')}"
+    end
 
-    # body = Nexmo::Markdown::Renderer.new.call(document)
     frontmatter = YAML.safe_load(document, [Time])
 
     frontmatter.merge!(build_custom_attributes(frontmatter, filename, locale))
