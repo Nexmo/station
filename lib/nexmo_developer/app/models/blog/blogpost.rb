@@ -50,6 +50,8 @@ class Blog::Blogpost
     require 'net/http'
     require 'addressable'
 
+    return DEFAULT_VONAGE_LOGO_URL if @thumbnail.empty?
+
     @thumbnail = @thumbnail.gsub('/content/blog/') do |match| # gsub Netlify img urls
       "#{Blog::Blogpost::CLOUDFRONT_BLOG_URL}blogposts/#{match.gsub('/content/blog/', '')}"
     end
