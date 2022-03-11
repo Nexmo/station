@@ -36,9 +36,7 @@ class Blog::Blogpost
 
     default_not_found_page(path) unless File.exist?(path)
 
-    document = File.read(path).gsub('/content/blog/') do |match| # gsub Netlify img urls
-      "#{Blog::Blogpost::CLOUDFRONT_BLOG_URL}blogposts/#{match.gsub('/content/blog/', '')}"
-    end
+    document = File.read(path)
 
     blogpost = new(BlogpostParser.build_show_with_locale(path, locale))
     blogpost.content = Nexmo::Markdown::Renderer.new({}).call(document)
@@ -57,12 +55,11 @@ class Blog::Blogpost
     url = Addressable::URI.parse(@thumbnail)
 
     Net::HTTP.start(url.host, url.port, use_ssl: true) do |http|
-      return @thumbnail if http.head(url.request_uri)['Content-Type'].start_with? 'image'
-
-      return DEFAULT_VONAGE_LOGO_URL
-
-    rescue Errno::ECONNREFUSED
-      DEFAULT_VONAGE_LOGO_URL
+      if http.head(url.request_uri)['Content-Type'].start_with? 'image'
+        url
+      else
+        DEFAULT_HEADER_IMG_URL
+      end
     end
   end
 
