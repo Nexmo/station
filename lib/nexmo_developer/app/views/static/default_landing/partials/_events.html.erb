@@ -50,7 +50,7 @@
 
 
 <div id="community-events" class="Vlt-grid">
-  <% @upcoming_events.each do |event| %>
+  <% @upcoming_events.first(6).each do |event| %>
     <div class="Vlt-col Vlt-col--1of3">
       <div class="Vlt-card">
         <h3><%= link_to event.title, event.url, target: '_blank' %></h3>
