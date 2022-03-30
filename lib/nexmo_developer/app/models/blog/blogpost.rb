@@ -36,8 +36,15 @@ class Blog::Blogpost
 
     default_not_found_page(path) unless File.exist?(path)
 
-    document = File.read(path).gsub('/content/blog/') do |match| # gsub Netlify img urls
+    # gsub Netlify - img urls to S3 Bucket
+    document = File.read(path).gsub('/content/blog/') do |match|
       "#{Blog::Blogpost::CLOUDFRONT_BLOG_URL}blogposts/#{match.gsub('/content/blog/', '')}"
+    end
+
+    # gsub Netlify - embedded YOUTUBE Video
+    document = document.gsub(/<youtube id=\"(\w+)\"><\/youtube>/) do |match|
+      youtube_id = match[/(?<=\").*(?=\")/]
+      "<center class='video'><br><iframe width='448' height='252' src='https://www.youtube-nocookie.com/embed/#{youtube_id}' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe><br><br></center>"
     end
 
     blogpost = new(BlogpostParser.build_show_with_locale(path, locale))
@@ -57,7 +64,6 @@ class Blog::Blogpost
     end
 
     url = Addressable::URI.parse(@thumbnail)
-
     Net::HTTP.start(url.host, url.port, use_ssl: true) do |http|
       if http.head(url.request_uri)['Content-Type'].start_with? 'image'
         @thumbnail
