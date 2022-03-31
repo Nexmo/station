@@ -24,7 +24,9 @@
   <% @categories_with_blogposts.each do |category| %>
 
     <div class="header-separator hr--tall Vlt-text-separator Vlt-text-separator--big">
-      <span>< <%= category.plural.upcase %> /></span>
+      <a href="<%= blog_category_path(category.slug)%>">
+        <span>< <%= category.plural.upcase %> /></span>
+      </a>
     </div>
 
     <div class="my-3col-grid">
