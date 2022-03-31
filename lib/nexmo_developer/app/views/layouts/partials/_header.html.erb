@@ -32,11 +32,8 @@
         <b><%=  t(".#{header.sign_in_text}") %></b>
       </a>
 
-      <a href=<%= header.sign_up_path %> target="_blank" rel="noopener" class="Vlt-btn--white Vlt-btn--app Vlt-btn--outline Vlt-btn--small" id="signup" data-ab="try_button_v2"><b>
-          <% ab_test(:try_button_v2, header.sign_up_text.map { |s| ["{ #{t(".#{s}")} }", "< #{t(".#{s}")} />"] }.flatten) do |s| %>
-            <%= s %>
-          <% end %>
-        </b>
+      <a href=<%= header.sign_up_path %> target="_blank" rel="noopener" class="Vlt-btn--white Vlt-btn--app Vlt-btn--outline Vlt-btn--small" id="signup" data-ab="try_button_v2">
+        <b>{ Sign-up for free }</b>
       </a>
     </nav>
   </header>
