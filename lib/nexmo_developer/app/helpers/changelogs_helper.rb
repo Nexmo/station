@@ -1,6 +1,6 @@
 module ChangelogsHelper
-  def set_volta_icon(element)
-    return "" unless element
+  def build_volta_icon(element)
+    return '' unless element
 
     if element.scan(/vonage-(\w+)-sdk/).present?
       element.scan(/vonage-(\w+)-sdk/).flatten.first.downcase
