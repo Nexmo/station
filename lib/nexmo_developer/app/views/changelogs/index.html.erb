@@ -1,0 +1,33 @@
+<h1>Changelogs</h1>
+
+<% @titles.each do |title| %>
+  <div class="header-separator hr--tall Vlt-text-separator Vlt-text-separator--big">
+    <span>< <%= title[:title].upcase %> /></span>
+  </div>
+
+  <div class="my-3col-grid">
+    <% title[:files].each do |file| %>
+      <%= link_to changelog_path(folder: title[:title], name: file[:file_title]), class: 'Vlt-card Vlt-card--clickable' do%>
+
+        <div class="Vlt-card__header">
+
+          <svg class="Vlt-icon Vlt-grey">
+            <use xlink:href="/symbol/volta-brand-icons.svg#Brand-icon-<%= build_volta_icon(file[:file_title]) %>-color" />
+          </svg>
+
+          <h3><%= file[:file_title] %></h3>
+
+          <% if ["version", "release"].all? {|k| file[:frontmatter].key?(k)} %>
+            <p style="position: relative; top: 20px;">
+              <code><%= "v#{file[:frontmatter]["version"]}" %></code> released on <%= "#{file[:frontmatter]["release"]}" %>
+            </p>
+          <% end %>
+
+        </div>
+
+      <% end %>
+    <% end %>
+  </div>
+
+
+<% end %>

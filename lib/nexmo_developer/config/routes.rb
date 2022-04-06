@@ -108,6 +108,9 @@ Rails.application.routes.draw do
     get '/tags/:slug', to: 'tags#show', as: 'tag'
   end
 
+  get '/changelogs', to: 'changelogs#index'
+  get '/changelogs/:folder/:name', to: 'changelogs#show', as: 'changelog'
+
   get '*unmatched_route', to: 'application#not_found'
 
   root 'static#landing'
