@@ -36,16 +36,7 @@ class Blog::Blogpost
 
     default_not_found_page(path) unless File.exist?(path)
 
-    # gsub Netlify - img urls to S3 Bucket
-    document = File.read(path).gsub('/content/blog/') do |match|
-      "#{Blog::Blogpost::CLOUDFRONT_BLOG_URL}blogposts/#{match.gsub('/content/blog/', '')}"
-    end
-
-    # gsub Netlify - embedded YOUTUBE Video
-    document = document.gsub(%r{<youtube id="(\w+)"></youtube>}) do |match|
-      youtube_id = match[/(?<=").*(?=")/]
-      "<center class='video'><br><iframe width='448' height='252' src='https://www.youtube-nocookie.com/embed/#{youtube_id}' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe><br><br></center>"
-    end
+    document = clean_document_from_netlify(path)
 
     blogpost = new(BlogpostParser.build_show_with_locale(path, locale))
     blogpost.content = Nexmo::Markdown::Renderer.new({}).call(document)
@@ -74,9 +65,40 @@ class Blog::Blogpost
   end
 
   def self.default_not_found_page(path)
-    # TODO: - default not found page
-    #  get '*unmatched_route', to: 'application#not_found'
-    #  is already taking care of any wrong route
     "<h1>No such blog</h1><p>#{path}</p>"
+  end
+
+  def self.clean_document_from_netlify(path)
+    # Netlify - Imgage urls to S3 Bucket
+    document = File.read(path).gsub('/content/blog/') { |match| "#{Blog::Blogpost::CLOUDFRONT_BLOG_URL}blogposts/#{match.gsub('/content/blog/', '')}" }
+
+    # Netlify - SIGN UP Banner
+    document = document.gsub(%r{<sign-up></sign-up>}, "#{banner_text}#{build_image_tag}")
+
+    # Netlify - SIGN UP Banner + Number
+    document = document.gsub(%r{<sign-up number></sign-up>}) do |_match|
+      "#{banner_text}<p>This tutorial also uses a virtual phone number. To purchase one, go to <em>Numbers > Buy Numbers</em> and search for one that meets your needs.</p>#{build_image_tag}"
+    end
+
+    # Netlify - Embedded YOUTUBE Video
+    document = document.gsub(%r{<youtube id="(\w+)"></youtube>}) do |match|
+      youtube_id = match[/(?<=").*(?=")/]
+      "<center class='video'><br><iframe width='448' height='252' src='https://www.youtube-nocookie.com/embed/#{youtube_id}' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe><br><br></center>"
+    end
+
+    document
+  end
+
+  # NETLIFY Helpers
+  def self.s3_banner_image
+    'https://s3.eu-west-1.amazonaws.com/developer.vonage.com/blog/signup_banner/sign_up_banner.png'
+  end
+
+  def self.build_image_tag
+    "<p></p><figure><img src='#{s3_banner_image}' alt='Screenshot of new Meetings API session in progress'><figcaption class='Vlt-center'><em>Start developing in minutes with free credits on us. No credit card required!</em></figcaption></figure><p></p>"
+  end
+
+  def self.banner_text
+    "<h3 class='Vlt-title--icon'>Vonage API Account</h3><p>To complete this tutorial, you will need a <a href='https://dashboard.nexmo.com/sign-up' target='_blank'>Vonage API account</a>. If you don’t have one already, you can sign up today and start building with free credit. Once you have an account, you can find your API Key and API Secret at the top of the <a href='https://dashboard.nexmo.com/sign-up' target='_blank'>Vonage API Dashboard</a>.</p>"
   end
 end
