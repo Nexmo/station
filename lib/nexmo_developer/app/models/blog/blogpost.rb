@@ -81,12 +81,10 @@ class Blog::Blogpost
     end
 
     # Netlify - Embedded YOUTUBE Video
-    document = document.gsub(%r{<youtube id="(\w+)"></youtube>}) do |match|
+    document.gsub(%r{<youtube id="(\w+)"></youtube>}) do |match|
       youtube_id = match[/(?<=").*(?=")/]
       "<center class='video'><br><iframe width='448' height='252' src='https://www.youtube-nocookie.com/embed/#{youtube_id}' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe><br><br></center>"
     end
-
-    document
   end
 
   # NETLIFY Helpers
