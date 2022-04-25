@@ -60,7 +60,7 @@
     <div id="content" class="Vlt-card Vlt-bg-white">
 
       <!-- Header IMG -->
-      <div class="border-radius-top card-header-image" style="background-image: url(<%= @blogpost.header_img_url %>);"></div>
+      <div><%= image_tag @blogpost.header_img_url, class: "border-radius-top" %></div>
 
       <div class="Vlt-card__content" style="padding:24px;">
 
