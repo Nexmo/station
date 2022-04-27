@@ -4,7 +4,7 @@ class Blog::Blogpost
                 :filename, :content, :header_img_url
 
   CLOUDFRONT_BLOG_URL     = 'https://d226lax1qjow5r.cloudfront.net/blog/'.freeze
-  DEFAULT_VONAGE_LOGO_URL = 'https://s3.eu-west-1.amazonaws.com/developer.vonage.com/vonage-logo-images/vonage-wide-logo.png'.freeze
+  DEFAULT_VONAGE_LOGO_URL = 'https://s3.eu-west-1.amazonaws.com/developer.vonage.com/vonage-logo-images/vonage_logo_primary_white_1200x600.png'.freeze
 
   def initialize(attributes)
     @title        = attributes['title']
