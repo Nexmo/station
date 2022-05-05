@@ -69,7 +69,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency('terminal-table', '3.0.1')
   spec.add_runtime_dependency('lograge', '0.11.2')
   spec.add_runtime_dependency('jbuilder', '2.11.2')
-  spec.add_runtime_dependency('nokogiri', '1.11.7')
+  spec.add_runtime_dependency('nokogiri', '1.13.5')
   spec.add_runtime_dependency('ruby-progressbar', '1.11.0')
   spec.add_runtime_dependency('colorize', '0.8.1')
   spec.add_runtime_dependency('neatjson', '0.9')
