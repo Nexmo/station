@@ -8,7 +8,6 @@ class Blog::BlogpostController < Blog::MainController
     data = BlogpostParser.fetch_all
                          .select { |b| b['published'] && !b['outdated'] }
 
-    @authors = AuthorParser.fetch_all_authors
     categories = CategoryParser.fetch_all_categories
 
     #  Build Blogposts by category
