@@ -32,7 +32,7 @@ class BlogpostParser
   end
 
   def self.build_custom_attributes(frontmatter, filename, locale)
-    frontmatter.except!('comments', 'redirect', 'canonical', 'old_categories')
+    frontmatter.except!('comments', 'redirect', 'old_categories')
 
     filename = File.basename(filename, '.md')
     year, month, day = frontmatter['published_at'].strftime('%y %m %d').split
