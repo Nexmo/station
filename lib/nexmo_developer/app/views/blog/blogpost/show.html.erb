@@ -1,6 +1,10 @@
 <% category = @blogpost.category %>
 <% author   = @blogpost.author %>
 
+<% content_for :canonical do %>
+  <%= @blogpost.canonical %>
+<% end %>
+
 <div class="max-w-screen-xl mx-auto">
 
   <!-- Layout tweak for reading time position -->

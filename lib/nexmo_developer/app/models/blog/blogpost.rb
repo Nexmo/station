@@ -1,7 +1,7 @@
 class Blog::Blogpost
   attr_accessor :title, :description, :thumbnail, :author, :published, :published_at,
                 :updated_at, :category, :tags, :link, :locale, :slug, :spotlight,
-                :filename, :content, :header_img_url
+                :filename, :content, :header_img_url, :canonical
 
   CLOUDFRONT_BLOG_URL     = 'https://d226lax1qjow5r.cloudfront.net/blog/'.freeze
   DEFAULT_VONAGE_LOGO_URL = 'https://s3.eu-west-1.amazonaws.com/developer.vonage.com/vonage-logo-images/vonage_logo_primary_white_1200x600.png'.freeze
@@ -13,6 +13,7 @@ class Blog::Blogpost
     @published    = attributes['published']    || false
     @published_at = attributes['published_at']
     @updated_at   = attributes['updated_at']
+    @canonical    = attributes['canonical']
     @tags         = attributes['tags']         || []
     @link         = attributes['link']         || ''
     @filename     = attributes['filename']

@@ -70,8 +70,11 @@
     </script>
   <% end %>
 
-
-  <link rel="canonical" href="<%= canonical_url %>">
+  <% if content_for? :canonical %>
+    <link rel="canonical" href=<%= yield :canonical %> />
+  <% else %>
+    <link rel="canonical" href="<%= canonical_url %>">
+  <% end %>
 
   <%= javascript_include_tag 'application', defer: true %>
 
