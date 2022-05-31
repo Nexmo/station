@@ -1,6 +1,10 @@
 <% category = @blogpost.category %>
 <% author   = @blogpost.author %>
 
+<% content_for :canonical do %>
+  <%= @blogpost.canonical %>
+<% end %>
+
 <div class="max-w-screen-xl mx-auto">
 
   <!-- Layout tweak for reading time position -->
@@ -85,9 +89,8 @@
         <% end %>
 
         <!-- Last Updated at -->
-        <% if @blogpost.updated_at.present? %>
-          <p class='Vlt-grey-darker'><strong>Last updated on <%= @blogpost.updated_at.strftime('%b %d, %Y') %></strong></p>
-        <% end %>
+        <% updated = @blogpost.updated_at.present? ? @blogpost.updated_at : @blogpost.published_at %>
+        <p class='Vlt-grey-darker'><strong>Last updated on <%= updated.strftime('%b %d, %Y') %></strong></p>
 
         <!-- Raw content -->
         <div class="raw_blopost_content"><%= raw @blogpost.content %></div>
