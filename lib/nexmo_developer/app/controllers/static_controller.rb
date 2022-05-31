@@ -1,5 +1,5 @@
 class StaticController < ApplicationController
-  before_action :canonical_redirect, only: :documentation
+  before_action :canonical_redirect, only: %i[documentation landing_page_documentation]
 
   def default_landing
     yaml_name = request[:landing_page]
@@ -97,6 +97,13 @@ class StaticController < ApplicationController
     )
 
     render layout: 'documentation'
+  end
+
+  def landing_page_documentation
+    @homepage = true
+    @landing_info ||= LoadConfig.load_file('config/documentation_page/en/doc_landing.yml')
+
+    render layout: 'landing_page_documentation'
   end
 
   def community

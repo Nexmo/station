@@ -55,7 +55,7 @@ Rails.application.routes.draw do
     products.include?(request['product']) && includes_language
   }
 
-  get '(/:locale)/documentation', to: 'static#documentation', constraints: LocaleConstraint.new, as: :documentation
+  get '(/:locale)/documentation', to: 'static#landing_page_documentation', constraints: LocaleConstraint.new, as: :documentation
 
   get '/community/slack', to: 'slack#join'
   post '/community/slack', to: 'slack#invite'

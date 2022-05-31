@@ -1,0 +1,27 @@
+<div class="Vlt-card" style="padding: 35px;">
+  <div class="d-flex-column h-100">
+
+    <div>
+      <svg class="Vlt-icon Vlt-icon--larger Vlt-purple"><use xlink:href="/symbol/volta-icons.svg#<%= product['icon'] %>" /></svg>
+    </div>
+
+    <h3 class="Vlt-purple">
+      <a href=<%= product['product_name_link'] %>><%= product['product_name'] %></a>
+    </h3>
+
+    <div style="flex-grow: 1; padding: 25px 0;">
+      <p><%= raw product['product_description'].html_safe %></p>
+    </div>
+
+    <div class="Vlt-card__footer flex-between">
+      <% if product['getting_started_link'].present? %>
+        <a href=<%= product['getting_started_link'] %> class="Vlt-btn Vlt-btn--secondary Vlt-btn--app Vlt-btn--small">Getting Started</a>
+      <% end %>
+
+      <% if product['api_reference_link'].present? %>
+        <a href=<%= product['api_reference_link'] %> class="Vlt-btn Vlt-btn--white Vlt-btn--app Vlt-btn--small" style="border: 1px solid;">API Reference ></a>
+      <% end %>
+    </div>
+
+  </div>
+</div>

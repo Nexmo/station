@@ -22,7 +22,7 @@ RSpec.describe StaticController, type: :request do
   describe 'GET default_landing' do
     before do
       Rails.application.routes.draw do
-        get '(/:locale)/documentation', to: 'static#documentation', as: :documentation
+        get '(/:locale)/documentation', to: 'static#landing_page_documentation', as: :documentation
         get '/use-cases', to: 'use_case#index', as: :use_cases
         get '/careers', to: 'careers#index', as: :careers
         get '(/:locale)/api', to: 'api#index', as: :api
