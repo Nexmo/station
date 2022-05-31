@@ -10,6 +10,9 @@
 .flex-between { display:flex;justify-content: space-between; }
 
 
+.h-100 { height: 100%; }
+
+
 // Author info column
 #author-column {
   width: 25%;
@@ -274,6 +277,40 @@
 
 @media screen and (max-width: 767px) {
   .my-3col-grid {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+}
+
+.my-4col-grid {
+  min-width: 300px;
+
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  grid-auto-rows: 1fr !important;
+  grid-column-gap: 10px !important;
+  grid-row-gap: 10px !important;
+
+  .Vlt-card:hover {
+    -webkit-transform: none;
+    transform: none;
+    -webkit-box-shadow: 0 10px 30px rgba(19, 20, 21, .1);
+    box-shadow: 0 10px 30px rgba(19, 20, 21, .1);
+    transform: none;
+  }
+
+  .Vlt-card {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: 1px solid #e6e6e6;
+    -webkit-transition: -webkit-box-shadow ease-in 0.25s;
+    transition: -webkit-box-shadow ease-in 0.25s;
+    transition: box-shadow ease-in 0.25s;
+    transition: box-shadow ease-in 0.25s, -webkit-box-shadow ease-in 0.25s;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .my-4col-grid {
     grid-template-columns: repeat(1, 1fr) !important;
   }
 }

@@ -1,0 +1,23 @@
+<div class="Vlt-card" style="padding: 35px;">
+  <div class="d-flex-column h-100">
+
+    <div>
+      <svg class="Vlt-icon Vlt-icon--larger Vlt-purple"><use xlink:href="/symbol/volta-icons.svg#<%= products['icon'] %>" /></svg>
+    </div>
+
+    <h3 class="Vlt-purple pb-20">
+      <%= products.keys.first %>
+    </h3>
+
+    <div class="my-2col-grid">
+      <% products[products.keys.first].each do |item| %>
+        <div>
+          <p><a href=<%= item['product_name_link'] %>><%= item['product_name'] %></a></p>
+
+          <p><%= item['product_description'] %></p>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+</div>

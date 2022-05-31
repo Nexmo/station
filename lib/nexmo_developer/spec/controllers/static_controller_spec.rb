@@ -22,7 +22,7 @@ RSpec.describe StaticController, type: :request do
   describe 'GET default_landing' do
     before do
       Rails.application.routes.draw do
-        get '(/:locale)/documentation', to: 'static#documentation', as: :documentation
+        get '(/:locale)/documentation', to: 'static#landing_page_documentation', as: :documentation
         get '/use-cases', to: 'use_case#index', as: :use_cases
         get '/careers', to: 'careers#index', as: :careers
         get '(/:locale)/api', to: 'api#index', as: :api
@@ -321,6 +321,28 @@ RSpec.describe StaticController, type: :request do
 
         expect(response).to redirect_to('https://dashboard.nexmo.com/sign-up?utm_campaign=campaign&utm_content=content&utm_medium=dev_education&utm_source=blog&utm_term=term')
       end
+    end
+  end
+
+  describe '#landing_page_documentation' do
+    it 'map /documentation route to STATIC#landing_page_documentation' do
+      get :documentation
+
+      expect(response.status).to eq(200)
+    end
+  end
+
+  describe 'when a locale is present' do
+    it 'redirects to the canonical url if locale is :en' do
+      get :documentation, params: { locale: 'en' }
+
+      expect(response).to redirect_to('/documentation')
+    end
+
+    it 'renders when locale is different from :en' do
+      get :documentation, params: { locale: 'cn' }
+
+      expect(response.status).to eq(200)
     end
   end
 end

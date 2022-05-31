@@ -1,0 +1,37 @@
+<div class="wrapper wrapper--tint">
+  <div class="center spacious content-block">
+    <h1><%= @landing_info['title'].html_safe %></h1>
+    <p><%= raw @landing_info['subtitle'].html_safe %></p>
+  </div>
+
+  <div>
+
+<!-- TOP section -->
+    <% @landing_info['top-section'].each do |product| %>
+      <hr class="hr--tall Vlt-gradient--blue-to-pink"></hr>
+      <h2><%= product.keys.first %></h2>
+      <br>
+
+      <div class="my-4col-grid">
+        <% product[product.keys.first].each do |card| %>
+          <%= render partial: 'static/landing_page_documentation/partials/small_product_card', locals: { product: card } %>
+        <% end %>
+      </div>
+    <% end %>
+
+<!-- BOTTOM section -->
+    <% @landing_info['bottom-section'].each do |product| %>
+      <hr class="hr--tall Vlt-gradient--blue-to-pink"></hr>
+      <h2><%= product.keys.first %></h2>
+      <br>
+
+      <div class="my-2col-grid">
+        <% product[product.keys.first].each do |cards| %>
+          <%= render partial: 'static/landing_page_documentation/partials/big_product_card', locals: { products: cards } %>
+        <% end %>
+      </div>
+    <% end %>
+
+  </div>
+
+</div>
