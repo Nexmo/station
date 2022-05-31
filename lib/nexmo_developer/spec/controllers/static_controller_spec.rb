@@ -323,26 +323,4 @@ RSpec.describe StaticController, type: :request do
       end
     end
   end
-
-  describe '#landing_page_documentation' do
-    it 'map /documentation route to STATIC#landing_page_documentation' do
-      get '/documentation'
-
-      expect(response.status).to eq(200)
-    end
-  end
-
-  describe 'when a locale is present' do
-    it 'redirects to the canonical url if locale is :en' do
-      get '/en/documentation'
-
-      expect(response).to redirect_to('/documentation')
-    end
-
-    it 'renders when locale is different from :en' do
-      get '/cn/documentation'
-
-      expect(response.status).to eq(200)
-    end
-  end
 end
