@@ -1,8 +1,6 @@
 .Adp-homepage {
   background: $grey-900;
   .row {
-    padding: 20px 95px;
-
     @media #{$S-only} {
       padding: 20px 5px;
     }
@@ -37,6 +35,12 @@
     position: relative;
     -webkit-transform-style: preserve-3d;
     -webkit-backface-visibility: hidden;
+
+    margin-top: 100px;
+
+    @media #{$S-only} {
+      margin-top: 300px;
+    }
 
     &__background {
       position: absolute;
