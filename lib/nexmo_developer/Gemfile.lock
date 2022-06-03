@@ -321,7 +321,7 @@ GEM
     neatjson (0.9)
     nenv (0.3.0)
     netrc (0.11.0)
-    newrelic_rpm (7.2.0)
+    newrelic_rpm (8.8.0)
     nexmo-oas-renderer (2.7.2)
       activemodel (~> 6.1)
       activesupport (~> 6.1)
