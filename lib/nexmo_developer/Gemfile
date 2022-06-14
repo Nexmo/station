@@ -86,9 +86,6 @@ gem 'woothee'
 # The simplest way to group temporal data
 gem 'groupdate', '5.2.2'
 
-# A configurable and documented Rails view helper for adding gravatars into your Rails application.
-gem 'gravatar_image_tag', github: 'Envek/gravatar_image_tag', branch: 'fix/deprecation-warnings'
-
 # Boot large ruby/rails apps faster
 gem 'bootsnap', require: false
 
@@ -141,7 +138,7 @@ gem 'actionpack-page_caching', github: 'rails/actionpack-page_caching'
 
 gem 'sassc-rails', '~> 2.1'
 
-gem 'gmaps4rails', '2.1.2'
+gem 'gmaps4rails', github: 'jasnow/Google-Maps-for-Rails'
 
 # Create beautiful JavaScript charts with one line of Ruby
 gem 'chartkick', '~> 4.0'
