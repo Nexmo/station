@@ -25,10 +25,11 @@ $quick-search-width: 800px;
   padding-left: $spacing;
 }
 
-.Nxd-search__wrapper { 
+.Nxd-search__wrapper {
   display: flex;
   flex-wrap: wrap;
   margin-right: -1px;
+  min-width: 65vw;
 }
 
 .Nxd-search__result {
