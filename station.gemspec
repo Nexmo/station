@@ -46,7 +46,6 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency('railties', '~> 6.0')
   spec.add_runtime_dependency('devise', '~> 4.7')
   spec.add_runtime_dependency('geocoder', '~> 1.6')
-  spec.add_runtime_dependency('gravatar_image_tag', '~> 1.2')
   spec.add_runtime_dependency('greenhouse_io', '~> 2.5')
   spec.add_runtime_dependency('recaptcha', '~> 5.3')
   spec.add_runtime_dependency('split', '~> 3.4')
