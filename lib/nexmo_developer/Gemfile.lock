@@ -1,11 +1,4 @@
 GIT
-  remote: https://github.com/Envek/gravatar_image_tag.git
-  revision: 5af4d8e302587aa9ac2fe4105c92e428a11d8ec7
-  branch: fix/deprecation-warnings
-  specs:
-    gravatar_image_tag (1.2.0)
-
-GIT
   remote: https://github.com/oscardelben/rawler.git
   revision: f2909b135fce7d35167f98026ac481926c94423e
   specs:
@@ -646,7 +639,6 @@ DEPENDENCIES
   ffi (>= 1.9.24)
   geocoder
   gmaps4rails (= 2.1.2)
-  gravatar_image_tag!
   greenhouse_io
   groupdate (= 5.2.2)
   guard-livereload (~> 2.5)
