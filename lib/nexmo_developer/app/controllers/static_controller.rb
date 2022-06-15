@@ -36,6 +36,12 @@ class StaticController < ApplicationController
 
     if request.path.delete('/') == 'team'
       @team ||= LoadConfig.load_file('config/team.yml')
+
+      @team["current"].each do |member|
+        author = Blog::Author.new(AuthorParser.fetch_author(member["short-name"]))
+        member["image_url"] = author.build_avatar_url
+      end
+
       @careers = Greenhouse.devrel_careers
     end
 
