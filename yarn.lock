@@ -3,9 +3,7 @@
 
 
 "@activeadmin/activeadmin@^2.9.0":
-  version "2.9.0"
-  resolved "https://registry.yarnpkg.com/@activeadmin/activeadmin/-/activeadmin-2.9.0.tgz#ad277ef4a49b250377afd3df615f9acc3c84d577"
-  integrity sha512-KZqr1MrvpCXN/8SCF4MgqGscmuWPHivz5RPHKR9R8bKIB0InUHm7tzQoQOT9ZdYuHCBkf3cqlzBoKNNNV3x3ww==
+  version: "2.10.0"
   dependencies:
     jquery "^3.4.1"
     jquery-ui "^1.12.1"
