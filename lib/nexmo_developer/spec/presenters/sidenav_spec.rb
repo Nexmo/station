@@ -29,7 +29,7 @@ RSpec.describe Sidenav do
 
   describe '#nav_items' do
     it 'returns instances of SidenavItem' do
-      @sidenav.nav_items.each { |item| expect(item).to be_an_instance_of(SidenavItem) }
+      @sidenav.nav_items.each { |item| expect(item).to be_an_instance_of(Array) }
     end
   end
 
