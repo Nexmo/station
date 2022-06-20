@@ -66,11 +66,11 @@
     }
 
     &__all {
-      margin: 20px auto 0;
+      margin: 40px auto 0;
 
       svg, a {
-        color: #B77EF9 !important;
-        fill: #B77EF9 !important;
+        color: #888 !important;
+        fill: #888 !important;
       }
     }
 
@@ -222,7 +222,7 @@
   }
 
   .Adp-brand-listing {
-    background: linear-gradient(90deg, #7FC6F4 4.86%, #8728FB 96.11%);
+    background: #666666;
 
     .container {
 
@@ -231,13 +231,14 @@
       }
     }
 
-    @media #{$M-plus} {
-      height: 88px;
-    }
-
     .Vlt-grid {
       justify-content: space-between;
       align-items: center;
+
+      img.Adp-brand-listing__brand,
+      svg.Adp-brand-listing__brand {
+        width: 120px;
+      }
 
       // overrides volta's style, they don't work
       @media #{$S-only} {
