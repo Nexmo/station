@@ -40,6 +40,7 @@ class StaticController < ApplicationController
       @team['current'].each do |member|
         author = Blog::Author.new(AuthorParser.fetch_author(member['short-name']))
         member['image_url'] = author.build_avatar_url
+        member['blog_profile_url'] = "https://developer.vonage.com/blog/authors/"+member['short-name']
       end
 
       @careers = Greenhouse.devrel_careers
