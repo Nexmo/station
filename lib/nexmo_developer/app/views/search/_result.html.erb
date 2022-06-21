@@ -12,6 +12,26 @@
     </a>
   <% end %>
 
+  <% if index_name == 'prod_blogposts' %>
+    <a href="/<%= hit.link %>">
+      <div>
+        <span class="Vlt-badge Nxd-search__badge" style="background:<%= hit.category.color %>;"><%= hit.category.name %></span>
+        <span class="meta"><%= hit.tags.map(&:upcase).join(' | ') %></span>
+        <h3><%= hit.title %></h3>
+
+        <p class="search-highlighted">
+          <%= sanitize(hit.description, tags: ['em']) %>
+        </p>
+        <span class="meta">
+          <svg class="Vlt-icon Vlt-icon--smaller Vlt-aqua-dark">
+            <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-pentool" />
+          </svg>
+          <%= hit.author.name %>
+        </span>
+      </div>
+    </a>
+  <% end %>
+
 
   <% if index_name.include? 'nexmo_developer' %>
     <a href="<%= hit.path %>">

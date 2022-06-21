@@ -47,6 +47,9 @@
               <div v-else-if="isNDPArticle(result)">
                 <NDPArticle v-for="hit in result.hits" v-bind:hit="hit" v-bind:key="hitKey(result, hit)"/>
               </div>
+              <div v-else-if="isBlog(result)">
+                <Blog v-for="hit in result.hits" v-bind:hit="hit" v-bind:key="hitKey(result, hit)"/>
+              </div>
             </div>
             <div v-else>
               <p class="Nxd-search--no-results"><i>No results</i></p>
@@ -62,6 +65,7 @@ import algoliasearch from 'algoliasearch'
 import debounce from 'lodash/debounce'
 import NDPArticle from './NDPArticle.vue';
 import ZendeskArticle from './ZendeskArticle.vue';
+import Blog from './Blog.vue';
 
 export default {
   data: function() {
@@ -107,7 +111,9 @@ export default {
       if (name == 'zendesk_nexmo_articles') {
         return 'Knowledgebase';
       } else if (name.includes('nexmo_developer')) {
-        return 'Nexmo Developer';
+        return 'Vonage Developer';
+      } else if (name == 'prod_blogposts') {
+        return 'Blog';
       }
     },
     isZendeskArticle: function(result) {
@@ -115,6 +121,9 @@ export default {
     },
     isNDPArticle: function(result) {
       return result.index.includes('nexmo_developer');
+    },
+    isBlog: function(result) {
+      return result.index == 'prod_blogposts';
     },
     hitKey: function(result, hit) {
       return result.index + hit.objectID;
@@ -204,7 +213,7 @@ export default {
     }
   },
   components: {
-    ZendeskArticle, NDPArticle
+    ZendeskArticle, NDPArticle, Blog
   }
 }
 </script>

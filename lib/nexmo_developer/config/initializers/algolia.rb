@@ -21,7 +21,7 @@ if defined?(ALGOLIA_CONFIG) && ENV['ALGOLIA_SEARCH_KEY']
 
   algolia_search_parameters = {
     filters: filters.compact.join(' AND NOT ').prepend('NOT '),
-    attributesToSnippet: ['body', 'body_safe'],
+    attributesToSnippet: ['body', 'body_safe', 'description', 'title'],
   }
 
   ALGOLIA_SECURED_SEARCH_KEY = Algolia.generate_secured_api_key(ENV['ALGOLIA_SEARCH_KEY'], algolia_search_parameters)
