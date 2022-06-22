@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'static/profile.html.erb' do
   it 'renders the profile' do
-    render partial: 'static/profile.html.erb', locals: { twitter: 'vonagedevs', name: 'John Doe', email: 'john.doe@vonage.com', image_url: '' }
+    render partial: 'static/profile.html.erb', locals: { name: 'John Doe', email: 'john.doe@vonage.com', blog_profile_url: '' }
 
     view = Capybara::Node::Simple.new(rendered)
 
