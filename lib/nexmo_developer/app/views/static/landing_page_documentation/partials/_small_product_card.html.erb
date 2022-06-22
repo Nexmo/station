@@ -1,13 +1,15 @@
 <div class="Vlt-card" style="padding: 35px;">
   <div class="d-flex-column h-100">
 
-    <div>
-      <svg class="Vlt-icon Vlt-icon--larger Vlt-purple"><use xlink:href="/symbol/volta-icons.svg#<%= product['icon'] %>" /></svg>
-    </div>
+    <a href=<%= product['product_name_link'] %>>
+      <div>
+        <svg class="Vlt-icon Vlt-icon--larger Vlt-purple"><use xlink:href="/symbol/volta-icons.svg#<%= product['icon'] %>" /></svg>
+      </div>
 
-    <h3 class="Vlt-purple">
-      <a href=<%= product['product_name_link'] %>><%= product['product_name'] %></a>
-    </h3>
+      <h3 class="Vlt-purple">
+        <%= product['product_name'] %>
+      </h3>
+    </a>
 
     <div style="flex-grow: 1; padding: 25px 0;">
       <p><%= raw product['product_description'].html_safe %></p>
