@@ -14,11 +14,11 @@
   width: 100%;
 
   h3 {
-    color: #b779ff;
+    color: $purple;
     margin-bottom: $unit1;
 
     &:hover {
-      color: #871fff;
+      color: $purple-dark;
     }
   }
 
