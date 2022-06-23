@@ -178,10 +178,10 @@ class Tutorial
   end
 
   def self.task_content_path
-    "#{Nexmo::Markdown::Config.docs_base_path}/_tutorials"
+    "#{ENV['DOCS_BASE_PATH']}/_tutorials"
   end
 
   def self.tutorials_path
-    "#{Nexmo::Markdown::Config.docs_base_path}/config/tutorials"
+    "#{ENV['DOCS_BASE_PATH']}/config/tutorials"
   end
 end
