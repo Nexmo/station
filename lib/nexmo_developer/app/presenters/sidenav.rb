@@ -16,7 +16,7 @@ class Sidenav
 
   def nav_items
     @nav_items ||= items.map do |item|
-      if @product && @product.split('/').first.include?(item[:title])
+      if @request_path && @request_path.split('/')[1].include?(item[:title])
         SidenavItem.new(folder: item, sidenav: self)
       end
     end.compact
