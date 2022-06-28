@@ -13,9 +13,7 @@
       </div>
       <div class="Vlt-sidenav__scroll">
         <nav class="sidenav" id="sidenav" data-active="<%= active_sidenav_item %>" aria-label="Documentation">
-          <% cache_unless params[:namespace].present?, ['sidenav', I18n.locale] do %>
             <%= render partial: 'layouts/partials/sidenav' %>
-          <% end %>
         </nav>
       </div>
     </div>
