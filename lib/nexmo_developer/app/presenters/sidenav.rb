@@ -20,6 +20,16 @@ class Sidenav
         SidenavItem.new(folder: item, sidenav: self)
       end
     end.compact
+
+    unless @nav_items.present?
+      @nav_items = items.map do |item|
+        if @product && @product.split('/')[1].include?(item[:title])
+          SidenavItem.new(folder: item, sidenav: self)
+        end
+      end.compact
+    end
+
+    @nav_items
   end
 
   def namespace
