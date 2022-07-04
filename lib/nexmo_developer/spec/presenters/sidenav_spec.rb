@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Sidenav do
   let(:request_path) { '/en/documentation' }
-  let(:product)      { nil }
+  let(:product)      { 'voice/voice-api' }
   let(:locale)       { 'en' }
   let(:navigation)   { :documentation }
   let(:namespace)    { nil }
