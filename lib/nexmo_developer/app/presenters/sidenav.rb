@@ -31,7 +31,7 @@ class Sidenav
 
     if @nav_items.blank?
       @nav_items = items.map do |item|
-        if @product && @product.split('/')[1] == nil && @product.include?(item[:title])
+        if @product && @product.split('/')[1].nil? && @product.include?(item[:title])
           SidenavItem.new(folder: item, sidenav: self)
         end
       end.compact
