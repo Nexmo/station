@@ -41,7 +41,7 @@ class StaticController < ApplicationController
         if member['short-name']
           author = Blog::Author.new(AuthorParser.fetch_author(member['short-name']))
           member['image_url'] = author.build_avatar_url
-          member['blog_profile_url'] = "../blog/authors/#{member['short-name']}"
+          member['blog_profile_url'] = blog_author_path(author.short_name)
         end
       end
 
