@@ -9,7 +9,7 @@ RSpec.describe 'static/profile.html.erb' do
     expect(view).to have_css('h3', text: 'John Doe')
     expect(view).to have_css('p', text: 'Developer Advocate')
     expect(view).to have_css('svg')
-    expect(view).to have_css('a', id:'blog-profile-url')
+    expect(view).to have_css('a', id: 'blog-profile-url')
     expect(view).to have_link(href: 'https://developer.vonage.com/blog')
   end
 end
