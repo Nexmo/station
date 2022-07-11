@@ -1,9 +1,15 @@
 <div class="Nxd-profile Vlt-col Vlt-col--M-1of3">
-  <%= image_tag(image_url, size: 140, class: 'Nxd-profile__avatar avatar') %>
-  <h3><%= name %></h3>
-  <p class="Vlt-grey-darker p-large"><%= local_assigns[:role] ? role : 'Developer Advocate' %>
-    <% if local_assigns[:blog_profile_url] %>
-    <small><a target="_blank" id="blog-profile-url" href="<%= local_assigns[:blog_profile_url] %>"><svg class="Vlt-icon Vlt-icon--smaller Vlt-purple-dark"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-open-full"></use></svg></a></small>
+  <%= image_tag(member.image_url, size: 140, class: 'Nxd-profile__avatar avatar') %>
+  <h3><%= member.name %></h3>
+  <p class="Vlt-grey-darker p-large"><%= member.title ? member.title : 'Developer Advocate' %>
+    <% if blog_author_path(member.short_name) %>
+    <small>
+      <%= link_to blog_author_path(member.short_name), target: "_blank", id: "blog-profile-url" do %>
+        <svg class="Vlt-icon Vlt-icon--smaller Vlt-purple-dark">
+          <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-open-full"></use>
+        </svg>
+      <% end %>
+    </small>
     <% end %>
   </p>
 </div>
