@@ -38,8 +38,11 @@ class StaticController < ApplicationController
       @team ||= LoadConfig.load_file('config/team.yml')
 
       @team['current'].each do |member|
-        author = Blog::Author.new(AuthorParser.fetch_author(member['short-name']))
-        member['image_url'] = author.build_avatar_url
+        if member['short-name']
+          author = Blog::Author.new(AuthorParser.fetch_author(member['short-name']))
+          member['image_url'] = author.build_avatar_url
+          member['blog_profile_url'] = "../blog/authors/#{member['short-name']}"
+        end
       end
 
       @careers = Greenhouse.devrel_careers

@@ -2,8 +2,8 @@
   <%= image_tag(image_url, size: 140, class: 'Nxd-profile__avatar avatar') %>
   <h3><%= name %></h3>
   <p class="Vlt-grey-darker p-large"><%= local_assigns[:role] ? role : 'Developer Advocate' %>
-  	<% if local_assigns[:twitter] %>
-    <small><a target="_blank" href="https://twitter.com/<%= twitter %>">@<%= twitter %></a></small>
-  	<% end %>
+    <% if local_assigns[:blog_profile_url] %>
+    <small><a target="_blank" id="blog-profile-url" href="<%= local_assigns[:blog_profile_url] %>"><svg class="Vlt-icon Vlt-icon--smaller Vlt-purple-dark"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-open-full"></use></svg></a></small>
+    <% end %>
   </p>
 </div>
