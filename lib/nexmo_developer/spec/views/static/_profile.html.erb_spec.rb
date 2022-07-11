@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'static/profile.html.erb' do
-  let(:author) { Blog::Author.new({'name' => 'John Doe', 'title' => 'Developer Advocate', 'short_name' => 'john-doe'}) }
+  let(:author) { Blog::Author.new({ 'name' => 'John Doe', 'title' => 'Developer Advocate', 'short_name' => 'john-doe' }) }
 
   it 'renders the profile' do
     render partial: 'static/profile.html.erb', locals: { member: author }
