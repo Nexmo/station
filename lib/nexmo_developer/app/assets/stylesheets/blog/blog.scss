@@ -64,11 +64,11 @@
 }
 
 
-// Main wrapper for Blogposts#SHOW
+// Main layout for Blogposts#SHOW
 #blogpost-show-wrapper {
-  #author  { width:20%; height: fit-content; }
+  #author  { width:20%; height: fit-content; position: sticky; top: 10px; }
   #content { width:58%; padding:0; }
-  #related { width:20%; height: fit-content; }
+  #related { width:20%; height: fit-content; position: sticky; top: 10px; }
 }
 
 @media screen and (max-width: 767px) {
@@ -77,6 +77,8 @@
 
     #author, #content, #related {
       min-width:300px; width:100%;
+      position: relative;
+      top: 0;
     }
 
     // VIDEO embedded in IFRAME Blogposts#SHOW
