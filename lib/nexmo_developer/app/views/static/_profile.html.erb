@@ -1,5 +1,6 @@
+
 <div class="Nxd-profile Vlt-col Vlt-col--M-1of3">
-  <%= image_tag(member.image_url, size: 140, class: 'Nxd-profile__avatar avatar') %>
+  <%= image_tag(member.url, size: 140, class: 'Nxd-profile__avatar avatar') %>
   <h3><%= member.name %></h3>
   <p class="Vlt-grey-darker p-large"><%= member.title ? member.title : 'Developer Advocate' %>
     <% if blog_author_path(member.short_name) %>
