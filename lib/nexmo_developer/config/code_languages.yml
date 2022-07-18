@@ -1,0 +1,147 @@
+terminal_programs:
+  curl:
+    weight: 1
+    label: cURL
+    lexer: sh
+    icon: curl
+    run_command: 'sh {filename}'
+  cli:
+    label: CLI
+    lexer: sh
+    linkable: false
+
+languages:
+  javascript:
+    weight: 2
+    label: JavaScript
+    lexer: javascript
+    icon: javascript
+    dependencies:
+      - "nexmo"
+
+  node:
+    weight: 2
+    label: Node.js
+    lexer: javascript
+    icon: node
+    dependencies:
+      - "@vonage/server-sdk"
+    run_command: 'node {filename}'
+
+  kotlin:
+    weight: 3
+    label: Kotlin
+    lexer: java
+    icon: kotlin
+    dependencies: []
+
+  java:
+    weight: 4
+    label: Java
+    lexer: java
+    unindent: true
+    icon: java
+    dependencies:
+      - "com.vonage:client:@latest"
+    version: "6.2.0"
+
+  dotnet:
+    weight: 5
+    label: .NET
+    lexer: c#
+    unindent: true
+    icon: dotnet
+    dependencies:
+      - "Vonage"
+  csharp:
+    weight: 5
+    label: .NET
+    lexer: c#
+    unindent: true
+    icon: dotnet
+    dependencies:
+      - "Vonage"
+
+  php:
+    weight: 6
+    label: PHP
+    lexer: php
+    icon: php
+    dependencies:
+      - "vonage/client"
+    run_command: 'php {filename}'
+
+  python:
+    weight: 7
+    label: Python
+    lexer: python
+    icon: python
+    dependencies:
+      - "vonage"
+    run_command: 'python {filename}'
+
+  ruby:
+    weight: 8
+    label: Ruby
+    lexer: ruby
+    icon: ruby
+    dependencies:
+      - "vonage"
+    run_command: 'ruby {filename}'
+
+  android:
+    weight: 9
+    label: Java
+    lexer: java
+    icon: android
+    dependencies: []
+
+  swift:
+    weight: 10
+    label: Swift
+    lexer: swift
+    icon: ios
+    dependencies: []
+
+  objective_c:
+    weight: 11
+    label: Objective-C
+    lexer: ObjectiveC
+    icon: ios
+    dependencies: []
+
+  groovy:
+    weight: 11
+    label: Groovy
+    lexer: groovy
+    icon: android
+    dependencies: []
+
+platforms:
+  ios:
+    languages:
+      - swift
+      - objective_c
+  android:
+    languages:
+      - java
+      - kotlin
+  web:
+    languages:
+      - javascript
+
+data:
+  ncco:
+    label: NCCO
+    lexer: json
+    linkable: false
+  json:
+    weight: 1
+    label: JSON
+    lexer: json
+    linkable: false
+  xml:
+    weight: 2
+    label: XML
+    lexer: xml
+    linkable: false
