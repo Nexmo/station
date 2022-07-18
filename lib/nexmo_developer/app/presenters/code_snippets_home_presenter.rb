@@ -1,18 +1,18 @@
 class CodeSnippetsHomePresenter
   def code_snippets
-    # @code_snippets ||= config['code_snippets'].map do |snippet|
-    #   OpenStruct.new(
-    #     html: Nexmo::Markdown::Renderer.new.call(
-    #       <<-STRING
-    #       ```code_snippets
-    #       source: '#{snippet['source']}'
-    #       ```
-    #       STRING
-    #     ),
-    #     title: snippet['title']
-    #   )
-    # end
-    @code_snippets = []
+    @code_snippets ||= config['code_snippets'].map do |snippet|
+      OpenStruct.new(
+        html: Nexmo::Markdown::Renderer.new.call(
+          <<-STRING
+          ```code_snippets
+          source: '#{snippet['source']}'
+          ```
+          STRING
+        ),
+        title: snippet['title']
+      )
+    end
+    # @code_snippets = []
   end
 
   def cache_key
