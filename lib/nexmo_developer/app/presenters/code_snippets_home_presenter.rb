@@ -12,7 +12,6 @@ class CodeSnippetsHomePresenter
         title: snippet['title']
       )
     end
-    # @code_snippets = []
   end
 
   def cache_key
