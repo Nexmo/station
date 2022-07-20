@@ -237,7 +237,7 @@ export default {
   height: 87px;
   border-radius: 8px;
   margin-top: 5px;
-  z-index: 10003;
+  z-index: 100003;
 }
 .Vlt-composite {
   width: 100%;
