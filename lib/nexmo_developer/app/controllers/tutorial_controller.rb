@@ -61,13 +61,15 @@ class TutorialController < ApplicationController
   end
 
   def set_sidenav
+    @sidenav_product = params[:product] || @tutorial.yaml['products'].first
+
     @sidenav = Sidenav.new(
       namespace: params[:namespace],
       locale: params[:locale],
       request_path: request.path,
       navigation: @navigation,
       code_language: params[:code_language],
-      product: params[:product]
+      product: @sidenav_product
     )
   end
 
