@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe TutorialController, type: :controller do
   it 'renders' do
-    get :list, params: { product: 'messaging/sms'}
+    get :list, params: { product: 'messaging/sms' }
 
     expect(response.status).to eq(200)
   end
