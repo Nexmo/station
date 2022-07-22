@@ -61,7 +61,11 @@ class TutorialController < ApplicationController
   end
 
   def set_sidenav
-    @sidenav_product = params[:product] || @tutorial.yaml['products'].first
+    @sidenav_product = params[:product]
+
+    if @tutorial
+      @sidenav_product ||= @tutorial.yaml['products'].first
+    end
 
     @sidenav = Sidenav.new(
       namespace: params[:namespace],
