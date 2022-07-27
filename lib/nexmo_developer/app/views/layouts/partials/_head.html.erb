@@ -82,6 +82,18 @@
     <meta property="og:image" content="<%= canonical_base %>/<%= head.og_image %>" />
   <% end %>
 
+  <% if content_for? :title %>
+    <meta property="og:title" content="<%= yield(:title).strip %>" />
+  <% else %>
+    <meta property="og:title" content="<%= page_title %>" />
+  <% end %>
+
+  <% if content_for? :description %>
+    <meta property="og:description" content="<%= yield(:description).strip %>" />
+  <% else %>
+    <meta property="og:description" content="<%= head.description %>"/>
+  <% end %>
+
   <%= javascript_include_tag 'application', defer: true %>
 
   <%= javascript_packs_with_chunks_tag 'application', defer: true %>
@@ -119,10 +131,8 @@
 
   <meta property="og:image:width" content=<%= head.og_image_width %> />
   <meta property="og:image:height" content=<%= head.og_image_height %> />
-  <meta property="og:description" content="<%= head.description %>"/>
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta property="og:title" content="<%= page_title %>" />
 
+  <meta name="twitter:card" content="summary_large_image" />
 
   <meta name="basic_auth_username" content="<%= ENV['USERNAME'] %>" />
   <meta name="basic_auth_password" content="<%= ENV['PASSWORD'] %>" />

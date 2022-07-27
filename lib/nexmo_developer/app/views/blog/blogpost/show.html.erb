@@ -9,6 +9,14 @@
   <%= @blogpost.header_img_url.strip %>
 <% end %>
 
+<% content_for :title do %>
+  <%= @blogpost.blogpost.title.strip %>
+<% end %>
+
+<% content_for :description do %>
+  <%= @blogpost.blogpost.description.truncate(150).strip %>
+<% end %>
+
 <div class="max-w-screen-xl mx-auto">
 
   <!-- Layout tweak for reading time position -->
