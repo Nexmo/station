@@ -5,6 +5,10 @@
   <%= @blogpost.canonical %>
 <% end %>
 
+<% content_for :header_img_url do %>
+  <%= @blogpost.header_img_url.strip %>
+<% end %>
+
 <div class="max-w-screen-xl mx-auto">
 
   <!-- Layout tweak for reading time position -->
