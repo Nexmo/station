@@ -27,5 +27,6 @@ class Blog::BlogpostController < Blog::MainController
                              .first(RELATED_FOR_PREVIEW)
                              .sort_by { |b| b['updated_at'] }.reverse
                              .map { |attributes| Blog::Blogpost.new attributes }
+    @frontmatter = { "image" => @blogpost.header_img_url }
   end
 end

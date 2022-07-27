@@ -1,4 +1,5 @@
 class Head
+  include ApplicationHelper
   class Description
     def initialize(config:, frontmatter:)
       @config      = config
@@ -20,9 +21,9 @@ class Head
 
   def initialize(frontmatter = nil)
     @frontmatter = frontmatter
-
+    @og_image = @frontmatter["image"] if @frontmatter
     after_initialize!
-    validate_files_presence!
+    # validate_files_presence!
   end
 
   def title
@@ -72,7 +73,7 @@ class Head
   end
 
   def og_image
-    @og_image ||= "meta/#{config['og-image']}"
+    @og_image ||= "#{canonical_base}/meta/#{config['og-image']}"
   end
 
   def og_image_width
