@@ -21,13 +21,31 @@ class Sidenav
       end
     end.compact
 
-      @nav_items = map_items(items, 1) if @nav_items.blank?
+    if @nav_items.blank?
+      @nav_items = items.map do |item|
+        if @product && @product.split('/')[1] && @product.split('/')[1].include?(item[:title])
+          SidenavItem.new(folder: item, sidenav: self)
+        end
+      end.compact
+    end
 
-      @nav_items = map_items(items, 0) if @nav_items.blank?
+    if @nav_items.blank?
+      @nav_items = items.map do |item|
+        if @product && @product.split('/')[0] && @product.split('/')[0].include?(item[:title])
+          SidenavItem.new(folder: item, sidenav: self)
+        end
+      end.compact
+    end
 
-      @nav_items = (items, 1, true) if @nav_items.blank?
+    if @nav_items.blank?
+      @nav_items = items.map do |item|
+        if @product && @product.split('/')[1].nil? && @product.include?(item[:title])
+          SidenavItem.new(folder: item, sidenav: self)
+        end
+      end.compact
+    end
 
-      @nav_items
+    @nav_items
   end
 
   def namespace
@@ -61,22 +79,6 @@ class Sidenav
       }]
     else
       children
-    end
-  end
-
-  def map_items(nav_items, index, index_nil=false)
-    if index_nil
-      nav_items.map do |item|
-        if @product && @product.split('/')[index].nil? && @product.include?(item[:title])
-          SidenavItem.new(folder: item, sidenav: self)
-        end
-      end.compact
-    else
-      nav_items.map do |item|
-        if @product && @product.split('/')[index] && @product.split('/')[index].include?(item[:title])
-          SidenavItem.new(folder: item, sidenav: self)
-        end
-      end.compact
     end
   end
 
