@@ -135,6 +135,8 @@ export default {
       if (this.expanded) {
         this.expanded = false;
       }
+
+      this.toggleSearch(true);
     },
 
     handleSearchToggle: function(event) {
