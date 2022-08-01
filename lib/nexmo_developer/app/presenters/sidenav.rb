@@ -21,13 +21,13 @@ class Sidenav
       end
     end.compact
 
-      @nav_items = map_items(items, 1) if @nav_items.blank?
+    @nav_items = map_items(items, 1) if @nav_items.blank?
 
-      @nav_items = map_items(items, 0) if @nav_items.blank?
+    @nav_items = map_items(items, 0) if @nav_items.blank?
 
-      @nav_items = (items, 1, true) if @nav_items.blank?
+    @nav_items = map_items(items, 1, true) if @nav_items.blank?
 
-      @nav_items
+    @nav_items
   end
 
   def namespace
