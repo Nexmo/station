@@ -64,7 +64,7 @@ class Sidenav
     end
   end
 
-  def map_items(nav_items, index, index_nil=false)
+  def map_items(nav_items, index, index_nil: false)
     if index_nil
       nav_items.map do |item|
         if @product && @product.split('/')[index].nil? && @product.include?(item[:title])
