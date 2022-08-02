@@ -2,14 +2,28 @@
   <div class="center spacious content-block">
     <h1><%= @landing_info['title'].html_safe %></h1>
     <p><%= raw @landing_info['subtitle'].html_safe %></p>
-  </div>
+    <p>
+      <!-- Tthi is the buttons group area--> 
+      <strong>Jump to: </strong>
+      <% @landing_info['top-section'].each_with_index do |product, ind| %>
+        <%if ind<=2%>
+          <a href="#<%=product.keys.first.to_s.gsub(' ', '-')%>" class="Vlt-btn Vlt-btn--blue Vlt-btn--app Vlt-btn--small"><%= product.keys.first %></a>
+        <%end%>
+      <%end%>
 
-  <div>
+      <% @landing_info['bottom-section'].each do |product| %>
+        <% product[product.keys.first].each do |cards| %>
+          <a href="#<%=cards.keys.first.to_s.gsub(' ', '-')%>" class="Vlt-btn Vlt-btn--blue Vlt-btn--app Vlt-btn--small"><%= cards.keys.first %></a>
+        <%end%>
+      <%end%>
+    </p>
+  </div>
+<div>
 
 <!-- TOP section -->
     <% @landing_info['top-section'].each do |product| %>
       <hr class="hr--tall Vlt-gradient--blue-to-pink"></hr>
-      <h2><%= product.keys.first %></h2>
+      <h2 id="<%= product.keys.first.to_s.gsub(' ','-') %>"><%= product.keys.first %></h2>
       <br>
 
       <div class="my-4col-grid">
