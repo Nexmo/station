@@ -19,11 +19,16 @@
     </div>
     <main class="Vlt-main Nxd-main">
       <%= render partial: 'layouts/partials/notices' %>
-      <div class="Vlt-article">
-        <div id="primary-content" tabindex="-1"></div>
-        <%= yield %>
-        <%= render partial: 'layouts/partials/improve_this_page' %>
-      </div>
+      <div class="Vlt-grid ">
+         <div class="Vlt-col Vlt-col--3of4 Nxd-tutorial">
+           <%# @content.html_safe %>
+           <%= yield %>
+           <%= render partial: 'layouts/partials/improve_this_page' %>
+         </div>
+         <div class="Vlt-col Vlt-col--1of4 Vlt-sidenav Nxd-tutorial-sidenav">
+           <%= navigation_from_content(content: @content) %>
+         </div>
+       </div>
     </main>
     <%= render partial: 'layouts/partials/feedback' %>
   </body>
