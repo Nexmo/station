@@ -1,7 +1,7 @@
 require 'json'
 
 class BlogpostParser
-  PATH_TO_INDEX = "#{Rails.configuration.blog_path}/blogposts/blogposts_info.json".freeze
+  PATH_TO_INDEX = "#{ENV['BLOG_PATH']}/blogposts/blogposts_info.json".freeze
 
   def self.fetch_all
     # Add Rescue from error
