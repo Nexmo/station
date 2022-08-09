@@ -105,6 +105,7 @@ jobs:
       env:
         POSTGRES_USERNAME: postgres
         DOCS_BASE_PATH: ./spec/fixtures
+        BLOG_PATH: ./spec/fixtures/_blog
         OAS_PATH: ./spec/fixtures/api_specs/definitions
         FORCE_COLOR: true
       run: |
