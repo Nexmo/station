@@ -5,6 +5,8 @@ class BlogpostParser
 
   def self.fetch_all
     # Add Rescue from error
+    puts "---INDEX---"
+puts PATH_TO_INDEX
     file = File.read(PATH_TO_INDEX)
 
     JSON.parse(file)
