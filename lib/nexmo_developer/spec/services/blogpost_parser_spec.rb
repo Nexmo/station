@@ -1,13 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe BlogpostParser do
-
   context 'self.fetch_all' do
     it 'can load blogposts/blogposts_info.json' do
       allow(ENV).to receive(:[]).and_call_original
       allow(ENV).to receive(:[]).with('BLOG_PATH').and_return('/spec/fixtures/_blog')
-puts "------"
-puts ENV['BLOG_PATH']
+
       expect(BlogpostParser.fetch_all).to_not eq(nil)
     end
   end
@@ -20,5 +18,4 @@ puts ENV['BLOG_PATH']
       expect(BlogpostParser.fetch_all).to_not eq(BlogpostParser.fetch_all_published)
     end
   end
-
 end
