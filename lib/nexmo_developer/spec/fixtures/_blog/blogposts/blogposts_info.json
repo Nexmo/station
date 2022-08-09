@@ -1,0 +1,71 @@
+[
+  {
+    "title": "Version 3.0.0 of the Vonage Python SDK is now available!",
+    "description": "Vonage's Python Server SDK Version 3.0.0 is now available. Find out what's new!",
+    "thumbnail": "https://d226lax1qjow5r.cloudfront.net/blog/blogposts/announcing-python-sdk-version-v3/python_sdk_updates.png",
+    "author": {
+      "team": true,
+      "name": "Max Kahan",
+      "image_url": "https://github.com/maxkahan.png",
+      "bio": "Max is a Python Developer Advocate and Software Engineer who's passionate about technology. Interested in developer experience, machine learning, artificial intelligence, cloud development, enterprise messaging and swing dance! His training is in Physics, but now he uses his problem-solving skills daily in the technology industry.",
+      "title": "Python Developer Advocate",
+      "linkedin_url": "https://www.linkedin.com/in/maxkahan/",
+      "twitter": "max_does_tech",
+      "github_url": "https://github.com/maxkahan",
+      "short_name": "max-kahan"
+    },
+    "published": true,
+    "published_at": "2022-08-08 11:48:15 UTC",
+    "updated_at": "2022-08-08 11:48:15 UTC",
+    "category": {
+      "name": "Release",
+      "plural": "Releases",
+      "slug": "release",
+      "color": "#b779ff"
+    },
+    "tags": [
+      "python"
+    ],
+    "spotlight": false,
+    "canonical": "",
+    "outdated": false,
+    "replacement_url": "",
+    "locale": "en",
+    "link": "blog/22/08/08/announcing-python-sdk-version-v3",
+    "filename": "announcing-python-sdk-version-v3"
+  },
+  {
+    "title": "How an SDK Can Add Value to REST APIs",
+    "description": "This article provides an inside look into the design of the Java SDK's implementation of the Vonage Messages v1 API.",
+    "thumbnail": "https://d226lax1qjow5r.cloudfront.net/blog/blogposts/how-an-sdk-can-add-value-to-rest-apis/sdk-rest-apis.png",
+    "author": {
+      "team": true,
+      "name": "Sina Madani",
+      "image_url": "https://github.com/SMadani.png",
+      "bio": "Sina is a Java Developer Advocate at Vonage. He comes from an academic background and is generally curious about anything related to cars, computers, programming, technology and human nature. In his spare time, he can be found walking or playing competitive video games.",
+      "title": "Java Developer Advocate",
+      "short_name": "sina-madani"
+    },
+    "published": false,
+    "published_at": "2022-08-04 11:48:15 UTC",
+    "updated_at": "2022-08-04 11:48:16 UTC",
+    "category": {
+      "name": "Release",
+      "plural": "Releases",
+      "slug": "release",
+      "color": "#b779ff"
+    },
+    "tags": [
+      "java",
+      "messages-v1",
+      "messages-api"
+    ],
+    "spotlight": false,
+    "canonical": "",
+    "outdated": false,
+    "replacement_url": "",
+    "locale": "en",
+    "link": "blog/22/08/04/how-an-sdk-can-add-value-to-rest-apis",
+    "filename": "how-an-sdk-can-add-value-to-rest-apis"
+  }
+]
