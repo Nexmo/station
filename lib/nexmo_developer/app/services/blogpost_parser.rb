@@ -10,6 +10,10 @@ class BlogpostParser
     JSON.parse(file)
   end
 
+  def self.fetch_all_published
+    fetch_all.select { |b| b['published'] && !b['outdated'] }
+  end
+
   def self.build
     all_blogposts = []
 
