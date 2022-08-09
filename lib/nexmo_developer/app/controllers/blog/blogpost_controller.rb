@@ -5,8 +5,7 @@ class Blog::BlogpostController < Blog::MainController
 
   def index
     #   Fetch data as Json
-    data = BlogpostParser.fetch_all
-                         .select { |b| b['published'] && !b['outdated'] }
+    data = BlogpostParser.fetch_all_published
 
     categories = CategoryParser.fetch_all_categories
 
@@ -21,9 +20,13 @@ class Blog::BlogpostController < Blog::MainController
   end
 
   def show
-    data = BlogpostParser.fetch_all
     @blogpost = Blog::Blogpost.build_blogpost_from_path(params[:blog_path], 'en')
-    @related_blogposts = data.select { |b| b['category']['slug'] == @blogpost.category.slug && b['title'] != @blogpost.title && b['published'] && !b['outdated'] }
+
+    redirect_to blog_path unless @blogpost.published
+
+    data = BlogpostParser.fetch_all_published
+
+    @related_blogposts = data.select { |b| b['category']['slug'] == @blogpost.category.slug && b['title'] != @blogpost.title }
                              .first(RELATED_FOR_PREVIEW)
                              .sort_by { |b| b['updated_at'] }.reverse
                              .map { |attributes| Blog::Blogpost.new attributes }

@@ -1,13 +1,17 @@
 require 'json'
 
 class BlogpostParser
-  PATH_TO_INDEX = "#{Rails.configuration.blog_path}/blogposts/blogposts_info.json".freeze
+  PATH_TO_INDEX = "#{ENV['BLOG_PATH']}/blogposts/blogposts_info.json".freeze
 
   def self.fetch_all
     # Add Rescue from error
     file = File.read(PATH_TO_INDEX)
 
     JSON.parse(file)
+  end
+
+  def self.fetch_all_published
+    fetch_all.select { |b| b['published'] && !b['outdated'] }
   end
 
   def self.build
