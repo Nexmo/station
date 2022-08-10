@@ -5,15 +5,13 @@
     <p>
       <!-- Tthi is the buttons group area--> 
       <strong>Jump to: </strong>
-      <% @landing_info['top-section'].each_with_index do |product, ind| %>
-        <%if ind<=2%>
-          <a href="#<%=product.keys.first.to_s.gsub(' ', '-')%>" class="Vlt-btn Vlt-btn--blue Vlt-btn--app Vlt-btn--small"><%= product.keys.first %></a>
-        <%end%>
-      <%end%>
+      <% @landing_info['top-section'].each do |product| %>
+        <a href="#<%=refactor_keys(product)%>" class="<%= refactor_class %>"><%= first(product) %></a>
+      <%end %>
 
       <% @landing_info['bottom-section'].each do |product| %>
         <% product[product.keys.first].each do |cards| %>
-          <a href="#<%=cards.keys.first.to_s.gsub(' ', '-')%>" class="Vlt-btn Vlt-btn--blue Vlt-btn--app Vlt-btn--small"><%= cards.keys.first %></a>
+          <a href="#<%=refactor_keys(cards)%>" class="<%= refactor_class %>"><%= first(cards) %></a>
         <%end%>
       <%end%>
     </p>
@@ -23,7 +21,7 @@
 <!-- TOP section -->
     <% @landing_info['top-section'].each do |product| %>
       <hr class="hr--tall Vlt-gradient--blue-to-pink"></hr>
-      <h2 id="<%= product.keys.first.to_s.gsub(' ','-') %>"><%= product.keys.first %></h2>
+      <h2 id="<%= refactor_keys(product) %>"><%= first(product) %></h2>
       <br>
 
       <div class="my-4col-grid">
@@ -36,7 +34,7 @@
 <!-- BOTTOM section -->
     <% @landing_info['bottom-section'].each do |product| %>
       <hr class="hr--tall Vlt-gradient--blue-to-pink"></hr>
-      <h2><%= product.keys.first %></h2>
+      <h2><%= first(product) %></h2>
       <br>
 
       <div class="my-2col-grid">
