@@ -82,7 +82,7 @@ class Sidenav
     end
   end
 
-  def map_items(nav_items, index, index_nil=false)
+  def map_items(nav_items, index, index_nil = false)
     nav_items.map do |item|
       if @product
         product_data = @product.split('/')[index]

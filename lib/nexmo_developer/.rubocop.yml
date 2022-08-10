@@ -216,7 +216,7 @@ Style/GlobalStdStream:
   Enabled: true
 
 Style/OptionalBooleanParameter:
-  Enabled: true
+  Enabled: false
 
 Style/SingleArgumentDig:
   Enabled: true
