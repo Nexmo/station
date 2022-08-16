@@ -37,6 +37,7 @@ module NavigationHelper
       end
 
       nodes << <<~HEREDOC
+        <h4> On this page:
         <li>
           <a class="Vlt-sidemenu__link" href="##{heading.attributes['id']}" data-scrollspy-id="#{heading['data-id']}">
             #{heading.text}
@@ -44,7 +45,7 @@ module NavigationHelper
       HEREDOC
       last_node = heading
     end
-    nodes << '</li></ul>'
+    nodes << '</li></h4></ul>'
     nodes.join("\n").html_safe
   end
 
