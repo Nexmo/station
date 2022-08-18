@@ -97,6 +97,9 @@
 
 .Nxd-tutorial-sidenav {
   background: $white;
+  top: 0;
+  position: sticky;
+  position: -webkit-sticky;
 
   a {
     color: black;
