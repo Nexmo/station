@@ -1,9 +1,9 @@
 class TutorialController < ApplicationController
-  # before_action :set_navigation
+  #before_action :set_navigation
   before_action :set_tutorial_step
   before_action :set_tutorial, except: %i[list single]
   before_action :check_tutorial_step, except: %i[list single]
-  before_action :set_sidenav
+  #before_action :set_sidenav
   before_action :canonical_redirect, only: %i[list index]
 
   def list
@@ -46,6 +46,7 @@ class TutorialController < ApplicationController
 
   def single
     path = "#{Rails.configuration.docs_base_path}/_tutorials/#{I18n.default_locale}/#{params[:tutorial_step]}.md"
+    # path = "#{ENV['DOCS_BASE_PATH']}/__tutorials/#{I18n.default_locale}/#{params[:tutorial_step]}.md"
     @content = File.read(path)
     @content = Nexmo::Markdown::Renderer.new({
                                       code_language: @code_language,
