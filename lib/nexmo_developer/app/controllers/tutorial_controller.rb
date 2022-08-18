@@ -59,6 +59,7 @@ class TutorialController < ApplicationController
 
   def set_navigation
     @navigation = :tutorials
+    @not_show_nav = true
   end
 
   def set_sidenav

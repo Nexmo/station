@@ -25,7 +25,10 @@
           <%= render partial: 'layouts/partials/improve_this_page' %>
         </div>
         <div class="Vlt-col Vlt-col--1of4 Vlt-sidenav Nxd-tutorial-sidenav">
-            <%= navigation_from_content(content: @content) %>
+        <% if @not_show_nav%>
+        <%else%>
+          <%= navigation_from_content(content: @content) %>
+        <%end%>
         </div>
        </div>
     </main>
