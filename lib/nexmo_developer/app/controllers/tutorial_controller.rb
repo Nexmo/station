@@ -1,5 +1,5 @@
 class TutorialController < ApplicationController
-  before_action :set_navigation
+  # before_action :set_navigation
   before_action :set_tutorial_step
   before_action :set_tutorial, except: %i[list single]
   before_action :check_tutorial_step, except: %i[list single]
