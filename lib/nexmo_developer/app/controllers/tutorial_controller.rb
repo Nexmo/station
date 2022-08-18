@@ -1,9 +1,9 @@
 class TutorialController < ApplicationController
-  #before_action :set_navigation
+  before_action :set_navigation
   before_action :set_tutorial_step
   before_action :set_tutorial, except: %i[list single]
   before_action :check_tutorial_step, except: %i[list single]
-  #before_action :set_sidenav
+  before_action :set_sidenav
   before_action :canonical_redirect, only: %i[list index]
 
   def list
@@ -72,7 +72,7 @@ class TutorialController < ApplicationController
       namespace: params[:namespace],
       locale: params[:locale],
       request_path: request.path,
-      navigation: @navigation,
+      navigation: nil,
       code_language: params[:code_language],
       product: @sidenav_product
     )
