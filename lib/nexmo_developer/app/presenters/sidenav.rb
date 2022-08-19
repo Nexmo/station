@@ -21,28 +21,8 @@ class Sidenav
       end
     end.compact
 
-    if @nav_items.blank?
-      @nav_items = items.map do |item|
-        if @product && @product.split('/')[1] && @product.split('/')[1].include?(item[:title])
-          SidenavItem.new(folder: item, sidenav: self)
-        end
-      end.compact
-    end
-
-    if @nav_items.blank?
-      @nav_items = items.map do |item|
-        if @product && @product.split('/')[0] && @product.split('/')[0].include?(item[:title])
-          SidenavItem.new(folder: item, sidenav: self)
-        end
-      end.compact
-    end
-
-    if @nav_items.blank?
-      @nav_items = items.map do |item|
-        if @product && @product.split('/')[1].nil? && @product.include?(item[:title])
-          SidenavItem.new(folder: item, sidenav: self)
-        end
-      end.compact
+    [1,0,1].each_with_index do |ele, ind|
+      @nav_items.blank? ? (@nav_items = map_items(items, ele, ind==2)) : break
     end
 
     @nav_items
@@ -80,6 +60,17 @@ class Sidenav
     else
       children
     end
+  end
+
+  def map_items(nav_items, index, index_nil=false)
+    nav_items.map do |item|
+      if @product
+        product_data = @product.split('/')[index]
+        if ((index_nil && product_data.nil? && @product.include?(item[:title])) or (!index_nil && product_data && product_data.include?(item[:title])))
+          SidenavItem.new(folder: item, sidenav: self)
+        end
+      end
+    end.compact
   end
 
   def resolver
