@@ -82,17 +82,6 @@ class Sidenav
     end
   end
 
-  def map_items(nav_items, index, index_nil = false)
-    nav_items.map do |item|
-      if @product
-        product_data = @product.split('/')[index]
-        if (index_nil && product_data.nil? && @product.include?(item[:title])) || (!index_nil && product_data && product_data.include?(item[:title]))
-          SidenavItem.new(folder: item, sidenav: self)
-        end
-      end
-    end.compact
-  end
-
   def resolver
     @resolver ||= SidenavResolver.new(
       path: @path,
