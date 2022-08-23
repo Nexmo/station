@@ -71,7 +71,7 @@ class TutorialController < ApplicationController
       namespace: params[:namespace],
       locale: params[:locale],
       request_path: request.path,
-      navigation: nil,
+      navigation: @navigation,
       code_language: params[:code_language],
       product: @sidenav_product
     )
