@@ -3,7 +3,7 @@
     <h1><%= @landing_info['title'].html_safe %></h1>
     <p><%= raw @landing_info['subtitle'].html_safe %></p>
     <p>
-      <!-- Tthi is the buttons group area--> 
+      <!-- This is the buttons group area-->
       <strong>Jump to: </strong>
       <% @landing_info['top-section'].each do |product| %>
         <a href="#<%=product.keys.first.to_s.gsub(' ', '-')%>"  class='Vlt-btn Vlt-btn--blue Vlt-btn--app Vlt-btn--small'><%= product.keys.first %></a>
