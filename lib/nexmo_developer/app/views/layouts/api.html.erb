@@ -9,11 +9,7 @@
         <% begin %>
           <%= render partial: "layouts/partials/#{@side_navigation}" %>
         <% rescue ActionView::MissingTemplate %>
-           <% if @not_show_nav%>
-
-           <%else%>
-              <%= navigation_from_content(content: @content, title: @side_navigation_title) %>
-          <%end%>
+            <%= navigation_from_content(content: @content, title: @side_navigation_title) %>
         <% end %>
       </div>
     </nav>

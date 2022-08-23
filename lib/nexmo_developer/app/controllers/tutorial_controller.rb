@@ -46,7 +46,6 @@ class TutorialController < ApplicationController
 
   def single
     path = "#{Rails.configuration.docs_base_path}/_tutorials/#{I18n.default_locale}/#{params[:tutorial_step]}.md"
-    # path = "#{ENV['DOCS_BASE_PATH']}/__tutorials/#{I18n.default_locale}/#{params[:tutorial_step]}.md"
     @content = File.read(path)
     @content = Nexmo::Markdown::Renderer.new({
                                       code_language: @code_language,
@@ -59,7 +58,6 @@ class TutorialController < ApplicationController
 
   def set_navigation
     @navigation = :tutorials
-    @not_show_nav = true
   end
 
   def set_sidenav

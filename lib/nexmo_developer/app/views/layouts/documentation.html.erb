@@ -17,7 +17,6 @@
         </nav>
       </div>
     </div>
-    <% if @not_show_nav%>
       <main class="Vlt-main Nxd-main">
         <%= render partial: 'layouts/partials/notices' %>
         <div class="Vlt-grid">
@@ -27,7 +26,6 @@
           </div>
         </div>
       </main>
-    <%else%>
       <main class="Vlt-main Nxd-main">
         <%= render partial: 'layouts/partials/notices' %>
         <div class="Vlt-grid">
@@ -36,11 +34,11 @@
             <%= render partial: 'layouts/partials/improve_this_page' %>
           </div>
             <div class="Vlt-col Vlt-col--1of4 Vlt-sidenav Nxd-tutorial-sidenav">
-              <%= navigation_from_content(content: @content) %>
+              <% unless current_page?(controller: 'tutorial') %>
+                <%= navigation_from_content(content: @content) %>
             </div>
           </div>
       </main>
-    <%end%>
     <%= render partial: 'layouts/partials/feedback' %>
   </body>
 </html>
