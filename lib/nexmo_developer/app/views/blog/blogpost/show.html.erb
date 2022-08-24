@@ -68,12 +68,6 @@
 
       <div class="Vlt-card__content" style="padding:24px;">
 
-   
-        <% buttonRootUrl =  'https://dashboard.nexmo.com/sign-up?icid=tryitfree_adpblog-'
-          buttonEndUrl = '_nexmodashbdfreetrialsignup_banner'
-          blogButtonPath = buttonRootUrl+ params[:blog_path] + buttonEndUrl%>
-
-
         <!-- Category tag -->
         <a href="<%= blog_category_path(category.slug)%>" class="category-name" style="color: <%= category.color %>;padding:0 0 16px 0;">
           < <%= category.name %> />
@@ -148,11 +142,10 @@
       </div>
       <p>Start developing in minutes with free credit on us. No credit card required!</p>
 
-      <a href=<%= blogButtonPath%> class="Vlt-btn-blog-sm">
+      <%= link_to "Sign Up", @blogButtonPath, class: "Vlt-btn-blog-sm" %>
         <svg class="Vlt-icon Vlt-icon--smaller Vlt-grey-darker" style="opacity: .6;">
           <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-clock"></use>
         </svg>
-      </a>
       <img src="https://s3.eu-west-1.amazonaws.com/developer.vonage.com/blog/sign_up_button/laptop.png"/>
       
     </div>

@@ -85,14 +85,9 @@
   margin-right: auto;
 }
 
-.flex-between {
-  display: flex;
-  justify-content: space-between;
-}
+.flex-between { display: flex; justify-content: space-between; }
 
-.h-100 {
-  height: 100%;
-}
+.h-100 { height: 100%; }
 
 // Author info column
 #author-column {
@@ -105,11 +100,7 @@
 // High opacity gradient BG
 .gradient-bg {
   // background: linear-gradient(to right, rgba(127, 198, 244, .1), rgba(213, 39, 155, .1));
-  background: linear-gradient(
-    135deg,
-    rgba(127, 198, 244, 0.3),
-    rgba(213, 39, 155, 0.1)
-  );
+  background: linear-gradient(135deg,rgba(127, 198, 244, 0.3),rgba(213, 39, 155, 0.1));
   background-attachment: fixed;
   min-height: 100vh;
 }
@@ -118,12 +109,7 @@
 .gradient-border-left {
   border-left: 2px solid;
   padding-left: 4px;
-  border-image: linear-gradient(
-      to bottom,
-      rgba(127, 198, 244, 0.8),
-      rgba(213, 39, 155, 0.8)
-    )
-    5;
+  border-image: linear-gradient(to bottom,rgba(127, 198, 244, 0.8),rgba(213, 39, 155, 0.8)) 5;
 }
 
 // Category titles separator
@@ -153,16 +139,19 @@
   #author {
     width: 20%;
     height: fit-content;
+    position: sticky;
   }
   #content {
     width: 58%;
     padding: 0;
   }
   .wrapper-cards {
+    position: sticky;
     width: 20%;
     #related {
       width: auto;
       height: fit-content;
+      position: sticky;
     }
     #card-action {
       width: auto;
@@ -248,8 +237,7 @@
   #blogpost-show-wrapper {
     flex-direction: column;
 
-    #author,
-    #content {
+    #author, #content { 
       min-width: 300px;
       width: 100%;
     }
@@ -338,9 +326,7 @@
       }
     }
     // VIDEO embedded in IFRAME Blogposts#SHOW
-    iframe {
-      width: 100% !important;
-    }
+    iframe { width: 100% !important; }
   }
 }
 
@@ -374,9 +360,7 @@
   left: 0;
   transition: all 0.2s ease-in-out;
 
-  &:hover {
-    left: 5px;
-  }
+  &:hover { left: 5px; }
 }
 
 // Centering orizontally V-icon with text
@@ -394,8 +378,7 @@
 .raw_blopost_content {
   margin-top: 3em;
 
-  p,
-  li {
+  p, li {
     font-size: 1.8rem;
     letter-spacing: 0.5px;
     color: #374151;
@@ -454,16 +437,11 @@
   .show-author-wrapper {
     flex-direction: column;
 
-    .author-details {
-      min-width: 300px;
-      width: 100%;
-    }
+    .author-details { min-width: 300px; width: 100%; }
 
     .author-blogposts {
       width: 100%;
-      .my-3col-grid {
-        grid-template-columns: repeat(1, 1fr) !important;
-      }
+      .my-3col-grid { grid-template-columns: repeat(1, 1fr) !important; }
     }
   }
 }
@@ -573,7 +551,5 @@
 
 // Media query for MAIN MOBILE LAYOUT
 @media screen and (max-width: 480) {
-  .Nxd-landing-main {
-    padding: 8px !important;
-  }
+  .Nxd-landing-main { padding: 8px !important; }
 }
