@@ -137,8 +137,10 @@
 // Main wrapper for Blogposts#SHOW
 #blogpost-show-wrapper {
   #author {
+    top: 10px;
     width: 20%;
     height: fit-content;
+    position: sticky;
   }
   #content {
     width: 58%;
@@ -148,13 +150,14 @@
     width: 20%;
     #related {
       top: 0;
+      margin-top: 10px;
       width: auto;
       height: fit-content;
       position: sticky;
       position: -webkit-sticky;
     }
     #card-action {
-      top: 596px;
+      top: 536px;
       width: auto;
       height: 404px;
       display: flex;
