@@ -5,18 +5,6 @@
   <%= @blogpost.canonical %>
 <% end %>
 
-<% content_for :header_img_url do %>
-  <%= @blogpost.header_img_url.strip %>
-<% end %>
-
-<% content_for :title do %>
-  <%= @blogpost.title.strip %>
-<% end %>
-
-<% content_for :description do %>
-  <%= @blogpost.description.truncate(150).strip %>
-<% end %>
-
 <div class="max-w-screen-xl mx-auto">
 
   <!-- Layout tweak for reading time position -->
@@ -80,6 +68,12 @@
 
       <div class="Vlt-card__content" style="padding:24px;">
 
+   
+        <% buttonRootUrl =  'https://dashboard.nexmo.com/sign-up?icid=tryitfree_adpblog-'
+          buttonEndUrl = '_nexmodashbdfreetrialsignup_banner'
+          blogButtonPath = buttonRootUrl+ params[:blog_path] + buttonEndUrl%>
+
+
         <!-- Category tag -->
         <a href="<%= blog_category_path(category.slug)%>" class="category-name" style="color: <%= category.color %>;padding:0 0 16px 0;">
           < <%= category.name %> />
@@ -103,9 +97,20 @@
         <!-- Last Updated at -->
         <% updated = @blogpost.updated_at.present? ? @blogpost.updated_at : @blogpost.published_at %>
         <p class='Vlt-grey-darker'><strong>Last updated on <%= updated.strftime('%b %d, %Y') %></strong></p>
-
+     
+             <a href=<%= blogButtonPath%> class="Vlt-btn-blog-md" style="display: flex;
+             width: 12.6rem;
+             margin:auto;
+             float: right;
+        ">
+          <img src="/images/icons/rocket-icon-30x30.png" alt="rocket-icon-60x60" >Sign up
+        </a>
         <!-- Raw content -->
         <div class="raw_blopost_content"><%= raw @blogpost.content %></div>
+          <a href=<%= blogButtonPath%> class="Vlt-btn-blog-md" style="display: inline-flex;
+        ">
+          <img src="/images/icons/rocket-icon-30x30.png" alt="rocket-icon-60x60" >Sign up
+        </a>
       </div>
 
     </div>
