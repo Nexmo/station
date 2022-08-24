@@ -5,6 +5,16 @@
   <%= @blogpost.canonical %>
 <% end %>
 
+<% content_for :header_img_url do %>
+  <%= @blogpost.header_img_url.strip %>
+<% end %>
+<% content_for :title do %>
+  <%= @blogpost.title.strip %>
+<% end %>
+<% content_for :description do %>
+  <%= @blogpost.description.truncate(150).strip %>
+<% end %>
+
 <div class="max-w-screen-xl mx-auto">
 
   <!-- Layout tweak for reading time position -->
@@ -101,7 +111,7 @@
     </div>
 
     <!-- Related Blogposts -->
-    <div class="wrapper-cards" style="">
+    <div class="wrapper-cards">
     <div id="related" class="Vlt-card Vlt-bg-white" style="">
 
       <h4 style="text-align:center;">Related Posts</h4>

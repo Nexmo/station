@@ -146,14 +146,16 @@
     padding: 0;
   }
   .wrapper-cards {
-    position: sticky;
     width: 20%;
     #related {
+      top: 0;
       width: auto;
       height: fit-content;
       position: sticky;
+      position: -webkit-sticky;
     }
     #card-action {
+      top: 0;
       width: auto;
       height: 404px;
       display: flex;
@@ -162,6 +164,8 @@
       flex-direction: column;
       padding: 0px 27px;
       overflow: hidden;
+      position: sticky;
+      position: -webkit-sticky;
 
       .rectangle {
         background: #ffa58b;
