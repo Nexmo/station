@@ -25,10 +25,10 @@
   }
 }
 .Vlt-btn-blog-md {
-  display: inline-flex;
-  width: auto;
-  background: white;
+  display: flex;
+  width: 12.6rem;
   margin: auto;
+  background: white;
   border: 1px solid black;
   border-radius: 8px;
   font-size: 16px;
@@ -158,9 +158,89 @@
     width: 58%;
     padding: 0;
   }
-  #related {
+  .wrapper-cards {
     width: 20%;
-    height: fit-content;
+    #related {
+      width: auto;
+      height: fit-content;
+    }
+    #card-action {
+      width: auto;
+      height: 404px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 0px 27px;
+      overflow: hidden;
+
+      .rectangle {
+        background: #ffa58b;
+        background: linear-gradient(90deg, #ffa58b 0%, #8728fb 80%);
+        background: -webkit-linear-gradient(0deg, #ffa58b 0%, #8728fb 80%);
+        background: -moz-linear-gradient(0deg, #ffa58b 0%, #8728fb 80%);
+        position: absolute;
+        top: -72px;
+        translate: -24%;
+        width: 208px;
+        height: 156px;
+        z-index: 2;
+        transform: skewX(40deg);
+      }
+      .title {
+        margin-top: -13px;
+        height: 50px;
+        z-index: 20;
+        width: 180px;
+        border-radius: 16px;
+        display: block;
+        background: black;
+        text-align: center;
+
+        .title-text {
+          position: relative;
+          top: 15px;
+          z-index: 20;
+          width: 100%;
+          min-width: 100px;
+          border-radius: 16px;
+          display: block;
+          background: black;
+          color: white;
+        }
+      }
+      .square {
+        display: inline-block;
+        width: 50%;
+        height: 52px;
+        right: -52%;
+        background: black;
+        position: relative;
+        top: 44px;
+        z-index: 5;
+      }
+      p {
+        color: white;
+        text-align: center;
+      }
+      .Vlt-btn-blog-sm {
+        margin-bottom: 6rem;
+        margin-top: 2rem;
+        min-width: 100px;
+        height: 40px;
+        width: 108px;
+        img {
+          width: 37px;
+          height: auto;
+        }
+      }
+      img {
+        position: relative;
+        bottom: 0;
+        max-width: none;
+        width: 115%;
+      }
+    }
   }
 }
 
@@ -169,12 +249,94 @@
     flex-direction: column;
 
     #author,
-    #content,
-    #related {
+    #content {
       min-width: 300px;
       width: 100%;
     }
+    .wrapper-cards {
+      min-width: 300px;
+      width: 100%;
 
+      #related {
+        width: auto;
+      }
+      #card-action {
+        width: auto;
+        height: 404px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0px 27px;
+        overflow: hidden;
+
+        .rectangle {
+          all: unset;
+          position: absolute;
+          top: -65px;
+          width: 208px;
+          height: 156px;
+          z-index: 2;
+          transform: skewX(40deg);
+          background: -webkit-linear-gradient(0deg, #ffa58b 0%, #8728fb 80%);
+          translate: -23.5%;
+        }
+        .title {
+          margin-top: -13px;
+          height: 50px;
+          z-index: 20;
+          width: 180px;
+          border-radius: 16px;
+          display: block;
+          background: black;
+          text-align: center;
+
+          .title-text {
+            position: relative;
+            top: 15px;
+            z-index: 20;
+            width: 100%;
+            min-width: 100px;
+            border-radius: 16px;
+            display: block;
+            background: black;
+            color: white;
+          }
+        }
+        .square {
+          display: inline-block;
+          position: relative;
+          width: 40%;
+          height: 46px;
+          translate: -50%;
+          background: black;
+          top: 40px;
+          z-index: 5;
+        }
+        p {
+          width: 197px;
+          color: white;
+          text-align: center;
+        }
+        .Vlt-btn-blog-sm {
+          margin-bottom: 6rem;
+          margin-top: 2rem;
+          min-width: 100px;
+          height: 40px;
+          width: 108px;
+          img {
+            width: 37px;
+            height: auto;
+          }
+        }
+        img {
+          position: relative;
+          bottom: 0px;
+          max-width: none;
+          width: auto;
+        }
+      }
+    }
     // VIDEO embedded in IFRAME Blogposts#SHOW
     iframe {
       width: 100% !important;

@@ -98,25 +98,17 @@
         <% updated = @blogpost.updated_at.present? ? @blogpost.updated_at : @blogpost.published_at %>
         <p class='Vlt-grey-darker'><strong>Last updated on <%= updated.strftime('%b %d, %Y') %></strong></p>
      
-             <a href=<%= blogButtonPath%> class="Vlt-btn-blog-md" style="display: flex;
-             width: 12.6rem;
-             margin:auto;
-             float: right;
-        ">
-          <img src="/images/icons/rocket-icon-30x30.png" alt="rocket-icon-60x60" >Sign up
-        </a>
+             
         <!-- Raw content -->
         <div class="raw_blopost_content"><%= raw @blogpost.content %></div>
-          <a href=<%= blogButtonPath%> class="Vlt-btn-blog-md" style="display: inline-flex;
-        ">
-          <img src="/images/icons/rocket-icon-30x30.png" alt="rocket-icon-60x60" >Sign up
-        </a>
+          
       </div>
 
     </div>
 
     <!-- Related Blogposts -->
-    <div id="related" class="Vlt-card Vlt-bg-white">
+    <div class="wrapper-cards" style="">
+    <div id="related" class="Vlt-card Vlt-bg-white" style="">
 
       <h4 style="text-align:center;">Related Posts</h4>
 
@@ -146,7 +138,23 @@
       <% end %>
 
     </div>
+        <!-- Call to Action Card -->
+    <div id="card-action" class="Vlt-card Vlt-bg-black">
+      
+      <div class="rectangle"> </div>
+      <span class="square"></span>
+      <div class="title">
+      <h3 class="title-text" >Start Building</h3>
+      </div>
+      <p>Start developing in minutes with free credit on us. No credit card required!</p>
 
+      <a href=<%= blogButtonPath%> class="Vlt-btn-blog-sm">
+          <img src="/images/icons/rocket-icon-30x30.png" alt="rocket-icon-60x60" >Sign up
+        </a>
+      <img src="/images/laptop.png" class=/>
+      
+    </div>
+    </div>
   </div>
 
 </div>
