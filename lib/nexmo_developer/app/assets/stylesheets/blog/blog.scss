@@ -109,7 +109,7 @@
 .gradient-border-left {
   border-left: 2px solid;
   padding-left: 4px;
-  border-image: linear-gradient(to bottom,rgba(127, 198, 244, 0.8),rgba(213, 39, 155, 0.8)) 5;
+  border-image: linear-gradient(to bottom, rgba(127, 198, 244, 0.8), rgba(213, 39, 155, 0.8)) 5;
 }
 
 // Category titles separator
@@ -139,7 +139,6 @@
   #author {
     width: 20%;
     height: fit-content;
-    position: sticky;
   }
   #content {
     width: 58%;
@@ -158,6 +157,7 @@
       top: 596px;
       width: auto;
       height: 404px;
+      display: flex;
       align-items: center;
       justify-content: center;
       flex-direction: column;
@@ -240,7 +240,7 @@
   #blogpost-show-wrapper {
     flex-direction: column;
 
-    #author, #content { 
+    #author, #content {
       min-width: 300px;
       width: 100%;
     }
