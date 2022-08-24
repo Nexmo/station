@@ -23,7 +23,6 @@ class Blog::BlogpostController < Blog::MainController
     @blogpost = Blog::Blogpost.build_blogpost_from_path(params[:blog_path], 'en')
 
     @blogButtonPath = "https://dashboard.nexmo.com/sign-up?icid=tryitfree_adpblog-#{params[:blog_path]}_nexmodashbdfreetrialsignup_banner"
- 
     redirect_to blog_path unless @blogpost.published
 
     data = BlogpostParser.fetch_all_published
