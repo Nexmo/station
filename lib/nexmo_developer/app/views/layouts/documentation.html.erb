@@ -35,12 +35,10 @@
             <%= yield %>
             <%= render partial: 'layouts/partials/improve_this_page' %>
           </div>
-            <%= unless current_page?(controller: 'tutorial') %>
-              <div class="Vlt-col Vlt-col--1of4 Vlt-sidenav Nxd-tutorial-sidenav">
-                <%= navigation_from_content(content: @content) %>
-              </div>
-            <% end %>
+          <div class="Vlt-col Vlt-col--1of4 Vlt-sidenav Nxd-tutorial-sidenav">
+            <%= navigation_from_content(content: @content) %>
           </div>
+        </div>
       </main>
     <% end %>
     <%= render partial: 'layouts/partials/feedback' %>
