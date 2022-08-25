@@ -5,7 +5,7 @@
       <svg class="Vlt-icon Vlt-icon--larger Vlt-purple"><use xlink:href="/symbol/volta-icons.svg#<%= products['icon'] %>" /></svg>
     </div>
 
-    <h3 class="Vlt-purple pb-20" id="<%= products.keys.first.to_s.gsub(' ','-') %>">
+    <h3 class="Vlt-purple pb-20" id="<%= products.keys.first.parameterize %>">
       <%= products.keys.first %>
     </h3>
 
