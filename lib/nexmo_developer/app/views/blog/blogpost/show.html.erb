@@ -101,11 +101,11 @@
         <!-- Last Updated at -->
         <% updated = @blogpost.updated_at.present? ? @blogpost.updated_at : @blogpost.published_at %>
         <p class='Vlt-grey-darker'><strong>Last updated on <%= updated.strftime('%b %d, %Y') %></strong></p>
-     
-             
+
+
         <!-- Raw content -->
         <div class="raw_blopost_content"><%= raw @blogpost.content %></div>
-          
+
       </div>
 
     </div>
@@ -127,7 +127,7 @@
           <%= link_to "/#{related.link}" do %>
             <h5><%= related.title %></h5>
             <% if related.updated_at.present? %>
-              <p class='Vlt-grey-darker'><%= Time.parse(related.updated_at).strftime('%b %d, %Y') %></p>
+              <span class='Vlt-grey-darker'><%= Time.parse(related.updated_at).strftime('%b %d, %Y') %></span>
             <% end %>
             <p class="Vlt-blue-darker">
             [<%= t('read_more') %>]
@@ -144,7 +144,7 @@
     </div>
         <!-- Call to Action Card -->
     <div id="card-action" class="Vlt-card Vlt-bg-black">
-      
+
       <div class="rectangle"> </div>
         <span class="square"></span>
       <div class="title">
@@ -159,7 +159,7 @@
           &nbsp;Sign Up
       <% end %>
       <img src="https://s3.eu-west-1.amazonaws.com/developer.vonage.com/blog/sign_up_button/laptop.png"/>
-      
+
     </div>
     </div>
   </div>
