@@ -8,11 +8,9 @@
 <% content_for :header_img_url do %>
   <%= @blogpost.header_img_url.strip %>
 <% end %>
-
 <% content_for :title do %>
   <%= @blogpost.title.strip %>
 <% end %>
-
 <% content_for :description do %>
   <%= @blogpost.description.truncate(150).strip %>
 <% end %>
@@ -103,19 +101,22 @@
         <!-- Last Updated at -->
         <% updated = @blogpost.updated_at.present? ? @blogpost.updated_at : @blogpost.published_at %>
         <p class='Vlt-grey-darker'><strong>Last updated on <%= updated.strftime('%b %d, %Y') %></strong></p>
-
+     
+             
         <!-- Raw content -->
         <div class="raw_blopost_content"><%= raw @blogpost.content %></div>
+          
       </div>
 
     </div>
 
     <!-- Related Blogposts -->
+    <div class="wrapper-cards">
     <div id="related" class="Vlt-card Vlt-bg-white">
 
       <h4 style="text-align:center;">Related Posts</h4>
 
-      <div class="header-separator hr--tall Vlt-text-separator Vlt-text-separator--big">
+      <div class="header-separator hr--short Vlt-text-separator Vlt-text-separator--small">
         <span>
           <svg class="Vlt-icon"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-pentool" /></svg>
         </span>
@@ -141,7 +142,26 @@
       <% end %>
 
     </div>
+        <!-- Call to Action Card -->
+    <div id="card-action" class="Vlt-card Vlt-bg-black">
+      
+      <div class="rectangle"> </div>
+        <span class="square"></span>
+      <div class="title">
+        <h3 class="title-text" >Start Building</h3>
+      </div>
+      <p>Start developing in minutes with free credit on us. No credit card required!</p>
 
+      <%= link_to @blog_button_path, class: "Vlt-btn-blog-sm" do %>
+        <svg class="Vlt-icon Vlt-icon--smaller Vlt-grey-darker">
+          <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-rocket"></use>
+        </svg>
+          &nbsp;Sign Up
+      <% end %>
+      <img src="https://s3.eu-west-1.amazonaws.com/developer.vonage.com/blog/sign_up_button/laptop.png"/>
+      
+    </div>
+    </div>
   </div>
 
 </div>

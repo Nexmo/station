@@ -71,21 +71,6 @@
   #related { width:20%; height: fit-content; position: sticky; top: 10px; }
 }
 
-@media screen and (max-width: 767px) {
-  #blogpost-show-wrapper {
-    flex-direction: column;
-
-    #author, #content, #related {
-      min-width:300px; width:100%;
-      position: relative;
-      top: 0;
-    }
-
-    // VIDEO embedded in IFRAME Blogposts#SHOW
-    iframe { width: 100% !important; }
-  }
-}
-
 
 // Center Author name
 .center-author-name {
@@ -146,8 +131,9 @@
     color: #374151;
     margin: 1em 0;
 
-    code {
-      font-size: 1.4rem;
+    strong {
+      display: inline-block;
+      margin: 1em 0;
     }
   }
 }
