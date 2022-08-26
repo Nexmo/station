@@ -219,6 +219,9 @@
     position: -webkit-sticky;
     #related { width: auto; }
   }
+
+  // VIDEO embedded in IFRAME Blogposts#SHOW
+  iframe { display: block; margin: 20px auto; }
 }
 
 @media screen and (max-width: 767px) {
