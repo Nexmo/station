@@ -20,8 +20,8 @@
 
 <!-- TOP section -->
     <% @landing_info['top-section'].each do |product| %>
-      <hr class="hr--tall Vlt-gradient--blue-to-pink"></hr>
-      <h2 id="<%= product.keys.first.parameterize  %>"><%= product.keys.first %></h2>
+      <hr id="<%= product.keys.first.parameterize  %>" class="hr--tall Vlt-gradient--blue-to-pink"></hr>
+      <h2><%= product.keys.first %></h2>
       <br>
 
       <div class="my-4col-grid">
