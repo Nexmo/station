@@ -6,12 +6,12 @@
       <!-- This is the buttons group area-->
       <strong>Jump to: </strong>
       <% @landing_info['top-section'].each do |product| %>
-        <a href="#<%=product.keys.first.parameterize %>"  class='Vlt-btn Vlt-btn--tertiary Vlt-btn--app Vlt-btn--small'><%= product.keys.first %></a>
+        <a href="#<%=product.keys.first.parameterize %>"  class='Vlt-btn Vlt-btn--primary Vlt-btn--small'><%= product.keys.first %></a>
       <%end %>
 
       <% @landing_info['bottom-section'].each do |product| %>
         <% product[product.keys.first].each do |cards| %>
-          <a href="#<%=cards.keys.first.parameterize %>" class='Vlt-btn Vlt-btn--tertiary Vlt-btn--app Vlt-btn--small'><%= cards.keys.first %></a>
+          <a href="#<%=cards.keys.first.parameterize %>" class='Vlt-btn Vlt-btn--primary Vlt-btn--small'><%= cards.keys.first %></a>
         <%end%>
       <%end%>
     </p>
