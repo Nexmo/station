@@ -2,13 +2,25 @@
   <div class="center spacious content-block">
     <h1><%= @landing_info['title'].html_safe %></h1>
     <p><%= raw @landing_info['subtitle'].html_safe %></p>
-  </div>
+    <p>
+      <!-- This is the buttons group area-->
+      <strong>Jump to: </strong>
+      <% @landing_info['top-section'].each do |product| %>
+        <a href="#<%=product.keys.first.parameterize %>"  class='Vlt-btn Vlt-btn--primary Vlt-btn--small'><%= product.keys.first %></a>
+      <%end %>
 
-  <div>
+      <% @landing_info['bottom-section'].each do |product| %>
+        <% product[product.keys.first].each do |cards| %>
+          <a href="#<%=cards.keys.first.parameterize %>" class='Vlt-btn Vlt-btn--primary Vlt-btn--small'><%= cards.keys.first %></a>
+        <%end%>
+      <%end%>
+    </p>
+  </div>
+<div>
 
 <!-- TOP section -->
     <% @landing_info['top-section'].each do |product| %>
-      <hr class="hr--tall Vlt-gradient--blue-to-pink"></hr>
+      <hr id="<%= product.keys.first.parameterize  %>" class="hr--tall Vlt-gradient--blue-to-pink"></hr>
       <h2><%= product.keys.first %></h2>
       <br>
 
