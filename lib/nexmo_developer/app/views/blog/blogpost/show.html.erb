@@ -8,9 +8,11 @@
 <% content_for :header_img_url do %>
   <%= @blogpost.header_img_url.strip %>
 <% end %>
+
 <% content_for :title do %>
   <%= @blogpost.title.strip %>
 <% end %>
+
 <% content_for :description do %>
   <%= @blogpost.description.truncate(150).strip %>
 <% end %>
