@@ -84,20 +84,12 @@ export default {
     );
   },
   mounted: function() {
-    if (document.querySelector('.Nxd-template')) {
-      document.querySelector('.Nxd-template').addEventListener('click', this.onClickOutside.bind(this));
-    } else if (document.querySelector('.Adp-landing')) {
-      document.querySelector('.Adp-landing').addEventListener('click', this.onClickOutside.bind(this));
-    }
+    document.addEventListener('click', this.onClickOutside.bind(this));
     this.$el.querySelector('.Nxd-search-icon').addEventListener('click', this.openSearch.bind(this));
     this.$el.querySelector('.Nxd-search-close').addEventListener('click', this.closeSearch.bind(this));
   },
   onDestroy: function() {
-    if (document.querySelector('.Nxd-template')) {
-      document.querySelector('.Nxd-template').removeEventListener('click', this.onClickOutside.bind(this));
-    } else if (document.querySelector('.Adp-landing')) {
-      document.querySelector('.Adp-landing').removeEventListener('click', this.onClickOutside.bind(this));
-    }
+    document.removeEventListener('click', this.onClickOutside.bind(this));
   },
   computed: {
     showResults: function() {
