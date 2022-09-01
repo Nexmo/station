@@ -112,57 +112,58 @@
 
     </div>
 
-    <!-- Related Blogposts -->
     <div class="wrapper-cards">
-    <div id="related" class="Vlt-card Vlt-bg-white">
 
-      <h4 style="text-align:center;">Related Posts</h4>
+      <!-- Call to Action Card -->
+      <div id="card-action" class="Vlt-card Vlt-bg-black">
 
-      <div class="header-separator hr--short Vlt-text-separator Vlt-text-separator--small">
-        <span>
-          <svg class="Vlt-icon"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-pentool" /></svg>
-        </span>
+        <div class="rectangle"></div>
+          <span class="square"></span>
+        <div class="title">
+          <h3 class="title-text" >Start Building</h3>
+        </div>
+        <p>Start developing in minutes with free credit on us. No credit card required!</p>
+
+        <%= link_to @blog_button_path, class: "Vlt-btn-blog-sm" do %>
+          <svg class="Vlt-icon Vlt-icon--smaller Vlt-grey-darker">
+            <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-rocket"></use>
+          </svg>
+            &nbsp;Sign Up
+        <% end %>
+        <img src="https://s3.eu-west-1.amazonaws.com/developer.vonage.com/blog/sign_up_button/laptop.png"/>
       </div>
 
-      <% @related_blogposts.each_with_index do |related, i| %>
-        <div class="Vlt-card__content">
-          <%= link_to "/#{related.link}" do %>
-            <h5><%= related.title %></h5>
-            <% if related.updated_at.present? %>
-              <span class='Vlt-grey-darker'><%= Time.parse(related.updated_at).strftime('%b %d, %Y') %></span>
-            <% end %>
-            <p class="Vlt-blue-darker">
-            [<%= t('read_more') %>]
-            </p>
-          <% end %>
+      <!-- Related Blogposts -->
+      <div id="related" class="Vlt-card Vlt-bg-white">
+
+        <h4 style="text-align:center;">Related Posts</h4>
+
+        <div class="header-separator hr--short Vlt-text-separator Vlt-text-separator--small">
+          <span>
+            <svg class="Vlt-icon"><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-pentool" /></svg>
+          </span>
         </div>
 
-        <% if i != @related_blogposts.length - 1 %>
-         <hr class="hr--short" style="opacity:.4;">
+        <% @related_blogposts.each_with_index do |related, i| %>
+          <div class="Vlt-card__content">
+            <%= link_to "/#{related.link}" do %>
+              <h5><%= related.title %></h5>
+              <% if related.updated_at.present? %>
+                <span class='Vlt-grey-darker'><%= Time.parse(related.updated_at).strftime('%b %d, %Y') %></span>
+              <% end %>
+              <p class="Vlt-blue-darker">
+              [<%= t('read_more') %>]
+              </p>
+            <% end %>
+          </div>
+
+          <% if i != @related_blogposts.length - 1 %>
+            <hr class="hr--short" style="opacity:.4;">
+          <% end %>
+
         <% end %>
 
-      <% end %>
-
-    </div>
-        <!-- Call to Action Card -->
-    <div id="card-action" class="Vlt-card Vlt-bg-black">
-
-      <div class="rectangle"> </div>
-        <span class="square"></span>
-      <div class="title">
-        <h3 class="title-text" >Start Building</h3>
       </div>
-      <p>Start developing in minutes with free credit on us. No credit card required!</p>
-
-      <%= link_to @blog_button_path, class: "Vlt-btn-blog-sm" do %>
-        <svg class="Vlt-icon Vlt-icon--smaller Vlt-grey-darker">
-          <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-rocket"></use>
-        </svg>
-          &nbsp;Sign Up
-      <% end %>
-      <img src="https://s3.eu-west-1.amazonaws.com/developer.vonage.com/blog/sign_up_button/laptop.png"/>
-
-    </div>
     </div>
   </div>
 
