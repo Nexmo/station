@@ -5,7 +5,7 @@
   </div>
 
   <% unless @blogposts.count.positive? %>
-    
+
     <div class="Vlt-callout Vlt-callout--warning">
       <div class="Vlt-callout__content">No Blogpost available</div>
     </div>
@@ -15,7 +15,7 @@
     <div class="my-3col-grid">
       <% @blogposts.compact.in_groups(3) do |blogposts| %>
         <%# cache blogpost do %>
-        <%= render partial: 'blog/blogpost/blogpost', collection: blogposts, as: :blogpost, locals: { show_category_label: false, show_author: true } %>
+          <%= render partial: 'blog/blogpost/blogpost', collection: blogposts, as: :blogpost, cached: true, locals: { show_category_label: false, show_author: true } %>
         <%# end %>
       <% end %>
     </div>

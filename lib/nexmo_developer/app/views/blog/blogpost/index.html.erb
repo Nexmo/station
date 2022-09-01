@@ -31,8 +31,8 @@
 
     <div class="my-3col-grid">
       <% category.blogposts.compact.in_groups(3) do |blogposts| %>
-        <%# cache blogpost do %>
-        <%= render partial: 'blog/blogpost/blogpost', collection: blogposts, as: :blogpost, locals: { show_category_label: false, show_author: true } %>
+        <%# cache blogposts do %>
+          <%= render partial: 'blog/blogpost/blogpost', collection: blogposts, as: :blogpost, cached: true, locals: { show_category_label: false, show_author: true } %>
         <%# end %>
       <% end %>
     </div>
