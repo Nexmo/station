@@ -17,7 +17,7 @@
     </div>
 
     <div class="my-2col-grid">
-        <%= render partial: 'blog/blogpost/blogpost_with_image', collection: @latest_blogposts, as: :blogpost %>
+        <%= render partial: 'blog/blogpost/blogpost_with_image', collection: @latest_blogposts, as: :blogpost, cached: true %>
     </div>
 
 
@@ -31,9 +31,7 @@
 
     <div class="my-3col-grid">
       <% category.blogposts.compact.in_groups(3) do |blogposts| %>
-        <%# cache blogposts do %>
-          <%= render partial: 'blog/blogpost/blogpost', collection: blogposts, as: :blogpost, cached: true, locals: { show_category_label: false, show_author: true } %>
-        <%# end %>
+        <%= render partial: 'blog/blogpost/blogpost', collection: blogposts, as: :blogpost, cached: true, locals: { show_category_label: false, show_author: true } %>
       <% end %>
     </div>
 
