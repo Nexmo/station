@@ -4,9 +4,7 @@
       <svg class="Vlt-icon Vlt-grey Nxd-search-icon">
         <use xlink:href="/symbol/volta-icons.svg#Vlt-icon-search-full" />
       </svg>
-
-
-      <div class="Nxd-search-input">
+      <div v-show="expanded" class="Nxd-search-input">
         <div class="Vlt-composite Vlt-composite--appendedicon">
           <div class="Vlt-composite__prepend Vlt-composite__prepend--icon">
             <svg><use xlink:href="/symbol/volta-icons.svg#Vlt-icon-search"/></svg>
@@ -86,20 +84,12 @@ export default {
     );
   },
   mounted: function() {
-    if (document.querySelector('.Nxd-template')) {
-      document.querySelector('.Nxd-template').addEventListener('click', this.onClickOutside.bind(this));
-    } else if (document.querySelector('.Adp-landing')) {
-      document.querySelector('.Adp-landing .wrapper').addEventListener('click', this.onClickOutside.bind(this));
-    }
-    this.$el.querySelector('.Nxd-search-icon').addEventListener('click', this.handleSearchToggle.bind(this));
-    this.$el.querySelector('.Nxd-search-close').addEventListener('click', this.handleSearchToggle.bind(this));
+    document.addEventListener('click', this.onClickOutside.bind(this));
+    this.$el.querySelector('.Nxd-search-icon').addEventListener('click', this.openSearch.bind(this));
+    this.$el.querySelector('.Nxd-search-close').addEventListener('click', this.closeSearch.bind(this));
   },
   onDestroy: function() {
-    if (document.querySelector('.Nxd-template')) {
-      document.querySelector('.Nxd-template').removeEventListener('click', this.onClickOutside.bind(this));
-    } else if (document.querySelector('.Adp-landing')) {
-      document.querySelector('.Adp-landing .wrapper').removeEventListener('click', this.onClickOutside.bind(this));
-    }
+    document.removeEventListener('click', this.onClickOutside.bind(this));
   },
   computed: {
     showResults: function() {
@@ -128,30 +118,22 @@ export default {
     hitKey: function(result, hit) {
       return result.index + hit.objectID;
     },
-    onClickOutside: function(event) {
-      if (this.showResults) {
-        this.reset();
-      }
-      if (this.expanded) {
-        this.expanded = false;
-      }
-
-      this.toggleSearch(true);
-    },
-
-    handleSearchToggle: function(event) {
-      event.preventDefault();
+    openSearch: function(event) {
       event.stopPropagation();
-
-      this.toggleSearch();
+      this.expanded = true;
     },
-
-    toggleSearch: function(hide) {
+    closeSearch: function(event) {
+      event.stopPropagation();
+      this.expanded = false;
+      this.query = '';
+    },
+    onClickOutside: function(event) {
       let search = this.$el.querySelector('.Nxd-search-input');
-      if (hide === true || search.style.display == 'flex') {
-        search.style.display = 'none';
-      } else {
-        search.style.display = 'flex';
+      const { clientX, clientY } = event;
+      const { x, y, width, height } = search.getBoundingClientRect();
+
+      if (clientX < x || clientX > x + width || clientY < y || clientY > y + height) {
+        this.closeSearch(event);
       }
     },
     onEscDownHandler: function(event) {
@@ -232,7 +214,7 @@ export default {
   align-items: flex-end;
 }
 .Nxd-search-input {
-  display: none;
+  display: flex;
   width: 756px;
   padding: 20px 30px;
   background: white;
