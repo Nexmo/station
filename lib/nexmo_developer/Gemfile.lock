@@ -134,6 +134,7 @@ GEM
     coffee-script-source (1.12.2)
     colorize (0.8.1)
     concurrent-ruby (1.1.10)
+    connection_pool (2.2.5)
     countries (3.1.0)
       i18n_data (~> 0.11.0)
       sixarm_ruby_unaccent (~> 1.1)
@@ -430,7 +431,10 @@ GEM
     recaptcha (5.8.1)
       json
     redcarpet (3.5.1)
-    redis (4.3.1)
+    redis (5.0.3)
+      redis-client (>= 0.7.4)
+    redis-client (0.7.4)
+      connection_pool
     regexp_parser (2.0.3)
     request_store (1.5.0)
       rack (>= 1.4)
