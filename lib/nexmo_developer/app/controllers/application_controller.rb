@@ -66,6 +66,7 @@ class ApplicationController < ActionController::Base
   # rubocop:enable Naming/MemoizedInstanceVariableName
 
   def set_feedback_author
+    logger.info "FEEDDBACK_AUTHOR_ID - #{cookies[:feedback_author_id]}"
     return unless cookies[:feedback_author_id]
 
     @feedback_author = Feedback::Author.select(:email).find_by(id: cookies[:feedback_author_id])
