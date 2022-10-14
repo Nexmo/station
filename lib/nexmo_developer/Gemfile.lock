@@ -636,7 +636,7 @@ DEPENDENCIES
   dotenv-rails
   factory_bot_rails (= 6.2.0)
   faker (= 2.18.0)
-  ffi (>= 1.9.24)
+  ffi
   geocoder
   gmaps4rails (= 2.1.2)
   greenhouse_io
