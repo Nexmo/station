@@ -1,4 +1,11 @@
 GIT
+  remote: https://github.com/ffi/ffi.git
+  revision: e6311548e4dce7c98a54d6ab0f996e95dc413b07
+  submodules: true
+  specs:
+    ffi (1.15.5)
+
+GIT
   remote: https://github.com/oscardelben/rawler.git
   revision: f2909b135fce7d35167f98026ac481926c94423e
   specs:
@@ -190,10 +197,6 @@ GEM
     faraday-excon (1.1.0)
     faraday-net_http (1.0.1)
     faraday-net_http_persistent (1.1.0)
-    ffi (1.15.3)
-    ffi (1.15.3-java)
-    ffi (1.15.3-x64-mingw32)
-    ffi (1.15.3-x86-mingw32)
     formatador (0.2.5)
     formtastic (4.0.0)
       actionpack (>= 5.2.0)
@@ -636,7 +639,7 @@ DEPENDENCIES
   dotenv-rails
   factory_bot_rails (= 6.2.0)
   faker (= 2.18.0)
-  ffi
+  ffi!
   geocoder
   gmaps4rails (= 2.1.2)
   greenhouse_io
