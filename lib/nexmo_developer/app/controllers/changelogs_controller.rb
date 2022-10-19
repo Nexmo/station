@@ -18,8 +18,8 @@ class ChangelogsController < ApplicationController
   end
 
   def show
-    page_title  = params[:name]
-    folder_name = params[:folder]
+    page_title  = helpers.sanitize(params[:name])
+    folder_name = helpers.sanitize(params[:folder])
 
     if File.exist?("#{ENV['CHANGELOGS_PATH']}/#{folder_name}/#{page_title}.md")
       page = Dir.glob("#{ENV['CHANGELOGS_PATH']}/#{folder_name}/#{page_title}.md").first
