@@ -8,6 +8,7 @@ class TagParser
   # end
 
   TAGS_WITH_ICON = [
+    'ai-studio',
     'dispatch-api',
     'messages-api',
     'messages-api-sandbox',
