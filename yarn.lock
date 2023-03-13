@@ -7882,10 +7882,10 @@ jsprim@^1.2.2:
     json-schema "0.2.3"
     verror "1.10.0"
 
-jsrsasign@^10.3.0:
-  version "10.3.0"
-  resolved "https://registry.yarnpkg.com/jsrsasign/-/jsrsasign-10.3.0.tgz#540d7c6937da1d5b01699d5091e56378a33e246e"
-  integrity sha512-irDIKKFW++EAELgP3fjFi5/Fn0XEyfuQTTgpbeFwCGkV6tRIYZl3uraRea2HTXWCstcSZuDaCbdAhU1n+075Bg==
+jsrsasign@^10.7.0:
+  version "10.7.0"
+  resolved "https://registry.yarnpkg.com/jsrsasign/-/jsrsasign-10.7.0.tgz#e8727f5cb4585d94d53cee662a1ec721eb013a4e"
+  integrity sha512-D5V2gGpYGtwbAtQHoglTVrpYf7QJuNoPEhaLOsTFONS2jXUl3qyR1hnYrNpASAybqQeiDYA3zGthR0ubgPRoQA==
 
 keyv@^3.0.0:
   version "3.1.0"
