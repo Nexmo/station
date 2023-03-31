@@ -75,7 +75,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency('neatjson', '0.9')
   spec.add_runtime_dependency('slack-notifier', '2.4.0')
   spec.add_runtime_dependency('titleize', '1.4.1')
-  spec.add_runtime_dependency('countries', '4.0.1')
+  spec.add_runtime_dependency('countries', '5.3.2')
   spec.add_runtime_dependency('country_select', '6.0.0')
   spec.add_runtime_dependency('smartling', '2.0.3')
   spec.add_runtime_dependency('newrelic_rpm', '7.2.0')
