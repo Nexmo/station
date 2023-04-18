@@ -65,7 +65,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency('woothee', '~> 1.11')
   spec.add_runtime_dependency('algoliasearch', '1.27.5')
   spec.add_runtime_dependency('rest-client', '2.1.0')
-  spec.add_runtime_dependency('groupdate', '5.2.2')
+  spec.add_runtime_dependency('groupdate', '6.2.1')
   spec.add_runtime_dependency('terminal-table', '3.0.1')
   spec.add_runtime_dependency('lograge', '0.11.2')
   spec.add_runtime_dependency('jbuilder', '2.11.2')
