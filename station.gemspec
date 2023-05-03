@@ -82,7 +82,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency('redis', '4.3.1')
   spec.add_runtime_dependency('sassc-rails', '2.1.2')
   spec.add_runtime_dependency('gmaps4rails', '2.1.2')
-  spec.add_runtime_dependency('chartkick', '4.0.5')
+  spec.add_runtime_dependency('chartkick', '5.0.2')
   spec.add_runtime_dependency('readingtime', '0.4.0')
 
   spec.add_development_dependency('rubocop', '~> 1.16.0')
