@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     services:
       db:
         env:
@@ -27,7 +27,7 @@ jobs:
         submodules: recursive
     - uses: actions/setup-node@v1
       with:
-        node-version: '12.x'
+        node-version: '14.x'
     - name: Find yarn cache location
       id: yarn-cache
       run: echo "::set-output name=dir::$(yarn cache dir)"
