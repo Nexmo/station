@@ -30,7 +30,7 @@
     "compression-webpack-plugin": "^6.1.1",
     "css-loader": "^5.2.7",
     "dotenv": "^10.0.0",
-    "fetch-mock": "^9.11.0",
+    "fetch-mock": "^10.0.0",
     "file-loader": "^6.2.0",
     "foundation-sites": "^6.6.3",
     "glob": "^7.1.7",
