@@ -20,7 +20,7 @@
     "@vonagevolta/volta2": "^0.1.6",
     "algoliasearch": "^4.10.3",
     "autoprefixer": "9.8.6",
-    "babel-loader": "^8.2.2",
+    "babel-loader": "^9.0.0",
     "babel-preset-babili": "^0.1.4",
     "chart.js": "^3.4.1",
     "chartkick": "^4.0.5",
