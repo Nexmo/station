@@ -6,7 +6,11 @@ require 'bootsnap'
 require 'bugsnag'
 require 'devise'
 require 'geocoder'
-require 'greenhouse_io'
+begin
+  require 'greenhouse_io'
+rescue LoadError
+  nil
+end
 require 'recaptcha'
 require 'split/dashboard'
 require 'listen'

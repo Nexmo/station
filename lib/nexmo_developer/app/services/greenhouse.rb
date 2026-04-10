@@ -2,15 +2,25 @@ class Greenhouse
   DEPARTMENT_ID = 4019731002
   TITLES = ['sdk', 'advocate', 'community manager', 'education', 'dashboard', 'documentation'].freeze
 
+  def self.available?
+    defined?(GreenhouseIo)
+  end
+
   def self.devrel_careers
+    return [] unless available?
+
     new.devrel_positions
   end
 
   def self.careers
+    return [] unless available?
+
     new.jobs
   end
 
   def self.offices
+    return [] unless available?
+
     new.offices
   end
 

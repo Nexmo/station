@@ -125,7 +125,7 @@ gem 'newrelic_rpm'
 # A/B Testing
 gem 'split', '~> 3.4.1', require: 'split/dashboard'
 
-gem 'greenhouse_io'
+gem 'greenhouse_io', github: 'grnhse/greenhouse_io'
 
 # For truncating HTML strings
 gem 'truncato'
